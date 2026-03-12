@@ -1,0 +1,229 @@
+/* SPDX-FileCopyrightText: 2024 Greenbone AG
+ *
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+import React from 'react';
+import {ReportConfigIcon} from 'web/components/icon';
+import Layout from 'web/components/layout/Layout';
+import PageTitle from 'web/components/layout/PageTitle';
+import Tab from 'web/components/tab/Tab';
+import TabLayout from 'web/components/tab/TabLayout';
+import TabList from 'web/components/tab/TabList';
+import TabPanel from 'web/components/tab/TabPanel';
+import TabPanels from 'web/components/tab/TabPanels';
+import Tabs from 'web/components/tab/Tabs';
+import TabsContainer from 'web/components/tab/TabsContainer';
+import Table from 'web/components/table/StripedTable';
+import TableBody from 'web/components/table/TableBody';
+import TableData from 'web/components/table/TableData';
+import TableHead from 'web/components/table/TableHead';
+import TableHeader from 'web/components/table/TableHeader';
+import TableRow from 'web/components/table/TableRow';
+import EntitiesTab from 'web/entity/EntitiesTab';
+import EntityPage from 'web/entity/EntityPage';
+import EntityPermissions from 'web/entity/EntityPermissions';
+import {goToDetails, goToList} from 'web/entity/navigation';
+import EntityTags from 'web/entity/Tags';
+import withEntityContainer, {
+  permissionsResourceFilter,
+} from 'web/entity/withEntityContainer';
+import useTranslation from 'web/hooks/useTranslation';
+import ReportConfigDetails, {
+  ReportConfigParamValue,
+} from 'web/pages/reportconfigs/Details';
+import ReportConfigDetailsPageToolBarIcons from 'web/pages/reportconfigs/ReportConfigDetailsPageToolBarIcons';
+import ReportConfigComponent from 'web/pages/reportconfigs/ReportConfigsComponent';
+import {
+  selector as permissionsSelector,
+  loadEntities as loadPermissions,
+} from 'web/store/entities/permissions';
+import {selector, loadEntity} from 'web/store/entities/reportconfigs';
+import PropTypes from 'web/utils/PropTypes';
+import {renderYesNo} from 'web/utils/Render';
+
+const Details = ({entity, links = true}) => {
+  return (
+    <Layout flex="column">
+      <ReportConfigDetails entity={entity} links={links} />
+    </Layout>
+  );
+};
+
+Details.propTypes = {
+  entity: PropTypes.model.isRequired,
+  links: PropTypes.bool,
+};
+
+const Parameters = ({entity}) => {
+  const [_] = useTranslation();
+  const {params = []} = entity;
+  return (
+    <Layout>
+      {params.length === 0 && _('No parameters available')}
+      {params.length > 0 && (
+        <Table>
+          <TableHeader>
+            <TableRow>
+              <TableHead width="20%">{_('Name')}</TableHead>
+              <TableHead width="30%">{_('Value')}</TableHead>
+              <TableHead width="10%">{_('Using Default')}</TableHead>
+              <TableHead width="30%">{_('Default Value')}</TableHead>
+              <TableHead width="5%">{_('Minimum')}</TableHead>
+              <TableHead width="5%">{_('Maximum')}</TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {params.map(param => {
+              return (
+                <TableRow key={param.name}>
+                  <TableData>{param.name}</TableData>
+                  <TableData>
+                    <ReportConfigParamValue param={param} />
+                  </TableData>
+                  <TableData>{renderYesNo(param.valueUsingDefault)}</TableData>
+                  <TableData>
+                    <ReportConfigParamValue
+                      param={param}
+                      value={param.default}
+                      valueLabels={param.defaultLabels}
+                    />
+                  </TableData>
+                  <TableData>{param.min}</TableData>
+                  <TableData>{param.max}</TableData>
+                </TableRow>
+              );
+            })}
+          </TableBody>
+        </Table>
+      )}
+    </Layout>
+  );
+};
+
+Parameters.propTypes = {
+  entity: PropTypes.model.isRequired,
+};
+
+const Page = ({
+  entity,
+  links = true,
+  permissions = [],
+  onChanged,
+  onError,
+
+  ...props
+}) => {
+  const [_] = useTranslation();
+
+  return (
+    <ReportConfigComponent
+      onCloneError={onError}
+      onCloned={goToDetails('reportconfig', props)}
+      onCreateError={onError}
+      onCreated={goToDetails('reportconfig', props)}
+      onDeleteError={onError}
+      onDeleted={goToList('reportconfigs', props)}
+      onSaveError={onError}
+      onSaved={onChanged}
+    >
+      {({clone, delete: delete_func, edit, create: create_func, save}) => (
+        <EntityPage
+          {...props}
+          entity={entity}
+          sectionIcon={<ReportConfigIcon size="large" />}
+          title={_('Report Config')}
+          toolBarIcons={ReportConfigDetailsPageToolBarIcons}
+          onReportConfigCloneClick={clone}
+          onReportConfigCreateClick={create_func}
+          onReportConfigDeleteClick={delete_func}
+          onReportConfigEditClick={edit}
+          onReportConfigSaveClick={save}
+        >
+          {() => {
+            return (
+              <React.Fragment>
+                <PageTitle
+                  title={_('Report Config: {{name}}', {name: entity.name})}
+                />
+                <TabsContainer flex="column" grow="1">
+                  <TabLayout align={['start', 'end']} grow="1">
+                    <TabList align={['start', 'stretch']}>
+                      <Tab>{_('Information')}</Tab>
+                      <EntitiesTab entities={entity.params}>
+                        {_('Parameter Details')}
+                      </EntitiesTab>
+                      <EntitiesTab entities={entity.userTags}>
+                        {_('User Tags')}
+                      </EntitiesTab>
+                      <EntitiesTab entities={permissions}>
+                        {_('Permissions')}
+                      </EntitiesTab>
+                    </TabList>
+                  </TabLayout>
+
+                  <Tabs>
+                    <TabPanels>
+                      <TabPanel>
+                        <Details entity={entity} links={links} />
+                      </TabPanel>
+                      <TabPanel>
+                        <Parameters entity={entity} />
+                      </TabPanel>
+                      <TabPanel>
+                        <EntityTags
+                          entity={entity}
+                          onChanged={onChanged}
+                          onError={onError}
+                        />
+                      </TabPanel>
+                      <TabPanel>
+                        <EntityPermissions
+                          entity={entity}
+                          permissions={permissions}
+                          onChanged={onChanged}
+                          onError={onError}
+                        />
+                      </TabPanel>
+                    </TabPanels>
+                  </Tabs>
+                </TabsContainer>
+              </React.Fragment>
+            );
+          }}
+        </EntityPage>
+      )}
+    </ReportConfigComponent>
+  );
+};
+
+Page.propTypes = {
+  entity: PropTypes.model,
+  links: PropTypes.bool,
+  permissions: PropTypes.array,
+  onChanged: PropTypes.func.isRequired,
+  onError: PropTypes.func.isRequired,
+};
+
+const load = gmp => {
+  const loadEntityFunc = loadEntity(gmp);
+  const loadPermissionsFunc = loadPermissions(gmp);
+  return id => dispatch =>
+    Promise.all([
+      dispatch(loadEntityFunc(id)),
+      dispatch(loadPermissionsFunc(permissionsResourceFilter(id))),
+    ]);
+};
+
+const mapStateToProps = (rootState, {id}) => {
+  const permissionsSel = permissionsSelector(rootState);
+  return {
+    permissions: permissionsSel.getEntities(permissionsResourceFilter(id)),
+  };
+};
+
+export default withEntityContainer('reportconfig', {
+  entitySelector: selector,
+  load,
+  mapStateToProps,
+})(Page);

@@ -1,0 +1,47 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: "/"
+    target-branch: "main"
+    schedule:
+      interval: cron
+      # run at 3:00 AM on the 1st and 15th of each month (two times a month)
+      cronjob: "0 3 1,15 * *"
+    groups:
+      i18n:
+        patterns:
+          - "i18next"
+          - "react-i18next"
+      react:
+        patterns:
+          - "react"
+          - "react-dom"
+          - "react-is"
+          - "@types/react"
+          - "@types/react-dom"
+          - "@types/react-is"
+          - "prop-types"
+      eslint:
+        patterns:
+          - "eslint"
+          - "@eslint/*"
+      typescript-eslint:
+        patterns:
+          - "typescript-eslint"
+          - "@typescript-eslint/*"
+      patch-updates:
+        patterns:
+          - "*"
+        update-types:
+          - "patch"
+    open-pull-requests-limit: 10
+    versioning-strategy: increase
+    commit-message:
+      prefix: "Deps"
+
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    commit-message:
+      prefix: "Deps"

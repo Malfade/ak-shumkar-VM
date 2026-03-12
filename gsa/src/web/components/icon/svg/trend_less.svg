@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="256" height="256" version="1.1" viewBox="0 0 67.733 67.733" xmlns="http://www.w3.org/2000/svg">
+ <g transform="translate(0 -229.27)">
+  <g transform="matrix(2.0878 0 0 2.2337 41.673 -337.41)">
+   <g transform="matrix(.70711 .66092 -.75652 .70711 207.77 81.238)">
+    <path class="gui_icon_class" d="m6.7176 275.14 3e-7 -4.3299-13.159 1.6e-4 -5e-7 5.358-20.094 0.0402-4e-3 -2.0611 17.738-0.0365 1.747e-4 -5.3617h15.518v-4.3303l5.7351 5.3606z"/>
+   </g>
+  </g>
+ </g>
+</svg>

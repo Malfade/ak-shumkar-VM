@@ -1,0 +1,1232 @@
+/* SPDX-FileCopyrightText: 2024 Greenbone AG
+ *
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+import React, {useState, useEffect, useCallback} from 'react';
+import {useDispatch} from 'react-redux';
+import type Rejection from 'gmp/http/rejection';
+import type Response from 'gmp/http/response';
+import {type XmlMeta} from 'gmp/http/transform/fast-xml';
+import type AgentGroup from 'gmp/models/agent-group';
+import date, {type Date} from 'gmp/models/date';
+import {ALL_FILTER} from 'gmp/models/filter';
+import {FULL_AND_FAST_SCAN_CONFIG_ID} from 'gmp/models/scan-config';
+import {
+  CONTAINER_IMAGE_SCANNER_TYPE,
+  OPENVAS_DEFAULT_SCANNER_ID,
+} from 'gmp/models/scanner';
+import {type default as Task, type TaskAutoDelete} from 'gmp/models/task';
+import {NO_VALUE, YES_VALUE, type YesNo} from 'gmp/parser';
+import {DEFAULT_TIMEZONE} from 'gmp/time-zones';
+import {map} from 'gmp/utils/array';
+import {selectSaveId} from 'gmp/utils/id';
+import {isDefined} from 'gmp/utils/identity';
+import actionFunction from 'web/entity/hooks/action-function';
+import useEntityClone, {
+  type EntityCloneResponse,
+} from 'web/entity/hooks/useEntityClone';
+import {type EntityCreateResponse} from 'web/entity/hooks/useEntityCreate';
+import useEntityDelete from 'web/entity/hooks/useEntityDelete';
+import useEntityDownload, {
+  type OnDownloadedFunc,
+} from 'web/entity/hooks/useEntityDownload';
+import useFeatures from 'web/hooks/useFeatures';
+import useGmp from 'web/hooks/useGmp';
+import useShallowEqualSelector from 'web/hooks/useShallowEqualSelector';
+import useTranslation from 'web/hooks/useTranslation';
+import AgentGroupsComponent from 'web/pages/agent-groups/AgentGroupsComponent';
+import AlertComponent from 'web/pages/alerts/AlertComponent';
+import ContainerImageTargetsComponent from 'web/pages/container-image-targets/ContainerImageTargetsComponent';
+import ImportReportDialog, {
+  type ReportImportDialogData,
+} from 'web/pages/reports/ReportImportDialog';
+import ScheduleComponent from 'web/pages/schedules/ScheduleComponent';
+import TargetComponent from 'web/pages/targets/TargetComponent';
+import AgentTaskDialog, {
+  type AgentTaskDialogData,
+} from 'web/pages/tasks/AgentTaskDialog';
+import ContainerImageTaskDialog from 'web/pages/tasks/ContainerImageTaskDialog';
+import {useContainerImageTaskDialog} from 'web/pages/tasks/hooks/useContainerImageTaskDialog';
+import ImportTaskDialog, {
+  type ImportTaskDialogData,
+} from 'web/pages/tasks/ImportTaskDialog';
+import TaskDialog, {type TaskDialogData} from 'web/pages/tasks/TaskDialog';
+import {
+  loadEntities as loadAlerts,
+  selector as alertSelector,
+} from 'web/store/entities/alerts';
+import {
+  loadEntities as loadCredentials,
+  selector as credentialsSelector,
+} from 'web/store/entities/credentials';
+import {
+  loadEntities as loadScanConfigs,
+  selector as scanConfigsSelector,
+} from 'web/store/entities/scanconfigs';
+import {
+  loadEntities as loadScanners,
+  selector as scannerSelector,
+} from 'web/store/entities/scanners';
+import {
+  loadEntities as loadSchedules,
+  selector as scheduleSelector,
+} from 'web/store/entities/schedules';
+import {
+  loadEntities as loadTags,
+  selector as tagsSelector,
+} from 'web/store/entities/tags';
+import {
+  loadEntities as loadTargets,
+  selector as targetSelector,
+} from 'web/store/entities/targets';
+import {loadUserSettingDefaults} from 'web/store/usersettings/defaults/actions';
+import {getUserSettingsDefaults} from 'web/store/usersettings/defaults/selectors';
+import {getTimezone} from 'web/store/usersettings/selectors';
+import {type RenderSelectItemProps, UNSET_VALUE} from 'web/utils/Render';
+import AdvancedTaskWizard, {
+  type AdvancedTaskWizardData,
+} from 'web/wizard/AdvancedTaskWizard';
+import ModifyTaskWizard, {
+  type ModifyTaskWizardData,
+} from 'web/wizard/ModifyTaskWizard';
+import TaskWizard from 'web/wizard/TaskWizard';
+
+interface TaskComponentRenderProps {
+  create: () => void;
+  createImportTask: () => void;
+  createContainerImage: () => void;
+  clone: (task: Task) => void;
+  delete: (task: Task) => void;
+  download: (task: Task) => void;
+  edit: (task: Task) => void;
+  start: (task: Task) => void;
+  stop: (task: Task) => void;
+  resume: (task: Task) => void;
+  reportImport: (task: Task) => void;
+  advancedTaskWizard: () => void;
+  modifyTaskWizard: () => void;
+  taskWizard: () => void;
+  onNewAgentTaskClick: () => void;
+  onNewContainerImageTaskClick: () => void;
+}
+
+interface TaskComponentProps {
+  children?: (props: TaskComponentRenderProps) => React.ReactNode;
+  onAdvancedTaskWizardError?: (error: Error) => void;
+  onAdvancedTaskWizardSaved?: () => void;
+  onCloned?: (response: EntityCloneResponse) => void;
+  onCloneError?: (error: Error) => void;
+  onCreated?: (response: EntityCreateResponse) => void;
+  onCreateError?: (error: Error) => void;
+  onDeleted?: () => void;
+  onDeleteError?: (error: Error) => void;
+  onDownloaded?: OnDownloadedFunc;
+  onDownloadError?: (error: Error) => void;
+  onImportTaskCreated?: (response: EntityCreateResponse) => void;
+  onImportTaskCreateError?: (error: Error) => void;
+  onImportTaskSaved?: () => void;
+  onImportTaskSaveError?: (error: Error) => void;
+  onModifyTaskWizardError?: (error: Error) => void;
+  onModifyTaskWizardSaved?: () => void;
+  onReportImported?: () => void;
+  onReportImportError?: (error: Error) => void;
+  onResumed?: (response: Response<Task, XmlMeta>) => void;
+  onResumeError?: (error: Error) => void;
+  onSaved?: () => void;
+  onSaveError?: (error: Error) => void;
+  onStarted?: () => void;
+  onStartError?: (error: Error) => void;
+  onStopError?: (error: Error) => void;
+  onStopped?: () => void;
+  onTaskWizardError?: (error: Error) => void;
+  onTaskWizardSaved?: () => void;
+}
+
+const TAGS_FILTER = ALL_FILTER.copy().set('resource_type', 'task');
+
+const TaskComponent = ({
+  children,
+  onAdvancedTaskWizardError,
+  onAdvancedTaskWizardSaved,
+  onCloned,
+  onCloneError,
+  onImportTaskCreated,
+  onImportTaskCreateError,
+  onImportTaskSaved,
+  onImportTaskSaveError,
+  onCreated,
+  onCreateError,
+  onDeleted,
+  onDeleteError,
+  onDownloaded,
+  onDownloadError,
+  onModifyTaskWizardError,
+  onModifyTaskWizardSaved,
+  onReportImported,
+  onReportImportError,
+  onResumed,
+  onResumeError,
+  onSaved,
+  onSaveError,
+  onStarted,
+  onStartError,
+  onStopError,
+  onStopped,
+  onTaskWizardError,
+  onTaskWizardSaved,
+}: TaskComponentProps) => {
+  const gmp = useGmp();
+  const [_] = useTranslation();
+  const dispatch = useDispatch();
+  const features = useFeatures();
+
+  const [advancedTaskWizardVisible, setAdvancedTaskWizardVisible] =
+    useState(false);
+  const [importTaskDialogVisible, setImportTaskDialogVisible] = useState(false);
+  const [modifyTaskWizardVisible, setModifyTaskWizardVisible] = useState(false);
+  const [reportImportDialogVisible, setReportImportDialogVisible] =
+    useState(false);
+  const [taskDialogVisible, setTaskDialogVisible] = useState(false);
+  const [taskWizardVisible, setTaskWizardVisible] = useState(false);
+  const [agentTaskDialogVisible, setAgentTaskDialogVisible] = useState(false);
+
+  const {
+    containerImageTaskDialogVisible,
+    task: containerImageTask,
+    name: containerImageName,
+    comment: containerImageComment,
+    addTag: containerImageAddTag,
+    alterable: containerImageAlterable,
+    applyOverrides: containerImageApplyOverrides,
+    inAssets: containerImageInAssets,
+    schedulePeriods: containerImageSchedulePeriods,
+    scheduleId: containerImageScheduleId,
+    ociImageTargetId: containerImageOciImageTargetId,
+    scannerId: containerImageScannerId,
+    acceptInvalidCerts: containerImageAcceptInvalidCerts,
+    registryAllowInsecure: containerImageRegistryAllowInsecure,
+    title: containerImageTitle,
+    setOciImageTargetId,
+    openContainerImageTaskDialog,
+    closeContainerImageTaskDialog,
+    handleSaveContainerImageTask,
+    handleOciImageTargetChange,
+    handleScannerChange: handleContainerImageScannerChange,
+    handleScheduleChange: handleContainerImageScheduleChange,
+  } = useContainerImageTaskDialog({
+    onContainerCreated: onImportTaskCreated,
+    onContainerCreateError: onImportTaskCreateError,
+    onContainerSaved: onImportTaskSaved,
+    onContainerSaveError: onImportTaskSaveError,
+  });
+
+  const [alertIds, setAlertIds] = useState<string[]>([]);
+  const [alterable, setAlterable] = useState<YesNo | undefined>();
+  const [applyOverrides, setApplyOverrides] = useState<YesNo | undefined>();
+  const [autoDelete, setAutoDelete] = useState<TaskAutoDelete | undefined>();
+  const [autoDeleteData, setAutoDeleteData] = useState<number | undefined>();
+  const [comment, setComment] = useState<string | undefined>();
+  const [csAllowFailedRetrieval, setCsAllowFailedRetrieval] = useState<
+    boolean | undefined
+  >();
+  const [scanConfigId, setScanConfigId] = useState<string | undefined>();
+  const [esxiCredential, setEsxiCredential] = useState();
+  const [hosts, setHosts] = useState<string | undefined>();
+  const [inAssets, setInAssets] = useState<YesNo | undefined>();
+  const [maxChecks, setMaxChecks] = useState<number | undefined>();
+  const [maxHosts, setMaxHosts] = useState<number | undefined>();
+  const [minQod, setMinQod] = useState<number | undefined>();
+  const [name, setName] = useState<string | undefined>();
+  const [reschedule, setReschedule] = useState<YesNo | undefined>();
+  const [scannerId, setScannerId] = useState<string | undefined>();
+  const [scheduleId, setScheduleId] = useState<string | undefined>();
+  const [schedulePeriods, setSchedulePeriods] = useState<YesNo | undefined>();
+  const [sshCredential, setSshCredential] = useState();
+  const [smbCredential, setSmbCredential] = useState();
+  const [startDate, setStartDate] = useState<Date>(date().tz(DEFAULT_TIMEZONE));
+  const [startMinute, setStartMinute] = useState<number>(0);
+  const [startHour, setStartHour] = useState<number>(0);
+  const [startTimezone, setStartTimezone] = useState<string>(DEFAULT_TIMEZONE);
+  const [targetId, setTargetId] = useState<string | undefined>();
+  const [agentGroupId, setAgentGroupId] = useState<string | undefined>();
+  const [agentGroups, setAgentGroups] = useState<AgentGroup[] | undefined>();
+  const [isAgentGroupsLoading, setIsAgentGroupsLoading] =
+    useState<boolean>(false);
+  const [targetHosts, setTargetHosts] = useState<string | undefined>();
+  const [taskId, setTaskId] = useState<string | undefined>();
+  const [taskName, setTaskName] = useState<string | undefined>();
+  const [task, setTask] = useState<Task | undefined>();
+  const [tasks, setTasks] = useState<Task[]>([]);
+  const [title, setTitle] = useState<string>('');
+
+  const userDefaultsSelector = useShallowEqualSelector(getUserSettingsDefaults);
+
+  const alerts = useShallowEqualSelector(state =>
+    alertSelector(state).getEntities(ALL_FILTER),
+  );
+
+  const targets = useShallowEqualSelector(state =>
+    targetSelector(state).getEntities(ALL_FILTER),
+  );
+
+  const schedules = useShallowEqualSelector(state =>
+    scheduleSelector(state).getEntities(ALL_FILTER),
+  );
+
+  const scanConfigs = useShallowEqualSelector(state =>
+    scanConfigsSelector(state).getEntities(ALL_FILTER),
+  );
+
+  const scanners = useShallowEqualSelector(state =>
+    scannerSelector(state).getEntities(ALL_FILTER),
+  );
+
+  const timezone = useShallowEqualSelector(getTimezone);
+
+  const credentials = useShallowEqualSelector(state =>
+    credentialsSelector(state).getEntities(ALL_FILTER),
+  );
+
+  const tags = useShallowEqualSelector(state =>
+    tagsSelector(state).getEntities(TAGS_FILTER),
+  );
+
+  const defaultAlertId = userDefaultsSelector.getValueByName('defaultalert');
+
+  const defaultScheduleId =
+    userDefaultsSelector.getValueByName('defaultschedule');
+
+  const defaultTargetId = userDefaultsSelector.getValueByName('defaulttarget');
+
+  const defaultEsxiCredential = userDefaultsSelector.getValueByName(
+    'defaultesxicredential',
+  );
+
+  const defaultScanConfigId = userDefaultsSelector.getValueByName(
+    'defaultopenvasscanconfig',
+  );
+
+  const defaultScannerId = userDefaultsSelector.getValueByName(
+    'defaultopenvasscanner',
+  );
+
+  const defaultSshCredential = userDefaultsSelector.getValueByName(
+    'defaultsshcredential',
+  );
+
+  const defaultSmbCredential = userDefaultsSelector.getValueByName(
+    'defaultsmbcredential',
+  );
+
+  const isLoadingAlerts = useShallowEqualSelector(state =>
+    alertSelector(state).isLoadingAllEntities(ALL_FILTER),
+  );
+
+  const isLoadingTargets = useShallowEqualSelector(state =>
+    targetSelector(state).isLoadingAllEntities(ALL_FILTER),
+  );
+
+  const isLoadingSchedules = useShallowEqualSelector(state =>
+    scheduleSelector(state).isLoadingAllEntities(ALL_FILTER),
+  );
+
+  const isLoadingScanners = useShallowEqualSelector(state =>
+    scannerSelector(state).isLoadingAllEntities(ALL_FILTER),
+  );
+
+  const isLoadingTags = useShallowEqualSelector(state =>
+    tagsSelector(state).isLoadingAllEntities(TAGS_FILTER),
+  );
+
+  const isLoadingConfigs = useShallowEqualSelector(state =>
+    scanConfigsSelector(state).isLoadingAllEntities(ALL_FILTER),
+  );
+
+  const fetchAlerts = useCallback(
+    // @ts-expect-error
+    () => dispatch(loadAlerts(gmp)(ALL_FILTER)),
+    [dispatch, gmp],
+  );
+
+  const fetchScanners = useCallback(() => {
+    // @ts-expect-error
+    dispatch(loadScanners(gmp)(ALL_FILTER));
+  }, [dispatch, gmp]);
+
+  const fetchSchedules = useCallback(() => {
+    // @ts-expect-error
+    dispatch(loadSchedules(gmp)(ALL_FILTER));
+  }, [dispatch, gmp]);
+
+  const fetchTargets = useCallback(() => {
+    // @ts-expect-error
+    dispatch(loadTargets(gmp)(ALL_FILTER));
+  }, [dispatch, gmp]);
+
+  const fetchTags = useCallback(() => {
+    // @ts-expect-error
+    dispatch(loadTags(gmp)(TAGS_FILTER));
+  }, [dispatch, gmp]);
+
+  const fetchCredentials = useCallback(() => {
+    // @ts-expect-error
+    dispatch(loadCredentials(gmp)(ALL_FILTER));
+  }, [dispatch, gmp]);
+
+  const fetchScanConfigs = useCallback(() => {
+    // @ts-expect-error
+    dispatch(loadScanConfigs(gmp)(ALL_FILTER));
+  }, [dispatch, gmp]);
+
+  const fetchUserSettingsDefaults = useCallback(() => {
+    // @ts-expect-error
+    dispatch(loadUserSettingDefaults(gmp)());
+  }, [dispatch, gmp]);
+
+  useEffect(() => {
+    fetchUserSettingsDefaults();
+  }, [fetchUserSettingsDefaults]);
+
+  const handleTargetChange = (targetId?: string) => {
+    setTargetId(targetId);
+  };
+
+  const handleAlertsChange = (alertIds: string[]) => {
+    setAlertIds(alertIds);
+  };
+
+  const handleScheduleChange = (scheduleId?: string) => {
+    setScheduleId(scheduleId);
+  };
+
+  const handleAgentGroupChange = (agentGroupId?: string) => {
+    setAgentGroupId(agentGroupId);
+  };
+
+  const handleTaskStart = (task: Task) => {
+    return actionFunction<void, Rejection>(
+      // @ts-expect-error
+      gmp.task.start(task),
+      {
+        onSuccess: onStarted,
+        onError: onStartError,
+        successMessage: _('Task {{- name}} started successfully.', {
+          name: task.name as string,
+        }),
+      },
+    );
+  };
+
+  const handleTaskStop = (task: Task) => {
+    return actionFunction<void, Rejection>(
+      // @ts-expect-error
+      gmp.task.stop(task),
+      {
+        onSuccess: onStopped,
+        onError: onStopError,
+        successMessage: _('Task {{- name}} stopped successfully.', {
+          name: task.name as string,
+        }),
+      },
+    );
+  };
+
+  const handleTaskResume = (task: Task) => {
+    return actionFunction<Response<Task, XmlMeta>, Rejection>(
+      // @ts-expect-error
+      gmp.task.resume(task),
+      {
+        onSuccess: onResumed,
+        onError: onResumeError,
+        successMessage: _('Task {{- name}} resumed successfully.', {
+          name: task.name as string,
+        }),
+      },
+    );
+  };
+
+  const handleTaskWizardNewClick = async () => {
+    await openTaskDialog();
+    closeTaskWizard();
+  };
+
+  const handleAlertCreated = (resp: {data: {id: string}}) => {
+    const {data} = resp;
+
+    fetchAlerts();
+    setAlertIds(prevAlertIds => [data.id, ...prevAlertIds]);
+  };
+
+  const handleScheduleCreated = (resp: {data: {id?: string}}) => {
+    const {data} = resp;
+
+    fetchSchedules();
+
+    setScheduleId(data.id);
+  };
+
+  const handleTargetCreated = (resp: {data: {id?: string}}) => {
+    const {data} = resp;
+
+    fetchTargets();
+
+    setTargetId(data.id);
+  };
+
+  const handleOciImageTargetCreated = (resp: {data: {id?: string}}) => {
+    const {data} = resp;
+
+    setOciImageTargetId(data.id);
+  };
+
+  const openImportTaskDialog = (task?: Task) => {
+    setImportTaskDialogVisible(true);
+    setTask(task);
+    setName(task ? task.name : _('Unnamed'));
+    setComment(task ? task.comment : '');
+    setInAssets(task ? task.in_assets : undefined);
+    setAutoDelete(task ? task.auto_delete : undefined);
+    setAutoDeleteData(task ? task.auto_delete_data : undefined);
+    setTitle(
+      task
+        ? _('Edit Import Task {{- name}}', {name: task.name as string})
+        : _('New Import Task'),
+    );
+  };
+
+  const closeImportTaskDialog = () => {
+    setImportTaskDialogVisible(false);
+  };
+
+  const handleCloseImportTaskDialog = () => {
+    closeImportTaskDialog();
+  };
+
+  const handleSaveImportTask = ({
+    id,
+    comment,
+    // eslint-disable-next-line @typescript-eslint/naming-convention
+    in_assets,
+    name,
+  }: ImportTaskDialogData) => {
+    if (isDefined(id)) {
+      return gmp.task
+        .saveImportTask({
+          id,
+          comment,
+          in_assets,
+          name,
+        })
+        .then(onImportTaskSaved, onImportTaskSaveError)
+        .then(() => closeImportTaskDialog());
+    }
+
+    return gmp.task
+      .createImportTask({
+        comment,
+        name,
+      })
+      .then(onImportTaskCreated, onImportTaskCreateError)
+      .then(() => closeImportTaskDialog());
+  };
+
+  const handleSaveTask = ({
+    add_tag: addTag,
+    alert_ids: alertIds,
+    alterable,
+    auto_delete: autoDelete,
+    auto_delete_data: autoDeleteData,
+    apply_overrides: applyOverrides,
+    comment,
+    config_id: configId,
+    csAllowFailedRetrieval,
+    in_assets: inAssets,
+    min_qod: minQod,
+    max_checks: maxChecks,
+    max_hosts: maxHosts,
+    name,
+    scanner_id: scannerId,
+    scanner_type: scannerType,
+    schedule_id: scheduleId,
+    schedule_periods: schedulePeriods,
+    tag_id: tagId,
+    target_id: targetId,
+    task,
+  }: TaskDialogData) => {
+    if (isDefined(task)) {
+      // save edit part
+      if (!task.isChangeable()) {
+        // arguments need to be undefined if the task is not changeable
+        targetId = undefined;
+        scannerId = undefined;
+        configId = undefined;
+      }
+      return gmp.task
+        .save({
+          alert_ids: alertIds,
+          alterable,
+          auto_delete: autoDelete,
+          auto_delete_data: autoDeleteData,
+          apply_overrides: applyOverrides,
+          comment,
+          config_id: configId,
+          csAllowFailedRetrieval,
+          id: task.id as string,
+          in_assets: inAssets,
+          max_checks: maxChecks,
+          max_hosts: maxHosts,
+          min_qod: minQod,
+          name,
+          scanner_id: scannerId,
+          scanner_type: scannerType,
+          schedule_id: scheduleId,
+          schedule_periods: schedulePeriods,
+          target_id: targetId,
+        })
+        .then(onSaved, onSaveError)
+        .then(() => closeTaskDialog());
+    }
+    return gmp.task
+      .create({
+        add_tag: addTag,
+        alert_ids: alertIds,
+        alterable,
+        apply_overrides: applyOverrides,
+        auto_delete: autoDelete,
+        auto_delete_data: autoDeleteData,
+        comment,
+        config_id: configId,
+        csAllowFailedRetrieval,
+        in_assets: inAssets,
+        max_checks: maxChecks,
+        max_hosts: maxHosts,
+        min_qod: minQod,
+        name,
+        scanner_type: scannerType,
+        scanner_id: scannerId,
+        schedule_id: scheduleId,
+        schedule_periods: schedulePeriods,
+        tag_id: tagId,
+        target_id: targetId,
+      })
+      .then(onCreated, onCreateError)
+      .then(() => closeTaskDialog());
+  };
+
+  const handleSaveAgentTask = ({
+    addTag,
+    alertIds,
+    alterable,
+    autoDelete,
+    autoDeleteData,
+    applyOverrides,
+    comment,
+    inAssets,
+    minQod,
+    name,
+    scheduleId,
+    schedulePeriods,
+    tagId,
+    agentGroupId,
+    task,
+  }: AgentTaskDialogData) => {
+    if (isDefined(task)) {
+      // save edit part
+      if (!task.isChangeable()) {
+        // arguments need to be undefined if the task is not changeable
+        agentGroupId = undefined;
+      }
+      return gmp.task
+        .saveAgentGroupTask({
+          alertIds,
+          alterable,
+          autoDelete,
+          autoDeleteData,
+          applyOverrides,
+          comment,
+          id: task.id as string,
+          inAssets,
+          minQod,
+          name,
+          scheduleId,
+          schedulePeriods,
+          agentGroupId,
+        })
+        .then(onSaved, onSaveError)
+        .then(() => closeAgentTaskDialog());
+    }
+    return gmp.task
+      .createAgentGroupTask({
+        addTag,
+        alertIds,
+        alterable,
+        applyOverrides,
+        autoDelete,
+        autoDeleteData,
+        comment,
+        inAssets,
+        minQod,
+        name,
+        scheduleId,
+        schedulePeriods,
+        tagId,
+        agentGroupId,
+      })
+      .then(onCreated, onCreateError)
+      .then(() => closeAgentTaskDialog());
+  };
+
+  const openTaskDialog = async (task?: Task) => {
+    if (isDefined(task) && task.isImport()) {
+      openImportTaskDialog(task);
+    } else if (task?.isAgent()) {
+      await openAgentTaskDialog(task);
+    } else {
+      openStandardTaskDialog(task);
+    }
+  };
+
+  const closeTaskDialog = () => {
+    setTaskDialogVisible(false);
+    setAgentTaskDialogVisible(false);
+  };
+
+  const openStandardTaskDialog = (task?: Task) => {
+    fetchAlerts();
+    fetchScanConfigs();
+    fetchScanners();
+    fetchSchedules();
+    fetchTargets();
+    fetchTags();
+
+    if (isDefined(task)) {
+      setName(task.name as string);
+      setComment(task.comment);
+      setAlterable(task.alterable);
+      setApplyOverrides(task.apply_overrides);
+      setInAssets(task.in_assets);
+      setMinQod(task.min_qod);
+      setAutoDelete(task.auto_delete);
+      setAutoDeleteData(task.auto_delete_data);
+      setMaxChecks(task.max_checks);
+      setMaxHosts(task.max_hosts);
+      setCsAllowFailedRetrieval(task.csAllowFailedRetrieval);
+      setScanConfigId(task.config?.id);
+      setScannerId(task.scanner?.id);
+      setScheduleId(task.schedule?.id ?? UNSET_VALUE);
+      setSchedulePeriods(
+        task.schedule_periods === YES_VALUE ? YES_VALUE : NO_VALUE,
+      );
+      setTargetId(task.target?.id);
+
+      setAlertIds(map(task.alerts, alert => alert.id as string));
+
+      setTask(task);
+      setTitle(_('Edit Task {{- name}}', {name: task.name as string}));
+    } else {
+      setName(undefined);
+      setComment(undefined);
+      setAlterable(undefined);
+      setApplyOverrides(undefined);
+      setInAssets(undefined);
+      setMinQod(undefined);
+      setAutoDelete(undefined);
+      setAutoDeleteData(undefined);
+      setMaxChecks(undefined);
+      setMaxHosts(undefined);
+      setCsAllowFailedRetrieval(undefined);
+      setScanConfigId(defaultScanConfigId || FULL_AND_FAST_SCAN_CONFIG_ID);
+      setScannerId(defaultScannerId || OPENVAS_DEFAULT_SCANNER_ID);
+      setScheduleId(defaultScheduleId);
+      setSchedulePeriods(undefined);
+      setTargetId(defaultTargetId);
+      setAlertIds(isDefined(defaultAlertId) ? [defaultAlertId] : []);
+      setTask(undefined);
+      setTitle(_('New Task'));
+    }
+
+    setTaskDialogVisible(true);
+  };
+
+  const openAgentTaskDialog = async (task?: Task) => {
+    fetchAlerts();
+    fetchSchedules();
+    fetchTargets();
+    fetchTags();
+    setIsAgentGroupsLoading(true);
+    const response = await gmp.agentgroups.getAll();
+    setAgentGroups(response.data);
+    setIsAgentGroupsLoading(false);
+
+    if (isDefined(task)) {
+      setName(task.name as string);
+      setComment(task.comment);
+      setAlterable(task.alterable);
+      setApplyOverrides(task.apply_overrides);
+      setInAssets(task.in_assets);
+      setMinQod(task.min_qod);
+      setAutoDelete(task.auto_delete);
+      setAutoDeleteData(task.auto_delete_data);
+
+      setScheduleId(task.schedule?.id ?? UNSET_VALUE);
+      setSchedulePeriods(
+        task.schedule_periods === YES_VALUE ? YES_VALUE : NO_VALUE,
+      );
+      setAgentGroupId(task.agentGroup?.id);
+
+      setAlertIds(map(task.alerts, alert => alert.id as string));
+
+      setTask(task);
+      setTitle(_('Edit Agent Task {{- name}}', {name: task.name as string}));
+    } else {
+      setName(undefined);
+      setComment(undefined);
+      setAlterable(undefined);
+      setApplyOverrides(undefined);
+      setInAssets(undefined);
+      setMinQod(undefined);
+      setAutoDelete(undefined);
+      setAutoDeleteData(undefined);
+
+      setScheduleId(defaultScheduleId);
+      setSchedulePeriods(undefined);
+      setAgentGroupId(undefined);
+
+      setAlertIds(isDefined(defaultAlertId) ? [defaultAlertId] : []);
+
+      setTask(undefined);
+      setTitle(_('New Agent Task'));
+    }
+
+    setAgentTaskDialogVisible(true);
+  };
+
+  const closeAgentTaskDialog = () => {
+    setAgentTaskDialogVisible(false);
+  };
+
+  const openTaskWizard = () => {
+    void gmp.wizard.task().then(response => {
+      const {data} = response;
+
+      setTaskWizardVisible(true);
+      setHosts(data.clientAddress);
+    });
+  };
+
+  const closeTaskWizard = () => {
+    setTaskWizardVisible(false);
+  };
+
+  const handleSaveTaskWizard = (data: {hosts: string}) => {
+    return gmp.wizard
+      .runQuickFirstScan(data)
+      .then(onTaskWizardSaved, onTaskWizardError)
+      .then(() => closeTaskWizard());
+  };
+
+  const openAdvancedTaskWizard = () => {
+    fetchCredentials();
+    fetchScanConfigs();
+
+    void gmp.wizard.advancedTask().then(response => {
+      const {data} = response;
+
+      const now = date().tz(timezone);
+      setAdvancedTaskWizardVisible(true);
+      setScanConfigId(defaultScanConfigId || FULL_AND_FAST_SCAN_CONFIG_ID);
+      setEsxiCredential(defaultEsxiCredential);
+      setScannerId(defaultScannerId);
+      setSmbCredential(defaultSmbCredential);
+      setSshCredential(defaultSshCredential);
+      setStartDate(now);
+      setStartHour(now.hour());
+      setStartMinute(now.minute());
+      setStartTimezone(timezone);
+      setTargetHosts(data.clientAddress);
+      setTaskName(_('New Quick Task'));
+    });
+  };
+
+  const closeAdvancedTaskWizard = () => {
+    setAdvancedTaskWizardVisible(false);
+  };
+
+  const handleSaveAdvancedTaskWizard = (data: AdvancedTaskWizardData) => {
+    return gmp.wizard
+      .runQuickTask(data)
+      .then(onAdvancedTaskWizardSaved, onAdvancedTaskWizardError)
+      .then(() => closeAdvancedTaskWizard());
+  };
+
+  const openModifyTaskWizard = () => {
+    void gmp.wizard.modifyTask().then(response => {
+      const {data} = response;
+      const now = date().tz(timezone);
+
+      setModifyTaskWizardVisible(true);
+      setReschedule(NO_VALUE);
+      setStartDate(now);
+      setStartHour(now.hour());
+      setStartMinute(now.minute());
+      setStartTimezone(timezone);
+      setTaskId(selectSaveId(data.tasks));
+      setTasks(data.tasks);
+    });
+  };
+
+  const closeModifyTaskWizard = () => {
+    setModifyTaskWizardVisible(false);
+  };
+
+  const handleSaveModifyTaskWizard = (data: ModifyTaskWizardData) => {
+    return gmp.wizard
+      .runModifyTask(data)
+      .then(onModifyTaskWizardSaved, onModifyTaskWizardError)
+      .then(() => closeModifyTaskWizard());
+  };
+
+  const openReportImportDialog = (task: Task) => {
+    setReportImportDialogVisible(true);
+    setTaskId(task.id);
+    setTasks([task]);
+  };
+
+  const closeReportImportDialog = () => {
+    setReportImportDialogVisible(false);
+  };
+
+  const handleReportImport = (data: ReportImportDialogData) => {
+    return (
+      gmp.report
+        // @ts-expect-error
+        .import(data)
+        .then(onReportImported, onReportImportError)
+        .then(() => closeReportImportDialog())
+    );
+  };
+
+  const handleScanConfigChange = (configId?: string) => {
+    setScanConfigId(configId);
+  };
+
+  const handleScannerChange = (scannerId?: string) => {
+    setScannerId(scannerId);
+  };
+
+  const handleCloseTaskDialog = () => {
+    closeTaskDialog();
+  };
+
+  const handleCloseTaskWizard = () => {
+    closeTaskWizard();
+  };
+
+  const handleCloseAdvancedTaskWizard = () => {
+    closeAdvancedTaskWizard();
+  };
+
+  const handleCloseModifyTaskWizard = () => {
+    closeModifyTaskWizard();
+  };
+
+  const handleCloseReportImportDialog = () => {
+    closeReportImportDialog();
+  };
+
+  const handleOpenAgentTaskDialog = async (task?: Task) => {
+    await openAgentTaskDialog(task);
+  };
+
+  const handleOpenContainerImageTaskDialog = (task?: Task) => {
+    fetchAlerts();
+    fetchSchedules();
+    openContainerImageTaskDialog(task);
+  };
+
+  const handleCloseNewAgentTaskDialog = () => {
+    closeAgentTaskDialog();
+  };
+
+  const handleEditTask = async (task: Task) => {
+    if (task.scanner?.scannerType === CONTAINER_IMAGE_SCANNER_TYPE) {
+      handleOpenContainerImageTaskDialog(task);
+    } else {
+      await openTaskDialog(task);
+    }
+  };
+
+  const handleEntityDownload = useEntityDownload<Task>(
+    entity => gmp.task.export(entity),
+    {
+      onDownloadError,
+      onDownloaded,
+    },
+  );
+
+  const handleEntityDelete = useEntityDelete<Task>(
+    entity => gmp.task.delete(entity),
+    {
+      onDeleteError,
+      onDeleted,
+    },
+  );
+
+  const handleEntityClone = useEntityClone<Task>(
+    entity => gmp.task.clone(entity),
+    {
+      onCloneError,
+      onCloned,
+    },
+  );
+
+  return (
+    <>
+      {children &&
+        children({
+          clone: handleEntityClone,
+          delete: handleEntityDelete,
+          download: handleEntityDownload,
+          create: openTaskDialog,
+          createImportTask: openImportTaskDialog,
+          createContainerImage: openContainerImageTaskDialog,
+          edit: handleEditTask,
+          start: handleTaskStart,
+          stop: handleTaskStop,
+          resume: handleTaskResume,
+          reportImport: openReportImportDialog,
+          advancedTaskWizard: openAdvancedTaskWizard,
+          modifyTaskWizard: openModifyTaskWizard,
+          taskWizard: openTaskWizard,
+          onNewAgentTaskClick: handleOpenAgentTaskDialog,
+          onNewContainerImageTaskClick: handleOpenContainerImageTaskDialog,
+        })}
+
+      {taskDialogVisible && (
+        <TargetComponent onCreated={handleTargetCreated}>
+          {({create: createTarget}) => (
+            // @ts-expect-error
+            <AlertComponent onCreated={handleAlertCreated}>
+              {({create: createAlert}) => (
+                <ScheduleComponent onCreated={handleScheduleCreated}>
+                  {({create: createSchedule}) => (
+                    <TaskDialog
+                      alert_ids={alertIds}
+                      alerts={alerts}
+                      alterable={alterable}
+                      apply_overrides={applyOverrides}
+                      auto_delete={autoDelete}
+                      auto_delete_data={autoDeleteData}
+                      comment={comment}
+                      config_id={scanConfigId}
+                      csAllowFailedRetrieval={csAllowFailedRetrieval}
+                      in_assets={inAssets}
+                      isLoadingAlerts={isLoadingAlerts}
+                      isLoadingConfigs={isLoadingConfigs}
+                      isLoadingScanners={isLoadingScanners}
+                      isLoadingSchedules={isLoadingSchedules}
+                      isLoadingTags={isLoadingTags}
+                      isLoadingTargets={isLoadingTargets}
+                      max_checks={maxChecks}
+                      max_hosts={maxHosts}
+                      min_qod={minQod}
+                      name={name}
+                      scan_configs={scanConfigs}
+                      scanner_id={scannerId}
+                      scanners={scanners}
+                      schedule_id={scheduleId}
+                      schedule_periods={schedulePeriods}
+                      schedules={schedules}
+                      tags={tags}
+                      target_id={targetId}
+                      targets={targets}
+                      task={task}
+                      title={title}
+                      onAlertsChange={handleAlertsChange}
+                      onClose={handleCloseTaskDialog}
+                      onNewAlertClick={createAlert}
+                      onNewScheduleClick={createSchedule}
+                      onNewTargetClick={createTarget}
+                      onSave={handleSaveTask}
+                      onScanConfigChange={handleScanConfigChange}
+                      onScannerChange={handleScannerChange}
+                      onScheduleChange={handleScheduleChange}
+                      onTargetChange={handleTargetChange}
+                    />
+                  )}
+                </ScheduleComponent>
+              )}
+            </AlertComponent>
+          )}
+        </TargetComponent>
+      )}
+
+      {importTaskDialogVisible && (
+        <ImportTaskDialog
+          comment={comment}
+          in_assets={inAssets}
+          name={name}
+          task={task}
+          title={title}
+          onClose={handleCloseImportTaskDialog}
+          onSave={handleSaveImportTask}
+        />
+      )}
+
+      {containerImageTaskDialogVisible && (
+        // @ts-expect-error
+        <AlertComponent onCreated={handleAlertCreated}>
+          {({create: createAlert}) => (
+            <ScheduleComponent onCreated={handleScheduleCreated}>
+              {({create: createSchedule}) => (
+                <ContainerImageTargetsComponent
+                  onCreated={handleOciImageTargetCreated}
+                >
+                  {({create: createOciImageTarget}) => (
+                    <ContainerImageTaskDialog
+                      acceptInvalidCerts={containerImageAcceptInvalidCerts}
+                      addTag={containerImageAddTag}
+                      alertIds={alertIds}
+                      alerts={alerts as RenderSelectItemProps[]}
+                      alterable={containerImageAlterable}
+                      applyOverrides={containerImageApplyOverrides}
+                      comment={containerImageComment}
+                      inAssets={containerImageInAssets}
+                      isLoadingAlerts={isLoadingAlerts}
+                      isLoadingSchedules={isLoadingSchedules}
+                      name={containerImageName}
+                      ociImageTargetId={containerImageOciImageTargetId}
+                      registryAllowInsecure={
+                        containerImageRegistryAllowInsecure
+                      }
+                      scannerId={containerImageScannerId}
+                      scheduleId={containerImageScheduleId}
+                      schedulePeriods={containerImageSchedulePeriods}
+                      schedules={schedules as RenderSelectItemProps[]}
+                      task={containerImageTask}
+                      title={containerImageTitle}
+                      onAlertsChange={handleAlertsChange}
+                      onClose={closeContainerImageTaskDialog}
+                      onNewAlertClick={createAlert}
+                      onNewOciImageTargetClick={createOciImageTarget}
+                      onNewScheduleClick={createSchedule}
+                      onOciImageTargetChange={handleOciImageTargetChange}
+                      onSave={handleSaveContainerImageTask}
+                      onScannerChange={handleContainerImageScannerChange}
+                      onScheduleChange={handleContainerImageScheduleChange}
+                    />
+                  )}
+                </ContainerImageTargetsComponent>
+              )}
+            </ScheduleComponent>
+          )}
+        </AlertComponent>
+      )}
+
+      {taskWizardVisible && (
+        <TaskWizard
+          hosts={hosts}
+          onClose={handleCloseTaskWizard}
+          onNewClick={handleTaskWizardNewClick}
+          onSave={handleSaveTaskWizard}
+        />
+      )}
+
+      {advancedTaskWizardVisible && (
+        <AdvancedTaskWizard
+          credentials={credentials}
+          esxiCredential={esxiCredential}
+          scanConfigId={scanConfigId}
+          scanConfigs={scanConfigs}
+          smbCredential={smbCredential}
+          sshCredential={sshCredential}
+          startDate={startDate}
+          startHour={startHour}
+          startMinute={startMinute}
+          startTimezone={startTimezone}
+          targetHosts={targetHosts}
+          taskName={taskName}
+          onClose={handleCloseAdvancedTaskWizard}
+          onSave={handleSaveAdvancedTaskWizard}
+        />
+      )}
+
+      {modifyTaskWizardVisible && (
+        <ModifyTaskWizard
+          reschedule={reschedule}
+          startDate={startDate}
+          startHour={startHour}
+          startMinute={startMinute}
+          startTimezone={startTimezone}
+          taskId={taskId as string}
+          tasks={tasks}
+          onClose={handleCloseModifyTaskWizard}
+          onSave={handleSaveModifyTaskWizard}
+        />
+      )}
+
+      {reportImportDialogVisible && (
+        <ImportReportDialog
+          newContainerTask={false}
+          task_id={taskId as string}
+          tasks={tasks}
+          onClose={handleCloseReportImportDialog}
+          onSave={handleReportImport}
+        />
+      )}
+
+      {features.featureEnabled('ENABLE_AGENTS') && agentTaskDialogVisible && (
+        <AgentGroupsComponent>
+          {({create: createAgentGroup}) => (
+            // @ts-expect-error
+            <AlertComponent onCreated={handleAlertCreated}>
+              {({create: createAlert}) => (
+                <ScheduleComponent onCreated={handleScheduleCreated}>
+                  {({create: createSchedule}) => (
+                    <AgentTaskDialog
+                      agentGroupId={agentGroupId}
+                      agentGroups={
+                        agentGroups as unknown as RenderSelectItemProps[]
+                      }
+                      alertIds={alertIds}
+                      alerts={alerts}
+                      alterable={alterable}
+                      applyOverrides={applyOverrides}
+                      autoDelete={autoDelete}
+                      autoDeleteData={autoDeleteData}
+                      comment={comment}
+                      inAssets={inAssets}
+                      isLoadingAgentGroups={isAgentGroupsLoading}
+                      isLoadingAlerts={isLoadingAlerts}
+                      isLoadingSchedules={isLoadingSchedules}
+                      isLoadingTags={isLoadingTags}
+                      minQod={minQod}
+                      name={name}
+                      scheduleId={scheduleId}
+                      schedulePeriods={schedulePeriods}
+                      schedules={schedules}
+                      tags={tags}
+                      task={task}
+                      title={title}
+                      onAgentGroupChange={handleAgentGroupChange}
+                      onAlertsChange={handleAlertsChange}
+                      onClose={handleCloseNewAgentTaskDialog}
+                      onNewAgentGroupClick={createAgentGroup}
+                      onNewAlertClick={createAlert}
+                      onNewScheduleClick={createSchedule}
+                      onSave={handleSaveAgentTask}
+                      onScheduleChange={handleScheduleChange}
+                    />
+                  )}
+                </ScheduleComponent>
+              )}
+            </AlertComponent>
+          )}
+        </AgentGroupsComponent>
+      )}
+    </>
+  );
+};
+
+export default TaskComponent;

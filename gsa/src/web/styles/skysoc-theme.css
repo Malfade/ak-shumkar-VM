@@ -1,0 +1,299 @@
+/* =====================================================
+ * SkySOC VM — Global CSS Design Token Overrides
+ * Based on https://skysoc.beeline.kg visual style
+ * ===================================================== */
+
+:root {
+  /* === Color Palette === */
+  --skysoc-bg-base: #1A1A1C;
+  --skysoc-bg-deep: #111113;
+  --skysoc-bg-card: #27272A;
+  --skysoc-bg-card-hover: #2D2D30;
+  --skysoc-bg-input: #18181B;
+  --skysoc-bg-dialog: #27272A;
+
+  --skysoc-border: #3F3F46;
+  --skysoc-border-subtle: #27272A;
+
+  --skysoc-accent: #FFD400;
+  --skysoc-accent-hover: #E6BF00;
+  --skysoc-accent-on: #000000;
+
+  --skysoc-link: #4A80FF;
+  --skysoc-link-hover: #6FA3FF;
+
+  --skysoc-text-primary: #FFFFFF;
+  --skysoc-text-muted: #A1A1AA;
+  --skysoc-text-disabled: #52525B;
+
+  /* === Severity === */
+  --skysoc-critical: #EF4444;
+  --skysoc-high: #F87171;
+  --skysoc-medium: #F59E0B;
+  --skysoc-low: #60A5FA;
+  --skysoc-log: #71717A;
+  --skysoc-ok: #22C55E;
+
+  /* === Typography === */
+  --skysoc-font: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  /* === Layout === */
+  --skysoc-radius-card: 16px;
+  --skysoc-radius-btn: 8px;
+  --skysoc-radius-input: 6px;
+  --skysoc-sidebar-width: 220px;
+  --skysoc-panel-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+/* =====================================================
+ * Base overrides — dark background across entire app
+ * ===================================================== */
+
+html,
+body {
+  background-color: var(--skysoc-bg-base) !important;
+  color: var(--skysoc-text-primary) !important;
+  font-family: var(--skysoc-font) !important;
+}
+
+/* =====================================================
+ * Links
+ * ===================================================== */
+a,
+a:link {
+  color: var(--skysoc-link) !important;
+}
+
+a:hover,
+a:focus {
+  color: var(--skysoc-link-hover) !important;
+  text-decoration: underline;
+}
+
+a:visited {
+  color: var(--skysoc-link);
+}
+
+/* =====================================================
+ * Internal Navigation Structure (Header & Sidebar)
+ * ===================================================== */
+
+/* Header (Top Bar) */
+header._header_18j38_1,
+.mantine-AppShell-header {
+  background-color: var(--skysoc-bg-deep) !important;
+  border-bottom: 1px solid var(--skysoc-border) !important;
+  height: 60px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Sidebar Container */
+div._navigation_1w11a_1,
+.mantine-AppShell-navbar {
+  background-color: var(--skysoc-bg-deep) !important;
+  border-right: 1px solid var(--skysoc-border) !important;
+  padding-top: 10px !important;
+}
+
+/* Menu Items (Mantine NavLink) */
+.mantine-NavLink-root {
+  color: var(--skysoc-text-muted) !important;
+  font-family: var(--skysoc-font) !important;
+  font-weight: 500 !important;
+  margin: 4px 8px !important;
+  border-radius: 8px !important;
+  transition: all 0.2s ease-in-out !important;
+  border-left: 3px solid transparent !important;
+}
+
+.mantine-NavLink-root:hover {
+  background-color: rgba(255, 255, 255, 0.04) !important;
+  color: #FFFFFF !important;
+  padding-left: 16px !important;
+}
+
+/* Active Menu Item */
+.mantine-NavLink-root[data-active="true"],
+._root-active_1j7do_1 {
+  background-color: rgba(255, 212, 0, 0.08) !important;
+  color: var(--skysoc-accent) !important;
+  border-left: 3px solid var(--skysoc-accent) !important;
+  font-weight: 600 !important;
+}
+
+/* Text and Icons inside NavLink */
+.mantine-NavLink-label,
+.mantine-NavLink-icon {
+  color: inherit !important;
+}
+
+/* =====================================================
+ * Dashboard Widget Cards & Containers
+ * ===================================================== */
+
+.mantine-Paper-root,
+.mantine-Card-root,
+div.sc-gmPhUo.kPbhJw {
+  background-color: rgba(39, 39, 42, 0.6) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  box-shadow: var(--skysoc-panel-shadow) !important;
+  border-radius: var(--skysoc-radius-card) !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+.mantine-Paper-root:hover,
+.mantine-Card-root:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Card Headers */
+.mantine-Paper-root h2,
+.mantine-Paper-root h3,
+div.sc-gmPhUo.kPbhJw h2 {
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
+  color: var(--skysoc-text-muted) !important;
+  border-bottom: 1px solid var(--skysoc-border) !important;
+  padding-bottom: 12px !important;
+  margin-bottom: 20px !important;
+}
+
+/* =====================================================
+ * Buttons — primary → yellow Beeline style
+ * ===================================================== */
+.mantine-Button-root[data-variant='filled'] {
+  background-color: var(--skysoc-accent) !important;
+  color: var(--skysoc-accent-on) !important;
+  border-radius: var(--skysoc-radius-btn) !important;
+  font-weight: 700 !important;
+  border: none !important;
+  transition: transform 0.1s ease, filter 0.2s ease !important;
+}
+
+.mantine-Button-root[data-variant='filled']:hover {
+  background-color: var(--skysoc-accent-hover) !important;
+  filter: brightness(1.1) !important;
+}
+
+.mantine-Button-root[data-variant='filled']:active {
+  transform: scale(0.97) !important;
+}
+
+/* =====================================================
+ * Tables
+ * ===================================================== */
+table {
+  background-color: transparent !important;
+  border-collapse: collapse !important;
+}
+
+thead tr {
+  background-color: var(--skysoc-bg-deep) !important;
+}
+
+thead th {
+  color: var(--skysoc-text-muted) !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.1em !important;
+  border-bottom: 1.5px solid var(--skysoc-border) !important;
+  padding: 14px 16px !important;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: var(--skysoc-bg-base) !important;
+}
+
+tbody tr:nth-child(even) {
+  background-color: rgba(39, 39, 42, 0.4) !important;
+}
+
+tbody tr:hover {
+  background-color: var(--skysoc-bg-card-hover) !important;
+}
+
+tbody td {
+  color: var(--skysoc-text-primary) !important;
+  border-bottom: 1px solid rgba(63, 63, 70, 0.4) !important;
+  padding: 14px 16px !important;
+  border-right: none !important;
+  border-left: none !important;
+}
+
+/* =====================================================
+ * Mantine Form Overrides
+ * ===================================================== */
+.mantine-Input-input,
+.mantine-TextInput-input,
+.mantine-PasswordInput-input,
+.mantine-Select-input,
+.mantine-Textarea-input {
+  background-color: var(--skysoc-bg-input) !important;
+  border: 1px solid var(--skysoc-border) !important;
+  border-radius: var(--skysoc-radius-input) !important;
+  color: var(--skysoc-text-primary) !important;
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+}
+
+.mantine-Input-input:focus {
+  border-color: var(--skysoc-accent) !important;
+  box-shadow: 0 0 0 2px rgba(255, 212, 0, 0.1) !important;
+}
+
+/* =====================================================
+ * Scrollbars
+ * ===================================================== */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--skysoc-bg-deep);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--skysoc-border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--skysoc-mediumGray, #71717A);
+}
+/* === Dashboard Chart (Datamonitor) Overrides === */
+div[class*="DisplayView"],
+div[class*="DisplayContent"],
+div[class*="DisplayBox"],
+.display-view,
+.display-content {
+  background-color: transparent !important;
+  background: transparent !important;
+  border: none !important;
+}
+
+/* Specific visx/chart container overrides found in verification */
+div[class*="StyledLayout"] {
+  background: transparent !important;
+}
+
+/* Header within charts */
+div[class*="HeaderContainer"] > div {
+  background-color: transparent !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Axis labels and lines */
+.axis-line, .axis-tick line {
+  stroke: rgba(255, 255, 255, 0.2) !important;
+}
+
+.axis-label, .pie-label, text {
+  fill: #A1A1AA !important; /* Theme.darkGray */
+}

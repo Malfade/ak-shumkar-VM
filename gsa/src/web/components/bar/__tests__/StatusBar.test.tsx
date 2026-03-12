@@ -1,0 +1,87 @@
+/* SPDX-FileCopyrightText: 2024 Greenbone AG
+ *
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+import {describe, test, expect} from '@gsa/testing';
+import {screen, render} from 'web/testing';
+import {TASK_STATUS} from 'gmp/models/task';
+import StatusBar from 'web/components/bar/StatusBar';
+import Theme from 'web/utils/Theme';
+
+describe('StatusBar tests', () => {
+  test('should render', () => {
+    const {element} = render(<StatusBar progress="90" status="Unknown" />);
+
+    expect(element).toBeVisible();
+  });
+
+  test('should render text content', () => {
+    const {element} = render(
+      <StatusBar progress="90" status={TASK_STATUS.stopped} />,
+    );
+    expect(element).toHaveTextContent('Stopped at 90 %');
+  });
+
+  test('should render title', () => {
+    render(<StatusBar progress="90" status={TASK_STATUS.stopped} />);
+    const progressbarBox = screen.getByTestId('progressbar-box');
+    expect(progressbarBox).toHaveAttribute('title', 'Stopped');
+  });
+
+  test('should render progress', () => {
+    render(<StatusBar progress="90" status={TASK_STATUS.stopped} />);
+    const progress = screen.getByTestId('progress');
+    expect(progress).toHaveComputedStyle('width', '90%');
+  });
+
+  test('should not render progress > 100', () => {
+    const {element} = render(
+      <StatusBar progress="101" status={TASK_STATUS.stopped} />,
+    );
+    const progress = screen.getByTestId('progress');
+    expect(progress).toHaveComputedStyle('width', '100%');
+    expect(element).toHaveTextContent('Stopped at 100 %');
+  });
+
+  test('should not render progress < 0', () => {
+    const {element} = render(
+      <StatusBar progress="-1" status={TASK_STATUS.stopped} />,
+    );
+    const progress = screen.getByTestId('progress');
+    expect(progress).toHaveComputedStyle('width', '0%');
+    expect(element).toHaveTextContent('Stopped at 0 %');
+  });
+
+  test('should render background', () => {
+    render(<StatusBar progress="90" status={TASK_STATUS.stopped} />);
+    const progress = screen.getByTestId('progress');
+    const actualValue =
+      getComputedStyle(progress).getPropertyValue('background');
+    expect(actualValue).toContain(
+      `linear-gradient(90deg, ${Theme.severityWarnYellow} 0%, ${Theme.severityWarnYellow} 100%)`,
+    );
+  });
+
+  test('should render error background for interrupted status', () => {
+    render(<StatusBar progress="50" status={TASK_STATUS.interrupted} />);
+    const progress = screen.getByTestId('progress');
+    const actualValue =
+      getComputedStyle(progress).getPropertyValue('background');
+    expect(actualValue).toContain(
+      `linear-gradient(90deg, ${Theme.errorRed} 0%, ${Theme.errorRed} 100%)`,
+    );
+    expect(progress).toHaveComputedStyle('width', '50%');
+    const text = screen.getByTestId('statusbar-text');
+    expect(text).toHaveTextContent('Interrupted at 50 %');
+  });
+
+  test('should render import status correctly', () => {
+    const {element} = render(
+      <StatusBar progress="75" status={TASK_STATUS.import} />,
+    );
+    expect(element).toHaveTextContent('Import');
+    const progress = screen.getByTestId('progress');
+    expect(progress).toHaveComputedStyle('width', '100%');
+  });
+});

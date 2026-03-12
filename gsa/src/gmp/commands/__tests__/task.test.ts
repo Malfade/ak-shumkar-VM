@@ -1,0 +1,924 @@
+/* SPDX-FileCopyrightText: 2024 Greenbone AG
+ *
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+import {
+  describe,
+  test,
+  expect,
+  beforeAll,
+  afterAll,
+  testing,
+} from '@gsa/testing';
+import FeedStatusCommand from 'gmp/commands/feed-status';
+import TaskCommand from 'gmp/commands/task';
+import {
+  createActionResultResponse,
+  createHttp,
+  createResponse,
+} from 'gmp/commands/testing';
+import type Http from 'gmp/http/http';
+import {ResponseRejection} from 'gmp/http/rejection';
+import logger, {type LogLevel} from 'gmp/log';
+import {
+  OPENVAS_SCANNER_TYPE,
+  OPENVAS_DEFAULT_SCANNER_ID,
+  CONTAINER_IMAGE_SCANNER_TYPE,
+} from 'gmp/models/scanner';
+import {
+  HOSTS_ORDERING_RANDOM,
+  AUTO_DELETE_KEEP_DEFAULT_VALUE,
+  AUTO_DELETE_KEEP,
+} from 'gmp/models/task';
+
+let logLevel: LogLevel;
+
+beforeAll(() => {
+  logLevel = logger.level;
+  logger.setDefaultLevel('silent');
+});
+
+afterAll(() => {
+  logger.setDefaultLevel(logLevel);
+});
+
+describe('TaskCommand tests', () => {
+  test('should create new task', async () => {
+    const response = createActionResultResponse();
+    const fakeHttp = createHttp(response);
+
+    const cmd = new TaskCommand(fakeHttp);
+    const resp = await cmd.create({
+      alterable: 0,
+      apply_overrides: 0,
+      auto_delete: AUTO_DELETE_KEEP,
+      comment: 'comment',
+      config_id: 'c1',
+      in_assets: 0,
+      max_checks: 10,
+      max_hosts: 10,
+      min_qod: 70,
+      name: 'foo',
+      scanner_id: OPENVAS_DEFAULT_SCANNER_ID,
+      scanner_type: OPENVAS_SCANNER_TYPE,
+      target_id: 't1',
+      csAllowFailedRetrieval: true,
+    });
+    expect(fakeHttp.request).toHaveBeenCalledWith('post', {
+      data: {
+        add_tag: undefined,
+        'alert_ids:': [],
+        alterable: 0,
+        apply_overrides: 0,
+        auto_delete: AUTO_DELETE_KEEP,
+        auto_delete_data: undefined,
+        cmd: 'create_task',
+        comment: 'comment',
+        config_id: 'c1',
+        hosts_ordering: HOSTS_ORDERING_RANDOM,
+        in_assets: 0,
+        max_checks: 10,
+        max_hosts: 10,
+        min_qod: 70,
+        name: 'foo',
+        scanner_id: OPENVAS_DEFAULT_SCANNER_ID,
+        scanner_type: OPENVAS_SCANNER_TYPE,
+        schedule_id: undefined,
+        schedule_periods: undefined,
+        tag_id: undefined,
+        target_id: 't1',
+        usage_type: 'scan',
+        cs_allow_failed_retrieval: 1,
+      },
+    });
+    const {data} = resp;
+    expect(data.id).toEqual('foo');
+  });
+
+  test('should create new task with all parameters', async () => {
+    const response = createActionResultResponse();
+    const fakeHttp = createHttp(response);
+    const cmd = new TaskCommand(fakeHttp);
+    const resp = await cmd.create({
+      add_tag: 1,
+      alterable: 0,
+      alert_ids: ['a1', 'a2'],
+      apply_overrides: 0,
+      auto_delete: AUTO_DELETE_KEEP,
+      auto_delete_data: AUTO_DELETE_KEEP_DEFAULT_VALUE,
+      comment: 'comment',
+      config_id: 'c1',
+      in_assets: 0,
+      max_checks: 10,
+      max_hosts: 10,
+      min_qod: 70,
+      name: 'foo',
+      scanner_id: OPENVAS_DEFAULT_SCANNER_ID,
+      scanner_type: OPENVAS_SCANNER_TYPE,
+      schedule_id: 's1',
+      schedule_periods: 1,
+      tag_id: 't1',
+      target_id: 't1',
+      csAllowFailedRetrieval: true,
+    });
+    expect(fakeHttp.request).toHaveBeenCalledWith('post', {
+      data: {
+        add_tag: 1,
+        'alert_ids:': ['a1', 'a2'],
+        alterable: 0,
+        apply_overrides: 0,
+        auto_delete: AUTO_DELETE_KEEP,
+        auto_delete_data: AUTO_DELETE_KEEP_DEFAULT_VALUE,
+        cmd: 'create_task',
+        comment: 'comment',
+        config_id: 'c1',
+        hosts_ordering: HOSTS_ORDERING_RANDOM,
+        in_assets: 0,
+        max_checks: 10,
+        max_hosts: 10,
+        min_qod: 70,
+        name: 'foo',
+        scanner_id: OPENVAS_DEFAULT_SCANNER_ID,
+        scanner_type: OPENVAS_SCANNER_TYPE,
+        schedule_id: 's1',
+        schedule_periods: 1,
+        tag_id: 't1',
+        target_id: 't1',
+        usage_type: 'scan',
+        cs_allow_failed_retrieval: 1,
+      },
+    });
+    const {data} = resp;
+    expect(data.id).toEqual('foo');
+  });
+
+  test.each([
+    {
+      name: 'resource restricted',
+      feedsResponse: {feed_owner_set: 1},
+      message: 'Some Error',
+      expectedMessage:
+        'Access to the feed resources is currently restricted. This issue may be due to the feed not having completed its synchronization.\nPlease try again shortly.',
+    },
+    {
+      name: 'feed owner not set',
+      feedsResponse: {feed_owner_set: 0},
+      message: 'Some Error',
+      expectedMessage:
+        'The feed owner is currently not set. This issue may be due to the feed not having completed its synchronization.\nPlease try again shortly.',
+    },
+    {
+      name: 'missing port list',
+      message: 'Failed to find port_list XYZ',
+      feedsResponse: {
+        feed_owner_set: 1,
+        feed_resources_access: 1,
+      },
+      expectedMessage:
+        'Failed to create a new Target because the default Port List is not available. This issue may be due to the feed not having completed its synchronization.\nPlease try again shortly.',
+    },
+    {
+      name: 'missing scan config',
+      message: 'Failed to find config XYZ',
+      feedsResponse: {
+        feed_owner_set: 1,
+        feed_resources_access: 1,
+      },
+      expectedMessage:
+        'Failed to create a new Task because the default Scan Config is not available. This issue may be due to the feed not having completed its synchronization.\nPlease try again shortly.',
+    },
+  ])(
+    'should not create new task while feed is not available: $name',
+    async ({feedsResponse, message, expectedMessage}) => {
+      const xhr = {
+        status: 404,
+      } as XMLHttpRequest;
+      const rejection = new ResponseRejection(xhr, message);
+      const feedStatusResponse = createResponse({
+        get_feeds: {
+          get_feeds_response: feedsResponse,
+        },
+      });
+      const fakeHttp = {
+        request: testing
+          .fn()
+          .mockRejectedValueOnce(rejection)
+          .mockResolvedValueOnce(feedStatusResponse),
+      } as unknown as Http;
+
+      const cmd = new TaskCommand(fakeHttp);
+      await expect(
+        cmd.create({
+          alterable: 0,
+          apply_overrides: 0,
+          auto_delete: AUTO_DELETE_KEEP,
+          comment: 'comment',
+          config_id: 'c1',
+          in_assets: 0,
+          max_checks: 10,
+          max_hosts: 10,
+          min_qod: 70,
+          name: 'foo',
+          scanner_id: OPENVAS_DEFAULT_SCANNER_ID,
+          scanner_type: OPENVAS_SCANNER_TYPE,
+          target_id: 't1',
+          csAllowFailedRetrieval: true,
+        }),
+      ).rejects.toThrow(expectedMessage);
+    },
+  );
+
+  test('should create new import task', async () => {
+    const mockResponse = createActionResultResponse();
+    const fakeHttp = createHttp(mockResponse);
+    const cmd = new TaskCommand(fakeHttp);
+    const response = await cmd.createImportTask({
+      name: 'foo',
+      comment: 'comment',
+    });
+    expect(fakeHttp.request).toHaveBeenCalledWith('post', {
+      data: {
+        auto_delete_data: AUTO_DELETE_KEEP_DEFAULT_VALUE,
+        cmd: 'create_import_task',
+        comment: 'comment',
+        name: 'foo',
+        usage_type: 'scan',
+      },
+    });
+    expect(response.data).toEqual({id: 'foo'});
+  });
+
+  test('should update the import task', async () => {
+    const mockResponse = createActionResultResponse();
+    const fakeHttp = createHttp(mockResponse);
+    const cmd = new TaskCommand(fakeHttp);
+    await cmd.saveImportTask({
+      name: 'foo',
+      comment: 'comment',
+      id: 'test',
+    });
+    expect(fakeHttp.request).toHaveBeenCalledWith('post', {
+      data: {
+        cmd: 'save_import_task',
+        comment: 'comment',
+        name: 'foo',
+        auto_delete: 'no',
+        auto_delete_data: AUTO_DELETE_KEEP_DEFAULT_VALUE,
+        task_id: 'test',
+        usage_type: 'scan',
+        in_assets: 1,
+      },
+    });
+  });
+
+  test('should save task', async () => {
+    const mockResponse = createActionResultResponse();
+    const fakeHttp = createHttp(mockResponse);
+    const cmd = new TaskCommand(fakeHttp);
+    const response = await cmd.save({
+      alterable: 0,
+      apply_overrides: 0,
+      auto_delete: AUTO_DELETE_KEEP,
+      comment: 'comment',
+      id: 'task1',
+      in_assets: 0,
+      max_checks: 10,
+      max_hosts: 10,
+      min_qod: 70,
+      name: 'foo',
+      csAllowFailedRetrieval: true,
+    });
+    expect(fakeHttp.request).toHaveBeenCalledWith('post', {
+      data: {
+        'alert_ids:': [],
+        alterable: 0,
+        apply_overrides: 0,
+        auto_delete: AUTO_DELETE_KEEP,
+        auto_delete_data: undefined,
+        cmd: 'save_task',
+        comment: 'comment',
+        config_id: '0',
+        hosts_ordering: HOSTS_ORDERING_RANDOM,
+        in_assets: 0,
+        max_checks: 10,
+        max_hosts: 10,
+        min_qod: 70,
+        name: 'foo',
+        scanner_id: '0',
+        scanner_type: undefined,
+        schedule_id: '0',
+        schedule_periods: undefined,
+        task_id: 'task1',
+        target_id: '0',
+        usage_type: 'scan',
+        cs_allow_failed_retrieval: 1,
+      },
+    });
+    expect(response).toBeUndefined();
+  });
+
+  test.each([
+    {
+      name: 'resource restricted',
+      feedsResponse: {feed_owner_set: 1},
+      message: 'Some Error',
+      expectedMessage:
+        'Access to the feed resources is currently restricted. This issue may be due to the feed not having completed its synchronization.\nPlease try again shortly.',
+    },
+    {
+      name: 'feed owner not set',
+      feedsResponse: {feed_owner_set: 0},
+      message: 'Some Error',
+      expectedMessage:
+        'The feed owner is currently not set. This issue may be due to the feed not having completed its synchronization.\nPlease try again shortly.',
+    },
+    {
+      name: 'missing port list',
+      message: 'Failed to find port_list XYZ',
+      feedsResponse: {
+        feed_owner_set: 1,
+        feed_resources_access: 1,
+      },
+      expectedMessage:
+        'Failed to create a new Target because the default Port List is not available. This issue may be due to the feed not having completed its synchronization.\nPlease try again shortly.',
+    },
+    {
+      name: 'missing scan config',
+      message: 'Failed to find config XYZ',
+      feedsResponse: {
+        feed_owner_set: 1,
+        feed_resources_access: 1,
+      },
+      expectedMessage:
+        'Failed to create a new Task because the default Scan Config is not available. This issue may be due to the feed not having completed its synchronization.\nPlease try again shortly.',
+    },
+  ])(
+    'should not save task while feed is not available: $name',
+    async ({feedsResponse, message, expectedMessage}) => {
+      const xhr = {
+        status: 404,
+      };
+      const rejection = new ResponseRejection(xhr as XMLHttpRequest, message);
+      const feedStatusResponse = createResponse({
+        get_feeds: {
+          get_feeds_response: feedsResponse,
+        },
+      });
+      const fakeHttp = {
+        request: testing
+          .fn()
+          .mockRejectedValueOnce(rejection)
+          .mockResolvedValueOnce(feedStatusResponse),
+      } as unknown as Http;
+
+      const cmd = new TaskCommand(fakeHttp);
+      await expect(
+        cmd.save({
+          alterable: 0,
+          apply_overrides: 0,
+          auto_delete: AUTO_DELETE_KEEP,
+          comment: 'comment',
+          id: 'task1',
+          in_assets: 0,
+          max_checks: 10,
+          max_hosts: 10,
+          min_qod: 70,
+          name: 'foo',
+          csAllowFailedRetrieval: true,
+        }),
+      ).rejects.toThrow(expectedMessage);
+    },
+  );
+
+  test('should save task with all parameters', async () => {
+    const mockResponse = createActionResultResponse();
+    const fakeHttp = createHttp(mockResponse);
+    const cmd = new TaskCommand(fakeHttp);
+    const response = await cmd.save({
+      alterable: 0,
+      alert_ids: ['a1', 'a2'],
+      apply_overrides: 0,
+      auto_delete: AUTO_DELETE_KEEP,
+      auto_delete_data: AUTO_DELETE_KEEP_DEFAULT_VALUE,
+      comment: 'comment',
+      config_id: 'c1',
+      id: 'task1',
+      in_assets: 0,
+      max_checks: 10,
+      max_hosts: 10,
+      min_qod: 70,
+      name: 'foo',
+      scanner_id: OPENVAS_DEFAULT_SCANNER_ID,
+      scanner_type: OPENVAS_SCANNER_TYPE,
+      schedule_id: 's1',
+      schedule_periods: 1,
+      target_id: 't1',
+      csAllowFailedRetrieval: true,
+    });
+    expect(fakeHttp.request).toHaveBeenCalledWith('post', {
+      data: {
+        'alert_ids:': ['a1', 'a2'],
+        alterable: 0,
+        apply_overrides: 0,
+        auto_delete: AUTO_DELETE_KEEP,
+        auto_delete_data: AUTO_DELETE_KEEP_DEFAULT_VALUE,
+        cmd: 'save_task',
+        comment: 'comment',
+        config_id: 'c1',
+        hosts_ordering: HOSTS_ORDERING_RANDOM,
+        in_assets: 0,
+        max_checks: 10,
+        max_hosts: 10,
+        min_qod: 70,
+        name: 'foo',
+        scanner_id: OPENVAS_DEFAULT_SCANNER_ID,
+        scanner_type: OPENVAS_SCANNER_TYPE,
+        schedule_id: 's1',
+        schedule_periods: 1,
+        task_id: 'task1',
+        target_id: 't1',
+        usage_type: 'scan',
+        cs_allow_failed_retrieval: 1,
+      },
+    });
+    expect(response).toBeUndefined();
+  });
+
+  test('should throw an error if feed is currently syncing', async () => {
+    const response = createResponse({
+      get_feeds: {
+        get_feeds_response: {
+          feed: [
+            {
+              type: 'NVT',
+              currently_syncing: true,
+              sync_not_available: false,
+              version: 202502170647,
+            },
+            {
+              type: 'SCAP',
+              currently_syncing: false,
+              sync_not_available: false,
+              version: 202502170647,
+            },
+          ],
+        },
+      },
+    });
+    const fakeHttp = createHttp(response);
+
+    const taskCmd = new TaskCommand(fakeHttp);
+
+    const feedCmd = new FeedStatusCommand(fakeHttp);
+
+    const result = await feedCmd.checkFeedSync();
+    expect(result.isSyncing).toBe(true);
+
+    await expect(taskCmd.start({id: 'task1'})).rejects.toThrow(
+      'Feed is currently syncing. Please try again later.',
+    );
+  });
+
+  test('should create new agent group task', async () => {
+    const response = createActionResultResponse();
+    const fakeHttp = createHttp(response);
+
+    const cmd = new TaskCommand(fakeHttp);
+    const resp = await cmd.createAgentGroupTask({
+      alterable: 0,
+      applyOverrides: 0,
+      autoDelete: AUTO_DELETE_KEEP,
+      comment: 'comment',
+      inAssets: 0,
+      minQod: 70,
+      name: 'foo',
+      agentGroupId: 'ag1',
+    });
+
+    expect(fakeHttp.request).toHaveBeenCalledWith('post', {
+      data: {
+        cmd: 'create_agent_group_task',
+        add_tag: undefined,
+        'alert_ids:': [],
+        alterable: 0,
+        apply_overrides: 0,
+        auto_delete: AUTO_DELETE_KEEP,
+        auto_delete_data: undefined,
+        comment: 'comment',
+        in_assets: 0,
+        min_qod: 70,
+        name: 'foo',
+        schedule_id: undefined,
+        schedule_periods: undefined,
+        tag_id: undefined,
+        agent_group_id: 'ag1',
+      },
+    });
+    expect(resp.data.id).toEqual('foo');
+  });
+
+  test('should create new agent group task with all parameters', async () => {
+    const response = createActionResultResponse();
+    const fakeHttp = createHttp(response);
+
+    const cmd = new TaskCommand(fakeHttp);
+    const resp = await cmd.createAgentGroupTask({
+      addTag: 1,
+      alertIds: ['a1', 'a2'],
+      alterable: 0,
+      applyOverrides: 0,
+      autoDelete: AUTO_DELETE_KEEP,
+      autoDeleteData: AUTO_DELETE_KEEP_DEFAULT_VALUE,
+      comment: 'comment',
+      inAssets: 0,
+      minQod: 70,
+      name: 'foo',
+      scheduleId: 's1',
+      schedulePeriods: 2,
+      tagId: 't9',
+      agentGroupId: 'ag1',
+    });
+
+    expect(fakeHttp.request).toHaveBeenCalledWith('post', {
+      data: {
+        cmd: 'create_agent_group_task',
+        add_tag: 1,
+        'alert_ids:': ['a1', 'a2'],
+        alterable: 0,
+        apply_overrides: 0,
+        auto_delete: AUTO_DELETE_KEEP,
+        auto_delete_data: AUTO_DELETE_KEEP_DEFAULT_VALUE,
+        comment: 'comment',
+        in_assets: 0,
+        min_qod: 70,
+        name: 'foo',
+        schedule_id: 's1',
+        schedule_periods: 2,
+        tag_id: 't9',
+        agent_group_id: 'ag1',
+      },
+    });
+    expect(resp.data.id).toEqual('foo');
+  });
+
+  test.each([
+    {
+      name: 'resource restricted',
+      feedsResponse: {feed_owner_set: 1},
+      message: 'Some Error',
+      expectedMessage:
+        'Access to the feed resources is currently restricted. This issue may be due to the feed not having completed its synchronization.\nPlease try again shortly.',
+    },
+    {
+      name: 'feed owner not set',
+      feedsResponse: {feed_owner_set: 0},
+      message: 'Some Error',
+      expectedMessage:
+        'The feed owner is currently not set. This issue may be due to the feed not having completed its synchronization.\nPlease try again shortly.',
+    },
+    {
+      name: 'missing scan config',
+      message: 'Failed to find config XYZ',
+      feedsResponse: {
+        feed_owner_set: 1,
+        feed_resources_access: 1,
+      },
+      expectedMessage:
+        'Failed to create a new Task because the default Scan Config is not available. This issue may be due to the feed not having completed its synchronization.\nPlease try again shortly.',
+    },
+  ])(
+    'should not create new agent group task while feed is not available: $name',
+    async ({feedsResponse, message, expectedMessage}) => {
+      const xhr = {status: 404} as XMLHttpRequest;
+      const rejection = new ResponseRejection(xhr, message);
+      const feedStatusResponse = createResponse({
+        get_feeds: {get_feeds_response: feedsResponse},
+      });
+
+      const fakeHttp = {
+        request: testing
+          .fn()
+          .mockRejectedValueOnce(rejection)
+          .mockResolvedValueOnce(feedStatusResponse),
+      } as unknown as Http;
+
+      const cmd = new TaskCommand(fakeHttp);
+
+      await expect(
+        cmd.createAgentGroupTask({
+          alterable: 0,
+          applyOverrides: 0,
+          autoDelete: AUTO_DELETE_KEEP,
+          comment: 'comment',
+          inAssets: 0,
+          minQod: 70,
+          name: 'foo',
+          agentGroupId: 'ag1',
+        }),
+      ).rejects.toThrow(expectedMessage);
+    },
+  );
+
+  test('should save agent group task', async () => {
+    const response = createActionResultResponse();
+    const fakeHttp = createHttp(response);
+
+    const cmd = new TaskCommand(fakeHttp);
+    const result = await cmd.saveAgentGroupTask({
+      alterable: 0,
+      applyOverrides: 0,
+      autoDelete: AUTO_DELETE_KEEP,
+      comment: 'comment',
+      id: 'task1',
+      inAssets: 0,
+      minQod: 70,
+      name: 'foo',
+    });
+
+    expect(fakeHttp.request).toHaveBeenCalledWith('post', {
+      data: {
+        alterable: 0,
+        'alert_ids:': [],
+        apply_overrides: 0,
+        auto_delete: AUTO_DELETE_KEEP,
+        auto_delete_data: undefined,
+        comment: 'comment',
+        cmd: 'save_agent_group_task',
+        in_assets: 0,
+        min_qod: 70,
+        name: 'foo',
+        schedule_id: '0',
+        schedule_periods: undefined,
+        agent_group_id: '0',
+        task_id: 'task1',
+      },
+    });
+    expect(result).toBeUndefined();
+  });
+
+  test('should save agent group task with all parameters', async () => {
+    const response = createActionResultResponse();
+    const fakeHttp = createHttp(response);
+
+    const cmd = new TaskCommand(fakeHttp);
+    const result = await cmd.saveAgentGroupTask({
+      alertIds: ['a1', 'a2'],
+      alterable: 0,
+      applyOverrides: 0,
+      autoDelete: AUTO_DELETE_KEEP,
+      autoDeleteData: AUTO_DELETE_KEEP_DEFAULT_VALUE,
+      comment: 'comment',
+      id: 'task1',
+      inAssets: 0,
+      minQod: 70,
+      name: 'foo',
+      scheduleId: 's1',
+      schedulePeriods: 3,
+      agentGroupId: 'ag1',
+    });
+
+    expect(fakeHttp.request).toHaveBeenCalledWith('post', {
+      data: {
+        alterable: 0,
+        'alert_ids:': ['a1', 'a2'],
+        apply_overrides: 0,
+        auto_delete: AUTO_DELETE_KEEP,
+        auto_delete_data: AUTO_DELETE_KEEP_DEFAULT_VALUE,
+        comment: 'comment',
+        cmd: 'save_agent_group_task',
+        in_assets: 0,
+        min_qod: 70,
+        name: 'foo',
+        schedule_id: 's1',
+        schedule_periods: 3,
+        agent_group_id: 'ag1',
+        task_id: 'task1',
+      },
+    });
+    expect(result).toBeUndefined();
+  });
+
+  test.each([
+    {
+      name: 'resource restricted',
+      feedsResponse: {feed_owner_set: 1},
+      message: 'Some Error',
+      expectedMessage:
+        'Access to the feed resources is currently restricted. This issue may be due to the feed not having completed its synchronization.\nPlease try again shortly.',
+    },
+    {
+      name: 'feed owner not set',
+      feedsResponse: {feed_owner_set: 0},
+      message: 'Some Error',
+      expectedMessage:
+        'The feed owner is currently not set. This issue may be due to the feed not having completed its synchronization.\nPlease try again shortly.',
+    },
+    {
+      name: 'missing scan config',
+      message: 'Failed to find config XYZ',
+      feedsResponse: {
+        feed_owner_set: 1,
+        feed_resources_access: 1,
+      },
+      expectedMessage:
+        'Failed to create a new Task because the default Scan Config is not available. This issue may be due to the feed not having completed its synchronization.\nPlease try again shortly.',
+    },
+  ])(
+    'should not save agent group task while feed is not available: $name',
+    async ({feedsResponse, message, expectedMessage}) => {
+      const xhr = {status: 404} as XMLHttpRequest;
+      const rejection = new ResponseRejection(xhr, message);
+      const feedStatusResponse = createResponse({
+        get_feeds: {get_feeds_response: feedsResponse},
+      });
+
+      const fakeHttp = {
+        request: testing
+          .fn()
+          .mockRejectedValueOnce(rejection)
+          .mockResolvedValueOnce(feedStatusResponse),
+      } as unknown as Http;
+
+      const cmd = new TaskCommand(fakeHttp);
+
+      await expect(
+        cmd.saveAgentGroupTask({
+          alterable: 0,
+          applyOverrides: 0,
+          autoDelete: AUTO_DELETE_KEEP,
+          comment: 'comment',
+          id: 'task1',
+          inAssets: 0,
+          minQod: 70,
+          name: 'foo',
+        }),
+      ).rejects.toThrow(expectedMessage);
+    },
+  );
+
+  test('should create new container image task', async () => {
+    const response = createActionResultResponse();
+    const fakeHttp = createHttp(response);
+
+    const cmd = new TaskCommand(fakeHttp);
+    const resp = await cmd.createContainerImageTask({
+      alterable: false,
+      autoDelete: AUTO_DELETE_KEEP,
+      comment: 'comment',
+      name: 'foo',
+      ociImageTargetId: 'oit1',
+      scannerId: 's1',
+    });
+
+    expect(fakeHttp.request).toHaveBeenCalledWith('post', {
+      data: {
+        cmd: 'create_oci_image_task',
+        add_tag: 0,
+        'alert_ids:': [],
+        accept_invalid_certs: 0,
+        registry_allow_insecure: 0,
+        alterable: 0,
+        auto_delete: AUTO_DELETE_KEEP,
+        auto_delete_data: undefined,
+        comment: 'comment',
+        name: 'foo',
+        oci_image_target_id: 'oit1',
+        scanner_id: 's1',
+        scanner_type: CONTAINER_IMAGE_SCANNER_TYPE,
+        schedule_id: undefined,
+        schedule_periods: 0,
+        tag_id: undefined,
+        usage_type: 'scan',
+      },
+    });
+    expect(resp.data.id).toEqual('foo');
+  });
+
+  test('should create new container image task with all parameters', async () => {
+    const response = createActionResultResponse();
+    const fakeHttp = createHttp(response);
+
+    const cmd = new TaskCommand(fakeHttp);
+    const resp = await cmd.createContainerImageTask({
+      acceptInvalidCerts: true,
+      addTag: true,
+      alertIds: ['a1', 'a2'],
+      alterable: false,
+      autoDelete: AUTO_DELETE_KEEP,
+      autoDeleteData: AUTO_DELETE_KEEP_DEFAULT_VALUE,
+      comment: 'comment',
+      name: 'foo',
+      ociImageTargetId: 'oit1',
+      registryAllowInsecure: true,
+      scannerId: 's1',
+      scheduleId: 'sched1',
+      schedulePeriods: true,
+      tagId: 't1',
+    });
+
+    expect(fakeHttp.request).toHaveBeenCalledWith('post', {
+      data: {
+        cmd: 'create_oci_image_task',
+        add_tag: 1,
+        'alert_ids:': ['a1', 'a2'],
+        accept_invalid_certs: 1,
+        registry_allow_insecure: 1,
+        alterable: 0,
+        auto_delete: AUTO_DELETE_KEEP,
+        auto_delete_data: AUTO_DELETE_KEEP_DEFAULT_VALUE,
+        comment: 'comment',
+        name: 'foo',
+        oci_image_target_id: 'oit1',
+        scanner_id: 's1',
+        scanner_type: CONTAINER_IMAGE_SCANNER_TYPE,
+        schedule_id: 'sched1',
+        schedule_periods: 1,
+        tag_id: 't1',
+        usage_type: 'scan',
+      },
+    });
+    expect(resp.data.id).toEqual('foo');
+  });
+
+  test('should save container image task', async () => {
+    const response = createActionResultResponse();
+    const fakeHttp = createHttp(response);
+
+    const cmd = new TaskCommand(fakeHttp);
+    const result = await cmd.saveContainerImageTask({
+      alterable: false,
+      autoDelete: AUTO_DELETE_KEEP,
+      comment: 'comment',
+      id: 'task1',
+      name: 'foo',
+      ociImageTargetId: 'oit1',
+    });
+
+    expect(fakeHttp.request).toHaveBeenCalledWith('post', {
+      data: {
+        cmd: 'save_oci_image_task',
+        'alert_ids:': [],
+        accept_invalid_certs: 0,
+        registry_allow_insecure: 0,
+        alterable: 0,
+        auto_delete: AUTO_DELETE_KEEP,
+        auto_delete_data: undefined,
+        comment: 'comment',
+        name: 'foo',
+        oci_image_target_id: 'oit1',
+        /* on edit scanner_id should be '0' */
+        scanner_id: '0',
+        scanner_type: CONTAINER_IMAGE_SCANNER_TYPE,
+        schedule_periods: 0,
+        task_id: 'task1',
+        usage_type: 'scan',
+      },
+    });
+    expect(result).toBeUndefined();
+  });
+
+  test('should save container image task with all parameters', async () => {
+    const response = createActionResultResponse();
+    const fakeHttp = createHttp(response);
+
+    const cmd = new TaskCommand(fakeHttp);
+    const result = await cmd.saveContainerImageTask({
+      acceptInvalidCerts: true,
+      alertIds: ['a1', 'a2'],
+      alterable: false,
+      autoDelete: AUTO_DELETE_KEEP,
+      autoDeleteData: AUTO_DELETE_KEEP_DEFAULT_VALUE,
+      comment: 'comment',
+      id: 'task1',
+      name: 'foo',
+      ociImageTargetId: 'oit1',
+      registryAllowInsecure: false,
+      scannerId: 's1',
+      scheduleId: 'sched1',
+      schedulePeriods: true,
+    });
+
+    expect(fakeHttp.request).toHaveBeenCalledWith('post', {
+      data: {
+        cmd: 'save_oci_image_task',
+        'alert_ids:': ['a1', 'a2'],
+        accept_invalid_certs: 1,
+        registry_allow_insecure: 0,
+        alterable: 0,
+        auto_delete: AUTO_DELETE_KEEP,
+        auto_delete_data: AUTO_DELETE_KEEP_DEFAULT_VALUE,
+        comment: 'comment',
+        name: 'foo',
+        oci_image_target_id: 'oit1',
+        scanner_id: 's1',
+        scanner_type: CONTAINER_IMAGE_SCANNER_TYPE,
+        schedule_id: 'sched1',
+        schedule_periods: 1,
+        task_id: 'task1',
+        usage_type: 'scan',
+      },
+    });
+    expect(result).toBeUndefined();
+  });
+});

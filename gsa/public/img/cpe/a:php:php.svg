@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="52.509" height="52.52" version="1.0" viewBox="0 0 52.509 52.52" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <linearGradient id="linearGradient13956" x1="46.592" x2="43.592" y1="89.585" y2="-74.733" gradientUnits="userSpaceOnUse">
+   <stop stop-color="#ebebeb" offset="0"/>
+   <stop stop-color="#fff" offset="1"/>
+  </linearGradient>
+  <linearGradient id="linearGradient13966" x1="26.48" x2="26.48" y1="1.3939" y2="52.843" gradientUnits="userSpaceOnUse">
+   <stop stop-color="#fff" offset="0"/>
+   <stop stop-color="#fff" stop-opacity="0" offset="1"/>
+  </linearGradient>
+ </defs>
+ <g transform="translate(-3.8191 -6.1557)">
+  <g transform="translate(-840.83 182.27)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <g transform="translate(-1426.6 -26.29)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <rect x="4.9083" y="7.2196" width="50.731" height="50.549" rx="7.0914" ry="7.0914" color="#000000" fill="url(#linearGradient13956)" fill-rule="evenodd" stroke="#2b2b2b" stroke-width=".997"/>
+  <g transform="matrix(-.0039739 .6296 -.6296 -.0039739 295.58 -273.62)" fill="#fff"></g>
+  <path transform="translate(3.8191 6.1557)" d="m2.1818 45.429-0.18182-37.636s1.0909-5.6364 5.4545-5.8182c4.3636-0.18182 37.455 0 37.455 0s5.8182 0 6 7.2727c0.18182 7.2727-0.18182 36.727-0.18182 36.727" color="black" fill="none" stroke="url(#linearGradient13966)"/>
+  <ellipse transform="matrix(.16712 0 0 .23928 5.1802 14.056)" cx="150" cy="80" rx="146" ry="76" fill="#6c7eb7" stroke="#6c7eb7" stroke-width="5.5"/>
+  <path id="p" d="m7.8018 41.454 3.0933-15.66h7.1533c3.0933 0.19333 4.64 1.74 4.64 4.4467 0 4.64-3.6733 7.3466-6.96 7.1533h-3.48l-0.77333 4.06h-3.6733zm5.22-6.96 0.96666-5.8h2.5133c1.3533 0 2.32 0.58 2.32 1.74-0.19333 3.2867-1.74 3.8667-3.48 4.06h-2.32z" fill="#fff" fill-rule="evenodd"/>
+  <path id="h" d="m23.91 37.394 3.0933-15.66h3.6733l-0.77333 4.06h3.48c3.0933 0.19333 4.2533 1.74 3.8667 3.6733l-1.3533 7.9266h-3.8667l1.3533-7.1533c0.19333-0.96666 0.19333-1.5467-1.16-1.5467h-2.9l-1.74 8.7h-3.6733z" fill="#fff"/>
+  <use transform="translate(30.67)" width="1" height="1" fill="#ffffff" xlink:href="#p"/>
+ </g>
+</svg>

@@ -1,0 +1,77 @@
+/* SPDX-FileCopyrightText: 2024 Greenbone AG
+ *
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+import {
+  type EntityType,
+  type WithEntityType,
+  getEntityType,
+  typeName,
+} from 'gmp/utils/entity-type';
+import {isDefined} from 'gmp/utils/identity';
+import {NewIcon} from 'web/components/icon';
+import {type ExtendedDynamicIconProps} from 'web/components/icon/createIconComponents';
+import useCapabilities from 'web/hooks/useCapabilities';
+import useTranslation from 'web/hooks/useTranslation';
+
+interface EntityCreateIconProps<TEntity extends WithEntityType> extends Omit<
+  ExtendedDynamicIconProps<TEntity>,
+  'onClick' | 'value' | 'active' | 'display'
+> {
+  display?: boolean;
+  displayName?: string;
+  entity: TEntity;
+  mayCreate?: boolean;
+  name?: EntityType;
+  title?: string;
+  onClick?: (value: TEntity) => void | Promise<void>;
+}
+
+const EntityCreateIcon = <TEntity extends WithEntityType>({
+  display = false,
+  displayName,
+  entity,
+  mayCreate = true,
+  name,
+  title,
+  onClick,
+  ...props
+}: EntityCreateIconProps<TEntity>) => {
+  const [_] = useTranslation();
+  const capabilities = useCapabilities();
+  if (!isDefined(name)) {
+    name = getEntityType(entity);
+  }
+
+  const active = mayCreate && capabilities?.mayCreate(name);
+  if (!display && !active) {
+    return null;
+  }
+
+  if (!isDefined(displayName)) {
+    displayName = typeName(name);
+  }
+
+  if (!isDefined(title)) {
+    if (active) {
+      title = _('Create new {{entity}}', {entity: displayName});
+    } else if (!mayCreate) {
+      title = _('{{entity}} may not be created', {entity: displayName});
+    } else {
+      title = _('Permission to create {{entity}} denied', {
+        entity: displayName,
+      });
+    }
+  }
+  return (
+    <NewIcon<TEntity>
+      {...props}
+      active={active}
+      title={title}
+      onClick={active ? onClick : undefined}
+    />
+  );
+};
+
+export default EntityCreateIcon;

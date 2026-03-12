@@ -1,0 +1,17 @@
+/* SPDX-FileCopyrightText: 2024 Greenbone AG
+ *
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+import type Filter from 'gmp/models/filter';
+import {isDefined} from 'gmp/utils/identity';
+
+export const isFilter = (filter?: unknown): filter is Filter =>
+  isDefined((filter as Filter)?.toFilterString);
+
+export const filterString = (filter?: Filter | number | string) =>
+  isFilter(filter)
+    ? filter.toFilterString()
+    : isDefined(filter)
+      ? String(filter)
+      : undefined;

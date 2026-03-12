@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="52.509" height="52.52" version="1.0" viewBox="0 0 52.509 52.52" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <linearGradient id="linearGradient13966" x1="26.48" x2="26.48" y1="1.3939" y2="52.843" gradientUnits="userSpaceOnUse">
+   <stop stop-color="#fff" offset="0"/>
+   <stop stop-color="#fff" stop-opacity="0" offset="1"/>
+  </linearGradient>
+  <linearGradient id="linearGradient45717" x1="26.48" x2="26.48" y1="1.3939" y2="52.843" gradientTransform="translate(3.8646 6.0875)" gradientUnits="userSpaceOnUse">
+   <stop stop-color="#fff" offset="0"/>
+   <stop stop-color="#fff" stop-opacity="0" offset="1"/>
+  </linearGradient>
+  <linearGradient id="linearGradient45721" x1="46.592" x2="43.592" y1="89.585" y2="-74.733" gradientTransform="translate(.045477 -.068185)" gradientUnits="userSpaceOnUse">
+   <stop stop-color="#dbdbdb" offset="0"/>
+   <stop stop-color="#fff" offset="1"/>
+  </linearGradient>
+  <style type="text/css">.str1 {stroke:#373435;stroke-width:0.19326}
+    .str0 {stroke:#373435;stroke-width:0.19326;stroke-linejoin:bevel}
+    .fil1 {fill:none}
+    .fil7 {fill:#00AFEF}
+    .fil6 {fill:#ED3237}
+    .fil5 {fill:#F58634}
+    .fil8 {fill:#FFF212}
+    .fil2 {fill:#000203}
+    .fil3 {fill:#030101}
+    .fil4 {fill:#030201}
+    .fil0 {fill:#030300}</style>
+ </defs>
+ <g transform="translate(-3.8191 -6.1557)">
+  <rect x="4.9538" y="7.1514" width="50.731" height="50.549" rx="7.0914" ry="7.0914" color="#000000" fill="url(#linearGradient45721)" fill-rule="evenodd" stroke="#2b2b2b" stroke-width=".997"/>
+  <path d="m6.0464 51.517-0.18182-37.636s1.0909-5.6364 5.4545-5.8182c4.3636-0.18182 37.455 0 37.455 0s5.8182 0 6 7.2727c0.18182 7.2727-0.18182 36.727-0.18182 36.727" color="#000000" fill="none" stroke="url(#linearGradient45717)"/>
+  <g transform="translate(-840.83 182.27)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <g transform="translate(-1426.6 -26.29)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <path transform="translate(3.8191 6.1557)" d="m2.1818 45.429-0.18182-37.636s1.0909-5.6364 5.4545-5.8182c4.3636-0.18182 37.455 0 37.455 0s5.8182 0 6 7.2727c0.18182 7.2727-0.18182 36.727-0.18182 36.727" color="#000000" fill="none" stroke="url(#linearGradient13966)"/>
+  <g transform="translate(-754.29 187.45)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <g transform="translate(-1340.1 -21.108)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <g transform="translate(-727.65 184.91)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <g transform="translate(-1313.4 -23.649)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <g transform="translate(-790.62 185.07)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <g transform="translate(-1376.4 -23.49)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <g transform="translate(-787.81 182.24)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <g transform="translate(-1373.6 -26.319)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <g transform="translate(-701.26 187.42)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <g transform="translate(-1287 -21.137)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <g transform="translate(-674.63 184.88)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <g transform="translate(-1260.4 -23.678)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <g transform="translate(-737.6 185.04)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <g transform="translate(-1323.4 -23.52)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <g transform="translate(-786.75 181.68)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <g transform="translate(-1372.5 -26.881)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <g transform="translate(-700.2 186.86)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <g transform="translate(-1286 -21.699)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <g transform="translate(-673.57 184.32)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <g transform="translate(-1259.3 -24.24)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <g transform="translate(-736.54 184.48)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <g transform="translate(-1322.3 -24.081)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <g transform="translate(-787.78 183.3)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <g transform="translate(-1373.6 -25.263)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <g transform="translate(-701.23 188.48)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <g transform="translate(-1287 -20.081)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <g transform="translate(-674.59 185.94)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <g transform="translate(-1260.4 -22.622)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <g transform="translate(-737.57 186.1)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <g transform="translate(-1323.3 -22.464)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <g transform="translate(-784.91 184.78)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <g transform="translate(-1370.7 -23.784)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <g transform="translate(-698.37 189.96)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <g transform="translate(-1284.1 -18.602)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <g transform="translate(-671.73 187.42)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <g transform="translate(-1257.5 -21.143)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <g transform="translate(-734.71 187.58)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <g transform="translate(-1320.5 -20.985)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <g transform="translate(-718 181.35)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <g transform="translate(-1303.8 -27.211)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <g transform="translate(-631.46 186.53)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <g transform="translate(-1217.2 -22.029)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <g transform="translate(-604.82 183.99)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <g transform="translate(-1190.6 -24.57)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <g transform="translate(-667.79 184.15)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <g transform="translate(-1253.6 -24.412)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <path d="m12.965 33.058c-1.3647-0.37445-2.4904-1.4874-2.8324-2.8005-0.14085-0.54078-0.14085-1.5344 0-2.0752 0.34064-1.3078 1.4917-2.4589 2.7995-2.7995 0.53792-0.14011 1.4625-0.14089 1.997-0.0016 0.72325 0.18838 1.1954 0.46452 1.775 1.0382 0.61481 0.60848 1.0016 1.3042 1.1354 2.0423 0.04386 0.24196 0.07719 1.3518 0.07719 2.5704v2.1446l-0.16147-0.04894c-0.42496-0.12879-0.84517-0.34962-1.0276-0.54005-0.1107-0.11554-0.23976-0.21008-0.2868-0.21008-0.04703 0-0.27512 0.11417-0.50686 0.25372-0.23173 0.13954-0.5828 0.30427-0.78015 0.36606-0.51822 0.16226-1.6993 0.19503-2.1888 0.06074zm1.9135-1.624c0.54196-0.20278 1.1054-0.77212 1.3154-1.3292 0.20831-0.55259 0.18018-1.4794-0.05893-1.9414-0.95117-1.8378-3.5097-1.8137-4.3794 0.04121-0.15912 0.33939-0.18991 0.50453-0.18933 1.0153 8.24e-4 0.72534 0.14524 1.1029 0.61795 1.6158 0.70438 0.76416 1.6749 0.9797 2.6943 0.59832zm4.1146-1.8286v-3.5615l0.29458 0.0471c0.16202 0.02591 0.38647 0.09463 0.49878 0.1527 0.29742 0.1538 0.40441 0.1334 0.73925-0.14099 0.38675-0.31691 1.1116-0.65898 1.62-0.76452 0.45304-0.09405 1.659-0.05236 1.9605 0.06777l0.19735 0.07862v0.87061c0 0.8021-0.0099 0.86632-0.12558 0.81605-0.87043-0.37819-1.4953-0.40337-2.1841-0.08802-0.55436 0.2538-0.88261 0.57261-1.1514 1.1183l-0.2347 0.47649-0.02256 2.2444-0.02256 2.2444h-0.78478-0.78478zm9.2351 3.4537c-1.3006-0.35752-2.4148-1.5433-2.7378-2.9137-0.08186-0.34726-0.10847-0.91787-0.10927-2.3428-6.86e-4 -1.0361 0.02491-1.8838 0.05665-1.8838 0.12952 0 0.71172 0.42359 0.93939 0.68346 0.44554 0.50857 0.53143 0.80773 0.58672 2.0435 0.03289 0.7351 0.08901 1.2184 0.1655 1.4252 0.35724 0.96579 1.3404 1.6141 2.2584 1.4892 0.76432-0.10401 1.3711-0.57275 1.7247-1.3324 0.17627-0.37865 0.18727-0.47462 0.22662-1.9768 0.04653-1.7766 0.09266-1.9672 0.61717-2.5505 0.26479-0.29447 0.84178-0.71474 0.98127-0.71474 0.03952 0 0.05191 0.9712 0.03087 2.422-0.03843 2.6509-0.06463 2.8474-0.49298 3.6963-0.27113 0.53734-1.0824 1.3678-1.6108 1.6489-0.74432 0.396-1.8445 0.5237-2.6364 0.30601zm5.8352-5.0274v-5.1351l0.22455 0.12964c0.82857 0.47838 1.2489 1.1745 1.3276 2.1988 0.05518 0.71791 0.07883 0.73397 0.65476 0.4447 0.7838-0.39368 1.9181-0.51087 2.7777-0.28699 1.3078 0.34064 2.4589 1.4917 2.7995 2.7995 0.14134 0.54261 0.14071 1.5347-0.0014 2.081-0.21723 0.83563-0.78088 1.6371-1.5246 2.1678-1.2168 0.86832-2.8731 0.97431-4.1611 0.2663-0.2483-0.13648-0.48453-0.24815-0.52496-0.24815-0.04042 0-0.19423 0.09702-0.3418 0.21561-0.23672 0.19024-0.95514 0.50202-1.1568 0.50202-0.04954 0-0.07356-1.6761-0.07356-5.1351zm4.9685 3.3618c0.48582-0.21586 0.99544-0.72743 1.2175-1.2221 0.23772-0.52967 0.2263-1.431-0.02492-1.9668-0.86956-1.8547-3.4306-1.8788-4.3789-0.04121-0.21754 0.42155-0.2661 1.3329-0.098 1.839 0.44388 1.3364 1.9612 1.9791 3.2844 1.3912zm6.7027 1.6639c-2.3991-0.60578-3.6531-3.3103-2.5781-5.5599 0.32145-0.67265 1.1404-1.5186 1.7554-1.8133 0.86112-0.41259 1.9471-0.52873 2.8194-0.30153 0.97101 0.25292 1.9915 1.0587 2.4586 1.9412 0.41966 0.79289 0.45076 1.0383 0.45076 3.5581v2.2779l-0.3299-0.09929c-0.35591-0.10712-0.89008-0.42873-0.89008-0.5359 0-0.16885-0.30867-0.1521-0.58661 0.03182-0.15948 0.10554-0.50448 0.27417-0.76665 0.37474-0.60098 0.23053-1.6868 0.2892-2.3329 0.12605zm1.9807-1.6639c0.48259-0.21442 0.9973-0.72899 1.2255-1.2251 0.23749-0.51639 0.22235-1.4193-0.03293-1.9638-0.86964-1.8549-3.4282-1.879-4.3794-0.04121-0.23805 0.45993-0.2672 1.3889-0.06077 1.9364 0.16825 0.44628 0.66957 1.026 1.0634 1.2296 0.70096 0.36248 1.4623 0.38481 2.1841 0.06407z" fill="#f4821f"/>
+  <g fill="#666" stroke-width="1px">
+   <path d="m10.633 42.671v-3.7188h0.73057l1.522 2.4834v-2.4834h0.69759v3.7188h-0.7534l-1.4992-2.4251v2.4251h-0.69759z" style=""/>
+   <path d="m15.833 42.671v-3.7188h2.7574v0.6291h-2.0065v0.82442h1.867v0.62656h-1.867v1.0121h2.0776v0.62656h-2.8284z" style=""/>
+   <path d="m21.593 42.671v-3.0897h-1.1035v-0.6291h2.9552v0.6291h-1.1009v3.0897h-0.75086z" style=""/>
+   <path d="m25.903 42.671-0.88784-3.7188h0.76862l0.56061 2.5544 0.67983-2.5544h0.89292l0.65193 2.5976 0.57076-2.5976h0.75593l-0.90306 3.7188h-0.79652l-0.74072-2.7802-0.73818 2.7802h-0.81428z" style=""/>
+   <path d="m31.597 40.834q0-0.56822 0.16996-0.9538 0.12684-0.28411 0.34499-0.50988 0.22069-0.22577 0.48197-0.33484 0.34753-0.14713 0.8016-0.14713 0.82189 0 1.314 0.50988 0.49466 0.50988 0.49466 1.418 0 0.90053-0.48958 1.4104-0.48958 0.50734-1.3089 0.50734-0.8295 0-1.3191-0.5048-0.48958-0.50734-0.48958-1.3952zm0.77369-0.02537q0 0.63164 0.29172 0.95887 0.29172 0.3247 0.74072 0.3247 0.44899 0 0.73564-0.32216 0.28918-0.3247 0.28918-0.97155 0-0.63925-0.28157-0.9538-0.27904-0.31455-0.74325-0.31455t-0.74832 0.31962q-0.28411 0.31709-0.28411 0.95887z" style=""/>
+   <path d="m37.243 42.671v-3.7188h1.5804q0.59612 0 0.86501 0.10147 0.27143 0.09893 0.43377 0.35514 0.16235 0.25621 0.16235 0.58598 0 0.41855-0.24606 0.69252-0.24606 0.27143-0.73564 0.34245 0.24352 0.14206 0.4008 0.31201 0.15981 0.16996 0.4287 0.60373l0.45407 0.72549h-0.89799l-0.54285-0.8092q-0.28918-0.43378-0.39572-0.54539-0.10654-0.11415-0.22576-0.15474-0.11922-0.04312-0.37797-0.04312h-0.1522v1.5525h-0.75086zm0.75086-2.146h0.55554q0.54032 0 0.67476-0.04566t0.21055-0.15728q0.0761-0.11161 0.0761-0.27904 0-0.18772-0.10147-0.30187-0.09893-0.11669-0.28157-0.14713-0.09132-0.01268-0.54793-0.01268h-0.58598v0.94365z" style=""/>
+   <path d="m42.458 42.671v-3.7188h0.75086v1.6514l1.5169-1.6514h1.0096l-1.4003 1.4485 1.4764 2.2703h-0.97155l-1.0223-1.7452-0.60881 0.62149v1.1238h-0.75086z" style=""/>
+   <path d="m47.465 41.461 0.73057-0.07103q0.06595 0.36782 0.26635 0.54032 0.20294 0.1725 0.54539 0.1725 0.36275 0 0.54539-0.1522 0.18518-0.15474 0.18518-0.36021 0-0.13191-0.07864-0.22323-0.0761-0.09386-0.26889-0.16235-0.13191-0.04566-0.6012-0.16235-0.60373-0.14966-0.84726-0.36782-0.34245-0.30694-0.34245-0.74832 0-0.28411 0.15981-0.53017 0.16235-0.2486 0.46422-0.37797 0.3044-0.12937 0.7331-0.12937 0.70013 0 1.0527 0.30694 0.35514 0.30694 0.37289 0.81935l-0.75086 0.03298q-0.0482-0.28665-0.20801-0.41094-0.15728-0.12684-0.47436-0.12684-0.32723 0-0.51241 0.13444-0.11922 0.08625-0.11922 0.23084 0 0.13191 0.11161 0.22577 0.14206 0.11922 0.68998 0.2486 0.54793 0.12937 0.8092 0.26889 0.26382 0.13698 0.41094 0.37797 0.14966 0.23845 0.14966 0.59105 0 0.31962-0.17757 0.59866-0.17757 0.27904-0.50226 0.41602-0.3247 0.13444-0.80921 0.13444-0.7052 0-1.0832-0.3247-0.37797-0.32723-0.45153-0.95126z" style=""/>
+  </g>
+ </g>
+</svg>

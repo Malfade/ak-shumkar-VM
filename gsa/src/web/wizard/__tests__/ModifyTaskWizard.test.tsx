@@ -1,0 +1,296 @@
+/* SPDX-FileCopyrightText: 2024 Greenbone AG
+ *
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+import {describe, test, expect, testing} from '@gsa/testing';
+import {changeInputValue, screen, rendererWith, fireEvent} from 'web/testing';
+import Capabilities from 'gmp/capabilities/capabilities';
+import Response from 'gmp/http/response';
+import date from 'gmp/models/date';
+import Task from 'gmp/models/task';
+import ModifyTaskWizard from 'web/wizard/ModifyTaskWizard';
+
+const alertCapabilities = new Capabilities(['create_alert', 'get_alerts']);
+const scheduleCapabilities = new Capabilities([
+  'create_schedule',
+  'get_schedules',
+]);
+
+const task1 = new Task({id: '1234', name: 'task 1'});
+const taskId = '1234';
+const tasks = [task1];
+
+const reschedule = 0;
+
+const startDate = date('2020-01-01T12:10:00Z');
+const startMinute = 10;
+const startHour = 12;
+const startTimezone = 'UTC';
+
+const getFormGroupTitles = () => {
+  return screen.getAllByTestId('form-group-label');
+};
+
+const getRadioTitles = () => {
+  return document.body.querySelectorAll('.mantine-Radio-label');
+};
+
+const mockedTimezones = [
+  'UTC',
+  'Europe/Berlin',
+  'America/New_York',
+  'Asia/Tokyo',
+];
+
+const createGmp = () => ({
+  settings: {token: 'token'},
+
+  timezones: {
+    get: testing.fn().mockResolvedValue(new Response(mockedTimezones, {})),
+  },
+});
+
+describe('ModifyTaskWizard component tests', () => {
+  test('should render full modify wizard', () => {
+    const handleClose = testing.fn();
+    const handleSave = testing.fn();
+    const gmp = createGmp();
+
+    const {render} = rendererWith({
+      capabilities: true,
+      gmp,
+    });
+
+    const {baseElement} = render(
+      <ModifyTaskWizard
+        reschedule={reschedule}
+        startDate={startDate}
+        startHour={startHour}
+        startMinute={startMinute}
+        startTimezone={startTimezone}
+        taskId={taskId}
+        tasks={tasks}
+        onClose={handleClose}
+        onSave={handleSave}
+      />,
+    );
+
+    const formGroups = getFormGroupTitles();
+    const radioInputs = screen.getRadioInputs() as HTMLInputElement[];
+    const radioTitles = getRadioTitles();
+
+    const selectedDate = '01/01/2020';
+    const datePickerLabel = screen.getByLabelText('Start Date');
+    const startDateButton = screen.getByDisplayValue(selectedDate);
+
+    const selectedTime = '12:10';
+    const timePickerLabel = screen.getByLabelText('Start Time');
+
+    expect(startDateButton).toBeVisible();
+    expect(datePickerLabel).toBeVisible();
+    expect(startDateButton).toHaveValue(selectedDate);
+
+    expect(timePickerLabel).toBeVisible();
+    expect(timePickerLabel).toHaveValue(selectedTime);
+
+    expect(baseElement).toHaveTextContent('Setting a start time');
+    expect(baseElement).toHaveTextContent('Setting an email Address');
+
+    expect(formGroups[0]).toHaveTextContent('Task');
+
+    expect(formGroups[1]).toHaveTextContent('Start Time');
+    expect(radioInputs[0]).toHaveAttribute('value', '0');
+    expect(radioInputs[0].checked).toEqual(true);
+    expect(radioTitles[0]).toHaveTextContent('Do not change');
+
+    expect(radioInputs[1]).toHaveAttribute('value', '1');
+    expect(radioInputs[1].checked).toEqual(false);
+    expect(radioTitles[1]).toHaveTextContent('Create Schedule');
+
+    expect(formGroups[2]).toHaveTextContent('Email report to');
+    expect(startDateButton).toBeVisible();
+  });
+
+  test('should not render schedule without permission', () => {
+    const handleClose = testing.fn();
+    const handleSave = testing.fn();
+    const gmp = createGmp();
+
+    const {render} = rendererWith({
+      capabilities: alertCapabilities,
+      gmp,
+    });
+
+    const {baseElement} = render(
+      <ModifyTaskWizard
+        reschedule={reschedule}
+        startDate={startDate}
+        startHour={startHour}
+        startMinute={startMinute}
+        startTimezone={startTimezone}
+        taskId={taskId}
+        tasks={tasks}
+        onClose={handleClose}
+        onSave={handleSave}
+      />,
+    );
+
+    const formGroups = getFormGroupTitles();
+
+    expect(baseElement).not.toHaveTextContent('Setting a start time');
+    expect(baseElement).toHaveTextContent('Setting an email Address');
+
+    expect(formGroups[0]).toHaveTextContent('Task');
+
+    expect(formGroups.length).toBe(2);
+    expect(baseElement).not.toHaveTextContent('Start Time');
+    expect(baseElement).not.toHaveTextContent('Create Schedule');
+    expect(baseElement).not.toHaveTextContent('Do not change');
+
+    expect(formGroups[1]).toHaveTextContent('Email report to');
+  });
+
+  test('should not render alert without permission', () => {
+    const handleClose = testing.fn();
+    const handleSave = testing.fn();
+    const gmp = createGmp();
+
+    const {render} = rendererWith({
+      capabilities: scheduleCapabilities,
+      gmp,
+    });
+
+    const {baseElement} = render(
+      <ModifyTaskWizard
+        reschedule={reschedule}
+        startDate={startDate}
+        startHour={startHour}
+        startMinute={startMinute}
+        startTimezone={startTimezone}
+        taskId={taskId}
+        tasks={tasks}
+        onClose={handleClose}
+        onSave={handleSave}
+      />,
+    );
+
+    const formGroups = getFormGroupTitles();
+    const radioInputs = screen.getRadioInputs() as HTMLInputElement[];
+    const radioTitles = getRadioTitles();
+
+    expect(baseElement).toHaveTextContent('Setting a start time');
+    expect(baseElement).not.toHaveTextContent('Setting an email Address');
+
+    expect(formGroups[0]).toHaveTextContent('Task');
+
+    expect(formGroups[1]).toHaveTextContent('Start Time');
+    expect(radioInputs[0]).toHaveAttribute('value', '0');
+    expect(radioInputs[0].checked).toEqual(true);
+    expect(radioTitles[0]).toHaveTextContent('Do not change');
+
+    expect(radioInputs[1]).toHaveAttribute('value', '1');
+    expect(radioInputs[1].checked).toEqual(false);
+    expect(radioTitles[1]).toHaveTextContent('Create Schedule');
+
+    expect(formGroups.length).toBe(2);
+    expect(baseElement).not.toHaveTextContent('Email report to');
+  });
+
+  test('should allow to close the modify wizard', () => {
+    const handleClose = testing.fn();
+    const handleSave = testing.fn();
+    const gmp = createGmp();
+
+    const {render} = rendererWith({
+      capabilities: true,
+      gmp,
+    });
+
+    render(
+      <ModifyTaskWizard
+        reschedule={reschedule}
+        startDate={startDate}
+        startHour={startHour}
+        startMinute={startMinute}
+        startTimezone={startTimezone}
+        taskId={taskId}
+        tasks={tasks}
+        onClose={handleClose}
+        onSave={handleSave}
+      />,
+    );
+
+    const closeButton = screen.getDialogXButton();
+    fireEvent.click(closeButton);
+    expect(handleClose).toHaveBeenCalled();
+  });
+
+  test('should allow to cancel the modify wizard', () => {
+    const handleClose = testing.fn();
+    const handleSave = testing.fn();
+
+    const {render} = rendererWith({
+      capabilities: true,
+    });
+
+    render(
+      <ModifyTaskWizard
+        reschedule={reschedule}
+        startDate={startDate}
+        startHour={startHour}
+        startMinute={startMinute}
+        startTimezone={startTimezone}
+        taskId={taskId}
+        tasks={tasks}
+        onClose={handleClose}
+        onSave={handleSave}
+      />,
+    );
+
+    const cancelButton = screen.getDialogCloseButton();
+    fireEvent.click(cancelButton);
+    expect(handleClose).toHaveBeenCalled();
+  });
+
+  test('should allow to save the modify wizard', () => {
+    const handleClose = testing.fn();
+    const handleSave = testing.fn();
+    const gmp = createGmp();
+
+    const {render} = rendererWith({
+      capabilities: true,
+      gmp,
+    });
+
+    render(
+      <ModifyTaskWizard
+        reschedule={reschedule}
+        startDate={startDate}
+        startHour={startHour}
+        startMinute={startMinute}
+        startTimezone={startTimezone}
+        taskId={taskId}
+        tasks={tasks}
+        onClose={handleClose}
+        onSave={handleSave}
+      />,
+    );
+
+    const emailInput = screen.getByName('alertEmail');
+    changeInputValue(emailInput, 'foo@bar.com');
+
+    const saveButton = screen.getDialogSaveButton();
+    fireEvent.click(saveButton);
+
+    expect(handleSave).toHaveBeenCalledWith({
+      alertEmail: 'foo@bar.com',
+      reschedule: 0,
+      startDate: startDate,
+      startHour: startHour,
+      startMinute: startMinute,
+      startTimezone: startTimezone,
+      taskId: taskId,
+    });
+  });
+});
