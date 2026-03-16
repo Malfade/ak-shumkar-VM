@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="52.509" height="52.52" version="1.0" viewBox="0 0 52.509 52.52" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <linearGradient id="linearGradient13956" x1="46.592" x2="43.592" y1="89.585" y2="-74.733" gradientUnits="userSpaceOnUse">
+   <stop stop-color="#4863ad" offset="0"/>
+   <stop stop-color="#fff" offset="1"/>
+  </linearGradient>
+  <linearGradient id="linearGradient13966" x1="26.48" x2="26.48" y1="1.3939" y2="52.843" gradientUnits="userSpaceOnUse">
+   <stop stop-color="#fff" offset="0"/>
+   <stop stop-color="#fff" stop-opacity="0" offset="1"/>
+  </linearGradient>
+ </defs>
+ <g transform="translate(-3.8191 -6.1557)">
+  <g transform="translate(-840.83 182.27)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <g transform="translate(-1426.6 -26.29)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <rect x="4.9083" y="7.2196" width="50.731" height="50.549" ry="7.0914" color="black" fill="url(#linearGradient13956)" fill-rule="evenodd" stroke="#2b2b2b" stroke-width=".997"/>
+  <g transform="matrix(-.0039739 .6296 -.6296 -.0039739 295.58 -273.62)" fill="#fff"></g>
+  <path transform="translate(3.8191 6.1557)" d="m2.1818 45.429-0.18182-37.636s1.0909-5.6364 5.4545-5.8182c4.3636-0.18182 37.455 0 37.455 0s5.8182 0 6 7.2727c0.18182 7.2727-0.18182 36.727-0.18182 36.727" color="black" fill="none" stroke="url(#linearGradient13966)"/>
+  <text transform="scale(1.1197 .89309)" x="10.385033" y="48.731293" fill="#ffffff" font-family="'Bitstream Vera Sans'" style="line-height:0%" xml:space="preserve"><tspan x="10.385033" y="48.731293" fill="#ffffff" font-family="'Courier 10 Pitch'" font-size="56.069px" style="line-height:125%">S</tspan></text>
+  <path d="m11.258 39.499-1.5812 0.04791 0.23958 11.548 0.047912 0.76666h0.76666 39.962v-1.5812h-39.196l-0.23958-10.781z" color="#000000" fill="#fff" style="block-progression:tb;text-indent:0;text-transform:none"/>
+ </g>
+</svg>

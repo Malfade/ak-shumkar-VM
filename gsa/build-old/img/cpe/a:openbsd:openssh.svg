@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="52.509" height="52.52" version="1.0" viewBox="0 0 52.509 52.52" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <linearGradient id="linearGradient13956" x1="46.592" x2="43.592" y1="89.585" y2="-74.733" gradientUnits="userSpaceOnUse">
+   <stop stop-color="#e6e6e6" offset="0"/>
+   <stop stop-color="#fff" offset="1"/>
+  </linearGradient>
+  <linearGradient id="linearGradient13966" x1="26.48" x2="26.48" y1="1.3939" y2="52.843" gradientUnits="userSpaceOnUse">
+   <stop stop-color="#fff" offset="0"/>
+   <stop stop-color="#fff" stop-opacity="0" offset="1"/>
+  </linearGradient>
+ </defs>
+ <g transform="translate(-3.8191 -6.1557)">
+  <g transform="translate(-840.83 182.27)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <g transform="translate(-1426.6 -26.29)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <rect x="4.9083" y="7.2196" width="50.731" height="50.549" ry="7.0914" color="black" fill="url(#linearGradient13956)" fill-rule="evenodd" stroke="#2b2b2b" stroke-width=".997"/>
+  <g transform="matrix(-.0039739 .6296 -.6296 -.0039739 295.58 -273.62)" fill="#fff"></g>
+  <path transform="translate(3.8191 6.1557)" d="m2.1818 45.429-0.18182-37.636s1.0909-5.6364 5.4545-5.8182c4.3636-0.18182 37.455 0 37.455 0s5.8182 0 6 7.2727c0.18182 7.2727-0.18182 36.727-0.18182 36.727" color="black" fill="none" stroke="url(#linearGradient13966)"/>
+  <path d="m7.6358 16.205" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width=".32224"/>
+  <path d="m31.552 13.761c-9.6591 0-18.03 5.9941-19.551 15.028l-0.36364 0.87216c-1.5048 0.29703-2.781-2.5719-3.8068-4.9091-1.5176 3.7048-1.5402 10.93-0.63352 15.847 1.8855-1.7631 4.4852-3.8151 5.4091-3.4148 1.4401 9.1269 9.2198 14.67 18.946 14.67 9.9947 0 18.212-7.3787 19.312-16.875l0.03125 1.1562c1.4399 0.11681 2.106-1.5722 2.8438-3.0938-0.83359-1.0358-1.5509-2.3623-2.8438-2.25-1.0257-9.5737-9.2927-17.031-19.344-17.031z" fill="#d4aa00" stroke="#a80"/>
+  <g fill="none" stroke="#540">
+   <path d="m36.9 30.766c-0.47466 1.7688-3.2347 2.0656-5.6367 2.593 0.49055 3.9308 3.8934 7.9167 9.2866 7.349-1.0054-2.2386 0.18847-4.7815 1.401-6.2102" stroke-width="1px"/>
+   <path d="m23.393 19.648 0.85948-7.125 4.1746 5.3696" stroke-width="1.2386px"/>
+   <path d="m32.14 16.698 2.5919-4.9735 1.5839 5.6304" stroke-width="1.2787px"/>
+   <path d="m38.774 18.693 4.9993-3.4255-1.4892 4.9993" stroke-width="1.0916px"/>
+   <path d="m18.259 24.115-2.0602-6.4232 4.6051 2.9105" stroke-width="1.2131px"/>
+   <g stroke-width="1px">
+    <path d="m15.637 38.949-3.1818 3.5455 4.6364-0.90909"/>
+    <path d="m19.91 44.04-2.4545 5 5.1818-3"/>
+    <path d="m26.274 48.04 0.09091 5.3636 3.2727-4.5455"/>
+   </g>
+   <path d="m33.236 47.25 4.0752 5.9183 1.2735-6.3487" stroke-width="1.2877px"/>
+   <path d="m41.159 43.503 6.4107 4.0141-2.4816-7.4107" stroke-width="1.1348px"/>
+   <path d="m43.637 22.676 5.8182-2.4545-3.5455 5.4545" stroke-width="1px"/>
+   <path d="m29.944 24.369 0.63713-5.5687 3.568 4.86" stroke-width="1.2495px"/>
+   <path d="m27.521 27.008c-0.35962-0.10138-4.4953-3.8523-4.4953-3.8523l0.98896 5.6771" stroke-width="1.0502px"/>
+   <path d="m18.728 26.949-5.5455-0.09091 4.6364 3.1818" stroke-width="1px"/>
+   <path d="m34.546 25.858 5.2727-4.0909-1.0909 5.5455" stroke-width="1px"/>
+  </g>
+  <path transform="matrix(1.4508 0 0 1.4959 -8.436 -4.5087)" d="m39.364 23.338a2.5 2.2727 0 0 1-2.5 2.2727 2.5 2.2727 0 0 1-2.5-2.2727 2.5 2.2727 0 0 1 2.5-2.2727 2.5 2.2727 0 0 1 2.5 2.2727z" fill="#806600" stroke="#540"/>
+  <g fill="none" stroke="#540">
+   <path d="m19.993 32.071c-0.19661 0.31913-4.6672 3.2881-4.6672 3.2881l5.155 0.58614" stroke-width="1px"/>
+   <path d="m27.581 40.115c0.04953 0.30558-0.87405 4.6256-0.87405 4.6256l2.9818-2.5233" stroke-width=".7672px"/>
+   <path d="m23.443 36.166c-0.058 0.29195-2.4027 3.7041-2.4027 3.7041l3.6629-0.9171" stroke-width=".75979px"/>
+   <path d="m32.953 29.425c-0.26285-0.11449-3.0258-3.2591-3.0258-3.2591l0.18022 4.132" stroke-width=".77799px"/>
+   <path d="m27.626 32.332c-0.26834 0.06399-4.2388-0.82069-4.2388-0.82069l2.5853 3.2082" stroke-width=".76355px"/>
+   <path d="m32.592 42.481c0.20856 0.10328 2.4586 3.127 2.4586 3.127l-0.26367-4.1181" stroke-width=".68735px"/>
+  </g>
+ </g>
+</svg>

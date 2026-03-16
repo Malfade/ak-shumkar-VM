@@ -7,7 +7,7 @@ import {describe, test, expect, testing} from '@gsa/testing';
 import {screen, rendererWithTableBody, fireEvent} from 'web/testing';
 import EverythingCapabilities from 'gmp/capabilities/everything';
 import Credential from 'gmp/models/credential';
-import Scanner, {OPENVASD_SCANNER_TYPE} from 'gmp/models/scanner';
+import Scanner, {SkySOCD_SCANNER_TYPE} from 'gmp/models/scanner';
 import ScannerRow from 'web/pages/scanners/ScannerRow';
 
 describe('ScannerRow tests', () => {
@@ -17,7 +17,7 @@ describe('ScannerRow tests', () => {
       name: 'Test Scanner',
       host: 'http://scanner-host',
       port: 443,
-      scannerType: OPENVASD_SCANNER_TYPE,
+      scannerType: SkySOCD_SCANNER_TYPE,
       credential: new Credential({id: '5678', name: 'Test Credential'}),
     });
     const {render} = rendererWithTableBody({capabilities: true});
@@ -26,7 +26,7 @@ describe('ScannerRow tests', () => {
     expect(screen.getByText('Test Scanner')).toBeInTheDocument();
     expect(screen.getByText('http://scanner-host')).toBeInTheDocument();
     expect(screen.getByText('443')).toBeInTheDocument();
-    expect(screen.getByText('OpenVASD Scanner')).toBeInTheDocument();
+    expect(screen.getByText('SkySOCD Scanner')).toBeInTheDocument();
     expect(screen.getByText('Test Credential')).toBeInTheDocument();
   });
 
@@ -36,7 +36,7 @@ describe('ScannerRow tests', () => {
       name: 'Test Scanner',
       host: 'http://scanner-host',
       port: 443,
-      scannerType: OPENVASD_SCANNER_TYPE,
+      scannerType: SkySOCD_SCANNER_TYPE,
       credential: new Credential({id: '5678', name: 'Test Credential'}),
     });
     const onToggleDetailsClick = testing.fn();
@@ -59,7 +59,7 @@ describe('ScannerRow tests', () => {
       name: 'Test Scanner',
       host: 'http://scanner-host',
       port: 443,
-      scannerType: OPENVASD_SCANNER_TYPE,
+      scannerType: SkySOCD_SCANNER_TYPE,
       credential: new Credential({id: '5678', name: 'Test Credential'}),
       userCapabilities: new EverythingCapabilities(),
     });
@@ -96,7 +96,7 @@ describe('ScannerRow tests', () => {
       name: 'Test Scanner',
       host: 'http://scanner-host',
       port: 443,
-      scannerType: OPENVASD_SCANNER_TYPE,
+      scannerType: SkySOCD_SCANNER_TYPE,
       credential: new Credential({id: '5678', name: 'Test Credential'}),
     });
     const ActionsComponent = ({entity}) => (

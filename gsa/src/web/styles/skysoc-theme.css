@@ -5,37 +5,38 @@
 
 :root {
   /* === Color Palette === */
-  --skysoc-bg-base: #1A1A1C;
+  --skysoc-bg-base: #1a1a1c;
   --skysoc-bg-deep: #111113;
-  --skysoc-bg-card: #27272A;
-  --skysoc-bg-card-hover: #2D2D30;
-  --skysoc-bg-input: #18181B;
-  --skysoc-bg-dialog: #27272A;
+  --skysoc-bg-card: #27272a;
+  --skysoc-bg-card-hover: #2d2d30;
+  --skysoc-bg-input: #18181b;
+  --skysoc-bg-dialog: #27272a;
 
-  --skysoc-border: #3F3F46;
-  --skysoc-border-subtle: #27272A;
+  --skysoc-border: #3f3f46;
+  --skysoc-border-subtle: #27272a;
 
-  --skysoc-accent: #FFD400;
-  --skysoc-accent-hover: #E6BF00;
+  --skysoc-accent: #ffd400;
+  --skysoc-accent-hover: #e6bf00;
   --skysoc-accent-on: #000000;
 
-  --skysoc-link: #4A80FF;
-  --skysoc-link-hover: #6FA3FF;
+  --skysoc-link: #4a80ff;
+  --skysoc-link-hover: #6fa3ff;
 
-  --skysoc-text-primary: #FFFFFF;
-  --skysoc-text-muted: #A1A1AA;
-  --skysoc-text-disabled: #52525B;
+  --skysoc-text-primary: #ffffff;
+  --skysoc-text-muted: #a1a1aa;
+  --skysoc-text-disabled: #52525b;
 
   /* === Severity === */
-  --skysoc-critical: #EF4444;
-  --skysoc-high: #F87171;
-  --skysoc-medium: #F59E0B;
-  --skysoc-low: #60A5FA;
-  --skysoc-log: #71717A;
-  --skysoc-ok: #22C55E;
+  --skysoc-critical: #ef4444;
+  --skysoc-high: #f87171;
+  --skysoc-medium: #f59e0b;
+  --skysoc-low: #60a5fa;
+  --skysoc-log: #71717a;
+  --skysoc-ok: #22c55e;
 
   /* === Typography === */
-  --skysoc-font: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --skysoc-font:
+    'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 
   /* === Layout === */
   --skysoc-radius-card: 16px;
@@ -108,12 +109,12 @@ div._navigation_1w11a_1,
 
 .mantine-NavLink-root:hover {
   background-color: rgba(255, 255, 255, 0.04) !important;
-  color: #FFFFFF !important;
+  color: #ffffff !important;
   padding-left: 16px !important;
 }
 
 /* Active Menu Item */
-.mantine-NavLink-root[data-active="true"],
+.mantine-NavLink-root[data-active='true'],
 ._root-active_1j7do_1 {
   background-color: rgba(255, 212, 0, 0.08) !important;
   color: var(--skysoc-accent) !important;
@@ -140,7 +141,9 @@ div.sc-gmPhUo.kPbhJw {
   border: 1px solid rgba(255, 255, 255, 0.1) !important;
   box-shadow: var(--skysoc-panel-shadow) !important;
   border-radius: var(--skysoc-radius-card) !important;
-  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease !important;
 }
 
 .mantine-Paper-root:hover,
@@ -172,7 +175,9 @@ div.sc-gmPhUo.kPbhJw h2 {
   border-radius: var(--skysoc-radius-btn) !important;
   font-weight: 700 !important;
   border: none !important;
-  transition: transform 0.1s ease, filter 0.2s ease !important;
+  transition:
+    transform 0.1s ease,
+    filter 0.2s ease !important;
 }
 
 .mantine-Button-root[data-variant='filled']:hover {
@@ -265,12 +270,12 @@ tbody td {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--skysoc-mediumGray, #71717A);
+  background: var(--skysoc-mediumGray, #71717a);
 }
 /* === Dashboard Chart (Datamonitor) Overrides === */
-div[class*="DisplayView"],
-div[class*="DisplayContent"],
-div[class*="DisplayBox"],
+div[class*='DisplayView'],
+div[class*='DisplayContent'],
+div[class*='DisplayBox'],
 .display-view,
 .display-content {
   background-color: transparent !important;
@@ -279,21 +284,24 @@ div[class*="DisplayBox"],
 }
 
 /* Specific visx/chart container overrides found in verification */
-div[class*="StyledLayout"] {
+div[class*='StyledLayout'] {
   background: transparent !important;
 }
 
 /* Header within charts */
-div[class*="HeaderContainer"] > div {
+div[class*='HeaderContainer'] > div {
   background-color: transparent !important;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
 }
 
 /* Axis labels and lines */
-.axis-line, .axis-tick line {
+.axis-line,
+.axis-tick line {
   stroke: rgba(255, 255, 255, 0.2) !important;
 }
 
-.axis-label, .pie-label, text {
-  fill: #A1A1AA !important; /* Theme.darkGray */
+.axis-label,
+.pie-label,
+text {
+  fill: #a1a1aa !important; /* Theme.darkGray */
 }

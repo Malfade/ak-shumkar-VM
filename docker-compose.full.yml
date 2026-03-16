@@ -147,6 +147,7 @@ services:
       - openvas_data_vol:/etc/openvas
       - openvas_log_data_vol:/var/log/openvas
       - gpg_data_vol:/etc/openvas/gnupg
+      - vt_data_vol:/var/lib/openvas/plugins
     depends_on:
       gpg-data:
         condition: service_completed_successfully
@@ -205,6 +206,8 @@ services:
     restart: on-failure
     environment:
       GSAD_ARGS: --listen=0.0.0.0 --http-only --api-only -v -f
+    ports:
+      - "9392:9392"
     volumes:
       - gvmd_socket_vol:/run/gvmd
     depends_on:

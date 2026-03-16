@@ -1,5 +1,5 @@
 import path from 'path';
-import {defineConfig} from 'vite';
+import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import legacy from '@vitejs/plugin-legacy';
 import svgrPlugin from 'vite-plugin-svgr';
@@ -16,7 +16,7 @@ export default defineConfig({
     vi: {},
   },
   plugins: [
-    react({include: /\.(mdx|js|jsx|ts|tsx)$/}),
+    react({ include: /\.(mdx|js|jsx|ts|tsx)$/ }),
     legacy(),
     svgrPlugin({
       svgrOptions: {
@@ -56,6 +56,16 @@ export default defineConfig({
     fs: {
       strict: true,
       allow: ['index.html', 'src', 'node_modules'],
+    },
+    proxy: {
+      '/api': {
+        target: 'http://127.0.0.1:9392',
+        changeOrigin: true,
+      },
+      '/gmp': {
+        target: 'http://127.0.0.1:9392',
+        changeOrigin: true,
+      },
     },
   },
   preview: {

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="52.509" height="52.52" version="1.0" viewBox="0 0 52.509 52.52" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <linearGradient id="linearGradient13956" x1="46.592" x2="43.592" y1="89.585" y2="-74.733" gradientUnits="userSpaceOnUse">
+   <stop stop-color="#f39200" offset="0"/>
+   <stop stop-color="#c79f71" offset="1"/>
+  </linearGradient>
+  <linearGradient id="linearGradient13966" x1="26.48" x2="26.48" y1="1.3939" y2="52.843" gradientUnits="userSpaceOnUse">
+   <stop stop-color="#fff" offset="0"/>
+   <stop stop-color="#fff" stop-opacity="0" offset="1"/>
+  </linearGradient>
+ </defs>
+ <g transform="translate(-3.8191 -6.1557)">
+  <g transform="translate(-840.83 182.27)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <g transform="translate(-1426.6 -26.29)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <rect x="4.9083" y="7.2196" width="50.731" height="50.549" ry="7.0914" color="black" fill="url(#linearGradient13956)" fill-rule="evenodd" stroke="#2b2b2b" stroke-width=".9965"/>
+  <g transform="matrix(-.0039739 .6296 -.6296 -.0039739 295.58 -273.62)" fill="#fff"></g>
+  <path transform="translate(3.8191 6.1557)" d="m2.1818 45.429-0.18182-37.636s1.0909-5.6364 5.4545-5.8182c4.3636-0.18182 37.455 0 37.455 0s5.8182 0 6 7.2727c0.18182 7.2727-0.18182 36.727-0.18182 36.727" color="black" fill="none" stroke="url(#linearGradient13966)"/>
+  <path d="m44.182 13.185c-3.532 0.06846-7.0501 1.0085-10.791 2.1043-6.6953 1.9602-12.646 3.0183-19.337 0.34644 0.72886 1.2748 1.0928 1.9212 1.822 3.195 0.66948 1.1717 1.3447 2.3445 2.0145 3.5157 0.72911 1.2745 1.0928 1.9079 1.822 3.1821 5.3267 1.4737 9.7273-0.44233 14.461-2.7587 5.6841-2.78 10.828-5.2728 17.322-3.8237-5.4883-2.6902-10.467-2.0244-16.206-0.50042 5.6185-2.7998 10.906-4.9823 17.271-3.4901-2.8754-1.3509-5.6316-1.8239-8.3788-1.7707zm-30.949 2.5534c-0.07716 1.28e-4 -0.17139 0.02989-0.28228 0.08982-0.36885 0.20029-0.16681 0.56457-0.16681 0.56457l18.22 37.711s0.52895 1.0292 1.6681 0.46192c1.1387-0.56723 0.56457-1.4628 0.56457-1.4628l-19.683-37.159s-0.08934-0.20569-0.32078-0.2053z" fill="#fff"/>
+ </g>
+ <style type="text/css"/>
+</svg>

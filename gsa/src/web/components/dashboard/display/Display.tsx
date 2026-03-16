@@ -102,11 +102,11 @@ const DisplayTitle = styled.div`
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: var(--skysoc-text-muted, #A1A1AA);
+  color: var(--skysoc-text-muted, #a1a1aa);
 `;
 
 const Display = (props: DisplayProps) => {
-  const { children, dragHandleProps, title, onRemoveClick, isLoading } = props;
+  const {children, dragHandleProps, title, onRemoveClick, isLoading} = props;
   const [_] = useTranslation();
   return (
     <DisplayView>

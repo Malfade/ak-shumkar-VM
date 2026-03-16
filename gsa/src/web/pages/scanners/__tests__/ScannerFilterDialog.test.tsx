@@ -15,7 +15,7 @@ import {
 import Features from 'gmp/capabilities/features';
 import Filter from 'gmp/models/filter';
 import FilterTerm from 'gmp/models/filter/filterterm';
-import {OPENVASD_SCANNER_TYPE, scannerTypeName} from 'gmp/models/scanner';
+import {SkySOCD_SCANNER_TYPE, scannerTypeName} from 'gmp/models/scanner';
 import ScannerFilterDialog from 'web/pages/scanners/ScannerFilterDialog';
 
 describe('ScannerFilterDialog tests', () => {
@@ -141,7 +141,7 @@ describe('ScannerFilterDialog tests', () => {
         new FilterTerm({keyword: 'foo', value: 'bar', relation: '='}),
         new FilterTerm({
           keyword: 'type',
-          value: OPENVASD_SCANNER_TYPE,
+          value: SkySOCD_SCANNER_TYPE,
           relation: '=',
         }),
       ],
@@ -158,6 +158,6 @@ describe('ScannerFilterDialog tests', () => {
     const select = screen.getByRole('textbox', {
       name: 'Scanner Type',
     }) as HTMLSelectElement;
-    expect(select).toHaveValue(scannerTypeName(OPENVASD_SCANNER_TYPE));
+    expect(select).toHaveValue(scannerTypeName(SkySOCD_SCANNER_TYPE));
   });
 });

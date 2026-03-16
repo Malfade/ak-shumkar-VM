@@ -3,10 +3,10 @@
  * SPDX-License-Identifier: AGPL-3.0-or-later
  */
 
-import React, { type Ref } from 'react';
-import { color as d3color, type HSLColor, type RGBColor } from 'd3-color';
+import React, {type Ref} from 'react';
+import {color as d3color, type HSLColor, type RGBColor} from 'd3-color';
 import styled from 'styled-components';
-import { hasValue, isDefined } from 'gmp/utils/identity';
+import {hasValue, isDefined} from 'gmp/utils/identity';
 import Group from 'web/components/chart/base/Group';
 import Legend, {
   type LegendData,
@@ -23,10 +23,10 @@ import {
 } from 'web/components/chart/donut/Paths';
 import Pie from 'web/components/chart/donut/Pie';
 import arc from 'web/components/chart/utils/Arc';
-import { MENU_PLACEHOLDER_WIDTH } from 'web/components/chart/utils/Constants';
-import { shouldUpdate } from 'web/components/chart/utils/Update';
+import {MENU_PLACEHOLDER_WIDTH} from 'web/components/chart/utils/Constants';
+import {shouldUpdate} from 'web/components/chart/utils/Update';
 import Layout from 'web/components/layout/Layout';
-import { setRef } from 'web/utils/Render';
+import {setRef} from 'web/utils/Render';
 import Theme from 'web/utils/Theme';
 
 interface EmptyDonutProps {
@@ -127,13 +127,13 @@ class DonutChart<
   }
 
   getWidth() {
-    let { width } = this.props;
-    const { current: legend } = this.legendRef;
+    let {width} = this.props;
+    const {current: legend} = this.legendRef;
 
     width = width - MENU_PLACEHOLDER_WIDTH;
 
     if (legend !== null) {
-      const { width: legendWidth } = legend.getBoundingClientRect();
+      const {width: legendWidth} = legend.getBoundingClientRect();
       width = width - legendWidth - LEGEND_MARGIN;
     }
 
@@ -159,7 +159,7 @@ class DonutChart<
     const width = this.getWidth();
 
     if (width !== this.state.width) {
-      this.setState({ width });
+      this.setState({width});
     }
     this.separateLabels();
   }
@@ -232,7 +232,7 @@ class DonutChart<
   }
 
   render() {
-    const { width } = this.state;
+    const {width} = this.state;
     const {
       data = [],
       innerRadius = 0,

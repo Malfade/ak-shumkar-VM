@@ -29,8 +29,8 @@ const diff = `
 -  Login: VulnScan
 -  Password: VulnScan
 +
-+Login:    OpenVAS-VT
-+Password: OpenVAS-VT
++Login:    SkySOC-VT
++Password: SkySOC-VT
 `;
 
 describe('ResultDiff tests', () => {

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="52.509" height="52.52" version="1.0" viewBox="0 0 52.509 52.52" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <linearGradient id="linearGradient13956" x1="46.592" x2="43.592" y1="89.585" y2="-74.733" gradientUnits="userSpaceOnUse">
+   <stop stop-color="#72bd15" offset="0"/>
+   <stop stop-color="#88a158" offset="1"/>
+  </linearGradient>
+  <linearGradient id="linearGradient13966" x1="26.48" x2="26.48" y1="1.3939" y2="52.843" gradientUnits="userSpaceOnUse">
+   <stop stop-color="#fff" offset="0"/>
+   <stop stop-color="#fff" stop-opacity="0" offset="1"/>
+  </linearGradient>
+ </defs>
+ <g transform="translate(-3.8191 -6.1557)">
+  <g transform="translate(-840.83 182.27)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <g transform="translate(-1426.6 -26.29)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <rect x="4.9083" y="7.2196" width="50.731" height="50.549" ry="7.0914" color="black" fill="url(#linearGradient13956)" fill-rule="evenodd" stroke="#2b2b2b" stroke-width=".9965"/>
+  <g transform="matrix(-.0039739 .6296 -.6296 -.0039739 295.58 -273.62)" fill="#fff"></g>
+  <path transform="translate(3.8191 6.1557)" d="m2.1818 45.429-0.18182-37.636s1.0909-5.6364 5.4545-5.8182c4.3636-0.18182 37.455 0 37.455 0s5.8182 0 6 7.2727c0.18182 7.2727-0.18182 36.727-0.18182 36.727" color="black" fill="none" stroke="url(#linearGradient13966)"/>
+  <g fill="#fff">
+   <path d="m9.0439 43.385 9.8239-21.782 9.7946 21.782h-2.8653l-2.339-5.5259h-9.1806l-2.3683 5.5259h-2.8653m9.0929-14.531-2.8361 6.7539h7.134l-2.8653-6.7539-0.32162-0.78942-0.29238-0.96484c-0.05849-0.29236-0.08772-0.71143-0.08771-1.2572-8e-6 0.46782-0.03899 0.8674-0.11695 1.1987-0.05848 0.33138-0.15594 0.67248-0.29238 1.0233l-0.32161 0.78942"/>
+   <path d="m29.553 43.385v-21.051h2.6314v21.051h-2.6314"/>
+   <path d="m33.961 43.385 7.1925-11.023-6.4615-10.058h3.2161l3.9178 6.4908 0.43857 0.7017c0.17542 0.2729 0.3216 0.66273 0.43856 1.1695l0.43856-1.1695 0.4678-0.7017 3.9763-6.4615h3.1577l-6.4615 10.029 7.2217 11.023h-3.2161l-4.678-7.5726-0.4678-0.73094-0.26314-0.52628-0.17543-0.76018-0.20466 0.81866-0.20466 0.4678-0.4678 0.73094-4.7073 7.5726h-3.1577"/>
+  </g>
+ </g>
+</svg>

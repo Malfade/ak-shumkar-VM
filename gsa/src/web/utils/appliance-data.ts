@@ -27,84 +27,84 @@ const APPLIANCE_DATA = {
     component: GreenboneWhiteLogo,
   },
   'gsm-150_label.svg': {
-    title: 'OPENVAS SCAN - 150',
+    title: 'SkySOC VM',
     component: Enterprise150,
   },
   'gsm-400_label.svg': {
-    title: 'OPENVAS SCAN - 400',
+    title: 'SkySOC VM',
     component: Enterprise400,
   },
   'gsm-400r2_label.svg': {
-    title: 'OPENVAS SCAN - 400',
+    title: 'SkySOC VM',
     component: Enterprise400,
   },
   'gsm-450_label.svg': {
-    title: 'OPENVAS SCAN - 450',
+    title: 'SkySOC VM',
     component: Enterprise450,
   },
   'gsm-450r2_label.svg': {
-    title: 'OPENVAS SCAN - 450',
+    title: 'SkySOC VM',
     component: Enterprise450,
   },
   'gsm-600_label.svg': {
-    title: 'OPENVAS SCAN - 600',
+    title: 'SkySOC VM',
     component: Enterprise600,
   },
   'gsm-600r2_label.svg': {
-    title: 'OPENVAS SCAN - 600',
+    title: 'SkySOC VM',
     component: Enterprise600,
   },
   'gsm-650_label.svg': {
-    title: 'OPENVAS SCAN - 650',
+    title: 'SkySOC VM',
     component: Enterprise650,
   },
   'gsm-650r2_label.svg': {
-    title: 'OPENVAS SCAN - 650',
+    title: 'SkySOC VM',
     component: Enterprise650,
   },
   'gsm-5400_label.svg': {
-    title: 'OPENVAS SCAN - 5400',
+    title: 'SkySOC VM',
     component: Enterprise5400,
   },
   'gsm-6500_label.svg': {
-    title: 'OPENVAS SCAN - 6500',
+    title: 'SkySOC VM',
     component: Enterprise6500,
   },
   'gsm-ceno_label.svg': {
-    title: 'OPENVAS SCAN - CENO',
+    title: 'SkySOC VM',
     component: EnterpriseCeno,
   },
   'gsm-deca_label.svg': {
-    title: 'OPENVAS SCAN - DECA',
+    title: 'SkySOC VM',
     component: EnterpriseDeca,
   },
   'gsm-exa_label.svg': {
-    title: 'OPENVAS SCAN - EXA',
+    title: 'SkySOC VM',
     component: EnterpriseExa,
   },
   'gsm-peta_label.svg': {
-    title: 'OPENVAS SCAN - PETA',
+    title: 'SkySOC VM',
     component: EnterprisePeta,
   },
   'gsm-tera_label.svg': {
-    title: 'OPENVAS SCAN - TERA',
+    title: 'SkySOC VM',
     component: EnterpriseTera,
   },
   'gsm-unknown_label.svg': {
-    title: 'SkySOC',
+    title: 'SkySOC VM',
     component: GreenboneWhiteLogo,
   },
 };
 
 export const applianceTitle = Object.fromEntries(
-  Object.entries(APPLIANCE_DATA).map(([vendorLabel, { title }]) => [
+  Object.entries(APPLIANCE_DATA).map(([vendorLabel, {title}]) => [
     vendorLabel,
     title,
   ]),
 );
 
 export const applianceComponent = Object.fromEntries(
-  Object.entries(APPLIANCE_DATA).map(([vendorLabel, { component }]) => [
+  Object.entries(APPLIANCE_DATA).map(([vendorLabel, {component}]) => [
     vendorLabel,
     component,
   ]),

@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: AGPL-3.0-or-later
  */
 
-import {describe, test, expect, testing} from '@gsa/testing';
+import { describe, test, expect, testing } from '@gsa/testing';
 import {
   changeInputValue,
   screen,
@@ -18,35 +18,35 @@ import {
   AGENT_CONTROLLER_SENSOR_SCANNER_TYPE,
   CONTAINER_IMAGE_SCANNER_TYPE,
   GREENBONE_SENSOR_SCANNER_TYPE,
-  OPENVAS_SCANNER_TYPE,
-  OPENVASD_SCANNER_TYPE,
+  SkySOC_SCANNER_TYPE,
+  SkySOCD_SCANNER_TYPE,
 } from 'gmp/models/scanner';
 import ScannerDialog from 'web/pages/scanners/ScannerDialog';
 
-const createGmp = ({enableGreenboneSensor = true} = {}) => {
-  return {settings: {enableGreenboneSensor}};
+const createGmp = ({ enableGreenboneSensor = true } = {}) => {
+  return { settings: { enableGreenboneSensor } };
 };
 
 describe('ScannerDialog tests', () => {
   test('should display defaults without scanner type provided', async () => {
-    const gmp = createGmp({enableGreenboneSensor: false});
+    const gmp = createGmp({ enableGreenboneSensor: false });
     const handleSave = testing.fn();
 
-    const {render} = rendererWith({gmp, capabilities: true});
+    const { render } = rendererWith({ gmp, capabilities: true });
 
     render(<ScannerDialog onSave={handleSave} />);
 
     expect(screen.getByName('name')).toHaveValue('Unnamed');
     expect(screen.getByName('comment')).toHaveValue(''); // comment field
 
-    const scannerType = screen.getByRole('textbox', {name: 'Scanner Type'});
+    const scannerType = screen.getByRole('textbox', { name: 'Scanner Type' });
     expect(scannerType).toHaveValue('');
 
     expect(screen.queryByName('host')).not.toBeInTheDocument();
     expect(screen.queryByName('port')).not.toBeInTheDocument();
     expect(screen.queryByName('caCertificate')).not.toBeInTheDocument();
     expect(
-      screen.queryByRole('textbox', {name: 'Credential'}),
+      screen.queryByRole('textbox', { name: 'Credential' }),
     ).not.toBeInTheDocument();
 
     fireEvent.click(screen.getDialogSaveButton());
@@ -66,7 +66,7 @@ describe('ScannerDialog tests', () => {
     const gmp = createGmp();
     const handleSave = testing.fn();
 
-    const {render} = rendererWith({gmp, capabilities: true});
+    const { render } = rendererWith({ gmp, capabilities: true });
 
     render(
       <ScannerDialog
@@ -79,13 +79,13 @@ describe('ScannerDialog tests', () => {
     expect(screen.getByName('comment')).toHaveValue(''); // comment field
 
     expect(screen.getDialog()).toBeInTheDocument();
-    const scannerType = screen.getByRole('textbox', {name: 'Scanner Type'});
+    const scannerType = screen.getByRole('textbox', { name: 'Scanner Type' });
     expect(scannerType).toHaveValue('Greenbone Sensor');
     expect(screen.getByName('host')).toHaveValue('localhost');
     expect(screen.queryByName('port')).not.toBeInTheDocument();
     expect(screen.queryByName('caCertificate')).not.toBeInTheDocument();
     expect(
-      screen.queryByRole('textbox', {name: 'Credential'}),
+      screen.queryByRole('textbox', { name: 'Credential' }),
     ).not.toBeInTheDocument();
 
     fireEvent.click(screen.getDialogSaveButton());
@@ -105,7 +105,7 @@ describe('ScannerDialog tests', () => {
     const gmp = createGmp();
     const handleSave = testing.fn();
 
-    const {render} = rendererWith({
+    const { render } = rendererWith({
       gmp,
       capabilities: true,
       features: new Features(['ENABLE_AGENTS']),
@@ -119,13 +119,13 @@ describe('ScannerDialog tests', () => {
     );
 
     expect(screen.getDialog()).toBeInTheDocument();
-    const scannerType = screen.getByRole('textbox', {name: 'Scanner Type'});
+    const scannerType = screen.getByRole('textbox', { name: 'Scanner Type' });
     expect(scannerType).toHaveValue('Agent Sensor');
     expect(screen.getByName('host')).toHaveValue('localhost');
     expect(screen.getByName('port')).toHaveValue('22');
     expect(screen.queryByName('caCertificate')).not.toBeInTheDocument();
     expect(
-      screen.queryByRole('textbox', {name: 'Credential'}),
+      screen.queryByRole('textbox', { name: 'Credential' }),
     ).not.toBeInTheDocument();
 
     fireEvent.click(screen.getDialogSaveButton());
@@ -145,24 +145,24 @@ describe('ScannerDialog tests', () => {
     const gmp = createGmp();
     const handleSave = testing.fn();
 
-    const {render} = rendererWith({
+    const { render } = rendererWith({
       gmp,
       capabilities: true,
-      features: new Features(['ENABLE_OPENVASD']),
+      features: new Features(['ENABLE_SkySOCD']),
     });
 
-    render(<ScannerDialog type={OPENVAS_SCANNER_TYPE} onSave={handleSave} />);
+    render(<ScannerDialog type={SkySOC_SCANNER_TYPE} onSave={handleSave} />);
 
     expect(screen.getByName('name')).toHaveValue('Unnamed');
     expect(screen.getByName('comment')).toHaveValue('');
 
-    const scannerType = screen.getByRole('textbox', {name: 'Scanner Type'});
-    expect(scannerType).toHaveValue('OpenVAS Scanner');
+    const scannerType = screen.getByRole('textbox', { name: 'Scanner Type' });
+    expect(scannerType).toHaveValue('SkySOC Scanner');
 
     expect(screen.getByName('host')).toHaveValue('localhost');
     expect(screen.getByName('port')).toHaveValue('');
     expect(screen.getByName('caCertificate')).toHaveValue('');
-    expect(screen.getByRole('textbox', {name: 'Credential'})).toHaveValue('');
+    expect(screen.getByRole('textbox', { name: 'Credential' })).toHaveValue('');
 
     fireEvent.click(screen.getDialogSaveButton());
     expect(handleSave).toHaveBeenCalledWith({
@@ -171,7 +171,7 @@ describe('ScannerDialog tests', () => {
       name: 'Unnamed',
       comment: '',
       credentialId: undefined,
-      type: OPENVAS_SCANNER_TYPE,
+      type: SkySOC_SCANNER_TYPE,
       id: undefined,
       port: '',
     });
@@ -181,22 +181,22 @@ describe('ScannerDialog tests', () => {
     const gmp = createGmp();
     const handleSave = testing.fn();
 
-    const {render} = rendererWith({
+    const { render } = rendererWith({
       gmp,
       capabilities: true,
-      features: new Features(['ENABLE_OPENVASD']),
+      features: new Features(['ENABLE_SkySOCD']),
     });
 
-    render(<ScannerDialog type={OPENVASD_SCANNER_TYPE} onSave={handleSave} />);
+    render(<ScannerDialog type={SkySOCD_SCANNER_TYPE} onSave={handleSave} />);
 
     expect(screen.getByName('name')).toHaveValue('Unnamed');
     expect(screen.getByName('comment')).toHaveValue('');
     expect(screen.getByName('host')).toHaveValue('localhost');
     expect(screen.getByName('port')).toHaveValue('443');
 
-    const scannerType = screen.getByRole('textbox', {name: 'Scanner Type'});
-    expect(scannerType).toHaveValue('OpenVASD Scanner');
-    expect(screen.getByRole('textbox', {name: 'Credential'})).toHaveValue('');
+    const scannerType = screen.getByRole('textbox', { name: 'Scanner Type' });
+    expect(scannerType).toHaveValue('SkySOCD Scanner');
+    expect(screen.getByRole('textbox', { name: 'Credential' })).toHaveValue('');
     expect(screen.getByName('caCertificate')).toHaveValue('');
 
     fireEvent.click(screen.getDialogSaveButton());
@@ -206,7 +206,7 @@ describe('ScannerDialog tests', () => {
       name: 'Unnamed',
       comment: '',
       credentialId: undefined,
-      type: OPENVASD_SCANNER_TYPE,
+      type: SkySOCD_SCANNER_TYPE,
       id: undefined,
       port: 443,
     });
@@ -216,7 +216,7 @@ describe('ScannerDialog tests', () => {
     const gmp = createGmp();
     const handleSave = testing.fn();
 
-    const {render} = rendererWith({
+    const { render } = rendererWith({
       gmp,
       capabilities: true,
       features: new Features(['ENABLE_AGENTS']),
@@ -234,9 +234,9 @@ describe('ScannerDialog tests', () => {
     expect(screen.getByName('host')).toHaveValue('localhost');
     expect(screen.getByName('port')).toHaveValue('8080');
 
-    const scannerType = screen.getByRole('textbox', {name: 'Scanner Type'});
+    const scannerType = screen.getByRole('textbox', { name: 'Scanner Type' });
     expect(scannerType).toHaveValue('Agent Controller');
-    expect(screen.getByRole('textbox', {name: 'Credential'})).toHaveValue('');
+    expect(screen.getByRole('textbox', { name: 'Credential' })).toHaveValue('');
     expect(screen.getByName('caCertificate')).toHaveValue('');
 
     fireEvent.click(screen.getDialogSaveButton());
@@ -256,7 +256,7 @@ describe('ScannerDialog tests', () => {
     const gmp = createGmp();
     const handleSave = testing.fn();
 
-    const {render} = rendererWith({
+    const { render } = rendererWith({
       gmp,
       capabilities: true,
       features: new Features(['ENABLE_CONTAINER_SCANNING']),
@@ -271,9 +271,9 @@ describe('ScannerDialog tests', () => {
     expect(screen.getByName('host')).toHaveValue('localhost');
     expect(screen.getByName('port')).toHaveValue('443');
 
-    const scannerType = screen.getByRole('textbox', {name: 'Scanner Type'});
+    const scannerType = screen.getByRole('textbox', { name: 'Scanner Type' });
     expect(scannerType).toHaveValue('Container Image Scanner');
-    expect(screen.queryByRole('textbox', {name: 'Credential'})).toHaveValue('');
+    expect(screen.queryByRole('textbox', { name: 'Credential' })).toHaveValue('');
     expect(screen.queryByName('caCertificate')).toHaveValue('');
 
     fireEvent.click(screen.getDialogSaveButton());
@@ -294,7 +294,7 @@ describe('ScannerDialog tests', () => {
     const handleClose = testing.fn();
     const handleSave = testing.fn();
 
-    const {render} = rendererWith({gmp, capabilities: true});
+    const { render } = rendererWith({ gmp, capabilities: true });
 
     render(
       <ScannerDialog
@@ -318,7 +318,7 @@ describe('ScannerDialog tests', () => {
     expect(inputs[2]).toHaveAttribute('name', 'host');
     expect(inputs[2]).toHaveAttribute('value', 'mypc');
 
-    const scannerType = screen.getByRole('textbox', {name: 'Scanner Type'});
+    const scannerType = screen.getByRole('textbox', { name: 'Scanner Type' });
     expect(scannerType).toHaveValue('Greenbone Sensor');
   });
 
@@ -328,7 +328,7 @@ describe('ScannerDialog tests', () => {
     const handleCredentialChange = testing.fn();
     const handleSave = testing.fn();
 
-    const {render} = rendererWith({gmp, capabilities: true});
+    const { render } = rendererWith({ gmp, capabilities: true });
 
     render(
       <ScannerDialog
@@ -365,7 +365,7 @@ describe('ScannerDialog tests', () => {
     const handleCredentialChange = testing.fn();
     const handleSave = testing.fn();
 
-    const {render} = rendererWith({
+    const { render } = rendererWith({
       gmp,
       capabilities: true,
       features: new Features(['ENABLE_AGENTS']),
@@ -423,11 +423,11 @@ describe('ScannerDialog tests', () => {
   });
 
   test('should allow to select all scanner types if sensors, openvasd and agents are enabled', async () => {
-    const gmp = createGmp({enableGreenboneSensor: false});
-    const {render} = rendererWith({
+    const gmp = createGmp({ enableGreenboneSensor: false });
+    const { render } = rendererWith({
       gmp,
       capabilities: true,
-      features: new Features(['ENABLE_AGENTS', 'ENABLE_OPENVASD']),
+      features: new Features(['ENABLE_AGENTS', 'ENABLE_SkySOCD']),
     });
 
     render(<ScannerDialog />);
@@ -438,7 +438,7 @@ describe('ScannerDialog tests', () => {
     });
     expect(scannerType).toHaveValue('');
     const scannerTypeItems = await getSelectItemElementsForSelect(scannerType);
-    expect(scannerTypeItems.length).toBe(3); // OpenVAS Scanner, OpenVASD Scanner, Agent Controller
+    expect(scannerTypeItems.length).toBe(3); // SkySOC Scanner, SkySOCD Scanner, Agent Controller
   });
 
   test('should not allow to change host, port and type if scanner is in use', () => {
@@ -446,7 +446,7 @@ describe('ScannerDialog tests', () => {
     const handleClose = testing.fn();
     const handleSave = testing.fn();
 
-    const {render} = rendererWith({
+    const { render } = rendererWith({
       gmp,
       capabilities: true,
       features: new Features(['ENABLE_AGENTS']),
@@ -460,7 +460,7 @@ describe('ScannerDialog tests', () => {
         name="john"
         port={22}
         scannerInUse={true}
-        type={OPENVASD_SCANNER_TYPE}
+        type={SkySOCD_SCANNER_TYPE}
         onClose={handleClose}
         onSave={handleSave}
       />,
@@ -475,7 +475,7 @@ describe('ScannerDialog tests', () => {
     expect(portInput).toBeDisabled();
     changeInputValue(portInput, '2222');
 
-    const scannerType = screen.getByRole('textbox', {name: 'Scanner Type'});
+    const scannerType = screen.getByRole('textbox', { name: 'Scanner Type' });
     expect(scannerType).toBeDisabled();
     const scannerTypeItems = screen.queryAllByRole('option');
     expect(scannerTypeItems.length).toBe(0);
@@ -489,7 +489,7 @@ describe('ScannerDialog tests', () => {
       name: 'john',
       comment: 'lorem ipsum',
       credentialId: undefined,
-      type: OPENVASD_SCANNER_TYPE,
+      type: SkySOCD_SCANNER_TYPE,
       id: '1234',
       port: 22,
     });
@@ -500,7 +500,7 @@ describe('ScannerDialog tests', () => {
     const handleClose = testing.fn();
     const handleSave = testing.fn();
 
-    const {render} = rendererWith({gmp, capabilities: true});
+    const { render } = rendererWith({ gmp, capabilities: true });
 
     render(<ScannerDialog onClose={handleClose} onSave={handleSave} />);
 
@@ -512,7 +512,7 @@ describe('ScannerDialog tests', () => {
 
   test('should not render agent controller in scanner selection if feature is disabled', async () => {
     const gmp = createGmp();
-    const {render} = rendererWith({
+    const { render } = rendererWith({
       gmp,
       capabilities: true,
       features: new Features([]), // no ENABLE_AGENTS feature
@@ -526,14 +526,14 @@ describe('ScannerDialog tests', () => {
     });
     expect(scannerType).toHaveValue('Greenbone Sensor');
     const scannerTypeItems = await getSelectItemElementsForSelect(scannerType);
-    expect(scannerTypeItems.length).toEqual(2); // OpenVAS Scanner and Greenbone Sensor
-    expect(scannerTypeItems[0]).toHaveTextContent('OpenVAS Scanner');
+    expect(scannerTypeItems.length).toEqual(2); // SkySOC Scanner and Greenbone Sensor
+    expect(scannerTypeItems[0]).toHaveTextContent('SkySOC Scanner');
     expect(scannerTypeItems[1]).toHaveTextContent('Greenbone Sensor');
   });
 
   test('should not render agent controller in scanner selection if agent permission is missing', async () => {
     const gmp = createGmp();
-    const {render} = rendererWith({
+    const { render } = rendererWith({
       gmp,
       capabilities: false,
       features: new Features(['ENABLE_AGENTS']),
@@ -547,14 +547,14 @@ describe('ScannerDialog tests', () => {
     });
     expect(scannerType).toHaveValue('Greenbone Sensor');
     const scannerTypeItems = await getSelectItemElementsForSelect(scannerType);
-    expect(scannerTypeItems.length).toEqual(2); // OpenVAS Scanner, OpenVASD Scanner and Greenbone Sensor
-    expect(scannerTypeItems[0]).toHaveTextContent('OpenVAS Scanner');
+    expect(scannerTypeItems.length).toEqual(2); // SkySOC Scanner, SkySOCD Scanner and Greenbone Sensor
+    expect(scannerTypeItems[0]).toHaveTextContent('SkySOC Scanner');
     expect(scannerTypeItems[1]).toHaveTextContent('Greenbone Sensor');
   });
 
   test('should only render agent controller in scanner selection if sensors are not enabled', async () => {
-    const gmp = createGmp({enableGreenboneSensor: false});
-    const {render} = rendererWith({
+    const gmp = createGmp({ enableGreenboneSensor: false });
+    const { render } = rendererWith({
       gmp,
       capabilities: true,
       features: new Features(['ENABLE_AGENTS']),
@@ -568,8 +568,8 @@ describe('ScannerDialog tests', () => {
     });
     expect(scannerType).toHaveValue('Agent Controller');
     const scannerTypeItems = await getSelectItemElementsForSelect(scannerType);
-    expect(scannerTypeItems.length).toEqual(2); // OpenVAS Scanner and Agent Controller
-    expect(scannerTypeItems[0]).toHaveTextContent('OpenVAS Scanner');
+    expect(scannerTypeItems.length).toEqual(2); // SkySOC Scanner and Agent Controller
+    expect(scannerTypeItems[0]).toHaveTextContent('SkySOC Scanner');
     expect(scannerTypeItems[1]).toHaveTextContent('Agent Controller');
   });
 
@@ -578,11 +578,11 @@ describe('ScannerDialog tests', () => {
     const handleClose = testing.fn();
     const handleSave = testing.fn();
 
-    const {render} = rendererWith({gmp, capabilities: true});
+    const { render } = rendererWith({ gmp, capabilities: true });
 
     render(
       <ScannerDialog
-        type={OPENVAS_SCANNER_TYPE}
+        type={SkySOC_SCANNER_TYPE}
         onClose={handleClose}
         onSave={handleSave}
       />,
@@ -596,7 +596,7 @@ describe('ScannerDialog tests', () => {
     // jsdom does not implement file.text() so we need to mock it
     file.text = testing.fn().mockResolvedValue(content);
     fireEvent.change(caCertificateInput, {
-      target: {files: [file]},
+      target: { files: [file] },
     });
 
     // wait for the file to be read
@@ -609,42 +609,42 @@ describe('ScannerDialog tests', () => {
       name: 'Unnamed',
       comment: '',
       credentialId: undefined,
-      type: OPENVAS_SCANNER_TYPE,
+      type: SkySOC_SCANNER_TYPE,
       id: undefined,
       port: '',
     });
   });
 
   test('should render openvasd in scanner selection if feature is enabled', async () => {
-    const gmp = createGmp({enableGreenboneSensor: false}); // no sensor
-    const {render} = rendererWith({
+    const gmp = createGmp({ enableGreenboneSensor: false }); // no sensor
+    const { render } = rendererWith({
       gmp, // no sensor
       capabilities: true,
-      features: new Features(['ENABLE_OPENVASD']),
+      features: new Features(['ENABLE_SkySOCD']),
     });
 
-    render(<ScannerDialog type={OPENVASD_SCANNER_TYPE} />);
+    render(<ScannerDialog type={SkySOCD_SCANNER_TYPE} />);
 
     expect(screen.getDialog()).toBeInTheDocument();
     const scannerType = screen.getByRole<HTMLSelectElement>('textbox', {
       name: 'Scanner Type',
     });
-    expect(scannerType).toHaveValue('OpenVASD Scanner');
+    expect(scannerType).toHaveValue('SkySOCD Scanner');
     const scannerTypeItems = await getSelectItemElementsForSelect(scannerType);
-    expect(scannerTypeItems.length).toEqual(2); // OpenVAS Scanner and OpenVASD Scanner
-    expect(scannerTypeItems[0]).toHaveTextContent('OpenVAS Scanner');
-    expect(scannerTypeItems[1]).toHaveTextContent('OpenVASD Scanner');
+    expect(scannerTypeItems.length).toEqual(2); // SkySOC Scanner and SkySOCD Scanner
+    expect(scannerTypeItems[0]).toHaveTextContent('SkySOC Scanner');
+    expect(scannerTypeItems[1]).toHaveTextContent('SkySOCD Scanner');
   });
 
   test('should not render openvasd in scanner selection if feature is disabled', async () => {
     const gmp = createGmp();
-    const {render} = rendererWith({
+    const { render } = rendererWith({
       gmp,
       capabilities: true,
-      features: new Features([]), // no OPENVASD feature
+      features: new Features([]), // no SkySOCD feature
     });
 
-    render(<ScannerDialog type={OPENVASD_SCANNER_TYPE} />);
+    render(<ScannerDialog type={SkySOCD_SCANNER_TYPE} />);
 
     expect(screen.getDialog()).toBeInTheDocument();
     const scannerType = screen.getByRole<HTMLSelectElement>('textbox', {
@@ -652,17 +652,17 @@ describe('ScannerDialog tests', () => {
     });
     expect(scannerType).toHaveValue('');
     const scannerTypeItems = await getSelectItemElementsForSelect(scannerType);
-    expect(scannerTypeItems.length).toEqual(2); // OpenVAS Scanner and Greenbone Sensor
-    expect(scannerTypeItems[0]).toHaveTextContent('OpenVAS Scanner');
+    expect(scannerTypeItems.length).toEqual(2); // SkySOC Scanner and Greenbone Sensor
+    expect(scannerTypeItems[0]).toHaveTextContent('SkySOC Scanner');
     expect(scannerTypeItems[1]).toHaveTextContent('Greenbone Sensor');
   });
 
   test('should not show host, port, credential and certificate if scanner type is not set', async () => {
-    const gmp = createGmp({enableGreenboneSensor: false});
+    const gmp = createGmp({ enableGreenboneSensor: false });
     const handleClose = testing.fn();
     const handleSave = testing.fn();
 
-    const {render} = rendererWith({
+    const { render } = rendererWith({
       gmp,
       capabilities: true,
       features: new Features(['ENABLE_AGENTS']),
@@ -670,16 +670,16 @@ describe('ScannerDialog tests', () => {
 
     render(<ScannerDialog onClose={handleClose} onSave={handleSave} />);
 
-    expect(screen.getByRole('textbox', {name: 'Scanner Type'})).toBeVisible();
+    expect(screen.getByRole('textbox', { name: 'Scanner Type' })).toBeVisible();
     expect(screen.getByName('name')).toBeVisible();
     expect(screen.getByName('comment')).toBeVisible();
-    expect(screen.getByRole('textbox', {name: 'Scanner Type'})).toBeVisible();
+    expect(screen.getByRole('textbox', { name: 'Scanner Type' })).toBeVisible();
 
     expect(screen.queryByName('host')).not.toBeInTheDocument();
     expect(screen.queryByName('port')).not.toBeInTheDocument();
     expect(screen.queryByName('caCertificate')).not.toBeInTheDocument();
     expect(
-      screen.queryByRole('textbox', {name: 'Credential'}),
+      screen.queryByRole('textbox', { name: 'Credential' }),
     ).not.toBeInTheDocument();
 
     const scannerType = screen.getByRole<HTMLSelectElement>('textbox', {
@@ -692,12 +692,12 @@ describe('ScannerDialog tests', () => {
     expect(screen.getByName('host')).toBeVisible();
     expect(screen.getByName('port')).toBeVisible();
     expect(screen.getByName('caCertificate')).toBeInTheDocument();
-    expect(screen.getByRole('textbox', {name: 'Credential'})).toBeVisible();
+    expect(screen.getByRole('textbox', { name: 'Credential' })).toBeVisible();
   });
 
   test('should show current scanner type even if feature is disabled', async () => {
     const gmp = createGmp();
-    const {render} = rendererWith({
+    const { render } = rendererWith({
       gmp,
       capabilities: true,
       features: new Features([]),
@@ -711,7 +711,7 @@ describe('ScannerDialog tests', () => {
     });
     expect(scannerType).toHaveValue('Agent Controller');
     const scannerTypeItems = await getSelectItemElementsForSelect(scannerType);
-    expect(scannerTypeItems.length).toBe(3); // OpenVAS Scanner, Greenbone Sensor and Agent Controller
+    expect(scannerTypeItems.length).toBe(3); // SkySOC Scanner, Greenbone Sensor and Agent Controller
   });
 
   test('should use greenbone sensor scanner as default if enabled and no initial scanner type', async () => {
@@ -720,7 +720,7 @@ describe('ScannerDialog tests', () => {
     const handleCredentialChange = testing.fn();
     const handleSave = testing.fn();
 
-    const {render} = rendererWith({gmp, capabilities: true});
+    const { render } = rendererWith({ gmp, capabilities: true });
 
     render(
       <ScannerDialog
@@ -731,7 +731,7 @@ describe('ScannerDialog tests', () => {
     );
 
     expect(screen.getDialog()).toBeInTheDocument();
-    const scannerType = screen.getByRole('textbox', {name: 'Scanner Type'});
+    const scannerType = screen.getByRole('textbox', { name: 'Scanner Type' });
     expect(scannerType).toHaveValue('Greenbone Sensor');
   });
 });

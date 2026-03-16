@@ -4,21 +4,21 @@
  */
 
 import React from 'react';
-import { ThemeProvider } from '@greenbone/ui-lib';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { Provider as StoreProvider } from 'react-redux';
+import {ThemeProvider} from '@greenbone/ui-lib';
+import {QueryClient, QueryClientProvider} from '@tanstack/react-query';
+import {Provider as StoreProvider} from 'react-redux';
 import Gmp from 'gmp/gmp';
-import { _, initLocale } from 'gmp/locale/lang';
-import { LOG_LEVEL_DEBUG } from 'gmp/log';
+import {_, initLocale} from 'gmp/locale/lang';
+import {LOG_LEVEL_DEBUG} from 'gmp/log';
 import Settings from 'gmp/settings';
-import { isDefined } from 'gmp/utils/identity';
+import {isDefined} from 'gmp/utils/identity';
 import ErrorBoundary from 'web/components/error/ErrorBoundary';
 import GlobalStyles from 'web/components/layout/GlobalStyles';
 import GmpContext from 'web/components/provider/GmpProvider';
 import LanguageProvider from 'web/components/provider/LanguageProvider';
 import Routes from 'web/Routes';
 import configureStore from 'web/store';
-import { clearStore } from 'web/store/actions';
+import {clearStore} from 'web/store/actions';
 import {
   setUsername,
   setTimezone,
@@ -41,7 +41,7 @@ const store = configureStore({
 window.gmp = gmp;
 
 const initStore = () => {
-  const { timezone, username } = gmp.settings;
+  const {timezone, username} = gmp.settings;
 
   if (isDefined(timezone)) {
     store.dispatch(setTimezone(timezone));
@@ -95,7 +95,6 @@ class App extends React.Component<{}> {
         </ErrorBoundary>
       </ThemeProvider>
     );
-
   }
 }
 

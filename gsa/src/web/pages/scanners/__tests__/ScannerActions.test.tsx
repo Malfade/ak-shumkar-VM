@@ -8,7 +8,7 @@ import {screen, fireEvent, rendererWithTableRow} from 'web/testing';
 import Capabilities from 'gmp/capabilities/capabilities';
 import EverythingCapabilities from 'gmp/capabilities/everything';
 import Credential from 'gmp/models/credential';
-import Scanner, {OPENVAS_SCANNER_TYPE} from 'gmp/models/scanner';
+import Scanner, {SkySOC_SCANNER_TYPE} from 'gmp/models/scanner';
 import ScannerActions from 'web/pages/scanners/ScannerActions';
 import SelectionType from 'web/utils/SelectionType';
 
@@ -17,7 +17,7 @@ describe('ScannerActions tests', () => {
     const scanner = new Scanner({
       id: '1234',
       name: 'My Scanner',
-      scannerType: OPENVAS_SCANNER_TYPE,
+      scannerType: SkySOC_SCANNER_TYPE,
       userCapabilities: new EverythingCapabilities(),
       caPub: {certificate: 'My CA Certificate'},
       credential: new Credential({id: '5678', name: 'My Credential'}),
@@ -40,7 +40,7 @@ describe('ScannerActions tests', () => {
     const scanner = new Scanner({
       id: '1234',
       name: 'My Scanner',
-      scannerType: OPENVAS_SCANNER_TYPE,
+      scannerType: SkySOC_SCANNER_TYPE,
       userCapabilities: new Capabilities(),
       caPub: {certificate: 'My CA Certificate'},
       credential: new Credential({id: '5678', name: 'My Credential'}),
@@ -69,7 +69,7 @@ describe('ScannerActions tests', () => {
     const scanner = new Scanner({
       id: '1234',
       name: 'My Scanner',
-      scannerType: OPENVAS_SCANNER_TYPE,
+      scannerType: SkySOC_SCANNER_TYPE,
       userCapabilities: new Capabilities(),
       caPub: {certificate: 'My CA Certificate'},
       credential: new Credential({id: '5678', name: 'My Credential'}),
@@ -100,7 +100,7 @@ describe('ScannerActions tests', () => {
     const scanner = new Scanner({
       id: '1234',
       name: 'My Scanner',
-      scannerType: OPENVAS_SCANNER_TYPE,
+      scannerType: SkySOC_SCANNER_TYPE,
       userCapabilities: new EverythingCapabilities(),
       caPub: {certificate: 'My CA Certificate'},
     });
@@ -117,7 +117,7 @@ describe('ScannerActions tests', () => {
     const scanner = new Scanner({
       id: '1234',
       name: 'My Scanner',
-      scannerType: OPENVAS_SCANNER_TYPE,
+      scannerType: SkySOC_SCANNER_TYPE,
       userCapabilities: new EverythingCapabilities(),
       credential: new Credential({id: '5678', name: 'My Credential'}),
     });
@@ -136,7 +136,7 @@ describe('ScannerActions tests', () => {
     const scanner = new Scanner({
       id: '1234',
       name: 'My Scanner',
-      scannerType: OPENVAS_SCANNER_TYPE,
+      scannerType: SkySOC_SCANNER_TYPE,
       userCapabilities: new EverythingCapabilities(),
     });
     const handleScannerDeleteClick = testing.fn();
@@ -156,7 +156,7 @@ describe('ScannerActions tests', () => {
     const scanner = new Scanner({
       id: '1234',
       name: 'My Scanner',
-      scannerType: OPENVAS_SCANNER_TYPE,
+      scannerType: SkySOC_SCANNER_TYPE,
       userCapabilities: new EverythingCapabilities(),
     });
     const handleScannerEditClick = testing.fn();
@@ -176,7 +176,7 @@ describe('ScannerActions tests', () => {
     const scanner = new Scanner({
       id: '1234',
       name: 'My Scanner',
-      scannerType: OPENVAS_SCANNER_TYPE,
+      scannerType: SkySOC_SCANNER_TYPE,
       userCapabilities: new EverythingCapabilities(),
     });
     const handleScannerCloneClick = testing.fn();
@@ -196,7 +196,7 @@ describe('ScannerActions tests', () => {
     const scanner = new Scanner({
       id: '1234',
       name: 'My Scanner',
-      scannerType: OPENVAS_SCANNER_TYPE,
+      scannerType: SkySOC_SCANNER_TYPE,
       userCapabilities: new EverythingCapabilities(),
     });
     const handleScannerDownloadClick = testing.fn();
@@ -216,7 +216,7 @@ describe('ScannerActions tests', () => {
     const scanner = new Scanner({
       id: '1234',
       name: 'My Scanner',
-      scannerType: OPENVAS_SCANNER_TYPE,
+      scannerType: SkySOC_SCANNER_TYPE,
       userCapabilities: new EverythingCapabilities(),
     });
     const handleScannerVerifyClick = testing.fn();
@@ -236,7 +236,7 @@ describe('ScannerActions tests', () => {
     const scanner = new Scanner({
       id: '1234',
       name: 'My Scanner',
-      scannerType: OPENVAS_SCANNER_TYPE,
+      scannerType: SkySOC_SCANNER_TYPE,
       userCapabilities: new EverythingCapabilities(),
       credential: new Credential({id: '5678', name: 'My Credential'}),
     });
@@ -259,7 +259,7 @@ describe('ScannerActions tests', () => {
     const scanner = new Scanner({
       id: '1234',
       name: 'My Scanner',
-      scannerType: OPENVAS_SCANNER_TYPE,
+      scannerType: SkySOC_SCANNER_TYPE,
       userCapabilities: new EverythingCapabilities(),
       caPub: {certificate: 'My CA Certificate'},
     });
@@ -284,7 +284,7 @@ describe('ScannerActions tests', () => {
     const scanner = new Scanner({
       id: '1234',
       name: 'My Scanner',
-      scannerType: OPENVAS_SCANNER_TYPE,
+      scannerType: SkySOC_SCANNER_TYPE,
       userCapabilities: new EverythingCapabilities(),
       caPub: {certificate: 'My CA Certificate'},
     });

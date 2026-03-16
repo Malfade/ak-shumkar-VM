@@ -10,8 +10,8 @@ import {
   AGENT_CONTROLLER_SENSOR_SCANNER_TYPE,
   CONTAINER_IMAGE_SCANNER_TYPE,
   GREENBONE_SENSOR_SCANNER_TYPE,
-  OPENVAS_SCANNER_TYPE,
-  OPENVASD_SCANNER_TYPE,
+  SkySOC_SCANNER_TYPE,
+  SkySOCD_SCANNER_TYPE,
   type ScannerType,
   scannerTypeName,
 } from 'gmp/models/scanner';
@@ -79,7 +79,7 @@ const updatePort = (scannerType: ScannerType | undefined) => {
     return 8080;
   }
   if (
-    scannerType === OPENVASD_SCANNER_TYPE ||
+    scannerType === SkySOCD_SCANNER_TYPE ||
     scannerType === CONTAINER_IMAGE_SCANNER_TYPE
   ) {
     return 443;
@@ -147,7 +147,7 @@ const ScannerDialog = ({
 
       if (
         !features.featureEnabled('ENABLE_OPENVASD') &&
-        initialScannerType === OPENVASD_SCANNER_TYPE
+        initialScannerType === SkySOCD_SCANNER_TYPE
       ) {
         return undefined;
       }
@@ -162,13 +162,13 @@ const ScannerDialog = ({
   name = name || _('Unnamed');
   title = title || _('New Scanner');
 
-  const scannerTypes: ScannerType[] = [OPENVAS_SCANNER_TYPE];
+  const scannerTypes: ScannerType[] = [SkySOC_SCANNER_TYPE];
 
   if (
-    scannerType === OPENVASD_SCANNER_TYPE ||
+    scannerType === SkySOCD_SCANNER_TYPE ||
     features.featureEnabled('ENABLE_OPENVASD')
   ) {
-    scannerTypes.push(OPENVASD_SCANNER_TYPE);
+    scannerTypes.push(SkySOCD_SCANNER_TYPE);
   }
 
   if (

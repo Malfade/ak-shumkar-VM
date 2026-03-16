@@ -37,6 +37,10 @@ const Languages: LanguagesType = {
     name: 'Russian',
     native_name: 'Русский',
   },
+  kg: {
+    name: 'Kyrgyz',
+    native_name: 'Кыргызча',
+  },
 } as const;
 
 export default Languages;

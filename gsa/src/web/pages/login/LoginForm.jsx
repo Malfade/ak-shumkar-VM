@@ -5,8 +5,8 @@
 
 import React from 'react';
 import styled from 'styled-components';
-import { KeyCode } from 'gmp/utils/event';
-import { isDefined } from 'gmp/utils/identity';
+import {KeyCode} from 'gmp/utils/event';
+import {isDefined} from 'gmp/utils/identity';
 import ErrorContainer from 'web/components/error/ErrorContainer';
 import Button from 'web/components/form/Button';
 import FormGroup from 'web/components/form/FormGroup';
@@ -24,17 +24,23 @@ const GlassPanel = styled.div`
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 24px 40px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  box-shadow:
+    0 24px 40px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
   border-radius: 20px;
   padding: 3.5rem;
   width: 26rem;
   z-index: 10;
   display: flex;
   flex-direction: column;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 
   &:hover {
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    box-shadow:
+      0 30px 60px rgba(0, 0, 0, 0.6),
+      inset 0 1px 0 rgba(255, 255, 255, 0.15);
   }
 `;
 
@@ -47,7 +53,7 @@ const Panel = styled.div`
 `;
 
 const StyledWarningError = styled.p`
-  color: var(--skysoc-critical, #EF4444);
+  color: var(--skysoc-critical, #ef4444);
   font-weight: 600;
   text-align: center;
   margin: 10px 0;
@@ -59,7 +65,7 @@ const StyledErrorContainer = styled(ErrorContainer)`
   border-radius: 8px;
   background: rgba(239, 68, 68, 0.1);
   border: 1px solid rgba(239, 68, 68, 0.2);
-  color: var(--skysoc-critical, #EF4444);
+  color: var(--skysoc-critical, #ef4444);
   padding: 1rem;
 `;
 
@@ -70,7 +76,7 @@ const StyledPanel = styled(Panel)`
 const H1 = styled.h1`
   font-size: 24px;
   font-weight: 600;
-  color: var(--skysoc-text-primary, #FFFFFF);
+  color: var(--skysoc-text-primary, #ffffff);
   margin-bottom: 2rem;
   text-align: center;
   letter-spacing: -0.02em;
@@ -110,7 +116,7 @@ const LoginForm = ({
   onSubmit,
 }) => {
   const [_] = useTranslation();
-  const [{ username, password }, handleValueChange] = useFormValues({
+  const [{username, password}, handleValueChange] = useFormValues({
     username: '',
     password: '',
   });
@@ -138,10 +144,10 @@ const LoginForm = ({
           <StyledWarningError>
             {_('Warning: Connection unencrypted')}
           </StyledWarningError>
-          <p style={{ color: 'var(--skysoc-text-muted)', fontSize: '13px' }}>
+          <p style={{color: 'var(--skysoc-text-muted)', fontSize: '13px'}}>
             {_(
               'The connection to this web application is not encrypted, allowing ' +
-              'anyone listening to the traffic to steal your credentials.',
+                'anyone listening to the traffic to steal your credentials.',
             )}
           </p>
         </StyledPanel>
@@ -152,7 +158,7 @@ const LoginForm = ({
           <StyledWarningError>
             {_('Warning: You are using IE11')}
           </StyledWarningError>
-          <p style={{ color: 'var(--skysoc-text-muted)' }}>
+          <p style={{color: 'var(--skysoc-text-muted)'}}>
             {_(
               'You are using Internet Explorer 11. This browser is not supported anymore. Please use an up-to-date alternative.',
             )}
@@ -161,9 +167,7 @@ const LoginForm = ({
       )}
 
       {isDefined(error) && (
-        <StyledErrorContainer data-testid="error">
-          {error}
-        </StyledErrorContainer>
+        <StyledErrorContainer data-testid="error">{error}</StyledErrorContainer>
       )}
 
       {showLogin && !isIE11 && (
@@ -199,7 +203,7 @@ const LoginForm = ({
       )}
 
       {showGuestLogin && (
-        <FormGroup data-testid="guest-login" style={{ marginTop: '1rem' }}>
+        <FormGroup data-testid="guest-login" style={{marginTop: '1rem'}}>
           <FullWidthButton
             data-testid="guest-login-button"
             onClick={onGuestLoginClick}
@@ -224,4 +228,3 @@ LoginForm.propTypes = {
 };
 
 export default LoginForm;
-

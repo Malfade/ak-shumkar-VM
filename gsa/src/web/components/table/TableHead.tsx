@@ -4,13 +4,13 @@
  */
 
 import styled from 'styled-components';
-import { type ToString } from 'gmp/types';
-import { isDefined } from 'gmp/utils/identity';
-import { ArrowDownIcon, ArrowUpIcon, ArrowUpDownIcon } from 'web/components/icon';
-import Layout, { type LayoutProps } from 'web/components/layout/Layout';
+import {type ToString} from 'gmp/types';
+import {isDefined} from 'gmp/utils/identity';
+import {ArrowDownIcon, ArrowUpIcon, ArrowUpDownIcon} from 'web/components/icon';
+import Layout, {type LayoutProps} from 'web/components/layout/Layout';
 import SortBy from 'web/components/sortby/SortBy';
 import useTranslation from 'web/hooks/useTranslation';
-import SortDirection, { type SortDirectionType } from 'web/utils/sort-direction';
+import SortDirection, {type SortDirectionType} from 'web/utils/sort-direction';
 import Theme from 'web/utils/Theme';
 
 interface TableHeadProps extends Omit<LayoutProps, 'title'> {
@@ -58,8 +58,8 @@ const TableHead = ({
     }
     const titleText =
       currentSortDir === SortDirection.DESC
-        ? _('Sorted In Descending Order By {{sortBy}}', { sortBy: String(title) })
-        : _('Sorted In Ascending Order By {{sortBy}}', { sortBy: String(title) });
+        ? _('Sorted In Descending Order By {{sortBy}}', {sortBy: String(title)})
+        : _('Sorted In Ascending Order By {{sortBy}}', {sortBy: String(title)});
     const Icon =
       currentSortDir === SortDirection.DESC ? ArrowDownIcon : ArrowUpIcon;
     return (
@@ -98,7 +98,9 @@ export default styled(TableHead)`
   background-color: var(--skysoc-bg-deep, ${Theme.white});
   color: var(--skysoc-text-muted, ${Theme.black});
   border-top: ${props =>
-    props.withBorder ? `1px solid var(--skysoc-border, ${Theme.lightGray})` : 'none'};
+    props.withBorder
+      ? `1px solid var(--skysoc-border, ${Theme.lightGray})`
+      : 'none'};
   font-weight: bold;
   width: ${props => props.width};
   text-transform: uppercase;

@@ -23,22 +23,8 @@ const Footer = styled.footer`
   margin-top: 10px;
 `;
 
-const GreenboneFooter = () => {
-  const [language] = useLanguage();
-
-  const linkHref =
-    language === 'de'
-      ? 'https://www.greenbone.net'
-      : 'https://www.greenbone.net/en';
-
-  return (
-    <Footer>
-      Copyright © 2009-2026 by Greenbone AG,&nbsp;
-      <Link href={linkHref} rel="noopener noreferrer" target="_blank">
-        www.greenbone.net
-      </Link>
-    </Footer>
-  );
+const SkySOCFooter = () => {
+  return <Footer>Copyright © 2026 SkySOC</Footer>;
 };
 
-export default GreenboneFooter;
+export default SkySOCFooter;

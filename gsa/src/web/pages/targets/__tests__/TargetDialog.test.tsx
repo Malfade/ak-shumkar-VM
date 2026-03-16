@@ -437,7 +437,7 @@ describe('TargetDialog tests', () => {
     },
     {
       name: 'smb credential should disable kerberos credential dropdown',
-      credentialValue: 'OpenVAS Default',
+      credentialValue: 'SkySOC Default',
       getDisabledElement: () =>
         screen.getByTestId<HTMLSelectElement>('krb5-credential-select'),
       getSelectElement: () =>

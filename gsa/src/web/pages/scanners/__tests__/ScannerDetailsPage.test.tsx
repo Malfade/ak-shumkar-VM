@@ -11,7 +11,7 @@ import Filter from 'gmp/models/filter';
 import Scanner, {
   AGENT_CONTROLLER_SCANNER_TYPE,
   AGENT_CONTROLLER_SENSOR_SCANNER_TYPE,
-  OPENVAS_SCANNER_TYPE,
+  SkySOC_SCANNER_TYPE,
 } from 'gmp/models/scanner';
 import {YES_VALUE} from 'gmp/parser';
 import {currentSettingsDefaultResponse} from 'web/pages/__fixtures__/current-settings';
@@ -35,7 +35,7 @@ const getEntities = testing.fn().mockResolvedValue({
 });
 
 const createMockScanner = (
-  type: string = OPENVAS_SCANNER_TYPE,
+  type: string = SkySOC_SCANNER_TYPE,
   includeAgentConfig = false,
 ) => {
   const baseScanner = {
@@ -222,7 +222,7 @@ describe('ScannerDetailsPage tests', () => {
   });
 
   test('should not render agent configuration tab for regular scanner', () => {
-    const scanner = createMockScanner(OPENVAS_SCANNER_TYPE);
+    const scanner = createMockScanner(SkySOC_SCANNER_TYPE);
 
     const gmp = {
       scanner: {

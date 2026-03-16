@@ -11,35 +11,50 @@ import Layout from 'web/components/layout/Layout';
 import PropTypes from 'web/utils/PropTypes';
 import Theme from 'web/utils/Theme';
 const Panel = styled(Layout)`
-  background-color: ${Theme.white};
-  border: 1px solid
-    ${props => (props.$isWarning ? Theme.darkRed : Theme.lightBlue)};
-  margin-top: ${props => (props.$noMargin ? '0px' : '5px')};
+  background-color: rgba(39, 39, 42, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  margin-top: ${props => (props.$noMargin ? '0px' : '10px')};
+  border-radius: 12px;
+  overflow: hidden;
 `;
 
 const Heading = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 15px;
-  min-height: 35px;
+  padding: 12px 16px;
+  min-height: 40px;
   background-color: ${props =>
-    props.$isWarning ? Theme.mediumLightRed : Theme.lightBlue};
-  border-color: ${Theme.mediumBlue};
+    props.$isWarning ? 'rgba(239, 68, 68, 0.2)' : 'rgba(74, 128, 255, 0.15)'};
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  color: ${props => (props.$isWarning ? '#F87171' : '#FFFFFF')};
+  font-weight: 600;
+  font-size: 14px;
 `;
 
 const Footer = styled.div`
   display: flex;
-  padding: 10px 15px;
-  border-bottom: 1px solid ${Theme.lightBlue};
+  padding: 10px 16px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
   min-height: 35px;
-  background-color: ${Theme.lightBlue};
 `;
 
 const Body = styled.div`
   display: flex;
-  padding: 15px;
+  flex-direction: column;
+  padding: 16px;
   flex-grow: 1;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 14px;
+  line-height: 1.5;
+
+  p {
+    margin: 0;
+  }
 `;
 
 const InfoPanel = ({
@@ -64,10 +79,10 @@ const InfoPanel = ({
           {heading}
           {isDefined(onCloseClick) && (
             <XIcon
-              color={Theme.darkGray}
+              color="#A1A1AA"
               data-testid="panel-close-button"
               size="medium"
-              variant="filled"
+              variant="transparent"
               onClick={onCloseClick}
             />
           )}

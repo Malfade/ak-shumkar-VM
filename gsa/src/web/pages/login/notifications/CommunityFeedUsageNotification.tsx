@@ -25,13 +25,13 @@ const CommunityFeedUsageNotification: React.FC = () => {
       <div aria-label="community-feed-notification">
         <p>
           {_(
-            'You are currently using the free OPENVAS COMMUNITY FEED - this shows only a few vulnerabilities for business critical enterprise software such as MS Exchange, Cisco, VMware, Citrix and many more. Over 60% of all relevant exploits remain hidden.',
+            'You are currently using the SkySOC COMMUNITY FEED - this shows vulnerabilities for business critical enterprise software. For full coverage, consider an enterprise subscription.',
           )}
         </p>
         <p>
           <a
             aria-label="Learn more about feed comparison"
-            href={_('https://www.greenbone.net/en/feed-comparison/')}
+            href="https://skysoc.ru"
             rel="noopener noreferrer"
             target="_blank"
           >

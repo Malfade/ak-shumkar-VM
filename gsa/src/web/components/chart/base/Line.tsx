@@ -3,14 +3,14 @@
  * SPDX-License-Identifier: AGPL-3.0-or-later
  */
 
-import React, { type MouseEvent } from 'react';
-import { Line, LinePath } from '@visx/shape';
-import { scaleLinear, scaleUtc } from 'd3-scale';
+import React, {type MouseEvent} from 'react';
+import {Line, LinePath} from '@visx/shape';
+import {scaleLinear, scaleUtc} from 'd3-scale';
 import memoize from 'memoize-one';
 import styled from 'styled-components';
-import date, { type Date as GmpDate } from 'gmp/models/date';
-import { type ToString } from 'gmp/types';
-import { isDefined } from 'gmp/utils/identity';
+import date, {type Date as GmpDate} from 'gmp/models/date';
+import {type ToString} from 'gmp/types';
+import {isDefined} from 'gmp/utils/identity';
 import Axis from 'web/components/chart/base/Axis';
 import Group from 'web/components/chart/base/Group';
 import LegendLabel from 'web/components/chart/base/LagendLabel';
@@ -21,11 +21,11 @@ import Legend, {
 } from 'web/components/chart/base/Legend';
 import LegendLine from 'web/components/chart/base/LegendLine';
 import Svg from 'web/components/chart/base/Svg';
-import { MENU_PLACEHOLDER_WIDTH } from 'web/components/chart/utils/Constants';
-import { shouldUpdate } from 'web/components/chart/utils/Update';
+import {MENU_PLACEHOLDER_WIDTH} from 'web/components/chart/utils/Constants';
+import {shouldUpdate} from 'web/components/chart/utils/Update';
 import Layout from 'web/components/layout/Layout';
 import PropTypes from 'web/utils/PropTypes';
-import { setRef } from 'web/utils/Render';
+import {setRef} from 'web/utils/Render';
 import Theme from 'web/utils/Theme';
 
 interface LineData {
@@ -97,8 +97,8 @@ export const lineDataPropType = PropTypes.shape({
 
 const findX =
   (timeline: boolean, value: number | GmpDate) =>
-    (d: LineData): d is LineData =>
-      timeline ? (d.x as GmpDate).isSame(value) : d.x === value;
+  (d: LineData): d is LineData =>
+    timeline ? (d.x as GmpDate).isSame(value) : d.x === value;
 
 const CrispEdgesLine = styled(Line)`
   shape-rendering: crisp-edges;
@@ -149,9 +149,9 @@ const getXScale = memoize(
       xDomain =
         data.length === 1
           ? [
-            Number(date(data[0].x).subtract(1, 'day')),
-            Number(date(data[0].x).add(1, 'day')),
-          ]
+              Number(date(data[0].x).subtract(1, 'day')),
+              Number(date(data[0].x).add(1, 'day')),
+            ]
           : [xMin, xMax];
     } else {
       xDomain = data.length > 1 ? [xMin, xMax] : [xMin - 1, xMax + 1];
@@ -159,11 +159,11 @@ const getXScale = memoize(
 
     return timeline
       ? scaleUtc()
-        .range([0, maxWidth(width)])
-        .domain(xDomain)
+          .range([0, maxWidth(width)])
+          .domain(xDomain)
       : scaleLinear()
-        .range([0, maxWidth(width)])
-        .domain(xDomain);
+          .range([0, maxWidth(width)])
+          .domain(xDomain);
   },
 );
 
@@ -188,40 +188,40 @@ const getY2Scale = memoize((data: LineData[] = [], height: number) => {
     .nice();
 });
 
-const Cross = ({ x, y, color, dashArray, lineWidth = 1 }: CrossProps) => (
+const Cross = ({x, y, color, dashArray, lineWidth = 1}: CrossProps) => (
   <Group>
     <Line
-      from={{ x: x - 5, y: y - 5 }}
+      from={{x: x - 5, y: y - 5}}
       stroke={String(color)}
       strokeDasharray={dashArray}
       strokeWidth={lineWidth}
-      to={{ x: x + 5, y: y + 5 }}
+      to={{x: x + 5, y: y + 5}}
     />
     <Line
-      from={{ x: x + 5, y: y - 5 }}
+      from={{x: x + 5, y: y - 5}}
       stroke={String(color)}
       strokeDasharray={dashArray}
       strokeWidth={lineWidth}
-      to={{ x: x - 5, y: y + 5 }}
+      to={{x: x - 5, y: y + 5}}
     />
   </Group>
 );
 
-const CrossY2 = ({ x, y, color, dashArray, lineWidth = 1 }: CrossProps) => (
+const CrossY2 = ({x, y, color, dashArray, lineWidth = 1}: CrossProps) => (
   <Group>
     <Line
-      from={{ x: x - 6, y }}
+      from={{x: x - 6, y}}
       stroke={String(color)}
       strokeDasharray={dashArray}
       strokeWidth={lineWidth}
-      to={{ x: x + 6, y }}
+      to={{x: x + 6, y}}
     />
     <Line
-      from={{ x, y: y - 6 }}
+      from={{x, y: y - 6}}
       stroke={String(color)}
       strokeDasharray={dashArray}
       strokeWidth={lineWidth}
-      to={{ x, y: y + 6 }}
+      to={{x, y: y + 6}}
     />
   </Group>
 );
@@ -271,11 +271,11 @@ class LineChart extends React.Component<LineChartProps, LineChartState> {
   }
 
   hideInfo() {
-    this.setState({ displayInfo: false });
+    this.setState({displayInfo: false});
   }
 
   showInfo() {
-    this.setState({ displayInfo: true });
+    this.setState({displayInfo: true});
   }
 
   handleMouseMove(event: MouseEvent<SVGSVGElement>) {
@@ -301,19 +301,19 @@ class LineChart extends React.Component<LineChartProps, LineChartState> {
     const box = this.svg.getBoundingClientRect();
     const mouseX = event.clientX - box.left - margin.left - 1;
 
-    this.setState({ rangeX: this.getXValueForPixel(mouseX) });
+    this.setState({rangeX: this.getXValueForPixel(mouseX)});
   }
 
   endRangeSelection() {
-    const { rangeX, infoX } = this.state;
-    const { onRangeSelected, timeline = false, data } = this.props;
+    const {rangeX, infoX} = this.state;
+    const {onRangeSelected, timeline = false, data} = this.props;
 
     if (onRangeSelected && isDefined(rangeX) && isDefined(infoX)) {
       const direction = infoX >= rangeX;
       const start = {
         ...data.find<LineData>(findX(timeline, rangeX)),
       } as LineData;
-      const end = { ...data.find<LineData>(findX(timeline, infoX)) } as LineData;
+      const end = {...data.find<LineData>(findX(timeline, infoX))} as LineData;
 
       if (direction) {
         onRangeSelected(start, end);
@@ -322,12 +322,12 @@ class LineChart extends React.Component<LineChartProps, LineChartState> {
       }
     }
 
-    this.setState({ rangeX: undefined });
+    this.setState({rangeX: undefined});
   }
 
   getXValueForPixel(px: number) {
-    const { data = [], timeline = false } = this.props;
-    const { width } = this.state;
+    const {data = [], timeline = false} = this.props;
+    const {width} = this.state;
 
     const xValues = getXValues(data);
 
@@ -357,13 +357,13 @@ class LineChart extends React.Component<LineChartProps, LineChartState> {
   }
 
   getWidth() {
-    let { width } = this.props;
-    const { current: legend } = this.legendRef;
+    let {width} = this.props;
+    const {current: legend} = this.legendRef;
 
     width = width - MENU_PLACEHOLDER_WIDTH;
 
     if (legend !== null) {
-      const { width: legendWidth } = legend.getBoundingClientRect();
+      const {width: legendWidth} = legend.getBoundingClientRect();
       width = width - legendWidth - LEGEND_MARGIN;
     }
 
@@ -377,13 +377,13 @@ class LineChart extends React.Component<LineChartProps, LineChartState> {
   update() {
     const width = this.getWidth();
     if (width !== this.state.width) {
-      this.setState({ width });
+      this.setState({width});
     }
   }
 
   renderInfo() {
-    const { data, height, timeline = false, yLine, y2Line } = this.props;
-    const { displayInfo, infoX, mouseY, width } = this.state;
+    const {data, height, timeline = false, yLine, y2Line} = this.props;
+    const {displayInfo, infoX, mouseY, width} = this.state;
 
     const lines = (isDefined(yLine) ? 1 : 0) + (isDefined(y2Line) ? 1 : 0);
 
@@ -396,7 +396,7 @@ class LineChart extends React.Component<LineChartProps, LineChartState> {
       return null;
     }
 
-    const { label = '', y, y2 } = value;
+    const {label = '', y, y2} = value;
 
     const xScale = getXScale(data, timeline, width);
 
@@ -409,7 +409,7 @@ class LineChart extends React.Component<LineChartProps, LineChartState> {
     const infoMargin = 20;
     return (
       <Group>
-        <CrispEdgesLine from={{ x, y: 0 }} to={{ x, y: maxHeight(height) }} />
+        <CrispEdgesLine from={{x, y: 0}} to={{x, y: maxHeight(height)}} />
         <Group left={x + infoMargin} top={mouseY}>
           <rect
             fill={Theme.dialogGray}
@@ -429,17 +429,22 @@ class LineChart extends React.Component<LineChartProps, LineChartState> {
             rx={2}
           />
           <Group left={2 * itemMargin} textAnchor="end" top={LINE_HEIGHT}>
-            <LabelTitle fontWeight="bold" x={infoWidth} y={0} fill={Theme.white}>
+            <LabelTitle
+              fontWeight="bold"
+              x={infoWidth}
+              y={0}
+              fill={Theme.white}
+            >
               {label}
             </LabelTitle>
             {isDefined(yLine) && (
               <Group>
                 <Line
-                  from={{ x: 0, y: lineY }}
+                  from={{x: 0, y: lineY}}
                   stroke={String(yLine.color)}
                   strokeDasharray={yLine.dashArray}
                   strokeWidth={yLine.lineWidth}
-                  to={{ x: lineLength, y: lineY }}
+                  to={{x: lineLength, y: lineY}}
                 />
                 <Text x={infoWidth} y={LINE_HEIGHT - 1}>
                   {y}
@@ -449,11 +454,11 @@ class LineChart extends React.Component<LineChartProps, LineChartState> {
             {isDefined(y2Line) && (
               <Group top={LINE_HEIGHT}>
                 <Line
-                  from={{ x: 0, y: lineY }}
+                  from={{x: 0, y: lineY}}
                   stroke={String(y2Line.color)}
                   strokeDasharray={y2Line.dashArray}
                   strokeWidth={y2Line.lineWidth}
-                  to={{ x: lineLength, y: lineY }}
+                  to={{x: lineLength, y: lineY}}
                 />
                 <Text x={infoWidth} y={LINE_HEIGHT - 1}>
                   {y2}
@@ -467,8 +472,8 @@ class LineChart extends React.Component<LineChartProps, LineChartState> {
   }
 
   renderRange() {
-    const { height, data, timeline } = this.props;
-    const { rangeX, infoX, width } = this.state;
+    const {height, data, timeline} = this.props;
+    const {rangeX, infoX, width} = this.state;
 
     if (!isDefined(rangeX) || !isDefined(infoX) || data.length <= 1) {
       return null;
@@ -483,9 +488,9 @@ class LineChart extends React.Component<LineChartProps, LineChartState> {
     return (
       <Group>
         <CrispEdgesLine
-          from={{ x: startX, y: 0 }}
+          from={{x: startX, y: 0}}
           stroke={Theme.green}
-          to={{ x: startX, y: maxHeight(height) }}
+          to={{x: startX, y: maxHeight(height)}}
         />
         <rect
           fill={Theme.green}
@@ -499,7 +504,7 @@ class LineChart extends React.Component<LineChartProps, LineChartState> {
   }
 
   render() {
-    const { width } = this.state;
+    const {width} = this.state;
     const {
       data = [],
       height,
@@ -619,7 +624,7 @@ class LineChart extends React.Component<LineChartProps, LineChartState> {
         </Svg>
         {hasLines && showLegend && (
           <Legend<LineProps> data={[yLine, y2Line]} legendRef={this.legendRef}>
-            {({ d, toolTipProps }) => (
+            {({d, toolTipProps}) => (
               <Item
                 {...toolTipProps}
                 ref={toolTipProps.ref as React.Ref<HTMLDivElement>}

@@ -3,17 +3,17 @@
  * SPDX-License-Identifier: AGPL-3.0-or-later
  */
 
-import {describe, test, expect, testing} from '@gsa/testing';
-import {screen, fireEvent, wait, rendererWith} from 'web/testing';
-import Capabilities, {type Capability} from 'gmp/capabilities/capabilities';
-import {type EntityType} from 'gmp/utils/entity-type';
+import { describe, test, expect, testing } from '@gsa/testing';
+import { screen, fireEvent, wait, rendererWith } from 'web/testing';
+import Capabilities, { type Capability } from 'gmp/capabilities/capabilities';
+import { type EntityType } from 'gmp/utils/entity-type';
 import DefaultSettings from 'web/pages/user-settings/DefaultsSettings';
 
 describe('DefaultSettings', () => {
   test('renders correctly with all capabilities', () => {
-    const {render} = rendererWith({
+    const { render } = rendererWith({
       capabilities: true,
-      gmp: {settings: {manualUrl: 'test/'}},
+      gmp: { settings: { manualUrl: 'test/' } },
     });
 
     render(<DefaultSettings />);
@@ -36,9 +36,9 @@ describe('DefaultSettings', () => {
       'get_port_lists',
     ]);
 
-    const {render} = rendererWith({
+    const { render } = rendererWith({
       capabilities,
-      gmp: {settings: {manualUrl: 'test/'}},
+      gmp: { settings: { manualUrl: 'test/' } },
     });
 
     render(<DefaultSettings />);
@@ -78,13 +78,13 @@ describe('DefaultSettings', () => {
       getByName: (name: string) => settingsData[name],
     };
 
-    const {render, store} = rendererWith({
+    const { render, store } = rendererWith({
       capabilities: true,
       gmp: {
-        settings: {manualUrl: 'test/'},
+        settings: { manualUrl: 'test/' },
         user: {
-          getSetting: testing.fn().mockResolvedValue({data: {value: 'a2'}}),
-          saveSetting: testing.fn().mockResolvedValue({data: {value: 'a2'}}),
+          getSetting: testing.fn().mockResolvedValue({ data: { value: 'a2' } }),
+          saveSetting: testing.fn().mockResolvedValue({ data: { value: 'a2' } }),
         },
       },
       store: true,
@@ -97,13 +97,13 @@ describe('DefaultSettings', () => {
     });
 
     render(<DefaultSettings />);
-    const editButtons = screen.getAllByRole('button', {name: /edit/i});
+    const editButtons = screen.getAllByRole('button', { name: /edit/i });
     fireEvent.click(editButtons[0]);
     await wait();
     const selectAlert = screen.getByTestId('form-select');
-    fireEvent.change(selectAlert, {target: {value: 'a2'}});
+    fireEvent.change(selectAlert, { target: { value: 'a2' } });
     await wait();
-    const saveButtonAlert = screen.getByRole('button', {name: /save/i});
+    const saveButtonAlert = screen.getByRole('button', { name: /save/i });
     fireEvent.click(saveButtonAlert);
     await wait();
     store.dispatch({
@@ -123,9 +123,9 @@ describe('DefaultSettings', () => {
     fireEvent.click(editButtons[1]);
     await wait();
     const selectEsxi = screen.getByTestId('form-select');
-    fireEvent.change(selectEsxi, {target: {value: 'c2'}});
+    fireEvent.change(selectEsxi, { target: { value: 'c2' } });
     await wait();
-    const saveButtonEsxi = screen.getByRole('button', {name: /save/i});
+    const saveButtonEsxi = screen.getByRole('button', { name: /save/i });
     fireEvent.click(saveButtonEsxi);
     await wait();
     store.dispatch({
@@ -190,12 +190,12 @@ describe('DefaultSettings', () => {
     expected: string[];
   }[])(
     'shows fields when $capability capability is available',
-    ({capabilityName, expected}) => {
+    ({ capabilityName, expected }) => {
       const capabilities = new Capabilities([capabilityName]);
 
-      const {render} = rendererWith({
+      const { render } = rendererWith({
         capabilities,
-        gmp: {settings: {manualUrl: 'test/'}},
+        gmp: { settings: { manualUrl: 'test/' } },
       });
 
       render(<DefaultSettings />);

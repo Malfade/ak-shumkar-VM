@@ -3,10 +3,10 @@
  * SPDX-License-Identifier: AGPL-3.0-or-later
  */
 
-import { scaleOrdinal, scaleLinear } from 'd3-scale';
-import { _l } from 'gmp/locale/lang';
-import { COMPLIANCE } from 'gmp/models/compliance';
-import { parseInt } from 'gmp/parser';
+import {scaleOrdinal, scaleLinear} from 'd3-scale';
+import {_l} from 'gmp/locale/lang';
+import {COMPLIANCE} from 'gmp/models/compliance';
+import {parseInt} from 'gmp/parser';
 import {
   ERROR,
   DEBUG,

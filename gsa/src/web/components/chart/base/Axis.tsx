@@ -3,8 +3,8 @@
  * SPDX-License-Identifier: AGPL-3.0-or-later
  */
 
-import { type AxisScale, Axis as VxAxis } from '@visx/axis';
-import { type TextProps } from '@visx/text/lib/Text';
+import {type AxisScale, Axis as VxAxis} from '@visx/axis';
+import {type TextProps} from '@visx/text/lib/Text';
 import Theme from 'web/utils/Theme';
 
 interface AxisProps {
@@ -87,7 +87,7 @@ const Axis = ({
     orientation={orientation}
     rangePadding={rangePadding}
     tickClassName="axis-tick"
-    tickComponent={({ formattedValue, ...tickProps }) =>
+    tickComponent={({formattedValue, ...tickProps}) =>
       hideTickLabels ? null : <text {...tickProps}>{formattedValue}</text>
     }
     tickLabelProps={tickLabelProps}

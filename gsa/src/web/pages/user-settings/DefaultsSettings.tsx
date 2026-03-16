@@ -3,12 +3,12 @@
  * SPDX-License-Identifier: AGPL-3.0-or-later
  */
 
-import {useEffect, useMemo, useState} from 'react';
+import { useEffect, useMemo, useState } from 'react';
 
-import {DEFAULT_SETTINGS} from 'gmp/commands/user';
-import {ALL_FILTER} from 'gmp/models/filter';
-import {type EntityType} from 'gmp/utils/entity-type';
-import {isDefined} from 'gmp/utils/identity';
+import { DEFAULT_SETTINGS } from 'gmp/commands/user';
+import { ALL_FILTER } from 'gmp/models/filter';
+import { type EntityType } from 'gmp/utils/entity-type';
+import { isDefined } from 'gmp/utils/identity';
 import Select from 'web/components/form/Select';
 import Layout from 'web/components/layout/Layout';
 import DetailsLink from 'web/components/link/DetailsLink';
@@ -23,16 +23,16 @@ import useTranslation from 'web/hooks/useTranslation';
 import EditableSettingRow from 'web/pages/user-settings/EditableSettingRow';
 import useSettingSave from 'web/pages/user-settings/useSettingSave';
 
-import {selector as alertsSelector} from 'web/store/entities/alerts';
-import {selector as credentialsSelector} from 'web/store/entities/credentials';
-import {selector as portListsSelector} from 'web/store/entities/portlists';
-import {selector as scanConfigsSelector} from 'web/store/entities/scanconfigs';
-import {selector as scannersSelector} from 'web/store/entities/scanners';
-import {selector as schedulesSelector} from 'web/store/entities/schedules';
-import {selector as targetsSelector} from 'web/store/entities/targets';
-import {getUserSettingsDefaults} from 'web/store/usersettings/defaults/selectors';
+import { selector as alertsSelector } from 'web/store/entities/alerts';
+import { selector as credentialsSelector } from 'web/store/entities/credentials';
+import { selector as portListsSelector } from 'web/store/entities/portlists';
+import { selector as scanConfigsSelector } from 'web/store/entities/scanconfigs';
+import { selector as scannersSelector } from 'web/store/entities/scanners';
+import { selector as schedulesSelector } from 'web/store/entities/schedules';
+import { selector as targetsSelector } from 'web/store/entities/targets';
+import { getUserSettingsDefaults } from 'web/store/usersettings/defaults/selectors';
 
-import {renderSelectItems, UNSET_VALUE} from 'web/utils/Render';
+import { renderSelectItems, UNSET_VALUE } from 'web/utils/Render';
 
 interface Setting<T> {
   id?: string;
@@ -111,7 +111,7 @@ export const DefaultSettings = ({
 
   const ITEMS_MAP: Record<
     FieldName,
-    {id: string; name: string; deprecated?: boolean}[]
+    { id: string; name: string; deprecated?: boolean }[]
   > = {
     defaultalert: alerts ?? [],
     defaultesxicredential: creds ?? [],
@@ -171,11 +171,11 @@ export const DefaultSettings = ({
         return;
       }
       await saveSetting(settingId, key, values[key], value =>
-        setIsEditing(editState => ({...editState, [key]: value})),
+        setIsEditing(editState => ({ ...editState, [key]: value })),
       );
     } else {
       await saveSetting(setting.id, key, values[key], value =>
-        setIsEditing(editState => ({...editState, [key]: value})),
+        setIsEditing(editState => ({ ...editState, [key]: value })),
       );
     }
   };
@@ -186,7 +186,7 @@ export const DefaultSettings = ({
       ...value,
       [key]: (setting.value as string) || UNSET_VALUE,
     }));
-    setIsEditing(editState => ({...editState, [key]: false}));
+    setIsEditing(editState => ({ ...editState, [key]: false }));
     clearErrorMessage(key);
   };
 
@@ -259,7 +259,7 @@ export const DefaultSettings = ({
               }
               onCancel={() => cancelField(key)}
               onEdit={() =>
-                setIsEditing(editState => ({...editState, [key]: true}))
+                setIsEditing(editState => ({ ...editState, [key]: true }))
               }
               onSave={() => saveField(key)}
             />

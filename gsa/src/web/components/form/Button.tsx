@@ -3,8 +3,8 @@
  * SPDX-License-Identifier: AGPL-3.0-or-later
  */
 
-import React, { type ReactNode, type MouseEvent } from 'react';
-import { Button as OpenSightButton } from '@greenbone/ui-lib';
+import React, {type ReactNode, type MouseEvent} from 'react';
+import {Button as OpenSightButton} from '@greenbone/ui-lib';
 import useValueChange from 'web/components/form/useValueChange';
 
 interface ButtonProps {
@@ -53,7 +53,10 @@ const Button: React.FC<ButtonProps> = ({
   };
 
   return (
-    <div className={other.className as string} style={other.style as React.CSSProperties}>
+    <div
+      className={other.className as string}
+      style={other.style as React.CSSProperties}
+    >
       <OpenSightButton
         data-testid="opensight-button"
         {...other}

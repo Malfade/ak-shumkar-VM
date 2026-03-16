@@ -17,10 +17,10 @@ import Features from 'gmp/capabilities/features';
 import ScanConfig from 'gmp/models/scan-config';
 import Scanner, {
   CVE_SCANNER_TYPE,
-  OPENVAS_DEFAULT_SCANNER_ID,
-  OPENVAS_SCANNER_TYPE,
-  OPENVASD_SCANNER_TYPE,
-  OPENVASD_SENSOR_SCANNER_TYPE,
+  SkySOC_DEFAULT_SCANNER_ID,
+  SkySOC_SCANNER_TYPE,
+  SkySOCD_SCANNER_TYPE,
+  SkySOCD_SENSOR_SCANNER_TYPE,
   type ScannerType,
 } from 'gmp/models/scanner';
 import TaskDialog from 'web/pages/tasks/TaskDialog';
@@ -73,8 +73,8 @@ describe('TaskDialog component tests', () => {
       />,
     );
 
-  test('should render scan config section for OPENVAS_SCANNER_TYPE', async () => {
-    renderDialog(OPENVAS_SCANNER_TYPE);
+  test('should render scan config section for SkySOC_SCANNER_TYPE', async () => {
+    renderDialog(SkySOC_SCANNER_TYPE);
     const selects = screen.queryAllSelectElements();
     expect(selects.length).toEqual(4);
 
@@ -85,8 +85,8 @@ describe('TaskDialog component tests', () => {
     expect(options[0]).toHaveTextContent('Test Config');
   });
 
-  test('should render scan config section for OPENVASD_SCANNER_TYPE', async () => {
-    renderDialog(OPENVASD_SCANNER_TYPE);
+  test('should render scan config section for SkySOCD_SCANNER_TYPE', async () => {
+    renderDialog(SkySOCD_SCANNER_TYPE);
     const selects = screen.queryAllSelectElements();
     expect(selects.length).toEqual(4);
 
@@ -97,8 +97,8 @@ describe('TaskDialog component tests', () => {
     expect(options[0]).toHaveTextContent('Test Config');
   });
 
-  test('should render scan config section for OPENVASD_SENSOR_SCANNER_TYPE', async () => {
-    renderDialog(OPENVASD_SENSOR_SCANNER_TYPE);
+  test('should render scan config section for SkySOCD_SENSOR_SCANNER_TYPE', async () => {
+    renderDialog(SkySOCD_SENSOR_SCANNER_TYPE);
     const selects = screen.queryAllSelectElements();
     expect(selects.length).toEqual(4);
 
@@ -124,11 +124,11 @@ describe('TaskDialog component tests', () => {
         comment="initial comment"
         name="InitialTask"
         scan_configs={[scanConfig]}
-        scanner_id={OPENVAS_DEFAULT_SCANNER_ID}
+        scanner_id={SkySOC_DEFAULT_SCANNER_ID}
         scanners={[
           new Scanner({
-            id: OPENVAS_DEFAULT_SCANNER_ID,
-            scannerType: OPENVAS_SCANNER_TYPE,
+            id: SkySOC_DEFAULT_SCANNER_ID,
+            scannerType: SkySOC_SCANNER_TYPE,
           }),
         ]}
         schedules={[]}
@@ -151,11 +151,11 @@ describe('TaskDialog component tests', () => {
       scan_configs: [scanConfig],
       scanners: [
         new Scanner({
-          id: OPENVAS_DEFAULT_SCANNER_ID,
-          scannerType: OPENVAS_SCANNER_TYPE,
+          id: SkySOC_DEFAULT_SCANNER_ID,
+          scannerType: SkySOC_SCANNER_TYPE,
         }),
       ],
-      scanner_id: OPENVAS_DEFAULT_SCANNER_ID,
+      scanner_id: SkySOC_DEFAULT_SCANNER_ID,
       targets: [],
       alerts: [],
       schedules: [],
@@ -183,7 +183,7 @@ describe('TaskDialog component tests', () => {
         scanners={[
           new Scanner({
             id: 'scanner-id',
-            scannerType: OPENVAS_SCANNER_TYPE,
+            scannerType: SkySOC_SCANNER_TYPE,
             name: 'Test Scanner',
           }),
         ]}

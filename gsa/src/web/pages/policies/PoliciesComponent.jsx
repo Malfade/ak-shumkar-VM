@@ -8,8 +8,8 @@ import {useDispatch} from 'react-redux';
 import {DEFAULT_MIN_QOD} from 'gmp/models/audit';
 import {ALL_FILTER} from 'gmp/models/filter';
 import {
-  OPENVAS_DEFAULT_SCANNER_ID,
-  OPENVAS_SCANNER_TYPE,
+  SkySOC_DEFAULT_SCANNER_ID,
+  SkySOC_SCANNER_TYPE,
   GREENBONE_SENSOR_SCANNER_TYPE,
 } from 'gmp/models/scanner';
 import {YES_VALUE, NO_VALUE} from 'gmp/parser';
@@ -93,7 +93,7 @@ const PolicyComponent = ({
   const scanners = isDefined(scannerList)
     ? scannerList.filter(
         scanner =>
-          scanner.scannerType === OPENVAS_SCANNER_TYPE ||
+          scanner.scannerType === SkySOC_SCANNER_TYPE ||
           scanner.scannerType === GREENBONE_SENSOR_SCANNER_TYPE,
       )
     : undefined;
@@ -432,8 +432,8 @@ const PolicyComponent = ({
     maxChecks,
     maxHosts,
     name,
-    scannerId = OPENVAS_DEFAULT_SCANNER_ID,
-    scannerType = OPENVAS_SCANNER_TYPE,
+    scannerId = SkySOC_DEFAULT_SCANNER_ID,
+    scannerType = SkySOC_SCANNER_TYPE,
     scheduleId,
     schedulePeriods,
     targetId,

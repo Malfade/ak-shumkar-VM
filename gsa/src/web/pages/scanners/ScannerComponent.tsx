@@ -19,7 +19,7 @@ import {
   type default as Scanner,
   type ScannerType,
   AGENT_CONTROLLER_SCANNER_TYPE,
-  OPENVASD_SCANNER_TYPE,
+  SkySOCD_SCANNER_TYPE,
 } from 'gmp/models/scanner';
 import {hasId} from 'gmp/utils/id';
 import {isDefined} from 'gmp/utils/identity';
@@ -145,7 +145,7 @@ const ScannerComponent = ({
   const openScannerDialog = async (scanner?: Scanner) => {
     if (isDefined(scanner)) {
       const credentialTypes: CredentialType[] =
-        scanner.scannerType === OPENVASD_SCANNER_TYPE ||
+        scanner.scannerType === SkySOCD_SCANNER_TYPE ||
         scanner.scannerType === AGENT_CONTROLLER_SCANNER_TYPE
           ? [CERTIFICATE_CREDENTIAL_TYPE]
           : [];

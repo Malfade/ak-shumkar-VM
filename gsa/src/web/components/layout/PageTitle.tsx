@@ -3,32 +3,33 @@
  * SPDX-License-Identifier: AGPL-3.0-or-later
  */
 
-import {useEffect} from 'react';
-import {isDefined} from 'gmp/utils/identity';
+import { useEffect } from 'react';
+import { isDefined } from 'gmp/utils/identity';
 import useGmp from 'web/hooks/useGmp';
-import {applianceTitle} from 'web/utils/appliance-data';
+import { applianceTitle } from 'web/utils/appliance-data';
 
 interface PageTitleProps {
   title?: string;
 }
 
-const PageTitle = ({title: pageTitle}: PageTitleProps) => {
+const PageTitle = ({ title: pageTitle }: PageTitleProps) => {
   const gmp = useGmp();
   const vendorLabel = gmp?.settings?.vendorLabel ?? 'defaultVendorLabel';
 
   const vendorTitle = gmp?.settings?.vendorTitle;
 
-  const title = vendorTitle ?? applianceTitle[vendorLabel];
+  const title = (vendorTitle ?? applianceTitle[vendorLabel] ?? 'SkySOC VM').replace('OPENVAS', 'SkySOC VM');
 
   useEffect(() => {
+    const finalTitle = title.includes('SkySOC') ? title : 'SkySOC VM';
     if (isDefined(pageTitle)) {
-      document.title = title + ' - ' + pageTitle;
+      document.title = finalTitle + ' - ' + pageTitle;
     } else {
-      document.title = title;
+      document.title = finalTitle;
     }
 
     return () => {
-      document.title = title;
+      document.title = finalTitle;
     };
   }, [title, pageTitle]);
 

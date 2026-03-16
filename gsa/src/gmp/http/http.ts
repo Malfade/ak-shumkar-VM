@@ -83,8 +83,9 @@ class Http {
 
     method = method.toUpperCase() as HttpMethod;
 
-    if (args) {
-      url = `${url}?${buildUrlParams({...this.getParams(), ...args})}`;
+    const combinedArgs = {...this.getParams(), ...args};
+    if (Object.keys(combinedArgs).length > 0) {
+      url = `${url}?${buildUrlParams(combinedArgs)}`;
     }
 
     if (data && (method === 'POST' || method === 'PUT')) {

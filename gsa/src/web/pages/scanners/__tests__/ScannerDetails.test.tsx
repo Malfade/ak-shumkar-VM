@@ -9,8 +9,8 @@ import Credential from 'gmp/models/credential';
 import ScanConfig from 'gmp/models/scan-config';
 import Scanner, {
   CVE_SCANNER_TYPE,
-  OPENVAS_SCANNER_TYPE,
-  OPENVASD_SCANNER_TYPE,
+  SkySOC_SCANNER_TYPE,
+  SkySOCD_SCANNER_TYPE,
 } from 'gmp/models/scanner';
 import ScannerDetails from 'web/pages/scanners/ScannerDetails';
 
@@ -21,7 +21,7 @@ describe('ScannerDetails tests', () => {
       comment: 'Some Comment',
       name: 'Test Scanner',
       host: '/var/run/ospd/ospd-openvas.sock',
-      scannerType: OPENVAS_SCANNER_TYPE,
+      scannerType: SkySOC_SCANNER_TYPE,
       caPub: {certificate: 'Test CA Certificate'},
       credential: new Credential({id: '5678', name: 'Test Credential'}),
       tasks: [
@@ -37,7 +37,7 @@ describe('ScannerDetails tests', () => {
     render(<ScannerDetails entity={scanner} />);
 
     expect(screen.getByText('Some Comment')).toBeInTheDocument();
-    expect(screen.getByText('OpenVAS Scanner')).toBeInTheDocument();
+    expect(screen.getByText('SkySOC Scanner')).toBeInTheDocument();
 
     expect(screen.queryByText('Host')).not.toBeInTheDocument();
     expect(screen.queryByText('Port')).not.toBeInTheDocument();
@@ -67,7 +67,7 @@ describe('ScannerDetails tests', () => {
       name: 'Test Scanner',
       host: '127.0.0.1',
       port: 443,
-      scannerType: OPENVASD_SCANNER_TYPE,
+      scannerType: SkySOCD_SCANNER_TYPE,
       caPub: {certificate: 'Test CA Certificate'},
       credential: new Credential({
         id: '5678',
@@ -87,7 +87,7 @@ describe('ScannerDetails tests', () => {
     render(<ScannerDetails entity={scanner} />);
 
     expect(screen.getByText('Some Comment')).toBeInTheDocument();
-    expect(screen.getByText('OpenVASD Scanner')).toBeInTheDocument();
+    expect(screen.getByText('SkySOCD Scanner')).toBeInTheDocument();
 
     expect(screen.getByText('127.0.0.1')).toBeInTheDocument();
     expect(screen.getByText('443')).toBeInTheDocument();
@@ -158,12 +158,12 @@ describe('ScannerDetails tests', () => {
     const minimalScanner = new Scanner({
       id: '1234',
       name: 'Test Scanner',
-      scannerType: OPENVASD_SCANNER_TYPE,
+      scannerType: SkySOCD_SCANNER_TYPE,
     });
     const {render} = rendererWith({capabilities: true});
     render(<ScannerDetails entity={minimalScanner} />);
 
-    expect(screen.getByText('OpenVASD Scanner')).toBeInTheDocument();
+    expect(screen.getByText('SkySOCD Scanner')).toBeInTheDocument();
     expect(screen.queryByText('Host')).toBeInTheDocument();
     expect(screen.queryByText('Port')).toBeInTheDocument();
 

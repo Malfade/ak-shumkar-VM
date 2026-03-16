@@ -8,8 +8,8 @@ import {screen, rendererWith, fireEvent, within} from 'web/testing';
 import EverythingCapabilities from 'gmp/capabilities/everything';
 import Scanner, {
   CVE_SCANNER_TYPE,
-  OPENVAS_SCANNER_TYPE,
-  OPENVASD_SCANNER_TYPE,
+  SkySOC_SCANNER_TYPE,
+  SkySOCD_SCANNER_TYPE,
 } from 'gmp/models/scanner';
 import ScannerTable from 'web/pages/scanners/ScannerTable';
 import SelectionType from 'web/utils/SelectionType';
@@ -28,7 +28,7 @@ describe('ScannerTable tests', () => {
       name: 'Scanner 1',
       host: 'http://scanner1-host',
       port: 443,
-      scannerType: OPENVASD_SCANNER_TYPE,
+      scannerType: SkySOCD_SCANNER_TYPE,
     });
     const scanner2 = new Scanner({
       id: '5678',
@@ -41,7 +41,7 @@ describe('ScannerTable tests', () => {
     expect(screen.getByText('Scanner 1')).toBeInTheDocument();
     expect(screen.getByText('http://scanner1-host')).toBeInTheDocument();
     expect(screen.getByText('443')).toBeInTheDocument();
-    expect(screen.getByText('OpenVASD Scanner')).toBeInTheDocument();
+    expect(screen.getByText('SkySOCD Scanner')).toBeInTheDocument();
 
     expect(screen.getByText('Scanner 2')).toBeInTheDocument();
     expect(screen.getByText('CVE Scanner')).toBeInTheDocument();
@@ -53,7 +53,7 @@ describe('ScannerTable tests', () => {
       name: 'Scanner 1',
       host: 'http://scanner1-host',
       port: 443,
-      scannerType: OPENVASD_SCANNER_TYPE,
+      scannerType: SkySOCD_SCANNER_TYPE,
     });
     const {render} = rendererWith({capabilities: true});
     render(<ScannerTable entities={[scanner1]} />);
@@ -74,7 +74,7 @@ describe('ScannerTable tests', () => {
       name: 'Scanner 1',
       host: 'http://scanner1-host',
       port: 443,
-      scannerType: OPENVASD_SCANNER_TYPE,
+      scannerType: SkySOCD_SCANNER_TYPE,
     });
     const {render} = rendererWith({capabilities: true});
     render(<ScannerTable entities={[scanner1]} />);
@@ -91,7 +91,7 @@ describe('ScannerTable tests', () => {
       name: 'Scanner 1',
       host: 'http://scanner1-host',
       port: 443,
-      scannerType: OPENVAS_SCANNER_TYPE,
+      scannerType: SkySOC_SCANNER_TYPE,
       userCapabilities: new EverythingCapabilities(),
     });
     const handleCloneClick = testing.fn();
@@ -140,7 +140,7 @@ describe('ScannerTable tests', () => {
       name: 'Scanner 1',
       host: 'http://scanner1-host',
       port: 443,
-      scannerType: OPENVASD_SCANNER_TYPE,
+      scannerType: SkySOCD_SCANNER_TYPE,
       userCapabilities: new EverythingCapabilities(),
     });
     const handleDeleteBulkClick = testing.fn();

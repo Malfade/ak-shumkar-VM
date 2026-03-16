@@ -3,8 +3,8 @@
  * SPDX-License-Identifier: AGPL-3.0-or-later
  */
 
-import { createRoot } from 'react-dom/client';
-import { StyleSheetManager } from 'styled-components';
+import {createRoot} from 'react-dom/client';
+import {StyleSheetManager} from 'styled-components';
 import 'web/styles/skysoc-theme.css';
 import App from 'web/App';
 

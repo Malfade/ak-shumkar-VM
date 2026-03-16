@@ -5,7 +5,7 @@
 
 import React from 'react';
 import styled from 'styled-components';
-import {isDefined} from 'gmp/utils/identity';
+import { isDefined } from 'gmp/utils/identity';
 import Img from 'web/components/img/Img';
 import useGmp from 'web/hooks/useGmp';
 import useTranslation from 'web/hooks/useTranslation';
@@ -17,7 +17,7 @@ const Image = styled(Img)`
 
 const ProductImage = props => {
   const [_] = useTranslation();
-  const {settings} = useGmp();
+  const { settings } = useGmp();
   return (
     <Image
       alt={_('OPENVAS SCAN')}

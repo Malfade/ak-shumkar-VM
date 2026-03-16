@@ -444,13 +444,13 @@ describe('UserSettingsPage', () => {
           _id: 'scanconfig-uuid',
           name: 'defaultopenvasscanconfig',
           value: 'scanconfig-123',
-          comment: 'Default OpenVAS scan config comment',
+          comment: 'Default SkySOC scan config comment',
         }),
         defaultopenvasscanner: Setting.fromElement({
           _id: 'scanner-uuid',
           name: 'defaultopenvasscanner',
           value: 'scanner-123',
-          comment: 'Default OpenVAS scanner comment',
+          comment: 'Default SkySOC scanner comment',
         }),
         defaultportlist: Setting.fromElement({
           _id: 'portlist-uuid',
@@ -509,7 +509,7 @@ describe('UserSettingsPage', () => {
       ).toBeInTheDocument();
 
       const defaultScanConfigRow = screen
-        .getByText('Default OpenVAS Scan Config')
+        .getByText('Default SkySOC Scan Config')
         .closest('tr');
       expect(defaultScanConfigRow).not.toBeNull();
       expect(
@@ -519,7 +519,7 @@ describe('UserSettingsPage', () => {
       ).toBeInTheDocument();
 
       const defaultScannerRow = screen
-        .getByText('Default OpenVAS Scanner')
+        .getByText('Default SkySOC Scanner')
         .closest('tr');
       expect(defaultScannerRow).not.toBeNull();
       expect(
@@ -634,8 +634,8 @@ describe('UserSettingsPage', () => {
       [
         'Default Alert',
         'Default ESXi Credential',
-        'Default OpenVAS Scan Config',
-        'Default OpenVAS Scanner',
+        'Default SkySOC Scan Config',
+        'Default SkySOC Scanner',
         'Default Port List',
         'Default SMB Credential',
         'Default SNMP Credential',

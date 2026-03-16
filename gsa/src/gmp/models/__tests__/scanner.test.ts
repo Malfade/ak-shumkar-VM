@@ -3,9 +3,9 @@
  * SPDX-License-Identifier: AGPL-3.0-or-later
  */
 
-import {describe, test, expect} from '@gsa/testing';
+import { describe, test, expect } from '@gsa/testing';
 import Credential from 'gmp/models/credential';
-import {isDate} from 'gmp/models/date';
+import { isDate } from 'gmp/models/date';
 import Scanner, {
   scannerTypeName,
   openVasScannersFilter,
@@ -18,8 +18,8 @@ import Scanner, {
   AGENT_CONTROLLER_SENSOR_SCANNER_TYPE,
   CONTAINER_IMAGE_SCANNER_TYPE,
 } from 'gmp/models/scanner';
-import {testModel} from 'gmp/models/testing';
-import {YES_VALUE} from 'gmp/parser';
+import { testModel } from 'gmp/models/testing';
+import { YES_VALUE } from 'gmp/parser';
 
 describe('Scanner model tests', () => {
   testModel(Scanner, 'scanner', {
@@ -51,7 +51,7 @@ describe('Scanner model tests', () => {
   });
 
   test('should parse type', () => {
-    const scanner = Scanner.fromElement({type: '42'});
+    const scanner = Scanner.fromElement({ type: '42' });
 
     expect(scanner.scannerType).toEqual('42');
   });
@@ -82,7 +82,7 @@ describe('Scanner model tests', () => {
     const scanner2 = Scanner.fromElement({
       ca_pub: 'foobar',
     });
-    expect(scanner2.caPub).toEqual({certificate: 'foobar'});
+    expect(scanner2.caPub).toEqual({ certificate: 'foobar' });
   });
 
   test('should parse ca pub info', () => {
@@ -103,8 +103,8 @@ describe('Scanner model tests', () => {
     const scanner = Scanner.fromElement({
       tasks: {
         task: [
-          {_id: '123', usage_type: 'scan'},
-          {_id: '456', name: 'foo', usage_type: 'audit'},
+          { _id: '123', usage_type: 'scan' },
+          { _id: '456', name: 'foo', usage_type: 'audit' },
         ],
       },
     });
@@ -121,7 +121,7 @@ describe('Scanner model tests', () => {
   test('should parse scan configs', () => {
     const scanner = Scanner.fromElement({
       configs: {
-        config: [{_id: '123'}],
+        config: [{ _id: '123' }],
       },
     });
 
@@ -194,7 +194,7 @@ describe('Scanner model tests', () => {
       // @ts-expect-error
       port: '',
     });
-    const scanner4 = Scanner.fromElement({port: 1234});
+    const scanner4 = Scanner.fromElement({ port: 1234 });
 
     expect(scanner.port).toEqual(9392);
     expect(scanner2.port).toBeUndefined();
@@ -205,9 +205,9 @@ describe('Scanner model tests', () => {
 
 describe('Scanner model method tests', () => {
   test('isCloneable() should return correct true/false', () => {
-    const scanner1 = new Scanner({scannerType: CVE_SCANNER_TYPE});
-    const scanner2 = new Scanner({scannerType: OPENVAS_SCANNER_TYPE});
-    const scanner3 = new Scanner({scannerType: GREENBONE_SENSOR_SCANNER_TYPE});
+    const scanner1 = new Scanner({ scannerType: CVE_SCANNER_TYPE });
+    const scanner2 = new Scanner({ scannerType: OPENVAS_SCANNER_TYPE });
+    const scanner3 = new Scanner({ scannerType: GREENBONE_SENSOR_SCANNER_TYPE });
 
     expect(scanner1.isCloneable()).toEqual(false);
     expect(scanner2.isCloneable()).toEqual(true);
@@ -215,9 +215,9 @@ describe('Scanner model method tests', () => {
   });
 
   test('isWritable() should return correct true/false', () => {
-    const scanner1 = new Scanner({scannerType: CVE_SCANNER_TYPE});
-    const scanner2 = new Scanner({scannerType: OPENVAS_SCANNER_TYPE});
-    const scanner3 = new Scanner({scannerType: GREENBONE_SENSOR_SCANNER_TYPE});
+    const scanner1 = new Scanner({ scannerType: CVE_SCANNER_TYPE });
+    const scanner2 = new Scanner({ scannerType: OPENVAS_SCANNER_TYPE });
+    const scanner3 = new Scanner({ scannerType: GREENBONE_SENSOR_SCANNER_TYPE });
 
     expect(scanner1.isWritable()).toEqual(false);
     expect(scanner2.isWritable()).toEqual(true);
@@ -225,9 +225,9 @@ describe('Scanner model method tests', () => {
   });
 
   test('hasUnixSocket() should return correct true/false', () => {
-    const scanner1 = new Scanner({host: '/foo'});
-    const scanner2 = new Scanner({host: 'bar'});
-    const scanner3 = new Scanner({host: ''});
+    const scanner1 = new Scanner({ host: '/foo' });
+    const scanner2 = new Scanner({ host: 'bar' });
+    const scanner3 = new Scanner({ host: '' });
 
     expect(scanner1.hasUnixSocket()).toEqual(true);
     expect(scanner2.hasUnixSocket()).toEqual(false);
@@ -262,11 +262,11 @@ describe('Scanner model function tests', () => {
 
   test('openVasScannersFilter should return filter with correct true/false', () => {
     // @ts-expect-error
-    expect(openVasScannersFilter({scannerType: 42})).toEqual(false);
+    expect(openVasScannersFilter({ scannerType: 42 })).toEqual(false);
     expect(
-      openVasScannersFilter({scannerType: GREENBONE_SENSOR_SCANNER_TYPE}),
+      openVasScannersFilter({ scannerType: GREENBONE_SENSOR_SCANNER_TYPE }),
     ).toEqual(false);
-    expect(openVasScannersFilter({scannerType: OPENVAS_SCANNER_TYPE})).toEqual(
+    expect(openVasScannersFilter({ scannerType: OPENVAS_SCANNER_TYPE })).toEqual(
       true,
     );
   });

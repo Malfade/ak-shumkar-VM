@@ -58,12 +58,17 @@ const createEnterpriseComponent = (
   };
 };
 
-export const GreenboneWhiteLogo = (props: ApplianceIconProps) => (
+export const GreenboneWhiteLogo = ({
+  style,
+  loading,
+  size,
+  ...props
+}: ApplianceIconProps) => (
   <img
     src="/img/skysoc-logo.fc88ba28.png"
     alt="SkySOC"
-    style={{ width: '150px' }}
-    {...props}
+    style={{ width: '150px', ...(style as React.CSSProperties) }}
+    {...(props as React.ImgHTMLAttributes<HTMLImageElement>)}
   />
 );
 export const Enterprise150 = createEnterpriseComponent(

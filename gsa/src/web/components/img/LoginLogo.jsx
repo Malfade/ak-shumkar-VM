@@ -16,10 +16,10 @@ const Image = styled(Img)`
   display: flex;
   max-width: 100%;
   height: auto;
-  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.5));
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.5));
 `;
 
-const LoginLogo = ({ width }) => {
+const LoginLogo = ({width}) => {
   const [_] = useTranslation();
   const gmp = useGmp();
   const loginTopLogo = gmp?.settings?.vendorLabel
@@ -32,7 +32,7 @@ const LoginLogo = ({ width }) => {
       alt={_('SkySOC')}
       data-testid="greenbone-login-logo"
       src={loginTopLogo}
-      style={{ width: width || '100%' }}
+      style={{width: width || '100%'}}
     />
   );
 };

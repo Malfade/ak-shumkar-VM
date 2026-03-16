@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: AGPL-3.0-or-later
  */
 
-import {map} from 'gmp/utils/array';
+import { map } from 'gmp/utils/array';
 
 export type Feature =
   | 'CVSS3_RATINGS'
@@ -11,7 +11,8 @@ export type Feature =
   | 'ENABLE_OPENVASD'
   | 'ENABLE_AGENTS'
   | 'ENABLE_CONTAINER_SCANNING'
-  | 'ENABLE_CREDENTIAL_STORES';
+  | 'ENABLE_CREDENTIAL_STORES'
+  | 'ENABLE_SkySOCD';
 
 class Features {
   private readonly _features: Set<Feature>;

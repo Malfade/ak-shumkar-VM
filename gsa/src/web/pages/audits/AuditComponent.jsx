@@ -8,8 +8,8 @@ import {useDispatch} from 'react-redux';
 import {DEFAULT_MIN_QOD} from 'gmp/models/audit';
 import Filter, {ALL_FILTER} from 'gmp/models/filter';
 import {
-  OPENVAS_DEFAULT_SCANNER_ID,
-  OPENVAS_SCANNER_TYPE,
+  SkySOC_DEFAULT_SCANNER_ID,
+  SkySOC_SCANNER_TYPE,
   GREENBONE_SENSOR_SCANNER_TYPE,
 } from 'gmp/models/scanner';
 import {NO_VALUE, YES_VALUE} from 'gmp/parser';
@@ -98,7 +98,7 @@ const AuditComponent = ({
   const [maxChecks, setMaxChecks] = useState(undefined);
   const [maxHosts, setMaxHosts] = useState(undefined);
   const [name, setName] = useState('');
-  const [scannerId, setScannerId] = useState(OPENVAS_DEFAULT_SCANNER_ID);
+  const [scannerId, setScannerId] = useState(SkySOC_DEFAULT_SCANNER_ID);
   const [scheduleId, setScheduleId] = useState(undefined);
   const [schedulePeriods, setSchedulePeriods] = useState(undefined);
   const [targetId, setTargetId] = useState(undefined);
@@ -136,7 +136,7 @@ const AuditComponent = ({
   const scanners = isDefined(scannerList)
     ? scannerList.filter(
         scanner =>
-          scanner.scannerType === OPENVAS_SCANNER_TYPE ||
+          scanner.scannerType === SkySOC_SCANNER_TYPE ||
           scanner.scannerType === GREENBONE_SENSOR_SCANNER_TYPE,
       )
     : undefined;
@@ -322,8 +322,8 @@ const AuditComponent = ({
     maxChecks,
     maxHosts,
     name,
-    scannerId = OPENVAS_DEFAULT_SCANNER_ID,
-    scannerType = OPENVAS_SCANNER_TYPE,
+    scannerId = SkySOC_DEFAULT_SCANNER_ID,
+    scannerType = SkySOC_SCANNER_TYPE,
     scheduleId,
     schedulePeriods,
     targetId,
@@ -482,7 +482,7 @@ const AuditComponent = ({
       setMaxChecks(undefined);
       setMaxHosts(undefined);
       setName(undefined);
-      setScannerId(defaultScannerId || OPENVAS_DEFAULT_SCANNER_ID);
+      setScannerId(defaultScannerId || SkySOC_DEFAULT_SCANNER_ID);
       setScheduleId(defaultScheduleId);
       setSchedulePeriods(undefined);
       setTargetId(defaultTargetId);

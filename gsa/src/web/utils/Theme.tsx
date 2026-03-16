@@ -64,33 +64,33 @@ const Theme: ThemeInterface = {
   lightGreen: '#4ADE80',
   green: '#22C55E',
 
-  lightGray: '#3F3F46',    // disabled inputs
+  lightGray: '#3F3F46', // disabled inputs
   mediumDarkGray: '#52525B',
   mediumGray: '#71717A',
   darkGray: '#A1A1AA',
 
   /* SkySOC core */
   white: '#FFFFFF',
-  dialogGray: '#27272A',   // dialog and dashboard display backgrounds
-  inputBorderGray: '#3F3F46',  // form field borders
-  black: '#1A1A1C',        // base background (not pure black)
-  loginButtonGray: '#FFD400',  // primary action — Beeline yellow
+  dialogGray: '#27272A', // dialog and dashboard display backgrounds
+  inputBorderGray: '#3F3F46', // form field borders
+  black: '#1A1A1C', // base background (not pure black)
+  loginButtonGray: '#FFD400', // primary action — Beeline yellow
   loginButtonHover: '#E6BF00', // hover state for yellow buttons
 
-  lightRed: '#2D1B1B',       // dialog errors background
+  lightRed: '#2D1B1B', // dialog errors background
   mediumLightRed: '#7F1D1D', // dialog errors border
-  warningRed: '#EF4444',     // warning font color
-  darkRed: '#DC2626',        // dialog errors font
-  errorRed: '#C83814',       // progressbar error
+  warningRed: '#EF4444', // warning font color
+  darkRed: '#DC2626', // dialog errors font
+  errorRed: '#C83814', // progressbar error
 
   complianceYes: '#22C55E',
   complianceNo: '#EF4444',
   complianceIncomplete: '#F59E0B',
   complianceUndefined: '#52525B',
 
-  lightBlue: '#1E3A5F',      // info panel and dashboard hover
-  mediumBlue: '#3B82F6',     // active/hovered items in Select
-  blue: '#4A80FF',           // links
+  lightBlue: '#1E3A5F', // info panel and dashboard hover
+  mediumBlue: '#3B82F6', // active/hovered items in Select
+  blue: '#4A80FF', // links
   severityLowBlue: '#60A5FA',
 
   severityWarnYellow: '#FFD400',
@@ -119,7 +119,8 @@ const Theme: ThemeInterface = {
   },
 
   Font: {
-    default: "'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+    default:
+      "'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
     dialog: "'Poppins', Verdana, Arial, sans-serif",
     defaultSize: 'var(--mantine-font-size-md)',
   },

@@ -3,15 +3,15 @@
  * SPDX-License-Identifier: AGPL-3.0-or-later
  */
 
-import { useState, useEffect } from 'react';
-import { notifications } from '@mantine/notifications';
-import { useDispatch } from 'react-redux';
-import { useLocation, useNavigate } from 'react-router';
+import {useState, useEffect} from 'react';
+import {notifications} from '@mantine/notifications';
+import {useDispatch} from 'react-redux';
+import {useLocation, useNavigate} from 'react-router';
 import styled from 'styled-components';
-import { ResponseRejection } from 'gmp/http/rejection';
+import {ResponseRejection} from 'gmp/http/rejection';
 import logger from 'gmp/log';
-import { isDefined } from 'gmp/utils/identity';
-import { isEmpty } from 'gmp/utils/string';
+import {isDefined} from 'gmp/utils/identity';
+import {isEmpty} from 'gmp/utils/string';
 import Layout from 'web/components/layout/Layout';
 import PageTitle from 'web/components/layout/PageTitle';
 import useGmp from 'web/hooks/useGmp';
@@ -27,7 +27,7 @@ import {
 
 const log = logger.getLogger('web.login');
 const StyledLayout = styled(Layout)`
-  background: radial-gradient(circle at 50% 0%, #1E1E22 0%, #000000 100%);
+  background: radial-gradient(circle at 50% 0%, #1e1e22 0%, #000000 100%);
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -41,22 +41,32 @@ const StyledLayout = styled(Layout)`
     position: absolute;
     width: 600px;
     height: 600px;
-    background: radial-gradient(circle, rgba(255, 212, 0, 0.05) 0%, transparent 60%);
+    background: radial-gradient(
+      circle,
+      rgba(255, 212, 0, 0.05) 0%,
+      transparent 60%
+    );
     top: -200px;
     right: -200px;
     animation: pulse 8s ease-in-out infinite alternate;
   }
 
   @keyframes pulse {
-    0% { transform: scale(1); opacity: 0.5; }
-    100% { transform: scale(1.2); opacity: 0.8; }
+    0% {
+      transform: scale(1);
+      opacity: 0.5;
+    }
+    100% {
+      transform: scale(1.2);
+      opacity: 0.8;
+    }
   }
 `;
 
 const FooterText = styled.div`
   position: absolute;
   bottom: 2rem;
-  color: var(--skysoc-text-muted, #A1A1AA);
+  color: var(--skysoc-text-muted, #a1a1aa);
   font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -82,7 +92,7 @@ const LoginPage: React.FC = () => {
       // redirect user to main page if he is already logged in
       if (isLoggedIn) {
         try {
-          await navigate('/dashboards', { replace: true });
+          await navigate('/dashboards', {replace: true});
         } catch (error) {
           log.error(error);
         }
@@ -98,7 +108,7 @@ const LoginPage: React.FC = () => {
     try {
       const data = await gmp.login(username, password);
 
-      const { locale, timezone, sessionTimeout } = data;
+      const {locale, timezone, sessionTimeout} = data;
 
       gmp.setTimezone(timezone);
       gmp.setLocale(locale);
@@ -113,13 +123,13 @@ const LoginPage: React.FC = () => {
       const previousPath =
         previousLocation &&
         previousLocation.pathname +
-        (previousLocation.search ?? '') +
-        (previousLocation.hash ?? '');
+          (previousLocation.search ?? '') +
+          (previousLocation.hash ?? '');
 
       if (previousPath && previousPath !== '/login') {
-        await navigate(previousPath, { replace: true });
+        await navigate(previousPath, {replace: true});
       } else {
-        await navigate('/dashboards', { replace: true });
+        await navigate('/dashboards', {replace: true});
       }
     } catch (error) {
       log.error(error);
@@ -127,7 +137,7 @@ const LoginPage: React.FC = () => {
     }
 
     try {
-      const { data: userSettings } = await gmp.user.currentSettings();
+      const {data: userSettings} = await gmp.user.currentSettings();
 
       localStorage.setItem(
         'userInterfaceTimeFormat',
@@ -184,7 +194,7 @@ const LoginPage: React.FC = () => {
         onGuestLoginClick={handleGuestLogin}
         onSubmit={handleSubmit}
       />
-      <FooterText>SKYSOC VULNERABILITY MANAGEMENT // POWERED BY OPENVAS</FooterText>
+      <FooterText>SKYSOC VULNERABILITY MANAGEMENT</FooterText>
     </StyledLayout>
   );
 };

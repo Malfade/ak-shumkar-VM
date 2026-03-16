@@ -7,7 +7,7 @@ import {describe, test, expect} from '@gsa/testing';
 import {rendererWith, screen} from 'web/testing';
 import Capabilities from 'gmp/capabilities/capabilities';
 import ScanConfig from 'gmp/models/scan-config';
-import {OPENVAS_SCANNER_TYPE} from 'gmp/models/scanner';
+import {SkySOC_SCANNER_TYPE} from 'gmp/models/scanner';
 import Details from 'web/pages/scanconfigs/Details';
 
 describe('Scan Config Details tests', () => {
@@ -15,7 +15,7 @@ describe('Scan Config Details tests', () => {
     const config = ScanConfig.fromElement({
       name: 'foo',
       comment: 'bar',
-      scanner: {name: 'scanner1', id: '42', type: OPENVAS_SCANNER_TYPE},
+      scanner: {name: 'scanner1', id: '42', type: SkySOC_SCANNER_TYPE},
       tasks: {
         task: [
           {_id: '1234', name: 'task1'},
@@ -47,7 +47,7 @@ describe('Scan Config Details tests', () => {
       name: 'foo',
       comment: 'bar',
       deprecated: 1,
-      scanner: {name: 'scanner1', _id: '42', type: OPENVAS_SCANNER_TYPE},
+      scanner: {name: 'scanner1', _id: '42', type: SkySOC_SCANNER_TYPE},
       tasks: {
         task: [
           {_id: '1234', name: 'task1'},

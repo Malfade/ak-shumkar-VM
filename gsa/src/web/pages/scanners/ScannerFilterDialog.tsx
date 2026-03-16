@@ -8,8 +8,8 @@ import {
   AGENT_CONTROLLER_SCANNER_TYPE,
   AGENT_CONTROLLER_SENSOR_SCANNER_TYPE,
   GREENBONE_SENSOR_SCANNER_TYPE,
-  OPENVAS_SCANNER_TYPE,
-  OPENVASD_SCANNER_TYPE,
+  SkySOC_SCANNER_TYPE,
+  SkySOCD_SCANNER_TYPE,
   type ScannerType,
   scannerTypeName,
 } from 'gmp/models/scanner';
@@ -51,8 +51,8 @@ const ScannerTypeGroup = ({
 
   const currentScannerType = filter?.get('type') as string | undefined;
   const scannerTypes: ScannerType[] = [
-    OPENVAS_SCANNER_TYPE,
-    OPENVASD_SCANNER_TYPE,
+    SkySOC_SCANNER_TYPE,
+    SkySOCD_SCANNER_TYPE,
   ];
   if (
     features.featureEnabled('ENABLE_AGENTS') &&

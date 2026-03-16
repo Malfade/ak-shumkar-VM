@@ -10,7 +10,7 @@ import {
   createActionResultResponse,
   createEntityResponse,
 } from 'gmp/commands/testing';
-import Scanner, {OPENVASD_SCANNER_TYPE} from 'gmp/models/scanner';
+import Scanner, {SkySOCD_SCANNER_TYPE} from 'gmp/models/scanner';
 
 describe('ScannerCommand tests', () => {
   test('should send the correct data to create a scanner', async () => {
@@ -25,7 +25,7 @@ describe('ScannerCommand tests', () => {
       name: 'Test Scanner',
       host: '127.0.0.1',
       port: 9390,
-      type: OPENVASD_SCANNER_TYPE,
+      type: SkySOCD_SCANNER_TYPE,
       comment: 'Test comment',
       caCertificate: 'test-ca-pub' as unknown as File,
       credentialId: 'test-credential-id',
@@ -37,7 +37,7 @@ describe('ScannerCommand tests', () => {
         comment: 'Test comment',
         credential_id: 'test-credential-id',
         scanner_host: '127.0.0.1',
-        scanner_type: OPENVASD_SCANNER_TYPE,
+        scanner_type: SkySOCD_SCANNER_TYPE,
         port: 9390,
         ca_pub: 'test-ca-pub',
       },
@@ -58,7 +58,7 @@ describe('ScannerCommand tests', () => {
       name: 'Updated Scanner',
       host: '127.0.0.1',
       port: 9390,
-      type: OPENVASD_SCANNER_TYPE,
+      type: SkySOCD_SCANNER_TYPE,
       comment: 'Updated comment',
       caCertificate: 'updated-ca-pub' as unknown as File,
       credentialId: 'updated-credential-id',
@@ -71,7 +71,7 @@ describe('ScannerCommand tests', () => {
         comment: 'Updated comment',
         credential_id: 'updated-credential-id',
         scanner_host: '127.0.0.1',
-        scanner_type: OPENVASD_SCANNER_TYPE,
+        scanner_type: SkySOCD_SCANNER_TYPE,
         port: 9390,
         ca_pub: 'updated-ca-pub',
       },
@@ -91,7 +91,7 @@ describe('ScannerCommand tests', () => {
       name: 'Updated Scanner',
       host: '127.0.0.1',
       port: 9390,
-      type: OPENVASD_SCANNER_TYPE,
+      type: SkySOCD_SCANNER_TYPE,
       comment: 'Updated comment',
       caCertificate: 'updated-ca-pub' as unknown as File,
     });
@@ -104,7 +104,7 @@ describe('ScannerCommand tests', () => {
         name: 'Updated Scanner',
         comment: 'Updated comment',
         scanner_host: '127.0.0.1',
-        scanner_type: OPENVASD_SCANNER_TYPE,
+        scanner_type: SkySOCD_SCANNER_TYPE,
         port: 9390,
       },
     });
@@ -123,7 +123,7 @@ describe('ScannerCommand tests', () => {
       name: 'Updated Scanner',
       host: '127.0.0.1',
       port: 9390,
-      type: OPENVASD_SCANNER_TYPE,
+      type: SkySOCD_SCANNER_TYPE,
       comment: 'Updated comment',
       credentialId: '123',
     });
@@ -136,7 +136,7 @@ describe('ScannerCommand tests', () => {
         name: 'Updated Scanner',
         comment: 'Updated comment',
         scanner_host: '127.0.0.1',
-        scanner_type: OPENVASD_SCANNER_TYPE,
+        scanner_type: SkySOCD_SCANNER_TYPE,
         port: 9390,
       },
     });
@@ -163,7 +163,7 @@ describe('ScannerCommand tests', () => {
     const response = createEntityResponse('scanner', {
       id: '123',
       name: 'Test Scanner',
-      type: OPENVASD_SCANNER_TYPE,
+      type: SkySOCD_SCANNER_TYPE,
     });
     const fakeHttp = createHttp(response);
     const cmd = new ScannerCommand(fakeHttp);
@@ -179,7 +179,7 @@ describe('ScannerCommand tests', () => {
       new Scanner({
         id: '123',
         name: 'Test Scanner',
-        scannerType: OPENVASD_SCANNER_TYPE,
+        scannerType: SkySOCD_SCANNER_TYPE,
       }),
     );
   });
@@ -188,7 +188,7 @@ describe('ScannerCommand tests', () => {
     const response = createEntityResponse('scanner', {
       id: '123',
       name: 'Test Scanner',
-      type: OPENVASD_SCANNER_TYPE,
+      type: SkySOCD_SCANNER_TYPE,
     });
     const fakeHttp = createHttp(response);
     const cmd = new ScannerCommand(fakeHttp);
@@ -204,7 +204,7 @@ describe('ScannerCommand tests', () => {
       new Scanner({
         id: '123',
         name: 'Test Scanner',
-        scannerType: OPENVASD_SCANNER_TYPE,
+        scannerType: SkySOCD_SCANNER_TYPE,
       }),
     );
   });
@@ -213,7 +213,7 @@ describe('ScannerCommand tests', () => {
     const response = createEntityResponse('scanner', {
       id: '123',
       name: 'Test Scanner',
-      type: OPENVASD_SCANNER_TYPE,
+      type: SkySOCD_SCANNER_TYPE,
     });
     const fakeHttp = createHttp(response);
     const cmd = new ScannerCommand(fakeHttp);
@@ -229,7 +229,7 @@ describe('ScannerCommand tests', () => {
       new Scanner({
         id: '123',
         name: 'Test Scanner',
-        scannerType: OPENVASD_SCANNER_TYPE,
+        scannerType: SkySOCD_SCANNER_TYPE,
       }),
     );
   });

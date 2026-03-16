@@ -3,9 +3,9 @@
  * SPDX-License-Identifier: AGPL-3.0-or-later
  */
 
-import {useState} from 'react';
+import { useState } from 'react';
 import ConfirmationDialog from 'web/components/dialog/ConfirmationDialog';
-import {withTextOnly} from 'web/components/link/Link';
+import { withTextOnly } from 'web/components/link/Link';
 import useTranslation from 'web/hooks/useTranslation';
 
 interface ExternalLinkProps extends Omit<
@@ -16,7 +16,7 @@ interface ExternalLinkProps extends Omit<
   children?: React.ReactNode;
 }
 
-const ExternalLink = ({children, to, ...props}: ExternalLinkProps) => {
+const ExternalLink = ({ children, to, ...props }: ExternalLinkProps) => {
   const [_] = useTranslation();
   const [dialogVisible, setDialogVisible] = useState(false);
 
@@ -37,10 +37,10 @@ const ExternalLink = ({children, to, ...props}: ExternalLinkProps) => {
   const dialogTitle = _('You are leaving OPENVAS');
   const dialogText = _(
     'This dialog will open a new window for {{- to}} ' +
-      'if you click on "follow link". Following this link is on your own ' +
-      'responsibility. Greenbone does not endorse the content you will ' +
-      'see there.',
-    {to},
+    'if you click on "follow link". Following this link is on your own ' +
+    'responsibility. Greenbone does not endorse the content you will ' +
+    'see there.',
+    { to },
   );
 
   return (

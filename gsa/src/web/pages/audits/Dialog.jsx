@@ -12,8 +12,8 @@ import {
   DEFAULT_MAX_HOSTS,
 } from 'gmp/models/audit';
 import {
-  OPENVAS_SCANNER_TYPE,
-  OPENVAS_DEFAULT_SCANNER_ID,
+  SkySOC_SCANNER_TYPE,
+  SkySOC_DEFAULT_SCANNER_ID,
 } from 'gmp/models/scanner';
 import {NO_VALUE, YES_VALUE} from 'gmp/parser';
 import {selectSaveId} from 'gmp/utils/id';
@@ -74,7 +74,7 @@ ScannerSelect.propTypes = {
   changeAudit: PropTypes.bool.isRequired,
   isLoading: PropTypes.bool,
   policies: PropTypes.shape({
-    [OPENVAS_SCANNER_TYPE]: PropTypes.array,
+    [SkySOC_SCANNER_TYPE]: PropTypes.array,
   }),
   scannerId: PropTypes.id.isRequired,
   scanners: PropTypes.array.isRequired,
@@ -96,11 +96,11 @@ const AuditDialog = ({
   name,
   policies = [],
   policyId,
-  scannerId = OPENVAS_DEFAULT_SCANNER_ID,
+  scannerId = SkySOC_DEFAULT_SCANNER_ID,
   scanners = [
     {
-      id: OPENVAS_DEFAULT_SCANNER_ID,
-      scannerType: OPENVAS_SCANNER_TYPE,
+      id: SkySOC_DEFAULT_SCANNER_ID,
+      scannerType: SkySOC_SCANNER_TYPE,
     },
   ],
   scheduleId = UNSET_VALUE,
