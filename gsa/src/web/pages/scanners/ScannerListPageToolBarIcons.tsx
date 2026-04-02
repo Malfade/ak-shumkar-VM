@@ -24,7 +24,7 @@ const ScannerListPageToolBarIcons = ({
   const [_] = useTranslation();
   const showNewScannerIcon =
     capabilities.mayCreate('scanner') &&
-    (gmp.settings.enableGreenboneSensor ||
+    (gmp.settings.enableAkShumkarSensor ||
       features.featureEnabled('ENABLE_AGENTS'));
   return (
     <IconDivider>

@@ -5,12 +5,15 @@
 use std::collections::HashMap;
 use std::net::SocketAddr;
 use std::sync::Arc;
+use std::sync::atomic::{AtomicUsize, Ordering};
 
 use async_trait::async_trait;
 use russh::server::{Handle, Msg, Session};
 use russh::*;
 use server::Auth;
 use tokio::sync::Mutex;
+
+static CONNECTION_COUNT: AtomicUsize = AtomicUsize::new(0);
 
 #[derive(Clone)]
 pub struct AuthConfig {
@@ -42,11 +45,20 @@ impl TestServer {
     }
 }
 
+pub fn reset_connection_count() {
+    CONNECTION_COUNT.store(0, Ordering::SeqCst);
+}
+
+pub fn connection_count() -> usize {
+    CONNECTION_COUNT.load(Ordering::SeqCst)
+}
+
 #[async_trait]
 impl server::Server for TestServer {
     type Handler = Self;
 
     fn new_client(&mut self, _: Option<SocketAddr>) -> Self {
+        CONNECTION_COUNT.fetch_add(1, Ordering::SeqCst);
         self.clone()
     }
 }
@@ -80,7 +92,12 @@ impl server::Handler for TestServer {
 
     #[allow(clippy::manual_async_fn)]
     fn auth_none(&mut self, _user: &str) -> impl Future<Output = Result<Auth, Self::Error>> + Send {
-        async { Ok(Auth::Accept) }
+        async {
+            Ok(Auth::Reject {
+                proceed_with_methods: None,
+                partial_success: false,
+            })
+        }
     }
 
     #[allow(clippy::manual_async_fn)]

@@ -82,7 +82,7 @@ const Actions = ({
         disabled={!gcrFormatDefined || !isDefined(entity.last_report)}
         title={
           gcrFormatDefined && isDefined(entity.last_report)
-            ? _('Download Greenbone Compliance Report')
+            ? _('Download Ak Shumkar Compliance Report')
             : _('Report download not available')
         }
         value={entity}

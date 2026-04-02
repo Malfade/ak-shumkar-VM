@@ -38,6 +38,9 @@ pub enum KbKey {
     /// Contains TCP Scanner related Kb keys
     TcpScanner(TcpScanner),
 
+    /// Contains UDP Scanner related Kb keys
+    UdpScanner(UdpScanner),
+
     BannerHex(u16),
 
     Banner(u16),
@@ -155,6 +158,16 @@ pub enum TcpScanner {
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 #[serde(rename_all = "snake_case")]
+pub enum UdpScanner {
+    NbPasses,
+    OpenPortsNb,
+    ClosedPortsNb,
+    FilteredPortsNb,
+    IcmpRateLimit,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+#[serde(rename_all = "snake_case")]
 pub enum Kdc {
     Hostname,
     Port,
@@ -263,6 +276,16 @@ impl Display for KbKey {
             }
             KbKey::TcpScanner(TcpScanner::CnxTime1000(port)) => {
                 write!(f, "TCPScanner/CnxTime1000/{port}")
+            }
+
+            KbKey::UdpScanner(UdpScanner::NbPasses) => write!(f, "UDPScanner/NbPasses"),
+            KbKey::UdpScanner(UdpScanner::OpenPortsNb) => write!(f, "UDPScanner/OpenPortsNb"),
+            KbKey::UdpScanner(UdpScanner::ClosedPortsNb) => write!(f, "UDPScanner/ClosedPortsNb"),
+            KbKey::UdpScanner(UdpScanner::FilteredPortsNb) => {
+                write!(f, "UDPScanner/FilteredPortsNb")
+            }
+            KbKey::UdpScanner(UdpScanner::IcmpRateLimit) => {
+                write!(f, "UDPScanner/IcmpRateLimit")
             }
 
             KbKey::BannerHex(port) => write!(f, "BannerHex/{port}"),

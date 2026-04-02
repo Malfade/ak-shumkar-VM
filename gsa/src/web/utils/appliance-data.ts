@@ -4,7 +4,7 @@
  */
 
 import {
-  GreenboneWhiteLogo,
+  AkShumkarWhiteLogo,
   Enterprise150,
   Enterprise400,
   Enterprise450,
@@ -17,82 +17,82 @@ import {
   EnterpriseExa,
   EnterprisePeta,
   EnterpriseTera,
-} from 'web/components/icon/GreenboneApplianceLogo';
+} from 'web/components/icon/AkShumkarApplianceLogo';
 
 export type ApplianceLogo = keyof typeof APPLIANCE_DATA;
 
 const APPLIANCE_DATA = {
   defaultVendorLabel: {
-    title: 'SkySOC',
-    component: GreenboneWhiteLogo,
+    title: 'Ak Shumkar',
+    component: AkShumkarWhiteLogo,
   },
   'gsm-150_label.svg': {
-    title: 'SkySOC VM',
+    title: 'Ak Shumkar VM',
     component: Enterprise150,
   },
   'gsm-400_label.svg': {
-    title: 'SkySOC VM',
+    title: 'Ak Shumkar VM',
     component: Enterprise400,
   },
   'gsm-400r2_label.svg': {
-    title: 'SkySOC VM',
+    title: 'Ak Shumkar VM',
     component: Enterprise400,
   },
   'gsm-450_label.svg': {
-    title: 'SkySOC VM',
+    title: 'Ak Shumkar VM',
     component: Enterprise450,
   },
   'gsm-450r2_label.svg': {
-    title: 'SkySOC VM',
+    title: 'Ak Shumkar VM',
     component: Enterprise450,
   },
   'gsm-600_label.svg': {
-    title: 'SkySOC VM',
+    title: 'Ak Shumkar VM',
     component: Enterprise600,
   },
   'gsm-600r2_label.svg': {
-    title: 'SkySOC VM',
+    title: 'Ak Shumkar VM',
     component: Enterprise600,
   },
   'gsm-650_label.svg': {
-    title: 'SkySOC VM',
+    title: 'Ak Shumkar VM',
     component: Enterprise650,
   },
   'gsm-650r2_label.svg': {
-    title: 'SkySOC VM',
+    title: 'Ak Shumkar VM',
     component: Enterprise650,
   },
   'gsm-5400_label.svg': {
-    title: 'SkySOC VM',
+    title: 'Ak Shumkar VM',
     component: Enterprise5400,
   },
   'gsm-6500_label.svg': {
-    title: 'SkySOC VM',
+    title: 'Ak Shumkar VM',
     component: Enterprise6500,
   },
   'gsm-ceno_label.svg': {
-    title: 'SkySOC VM',
+    title: 'Ak Shumkar VM',
     component: EnterpriseCeno,
   },
   'gsm-deca_label.svg': {
-    title: 'SkySOC VM',
+    title: 'Ak Shumkar VM',
     component: EnterpriseDeca,
   },
   'gsm-exa_label.svg': {
-    title: 'SkySOC VM',
+    title: 'Ak Shumkar VM',
     component: EnterpriseExa,
   },
   'gsm-peta_label.svg': {
-    title: 'SkySOC VM',
+    title: 'Ak Shumkar VM',
     component: EnterprisePeta,
   },
   'gsm-tera_label.svg': {
-    title: 'SkySOC VM',
+    title: 'Ak Shumkar VM',
     component: EnterpriseTera,
   },
   'gsm-unknown_label.svg': {
-    title: 'SkySOC VM',
-    component: GreenboneWhiteLogo,
+    title: 'Ak Shumkar VM',
+    component: AkShumkarWhiteLogo,
   },
 };
 

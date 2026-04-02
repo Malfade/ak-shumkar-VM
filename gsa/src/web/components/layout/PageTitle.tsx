@@ -18,10 +18,10 @@ const PageTitle = ({ title: pageTitle }: PageTitleProps) => {
 
   const vendorTitle = gmp?.settings?.vendorTitle;
 
-  const title = (vendorTitle ?? applianceTitle[vendorLabel] ?? 'SkySOC VM').replace('OPENVAS', 'SkySOC VM');
+  const title = (vendorTitle ?? applianceTitle[vendorLabel] ?? 'Ak Shumkar VM').replace('OPENVAS', 'Ak Shumkar VM');
 
   useEffect(() => {
-    const finalTitle = title.includes('SkySOC') ? title : 'SkySOC VM';
+    const finalTitle = title.includes('Ak Shumkar') ? title : 'Ak Shumkar VM';
     if (isDefined(pageTitle)) {
       document.title = finalTitle + ' - ' + pageTitle;
     } else {

@@ -95,11 +95,11 @@ const TableHead = ({
 };
 
 export default styled(TableHead)`
-  background-color: var(--skysoc-bg-deep, ${Theme.white});
-  color: var(--skysoc-text-muted, ${Theme.black});
+  background-color: var(--ak-shumkar-bg-deep, ${Theme.white});
+  color: var(--ak-shumkar-text-muted, ${Theme.black});
   border-top: ${props =>
     props.withBorder
-      ? `1px solid var(--skysoc-border, ${Theme.lightGray})`
+      ? `1px solid var(--ak-shumkar-border, ${Theme.lightGray})`
       : 'none'};
   font-weight: bold;
   width: ${props => props.width};

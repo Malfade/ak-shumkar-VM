@@ -1,0 +1,4 @@
+ARG OPENVASD_BASE_IMAGE=registry.community.greenbone.net/community/openvas-scanner:stable
+FROM ${OPENVASD_BASE_IMAGE}
+COPY rust/target/release/openvasd /usr/local/bin/openvasd
+COPY udp_scanner.nasl /opt/custom-nasl/udp_scanner.nasl

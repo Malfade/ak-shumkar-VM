@@ -143,8 +143,8 @@ export const getTranslatableSeverityOrigin = (origin: string) => {
       return _('Third Party');
     case 'Vendor':
       return _('Vendor');
-    case 'Greenbone':
-      return _('Greenbone');
+    case 'Ak Shumkar':
+      return _('Ak Shumkar');
     case 'NVD':
       return _('NVD');
     default:

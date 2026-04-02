@@ -93,7 +93,7 @@ describe('Task StartIcon component tests', () => {
     const caps = new Capabilities(['everything']);
     const icalendar = `BEGIN:VCALENDAR
 VERSION:2.0
-PRODID:-//Greenbone.net//NONSGML Greenbone Security Manager 8.0.0//EN
+PRODID:-//Ak Shumkar.net//NONSGML Ak Shumkar Security Manager 8.0.0//EN
 BEGIN:VEVENT
 UID:c35f82f1-7798-4b84-b2c4-761a33068956
 DTSTAMP:20190715T124352Z

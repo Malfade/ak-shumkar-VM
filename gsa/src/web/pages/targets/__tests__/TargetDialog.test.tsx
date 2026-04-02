@@ -70,7 +70,7 @@ const credentials = [cred1, cred2, cred3, cred4, cred5];
 
 const gmp = {
   settings: {
-    enableGreenboneSensor: true,
+    enableAkShumkarSensor: true,
     enableKrb5: false,
   },
 };
@@ -437,7 +437,7 @@ describe('TargetDialog tests', () => {
     },
     {
       name: 'smb credential should disable kerberos credential dropdown',
-      credentialValue: 'SkySOC Default',
+      credentialValue: 'Ak Shumkar Default',
       getDisabledElement: () =>
         screen.getByTestId<HTMLSelectElement>('krb5-credential-select'),
       getSelectElement: () =>
@@ -461,7 +461,7 @@ describe('TargetDialog tests', () => {
 
       const gmp = {
         settings: {
-          enableGreenboneSensor: true,
+          enableAkShumkarSensor: true,
           enableKrb5: true,
         },
       };

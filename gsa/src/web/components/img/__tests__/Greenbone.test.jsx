@@ -5,13 +5,13 @@
 
 import {describe, test, expect} from '@gsa/testing';
 import {render} from 'web/testing';
-import GreenboneLogo from 'web/components/img/Greenbone';
+import AkShumkarLogo from 'web/components/img/AkShumkar';
 
-describe('GreenboneLogo tests', () => {
+describe('AkShumkarLogo tests', () => {
   test('should render', () => {
-    const {element} = render(<GreenboneLogo />);
+    const {element} = render(<AkShumkarLogo />);
 
-    expect(element).toHaveAttribute('alt', 'SkySOC');
+    expect(element).toHaveAttribute('alt', 'Ak Shumkar');
     expect(element).toHaveAttribute('data-testid', 'greenbone-logo');
     expect(element).toHaveAttribute('src');
   });

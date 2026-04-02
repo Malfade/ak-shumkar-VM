@@ -57,8 +57,8 @@ export const CERT_FEED = 'CERT';
 export const SCAP_FEED = 'SCAP';
 export const GVMD_DATA_FEED = 'GVMD_DATA';
 
-export const FEED_COMMUNITY = 'Greenbone Community Feed';
-export const FEED_ENTERPRISE = 'Greenbone Enterprise Feed';
+export const FEED_COMMUNITY = 'Ak Shumkar Community Feed';
+export const FEED_ENTERPRISE = 'Ak Shumkar Enterprise Feed';
 
 const convertVersion = (version: number) =>
   `${version}`.slice(0, 8) + 'T' + `${version}`.slice(8, 12);

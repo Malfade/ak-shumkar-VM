@@ -5,7 +5,7 @@
 
 import {describe, test, expect, testing} from '@gsa/testing';
 import {rendererWithTableBody, fireEvent, screen} from 'web/testing';
-import {GREENBONE_SENSOR_SCANNER_TYPE} from 'gmp/models/scanner';
+import {AK_SHUMKAR_SENSOR_SCANNER_TYPE} from 'gmp/models/scanner';
 import Task, {TASK_STATUS} from 'gmp/models/task';
 import TaskRow from 'web/pages/tasks/TaskRow';
 import {setTimezone, setUsername} from 'web/store/usersettings/actions';
@@ -148,7 +148,7 @@ describe('TaskRow tests', () => {
       scanner: {
         _id: 'id',
         name: 'scanner',
-        type: GREENBONE_SENSOR_SCANNER_TYPE,
+        type: AK_SHUMKAR_SENSOR_SCANNER_TYPE,
       },
       observers: {
         __text: 'anon nymous',

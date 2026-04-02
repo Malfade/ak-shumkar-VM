@@ -6,11 +6,11 @@
 import styled from 'styled-components';
 import type ScanConfig from 'gmp/models/scan-config';
 import Scanner, {
-  SkySOC_SCANNER_TYPE,
-  SkySOC_DEFAULT_SCANNER_ID,
-  SkySOCD_SCANNER_TYPE,
-  GREENBONE_SENSOR_SCANNER_TYPE,
-  SkySOCD_SENSOR_SCANNER_TYPE,
+  AK_SHUMKAR_SCANNER_TYPE,
+  AK_SHUMKAR_DEFAULT_SCANNER_ID,
+  AK_SHUMKARD_SCANNER_TYPE,
+  AK_SHUMKAR_SENSOR_SCANNER_TYPE,
+  AK_SHUMKARD_SENSOR_SCANNER_TYPE,
   type ScannerType,
 } from 'gmp/models/scanner';
 import {
@@ -136,8 +136,8 @@ const Title = styled.div`
 `;
 
 const DEFAULT_SCANNER = new Scanner({
-  id: SkySOC_DEFAULT_SCANNER_ID,
-  scannerType: SkySOC_SCANNER_TYPE,
+  id: AK_SHUMKAR_DEFAULT_SCANNER_ID,
+  scannerType: AK_SHUMKAR_SCANNER_TYPE,
 });
 
 const getScanner = (scanners: Scanner[] | undefined, scannerId: string) => {
@@ -207,7 +207,7 @@ const TaskDialog = ({
   // eslint-disable-next-line @typescript-eslint/naming-convention
   scan_configs = [],
   // eslint-disable-next-line @typescript-eslint/naming-convention
-  scanner_id = SkySOC_DEFAULT_SCANNER_ID,
+  scanner_id = AK_SHUMKAR_DEFAULT_SCANNER_ID,
   scanners = [DEFAULT_SCANNER],
   // eslint-disable-next-line @typescript-eslint/naming-convention
   schedule_id = UNSET_VALUE,
@@ -307,10 +307,10 @@ const TaskDialog = ({
         const openvasConfigId = selectSaveId(scan_configs, state.config_id);
 
         const useOpenvasScanConfig =
-          state.scanner_type === SkySOC_SCANNER_TYPE ||
-          state.scanner_type === GREENBONE_SENSOR_SCANNER_TYPE ||
-          state.scanner_type === SkySOCD_SCANNER_TYPE ||
-          state.scanner_type === SkySOCD_SENSOR_SCANNER_TYPE;
+          state.scanner_type === AK_SHUMKAR_SCANNER_TYPE ||
+          state.scanner_type === AK_SHUMKAR_SENSOR_SCANNER_TYPE ||
+          state.scanner_type === AK_SHUMKARD_SCANNER_TYPE ||
+          state.scanner_type === AK_SHUMKARD_SENSOR_SCANNER_TYPE;
 
         return (
           <>

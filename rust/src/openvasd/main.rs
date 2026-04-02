@@ -61,6 +61,7 @@ async fn setup_sqlite(config: &Config) -> Result<SqlitePool> {
 
 #[tokio::main]
 async fn main() -> Result<()> {
+    let _ = rustls::crypto::ring::default_provider().install_default();
     let config = Config::load();
     config.logging.init();
 

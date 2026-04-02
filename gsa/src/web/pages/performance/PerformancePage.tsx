@@ -15,7 +15,7 @@ import date, {type Date} from 'gmp/models/date';
 import Filter from 'gmp/models/filter';
 import {
   type default as Scanner,
-  GREENBONE_SENSOR_SCANNER_TYPE,
+  AK_SHUMKAR_SENSOR_SCANNER_TYPE,
 } from 'gmp/models/scanner';
 import {selectSaveId} from 'gmp/utils/id';
 import {isDefined} from 'gmp/utils/identity';
@@ -57,7 +57,7 @@ interface SelectorProps {
 }
 
 const SENSOR_SCANNER_FILTER = Filter.fromString(
-  `type=${GREENBONE_SENSOR_SCANNER_TYPE}`,
+  `type=${AK_SHUMKAR_SENSOR_SCANNER_TYPE}`,
 );
 
 const ToolBar = ({onDurationChangeClick}: ToolBarProps) => {
@@ -273,8 +273,8 @@ const PerformancePage = () => {
               </Selector>
             </FormGroup>
 
-            {gmp.settings.enableGreenboneSensor && (
-              <FormGroup title={_('Report for Greenbone Sensor')}>
+            {gmp.settings.enableAkShumkarSensor && (
+              <FormGroup title={_('Report for Ak Shumkar Sensor')}>
                 <Select
                   items={renderSelectItems(
                     sensors as Array<{id: string; name: string}>,

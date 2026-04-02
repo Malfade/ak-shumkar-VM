@@ -96,7 +96,7 @@ describe('Settings tests', () => {
       apiProtocol: 'http',
       apiServer: 'localhost',
       disableLoginForm: true,
-      enableGreenboneSensor: true,
+      enableAkShumkarSensor: true,
       enableStoreDebugLog: true,
       enableAssetManagement: true,
       guestUsername: 'guest',
@@ -122,7 +122,7 @@ describe('Settings tests', () => {
     expect(settings.apiServer).toEqual('localhost');
     expect(settings.disableLoginForm).toEqual(true);
     expect(settings.enableAssetManagement).toEqual(true);
-    expect(settings.enableGreenboneSensor).toEqual(true);
+    expect(settings.enableAkShumkarSensor).toEqual(true);
     expect(settings.enableStoreDebugLog).toEqual(true);
     expect(settings.guestUsername).toEqual('guest');
     expect(settings.guestPassword).toEqual('pass');
@@ -171,7 +171,7 @@ describe('Settings tests', () => {
 
     expect(settings.apiProtocol).toEqual('http');
     expect(settings.apiServer).toEqual('foo');
-    expect(settings.enableGreenboneSensor).toEqual(false);
+    expect(settings.enableAkShumkarSensor).toEqual(false);
     expect(settings.enableStoreDebugLog).toEqual(false);
     expect(settings.locale).toEqual('en');
     expect(settings.logLevel).toEqual('error');
@@ -314,7 +314,7 @@ describe('Settings tests', () => {
       apiServer: 'localhost',
       disableLoginForm: true,
       enableAssetManagement: true,
-      enableGreenboneSensor: true,
+      enableAkShumkarSensor: true,
       guestUsername: 'guest',
       guestPassword: 'pass',
       logLevel: 'error',
@@ -351,9 +351,9 @@ describe('Settings tests', () => {
     expect(settings.enableAssetManagement).toEqual(true);
     expect(() => {
       // @ts-expect-error
-      settings.enableGreenboneSensor = false;
+      settings.enableAkShumkarSensor = false;
     }).toThrow();
-    expect(settings.enableGreenboneSensor).toEqual(true);
+    expect(settings.enableAkShumkarSensor).toEqual(true);
     expect(() => {
       // @ts-expect-error
       settings.guestUsername = 'foo';

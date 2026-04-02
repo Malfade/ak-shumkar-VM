@@ -15,13 +15,13 @@ import {
 import Features from 'gmp/capabilities/features';
 import Filter from 'gmp/models/filter';
 import FilterTerm from 'gmp/models/filter/filterterm';
-import {SkySOCD_SCANNER_TYPE, scannerTypeName} from 'gmp/models/scanner';
+import {AK_SHUMKARD_SCANNER_TYPE, scannerTypeName} from 'gmp/models/scanner';
 import ScannerFilterDialog from 'web/pages/scanners/ScannerFilterDialog';
 
 describe('ScannerFilterDialog tests', () => {
   test('should render the dialog with defaults', async () => {
     const gmp = {
-      settings: {enableGreenboneSensor: true},
+      settings: {enableAkShumkarSensor: true},
     };
     const {render} = rendererWith({
       capabilities: true,
@@ -61,7 +61,7 @@ describe('ScannerFilterDialog tests', () => {
     const newFilter = new Filter({id: 'new-filter'});
     const newFilterWithDetails = newFilter.copy().set('rows', 10);
     const gmp = {
-      settings: {enableGreenboneSensor: true},
+      settings: {enableAkShumkarSensor: true},
       filter: {
         create: testing.fn().mockResolvedValue({data: newFilter}),
         get: testing.fn().mockReturnValue({data: newFilterWithDetails}),
@@ -107,7 +107,7 @@ describe('ScannerFilterDialog tests', () => {
   test('should not render create named filter group if not allowed', () => {
     const filter = new Filter();
     const gmp = {
-      settings: {enableGreenboneSensor: true},
+      settings: {enableAkShumkarSensor: true},
       filter: {
         create: testing.fn().mockResolvedValue(new Filter()),
       },
@@ -133,7 +133,7 @@ describe('ScannerFilterDialog tests', () => {
 
   test('should render scanner type', () => {
     const gmp = {
-      settings: {enableGreenboneSensor: true},
+      settings: {enableAkShumkarSensor: true},
       filter: {},
     };
     const filter = new Filter({
@@ -141,7 +141,7 @@ describe('ScannerFilterDialog tests', () => {
         new FilterTerm({keyword: 'foo', value: 'bar', relation: '='}),
         new FilterTerm({
           keyword: 'type',
-          value: SkySOCD_SCANNER_TYPE,
+          value: AK_SHUMKARD_SCANNER_TYPE,
           relation: '=',
         }),
       ],
@@ -158,6 +158,6 @@ describe('ScannerFilterDialog tests', () => {
     const select = screen.getByRole('textbox', {
       name: 'Scanner Type',
     }) as HTMLSelectElement;
-    expect(select).toHaveValue(scannerTypeName(SkySOCD_SCANNER_TYPE));
+    expect(select).toHaveValue(scannerTypeName(AK_SHUMKARD_SCANNER_TYPE));
   });
 });

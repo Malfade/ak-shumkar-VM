@@ -26,8 +26,8 @@ describe('getLogo', () => {
     ['gsm-exa_label.svg', 'EnterpriseExa'],
     ['gsm-peta_label.svg', 'EnterprisePeta'],
     ['gsm-tera_label.svg', 'EnterpriseTera'],
-    ['gsm-unknown_label.svg', 'GreenboneWhiteLogo'],
-    ['defaultVendorLabel', 'GreenboneWhiteLogo'],
+    ['gsm-unknown_label.svg', 'AkShumkarWhiteLogo'],
+    ['defaultVendorLabel', 'AkShumkarWhiteLogo'],
   ];
 
   test.each(testCases)('returns %s for %s', async (logo, expectedTestId) => {

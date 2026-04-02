@@ -11,13 +11,13 @@ const StripedTable = styled(Table)`
   & th,
   & td {
     padding: 4px 10px;
-    border-bottom: 1px solid var(--skysoc-border, ${Theme.lightGray});
+    border-bottom: 1px solid var(--ak-shumkar-border, ${Theme.lightGray});
   }
   & tfoot tr {
-    background: var(--skysoc-bg-card, ${Theme.white});
+    background: var(--ak-shumkar-bg-card, ${Theme.white});
   }
   & tfoot tr td {
-    border-bottom: 1px solid var(--skysoc-border, ${Theme.lightGray});
+    border-bottom: 1px solid var(--ak-shumkar-border, ${Theme.lightGray});
     padding: 15px 0;
   }
   @media screen {
@@ -27,7 +27,7 @@ const StripedTable = styled(Table)`
     }
     & > tbody:not(:only-of-type):hover,
     & > tbody:only-of-type > tr:hover {
-      background: var(--skysoc-bg-card-hover, ${Theme.lightGray});
+      background: var(--ak-shumkar-bg-card-hover, ${Theme.lightGray});
     }
   }
 `;

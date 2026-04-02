@@ -18,7 +18,7 @@ interface SettingsOptions {
   enableAssetManagement?: boolean;
   enableCommunityFeedNotification?: boolean;
   enableEPSS?: boolean;
-  enableGreenboneSensor?: boolean;
+  enableAkShumkarSensor?: boolean;
   enableKrb5?: boolean;
   enableStoreDebugLog?: boolean;
   guestPassword?: string;
@@ -59,7 +59,7 @@ export const DEFAULT_PROTOCOLDOC_URL = `https://docs.greenbone.net/API/GMP/gmp-2
 export const DEFAULT_REPORT_RESULTS_THRESHOLD = 25000;
 export const DEFAULT_LOG_LEVEL = 'warn';
 export const DEFAULT_TIMEOUT = 300000; // 5 minutes
-export const DEFAULT_TITLE = 'SkySOC VM';
+export const DEFAULT_TITLE = 'Ak Shumkar VM';
 
 const set = (
   storage: SettingsStorage,
@@ -107,7 +107,7 @@ class Settings {
   readonly enableAssetManagement!: boolean;
   readonly enableCommunityFeedNotification: boolean;
   readonly enableEPSS!: boolean;
-  readonly enableGreenboneSensor!: boolean;
+  readonly enableAkShumkarSensor!: boolean;
   readonly enableKrb5!: boolean;
   readonly guestPassword?: string;
   readonly guestUsername?: string;
@@ -126,7 +126,7 @@ class Settings {
     const {
       enableEPSS = true,
       enableKrb5 = false,
-      enableGreenboneSensor = false,
+      enableAkShumkarSensor = false,
       disableLoginForm = false,
       enableStoreDebugLog,
       enableAssetManagement = false,
@@ -205,7 +205,7 @@ class Settings {
     setAndFreeze(this, 'disableLoginForm', disableLoginForm);
     setAndFreeze(this, 'enableAssetManagement', enableAssetManagement);
     setAndFreeze(this, 'enableEPSS', enableEPSS);
-    setAndFreeze(this, 'enableGreenboneSensor', enableGreenboneSensor);
+    setAndFreeze(this, 'enableAkShumkarSensor', enableAkShumkarSensor);
     setAndFreeze(this, 'enableKrb5', enableKrb5);
     setAndFreeze(this, 'guestPassword', guestPassword);
     setAndFreeze(this, 'guestUsername', guestUsername);

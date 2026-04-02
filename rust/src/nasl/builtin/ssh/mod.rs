@@ -25,6 +25,7 @@ pub use sessions::SshSessions as Ssh;
 use std::time::Duration;
 
 use ::russh::{Preferred, cipher, keys::Algorithm};
+use sha2::{Digest, Sha256};
 
 use crate::nasl::prelude::*;
 
@@ -45,6 +46,14 @@ use libssh_uses::*;
 type Result<T> = std::result::Result<T, FnError>;
 
 const DEFAULT_SSH_PORT: u16 = 22;
+
+fn hash_credential(input: &str) -> u64 {
+    // A stable short hash for credential matching.
+    let mut hasher = Sha256::new();
+    hasher.update(input.as_bytes());
+    let digest = hasher.finalize();
+    u64::from_be_bytes(digest[..8].try_into().expect("slice length is fixed"))
+}
 
 pub(crate) struct Output {
     stdout: String,
@@ -271,7 +280,7 @@ impl Ssh {
     /// return An integer as status value; 0 indicates success.
     #[nasl_function(named(login, password, privatekey, passphrase))]
     async fn nasl_ssh_userauth(
-        &self,
+        &mut self,
         session_id: SessionId,
         login: Option<&str>,
         password: Option<&str>,
@@ -282,32 +291,121 @@ impl Ssh {
             //TODO: Get values from KB
             return Err(SshErrorKind::NoAuthenticationGiven.with(session_id).into());
         }
+        if password.is_none() {
+            // Current builtin supports password-based authentication only.
+            return Err(SshErrorKind::Unimplemented.with(session_id).into());
+        }
+
         let login = login.unwrap_or("");
+        let password = password.unwrap();
+        let desired_cred_hash = Some(hash_credential(password));
+
         let mut session = self.get_by_id(session_id).await?;
-        // Check whether a password has been given.  If so, try to
-        // authenticate using that password.  Note that the OpenSSH client
-        // uses a different order: it first tries the public key and then the
-        // password.  However, the old NASL SSH protocol implementation tries
-        // the password before the public key authentication.  Because we
-        // want to be compatible, we do it in that order.
-        if let Some(password) = password {
-            if session.auth_method_allowed(AuthMethods::PASSWORD).await?
-                && session.auth_password(login, password).await.is_ok()
-            {
+
+        // If we're already authenticated, avoid redundant auth and reconnect on mismatch.
+        if session.authenticated {
+            let login_matches = session.auth_login.as_deref() == Some(login);
+            let cred_matches = session.auth_cred_hash == desired_cred_hash;
+            if login_matches && cred_matches {
                 return Ok(());
             }
-            if session
-                .auth_method_allowed(AuthMethods::INTERACTIVE)
-                .await?
-                && session
-                    .auth_keyboard_interactive(login, password)
-                    .await
-                    .is_ok()
-            {
-                return Ok(());
+
+            // Credential mismatch: hard reconnect and then authenticate again.
+            let custom_socket = session.custom_socket;
+            let ip_addr = session.ip_addr;
+            let port = session.port;
+            let timeout = session.timeout;
+            let keytype = session.keytype.clone();
+            let csciphers = session.csciphers.clone();
+            let scciphers = session.scciphers.clone();
+            drop(session);
+
+            self.disconnect_and_remove(session_id).await?;
+            self.connect_with_session_id(
+                session_id,
+                custom_socket.then(|| 0 as Socket),
+                ip_addr,
+                port,
+                keytype,
+                csciphers,
+                scciphers,
+                timeout,
+            )
+            .await?;
+
+            let mut session = self.get_by_id(session_id).await?;
+            session.authenticated = false;
+            session.auth_login = None;
+            session.auth_cred_hash = None;
+
+            // Try password first, then keyboard-interactive (NASL compatibility order).
+            let mut last_err: Option<SshError> = None;
+            if session.auth_method_allowed(AuthMethods::PASSWORD).await? {
+                match session.auth_password(login, password).await {
+                    Ok(()) => {
+                        session.authenticated = true;
+                        session.auth_login = Some(login.to_string());
+                        session.auth_cred_hash = desired_cred_hash;
+                        return Ok(());
+                    }
+                    Err(e) => last_err = Some(e),
+                }
+            }
+            if session.auth_method_allowed(AuthMethods::INTERACTIVE).await? {
+                match session.auth_keyboard_interactive(login, password).await {
+                    Ok(()) => {
+                        session.authenticated = true;
+                        session.auth_login = Some(login.to_string());
+                        session.auth_cred_hash = desired_cred_hash;
+                        return Ok(());
+                    }
+                    Err(e) => {
+                        last_err.get_or_insert(e);
+                    }
+                }
+            }
+
+            return Err(
+                last_err
+                    .unwrap_or_else(|| {
+                        SshErrorKind::UserAuthPassword.with(session_id)
+                    })
+                    .into(),
+            );
+        }
+
+        // Not authenticated yet: authenticate using the desired credentials.
+        let mut last_err: Option<SshError> = None;
+        if session.auth_method_allowed(AuthMethods::PASSWORD).await? {
+            match session.auth_password(login, password).await {
+                Ok(()) => {
+                    session.authenticated = true;
+                    session.auth_login = Some(login.to_string());
+                    session.auth_cred_hash = desired_cred_hash;
+                    return Ok(());
+                }
+                Err(e) => last_err = Some(e),
             }
         }
-        Ok(())
+        if session.auth_method_allowed(AuthMethods::INTERACTIVE).await? {
+            match session.auth_keyboard_interactive(login, password).await {
+                Ok(()) => {
+                    session.authenticated = true;
+                    session.auth_login = Some(login.to_string());
+                    session.auth_cred_hash = desired_cred_hash;
+                    return Ok(());
+                }
+                Err(e) => {
+                    last_err.get_or_insert(e);
+                }
+            }
+        }
+
+        Err(
+            last_err
+                .unwrap_or_else(|| SshErrorKind::UserAuthPassword.with(session_id))
+                .into(),
+        )
     }
 
     /// Disconnect an ssh connection
@@ -319,7 +417,7 @@ impl Ssh {
     #[nasl_function]
     async fn nasl_ssh_disconnect(&mut self, session_id: SessionId) -> Result<()> {
         if session_id != 0 {
-            self.disconnect_and_remove(session_id).await?;
+            self.disconnect_to_cache(session_id).await?;
         }
         Ok(())
     }

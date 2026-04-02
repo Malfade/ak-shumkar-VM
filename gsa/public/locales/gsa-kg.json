@@ -56,7 +56,7 @@
 
   "Save": "Сактоо",
 
-  "SkySOC": "SkySOC",
+  "Ak Shumkar": "Ak Shumkar",
 
   "(All types)": "(Бардык түрлөрү)",
 
@@ -114,15 +114,15 @@
 
   "About GMP": "GMP жөнүндө",
 
-  "About Greenbone Enterprise Feed": "Greenbone ишкана лентасы жөнүндө",
+  "About Ak Shumkar Enterprise Feed": "Ak Shumkar ишкана лентасы жөнүндө",
 
-  "About Greenbone Vulnerability Management Feed": "Greenbone алсыздыктарды башкаруу лентасы жөнүндө",
+  "About Ak Shumkar Vulnerability Management Feed": "Ak Shumkar алсыздыктарды башкаруу лентасы жөнүндө",
 
   "About GSA": "GSA жөнүндө",
 
   "About GVM": "GVM жөнүндө",
 
-  "About Openvas Community Feed": "SkySOC коомдук лентасы жөнүндө",
+  "About Openvas Community Feed": "Ak Shumkar коомдук лентасы жөнүндө",
 
   "Accept": "Кабыл алуу",
 
@@ -2010,7 +2010,7 @@
 
   "Open CVEs": "Ачык CVEлер",
 
-  "SkySOC": "OpenVas",
+  "Ak Shumkar": "OpenVas",
 
   "Operating System": "Операциялык система",
 
@@ -2372,7 +2372,7 @@
 
   "Singular": "Жекелик",
 
-  "SkySOC GSA Dashboard": "SkySOC GSA башкаруу панели",
+  "Ak Shumkar GSA Dashboard": "Ak Shumkar GSA башкаруу панели",
 
   "SMB": "SMB",
 
@@ -3132,9 +3132,9 @@
 
   "Default Severity": "Баштапкы критикалуулук",
 
-  "Default SkySOC Scan Config": "Баштапкы SkySOC сканерлөө конфигурациясы",
+  "Default Ak Shumkar Scan Config": "Баштапкы Ak Shumkar сканерлөө конфигурациясы",
 
-  "Default SkySOC Scanner": "Баштапкы SkySOC сканери",
+  "Default Ak Shumkar Scanner": "Баштапкы Ak Shumkar сканери",
 
   "Default Target": "Баштапкы максат",
 
@@ -3224,7 +3224,7 @@
 
   "Download Debian (.deb) Package": "Debian (.deb) пакетин жүктөө",
 
-  "Download Greenbone Compliance Report": "Greenbone комплаенс отчётун жүктөө",
+  "Download Ak Shumkar Compliance Report": "Ak Shumkar комплаенс отчётун жүктөө",
 
   "Download Public Key": "Ачык ачкычты жүктөө",
 
@@ -3684,9 +3684,9 @@
 
   "Grant": "Укук берүү",
 
-  "Greenbone": "Greenbone",
+  "Ak Shumkar": "Ak Shumkar",
 
-  "Greenbone Sensor": "Greenbone сенсору",
+  "Ak Shumkar Sensor": "Ak Shumkar сенсору",
 
   "Group ID": "Топтун IDси",
 
@@ -4420,7 +4420,7 @@
 
   "OID": "OID",
 
-  "SkySOC SCAN": "SkySOC СКАНЕРЛӨӨ",
+  "Ak Shumkar SCAN": "Ak Shumkar СКАНЕРЛӨӨ",
 
   "OS Conflict: {{best_os_txt}}": "ОС конфликти: {{best_os_txt}}",
 
@@ -4770,7 +4770,7 @@
 
   "Report download not available": "Отчётту жүктөө мүмкүн эмес",
 
-  "Report for Greenbone Sensor": "Greenbone сенсору үчүн отчёт",
+  "Report for Ak Shumkar Sensor": "Ak Shumkar сенсору үчүн отчёт",
 
   "Report for Last": "Акыркы үчүн отчёт",
 
@@ -5122,11 +5122,11 @@
 
   "Single": "Жалгыз",
 
-  "SkySOC Scanner": "SkySOC сканери",
+  "Ak Shumkar Scanner": "Ak Shumkar сканери",
 
-  "SkySOCD Scanner": "SkySOCD сканери",
+  "Ak ShumkarD Scanner": "Ak ShumkarD сканери",
 
-  "SkySOCD Sensor": "SkySOCD сенсору",
+  "Ak ShumkarD Sensor": "Ak ShumkarD сенсору",
 
   "Solution Type: ": "Чечимдин түрү: ",
 
@@ -5410,19 +5410,19 @@
 
   "The Fourth": "Төртүнчү",
 
-  "The Greenbone Enterprise License for this system expired {{days}} days ago. You can still use the system without restrictions, but you will not receive updates anymore. Especially you will miss new vulnerability tests and thus your scans will not detect important new vulnerabilities in your network. Please contact your administrator for renewing the license.": "Бул система үчүн Greenbone Enterprise лицензиясынын мөөнөтү {{days}} күн мурун бүткөн. Сиз дагы эле системаны чектөөсүз колдоно аласыз, бирок мындан ары жаңыртууларды албайсыз. Өзгөчө, сиз жаңы алсыздыктарды текшерүүлөрдү (NVT) өткөрүп жибересиз жана сканерлөөңүз тармагыңыздагы жаңы маанилүү алсыздыктарды аныктабай калат. Лицензияны жаңыртуу үчүн администраторуңузга кайрылыңыз.",
+  "The Ak Shumkar Enterprise License for this system expired {{days}} days ago. You can still use the system without restrictions, but you will not receive updates anymore. Especially you will miss new vulnerability tests and thus your scans will not detect important new vulnerabilities in your network. Please contact your administrator for renewing the license.": "Бул система үчүн Ak Shumkar Enterprise лицензиясынын мөөнөтү {{days}} күн мурун бүткөн. Сиз дагы эле системаны чектөөсүз колдоно аласыз, бирок мындан ары жаңыртууларды албайсыз. Өзгөчө, сиз жаңы алсыздыктарды текшерүүлөрдү (NVT) өткөрүп жибересиз жана сканерлөөңүз тармагыңыздагы жаңы маанилүү алсыздыктарды аныктабай калат. Лицензияны жаңыртуу үчүн администраторуңузга кайрылыңыз.",
 
-  "The Greenbone Enterprise License for this system expired {{days}} days ago. You can still use the system without restrictions, but you will not receive updates anymore. Especially, you will miss new vulnerability tests and thus your scans will not detect important new vulnerabilities in your network.": "Бул система үчүн Greenbone Enterprise лицензиясынын мөөнөтү {{days}} күн мурун бүткөн. Сиз дагы эле системаны чектөөсүз колдоно аласыз, бирок мындан ары жаңыртууларды албайсыз. Өзгөчө, сиз жаңы алсыздыктарды текшерүүлөрдү өткөрүп жибересиз жана сканерлөөңүз тармагыңыздагы жаңы маанилүү алсыздыктарды аныктабай калат.",
+  "The Ak Shumkar Enterprise License for this system expired {{days}} days ago. You can still use the system without restrictions, but you will not receive updates anymore. Especially, you will miss new vulnerability tests and thus your scans will not detect important new vulnerabilities in your network.": "Бул система үчүн Ak Shumkar Enterprise лицензиясынын мөөнөтү {{days}} күн мурун бүткөн. Сиз дагы эле системаны чектөөсүз колдоно аласыз, бирок мындан ары жаңыртууларды албайсыз. Өзгөчө, сиз жаңы алсыздыктарды текшерүүлөрдү өткөрүп жибересиз жана сканерлөөңүз тармагыңыздагы жаңы маанилүү алсыздыктарды аныктабай калат.",
 
-  "The Greenbone Enterprise License for this system is invalid. You can still use the system without restrictions, but you will not receive updates anymore. For further advice please contact the Greenbone Enterprise Support at": "Бул система үчүн Greenbone Enterprise лицензиясы жараксыз. Сиз дагы эле системаны чектөөсүз колдоно аласыз, бирок мындан ары жаңыртууларды албайсыз. Кошумча кеңеш алуу үчүн Greenbone Enterprise колдоо кызматына кайрылыңыз:",
+  "The Ak Shumkar Enterprise License for this system is invalid. You can still use the system without restrictions, but you will not receive updates anymore. For further advice please contact the Ak Shumkar Enterprise Support at": "Бул система үчүн Ak Shumkar Enterprise лицензиясы жараксыз. Сиз дагы эле системаны чектөөсүз колдоно аласыз, бирок мындан ары жаңыртууларды албайсыз. Кошумча кеңеш алуу үчүн Ak Shumkar Enterprise колдоо кызматына кайрылыңыз:",
 
-  "The Greenbone Enterprise License for this system is invalid. You can still use the system without restrictions, but you will not receive updates anymore. Please contact your administrator.": "Бул система үчүн Greenbone Enterprise лицензиясы жараксыз. Сиз дагы эле системаны чектөөсүз колдоно аласыз, бирок мындан ары жаңыртууларды албайсыз. Сураныч, администраторуңузга кайрылыңыз.",
+  "The Ak Shumkar Enterprise License for this system is invalid. You can still use the system without restrictions, but you will not receive updates anymore. Please contact your administrator.": "Бул система үчүн Ak Shumkar Enterprise лицензиясы жараксыз. Сиз дагы эле системаны чектөөсүз колдоно аласыз, бирок мындан ары жаңыртууларды албайсыз. Сураныч, администраторуңузга кайрылыңыз.",
 
-  "The Greenbone Enterprise License for this system will expire in {{days}} days. After that your appliance remains valid and you can still use the system without restrictions, but you will not receive updates anymore. Please contact your administrator for extending the license.": "Бул система үчүн Greenbone Enterprise лицензиясынын мөөнөтү {{days}} күндөн кийин бүтөт. Андан кийин жабдууңуз жарактуу бойдон калат жана сиз системаны чектөөсүз колдоно аласыз, бирок жаңыртууларды албайсыз. Лицензияны узартуу үчүн администраторуңузга кайрылыңыз.",
+  "The Ak Shumkar Enterprise License for this system will expire in {{days}} days. After that your appliance remains valid and you can still use the system without restrictions, but you will not receive updates anymore. Please contact your administrator for extending the license.": "Бул система үчүн Ak Shumkar Enterprise лицензиясынын мөөнөтү {{days}} күндөн кийин бүтөт. Андан кийин жабдууңуз жарактуу бойдон калат жана сиз системаны чектөөсүз колдоно аласыз, бирок жаңыртууларды албайсыз. Лицензияны узартуу үчүн администраторуңузга кайрылыңыз.",
 
-  "The Greenbone Enterprise License for this system will expire in {{days}} days. After that your appliance remains valid and you can still use the system without restrictions, but you will not receive updates anymore. You can find information about extending your license on the": "Бул система үчүн Greenbone Enterprise лицензиясынын мөөнөтү {{days}} күндөн кийин бүтөт. Андан кийин жабдууңуз жарактуу бойдон калат жана сиз системаны чектөөсүз колдоно аласыз, бирок жаңыртууларды албайсыз. Лицензияны узартуу боюнча маалыматты бул жерден таба аласыз:",
+  "The Ak Shumkar Enterprise License for this system will expire in {{days}} days. After that your appliance remains valid and you can still use the system without restrictions, but you will not receive updates anymore. You can find information about extending your license on the": "Бул система үчүн Ak Shumkar Enterprise лицензиясынын мөөнөтү {{days}} күндөн кийин бүтөт. Андан кийин жабдууңуз жарактуу бойдон калат жана сиз системаны чектөөсүз колдоно аласыз, бирок жаңыртууларды албайсыз. Лицензияны узартуу боюнча маалыматты бул жерден таба аласыз:",
 
-  "The Greenbone Vulnerability Manager service is not responding. This could be due to system maintenance. Please try again later, check the system status, or contact your system administrator.": "Greenbone Vulnerability Manager кызматы жооп бербей жатат. Бул системалык тейлөөгө байланыштуу болушу мүмкүн. Сураныч, кийинчерээк кайра аракет кылып көрүңүз, системанын статусун текшериңиз же системалык администраторуңузга кайрылыңыз.",
+  "The Ak Shumkar Vulnerability Manager service is not responding. This could be due to system maintenance. Please try again later, check the system status, or contact your system administrator.": "Ak Shumkar Vulnerability Manager кызматы жооп бербей жатат. Бул системалык тейлөөгө байланыштуу болушу мүмкүн. Сураныч, кийинчерээк кайра аракет кылып көрүңүз, системанын статусун текшериңиз же системалык администраторуңузга кайрылыңыз.",
 
   "The Last": "Акыркы",
 
@@ -5476,7 +5476,7 @@
 
   "The port range needs numerical values for start and end!": "Порттор диапазонунун башталышы жана аягы үчүн сандык маанилер керек!",
 
-  "The report cannot be displayed because no Greenbone Vulnerability Manager report format is available. This could be due to a missing gvmd data feed. Please update the gvmd data feed, check the \"feed import owner\" setting, or contact your system administrator.": "Отчётту көрсөтүү мүмкүн эмес, анткени Greenbone Vulnerability Manager отчёт форматы жеткиликсиз. Бул gvmd дайындар лентасынын жоктугунан болушу мүмкүн. Сураныч, gvmd дайындар лентасын жаңыртыңыз, \"feed import owner\" орнотуусун текшериңиз же системалык администраторуңузга кайрылыңыз.",
+  "The report cannot be displayed because no Ak Shumkar Vulnerability Manager report format is available. This could be due to a missing gvmd data feed. Please update the gvmd data feed, check the \"feed import owner\" setting, or contact your system administrator.": "Отчётту көрсөтүү мүмкүн эмес, анткени Ak Shumkar Vulnerability Manager отчёт форматы жеткиликсиз. Бул gvmd дайындар лентасынын жоктугунан болушу мүмкүн. Сураныч, gvmd дайындар лентасын жаңыртыңыз, \"feed import owner\" орнотуусун текшериңиз же системалык администраторуңузга кайрылыңыз.",
 
   "The report cannot be displayed because no report format is available. This could be due to a missing gvmd data feed. Please update the gvmd data feed, check the \"feed import owner\" setting, the feed status page, or contact your system administrator.": "Отчётту көрсөтүү мүмкүн эмес, анткени отчёт форматы жеткиликсиз. Бул gvmd дайындар лентасынын жоктугунан болушу мүмкүн. Сураныч, gvmd дайындар лентасын жаңыртыңыз, \"feed import owner\" орнотуусун текшериңиз, лента статусу барагын караңыз же системалык администраторуңузга кайрылыңыз.",
 
@@ -5516,7 +5516,7 @@
 
   "This NVT is deprecated.": "Бул NVT эскирген (deprecated).",
 
-  "This dialog will open a new window for {{- to}} if you click on \"follow link\". Following this link is on your own responsibility. Greenbone does not endorse the content you will see there.": "Бул диалог эгер сиз \"шилтемеге өтүү\" баскычын бассаңыз, {{- to}} үчүн жаңы терезе ачат. Бул шилтемеге өтүү - сиздин жоопкерчилигиңиз. Greenbone ал жердеги мазмунду колдобойт.",
+  "This dialog will open a new window for {{- to}} if you click on \"follow link\". Following this link is on your own responsibility. Ak Shumkar does not endorse the content you will see there.": "Бул диалог эгер сиз \"шилтемеге өтүү\" баскычын бассаңыз, {{- to}} үчүн жаңы терезе ачат. Бул шилтемеге өтүү - сиздин жоопкерчилигиңиз. Ak Shumkar ал жердеги мазмунду колдобойт.",
 
   "This feature is experimental and may not work reliable under all circumstances.": "Бул функция эксперименталдык жана бардык учурларда ишенимдүү иштебеши мүмкүн.",
 
@@ -5832,9 +5832,9 @@
 
   "Workweek (Monday till Friday)": "Иш жумасы (Дүйшөмбүдөн Жумага чейин)",
 
-  "You are currently using the free SkySOC COMMUNITY FEED - this shows only a few vulnerabilities for business critical enterprise software such as MS Exchange, Cisco, VMware, Citrix and many more. Over 60% of all relevant exploits remain hidden.": "Сиз учурда акысыз SkySOC COMMUNITY FEED колдонуп жатасыз - бул MS Exchange, Cisco, VMware, Citrix сыяктуу бизнес үчүн маанилүү корпоративдик программалардагы алсыздыктардын бир нечесин гана көрсөтөт. Бардык тиешелүү эксплойттордун 60%дан ашыгы жашыруун бойдон калууда.",
+  "You are currently using the free Ak Shumkar COMMUNITY FEED - this shows only a few vulnerabilities for business critical enterprise software such as MS Exchange, Cisco, VMware, Citrix and many more. Over 60% of all relevant exploits remain hidden.": "Сиз учурда акысыз Ak Shumkar COMMUNITY FEED колдонуп жатасыз - бул MS Exchange, Cisco, VMware, Citrix сыяктуу бизнес үчүн маанилүү корпоративдик программалардагы алсыздыктардын бир нечесин гана көрсөтөт. Бардык тиешелүү эксплойттордун 60%дан ашыгы жашыруун бойдон калууда.",
 
-  "You are leaving SkySOC": "Сиз SkySOCтан чыгып жатасыз",
+  "You are leaving Ak Shumkar": "Сиз Ak Shumkarтан чыгып жатасыз",
 
   "You are using Internet Explorer 11. This browser is not supported anymore. Please use an up-to-date alternative or contact your system administrator.": "Сиз Internet Explorer 11 колдонуп жатасыз. Бул браузер мындан ары колдоого алынбайт. Сураныч, заманбап альтернативаны колдонуңуз же системалык администраторуңузга кайрылыңыз.",
 
@@ -5848,11 +5848,11 @@
 
   "You should change the Alive Test Method of the target for the next scan. However, if the target hosts are indeed dead, the scan duration might increase significantly.": "Кийинки сканерлөө үчүн максаттын Alive Test ыкмасын өзгөртүүңүз керек. Бирок, эгер максаттуу хосттор чындыгында \"өлүү\" болсо, сканерлөө узактыгы кыйла көбөйүшү мүмкүн.",
 
-  "Your Greenbone Enterprise License has expired {{days}} days ago!": "Сиздин Greenbone Enterprise лицензияңыздын мөөнөтү {{days}} күн мурун бүткөн!",
+  "Your Ak Shumkar Enterprise License has expired {{days}} days ago!": "Сиздин Ak Shumkar Enterprise лицензияңыздын мөөнөтү {{days}} күн мурун бүткөн!",
 
-  "Your Greenbone Enterprise License is invalid!": "Сиздин Greenbone Enterprise лицензияңыз жараксыз!",
+  "Your Ak Shumkar Enterprise License is invalid!": "Сиздин Ak Shumkar Enterprise лицензияңыз жараксыз!",
 
-  "Your Greenbone Enterprise License will expire in {{days}} days!": "Сиздин Greenbone Enterprise лицензияңыздын мөөнөтү {{days}} күндөн кийин бүтөт!",
+  "Your Ak Shumkar Enterprise License will expire in {{days}} days!": "Сиздин Ak Shumkar Enterprise лицензияңыздын мөөнөтү {{days}} күндөн кийин бүтөт!",
 
   "Your changes have been saved.": "Өзгөртүүлөрүңүз сакталды.",
 

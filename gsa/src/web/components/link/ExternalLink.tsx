@@ -38,7 +38,7 @@ const ExternalLink = ({ children, to, ...props }: ExternalLinkProps) => {
   const dialogText = _(
     'This dialog will open a new window for {{- to}} ' +
     'if you click on "follow link". Following this link is on your own ' +
-    'responsibility. Greenbone does not endorse the content you will ' +
+    'responsibility. Ak Shumkar does not endorse the content you will ' +
     'see there.',
     { to },
   );

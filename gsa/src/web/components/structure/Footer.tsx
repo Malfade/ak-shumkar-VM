@@ -23,8 +23,8 @@ const Footer = styled.footer`
   margin-top: 10px;
 `;
 
-const SkySOCFooter = () => {
-  return <Footer>Copyright © 2026 SkySOC</Footer>;
+const AkShumkarFooter = () => {
+  return <Footer>Copyright © 2026 Ak Shumkar</Footer>;
 };
 
-export default SkySOCFooter;
+export default AkShumkarFooter;

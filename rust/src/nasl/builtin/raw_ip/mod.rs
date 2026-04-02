@@ -9,6 +9,7 @@ pub mod raw_ip_utils;
 mod synscan;
 pub mod tcp_ping;
 pub mod tcp_scan;
+pub mod udp_scan;
 use std::io;
 
 use crate::nasl::{
@@ -20,6 +21,7 @@ use denial::Denial;
 use frame_forgery::FrameForgery;
 use packet_forgery::PacketForgery;
 use synscan::SynScan;
+use udp_scan::UdpScan;
 use thiserror::Error;
 
 #[cfg(test)]
@@ -107,6 +109,7 @@ impl IntoFunctionSet for RawIp {
         set.add_set(Denial);
         set.add_set(SynScan);
         set.add_set(TcpScan);
+        set.add_set(UdpScan);
         set
     }
 }

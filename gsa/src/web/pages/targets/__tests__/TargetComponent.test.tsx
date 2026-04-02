@@ -20,7 +20,7 @@ const createGmp = ({
 }: {credentials?: Model[]; portlists?: Model[]} = {}) => {
   return {
     settings: {
-      enableGreenboneSensor: true,
+      enableAkShumkarSensor: true,
       enableKrb5: false,
     },
     user: {

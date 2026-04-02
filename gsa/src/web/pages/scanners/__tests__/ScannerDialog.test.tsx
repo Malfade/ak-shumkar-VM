@@ -17,19 +17,19 @@ import {
   AGENT_CONTROLLER_SCANNER_TYPE,
   AGENT_CONTROLLER_SENSOR_SCANNER_TYPE,
   CONTAINER_IMAGE_SCANNER_TYPE,
-  GREENBONE_SENSOR_SCANNER_TYPE,
-  SkySOC_SCANNER_TYPE,
-  SkySOCD_SCANNER_TYPE,
+  AK_SHUMKAR_SENSOR_SCANNER_TYPE,
+  AK_SHUMKAR_SCANNER_TYPE,
+  AK_SHUMKARD_SCANNER_TYPE,
 } from 'gmp/models/scanner';
 import ScannerDialog from 'web/pages/scanners/ScannerDialog';
 
-const createGmp = ({ enableGreenboneSensor = true } = {}) => {
-  return { settings: { enableGreenboneSensor } };
+const createGmp = ({ enableAkShumkarSensor = true } = {}) => {
+  return { settings: { enableAkShumkarSensor } };
 };
 
 describe('ScannerDialog tests', () => {
   test('should display defaults without scanner type provided', async () => {
-    const gmp = createGmp({ enableGreenboneSensor: false });
+    const gmp = createGmp({ enableAkShumkarSensor: false });
     const handleSave = testing.fn();
 
     const { render } = rendererWith({ gmp, capabilities: true });
@@ -70,7 +70,7 @@ describe('ScannerDialog tests', () => {
 
     render(
       <ScannerDialog
-        type={GREENBONE_SENSOR_SCANNER_TYPE}
+        type={AK_SHUMKAR_SENSOR_SCANNER_TYPE}
         onSave={handleSave}
       />,
     );
@@ -80,7 +80,7 @@ describe('ScannerDialog tests', () => {
 
     expect(screen.getDialog()).toBeInTheDocument();
     const scannerType = screen.getByRole('textbox', { name: 'Scanner Type' });
-    expect(scannerType).toHaveValue('Greenbone Sensor');
+    expect(scannerType).toHaveValue('Ak Shumkar Sensor');
     expect(screen.getByName('host')).toHaveValue('localhost');
     expect(screen.queryByName('port')).not.toBeInTheDocument();
     expect(screen.queryByName('caCertificate')).not.toBeInTheDocument();
@@ -95,7 +95,7 @@ describe('ScannerDialog tests', () => {
       name: 'Unnamed',
       comment: '',
       credentialId: undefined,
-      type: GREENBONE_SENSOR_SCANNER_TYPE,
+      type: AK_SHUMKAR_SENSOR_SCANNER_TYPE,
       id: undefined,
       port: 22,
     });
@@ -148,16 +148,16 @@ describe('ScannerDialog tests', () => {
     const { render } = rendererWith({
       gmp,
       capabilities: true,
-      features: new Features(['ENABLE_SkySOCD']),
+      features: new Features(['ENABLE_AkShumkarD']),
     });
 
-    render(<ScannerDialog type={SkySOC_SCANNER_TYPE} onSave={handleSave} />);
+    render(<ScannerDialog type={AK_SHUMKAR_SCANNER_TYPE} onSave={handleSave} />);
 
     expect(screen.getByName('name')).toHaveValue('Unnamed');
     expect(screen.getByName('comment')).toHaveValue('');
 
     const scannerType = screen.getByRole('textbox', { name: 'Scanner Type' });
-    expect(scannerType).toHaveValue('SkySOC Scanner');
+    expect(scannerType).toHaveValue('Ak Shumkar Scanner');
 
     expect(screen.getByName('host')).toHaveValue('localhost');
     expect(screen.getByName('port')).toHaveValue('');
@@ -171,7 +171,7 @@ describe('ScannerDialog tests', () => {
       name: 'Unnamed',
       comment: '',
       credentialId: undefined,
-      type: SkySOC_SCANNER_TYPE,
+      type: AK_SHUMKAR_SCANNER_TYPE,
       id: undefined,
       port: '',
     });
@@ -184,10 +184,10 @@ describe('ScannerDialog tests', () => {
     const { render } = rendererWith({
       gmp,
       capabilities: true,
-      features: new Features(['ENABLE_SkySOCD']),
+      features: new Features(['ENABLE_AkShumkarD']),
     });
 
-    render(<ScannerDialog type={SkySOCD_SCANNER_TYPE} onSave={handleSave} />);
+    render(<ScannerDialog type={AK_SHUMKARD_SCANNER_TYPE} onSave={handleSave} />);
 
     expect(screen.getByName('name')).toHaveValue('Unnamed');
     expect(screen.getByName('comment')).toHaveValue('');
@@ -195,7 +195,7 @@ describe('ScannerDialog tests', () => {
     expect(screen.getByName('port')).toHaveValue('443');
 
     const scannerType = screen.getByRole('textbox', { name: 'Scanner Type' });
-    expect(scannerType).toHaveValue('SkySOCD Scanner');
+    expect(scannerType).toHaveValue('AkShumkarD Scanner');
     expect(screen.getByRole('textbox', { name: 'Credential' })).toHaveValue('');
     expect(screen.getByName('caCertificate')).toHaveValue('');
 
@@ -206,7 +206,7 @@ describe('ScannerDialog tests', () => {
       name: 'Unnamed',
       comment: '',
       credentialId: undefined,
-      type: SkySOCD_SCANNER_TYPE,
+      type: AK_SHUMKARD_SCANNER_TYPE,
       id: undefined,
       port: 443,
     });
@@ -301,7 +301,7 @@ describe('ScannerDialog tests', () => {
         comment="lorem ipsum"
         host="mypc"
         name="john"
-        type={GREENBONE_SENSOR_SCANNER_TYPE}
+        type={AK_SHUMKAR_SENSOR_SCANNER_TYPE}
         onClose={handleClose}
         onSave={handleSave}
       />,
@@ -319,7 +319,7 @@ describe('ScannerDialog tests', () => {
     expect(inputs[2]).toHaveAttribute('value', 'mypc');
 
     const scannerType = screen.getByRole('textbox', { name: 'Scanner Type' });
-    expect(scannerType).toHaveValue('Greenbone Sensor');
+    expect(scannerType).toHaveValue('Ak Shumkar Sensor');
   });
 
   test('should allow to save dialog', async () => {
@@ -336,7 +336,7 @@ describe('ScannerDialog tests', () => {
         host="mypc"
         id="1234"
         name="john"
-        type={GREENBONE_SENSOR_SCANNER_TYPE}
+        type={AK_SHUMKAR_SENSOR_SCANNER_TYPE}
         onClose={handleClose}
         onCredentialChange={handleCredentialChange}
         onSave={handleSave}
@@ -353,7 +353,7 @@ describe('ScannerDialog tests', () => {
       name: 'john',
       comment: 'lorem ipsum',
       credentialId: undefined,
-      type: GREENBONE_SENSOR_SCANNER_TYPE,
+      type: AK_SHUMKAR_SENSOR_SCANNER_TYPE,
       id: '1234',
       port: 22,
     });
@@ -423,11 +423,11 @@ describe('ScannerDialog tests', () => {
   });
 
   test('should allow to select all scanner types if sensors, openvasd and agents are enabled', async () => {
-    const gmp = createGmp({ enableGreenboneSensor: false });
+    const gmp = createGmp({ enableAkShumkarSensor: false });
     const { render } = rendererWith({
       gmp,
       capabilities: true,
-      features: new Features(['ENABLE_AGENTS', 'ENABLE_SkySOCD']),
+      features: new Features(['ENABLE_AGENTS', 'ENABLE_AkShumkarD']),
     });
 
     render(<ScannerDialog />);
@@ -438,7 +438,7 @@ describe('ScannerDialog tests', () => {
     });
     expect(scannerType).toHaveValue('');
     const scannerTypeItems = await getSelectItemElementsForSelect(scannerType);
-    expect(scannerTypeItems.length).toBe(3); // SkySOC Scanner, SkySOCD Scanner, Agent Controller
+    expect(scannerTypeItems.length).toBe(3); // Ak Shumkar Scanner, AkShumkarD Scanner, Agent Controller
   });
 
   test('should not allow to change host, port and type if scanner is in use', () => {
@@ -460,7 +460,7 @@ describe('ScannerDialog tests', () => {
         name="john"
         port={22}
         scannerInUse={true}
-        type={SkySOCD_SCANNER_TYPE}
+        type={AK_SHUMKARD_SCANNER_TYPE}
         onClose={handleClose}
         onSave={handleSave}
       />,
@@ -489,7 +489,7 @@ describe('ScannerDialog tests', () => {
       name: 'john',
       comment: 'lorem ipsum',
       credentialId: undefined,
-      type: SkySOCD_SCANNER_TYPE,
+      type: AK_SHUMKARD_SCANNER_TYPE,
       id: '1234',
       port: 22,
     });
@@ -518,17 +518,17 @@ describe('ScannerDialog tests', () => {
       features: new Features([]), // no ENABLE_AGENTS feature
     });
 
-    render(<ScannerDialog type={GREENBONE_SENSOR_SCANNER_TYPE} />);
+    render(<ScannerDialog type={AK_SHUMKAR_SENSOR_SCANNER_TYPE} />);
 
     expect(screen.getDialog()).toBeInTheDocument();
     const scannerType = screen.getByRole<HTMLSelectElement>('textbox', {
       name: 'Scanner Type',
     });
-    expect(scannerType).toHaveValue('Greenbone Sensor');
+    expect(scannerType).toHaveValue('Ak Shumkar Sensor');
     const scannerTypeItems = await getSelectItemElementsForSelect(scannerType);
-    expect(scannerTypeItems.length).toEqual(2); // SkySOC Scanner and Greenbone Sensor
-    expect(scannerTypeItems[0]).toHaveTextContent('SkySOC Scanner');
-    expect(scannerTypeItems[1]).toHaveTextContent('Greenbone Sensor');
+    expect(scannerTypeItems.length).toEqual(2); // Ak Shumkar Scanner and Ak Shumkar Sensor
+    expect(scannerTypeItems[0]).toHaveTextContent('Ak Shumkar Scanner');
+    expect(scannerTypeItems[1]).toHaveTextContent('Ak Shumkar Sensor');
   });
 
   test('should not render agent controller in scanner selection if agent permission is missing', async () => {
@@ -539,21 +539,21 @@ describe('ScannerDialog tests', () => {
       features: new Features(['ENABLE_AGENTS']),
     });
 
-    render(<ScannerDialog type={GREENBONE_SENSOR_SCANNER_TYPE} />);
+    render(<ScannerDialog type={AK_SHUMKAR_SENSOR_SCANNER_TYPE} />);
 
     expect(screen.getDialog()).toBeInTheDocument();
     const scannerType = screen.getByRole<HTMLSelectElement>('textbox', {
       name: 'Scanner Type',
     });
-    expect(scannerType).toHaveValue('Greenbone Sensor');
+    expect(scannerType).toHaveValue('Ak Shumkar Sensor');
     const scannerTypeItems = await getSelectItemElementsForSelect(scannerType);
-    expect(scannerTypeItems.length).toEqual(2); // SkySOC Scanner, SkySOCD Scanner and Greenbone Sensor
-    expect(scannerTypeItems[0]).toHaveTextContent('SkySOC Scanner');
-    expect(scannerTypeItems[1]).toHaveTextContent('Greenbone Sensor');
+    expect(scannerTypeItems.length).toEqual(2); // Ak Shumkar Scanner, AkShumkarD Scanner and Ak Shumkar Sensor
+    expect(scannerTypeItems[0]).toHaveTextContent('Ak Shumkar Scanner');
+    expect(scannerTypeItems[1]).toHaveTextContent('Ak Shumkar Sensor');
   });
 
   test('should only render agent controller in scanner selection if sensors are not enabled', async () => {
-    const gmp = createGmp({ enableGreenboneSensor: false });
+    const gmp = createGmp({ enableAkShumkarSensor: false });
     const { render } = rendererWith({
       gmp,
       capabilities: true,
@@ -568,8 +568,8 @@ describe('ScannerDialog tests', () => {
     });
     expect(scannerType).toHaveValue('Agent Controller');
     const scannerTypeItems = await getSelectItemElementsForSelect(scannerType);
-    expect(scannerTypeItems.length).toEqual(2); // SkySOC Scanner and Agent Controller
-    expect(scannerTypeItems[0]).toHaveTextContent('SkySOC Scanner');
+    expect(scannerTypeItems.length).toEqual(2); // Ak Shumkar Scanner and Agent Controller
+    expect(scannerTypeItems[0]).toHaveTextContent('Ak Shumkar Scanner');
     expect(scannerTypeItems[1]).toHaveTextContent('Agent Controller');
   });
 
@@ -582,7 +582,7 @@ describe('ScannerDialog tests', () => {
 
     render(
       <ScannerDialog
-        type={SkySOC_SCANNER_TYPE}
+        type={AK_SHUMKAR_SCANNER_TYPE}
         onClose={handleClose}
         onSave={handleSave}
       />,
@@ -609,31 +609,31 @@ describe('ScannerDialog tests', () => {
       name: 'Unnamed',
       comment: '',
       credentialId: undefined,
-      type: SkySOC_SCANNER_TYPE,
+      type: AK_SHUMKAR_SCANNER_TYPE,
       id: undefined,
       port: '',
     });
   });
 
   test('should render openvasd in scanner selection if feature is enabled', async () => {
-    const gmp = createGmp({ enableGreenboneSensor: false }); // no sensor
+    const gmp = createGmp({ enableAkShumkarSensor: false }); // no sensor
     const { render } = rendererWith({
       gmp, // no sensor
       capabilities: true,
-      features: new Features(['ENABLE_SkySOCD']),
+      features: new Features(['ENABLE_AkShumkarD']),
     });
 
-    render(<ScannerDialog type={SkySOCD_SCANNER_TYPE} />);
+    render(<ScannerDialog type={AK_SHUMKARD_SCANNER_TYPE} />);
 
     expect(screen.getDialog()).toBeInTheDocument();
     const scannerType = screen.getByRole<HTMLSelectElement>('textbox', {
       name: 'Scanner Type',
     });
-    expect(scannerType).toHaveValue('SkySOCD Scanner');
+    expect(scannerType).toHaveValue('AkShumkarD Scanner');
     const scannerTypeItems = await getSelectItemElementsForSelect(scannerType);
-    expect(scannerTypeItems.length).toEqual(2); // SkySOC Scanner and SkySOCD Scanner
-    expect(scannerTypeItems[0]).toHaveTextContent('SkySOC Scanner');
-    expect(scannerTypeItems[1]).toHaveTextContent('SkySOCD Scanner');
+    expect(scannerTypeItems.length).toEqual(2); // Ak Shumkar Scanner and AkShumkarD Scanner
+    expect(scannerTypeItems[0]).toHaveTextContent('Ak Shumkar Scanner');
+    expect(scannerTypeItems[1]).toHaveTextContent('AkShumkarD Scanner');
   });
 
   test('should not render openvasd in scanner selection if feature is disabled', async () => {
@@ -641,10 +641,10 @@ describe('ScannerDialog tests', () => {
     const { render } = rendererWith({
       gmp,
       capabilities: true,
-      features: new Features([]), // no SkySOCD feature
+      features: new Features([]), // no AkShumkarD feature
     });
 
-    render(<ScannerDialog type={SkySOCD_SCANNER_TYPE} />);
+    render(<ScannerDialog type={AK_SHUMKARD_SCANNER_TYPE} />);
 
     expect(screen.getDialog()).toBeInTheDocument();
     const scannerType = screen.getByRole<HTMLSelectElement>('textbox', {
@@ -652,13 +652,13 @@ describe('ScannerDialog tests', () => {
     });
     expect(scannerType).toHaveValue('');
     const scannerTypeItems = await getSelectItemElementsForSelect(scannerType);
-    expect(scannerTypeItems.length).toEqual(2); // SkySOC Scanner and Greenbone Sensor
-    expect(scannerTypeItems[0]).toHaveTextContent('SkySOC Scanner');
-    expect(scannerTypeItems[1]).toHaveTextContent('Greenbone Sensor');
+    expect(scannerTypeItems.length).toEqual(2); // Ak Shumkar Scanner and Ak Shumkar Sensor
+    expect(scannerTypeItems[0]).toHaveTextContent('Ak Shumkar Scanner');
+    expect(scannerTypeItems[1]).toHaveTextContent('Ak Shumkar Sensor');
   });
 
   test('should not show host, port, credential and certificate if scanner type is not set', async () => {
-    const gmp = createGmp({ enableGreenboneSensor: false });
+    const gmp = createGmp({ enableAkShumkarSensor: false });
     const handleClose = testing.fn();
     const handleSave = testing.fn();
 
@@ -711,7 +711,7 @@ describe('ScannerDialog tests', () => {
     });
     expect(scannerType).toHaveValue('Agent Controller');
     const scannerTypeItems = await getSelectItemElementsForSelect(scannerType);
-    expect(scannerTypeItems.length).toBe(3); // SkySOC Scanner, Greenbone Sensor and Agent Controller
+    expect(scannerTypeItems.length).toBe(3); // Ak Shumkar Scanner, Ak Shumkar Sensor and Agent Controller
   });
 
   test('should use greenbone sensor scanner as default if enabled and no initial scanner type', async () => {
@@ -732,6 +732,6 @@ describe('ScannerDialog tests', () => {
 
     expect(screen.getDialog()).toBeInTheDocument();
     const scannerType = screen.getByRole('textbox', { name: 'Scanner Type' });
-    expect(scannerType).toHaveValue('Greenbone Sensor');
+    expect(scannerType).toHaveValue('Ak Shumkar Sensor');
   });
 });

@@ -444,13 +444,13 @@ describe('UserSettingsPage', () => {
           _id: 'scanconfig-uuid',
           name: 'defaultopenvasscanconfig',
           value: 'scanconfig-123',
-          comment: 'Default SkySOC scan config comment',
+          comment: 'Default Ak Shumkar scan config comment',
         }),
         defaultopenvasscanner: Setting.fromElement({
           _id: 'scanner-uuid',
           name: 'defaultopenvasscanner',
           value: 'scanner-123',
-          comment: 'Default SkySOC scanner comment',
+          comment: 'Default Ak Shumkar scanner comment',
         }),
         defaultportlist: Setting.fromElement({
           _id: 'portlist-uuid',
@@ -509,7 +509,7 @@ describe('UserSettingsPage', () => {
       ).toBeInTheDocument();
 
       const defaultScanConfigRow = screen
-        .getByText('Default SkySOC Scan Config')
+        .getByText('Default Ak Shumkar Scan Config')
         .closest('tr');
       expect(defaultScanConfigRow).not.toBeNull();
       expect(
@@ -519,7 +519,7 @@ describe('UserSettingsPage', () => {
       ).toBeInTheDocument();
 
       const defaultScannerRow = screen
-        .getByText('Default SkySOC Scanner')
+        .getByText('Default Ak Shumkar Scanner')
         .closest('tr');
       expect(defaultScannerRow).not.toBeNull();
       expect(
@@ -634,8 +634,8 @@ describe('UserSettingsPage', () => {
       [
         'Default Alert',
         'Default ESXi Credential',
-        'Default SkySOC Scan Config',
-        'Default SkySOC Scanner',
+        'Default Ak Shumkar Scan Config',
+        'Default Ak Shumkar Scanner',
         'Default Port List',
         'Default SMB Credential',
         'Default SNMP Credential',

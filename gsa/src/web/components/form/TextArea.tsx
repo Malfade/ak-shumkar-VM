@@ -3,12 +3,12 @@
  * SPDX-License-Identifier: AGPL-3.0-or-later
  */
 
-import {Textarea as GreenboneTextArea} from '@greenbone/ui-lib';
+import {Textarea as AkShumkarTextArea} from '@greenbone/ui-lib';
 import {isDefined} from 'gmp/utils/identity';
 import useValueChange from 'web/components/form/useValueChange';
 
 interface TextAreaProps extends Omit<
-  React.ComponentPropsWithoutRef<typeof GreenboneTextArea>,
+  React.ComponentPropsWithoutRef<typeof AkShumkarTextArea>,
   'onChange' | 'value'
 > {
   autosize?: boolean;
@@ -42,7 +42,7 @@ const TextArea = ({
 }: TextAreaProps) => {
   const handleChange = useValueChange<string>({disabled, name, onChange});
   return (
-    <GreenboneTextArea
+    <AkShumkarTextArea
       {...props}
       autosize={autosize}
       classNames={{

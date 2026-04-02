@@ -4,11 +4,14 @@
 
 use libssh_rs::{AuthMethods, AuthStatus, InteractiveAuthInfo, Session, Sftp, SshKey, SshOption};
 use std::{os::fd::AsRawFd, time::Duration};
+use std::net::{IpAddr, Ipv4Addr};
 use tokio::sync::{Mutex, MutexGuard};
 use tracing::{debug, info};
+use ::russh::{cipher, keys::Algorithm};
 
 use super::super::Output;
 use super::super::error::{Result, SshErrorKind};
+use super::super::sessions::ConnectKey;
 use super::SessionId;
 use super::{Socket, channel::Channel};
 use crate::nasl::utils::error::WithErrorInfo;
@@ -25,6 +28,24 @@ pub struct SshSession {
     pub user_set: bool,
     /// Channel
     pub channel: Option<Mutex<Channel>>,
+
+    /// Whether this transport was created from a custom socket (NASL `socket:` argument).
+    /// We avoid caching/reuse for those transports to preserve correctness.
+    pub custom_socket: bool,
+
+    /// Connect key and connection parameters needed for reconnect.
+    pub connect_key: ConnectKey,
+    pub ip_addr: IpAddr,
+    pub port: u16,
+    pub timeout: Option<Duration>,
+    pub keytype: Vec<Algorithm>,
+    pub csciphers: Vec<cipher::Name>,
+    pub scciphers: Vec<cipher::Name>,
+
+    /// Track authentication state to skip redundant auth and to detect mismatches.
+    pub authenticated: bool,
+    pub auth_login: Option<String>,
+    pub auth_cred_hash: Option<u64>,
 }
 
 impl SshSession {
@@ -37,6 +58,17 @@ impl SshSession {
                 authmethods: None,
                 user_set: false,
                 channel: None,
+                custom_socket: false,
+                connect_key: ConnectKey::placeholder(),
+                ip_addr: IpAddr::V4(Ipv4Addr::UNSPECIFIED),
+                port: 0,
+                timeout: None,
+                keytype: vec![],
+                csciphers: vec![],
+                scciphers: vec![],
+                authenticated: false,
+                auth_login: None,
+                auth_cred_hash: None,
             })
     }
 }
@@ -113,6 +145,16 @@ impl SshSession {
         self.channel = None;
     }
 
+    /// Soft-disconnect: keep the underlying SSH transport alive.
+    pub async fn soft_disconnect(&mut self) {
+        self.close().await;
+    }
+
+    /// Hard-disconnect: fully close the SSH transport.
+    pub async fn hard_disconnect(&mut self) -> Result<()> {
+        self.disconnect().await
+    }
+
     pub fn ensure_user_set(&mut self, login: Option<&str>) -> Result<()> {
         if !self.user_set() {
             self.set_opt_user(login)
@@ -124,7 +166,9 @@ impl SshSession {
     pub fn set_opt_user(&mut self, login: Option<&str>) -> Result<()> {
         // TODO: get the username alternatively from the kb.
         let opt_user = SshOption::User(login.map(|x| x.to_string()));
-        self.set_option(opt_user)
+        self.set_option(opt_user)?;
+        self.user_set = true;
+        Ok(())
     }
 
     pub async fn open_shell(&mut self, pty: bool) -> Result<()> {
@@ -180,7 +224,9 @@ impl SshSession {
 
     pub async fn auth_keyboard_interactive(&mut self, login: &str, password: &str) -> Result<()> {
         self.ensure_user_set(Some(login))?;
-        loop {
+        // Prevent infinite loops when the server keeps returning
+        // non-Info auth statuses for keyboard-interactive.
+        for _attempt in 0..5 {
             let response = self.userauth_keyboard_interactive(None, None)?;
             if let AuthStatus::Info = response {
                 let info = self.userauth_keyboard_interactive_info()?;
@@ -206,6 +252,7 @@ impl SshSession {
                 continue;
             }
         }
+        Err(SshErrorKind::UserAuthKeyboardInteractive.with(self.id))
     }
 
     fn get_authmethods(&mut self) -> Result<AuthMethods> {

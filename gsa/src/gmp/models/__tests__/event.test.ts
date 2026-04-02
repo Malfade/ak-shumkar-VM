@@ -24,7 +24,7 @@ describe('Event model tests', () => {
     expect(event.description).toBeUndefined();
     expect(event.toIcalString().split('\r\n').join('\n'))
       .toEqual(`BEGIN:VCALENDAR
-PRODID:-//Greenbone.net//NONSGML Greenbone Security Assistant
+PRODID:-//Ak Shumkar.net//NONSGML Ak Shumkar Security Assistant
 VERSION:2.0
 BEGIN:VEVENT
 UID:123
@@ -36,7 +36,7 @@ END:VCALENDAR`);
   test('should parse event start from icalendar without timezone', () => {
     const icalendar = `BEGIN:VCALENDAR
 VERSION:2.0
-PRODID:-//Greenbone.net//NONSGML Greenbone Security Manager 8.0.0//EN
+PRODID:-//Ak Shumkar.net//NONSGML Ak Shumkar Security Manager 8.0.0//EN
 BEGIN:VEVENT
 UID:c35f82f1-7798-4b84-b2c4-761a33068956
 DTSTAMP:20190715T124352Z
@@ -61,7 +61,7 @@ END:VCALENDAR
   test('should parse event start from icalendar using utc', () => {
     const icalendar = `BEGIN:VCALENDAR
 VERSION:2.0
-PRODID:-//Greenbone.net//NONSGML Greenbone Security Manager 8.0.0//EN
+PRODID:-//Ak Shumkar.net//NONSGML Ak Shumkar Security Manager 8.0.0//EN
 BEGIN:VEVENT
 UID:c35f82f1-7798-4b84-b2c4-761a33068956
 DTSTAMP:20190715T124352Z
@@ -89,7 +89,7 @@ END:VCALENDAR
     const startDate = now.clone().add(1, 'hour');
     const icalendar = `BEGIN:VCALENDAR
 VERSION:2.0
-PRODID:-//Greenbone.net//NONSGML Greenbone Security Manager 8.0.0//EN
+PRODID:-//Ak Shumkar.net//NONSGML Ak Shumkar Security Manager 8.0.0//EN
 BEGIN:VEVENT
 UID:c35f82f1-7798-4b84-b2c4-761a33068956
 DTSTART:${startDate.format(ICAL_FORMAT)}
@@ -114,7 +114,7 @@ END:VCALENDAR
     const startDate = now.clone().subtract(1, 'hour');
     const icalendar = `BEGIN:VCALENDAR
 VERSION:2.0
-PRODID:-//Greenbone.net//NONSGML Greenbone Security Manager 8.0.0//EN
+PRODID:-//Ak Shumkar.net//NONSGML Ak Shumkar Security Manager 8.0.0//EN
 BEGIN:VEVENT
 UID:c35f82f1-7798-4b84-b2c4-761a33068956
 DTSTART:${startDate.format(ICAL_FORMAT)}
@@ -143,7 +143,7 @@ END:VCALENDAR
     const startDate = now.clone().add(1, 'hour');
     const icalendar = `BEGIN:VCALENDAR
 VERSION:2.0
-PRODID:-//Greenbone.net//NONSGML Greenbone Security Manager 8.0.0//EN
+PRODID:-//Ak Shumkar.net//NONSGML Ak Shumkar Security Manager 8.0.0//EN
 BEGIN:VEVENT
 UID:c35f82f1-7798-4b84-b2c4-761a33068956
 DTSTART:${startDate.format(ICAL_FORMAT)}
@@ -167,7 +167,7 @@ END:VCALENDAR
     const now = startDate.clone().add(1, 'hour');
     const icalendar = `BEGIN:VCALENDAR
 VERSION:2.0
-PRODID:-//Greenbone.net//NONSGML Greenbone Security Manager 8.0.0//EN
+PRODID:-//Ak Shumkar.net//NONSGML Ak Shumkar Security Manager 8.0.0//EN
 BEGIN:VEVENT
 UID:c35f82f1-7798-4b84-b2c4-761a33068956
 DTSTART:${startDate.format(ICAL_FORMAT)}
@@ -202,7 +202,7 @@ END:VCALENDAR
     const start = expected.clone().subtract(24, 'hour');
     const icalendar = `BEGIN:VCALENDAR
 VERSION:2.0
-PRODID:-//Greenbone.net//NONSGML Greenbone Security Manager 8.0.0//EN
+PRODID:-//Ak Shumkar.net//NONSGML Ak Shumkar Security Manager 8.0.0//EN
 BEGIN:VEVENT
 UID:c35f82f1-7798-4b84-b2c4-761a33068956
 DTSTART;TZID=/America/New_York:${start.format(ICAL_FORMAT_TZ)}
@@ -223,7 +223,7 @@ END:VCALENDAR
   test('should allow to get the recurrence rule', () => {
     const icalendar = `BEGIN:VCALENDAR
 VERSION:2.0
-PRODID:-//Greenbone.net//NONSGML Greenbone Security Manager 8.0.0//EN
+PRODID:-//Ak Shumkar.net//NONSGML Ak Shumkar Security Manager 8.0.0//EN
 BEGIN:VEVENT
 UID:c35f82f1-7798-4b84-b2c4-761a33068956
 DTSTART:20190716T040000Z
@@ -365,7 +365,7 @@ describe('isEvent tests', () => {
   test('should return true for valid event', () => {
     const icalendar = `BEGIN:VCALENDAR
 VERSION:2.0
-PRODID:-//Greenbone.net//NONSGML Greenbone Security Manager 8.0.0//EN
+PRODID:-//Ak Shumkar.net//NONSGML Ak Shumkar Security Manager 8.0.0//EN
 BEGIN:VEVENT
 UID:c35f82f1-7798-4b84-b2c4-761a33068956
 DTSTAMP:20190715T124352Z

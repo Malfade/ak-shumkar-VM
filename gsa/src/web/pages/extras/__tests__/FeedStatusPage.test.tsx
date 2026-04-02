@@ -12,28 +12,28 @@ import FeedStatus from 'web/pages/extras/FeedStatusPage';
 testing.setSystemTime(new Date('2020-07-25T07:00:00Z'));
 
 const nvtFeed = createFeed({
-  name: 'Greenbone Community Feed',
+  name: 'Ak Shumkar Community Feed',
   type: 'NVT',
   description: 'Community Feed',
   version: 202007241005,
 });
 
 const scapFeed = createFeed({
-  name: 'Greenbone Community SCAP Feed',
+  name: 'Ak Shumkar Community SCAP Feed',
   type: 'SCAP',
   description: 'Community SCAP Feed',
   version: 202007230130,
 });
 
 const certFeed = createFeed({
-  name: 'Greenbone Community CERT Feed',
+  name: 'Ak Shumkar Community CERT Feed',
   type: 'CERT',
   description: 'Community CERT Feed',
   version: 202005231003,
 });
 
 const gvmdDataFeed = createFeed({
-  name: 'Greenbone Community gvmd Data Feed',
+  name: 'Ak Shumkar Community gvmd Data Feed',
   type: 'GVMD_DATA',
   description: 'Community gvmd Data Feed',
   version: 202006221009,
@@ -108,10 +108,10 @@ describe('Feed status page tests', () => {
     expect(element).toHaveTextContent('GVMD_DATA');
 
     // Feed Origin
-    expect(element).toHaveTextContent('Greenbone Community Feed');
-    expect(element).toHaveTextContent('Greenbone Community SCAP Feed');
-    expect(element).toHaveTextContent('Greenbone Community CERT Feed');
-    expect(element).toHaveTextContent('Greenbone Community gvmd Data Feed');
+    expect(element).toHaveTextContent('Ak Shumkar Community Feed');
+    expect(element).toHaveTextContent('Ak Shumkar Community SCAP Feed');
+    expect(element).toHaveTextContent('Ak Shumkar Community CERT Feed');
+    expect(element).toHaveTextContent('Ak Shumkar Community gvmd Data Feed');
 
     // Feed versions
     expect(element).toHaveTextContent('20200724T1005');

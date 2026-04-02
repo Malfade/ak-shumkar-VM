@@ -8,9 +8,9 @@ import {useDispatch} from 'react-redux';
 import {DEFAULT_MIN_QOD} from 'gmp/models/audit';
 import {ALL_FILTER} from 'gmp/models/filter';
 import {
-  SkySOC_DEFAULT_SCANNER_ID,
-  SkySOC_SCANNER_TYPE,
-  GREENBONE_SENSOR_SCANNER_TYPE,
+  AK_SHUMKAR_DEFAULT_SCANNER_ID,
+  AK_SHUMKAR_SCANNER_TYPE,
+  AK_SHUMKAR_SENSOR_SCANNER_TYPE,
 } from 'gmp/models/scanner';
 import {YES_VALUE, NO_VALUE} from 'gmp/parser';
 import {selectSaveId} from 'gmp/utils/id';
@@ -93,8 +93,8 @@ const PolicyComponent = ({
   const scanners = isDefined(scannerList)
     ? scannerList.filter(
         scanner =>
-          scanner.scannerType === SkySOC_SCANNER_TYPE ||
-          scanner.scannerType === GREENBONE_SENSOR_SCANNER_TYPE,
+          scanner.scannerType === AK_SHUMKAR_SCANNER_TYPE ||
+          scanner.scannerType === AK_SHUMKAR_SENSOR_SCANNER_TYPE,
       )
     : undefined;
 
@@ -432,8 +432,8 @@ const PolicyComponent = ({
     maxChecks,
     maxHosts,
     name,
-    scannerId = SkySOC_DEFAULT_SCANNER_ID,
-    scannerType = SkySOC_SCANNER_TYPE,
+    scannerId = AK_SHUMKAR_DEFAULT_SCANNER_ID,
+    scannerType = AK_SHUMKAR_SCANNER_TYPE,
     scheduleId,
     schedulePeriods,
     targetId,

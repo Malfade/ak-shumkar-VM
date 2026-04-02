@@ -58,18 +58,21 @@ const createEnterpriseComponent = (
   };
 };
 
-export const GreenboneWhiteLogo = ({
+export const AkShumkarWhiteLogo = ({
   style,
   loading,
   size,
   ...props
 }: ApplianceIconProps) => (
-  <img
-    src="/img/skysoc-logo.fc88ba28.png"
-    alt="SkySOC"
-    style={{ width: '150px', ...(style as React.CSSProperties) }}
-    {...(props as React.ImgHTMLAttributes<HTMLImageElement>)}
-  />
+  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', ...(style as React.CSSProperties) }}>
+    <img
+      src="/img/AK-SHUMKAR.png"
+      alt="Ak Shumkar"
+      style={{ height: '35px', width: 'auto' }}
+      {...(props as React.ImgHTMLAttributes<HTMLImageElement>)}
+    />
+    <span style={{ fontSize: '16px', fontWeight: 'bold', color: 'white' }}>AK SHUMKAR</span>
+  </div>
 );
 export const Enterprise150 = createEnterpriseComponent(
   () => import('web/components/icon/svg/Enterprise_150.svg?react'),

@@ -382,17 +382,26 @@ get_next_in_range (plugins_scheduler_t h, int start, int end)
   for (category = start; category <= end; category++)
     {
       struct scheduler_plugin *plugin;
+      int parallel_checks_disabled = 0;
       element = h->list[category];
       if (category == ACT_SCANNER || category == ACT_KILL_HOST
           || category == ACT_FLOOD || category == ACT_DENIAL)
-        pluginlaunch_disable_parallel_checks ();
+        {
+          pluginlaunch_disable_parallel_checks ();
+          parallel_checks_disabled = 1;
+        }
 
       plugin = plugins_next_unrun (element);
       if (plugin == PLUG_RUNNING)
         still_running = 1;
       else if (plugin)
-        return plugin;
-      pluginlaunch_enable_parallel_checks ();
+        {
+          if (parallel_checks_disabled)
+            pluginlaunch_enable_parallel_checks ();
+          return plugin;
+        }
+      if (parallel_checks_disabled)
+        pluginlaunch_enable_parallel_checks ();
     }
   return still_running ? PLUG_RUNNING : NULL;
 }

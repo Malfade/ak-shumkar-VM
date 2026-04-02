@@ -6,7 +6,7 @@
 import {describe, test, expect, testing} from '@gsa/testing';
 import {rendererWith, fireEvent, screen, within} from 'web/testing';
 import ScanConfig from 'gmp/models/scan-config';
-import {SkySOC_SCANNER_TYPE} from 'gmp/models/scanner';
+import {AK_SHUMKAR_SCANNER_TYPE} from 'gmp/models/scanner';
 import Task, {TASK_STATUS} from 'gmp/models/task';
 import TaskDetailsPageToolBarIcons from 'web/pages/tasks/icons/TaskDetailsPageToolBarIcons';
 
@@ -89,7 +89,7 @@ describe('Task ToolBarIcons tests', () => {
       permissions: {permission: [{name: 'everything'}]},
       target: {_id: '5678', name: 'target1'},
       alert: {_id: '91011', name: 'alert1'},
-      scanner: {_id: '1516', name: 'scanner1', type: SkySOC_SCANNER_TYPE},
+      scanner: {_id: '1516', name: 'scanner1', type: AK_SHUMKAR_SCANNER_TYPE},
       config: scanConfig,
       preferences: preferences,
     });
@@ -163,7 +163,7 @@ describe('Task ToolBarIcons tests', () => {
       permissions: {permission: [{name: 'everything'}]},
       target: {_id: '5678', name: 'target1'},
       alert: {_id: '91011', name: 'alert1'},
-      scanner: {_id: '1516', name: 'scanner1', type: SkySOC_SCANNER_TYPE},
+      scanner: {_id: '1516', name: 'scanner1', type: AK_SHUMKAR_SCANNER_TYPE},
       config: scanConfig,
       preferences: preferences,
     });
@@ -292,7 +292,7 @@ describe('Task ToolBarIcons tests', () => {
       permissions: {permission: [{name: 'everything'}]},
       target: {_id: '5678', name: 'target1'},
       alert: {_id: '91011', name: 'alert1'},
-      scanner: {_id: '1516', name: 'scanner1', type: SkySOC_SCANNER_TYPE},
+      scanner: {_id: '1516', name: 'scanner1', type: AK_SHUMKAR_SCANNER_TYPE},
       config: scanConfig,
       preferences: preferences,
     });
@@ -426,7 +426,7 @@ describe('Task ToolBarIcons tests', () => {
       permissions: {permission: [{name: 'everything'}]},
       target: {_id: '5678', name: 'target1'},
       alert: {_id: '91011', name: 'alert1'},
-      scanner: {_id: '1516', name: 'scanner1', type: SkySOC_SCANNER_TYPE},
+      scanner: {_id: '1516', name: 'scanner1', type: AK_SHUMKAR_SCANNER_TYPE},
       config: scanConfig,
       preferences: preferences,
     });
@@ -560,7 +560,7 @@ describe('Task ToolBarIcons tests', () => {
       permissions: {permission: [{name: 'everything'}]},
       target: {_id: '5678', name: 'target1'},
       alert: {_id: '91011', name: 'alert1'},
-      scanner: {_id: '1516', name: 'scanner1', type: SkySOC_SCANNER_TYPE},
+      scanner: {_id: '1516', name: 'scanner1', type: AK_SHUMKAR_SCANNER_TYPE},
       config: scanConfig,
       preferences: preferences,
     });
@@ -695,7 +695,7 @@ describe('Task ToolBarIcons tests', () => {
       permissions: {permission: [{name: 'get_tasks'}]},
       target: {_id: '5678', name: 'target1'},
       alert: {_id: '91011', name: 'alert1'},
-      scanner: {_id: '1516', name: 'scanner1', type: SkySOC_SCANNER_TYPE},
+      scanner: {_id: '1516', name: 'scanner1', type: AK_SHUMKAR_SCANNER_TYPE},
       config: scanConfig,
       preferences: preferences,
     });
@@ -830,7 +830,7 @@ describe('Task ToolBarIcons tests', () => {
       permissions: {permission: [{name: 'everything'}]},
       target: {_id: '5678', name: 'target1'},
       alert: {_id: '91011', name: 'alert1'},
-      scanner: {_id: '1516', name: 'scanner1', type: SkySOC_SCANNER_TYPE},
+      scanner: {_id: '1516', name: 'scanner1', type: AK_SHUMKAR_SCANNER_TYPE},
       config: scanConfig,
       schedule: {
         _id: '121314',

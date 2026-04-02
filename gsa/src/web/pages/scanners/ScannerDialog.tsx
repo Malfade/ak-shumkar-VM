@@ -9,9 +9,9 @@ import {
   AGENT_CONTROLLER_SCANNER_TYPE,
   AGENT_CONTROLLER_SENSOR_SCANNER_TYPE,
   CONTAINER_IMAGE_SCANNER_TYPE,
-  GREENBONE_SENSOR_SCANNER_TYPE,
-  SkySOC_SCANNER_TYPE,
-  SkySOCD_SCANNER_TYPE,
+  AK_SHUMKAR_SENSOR_SCANNER_TYPE,
+  AK_SHUMKAR_SCANNER_TYPE,
+  AK_SHUMKARD_SCANNER_TYPE,
   type ScannerType,
   scannerTypeName,
 } from 'gmp/models/scanner';
@@ -70,7 +70,7 @@ const CA_CERTIFICATE_LINE = '-----BEGIN CERTIFICATE-----';
 
 const updatePort = (scannerType: ScannerType | undefined) => {
   if (
-    scannerType === GREENBONE_SENSOR_SCANNER_TYPE ||
+    scannerType === AK_SHUMKAR_SENSOR_SCANNER_TYPE ||
     scannerType === AGENT_CONTROLLER_SENSOR_SCANNER_TYPE
   ) {
     return 22;
@@ -79,7 +79,7 @@ const updatePort = (scannerType: ScannerType | undefined) => {
     return 8080;
   }
   if (
-    scannerType === SkySOCD_SCANNER_TYPE ||
+    scannerType === AK_SHUMKARD_SCANNER_TYPE ||
     scannerType === CONTAINER_IMAGE_SCANNER_TYPE
   ) {
     return 443;
@@ -121,9 +121,9 @@ const ScannerDialog = ({
 
       if (
         !isDefined(initialScannerType) &&
-        gmp.settings.enableGreenboneSensor
+        gmp.settings.enableAkShumkarSensor
       ) {
-        return GREENBONE_SENSOR_SCANNER_TYPE;
+        return AK_SHUMKAR_SENSOR_SCANNER_TYPE;
       }
 
       // don't allow selecting agent types initially if the feature is disabled or the user has no access
@@ -138,8 +138,8 @@ const ScannerDialog = ({
 
       // don't allow selecting sensor types initially if the setting is disabled
       if (
-        !gmp.settings.enableGreenboneSensor &&
-        (initialScannerType === GREENBONE_SENSOR_SCANNER_TYPE ||
+        !gmp.settings.enableAkShumkarSensor &&
+        (initialScannerType === AK_SHUMKAR_SENSOR_SCANNER_TYPE ||
           initialScannerType === AGENT_CONTROLLER_SENSOR_SCANNER_TYPE)
       ) {
         return undefined;
@@ -147,7 +147,7 @@ const ScannerDialog = ({
 
       if (
         !features.featureEnabled('ENABLE_OPENVASD') &&
-        initialScannerType === SkySOCD_SCANNER_TYPE
+        initialScannerType === AK_SHUMKARD_SCANNER_TYPE
       ) {
         return undefined;
       }
@@ -162,13 +162,13 @@ const ScannerDialog = ({
   name = name || _('Unnamed');
   title = title || _('New Scanner');
 
-  const scannerTypes: ScannerType[] = [SkySOC_SCANNER_TYPE];
+  const scannerTypes: ScannerType[] = [AK_SHUMKAR_SCANNER_TYPE];
 
   if (
-    scannerType === SkySOCD_SCANNER_TYPE ||
+    scannerType === AK_SHUMKARD_SCANNER_TYPE ||
     features.featureEnabled('ENABLE_OPENVASD')
   ) {
-    scannerTypes.push(SkySOCD_SCANNER_TYPE);
+    scannerTypes.push(AK_SHUMKARD_SCANNER_TYPE);
   }
 
   if (
@@ -183,16 +183,16 @@ const ScannerDialog = ({
     scannerType === AGENT_CONTROLLER_SENSOR_SCANNER_TYPE ||
     (features.featureEnabled('ENABLE_AGENTS') &&
       capabilities.mayAccess('agent') &&
-      gmp.settings.enableGreenboneSensor)
+      gmp.settings.enableAkShumkarSensor)
   ) {
     scannerTypes.push(AGENT_CONTROLLER_SENSOR_SCANNER_TYPE);
   }
 
   if (
-    scannerType === GREENBONE_SENSOR_SCANNER_TYPE ||
-    gmp.settings.enableGreenboneSensor
+    scannerType === AK_SHUMKAR_SENSOR_SCANNER_TYPE ||
+    gmp.settings.enableAkShumkarSensor
   ) {
-    scannerTypes.push(GREENBONE_SENSOR_SCANNER_TYPE);
+    scannerTypes.push(AK_SHUMKAR_SENSOR_SCANNER_TYPE);
   }
 
   if (
@@ -231,20 +231,20 @@ const ScannerDialog = ({
     value: scannerType,
   }));
 
-  const isGreenboneSensorType = scannerType === GREENBONE_SENSOR_SCANNER_TYPE;
+  const isAkShumkarSensorType = scannerType === AK_SHUMKAR_SENSOR_SCANNER_TYPE;
   const isAgentControllerSensorScannerType =
     scannerType === AGENT_CONTROLLER_SENSOR_SCANNER_TYPE;
   const showScannerDetails = isDefined(scannerType);
-  const showPort = showScannerDetails && !isGreenboneSensorType;
+  const showPort = showScannerDetails && !isAkShumkarSensorType;
   const showCredentialField =
-    !isGreenboneSensorType &&
+    !isAkShumkarSensorType &&
     !isAgentControllerSensorScannerType &&
     showScannerDetails;
   const showCaCertificateField =
-    !isGreenboneSensorType &&
+    !isAkShumkarSensorType &&
     !isAgentControllerSensorScannerType &&
     showScannerDetails;
-  if (isGreenboneSensorType || isAgentControllerSensorScannerType) {
+  if (isAkShumkarSensorType || isAgentControllerSensorScannerType) {
     credentialId = undefined;
   }
   return (

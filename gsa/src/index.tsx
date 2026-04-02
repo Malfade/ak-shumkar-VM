@@ -5,7 +5,7 @@
 
 import {createRoot} from 'react-dom/client';
 import {StyleSheetManager} from 'styled-components';
-import 'web/styles/skysoc-theme.css';
+import 'web/styles/ak-shumkar-theme.css';
 import App from 'web/App';
 
 const root = createRoot(document.getElementById('app') as HTMLElement);

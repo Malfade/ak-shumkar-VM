@@ -199,7 +199,7 @@ interface ScannerProperties extends ModelProperties {
 export const SCANNER_TYPE_DEFINITIONS = {
   OPENVAS_SCANNER_TYPE: { value: '2', name: _l('OpenVAS Scanner') },
   CVE_SCANNER_TYPE: { value: '3', name: _l('CVE Scanner') },
-  GREENBONE_SENSOR_SCANNER_TYPE: { value: '5', name: _l('Greenbone Sensor') },
+  AK_SHUMKAR_SENSOR_SCANNER_TYPE: { value: '5', name: _l('Ak Shumkar Sensor') },
   OPENVASD_SCANNER_TYPE: { value: '6', name: _l('OpenVASD Scanner') },
   OPENVASD_SENSOR_SCANNER_TYPE: { value: '8', name: _l('OpenVASD Sensor') },
   AGENT_CONTROLLER_SCANNER_TYPE: { value: '7', name: _l('Agent Controller') },
@@ -214,8 +214,8 @@ export const SCANNER_TYPE_DEFINITIONS = {
 export const OPENVAS_SCANNER_TYPE =
   SCANNER_TYPE_DEFINITIONS.OPENVAS_SCANNER_TYPE.value;
 export const CVE_SCANNER_TYPE = SCANNER_TYPE_DEFINITIONS.CVE_SCANNER_TYPE.value;
-export const GREENBONE_SENSOR_SCANNER_TYPE =
-  SCANNER_TYPE_DEFINITIONS.GREENBONE_SENSOR_SCANNER_TYPE.value;
+export const AK_SHUMKAR_SENSOR_SCANNER_TYPE =
+  SCANNER_TYPE_DEFINITIONS.AK_SHUMKAR_SENSOR_SCANNER_TYPE.value;
 export const OPENVASD_SCANNER_TYPE =
   SCANNER_TYPE_DEFINITIONS.OPENVASD_SCANNER_TYPE.value;
 export const AGENT_CONTROLLER_SCANNER_TYPE =
@@ -238,11 +238,11 @@ export const OPENVAS_DEFAULT_SCANNER_ID =
 export const CONTAINER_IMAGE_DEFAULT_SCANNER_ID =
   '1facb485-10e8-4520-9110-66f929d9ac2e';
 
-// SkySOC brand aliases — map to the underlying OpenVAS/OpenVASD scanner types
-export const SkySOC_SCANNER_TYPE = OPENVASD_SCANNER_TYPE;
-export const SkySOCD_SCANNER_TYPE = OPENVAS_SCANNER_TYPE;
-export const SkySOCD_SENSOR_SCANNER_TYPE = OPENVASD_SENSOR_SCANNER_TYPE;
-export const SkySOC_DEFAULT_SCANNER_ID = OPENVAS_DEFAULT_SCANNER_ID;
+// Ak Shumkar brand aliases — map to the underlying OpenVAS/OpenVASD scanner types
+export const AK_SHUMKAR_SCANNER_TYPE = OPENVASD_SCANNER_TYPE;
+export const AK_SHUMKARD_SCANNER_TYPE = OPENVAS_SCANNER_TYPE;
+export const AK_SHUMKARD_SENSOR_SCANNER_TYPE = OPENVASD_SENSOR_SCANNER_TYPE;
+export const AK_SHUMKAR_DEFAULT_SCANNER_ID = OPENVAS_DEFAULT_SCANNER_ID;
 
 export const openVasScannersFilter = (config: { scannerType: ScannerType }) =>
   config.scannerType === OPENVAS_SCANNER_TYPE;

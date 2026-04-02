@@ -8,14 +8,14 @@ import {rendererWith, screen} from 'web/testing';
 import PageNotFound from 'web/pages/NotFoundPage';
 
 const gmp = {
-  settings: {vendorTitle: 'Greenbone'},
+  settings: {vendorTitle: 'Ak Shumkar'},
 };
 
 describe('PageNotFound tests', () => {
   test('renders the page title', () => {
     const {render} = rendererWith({gmp});
     render(<PageNotFound />);
-    expect(document.title).toEqual('Greenbone - Page Not Found');
+    expect(document.title).toEqual('Ak Shumkar - Page Not Found');
   });
 
   test('renders the main heading', () => {
@@ -26,7 +26,7 @@ describe('PageNotFound tests', () => {
     );
   });
 
-  test('renders the Greenbone logo', () => {
+  test('renders the Ak Shumkar logo', () => {
     const {render} = rendererWith({gmp});
     render(<PageNotFound />);
     expect(screen.getByTestId('greenbone-logo')).toBeInTheDocument();

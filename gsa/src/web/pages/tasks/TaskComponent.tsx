@@ -14,7 +14,7 @@ import {ALL_FILTER} from 'gmp/models/filter';
 import {FULL_AND_FAST_SCAN_CONFIG_ID} from 'gmp/models/scan-config';
 import {
   CONTAINER_IMAGE_SCANNER_TYPE,
-  SkySOC_DEFAULT_SCANNER_ID,
+  AK_SHUMKAR_DEFAULT_SCANNER_ID,
 } from 'gmp/models/scanner';
 import {type default as Task, type TaskAutoDelete} from 'gmp/models/task';
 import {NO_VALUE, YES_VALUE, type YesNo} from 'gmp/parser';
@@ -737,7 +737,7 @@ const TaskComponent = ({
       setMaxHosts(undefined);
       setCsAllowFailedRetrieval(undefined);
       setScanConfigId(defaultScanConfigId || FULL_AND_FAST_SCAN_CONFIG_ID);
-      setScannerId(defaultScannerId || SkySOC_DEFAULT_SCANNER_ID);
+      setScannerId(defaultScannerId || AK_SHUMKAR_DEFAULT_SCANNER_ID);
       setScheduleId(defaultScheduleId);
       setSchedulePeriods(undefined);
       setTargetId(defaultTargetId);

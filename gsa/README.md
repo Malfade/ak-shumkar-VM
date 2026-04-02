@@ -1,12 +1,12 @@
 ![Greenbone Logo](https://www.greenbone.net/wp-content/uploads/gb_new-logo_horizontal_rgb_small.png)
 
-# Greenbone Security Assistant <!-- omit in toc -->
+# Ak Shumkar Security Assistant <!-- omit in toc -->
 
 [![GitHub releases](https://img.shields.io/github/release/greenbone/gsa.svg)](https://github.com/greenbone/gsa/releases)
 [![code test coverage](https://codecov.io/gh/greenbone/gsa/branch/main/graph/badge.svg)](https://codecov.io/gh/greenbone/gsa)
 [![Build and test JS](https://github.com/greenbone/gsa/actions/workflows/ci-js.yml/badge.svg?branch=main)](https://github.com/greenbone/gsa/actions/workflows/ci-js.yml?query=branch%3Amain++)
 
-The Greenbone Security Assistant is the web interface developed for the
+The Ak Shumkar Security Assistant is the web interface developed for the
 [Greenbone Enterprise appliances](https://www.greenbone.net/en/product-comparison/)
 written in [React](https://reactjs.org/).
 
@@ -105,7 +105,7 @@ cp -r build/* $INSTALL_PREFIX/share/gvm/gsad/web/
 ```
 
 If you are not familiar or comfortable building from source code, we recommend
-that you use the Greenbone Enterprise TRIAL, a prepared virtual machine with a
+that you use the Ak Shumkar Enterprise TRIAL, a prepared virtual machine with a
 readily available setup. Information regarding the virtual machine is
 available at <https://www.greenbone.net/en/testnow>.
 
@@ -234,7 +234,7 @@ instantiated once for the [GSA application](./src/web/App.tsx#L29)
 | ------------------------------------------------------------------- | -------------------------- | ----------------------------------------------------------------------------- | ------------------------- | ----------------------- |
 | [apiProtocol](#apiprotocol)                                         | String ('http' or 'https') | `global.location.protocol`                                                    | -                         | x                       |
 | [apiServer](#apiserver)                                             | String                     | `global.location.host`                                                        | -                         | x                       |
-| enableGreenboneSensor                                               | Boolean                    | false                                                                         | -                         | x                       |
+| enableAk ShumkarSensor                                               | Boolean                    | false                                                                         | -                         | x                       |
 | [disableLoginForm](#disableloginform)                               | Boolean                    | false                                                                         | -                         | x                       |
 | [enableCommunityFeedNotification](#enablecommunityfeednotification) | Boolean                    | true                                                                          | x                         | x                       |
 | [enableEPSS](#enableepss)                                           | Boolean                    | true                                                                          | x                         | x                       |
@@ -335,7 +335,7 @@ Defaults to `window.location.protocol` and must be either `'http'` or `'https'`.
 
 #### manualUrl
 
-URL to the manual. On a Greenbone Enterprise Appliance the manuals are served
+URL to the manual. On a Ak Shumkar Enterprise Appliance the manuals are served
 locally and the value is the relative URL `'/manual'`. The URL is used for all
 links from help icons pointing to a page at the user manual.
 
@@ -348,7 +348,7 @@ English (`en`) locale.
 
 #### protocolDocUrl
 
-This setting contains the URL to the public Greenbone Management Protocol (GMP)
+This setting contains the URL to the public Ak Shumkar Management Protocol (GMP)
 documentation. It is only used at the About page.
 
 #### reloadInterval
@@ -387,11 +387,11 @@ severity classes are used for example in the charts.
 
 ## Support
 
-For any question on the usage of `gsa` please use the [Greenbone Community
+For any question on the usage of `gsa` please use the [Ak Shumkar Community
 Portal](https://community.greenbone.net/). If you found a problem with the
 software, please [create an issue](https://github.com/greenbone/gsa/issues) on
-GitHub. If you are a Greenbone customer you may alternatively or additionally
-forward your issue to the Greenbone Support Portal.
+GitHub. If you are a Ak Shumkar customer you may alternatively or additionally
+forward your issue to the Ak Shumkar Support Portal.
 
 ## Maintainer
 

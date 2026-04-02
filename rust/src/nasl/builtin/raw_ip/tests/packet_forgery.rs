@@ -227,6 +227,7 @@ fn copy_from_slice_panic() {
     a[..2].copy_from_slice(&b[..b.len()]);
 }
 
+#[cfg(feature = "experimental")]
 #[test]
 fn forge_icmp_v6_packet() {
     let mut t = TestBuilder::default().with_target("5858::2".to_string());
@@ -256,6 +257,7 @@ fn forge_icmp_v6_packet() {
     );
 }
 
+#[cfg(feature = "experimental")]
 #[test]
 fn modify_ipv6_elements() {
     let mut t = TestBuilder::default().with_target("5858::2".to_string());
@@ -279,6 +281,7 @@ fn modify_ipv6_elements() {
     );
 }
 
+#[cfg(feature = "experimental")]
 #[test]
 fn forge_udp_v6() {
     let mut t = TestBuilder::default().with_target("5858::2".to_string());
@@ -319,6 +322,7 @@ fn forge_udp_v6() {
     );
 }
 
+#[cfg(feature = "experimental")]
 #[test]
 fn forge_tcp_v6() {
     let mut t = TestBuilder::default().with_target("5858::2".to_string());

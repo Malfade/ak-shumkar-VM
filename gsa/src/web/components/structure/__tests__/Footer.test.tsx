@@ -15,7 +15,7 @@ describe('Footer tests', () => {
     const currentYear = date().year();
     render(<Footer />);
 
-    const copyrightText = `Copyright © 2009-${currentYear} by Greenbone AG,`;
+    const copyrightText = `Copyright © 2009-${currentYear} by Ak Shumkar AG,`;
     expect(screen.getByText(copyrightText)).toBeInTheDocument();
 
     expect(

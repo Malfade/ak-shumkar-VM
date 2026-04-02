@@ -13,12 +13,12 @@ import FormGroup from 'web/components/form/FormGroup';
 import PasswordField from 'web/components/form/PasswordField';
 import TextField from 'web/components/form/TextField';
 import useFormValues from 'web/components/form/useFormValues';
-import GreenboneLoginLogo from 'web/components/img/LoginLogo';
-import Layout from 'web/components/layout/Layout';
+import Img from 'web/components/img/Img';
+import AkShumkarLoginLogo from 'web/components/img/LoginLogo';
 import useTranslation from 'web/hooks/useTranslation';
 import PropTypes from 'web/utils/PropTypes';
 
-/* SkySOC Glassmorphic Panel */
+/* Ak Shumkar Glassmorphic Panel */
 const GlassPanel = styled.div`
   background: rgba(39, 39, 42, 0.4);
   backdrop-filter: blur(16px);
@@ -53,7 +53,7 @@ const Panel = styled.div`
 `;
 
 const StyledWarningError = styled.p`
-  color: var(--skysoc-critical, #ef4444);
+  color: var(--ak-shumkar-critical, #ef4444);
   font-weight: 600;
   text-align: center;
   margin: 10px 0;
@@ -65,7 +65,7 @@ const StyledErrorContainer = styled(ErrorContainer)`
   border-radius: 8px;
   background: rgba(239, 68, 68, 0.1);
   border: 1px solid rgba(239, 68, 68, 0.2);
-  color: var(--skysoc-critical, #ef4444);
+  color: var(--ak-shumkar-critical, #ef4444);
   padding: 1rem;
 `;
 
@@ -76,14 +76,29 @@ const StyledPanel = styled(Panel)`
 const H1 = styled.h1`
   font-size: 24px;
   font-weight: 600;
-  color: var(--skysoc-text-primary, #ffffff);
+  color: var(--ak-shumkar-text-primary, #ffffff);
   margin-bottom: 2rem;
   text-align: center;
   letter-spacing: -0.02em;
 `;
 
-const LogoContainer = styled(Layout)`
+const LogoContainer = styled.div`
   margin-bottom: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1.5rem;
+`;
+
+const EagleLogo = styled(Img)`
+  width: 120px;
+  height: auto;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.5));
+`;
+
+const LogoText = styled.div`
+  display: flex;
   align-items: center;
   justify-content: center;
 `;
@@ -136,7 +151,13 @@ const LoginForm = ({
   return (
     <GlassPanel>
       <LogoContainer>
-        <GreenboneLoginLogo width="240px" />
+        <EagleLogo
+          src="ak-shumkar.png"
+          alt="AK-SHUMKAR Eagle Logo"
+        />
+        <LogoText>
+          <AkShumkarLoginLogo width="240px" />
+        </LogoText>
       </LogoContainer>
 
       {showProtocolInsecure && (
@@ -144,7 +165,7 @@ const LoginForm = ({
           <StyledWarningError>
             {_('Warning: Connection unencrypted')}
           </StyledWarningError>
-          <p style={{color: 'var(--skysoc-text-muted)', fontSize: '13px'}}>
+          <p style={{color: 'var(--ak-shumkar-text-muted)', fontSize: '13px'}}>
             {_(
               'The connection to this web application is not encrypted, allowing ' +
                 'anyone listening to the traffic to steal your credentials.',
@@ -158,7 +179,7 @@ const LoginForm = ({
           <StyledWarningError>
             {_('Warning: You are using IE11')}
           </StyledWarningError>
-          <p style={{color: 'var(--skysoc-text-muted)'}}>
+          <p style={{color: 'var(--ak-shumkar-text-muted)'}}>
             {_(
               'You are using Internet Explorer 11. This browser is not supported anymore. Please use an up-to-date alternative.',
             )}

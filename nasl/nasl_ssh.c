@@ -92,6 +92,9 @@ struct session_table_item_s
   ssh_session session;
   ssh_channel channel;
   int sock;                           /* The associated socket. */
+  unsigned short port;               /* SSH port for active-reuse lookup. */
+  char host[INET6_ADDRSTRLEN];       /* Target IP for active-reuse lookup. */
+  unsigned int custom_socket : 1;    /* True if created from NASL "socket:". */
   int authmethods;                    /* Bit fields with available
                                          authentication methods.  */
   unsigned int authmethods_valid : 1; /* Indicating that methods is valid.  */
@@ -106,6 +109,38 @@ static struct session_table_item_s session_table[MAX_SSH_SESSIONS];
 /* Local prototypes.  */
 static int
 nasl_ssh_close_hook (int);
+
+static int
+ssh_single_connection_mode_enabled (void)
+{
+  const char *v = getenv ("OPENVAS_SSH_SINGLE_CONNECTION");
+  return (v && *v && strcmp (v, "0"));
+}
+
+/* Find an already active session for the same host+port.
+   Returns 0 if no reusable active session exists. */
+static int
+find_active_session_id_by_host_port (const char *host, unsigned short port)
+{
+  unsigned int i;
+
+  if (!host || !*host || !port)
+    return 0;
+
+  for (i = 0; i < DIM (session_table); i++)
+    {
+      if (!session_table[i].session_id || !session_table[i].session)
+        continue;
+      if (session_table[i].custom_socket)
+        continue;
+      if (session_table[i].port != port)
+        continue;
+      if (strcmp (session_table[i].host, host))
+        continue;
+      return session_table[i].session_id;
+    }
+  return 0;
+}
 
 static void
 g_string_comma_str (GString *gstr, const char *str)
@@ -245,6 +280,16 @@ nasl_ssh_connect (lex_ctxt *lexic)
     }
 
   addr6_to_str (plug_get_host_ip (lexic->script_infos), ip_str);
+  if (!sock)
+    {
+      int reusable_session_id = find_active_session_id_by_host_port (ip_str, port);
+      if (reusable_session_id)
+        {
+          retc = alloc_typed_cell (CONST_INT);
+          retc->x.i_val = reusable_session_id;
+          return retc;
+        }
+    }
   session = ssh_new ();
   if (!session)
     {
@@ -402,6 +447,10 @@ nasl_ssh_connect (lex_ctxt *lexic)
   session_table[tbl_slot].authmethods_valid = 0;
   session_table[tbl_slot].user_set = 0;
   session_table[tbl_slot].verbose = verbose;
+  session_table[tbl_slot].port = port > 0 ? (unsigned short) port : 0;
+  g_strlcpy (session_table[tbl_slot].host, ip_str,
+             sizeof (session_table[tbl_slot].host));
+  session_table[tbl_slot].custom_socket = forced_sock != -1;
 
   /* Connect to the host.  */
   if (verbose)
@@ -479,6 +528,23 @@ verify_session_id (int session_id, const char *funcname, int *r_slot,
 static void
 do_nasl_ssh_disconnect (int tbl_slot)
 {
+  if (ssh_single_connection_mode_enabled ()
+      && session_table[tbl_slot].session_id
+      && session_table[tbl_slot].session
+      && !session_table[tbl_slot].custom_socket)
+    {
+      /* Aggressive pooling mode:
+       * keep transport open and only release open channel.
+       * Session remains reusable via ssh_connect(host,port).
+       */
+      if (session_table[tbl_slot].channel)
+        {
+          ssh_channel_free (session_table[tbl_slot].channel);
+          session_table[tbl_slot].channel = NULL;
+        }
+      return;
+    }
+
   if (session_table[tbl_slot].channel)
     ssh_channel_free (session_table[tbl_slot].channel);
   ssh_disconnect (session_table[tbl_slot].session);
@@ -487,6 +553,9 @@ do_nasl_ssh_disconnect (int tbl_slot)
   session_table[tbl_slot].session = NULL;
   session_table[tbl_slot].channel = NULL;
   session_table[tbl_slot].sock = -1;
+  session_table[tbl_slot].port = 0;
+  session_table[tbl_slot].host[0] = '\0';
+  session_table[tbl_slot].custom_socket = 0;
 }
 
 /**

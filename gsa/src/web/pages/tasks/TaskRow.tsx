@@ -5,7 +5,7 @@
 
 import React from 'react';
 import {type Date} from 'gmp/models/date';
-import {GREENBONE_SENSOR_SCANNER_TYPE} from 'gmp/models/scanner';
+import {AK_SHUMKAR_SENSOR_SCANNER_TYPE} from 'gmp/models/scanner';
 import {
   type default as Task,
   type TaskTrend as TaskTrendType,
@@ -135,7 +135,7 @@ const TaskRow = ({
               <AlterableIcon size="small" title={_('Task is alterable')} />
             )}
             {isDefined(scanner) &&
-              scanner.scannerType === GREENBONE_SENSOR_SCANNER_TYPE && (
+              scanner.scannerType === AK_SHUMKAR_SENSOR_SCANNER_TYPE && (
                 <SensorIcon
                   size="small"
                   title={_('Task is configured to run on sensor {{name}}', {

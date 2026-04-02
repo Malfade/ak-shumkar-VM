@@ -7,8 +7,8 @@ import {describe, test, expect, testing} from '@gsa/testing';
 import {screen, fireEvent, rendererWith, wait} from 'web/testing';
 import Filter from 'gmp/models/filter';
 import Scanner, {
-  GREENBONE_SENSOR_SCANNER_TYPE,
-  SkySOCD_SCANNER_TYPE,
+  AK_SHUMKAR_SENSOR_SCANNER_TYPE,
+  AK_SHUMKARD_SCANNER_TYPE,
 } from 'gmp/models/scanner';
 import {currentSettingsDefaultResponse} from 'web/pages/__fixtures__/current-settings';
 import ScannerComponent from 'web/pages/scanners/ScannerComponent';
@@ -16,7 +16,7 @@ import ScannerComponent from 'web/pages/scanners/ScannerComponent';
 const createGmp = (object?: unknown) => {
   const gmp = {
     settings: {
-      enableGreenboneSensor: true,
+      enableAkShumkarSensor: true,
     },
     user: {
       currentSettings: testing
@@ -35,7 +35,7 @@ describe('ScannerComponent tests', () => {
       name: 'Test Scanner',
       host: 'http://scanner-host',
       port: 443,
-      scannerType: SkySOCD_SCANNER_TYPE,
+      scannerType: AK_SHUMKARD_SCANNER_TYPE,
     });
     const cloneScanner = testing.fn().mockResolvedValue(scanner);
     const gmp = createGmp({
@@ -68,7 +68,7 @@ describe('ScannerComponent tests', () => {
       name: 'Test Scanner',
       host: 'http://scanner-host',
       port: 443,
-      scannerType: SkySOCD_SCANNER_TYPE,
+      scannerType: AK_SHUMKARD_SCANNER_TYPE,
     });
     const error = new Error('Clone error');
     const cloneScanner = testing.fn().mockRejectedValue(error);
@@ -104,7 +104,7 @@ describe('ScannerComponent tests', () => {
       name: 'Test Scanner',
       host: 'http://scanner-host',
       port: 443,
-      scannerType: SkySOCD_SCANNER_TYPE,
+      scannerType: AK_SHUMKARD_SCANNER_TYPE,
     });
     const deleteScanner = testing.fn().mockResolvedValue(undefined);
     const gmp = createGmp({
@@ -142,7 +142,7 @@ describe('ScannerComponent tests', () => {
       name: 'Test Scanner',
       host: 'http://scanner-host',
       port: 443,
-      scannerType: SkySOCD_SCANNER_TYPE,
+      scannerType: AK_SHUMKARD_SCANNER_TYPE,
     });
     const error = new Error('Delete error');
     const deleteScanner = testing.fn().mockRejectedValue(error);
@@ -181,7 +181,7 @@ describe('ScannerComponent tests', () => {
       name: 'Test Scanner',
       host: 'http://scanner-host',
       port: 443,
-      scannerType: SkySOCD_SCANNER_TYPE,
+      scannerType: AK_SHUMKARD_SCANNER_TYPE,
     });
     const gmp = createGmp({
       scanner: {
@@ -264,7 +264,7 @@ describe('ScannerComponent tests', () => {
       id: undefined,
       name: 'Unnamed',
       port: 22,
-      type: GREENBONE_SENSOR_SCANNER_TYPE,
+      type: AK_SHUMKAR_SENSOR_SCANNER_TYPE,
     });
     expect(handleCreated).toHaveBeenCalledWith({id: '1234'});
     expect(handleCreateError).not.toHaveBeenCalled();

@@ -227,6 +227,10 @@ impl CtxTarget {
     pub fn ports_tcp(&self) -> &BTreeSet<u16> {
         &self.ports_tcp
     }
+
+    pub fn ports_udp(&self) -> &BTreeSet<u16> {
+        &self.ports_udp
+    }
 }
 
 pub trait ContextStorage:

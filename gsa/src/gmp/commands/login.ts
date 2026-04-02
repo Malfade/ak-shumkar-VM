@@ -39,7 +39,7 @@ class LoginCommand extends HttpCommand {
           case 503:
             rej.setMessage(
               _(
-                'The Greenbone Vulnerability Manager service is not ' +
+                'The Ak Shumkar Vulnerability Manager service is not ' +
                   'responding. This could be due to system maintenance. ' +
                   'Please try again later, check the system status, or ' +
                   'contact your system administrator.',

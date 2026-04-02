@@ -66,7 +66,7 @@ const StyledLayout = styled(Layout)`
 const FooterText = styled.div`
   position: absolute;
   bottom: 2rem;
-  color: var(--skysoc-text-muted, #a1a1aa);
+  color: var(--ak-shumkar-text-muted, #a1a1aa);
   font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -194,7 +194,7 @@ const LoginPage: React.FC = () => {
         onGuestLoginClick={handleGuestLogin}
         onSubmit={handleSubmit}
       />
-      <FooterText>SKYSOC VULNERABILITY MANAGEMENT</FooterText>
+      <FooterText>AK_SHUMKAR VULNERABILITY MANAGEMENT</FooterText>
     </StyledLayout>
   );
 };

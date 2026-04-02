@@ -47,7 +47,7 @@ const ScannerDetailsPageToolBarIcons = ({
   const gmp = useGmp();
   const showNewScannerIcon =
     capabilities.mayCreate('scanner') &&
-    (gmp.settings.enableGreenboneSensor ||
+    (gmp.settings.enableAkShumkarSensor ||
       features.featureEnabled('ENABLE_AGENTS'));
   return (
     <Divider margin="10px">

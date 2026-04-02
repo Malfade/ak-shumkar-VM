@@ -72,7 +72,7 @@ services:
   # OpenVAS Scanner (Legacy C + ospd bridge)
   # ─────────────────────────────────────────────────────────────────
   configure-openvas:
-    image: registry.community.greenbone.net/community/openvas-scanner:stable
+    image: openvas-custom
     volumes:
       - openvas_data_vol:/mnt
     command:
@@ -83,7 +83,7 @@ services:
         chmod 644 /mnt/openvas.conf
 
   openvas:
-    image: registry.community.greenbone.net/community/openvas-scanner:stable
+    image: openvas-custom
     restart: on-failure
     volumes:
       - openvas_data_vol:/etc/openvas
@@ -98,10 +98,12 @@ services:
         condition: service_completed_successfully
 
   ospd-openvas:
-    image: registry.community.greenbone.net/community/ospd-openvas:stable
+    image: ospd-openvas-custom
     restart: on-failure
     init: true
     hostname: ospd-openvas
+    environment:
+      OPENVAS_SSH_SINGLE_CONNECTION: "1"
     cap_add:
       - NET_ADMIN
       - NET_RAW
@@ -137,11 +139,27 @@ services:
   # OpenVASD (new Rust daemon — local build)
   # ─────────────────────────────────────────────────────────────────
   openvasd:
-    image: openvasd-local
+    image: openvasd-custom
     restart: on-failure
     environment:
       GNUPGHOME: /etc/openvas/gnupg
       LISTENING: 0.0.0.0:80
+    command:
+      - /bin/sh
+      - -c
+      - |
+        cp /opt/custom-nasl/*.nasl /var/lib/openvas/plugins/ 2>/dev/null || true
+        SYNSCAN="/var/lib/openvas/plugins/2011/synscan.nasl"
+        if [ -f "$$SYNSCAN" ] && ! awk '/plugin_run_udp_scanner\(\)/{found=1} END{exit found?0:1}' "$$SYNSCAN"; then
+          awk '
+            { print }
+            /plugin_run_synscan\(\);/ && !done {
+              print "plugin_run_udp_scanner();"
+              done=1
+            }
+          ' "$$SYNSCAN" > "$${SYNSCAN}.tmp" && mv "$${SYNSCAN}.tmp" "$$SYNSCAN"
+        fi
+        exec /usr/local/bin/openvasd
     volumes:
       - notus_data_vol:/var/lib/notus
       - openvas_data_vol:/etc/openvas

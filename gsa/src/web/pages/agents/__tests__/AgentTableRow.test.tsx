@@ -16,7 +16,7 @@ describe('AgentTableRow tests', () => {
       id: '1',
       name: 'Authorized Agent',
       authorized: true,
-      scanner: {id: 'scanner-1', name: 'SkySOC Scanner'},
+      scanner: {id: 'scanner-1', name: 'Ak Shumkar Scanner'},
       agentVersion: '22.4.0',
       lastUpdate: dayjs('2026-01-01T10:00:00.000Z'),
       userCapabilities: new EverythingCapabilities(),
@@ -28,7 +28,7 @@ describe('AgentTableRow tests', () => {
     expect(screen.getByText('Authorized Agent')).toBeInTheDocument();
     expect(screen.getByText('Yes')).toBeInTheDocument();
 
-    expect(screen.getByText('SkySOC Scanner')).toBeInTheDocument();
+    expect(screen.getByText('Ak Shumkar Scanner')).toBeInTheDocument();
     expect(screen.getByText('22.4.0')).toBeInTheDocument();
     expect(screen.getByTitle(/Thu.*Jan.*2026/)).toBeInTheDocument();
   });

@@ -7,9 +7,9 @@ import type Filter from 'gmp/models/filter';
 import {
   AGENT_CONTROLLER_SCANNER_TYPE,
   AGENT_CONTROLLER_SENSOR_SCANNER_TYPE,
-  GREENBONE_SENSOR_SCANNER_TYPE,
-  SkySOC_SCANNER_TYPE,
-  SkySOCD_SCANNER_TYPE,
+  AK_SHUMKAR_SENSOR_SCANNER_TYPE,
+  AK_SHUMKAR_SCANNER_TYPE,
+  AK_SHUMKARD_SCANNER_TYPE,
   type ScannerType,
   scannerTypeName,
 } from 'gmp/models/scanner';
@@ -51,20 +51,20 @@ const ScannerTypeGroup = ({
 
   const currentScannerType = filter?.get('type') as string | undefined;
   const scannerTypes: ScannerType[] = [
-    SkySOC_SCANNER_TYPE,
-    SkySOCD_SCANNER_TYPE,
+    AK_SHUMKAR_SCANNER_TYPE,
+    AK_SHUMKARD_SCANNER_TYPE,
   ];
   if (
     features.featureEnabled('ENABLE_AGENTS') &&
     capabilities.mayAccess('agent')
   ) {
     scannerTypes.push(AGENT_CONTROLLER_SCANNER_TYPE);
-    if (gmp.settings.enableGreenboneSensor) {
+    if (gmp.settings.enableAkShumkarSensor) {
       scannerTypes.push(AGENT_CONTROLLER_SENSOR_SCANNER_TYPE);
     }
   }
-  if (gmp.settings.enableGreenboneSensor) {
-    scannerTypes.push(GREENBONE_SENSOR_SCANNER_TYPE);
+  if (gmp.settings.enableAkShumkarSensor) {
+    scannerTypes.push(AK_SHUMKAR_SENSOR_SCANNER_TYPE);
   }
 
   const scannerTypesOptions = scannerTypes.map(scannerType => ({

@@ -270,17 +270,15 @@ where
             alive_test |= m as u8;
         }
 
+        // FIX: When no alive test methods are selected (alive_test == 0x00),
+        // do NOT push any ALIVE_TEST key to Redis.
+        // Previously this block defaulted to ICMP, causing Boreas to run even
+        // when the user explicitly chose no alive test (e.g. ConsiderAlive or empty).
+        // Boreas will not be invoked if ALIVE_TEST is absent in scanprefs.
         if (1..=31).contains(&alive_test) {
             self.redis_connector.push_kb_item(
                 format!("internal/{}/scanprefs", self.scan_config.scan_id.clone()).as_str(),
                 format!("{BOREAS_ALIVE_TEST}|||{alive_test}"),
-            )?;
-        };
-
-        if alive_test == ALIVE_TEST_SCAN_CONFIG_DEFAULT {
-            self.redis_connector.push_kb_item(
-                format!("internal/{}/scanprefs", self.scan_config.scan_id.clone()).as_str(),
-                format!("{BOREAS_ALIVE_TEST}|||{}", AliveTestMethods::Icmp as u8),
             )?;
         }
 

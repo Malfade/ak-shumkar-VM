@@ -102,7 +102,7 @@ const DisplayTitle = styled.div`
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: var(--skysoc-text-muted, #a1a1aa);
+  color: var(--ak-shumkar-text-muted, #a1a1aa);
 `;
 
 const Display = (props: DisplayProps) => {

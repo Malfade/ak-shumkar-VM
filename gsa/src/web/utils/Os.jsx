@@ -951,37 +951,37 @@ const operating_systems = [
   },
   {
     pattern: 'cpe:/o:greenbone:greenbone_os:1.6.0',
-    title: 'Greenbone OS 1.6',
+    title: 'Ak Shumkar OS 1.6',
     icon: 'os_gos.svg',
   },
   {
     pattern: 'cpe:/o:greenbone:greenbone_os:1.7.0',
-    title: 'Greenbone OS 1.7',
+    title: 'Ak Shumkar OS 1.7',
     icon: 'os_gos.svg',
   },
   {
     pattern: 'cpe:/o:greenbone:greenbone_os:2.0.0',
-    title: 'Greenbone OS 2.0',
+    title: 'Ak Shumkar OS 2.0',
     icon: 'os_gos.svg',
   },
   {
     pattern: 'cpe:/o:greenbone:greenbone_os:2.1.0',
-    title: 'Greenbone OS 2.1',
+    title: 'Ak Shumkar OS 2.1',
     icon: 'os_gos.svg',
   },
   {
     pattern: 'cpe:/o:greenbone:greenbone_os:2.2.0',
-    title: 'Greenbone OS 2.2',
+    title: 'Ak Shumkar OS 2.2',
     icon: 'os_gos.svg',
   },
   {
     pattern: 'cpe:/o:greenbone:greenbone_os:3.0',
-    title: 'Greenbone OS 3.0',
+    title: 'Ak Shumkar OS 3.0',
     icon: 'os_gos.svg',
   },
   {
     pattern: 'cpe:/o:greenbone:greenbone_os',
-    title: 'Greenbone OS',
+    title: 'Ak Shumkar OS',
     icon: 'os_gos.svg',
   },
   {

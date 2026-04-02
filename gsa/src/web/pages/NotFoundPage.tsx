@@ -5,7 +5,7 @@
 
 import React from 'react';
 import styled from 'styled-components';
-import Logo from 'web/components/img/Greenbone';
+import Logo from 'web/components/img/AkShumkar';
 import PageTitle from 'web/components/layout/PageTitle';
 import useTranslation from 'web/hooks/useTranslation';
 

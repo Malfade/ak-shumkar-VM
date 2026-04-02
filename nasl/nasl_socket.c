@@ -780,8 +780,8 @@ nasl_recv (lex_ctxt *lexic)
 
   if (e == 0 && type == SOCK_DGRAM)
     {
-      /* As UDP packets may be lost, we retry up to 5 times */
-      int retries = 5;
+      /* As UDP packets may be lost, we retry up to 2 times */
+      int retries = 2;
       int i;
 
       tv.tv_sec = to / retries;

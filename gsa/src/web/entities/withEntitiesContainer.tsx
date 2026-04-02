@@ -94,7 +94,7 @@ const noop = () => {};
 /**
  * A higher-order component (HOC) that wraps a given React component to provide
  * entity-related functionality, such as loading, filtering, and managing entities
- * from a Redux store. This HOC is designed to work with entities managed by GMP (Greenbone Management Protocol).
+ * from a Redux store. This HOC is designed to work with entities managed by GMP (Ak Shumkar Management Protocol).
  *
  * @template TEntity - The type of the entity being managed, extending the `Model` type.
  *

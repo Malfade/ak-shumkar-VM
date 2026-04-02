@@ -60,7 +60,7 @@ interface ThemeInterface {
 }
 
 const Theme: ThemeInterface = {
-  /* SkySOC dark theme colors */
+  /* Ak Shumkar dark theme colors */
   lightGreen: '#4ADE80',
   green: '#22C55E',
 
@@ -69,7 +69,7 @@ const Theme: ThemeInterface = {
   mediumGray: '#71717A',
   darkGray: '#A1A1AA',
 
-  /* SkySOC core */
+  /* Ak Shumkar core */
   white: '#FFFFFF',
   dialogGray: '#27272A', // dialog and dashboard display backgrounds
   inputBorderGray: '#3F3F46', // form field borders

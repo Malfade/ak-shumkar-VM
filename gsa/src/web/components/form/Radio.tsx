@@ -4,7 +4,7 @@
  */
 
 import {type RadioProps as MantineRadioProps} from '@mantine/core';
-import {RadioButton as GreenboneRadio} from '@greenbone/ui-lib';
+import {RadioButton as AkShumkarRadio} from '@greenbone/ui-lib';
 import {isDefined} from 'gmp/utils/identity';
 import useValueChange from 'web/components/form/useValueChange';
 
@@ -38,7 +38,7 @@ const Radio = <TValue,>({
     disabled,
   });
   return (
-    <GreenboneRadio
+    <AkShumkarRadio
       {...props}
       checked={checked}
       disabled={disabled}

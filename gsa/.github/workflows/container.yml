@@ -43,7 +43,7 @@ jobs:
       ref-name: ${{ inputs.ref-name }}
       name: ${{ matrix.build.name }}
       labels: |
-        org.opencontainers.image.vendor=Greenbone
+        org.opencontainers.image.vendor=Ak Shumkar
         org.opencontainers.image.base.name=${{ matrix.build.base-image }}
       build-args: ${{ matrix.build.build-args }}
       prefix: ${{ matrix.build.prefix }}

@@ -49,7 +49,7 @@ const schedule = Schedule.fromElement({
   name: 'schedule 1',
   id: 'foo',
   icalendar:
-    'BEGIN:VCALENDAR\nVERSION:2.0\nPRODID:-//Greenbone.net//NONSGML Greenbone Security Manager \n 21.4.0~dev1//EN\nBEGIN:VEVENT\nDTSTART:20210208T150000Z\nDURATION:PT4H45M\nRRULE:FREQ=WEEKLY\nUID:foo\nDTSTAMP:20210208T143704Z\nEND:VEVENT\nEND:VCALENDAR',
+    'BEGIN:VCALENDAR\nVERSION:2.0\nPRODID:-//Ak Shumkar.net//NONSGML Ak Shumkar Security Manager \n 21.4.0~dev1//EN\nBEGIN:VEVENT\nDTSTART:20210208T150000Z\nDURATION:PT4H45M\nRRULE:FREQ=WEEKLY\nUID:foo\nDTSTAMP:20210208T143704Z\nEND:VEVENT\nEND:VCALENDAR',
   creationTime: '2021-02-08T14:37:04+00:00',
   modificationTime: '2021-02-08T14:37:04+00:00',
   owner: 'admin',

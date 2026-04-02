@@ -25,13 +25,13 @@ const CommunityFeedUsageNotification: React.FC = () => {
       <div aria-label="community-feed-notification">
         <p>
           {_(
-            'You are currently using the SkySOC COMMUNITY FEED - this shows vulnerabilities for business critical enterprise software. For full coverage, consider an enterprise subscription.',
+            'You are currently using the Ak Shumkar COMMUNITY FEED - this shows vulnerabilities for business critical enterprise software. For full coverage, consider an enterprise subscription.',
           )}
         </p>
         <p>
           <a
             aria-label="Learn more about feed comparison"
-            href="https://skysoc.ru"
+            href="https://ak-shumkar.ru"
             rel="noopener noreferrer"
             target="_blank"
           >

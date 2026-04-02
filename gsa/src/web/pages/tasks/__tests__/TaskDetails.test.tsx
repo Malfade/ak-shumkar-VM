@@ -173,7 +173,7 @@ describe('TaskDetails tests', () => {
     expect(headings[2]).toHaveTextContent('Scanner');
     expect(detailsLinks[2]).toHaveAttribute('href', '/scanner/1516');
     expect(element).toHaveTextContent('scanner1');
-    expect(element).toHaveTextContent('SkySOC Scanner');
+    expect(element).toHaveTextContent('Ak Shumkar Scanner');
 
     expect(headings[3]).toHaveTextContent('Assets');
     expect(element).toHaveTextContent(

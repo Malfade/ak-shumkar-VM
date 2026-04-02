@@ -49,7 +49,7 @@ const createGmp = ({
 } = {}) => {
   return {
     settings: {
-      enableGreenboneSensor: true,
+      enableAkShumkarSensor: true,
       enableKrb5: false,
     },
     user: {

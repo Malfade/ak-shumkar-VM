@@ -128,7 +128,7 @@ describe('Audit Actions tests', () => {
     expect(handleReportDownload).toHaveBeenCalledWith(audit);
     expect(downloadIcon).toHaveAttribute(
       'title',
-      'Download Greenbone Compliance Report',
+      'Download Ak Shumkar Compliance Report',
     );
   });
 
@@ -215,7 +215,7 @@ describe('Audit Actions tests', () => {
     expect(handleReportDownload).toHaveBeenCalledWith(audit);
     expect(downloadIcon).toHaveAttribute(
       'title',
-      'Download Greenbone Compliance Report',
+      'Download Ak Shumkar Compliance Report',
     );
   });
 
@@ -305,7 +305,7 @@ describe('Audit Actions tests', () => {
     expect(handleReportDownload).toHaveBeenCalledWith(audit);
     expect(downloadIcon).toHaveAttribute(
       'title',
-      'Download Greenbone Compliance Report',
+      'Download Ak Shumkar Compliance Report',
     );
   });
 
@@ -392,7 +392,7 @@ describe('Audit Actions tests', () => {
     expect(handleReportDownload).toHaveBeenCalledWith(audit);
     expect(downloadIcon).toHaveAttribute(
       'title',
-      'Download Greenbone Compliance Report',
+      'Download Ak Shumkar Compliance Report',
     );
   });
 
@@ -543,7 +543,7 @@ describe('Audit Actions tests', () => {
     expect(handleReportDownload).toHaveBeenCalledWith(audit);
     expect(downloadIcon).toHaveAttribute(
       'title',
-      'Download Greenbone Compliance Report',
+      'Download Ak Shumkar Compliance Report',
     );
   });
 

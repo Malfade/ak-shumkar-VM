@@ -238,7 +238,7 @@ class ReportDetails extends React.Component {
         // instead of just showing x is undefined JS stacktrace
         const noReportFormatError = _(
           'The report cannot be displayed because' +
-            ' no Greenbone Vulnerability Manager report format is available.' +
+            ' no Ak Shumkar Vulnerability Manager report format is available.' +
             ' This could be due to a missing gvmd data feed. Please update' +
             ' the gvmd data feed, check the "feed import owner" setting, or' +
             ' contact your system administrator.',

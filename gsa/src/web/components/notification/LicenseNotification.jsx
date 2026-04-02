@@ -45,10 +45,10 @@ const LicenseNotification = ({capabilities, onCloseClick}) => {
   const corruptMessageAdmin = (
     <span>
       {_(
-        'The Greenbone Enterprise License for this system is invalid. ' +
+        'The Ak Shumkar Enterprise License for this system is invalid. ' +
           'You can still use the system without restrictions, but you will not ' +
           'receive updates anymore. For further advice please contact the ' +
-          'Greenbone Enterprise Support at',
+          'Ak Shumkar Enterprise Support at',
       )}
       &nbsp;
       <SupportPageLinkComponent />
@@ -61,19 +61,19 @@ const LicenseNotification = ({capabilities, onCloseClick}) => {
   const corruptMessageUser = (
     <span>
       {_(
-        'The Greenbone Enterprise License for this system is invalid. ' +
+        'The Ak Shumkar Enterprise License for this system is invalid. ' +
           'You can still use the system without restrictions, but you will not ' +
           'receive updates anymore. Please contact your administrator.',
       )}
     </span>
   );
   const corruptTitleMessage = _(
-    'Your Greenbone Enterprise License is invalid!',
+    'Your Ak Shumkar Enterprise License is invalid!',
   );
   const expiringMessageAdmin = (
     <span>
       {_(
-        'The Greenbone Enterprise License for this system will expire in ' +
+        'The Ak Shumkar Enterprise License for this system will expire in ' +
           '{{days}} days. After that your appliance remains valid and you can ' +
           'still use the system without restrictions, but you will not receive ' +
           'updates anymore. You can find information about extending your ' +
@@ -87,7 +87,7 @@ const LicenseNotification = ({capabilities, onCloseClick}) => {
   const expiringMessageUser = (
     <span>
       {_(
-        'The Greenbone Enterprise License for this system will expire in ' +
+        'The Ak Shumkar Enterprise License for this system will expire in ' +
           '{{days}} days. After that your appliance remains valid and you can ' +
           'still use the system without restrictions, but you will not receive ' +
           'updates anymore. Please contact your administrator for extending the ' +
@@ -97,7 +97,7 @@ const LicenseNotification = ({capabilities, onCloseClick}) => {
     </span>
   );
   const expiringTitleMessage = _(
-    'Your Greenbone Enterprise License will expire in {{days}} days!',
+    'Your Ak Shumkar Enterprise License will expire in {{days}} days!',
     {
       days,
     },
@@ -126,7 +126,7 @@ const LicenseNotification = ({capabilities, onCloseClick}) => {
   const expiredMessageAdmin = (
     <Layout flex="column">
       {_(
-        'The Greenbone Enterprise License for this system expired {{days}} days ' +
+        'The Ak Shumkar Enterprise License for this system expired {{days}} days ' +
           'ago. You can still use the system without restrictions, but you will ' +
           'not receive updates anymore. Especially, you will miss new ' +
           'vulnerability tests and thus your scans will not detect important new ' +
@@ -144,7 +144,7 @@ const LicenseNotification = ({capabilities, onCloseClick}) => {
   const expiredMessageUser = (
     <span>
       {_(
-        'The Greenbone Enterprise License for ' +
+        'The Ak Shumkar Enterprise License for ' +
           'this system expired {{days}} days ago. You can still use the system without ' +
           'restrictions, but you will not receive updates anymore. Especially you ' +
           'will miss new vulnerability tests and thus your scans will not detect ' +
@@ -155,7 +155,7 @@ const LicenseNotification = ({capabilities, onCloseClick}) => {
     </span>
   );
   const expiredTitleMessage = _(
-    'Your Greenbone Enterprise License has expired {{days}} days ago!',
+    'Your Ak Shumkar Enterprise License has expired {{days}} days ago!',
     {days: Math.abs(days)},
   );
 

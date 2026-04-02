@@ -143,7 +143,7 @@ describe('Nvt model tests', () => {
         severities: {
           severity: {
             score: 7.4,
-            origin: 'Greenbone',
+            origin: 'Ak Shumkar',
             date: '2020-03-10T06:40:13Z',
           },
         },
@@ -164,7 +164,7 @@ describe('Nvt model tests', () => {
     expect(nvt1.severityOrigin).toEqual('Vendor');
     expect(nvt1.severityDate).toEqual(date('2021-03-10T06:40:13Z'));
     expect(nvt2.severity).toEqual(7.4);
-    expect(nvt2.severityOrigin).toEqual('Greenbone');
+    expect(nvt2.severityOrigin).toEqual('Ak Shumkar');
     expect(nvt2.severityDate).toEqual(date('2020-03-10T06:40:13Z'));
     expect(nvt3.severity).toEqual(1.0);
     expect(nvt3.severityOrigin).toBeUndefined();

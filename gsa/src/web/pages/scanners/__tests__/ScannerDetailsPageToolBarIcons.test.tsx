@@ -8,7 +8,7 @@ import {screen, rendererWith, fireEvent} from 'web/testing';
 import EverythingCapabilities from 'gmp/capabilities/everything';
 import Features from 'gmp/capabilities/features';
 import Credential from 'gmp/models/credential';
-import Scanner, {SkySOCD_SCANNER_TYPE} from 'gmp/models/scanner';
+import Scanner, {AK_SHUMKARD_SCANNER_TYPE} from 'gmp/models/scanner';
 import ScannerDetailsPageToolBarIcons from 'web/pages/scanners/ScannerDetailsPageToolBarIcons';
 
 describe('ScannerDetailsPageToolBarIcons', () => {
@@ -16,7 +16,7 @@ describe('ScannerDetailsPageToolBarIcons', () => {
     const scanner = new Scanner({});
     const gmp = {
       settings: {
-        enableGreenboneSensor: false,
+        enableAkShumkarSensor: false,
       },
     };
     const {render} = rendererWith({
@@ -33,7 +33,7 @@ describe('ScannerDetailsPageToolBarIcons', () => {
     const scanner = new Scanner({});
     const gmp = {
       settings: {
-        enableGreenboneSensor: true,
+        enableAkShumkarSensor: true,
       },
     };
     const {render} = rendererWith({
@@ -49,7 +49,7 @@ describe('ScannerDetailsPageToolBarIcons', () => {
     const scanner = new Scanner({});
     const gmp = {
       settings: {
-        enableGreenboneSensor: false,
+        enableAkShumkarSensor: false,
       },
     };
     const {render} = rendererWith({
@@ -65,7 +65,7 @@ describe('ScannerDetailsPageToolBarIcons', () => {
     const scanner = new Scanner({});
     const gmp = {
       settings: {
-        enableGreenboneSensor: false,
+        enableAkShumkarSensor: false,
       },
     };
     const {render} = rendererWith({
@@ -81,7 +81,7 @@ describe('ScannerDetailsPageToolBarIcons', () => {
     const scanner = new Scanner({});
     const gmp = {
       settings: {
-        enableGreenboneSensor: true,
+        enableAkShumkarSensor: true,
       },
     };
     const {render} = rendererWith({
@@ -104,7 +104,7 @@ describe('ScannerDetailsPageToolBarIcons', () => {
     const scanner = new Scanner({});
     const gmp = {
       settings: {
-        enableGreenboneSensor: false,
+        enableAkShumkarSensor: false,
         manualUrl: 'https://example.com/manual',
       },
     };
@@ -122,7 +122,7 @@ describe('ScannerDetailsPageToolBarIcons', () => {
     const scanner = new Scanner({});
     const gmp = {
       settings: {
-        enableGreenboneSensor: false,
+        enableAkShumkarSensor: false,
       },
     };
     const {render} = rendererWith({
@@ -144,7 +144,7 @@ describe('ScannerDetailsPageToolBarIcons', () => {
     });
     const gmp = {
       settings: {
-        enableGreenboneSensor: false,
+        enableAkShumkarSensor: false,
       },
     };
     const {render} = rendererWith({
@@ -166,11 +166,11 @@ describe('ScannerDetailsPageToolBarIcons', () => {
 
   test('should render clone icon disabled when user may not clone scanner', () => {
     const scanner = new Scanner({
-      scannerType: SkySOCD_SCANNER_TYPE,
+      scannerType: AK_SHUMKARD_SCANNER_TYPE,
     });
     const gmp = {
       settings: {
-        enableGreenboneSensor: false,
+        enableAkShumkarSensor: false,
       },
     };
     const {render} = rendererWith({
@@ -197,7 +197,7 @@ describe('ScannerDetailsPageToolBarIcons', () => {
     });
     const gmp = {
       settings: {
-        enableGreenboneSensor: true,
+        enableAkShumkarSensor: true,
       },
     };
     const {render} = rendererWith({
@@ -223,7 +223,7 @@ describe('ScannerDetailsPageToolBarIcons', () => {
     });
     const gmp = {
       settings: {
-        enableGreenboneSensor: true,
+        enableAkShumkarSensor: true,
       },
     };
     const {render} = rendererWith({
@@ -249,7 +249,7 @@ describe('ScannerDetailsPageToolBarIcons', () => {
     });
     const gmp = {
       settings: {
-        enableGreenboneSensor: true,
+        enableAkShumkarSensor: true,
       },
     };
     const {render} = rendererWith({
@@ -275,7 +275,7 @@ describe('ScannerDetailsPageToolBarIcons', () => {
     });
     const gmp = {
       settings: {
-        enableGreenboneSensor: true,
+        enableAkShumkarSensor: true,
       },
     };
     const {render} = rendererWith({
@@ -302,7 +302,7 @@ describe('ScannerDetailsPageToolBarIcons', () => {
     });
     const gmp = {
       settings: {
-        enableGreenboneSensor: true,
+        enableAkShumkarSensor: true,
       },
     };
     const {render} = rendererWith({

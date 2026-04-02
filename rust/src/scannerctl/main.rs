@@ -93,6 +93,7 @@ enum Action {
 
 #[tokio::main]
 async fn main() {
+    let _ = rustls::crypto::ring::default_provider().install_default();
     let args = Args::parse();
     set_logging(args.verbose, args.quiet);
     let result = run(args.action, args.verbose > 0, args.quiet).await;

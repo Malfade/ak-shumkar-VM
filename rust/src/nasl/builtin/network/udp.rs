@@ -18,6 +18,7 @@ pub struct UdpConnection {
 }
 
 const NUM_TIMES_TO_RESEND: usize = 5;
+const DEFAULT_UDP_READ_TIMEOUT: Duration = Duration::from_millis(250);
 
 impl Read for UdpConnection {
     fn read(&mut self, buf: &mut [u8]) -> std::io::Result<usize> {
@@ -74,7 +75,7 @@ impl UdpConnection {
         let sock_addr = SocketAddr::new(addr, port);
         let socket = bind_local_socket(&sock_addr)?;
         socket.connect(sock_addr)?;
-        socket.set_read_timeout(Some(Duration::from_secs(1)))?;
+        socket.set_read_timeout(Some(DEFAULT_UDP_READ_TIMEOUT))?;
         Ok(Self {
             socket,
             buffer: vec![],
@@ -89,7 +90,7 @@ impl UdpConnection {
             SocketAddr::V6(_) => UdpSocket::bind(format!("[::]:{sport}")),
         }?;
         socket.connect(SocketAddr::new(addr, dport))?;
-        socket.set_read_timeout(Some(Duration::from_secs(1)))?;
+        socket.set_read_timeout(Some(DEFAULT_UDP_READ_TIMEOUT))?;
         Ok(Self {
             socket,
             buffer: vec![],

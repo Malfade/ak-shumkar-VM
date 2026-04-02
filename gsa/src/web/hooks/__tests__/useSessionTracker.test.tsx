@@ -84,7 +84,7 @@ describe('useSessionTracker', () => {
     expect(renewSession).not.toHaveBeenCalled();
   });
 
-  test('should  renew session on keypress, wheel, and drag events with cooldown resets', async () => {
+  test('should  renew session on keypress, wheel, drag and mousemove events with cooldown resets', async () => {
     testing.useFakeTimers();
     const renewSession = testing.fn().mockRejectedValueOnce({
       data: new Date(),
@@ -114,6 +114,12 @@ describe('useSessionTracker', () => {
     renewSession.mockClear();
 
     fireEvent.drag(document);
+    expect(renewSession).toHaveBeenCalledTimes(1);
+
+    await runTimers();
+    renewSession.mockClear();
+
+    fireEvent.mouseMove(document);
     expect(renewSession).toHaveBeenCalledTimes(1);
   });
 });

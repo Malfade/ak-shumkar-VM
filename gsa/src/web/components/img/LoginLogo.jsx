@@ -9,8 +9,8 @@ import Img from 'web/components/img/Img';
 import useGmp from 'web/hooks/useGmp';
 import useTranslation from 'web/hooks/useTranslation';
 
-const SKYSOC_LOGO = 'skysoc-logo.fc88ba28.png';
-const SKYSOC_SCAN_LOGO = 'skysoc-logo.fc88ba28.png';
+const AK_SHUMKAR_LOGO = 'AK-SHUMKAR.png';
+const AK_SHUMKAR_SCAN_LOGO = 'AK-SHUMKAR.png';
 
 const Image = styled(Img)`
   display: flex;
@@ -19,20 +19,20 @@ const Image = styled(Img)`
   filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.5));
 `;
 
-const LoginLogo = ({width}) => {
+const LoginLogo = ({ width }) => {
   const [_] = useTranslation();
   const gmp = useGmp();
   const loginTopLogo = gmp?.settings?.vendorLabel
-    ? SKYSOC_SCAN_LOGO
-    : SKYSOC_LOGO;
+    ? AK_SHUMKAR_SCAN_LOGO
+    : AK_SHUMKAR_LOGO;
 
   return (
     <Image
       key="login-logo"
-      alt={_('SkySOC')}
+      alt={_('Ak Shumkar')}
       data-testid="greenbone-login-logo"
       src={loginTopLogo}
-      style={{width: width || '100%'}}
+      style={{ width: width || '100%' }}
     />
   );
 };

@@ -130,7 +130,7 @@ impl Interpreter<'_> {
             let span = match e.location {
                 ExprLocation::Lhs => assignment.lhs.span(),
                 ExprLocation::Rhs => assignment.rhs.span(),
-                ExprLocation::Both => unreachable!(),
+                ExprLocation::Both => assignment.lhs.span().join(assignment.rhs.span()),
             };
             e.kind.with_span(&span)
         })?;

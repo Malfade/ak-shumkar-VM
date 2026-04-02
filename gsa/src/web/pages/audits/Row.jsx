@@ -4,7 +4,7 @@
  */
 
 import React from 'react';
-import {GREENBONE_SENSOR_SCANNER_TYPE} from 'gmp/models/scanner';
+import {AK_SHUMKAR_SENSOR_SCANNER_TYPE} from 'gmp/models/scanner';
 import {isDefined} from 'gmp/utils/identity';
 import ComplianceStatusBar from 'web/components/bar/ComplianceStatusBar';
 import Comment from 'web/components/comment/Comment';
@@ -98,7 +98,7 @@ const Row = ({
               <AlterableIcon size="small" title={_('Audit is alterable')} />
             )}
             {isDefined(scanner) &&
-              scanner.scannerType === GREENBONE_SENSOR_SCANNER_TYPE && (
+              scanner.scannerType === AK_SHUMKAR_SENSOR_SCANNER_TYPE && (
                 <SensorIcon
                   size="small"
                   title={_('Audit is configured to run on sensor {{name}}', {

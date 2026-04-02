@@ -11,7 +11,7 @@ import Scanner, {
   openVasScannersFilter,
   CVE_SCANNER_TYPE,
   OPENVAS_SCANNER_TYPE,
-  GREENBONE_SENSOR_SCANNER_TYPE,
+  AK_SHUMKAR_SENSOR_SCANNER_TYPE,
   OPENVASD_SCANNER_TYPE,
   OPENVASD_SENSOR_SCANNER_TYPE,
   AGENT_CONTROLLER_SCANNER_TYPE,
@@ -207,7 +207,7 @@ describe('Scanner model method tests', () => {
   test('isCloneable() should return correct true/false', () => {
     const scanner1 = new Scanner({ scannerType: CVE_SCANNER_TYPE });
     const scanner2 = new Scanner({ scannerType: OPENVAS_SCANNER_TYPE });
-    const scanner3 = new Scanner({ scannerType: GREENBONE_SENSOR_SCANNER_TYPE });
+    const scanner3 = new Scanner({ scannerType: AK_SHUMKAR_SENSOR_SCANNER_TYPE });
 
     expect(scanner1.isCloneable()).toEqual(false);
     expect(scanner2.isCloneable()).toEqual(true);
@@ -217,7 +217,7 @@ describe('Scanner model method tests', () => {
   test('isWritable() should return correct true/false', () => {
     const scanner1 = new Scanner({ scannerType: CVE_SCANNER_TYPE });
     const scanner2 = new Scanner({ scannerType: OPENVAS_SCANNER_TYPE });
-    const scanner3 = new Scanner({ scannerType: GREENBONE_SENSOR_SCANNER_TYPE });
+    const scanner3 = new Scanner({ scannerType: AK_SHUMKAR_SENSOR_SCANNER_TYPE });
 
     expect(scanner1.isWritable()).toEqual(false);
     expect(scanner2.isWritable()).toEqual(true);
@@ -240,8 +240,8 @@ describe('Scanner model function tests', () => {
     expect(scannerTypeName(OPENVAS_SCANNER_TYPE)).toEqual('OpenVAS Scanner');
     expect(scannerTypeName(CVE_SCANNER_TYPE)).toEqual('CVE Scanner');
     expect(scannerTypeName(4)).toEqual('Unknown scanner type (4)');
-    expect(scannerTypeName(GREENBONE_SENSOR_SCANNER_TYPE)).toEqual(
-      'Greenbone Sensor',
+    expect(scannerTypeName(AK_SHUMKAR_SENSOR_SCANNER_TYPE)).toEqual(
+      'Ak Shumkar Sensor',
     );
     expect(scannerTypeName('42')).toEqual('Unknown scanner type (42)');
     expect(scannerTypeName(OPENVASD_SCANNER_TYPE)).toEqual('OpenVASD Scanner');
@@ -264,7 +264,7 @@ describe('Scanner model function tests', () => {
     // @ts-expect-error
     expect(openVasScannersFilter({ scannerType: 42 })).toEqual(false);
     expect(
-      openVasScannersFilter({ scannerType: GREENBONE_SENSOR_SCANNER_TYPE }),
+      openVasScannersFilter({ scannerType: AK_SHUMKAR_SENSOR_SCANNER_TYPE }),
     ).toEqual(false);
     expect(openVasScannersFilter({ scannerType: OPENVAS_SCANNER_TYPE })).toEqual(
       true,

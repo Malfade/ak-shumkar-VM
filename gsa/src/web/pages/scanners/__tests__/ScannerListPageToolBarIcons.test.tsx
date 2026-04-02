@@ -13,7 +13,7 @@ describe('ScannerListPageToolBarIcons tests', () => {
     const onScannerCreateClick = testing.fn();
     const gmp = {
       settings: {
-        enableGreenboneSensor: false,
+        enableAkShumkarSensor: false,
       },
     };
     const {render} = rendererWith({
@@ -34,7 +34,7 @@ describe('ScannerListPageToolBarIcons tests', () => {
     const onScannerCreateClick = testing.fn();
     const gmp = {
       settings: {
-        enableGreenboneSensor: true,
+        enableAkShumkarSensor: true,
         manualUrl: 'https://example.com/manual',
       },
     };
@@ -63,7 +63,7 @@ describe('ScannerListPageToolBarIcons tests', () => {
     const onScannerCreateClick = testing.fn();
     const gmp = {
       settings: {
-        enableGreenboneSensor: false,
+        enableAkShumkarSensor: false,
       },
     };
     const {render} = rendererWith({
@@ -80,10 +80,10 @@ describe('ScannerListPageToolBarIcons tests', () => {
     expect(screen.queryByTitle('New Scanner')).not.toBeInTheDocument();
   });
 
-  test('should not render New icon if Greenbone Sensor and Agents are disabled', () => {
+  test('should not render New icon if Ak Shumkar Sensor and Agents are disabled', () => {
     const gmp = {
       settings: {
-        enableGreenboneSensor: false,
+        enableAkShumkarSensor: false,
       },
     };
     const onScannerCreateClick = testing.fn();

@@ -58,7 +58,7 @@ const setEventRecurrence = (event: ical.Event, recurrence: ical.Recur) => {
   event._setProp('rrule', recurrence);
 };
 
-const PROD_ID = '-//Greenbone.net//NONSGML Greenbone Security Assistant';
+const PROD_ID = '-//Ak Shumkar.net//NONSGML Ak Shumkar Security Assistant';
 const ICAL_VERSION = '2.0';
 
 export const RecurrenceFrequency = {

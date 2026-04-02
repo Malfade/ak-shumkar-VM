@@ -294,7 +294,7 @@ describe('Audit DetailsPage tests', () => {
       'scanner1',
     );
     expect(scannerDetails.getByRole('row', {name: /^Type/})).toHaveTextContent(
-      'SkySOC Scanner',
+      'Ak Shumkar Scanner',
     );
 
     expect(screen.getByRole('heading', {name: /^Assets$/})).toBeInTheDocument();

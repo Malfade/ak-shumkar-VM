@@ -27,7 +27,7 @@ use once_cell::sync::Lazy;
 
 static LOCK: Lazy<Mutex<()>> = Lazy::new(Mutex::default);
 
-const PORT: u16 = 2223;
+const PORT: u16 = 2233;
 
 fn default_config() -> ServerConfig {
     let mut rng = OsRng;
@@ -40,13 +40,13 @@ fn default_config() -> ServerConfig {
     }
 }
 
-async fn run_test(
+/// Run client and server without taking [`LOCK`]. Callers that inspect
+/// [`server::connection_count`] must hold `LOCK` until after the assertion so parallel
+/// `#[tokio::test]` runs cannot skew the global counter.
+async fn run_test_impl(
     f: impl Fn(&mut TestBuilder<InMemoryStorage>) + Send + Sync + 'static,
     config: ServerConfig,
 ) {
-    // Acquire the global lock to prevent multiple
-    // tests from opening a server at the same time.
-    let _guard = LOCK.lock();
     let server = tokio::task::spawn(async move { run_server(config).await });
     let client = tokio::task::spawn_blocking(move || run_client(f));
     // Simply wait for whatever the test does on the client side
@@ -60,6 +60,16 @@ async fn run_test(
     // since we aborted).
     let _ = server.await;
     res.unwrap()
+}
+
+async fn run_test(
+    f: impl Fn(&mut TestBuilder<InMemoryStorage>) + Send + Sync + 'static,
+    config: ServerConfig,
+) {
+    // Acquire the global lock to prevent multiple
+    // tests from opening a server at the same time.
+    let _guard = LOCK.lock();
+    run_test_impl(f, config).await;
 }
 
 #[tokio::main]
@@ -134,6 +144,90 @@ async fn ssh_userauth() {
         default_config(),
     )
     .await
+}
+
+#[tokio::test]
+async fn ssh_connect_reuse_after_disconnect() {
+    let _guard = LOCK.lock();
+    server::reset_connection_count();
+    run_test_impl(
+        |t| {
+            t.ok(
+                format!(r#"s1 = ssh_connect(port:{PORT}, keytype: "ssh-ed25519");"#),
+                MIN_SESSION_ID,
+            );
+            t.ok(r#"ssh_disconnect(s1);"#, ());
+            t.ok(
+                format!(r#"s2 = ssh_connect(port:{PORT}, keytype: "ssh-ed25519");"#),
+                MIN_SESSION_ID,
+            );
+            t.ok(r#"ssh_disconnect(s2);"#, ());
+        },
+        default_config(),
+    )
+    .await;
+
+    assert_eq!(server::connection_count(), 1);
+}
+
+#[tokio::test]
+async fn ssh_connect_reuse_without_disconnect() {
+    let _guard = LOCK.lock();
+    server::reset_connection_count();
+    run_test_impl(
+        |t| {
+            t.ok(
+                format!(r#"s1 = ssh_connect(port:{PORT}, keytype: "ssh-ed25519");"#),
+                MIN_SESSION_ID,
+            );
+            t.ok(
+                format!(r#"s2 = ssh_connect(port:{PORT}, keytype: "ssh-ed25519");"#),
+                MIN_SESSION_ID,
+            );
+            t.ok(r#"ssh_disconnect(s1);"#, ());
+            t.ok(r#"ssh_disconnect(s2);"#, ());
+        },
+        default_config(),
+    )
+    .await;
+
+    assert_eq!(server::connection_count(), 1);
+}
+
+#[tokio::test]
+async fn ssh_userauth_wrong_creds_reconnect_after_reuse() {
+    let _guard = LOCK.lock();
+    server::reset_connection_count();
+    run_test_impl(
+        |t| {
+            t.ok(
+                format!(r#"s1 = ssh_connect(port:{PORT}, keytype: "ssh-ed25519");"#),
+                MIN_SESSION_ID,
+            );
+            t.ok(
+                r#"ssh_userauth(s1, login: "user", password: "pass");"#,
+                (),
+            );
+            t.ok(r#"ssh_disconnect(s1);"#, ());
+            t.ok(
+                format!(r#"s2 = ssh_connect(port:{PORT}, keytype: "ssh-ed25519");"#),
+                MIN_SESSION_ID,
+            );
+            check_err_matches!(
+                t,
+                r#"ssh_userauth(s2, login: "user", password: "wrong");"#,
+                SshError {
+                    kind: SshErrorKind::UserAuthPassword,
+                    ..
+                }
+            );
+            t.ok(r#"ssh_disconnect(s2);"#, ());
+        },
+        default_config(),
+    )
+    .await;
+
+    assert_eq!(server::connection_count(), 2);
 }
 
 #[tokio::test]

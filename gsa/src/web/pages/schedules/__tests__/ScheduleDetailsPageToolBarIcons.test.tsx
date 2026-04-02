@@ -14,7 +14,7 @@ const schedule = Schedule.fromElement({
   comment: 'hello world',
   creation_time: '2020-12-23T14:14:11Z',
   icalendar:
-    'BEGIN:VCALENDAR\nVERSION:2.0\nPRODID:-//Greenbone.net//NONSGML Greenbone Security Manager \n 21.4.0~dev1~git-5f8b6cf-master//EN\nBEGIN:VEVENT\nDTSTART:20210104T115400Z\nDURATION:PT0S\nUID:foo\nDTSTAMP:20210111T134141Z\nEND:VEVENT\nEND:VCALENDAR',
+    'BEGIN:VCALENDAR\nVERSION:2.0\nPRODID:-//Ak Shumkar.net//NONSGML Ak Shumkar Security Manager \n 21.4.0~dev1~git-5f8b6cf-master//EN\nBEGIN:VEVENT\nDTSTART:20210104T115400Z\nDURATION:PT0S\nUID:foo\nDTSTAMP:20210111T134141Z\nEND:VEVENT\nEND:VCALENDAR',
   in_use: 0,
   modification_time: '2021-01-04T11:54:12Z',
   name: 'schedule 1',
@@ -118,7 +118,7 @@ describe('ScheduleDetailsPageToolBarIcons tests', () => {
       comment: 'hello world',
       creation_time: '2020-12-23T14:14:11Z',
       icalendar:
-        'BEGIN:VCALENDAR\nVERSION:2.0\nPRODID:-//Greenbone.net//NONSGML Greenbone Security Manager \n 21.04+alpha~git-bb97c86-master//EN\nBEGIN:VEVENT\nDTSTART:20210104T115400Z\nDURATION:PT0S\nRRULE:FREQ=WEEKLY\nUID:3dfd6e6f-4e79-4f18-a5c2-adb3fca56bd3\nDTSTAMP:20210104T115412Z\nEND:VEVENT\nEND:VCALENDAR\n',
+        'BEGIN:VCALENDAR\nVERSION:2.0\nPRODID:-//Ak Shumkar.net//NONSGML Ak Shumkar Security Manager \n 21.04+alpha~git-bb97c86-master//EN\nBEGIN:VEVENT\nDTSTART:20210104T115400Z\nDURATION:PT0S\nRRULE:FREQ=WEEKLY\nUID:3dfd6e6f-4e79-4f18-a5c2-adb3fca56bd3\nDTSTAMP:20210104T115412Z\nEND:VEVENT\nEND:VCALENDAR\n',
       in_use: 0,
       modification_time: '2021-01-04T11:54:12Z',
       name: 'schedule 1',
@@ -183,7 +183,7 @@ describe('ScheduleDetailsPageToolBarIcons tests', () => {
       comment: 'hello world',
       creation_time: '2020-12-23T14:14:11Z',
       icalendar:
-        'BEGIN:VCALENDAR\nVERSION:2.0\nPRODID:-//Greenbone.net//NONSGML Greenbone Security Manager \n 21.04+alpha~git-bb97c86-master//EN\nBEGIN:VEVENT\nDTSTART:20210104T115400Z\nDURATION:PT0S\nRRULE:FREQ=WEEKLY\nUID:3dfd6e6f-4e79-4f18-a5c2-adb3fca56bd3\nDTSTAMP:20210104T115412Z\nEND:VEVENT\nEND:VCALENDAR\n',
+        'BEGIN:VCALENDAR\nVERSION:2.0\nPRODID:-//Ak Shumkar.net//NONSGML Ak Shumkar Security Manager \n 21.04+alpha~git-bb97c86-master//EN\nBEGIN:VEVENT\nDTSTART:20210104T115400Z\nDURATION:PT0S\nRRULE:FREQ=WEEKLY\nUID:3dfd6e6f-4e79-4f18-a5c2-adb3fca56bd3\nDTSTAMP:20210104T115412Z\nEND:VEVENT\nEND:VCALENDAR\n',
       in_use: 1,
       modification_time: '2021-01-04T11:54:12Z',
       name: 'schedule 1',

@@ -45,6 +45,7 @@
  * @brief GLib log domain.
  */
 #define G_LOG_DOMAIN "sd   nasl"
+
 tree_cell *
 get_hostnames (lex_ctxt *lexic)
 {
@@ -164,6 +165,9 @@ resolve_hostname_to_multiple_ips (lex_ctxt *lexic)
       return NULL;
     }
 
+  /* Note: Simple cache only stores first IP, so we bypass it for multiple-IP lookups
+   * or we could implement list caching. For simplicity and to stop the storm,
+   * we focus on resolve_hostname. */
   list = gvm_resolve_list (value);
 
   retc = alloc_typed_cell (DYN_ARRAY);
@@ -187,6 +191,8 @@ resolve_hostname (lex_ctxt *lexic)
 {
   struct in6_addr in6addr;
   char *value = get_str_var_by_name (lexic, "hostname");
+  char kb_key[1024];
+  const char *cached_ip;
 
   if (!value)
     {
@@ -194,13 +200,31 @@ resolve_hostname (lex_ctxt *lexic)
       return NULL;
     }
 
-  if (!gvm_resolve_as_addr6 (value, &in6addr))
+  /* Shared DNS Cache in Knowledge Base */
+  snprintf (kb_key, sizeof (kb_key), "Host/DNSCache/%s", value);
+  cached_ip = kb_item_get_str (plug_get_kb (lexic->script_infos), kb_key);
+  if (cached_ip)
     {
+      if (strcmp (cached_ip, "NOT_FOUND") == 0)
+        return NULL;
+
       tree_cell *retc = alloc_typed_cell (CONST_STR);
-      retc->x.str_val = addr6_as_str (&in6addr);
+      retc->x.str_val = g_strdup (cached_ip);
       retc->size = strlen (retc->x.str_val);
       return retc;
     }
+
+  if (!gvm_resolve_as_addr6 (value, &in6addr))
+    {
+      char *ip_str = addr6_as_str (&in6addr);
+      kb_item_set_str (plug_get_kb (lexic->script_infos), kb_key, ip_str, 0);
+      tree_cell *retc = alloc_typed_cell (CONST_STR);
+      retc->x.str_val = g_strdup (ip_str);
+      retc->size = strlen (retc->x.str_val);
+      return retc;
+    }
+  
+  kb_item_set_str (plug_get_kb (lexic->script_infos), kb_key, "NOT_FOUND", 0);
   return NULL;
 }
 
@@ -511,6 +535,14 @@ nasl_same_host (lex_ctxt *lexic)
     {
       if (!inet_aton (hn[i], &ia)) /* Not an IP address */
         {
+          char kb_key[1024];
+          const char *cached_ip;
+          snprintf (kb_key, sizeof (kb_key), "Host/DNSCache/%s", hn[i]);
+          cached_ip = kb_item_get_str (plug_get_kb (lexic->script_infos), kb_key);
+
+          if (cached_ip && strcmp (cached_ip, "NOT_FOUND") != 0)
+            inet_aton (cached_ip, &ia);
+          
           h = gethostbyname (hn[i]);
           if (h == NULL)
             {

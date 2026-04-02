@@ -7,7 +7,7 @@ import {describe, test, expect, testing} from '@gsa/testing';
 import {screen, rendererWithTableBody, fireEvent} from 'web/testing';
 import Capabilities from 'gmp/capabilities/capabilities';
 import Audit, {AUDIT_STATUS} from 'gmp/models/audit';
-import {GREENBONE_SENSOR_SCANNER_TYPE} from 'gmp/models/scanner';
+import {AK_SHUMKAR_SENSOR_SCANNER_TYPE} from 'gmp/models/scanner';
 import Row from 'web/pages/audits/Row';
 import {setTimezone, setUsername} from 'web/store/usersettings/actions';
 
@@ -132,7 +132,7 @@ describe('Audit Row tests', () => {
     );
     expect(screen.getByTestId('download-icon')).toHaveAttribute(
       'title',
-      'Download Greenbone Compliance Report',
+      'Download Ak Shumkar Compliance Report',
     );
   });
 
@@ -150,7 +150,7 @@ describe('Audit Row tests', () => {
       scanner: {
         _id: 'id',
         name: 'scanner',
-        type: GREENBONE_SENSOR_SCANNER_TYPE,
+        type: AK_SHUMKAR_SENSOR_SCANNER_TYPE,
       },
       observers: {
         __text: 'anon nymous',
@@ -542,7 +542,7 @@ describe('Audit Row tests', () => {
     expect(handleReportDownload).toHaveBeenCalledWith(audit);
     expect(downloadIcon).toHaveAttribute(
       'title',
-      'Download Greenbone Compliance Report',
+      'Download Ak Shumkar Compliance Report',
     );
   });
 
@@ -657,7 +657,7 @@ describe('Audit Row tests', () => {
     expect(handleReportDownload).toHaveBeenCalledWith(audit);
     expect(downloadIcon).toHaveAttribute(
       'title',
-      'Download Greenbone Compliance Report',
+      'Download Ak Shumkar Compliance Report',
     );
   });
 
@@ -786,7 +786,7 @@ describe('Audit Row tests', () => {
     expect(handleReportDownload).toHaveBeenCalledWith(audit);
     expect(downloadIcon).toHaveAttribute(
       'title',
-      'Download Greenbone Compliance Report',
+      'Download Ak Shumkar Compliance Report',
     );
   });
 });

@@ -257,7 +257,7 @@ describe('Audits table tests', () => {
     expect(handleReportDownloadClick).toHaveBeenCalledWith(audit);
     expect(downloadIcon).toHaveAttribute(
       'title',
-      'Download Greenbone Compliance Report',
+      'Download Ak Shumkar Compliance Report',
     );
   });
 });

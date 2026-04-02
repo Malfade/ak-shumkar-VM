@@ -34,7 +34,10 @@
 #undef SHOW_RETRIES
 #undef SHOW_RTT_REMOVAL
 
-#define NUM_RETRIES 2
+/* FIX: Reduced from 2 to 1 — eliminates one unnecessary retry per timed-out port.
+ * With full port_range (65535 ports), each saved retry = up to 65535 fewer
+ * RTT-timeout waits per scan, significantly reducing dead-host scan time. */
+#define NUM_RETRIES 1
 
 #undef G_LOG_DOMAIN
 /**
@@ -109,9 +112,12 @@ timeval (unsigned long val)
       ret.tv_sec++;
     }
 
-  if (ret.tv_sec > 2)
+  /* FIX: Reduced max RTT cap from 2s to 1s.
+   * Original 2s cap multiplied by retries caused multi-hour delays on dead hosts.
+   * 1s is still sufficient for WAN RTT while halving worst-case port timeout. */
+  if (ret.tv_sec > 1)
     {
-      ret.tv_sec = 2;
+      ret.tv_sec = 1;
       ret.tv_usec = 0;
     }
   return ret;

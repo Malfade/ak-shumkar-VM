@@ -156,7 +156,7 @@ describe('LicenseNotification tests', () => {
     expect(links[0]).toHaveAttribute('href', '/license');
     expect(links[0]).toHaveTextContent('License Management page');
     expect(baseElement).toHaveTextContent(
-      'The Greenbone Enterprise License for this system will expire in 26 days',
+      'The Ak Shumkar Enterprise License for this system will expire in 26 days',
     );
     expect(heading).toHaveBackgroundColor(Theme.lightBlue);
   });
@@ -189,7 +189,7 @@ describe('LicenseNotification tests', () => {
 
     expect(links.length).toEqual(0);
     expect(baseElement).toHaveTextContent(
-      'The Greenbone Enterprise License for this system will expire in 26 days',
+      'The Ak Shumkar Enterprise License for this system will expire in 26 days',
     );
     expect(heading).toHaveBackgroundColor(Theme.lightBlue);
   });
@@ -349,7 +349,7 @@ describe('LicenseNotification tests', () => {
     expect(links[0]).toHaveAttribute('href', '/license');
     expect(links[0]).toHaveTextContent('License Management page');
     expect(baseElement).toHaveTextContent(
-      'Your Greenbone Enterprise License has expired 1 days ago!',
+      'Your Ak Shumkar Enterprise License has expired 1 days ago!',
     );
     expect(heading).toHaveBackgroundColor(Theme.mediumLightRed);
   });
@@ -384,7 +384,7 @@ describe('LicenseNotification tests', () => {
 
     expect(links.length).toEqual(0);
     expect(baseElement).toHaveTextContent(
-      'Your Greenbone Enterprise License has expired 1 days ago!',
+      'Your Ak Shumkar Enterprise License has expired 1 days ago!',
     );
     expect(heading).toHaveBackgroundColor(Theme.mediumLightRed);
   });
@@ -425,7 +425,7 @@ describe('LicenseNotification tests', () => {
     expect(links[1]).toHaveTextContent('support@greenbone.net');
 
     expect(baseElement).toHaveTextContent(
-      'Your Greenbone Enterprise License is invalid!',
+      'Your Ak Shumkar Enterprise License is invalid!',
     );
     expect(heading).toHaveBackgroundColor(Theme.mediumLightRed);
   });
@@ -460,7 +460,7 @@ describe('LicenseNotification tests', () => {
 
     expect(links.length).toEqual(0);
     expect(baseElement).toHaveTextContent(
-      'Your Greenbone Enterprise License is invalid!',
+      'Your Ak Shumkar Enterprise License is invalid!',
     );
     expect(heading).toHaveBackgroundColor(Theme.mediumLightRed);
   });

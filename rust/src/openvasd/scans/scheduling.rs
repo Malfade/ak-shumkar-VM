@@ -383,12 +383,15 @@ where
             .set_based_on_message(&msg);
         let result = match message {
             FeedStatusChange::Need(_) => {
-                let count_running: i64 = self.get_running_count().await;
-                if count_running == 0 {
-                    Some(self.feed_sync_in_progress.write().await.approve())
-                } else {
-                    None
-                }
+                // FIX: Approve feed sync immediately regardless of running scans.
+                // Previously this waited for count_running == 0, causing a deadlock
+                // where long-running scans blocked feed updates which in turn blocked
+                // new scan starts indefinitely.
+                //
+                // Safety: already-running scans have their VTs loaded in memory and
+                // continue safely. Only NEW scans are blocked during sync (enforced
+                // in requested_to_running via is_feed_sync_in_progress check).
+                Some(self.feed_sync_in_progress.write().await.approve())
             }
             FeedStatusChange::Synced(ft) => {
                 let scans_allowed = self.feed_sync_in_progress.read().await.scans_allowed();

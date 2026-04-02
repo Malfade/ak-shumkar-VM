@@ -307,11 +307,22 @@ next_free_process (kb_t main_kb, kb_t kb, struct scheduler_plugin *upcoming)
       if (processes[r].pid > 0
           && simult_ports (processes[r].plugin->oid, upcoming->oid))
         {
-          while (process_alive (processes[r].pid))
+          /* FIX: Added a 30-second (120 * 250ms) timeout to prevent indefinite
+           * blocking. Without this limit, a single hung VT on a non-simult port
+           * (e.g. 139/445 for SMB) would stall the entire VT queue permanently.
+           * After 30s the scheduler moves on and lets the timed-out VT be
+           * reaped by update_running_processes() on the next cycle. */
+          int waited_cycles = 0;
+          while (process_alive (processes[r].pid) && waited_cycles < 120)
             {
               update_running_processes (main_kb, kb);
               usleep (250000);
+              waited_cycles++;
             }
+          if (waited_cycles >= 120)
+            g_warning ("%s: simult_ports wait timed out (30s) for plugin %s. "
+                       "Proceeding without exclusive port lock.",
+                       __func__, processes[r].plugin->oid);
         }
     }
   for (r = 0; r < MAX_PROCESSES; r++)

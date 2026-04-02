@@ -9,7 +9,7 @@ import Features from 'gmp/capabilities/features';
 import CollectionCounts from 'gmp/collection/collection-counts';
 import Filter from 'gmp/models/filter';
 import ScanConfig from 'gmp/models/scan-config';
-import {SkySOC_SCANNER_TYPE} from 'gmp/models/scanner';
+import {AK_SHUMKAR_SCANNER_TYPE} from 'gmp/models/scanner';
 import Schedule from 'gmp/models/schedule';
 import Task, {TASK_STATUS} from 'gmp/models/task';
 import {currentSettingsDefaultResponse} from 'web/pages/__fixtures__/current-settings';
@@ -103,7 +103,7 @@ const task = Task.fromElement({
   permissions: {permission: [{name: 'everything'}]},
   target: {_id: '5678', name: 'target1'},
   alert: {_id: '91011', name: 'alert1'},
-  scanner: {_id: '1516', name: 'scanner1', type: SkySOC_SCANNER_TYPE},
+  scanner: {_id: '1516', name: 'scanner1', type: AK_SHUMKAR_SCANNER_TYPE},
   config: config,
   preferences: preferences,
 });
@@ -123,7 +123,7 @@ const task2 = Task.fromElement({
   permissions: {permission: [{name: 'everything'}]},
   target: {_id: '5678', name: 'target1'},
   alert: {_id: '91011', name: 'alert1'},
-  scanner: {_id: '1516', name: 'scanner1', type: SkySOC_SCANNER_TYPE},
+  scanner: {_id: '1516', name: 'scanner1', type: AK_SHUMKAR_SCANNER_TYPE},
   config: config,
   preferences: preferences,
 });
@@ -144,7 +144,7 @@ const task5 = Task.fromElement({
   permissions: {permission: [{name: 'everything'}]},
   target: {_id: '5678', name: 'target1'},
   alert: {_id: '91011', name: 'alert1'},
-  scanner: {_id: '1516', name: 'scanner1', type: SkySOC_SCANNER_TYPE},
+  scanner: {_id: '1516', name: 'scanner1', type: AK_SHUMKAR_SCANNER_TYPE},
   config: config,
   preferences: preferences,
 });
@@ -282,7 +282,7 @@ describe('TaskDetailsPage tests', () => {
     expect(headings[3]).toHaveTextContent('Scanner');
     expect(detailsLinks[4]).toHaveAttribute('href', '/scanner/1516');
     expect(baseElement).toHaveTextContent('scanner1');
-    expect(baseElement).toHaveTextContent('SkySOC Scanner');
+    expect(baseElement).toHaveTextContent('Ak Shumkar Scanner');
 
     expect(headings[4]).toHaveTextContent('Assets');
 

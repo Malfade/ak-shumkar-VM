@@ -18,6 +18,7 @@ use crate::nasl::utils::error::WithErrorInfo;
 
 use super::super::error::SshError;
 use super::{AuthMethods, Port, SessionId, Socket};
+use super::super::sessions::{make_connect_key, ConnectKey};
 
 struct Client {}
 
@@ -94,6 +95,23 @@ impl client::Handler for Client {
 pub struct SshSession {
     id: SessionId,
     session: client::Handle<Client>,
+
+    /// Whether this transport was created from a custom socket (NASL `socket:` argument).
+    pub custom_socket: bool,
+
+    /// Connect key and connection parameters needed for reconnect.
+    pub connect_key: ConnectKey,
+    pub ip_addr: IpAddr,
+    pub port: Port,
+    pub timeout: Option<Duration>,
+    pub keytype: Vec<Algorithm>,
+    pub csciphers: Vec<cipher::Name>,
+    pub scciphers: Vec<cipher::Name>,
+
+    /// Track authentication state.
+    pub authenticated: bool,
+    pub auth_login: Option<String>,
+    pub auth_cred_hash: Option<u64>,
 }
 
 impl SshSession {
@@ -115,7 +133,12 @@ impl SshSession {
             error!("Using custom sockets not yet implemented.");
             return Err(SshErrorKind::Unimplemented.with(id));
         }
-        let preferred = construct_preferred(keytype, csciphers, scciphers);
+        let custom_socket = socket.is_some();
+        let connect_key = make_connect_key(ip_addr, port, custom_socket);
+
+        // Keep connection parameters for reconnect purposes.
+        let preferred =
+            construct_preferred(keytype.clone(), csciphers.clone(), scciphers.clone());
         let config = client::Config {
             inactivity_timeout: timeout,
             preferred,
@@ -129,7 +152,35 @@ impl SshSession {
             .await
             .map_err(|e| SshErrorKind::Connect.with(id).with(e))?;
 
-        Ok(Self { session, id })
+        Ok(Self {
+            session,
+            id,
+            custom_socket,
+            connect_key,
+            ip_addr,
+            port,
+            timeout,
+            keytype,
+            csciphers,
+            scciphers,
+            authenticated: false,
+            auth_login: None,
+            auth_cred_hash: None,
+        })
+    }
+
+    pub fn set_id(&mut self, new_id: SessionId) {
+        self.id = new_id;
+    }
+
+    /// Soft-disconnect: keep transport alive.
+    pub async fn soft_disconnect(&mut self) {}
+
+    /// Hard-disconnect: close transport completely.
+    pub async fn hard_disconnect(&mut self) -> Result<(), SshError> {
+        // russh transport currently doesn't expose an explicit disconnect;
+        // dropping the handle will eventually terminate it.
+        Ok(())
     }
 
     pub(crate) async fn exec_ssh_cmd(&self, command: &str) -> Result<Output, SshError> {
@@ -178,11 +229,16 @@ impl SshSession {
     }
 
     pub async fn auth_password(&mut self, login: &str, password: &str) -> Result<(), SshError> {
-        self.session
-            .authenticate_password(login, password)
-            .await
-            .map_err(|_| SshErrorKind::UserAuthPassword.with(self.id))
-            .map(|_| ())
+        match self.session.authenticate_password(login, password).await {
+            Ok(result) => {
+                if result.success() {
+                    Ok(())
+                } else {
+                    Err(SshErrorKind::UserAuthPassword.with(self.id))
+                }
+            }
+            Err(_) => Err(SshErrorKind::UserAuthPassword.with(self.id)),
+        }
     }
 
     pub async fn auth_keyboard_interactive(

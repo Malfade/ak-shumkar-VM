@@ -55,7 +55,7 @@ const useSessionTracker = () => {
       }
     };
 
-    const events = ['keypress', 'wheel', 'drag'];
+    const events = ['keypress', 'wheel', 'drag', 'mousemove'];
 
     events.forEach(event => {
       window.addEventListener(event, handleUserActivity);

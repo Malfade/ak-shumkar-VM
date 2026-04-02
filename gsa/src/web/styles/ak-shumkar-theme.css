@@ -1,49 +1,49 @@
 /* =====================================================
- * SkySOC VM — Global CSS Design Token Overrides
- * Based on https://skysoc.beeline.kg visual style
+ * Ak Shumkar VM — Global CSS Design Token Overrides
+ * Based on https://ak-shumkar.beeline.kg visual style
  * ===================================================== */
 
 :root {
   /* === Color Palette === */
-  --skysoc-bg-base: #1a1a1c;
-  --skysoc-bg-deep: #111113;
-  --skysoc-bg-card: #27272a;
-  --skysoc-bg-card-hover: #2d2d30;
-  --skysoc-bg-input: #18181b;
-  --skysoc-bg-dialog: #27272a;
+  --ak-shumkar-bg-base: #1a1a1c;
+  --ak-shumkar-bg-deep: #111113;
+  --ak-shumkar-bg-card: #27272a;
+  --ak-shumkar-bg-card-hover: #2d2d30;
+  --ak-shumkar-bg-input: #18181b;
+  --ak-shumkar-bg-dialog: #27272a;
 
-  --skysoc-border: #3f3f46;
-  --skysoc-border-subtle: #27272a;
+  --ak-shumkar-border: #3f3f46;
+  --ak-shumkar-border-subtle: #27272a;
 
-  --skysoc-accent: #ffd400;
-  --skysoc-accent-hover: #e6bf00;
-  --skysoc-accent-on: #000000;
+  --ak-shumkar-accent: #ffd400;
+  --ak-shumkar-accent-hover: #e6bf00;
+  --ak-shumkar-accent-on: #000000;
 
-  --skysoc-link: #4a80ff;
-  --skysoc-link-hover: #6fa3ff;
+  --ak-shumkar-link: #4a80ff;
+  --ak-shumkar-link-hover: #6fa3ff;
 
-  --skysoc-text-primary: #ffffff;
-  --skysoc-text-muted: #a1a1aa;
-  --skysoc-text-disabled: #52525b;
+  --ak-shumkar-text-primary: #ffffff;
+  --ak-shumkar-text-muted: #a1a1aa;
+  --ak-shumkar-text-disabled: #52525b;
 
   /* === Severity === */
-  --skysoc-critical: #ef4444;
-  --skysoc-high: #f87171;
-  --skysoc-medium: #f59e0b;
-  --skysoc-low: #60a5fa;
-  --skysoc-log: #71717a;
-  --skysoc-ok: #22c55e;
+  --ak-shumkar-critical: #ef4444;
+  --ak-shumkar-high: #f87171;
+  --ak-shumkar-medium: #f59e0b;
+  --ak-shumkar-low: #60a5fa;
+  --ak-shumkar-log: #71717a;
+  --ak-shumkar-ok: #22c55e;
 
   /* === Typography === */
-  --skysoc-font:
+  --ak-shumkar-font:
     'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 
   /* === Layout === */
-  --skysoc-radius-card: 16px;
-  --skysoc-radius-btn: 8px;
-  --skysoc-radius-input: 6px;
-  --skysoc-sidebar-width: 220px;
-  --skysoc-panel-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  --ak-shumkar-radius-card: 16px;
+  --ak-shumkar-radius-btn: 8px;
+  --ak-shumkar-radius-input: 6px;
+  --ak-shumkar-sidebar-width: 220px;
+  --ak-shumkar-panel-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
 }
 
 /* =====================================================
@@ -52,9 +52,9 @@
 
 html,
 body {
-  background-color: var(--skysoc-bg-base) !important;
-  color: var(--skysoc-text-primary) !important;
-  font-family: var(--skysoc-font) !important;
+  background-color: var(--ak-shumkar-bg-base) !important;
+  color: var(--ak-shumkar-text-primary) !important;
+  font-family: var(--ak-shumkar-font) !important;
 }
 
 /* =====================================================
@@ -62,17 +62,17 @@ body {
  * ===================================================== */
 a,
 a:link {
-  color: var(--skysoc-link) !important;
+  color: var(--ak-shumkar-link) !important;
 }
 
 a:hover,
 a:focus {
-  color: var(--skysoc-link-hover) !important;
+  color: var(--ak-shumkar-link-hover) !important;
   text-decoration: underline;
 }
 
 a:visited {
-  color: var(--skysoc-link);
+  color: var(--ak-shumkar-link);
 }
 
 /* =====================================================
@@ -82,8 +82,8 @@ a:visited {
 /* Header (Top Bar) */
 header._header_18j38_1,
 .mantine-AppShell-header {
-  background-color: var(--skysoc-bg-deep) !important;
-  border-bottom: 1px solid var(--skysoc-border) !important;
+  background-color: var(--ak-shumkar-bg-deep) !important;
+  border-bottom: 1px solid var(--ak-shumkar-border) !important;
   height: 60px !important;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
 }
@@ -91,15 +91,15 @@ header._header_18j38_1,
 /* Sidebar Container */
 div._navigation_1w11a_1,
 .mantine-AppShell-navbar {
-  background-color: var(--skysoc-bg-deep) !important;
-  border-right: 1px solid var(--skysoc-border) !important;
+  background-color: var(--ak-shumkar-bg-deep) !important;
+  border-right: 1px solid var(--ak-shumkar-border) !important;
   padding-top: 10px !important;
 }
 
 /* Menu Items (Mantine NavLink) */
 .mantine-NavLink-root {
-  color: var(--skysoc-text-muted) !important;
-  font-family: var(--skysoc-font) !important;
+  color: var(--ak-shumkar-text-muted) !important;
+  font-family: var(--ak-shumkar-font) !important;
   font-weight: 500 !important;
   margin: 4px 8px !important;
   border-radius: 8px !important;
@@ -117,8 +117,8 @@ div._navigation_1w11a_1,
 .mantine-NavLink-root[data-active='true'],
 ._root-active_1j7do_1 {
   background-color: rgba(255, 212, 0, 0.08) !important;
-  color: var(--skysoc-accent) !important;
-  border-left: 3px solid var(--skysoc-accent) !important;
+  color: var(--ak-shumkar-accent) !important;
+  border-left: 3px solid var(--ak-shumkar-accent) !important;
   font-weight: 600 !important;
 }
 
@@ -139,8 +139,8 @@ div.sc-gmPhUo.kPbhJw {
   backdrop-filter: blur(16px) !important;
   -webkit-backdrop-filter: blur(16px) !important;
   border: 1px solid rgba(255, 255, 255, 0.1) !important;
-  box-shadow: var(--skysoc-panel-shadow) !important;
-  border-radius: var(--skysoc-radius-card) !important;
+  box-shadow: var(--ak-shumkar-panel-shadow) !important;
+  border-radius: var(--ak-shumkar-radius-card) !important;
   transition:
     transform 0.3s ease,
     box-shadow 0.3s ease !important;
@@ -160,8 +160,8 @@ div.sc-gmPhUo.kPbhJw h2 {
   font-weight: 700 !important;
   text-transform: uppercase !important;
   letter-spacing: 0.08em !important;
-  color: var(--skysoc-text-muted) !important;
-  border-bottom: 1px solid var(--skysoc-border) !important;
+  color: var(--ak-shumkar-text-muted) !important;
+  border-bottom: 1px solid var(--ak-shumkar-border) !important;
   padding-bottom: 12px !important;
   margin-bottom: 20px !important;
 }
@@ -170,9 +170,9 @@ div.sc-gmPhUo.kPbhJw h2 {
  * Buttons — primary → yellow Beeline style
  * ===================================================== */
 .mantine-Button-root[data-variant='filled'] {
-  background-color: var(--skysoc-accent) !important;
-  color: var(--skysoc-accent-on) !important;
-  border-radius: var(--skysoc-radius-btn) !important;
+  background-color: var(--ak-shumkar-accent) !important;
+  color: var(--ak-shumkar-accent-on) !important;
+  border-radius: var(--ak-shumkar-radius-btn) !important;
   font-weight: 700 !important;
   border: none !important;
   transition:
@@ -181,7 +181,7 @@ div.sc-gmPhUo.kPbhJw h2 {
 }
 
 .mantine-Button-root[data-variant='filled']:hover {
-  background-color: var(--skysoc-accent-hover) !important;
+  background-color: var(--ak-shumkar-accent-hover) !important;
   filter: brightness(1.1) !important;
 }
 
@@ -198,21 +198,21 @@ table {
 }
 
 thead tr {
-  background-color: var(--skysoc-bg-deep) !important;
+  background-color: var(--ak-shumkar-bg-deep) !important;
 }
 
 thead th {
-  color: var(--skysoc-text-muted) !important;
+  color: var(--ak-shumkar-text-muted) !important;
   font-size: 11px !important;
   font-weight: 700 !important;
   text-transform: uppercase !important;
   letter-spacing: 0.1em !important;
-  border-bottom: 1.5px solid var(--skysoc-border) !important;
+  border-bottom: 1.5px solid var(--ak-shumkar-border) !important;
   padding: 14px 16px !important;
 }
 
 tbody tr:nth-child(odd) {
-  background-color: var(--skysoc-bg-base) !important;
+  background-color: var(--ak-shumkar-bg-base) !important;
 }
 
 tbody tr:nth-child(even) {
@@ -220,11 +220,11 @@ tbody tr:nth-child(even) {
 }
 
 tbody tr:hover {
-  background-color: var(--skysoc-bg-card-hover) !important;
+  background-color: var(--ak-shumkar-bg-card-hover) !important;
 }
 
 tbody td {
-  color: var(--skysoc-text-primary) !important;
+  color: var(--ak-shumkar-text-primary) !important;
   border-bottom: 1px solid rgba(63, 63, 70, 0.4) !important;
   padding: 14px 16px !important;
   border-right: none !important;
@@ -239,16 +239,16 @@ tbody td {
 .mantine-PasswordInput-input,
 .mantine-Select-input,
 .mantine-Textarea-input {
-  background-color: var(--skysoc-bg-input) !important;
-  border: 1px solid var(--skysoc-border) !important;
-  border-radius: var(--skysoc-radius-input) !important;
-  color: var(--skysoc-text-primary) !important;
+  background-color: var(--ak-shumkar-bg-input) !important;
+  border: 1px solid var(--ak-shumkar-border) !important;
+  border-radius: var(--ak-shumkar-radius-input) !important;
+  color: var(--ak-shumkar-text-primary) !important;
   padding-top: 10px !important;
   padding-bottom: 10px !important;
 }
 
 .mantine-Input-input:focus {
-  border-color: var(--skysoc-accent) !important;
+  border-color: var(--ak-shumkar-accent) !important;
   box-shadow: 0 0 0 2px rgba(255, 212, 0, 0.1) !important;
 }
 
@@ -261,16 +261,16 @@ tbody td {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--skysoc-bg-deep);
+  background: var(--ak-shumkar-bg-deep);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--skysoc-border);
+  background: var(--ak-shumkar-border);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--skysoc-mediumGray, #71717a);
+  background: var(--ak-shumkar-mediumGray, #71717a);
 }
 /* === Dashboard Chart (Datamonitor) Overrides === */
 div[class*='DisplayView'],
