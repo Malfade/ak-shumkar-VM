@@ -253,9 +253,11 @@ where
                 .map_err(|_| WorkerError::Send)
         };
 
-        let (sync_nasl, sync_advisories) = match cached_hashes {
-            None => (true, true),
+        let (cached_nasl, cached_advisories, sync_nasl, sync_advisories) = match cached_hashes {
+            None => (String::new(), String::new(), true, true),
             Some((cached_nasl, cached_advisories)) => (
+                cached_nasl.clone(),
+                cached_advisories.clone(),
                 cached_nasl != calc_nasl,
                 cached_advisories != calc_advisories,
             ),
@@ -341,15 +343,57 @@ where
             }
         }
 
+        let mut nasl_ok = !sync_nasl;
+        let mut advisories_ok = !sync_advisories;
+
         if let Some(handle) = nasl_handle {
-            handle.await.unwrap()?;
-            send_synced(FeedType::NASL).await?;
+            nasl_ok = match handle.await {
+                Ok(Ok(())) => true,
+                Ok(Err(error)) => {
+                    tracing::error!(%error, "NASL feed update failed; keeping previous feed hashes");
+                    false
+                }
+                Err(join_error) => {
+                    tracing::error!(%join_error, "NASL feed update task panicked/failed; keeping previous feed hashes");
+                    false
+                }
+            };
         }
         if let Some(handle) = advisory_handle {
-            handle.await.unwrap()?;
-            send_synced(FeedType::Advisories).await?;
+            advisories_ok = match handle.await {
+                Ok(Ok(())) => true,
+                Ok(Err(error)) => {
+                    tracing::error!(%error, "Advisories feed update failed; keeping previous feed hashes");
+                    false
+                }
+                Err(join_error) => {
+                    tracing::error!(%join_error, "Advisories feed update task panicked/failed; keeping previous feed hashes");
+                    false
+                }
+            };
         }
-        self.change_outer_state(FeedState::Synced(calc_nasl, calc_advisories))
+
+        // Always notify the scheduler that synchronization is finished.
+        // Otherwise UI may stay in "feed sync in progress" forever if an update fails.
+        if sync_nasl {
+            if let Err(error) = send_synced(FeedType::NASL).await {
+                tracing::warn!(%error, "Unable to notify scheduler about NASL sync completion");
+            }
+        }
+        if sync_advisories {
+            if let Err(error) = send_synced(FeedType::Advisories).await {
+                tracing::warn!(%error, "Unable to notify scheduler about Advisories sync completion");
+            }
+        }
+
+        let final_nasl = if nasl_ok { calc_nasl } else { cached_nasl };
+        let final_advisories = if advisories_ok {
+            calc_advisories
+        } else {
+            cached_advisories
+        };
+
+        self.change_outer_state(FeedState::Synced(final_nasl, final_advisories))
             .await;
 
         Ok(())
