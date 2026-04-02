@@ -1,6 +1,8 @@
 FROM registry.community.greenbone.net/community/ospd-openvas:stable
+# Custom openvas is linked against libssh-gcrypt; Debian/Ubuntu package name is libssh-gcrypt-4
+# (not libssh-gcrypt4 — wrong name skips install and ospd fails at runtime).
 RUN apt-get update \
-  && apt-get install -y --no-install-recommends libssh-gcrypt4 \
+  && apt-get install -y --no-install-recommends libssh-gcrypt-4 \
   && rm -rf /var/lib/apt/lists/*
 COPY build/src/openvas /usr/local/sbin/openvas
 COPY build/nasl/libopenvas_nasl.so /usr/local/lib/libopenvas_nasl.so.23.41.0
