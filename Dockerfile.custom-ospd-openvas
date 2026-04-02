@@ -1,9 +1,15 @@
-FROM registry.community.greenbone.net/community/ospd-openvas:stable
-# Custom openvas is linked against libssh-gcrypt; Debian/Ubuntu package name is libssh-gcrypt-4
-# (not libssh-gcrypt4 — wrong name skips install and ospd fails at runtime).
+# Greenbone ospd-openvas:stable is Debian Trixie; Trixie ships only OpenSSL-flavor libssh (libssh-4).
+# Custom openvas is built against libssh-gcrypt.so.4, which exists on Bookworm as libssh-gcrypt-4.
+FROM debian:bookworm-slim AS libssh-gcrypt-from-bookworm
 RUN apt-get update \
-  && apt-get install -y --no-install-recommends libssh-gcrypt-4 \
+  && apt-get install -y --no-install-recommends libssh-gcrypt-4 findutils \
+  && mkdir -p /export \
+  && find /usr/lib -maxdepth 2 -name 'libssh-gcrypt.so.4*' -exec cp -a {} /export/ \; \
   && rm -rf /var/lib/apt/lists/*
+
+FROM registry.community.greenbone.net/community/ospd-openvas:stable
+COPY --from=libssh-gcrypt-from-bookworm /export/ /usr/local/lib/
+RUN ldconfig
 COPY build/src/openvas /usr/local/sbin/openvas
 COPY build/nasl/libopenvas_nasl.so /usr/local/lib/libopenvas_nasl.so.23.41.0
 COPY build/nasl/libopenvas_nasl.so /usr/local/lib/libopenvas_nasl.so.23
