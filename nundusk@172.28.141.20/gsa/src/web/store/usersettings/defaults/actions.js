@@ -1,0 +1,85 @@
+/* SPDX-FileCopyrightText: 2024 Greenbone AG
+ *
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+import {transformSettingName} from 'gmp/commands/user';
+import {isDefined} from 'gmp/utils/identity';
+import {getUserSettingsDefaults} from 'web/store/usersettings/defaults/selectors';
+
+export const USER_SETTINGS_DEFAULTS_LOADING_REQUEST =
+  'USER_SETTINGS_DEFAULTS_LOADING_REQUEST';
+export const USER_SETTINGS_DEFAULTS_LOADING_SUCCESS =
+  'USER_SETTINGS_DEFAULTS_LOADING_SUCCESS';
+export const USER_SETTINGS_DEFAULTS_LOADING_ERROR =
+  'USER_SETTINGS_DEFAULTS_LOADING_ERROR';
+export const USER_SETTINGS_DEFAULTS_OPTIMISTIC_UPDATE =
+  'USER_SETTINGS_DEFAULTS_OPTIMISTIC_UPDATE';
+
+export const loadingActions = {
+  request: () => ({
+    type: USER_SETTINGS_DEFAULTS_LOADING_REQUEST,
+  }),
+  success: data => ({
+    type: USER_SETTINGS_DEFAULTS_LOADING_SUCCESS,
+    data,
+  }),
+  error: err => ({
+    type: USER_SETTINGS_DEFAULTS_LOADING_ERROR,
+    error: err,
+  }),
+  optimisticUpdate: (settingId, name, value) => ({
+    type: USER_SETTINGS_DEFAULTS_OPTIMISTIC_UPDATE,
+    settingId,
+    name,
+    value,
+  }),
+};
+
+export const loadUserSettingDefaults = gmp => () => (dispatch, getState) => {
+  const rootState = getState();
+  const selector = getUserSettingsDefaults(rootState);
+
+  if (selector.isLoading()) {
+    // we are already loading data
+    return Promise.resolve();
+  }
+
+  dispatch(loadingActions.request());
+
+  return gmp.user.currentSettings().then(
+    response => dispatch(loadingActions.success(response.data)),
+    err => dispatch(loadingActions.error(err)),
+  );
+};
+
+export const loadUserSettingDefault =
+  gmp =>
+  (id, silent = false) =>
+  (dispatch, getState) => {
+    const rootState = getState();
+    const selector = getUserSettingsDefaults(rootState);
+
+    if (selector.isLoading()) {
+      // we are already loading data
+      return Promise.resolve();
+    }
+
+    if (!silent) {
+      dispatch(loadingActions.request());
+    }
+
+    return gmp.user
+      .getSetting(id)
+      .then(response => (isDefined(response) ? response.data : null))
+      .then(setting => {
+        const settings = {};
+        settings[transformSettingName(setting.name)] = setting;
+        dispatch(loadingActions.success(settings));
+      })
+      .catch(err => {
+        if (isDefined(err)) {
+          dispatch(loadingActions.error(err));
+        }
+      });
+  };

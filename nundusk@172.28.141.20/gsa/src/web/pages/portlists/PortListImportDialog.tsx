@@ -1,0 +1,46 @@
+/* SPDX-FileCopyrightText: 2024 Greenbone AG
+ *
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+import SaveDialog from 'web/components/dialog/SaveDialog';
+import FileField from 'web/components/form/FileField';
+import FormGroup from 'web/components/form/FormGroup';
+import useTranslation from 'web/hooks/useTranslation';
+
+interface PortListImportDialogProps {
+  onClose: () => void;
+  onSave: (data: PortListImportDialogValues) => void | Promise<void>;
+}
+
+interface PortListImportDialogValues {
+  xmlFile?: File;
+}
+
+export type PortListImportDialogState = PortListImportDialogValues;
+
+const PortListImportDialog = ({onClose, onSave}: PortListImportDialogProps) => {
+  const [_] = useTranslation();
+  return (
+    <SaveDialog<PortListImportDialogValues>
+      buttonTitle={_('Import')}
+      title={_('Import Port List')}
+      onClose={onClose}
+      onSave={onSave}
+    >
+      {({values, onValueChange}) => {
+        return (
+          <FormGroup title={_('Import XML Port List')}>
+            <FileField
+              name="xmlFile"
+              value={values.xmlFile}
+              onChange={onValueChange}
+            />
+          </FormGroup>
+        );
+      }}
+    </SaveDialog>
+  );
+};
+
+export default PortListImportDialog;

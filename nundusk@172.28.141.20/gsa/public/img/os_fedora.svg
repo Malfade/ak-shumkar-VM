@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="52.509" height="52.52" version="1.0" viewBox="0 0 52.509 52.52" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <linearGradient id="linearGradient13956" x1="46.592" x2="43.592" y1="89.585" y2="-74.733" gradientUnits="userSpaceOnUse">
+   <stop stop-color="#294172" offset="0"/>
+   <stop stop-color="#fff" offset="1"/>
+  </linearGradient>
+  <linearGradient id="linearGradient13966" x1="26.48" x2="26.48" y1="1.3939" y2="52.843" gradientUnits="userSpaceOnUse">
+   <stop stop-color="#fff" offset="0"/>
+   <stop stop-color="#fff" stop-opacity="0" offset="1"/>
+  </linearGradient>
+ </defs>
+ <g transform="translate(-3.8191 -6.1557)">
+  <g transform="translate(-840.83 182.27)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <g transform="translate(-1426.6 -26.29)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <rect x="4.9083" y="7.2196" width="50.731" height="50.549" ry="7.0914" color="black" fill="url(#linearGradient13956)" fill-rule="evenodd" stroke="#2b2b2b" stroke-width=".997"/>
+  <g transform="matrix(-.0039739 .6296 -.6296 -.0039739 295.58 -273.62)" fill="#fff"></g>
+  <path transform="translate(3.8191 6.1557)" d="m2.1818 45.429-0.18182-37.636s1.0909-5.6364 5.4545-5.8182c4.3636-0.18182 37.455 0 37.455 0s5.8182 0 6 7.2727c0.18182 7.2727-0.18182 36.727-0.18182 36.727" color="black" fill="none" stroke="url(#linearGradient13966)"/>
+  <g transform="matrix(.71176 0 0 .71176 -.13031 -21.309)">
+   <path id="free" d="m46.696 71.632v16.406c0 9.0794-7.3614 16.441-16.441 16.441-1.3775 0-2.3568-0.15552-3.632-0.48883-1.8593-0.48658-3.3788-2.0111-3.3795-3.7842 0-2.1433 1.5558-3.7024 3.8814-3.7024 1.1069 0 1.5085 0.21252 3.13 0.21252 4.787 0 8.6698-3.8774 8.6782-8.6644v-7.5407c0-0.67568-0.54908-1.2231-1.2259-1.2231l-5.701-0.0011c-2.1241 0-3.8403-1.6942-3.8403-3.8241-1e-3 -2.1432 1.7338-3.8304 3.8808-3.8304" fill="#fff"/>
+   <use id="dom" transform="matrix(-1 0 0 -1 85.628 150.96)" width="1" height="1" xlink:href="#free"/>
+  </g>
+ </g>
+</svg>

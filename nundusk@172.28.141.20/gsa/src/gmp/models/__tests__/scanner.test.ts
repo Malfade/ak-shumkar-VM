@@ -1,0 +1,416 @@
+/* SPDX-FileCopyrightText: 2024 Greenbone AG
+ *
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+import { describe, test, expect } from '@gsa/testing';
+import Credential from 'gmp/models/credential';
+import { isDate } from 'gmp/models/date';
+import Scanner, {
+  scannerTypeName,
+  openVasScannersFilter,
+  CVE_SCANNER_TYPE,
+  OPENVAS_SCANNER_TYPE,
+  AK_SHUMKAR_SENSOR_SCANNER_TYPE,
+  OPENVASD_SCANNER_TYPE,
+  OPENVASD_SENSOR_SCANNER_TYPE,
+  AGENT_CONTROLLER_SCANNER_TYPE,
+  AGENT_CONTROLLER_SENSOR_SCANNER_TYPE,
+  CONTAINER_IMAGE_SCANNER_TYPE,
+} from 'gmp/models/scanner';
+import { testModel } from 'gmp/models/testing';
+import { YES_VALUE } from 'gmp/parser';
+
+describe('Scanner model tests', () => {
+  testModel(Scanner, 'scanner', {
+    testType: false,
+  });
+
+  test('should use defaults', () => {
+    const scanner = new Scanner();
+    expect(scanner.caPub).toBeUndefined();
+    expect(scanner.configs).toEqual([]);
+    expect(scanner.credential).toBeUndefined();
+    expect(scanner.info).toBeUndefined();
+    expect(scanner.host).toBeUndefined();
+    expect(scanner.scannerType).toBeUndefined();
+    expect(scanner.tasks).toEqual([]);
+    expect(scanner.port).toBeUndefined();
+  });
+
+  test('should parse empty element', () => {
+    const scanner = Scanner.fromElement({});
+    expect(scanner.caPub).toBeUndefined();
+    expect(scanner.configs).toEqual([]);
+    expect(scanner.credential).toBeUndefined();
+    expect(scanner.info).toBeUndefined();
+    expect(scanner.host).toBeUndefined();
+    expect(scanner.scannerType).toBeUndefined();
+    expect(scanner.tasks).toEqual([]);
+    expect(scanner.port).toBeUndefined();
+  });
+
+  test('should parse type', () => {
+    const scanner = Scanner.fromElement({ type: '42' });
+
+    expect(scanner.scannerType).toEqual('42');
+  });
+
+  test('should parse credential', () => {
+    const scanner = Scanner.fromElement({
+      credential: {
+        _id: '123abc',
+      },
+    });
+    const scanner2 = Scanner.fromElement({
+      credential: {
+        _id: '',
+      },
+    });
+
+    expect(scanner.credential).toBeInstanceOf(Credential);
+    expect(scanner?.credential?.id).toEqual('123abc');
+    expect(scanner?.credential?.entityType).toEqual('credential');
+    expect(scanner2.credential).toBeUndefined();
+  });
+
+  test('should parse ca pub', () => {
+    const scanner = Scanner.fromElement({
+      ca_pub: '',
+    });
+    expect(scanner.caPub).toBeUndefined();
+    const scanner2 = Scanner.fromElement({
+      ca_pub: 'foobar',
+    });
+    expect(scanner2.caPub).toEqual({ certificate: 'foobar' });
+  });
+
+  test('should parse ca pub info', () => {
+    const elem = {
+      ca_pub: 'foo',
+      ca_pub_info: {
+        activation_time: '2018-10-10T23:00:00.000+0000',
+        expiration_time: '2018-10-10T23:59:00.000+0000',
+      },
+    };
+    const scanner = Scanner.fromElement(elem);
+
+    expect(isDate(scanner?.caPub?.info?.activationTime)).toEqual(true);
+    expect(isDate(scanner?.caPub?.info?.expirationTime)).toEqual(true);
+  });
+
+  test('should parse tasks', () => {
+    const scanner = Scanner.fromElement({
+      tasks: {
+        task: [
+          { _id: '123', usage_type: 'scan' },
+          { _id: '456', name: 'foo', usage_type: 'audit' },
+        ],
+      },
+    });
+
+    expect(scanner.tasks.length).toEqual(2);
+    expect(scanner.tasks[0].id).toEqual('123');
+    expect(scanner.tasks[0].name).toBeUndefined();
+    expect(scanner.tasks[0].usageType).toEqual('scan');
+    expect(scanner.tasks[1].id).toEqual('456');
+    expect(scanner.tasks[1].name).toEqual('foo');
+    expect(scanner.tasks[1].usageType).toEqual('audit');
+  });
+
+  test('should parse scan configs', () => {
+    const scanner = Scanner.fromElement({
+      configs: {
+        config: [{ _id: '123' }],
+      },
+    });
+
+    expect(scanner.configs[0].entityType).toEqual('scanconfig');
+    expect(scanner.configs[0].id).toEqual('123');
+  });
+
+  test('should parse scanner info', () => {
+    const scanner = Scanner.fromElement({
+      info: {
+        scanner: {
+          name: 'foo',
+          version: '42',
+        },
+        daemon: {
+          version: '1337',
+        },
+        protocol: {
+          name: 'bar',
+        },
+        description: 'lorem',
+        params: {
+          param: [
+            {
+              name: 'ipsum',
+              description: 'dolor',
+              paramType: 'sit',
+              mandatory: 1,
+              default: 'amet',
+            },
+          ],
+        },
+      },
+    });
+    const scanner2 = Scanner.fromElement({
+      info: {
+        description: '',
+        params: {},
+      },
+    });
+
+    expect(scanner.info?.scanner?.name).toEqual('foo');
+    expect(scanner.info?.scanner?.version).toEqual('42');
+    expect(scanner.info?.daemon?.name).toBeUndefined();
+    expect(scanner.info?.daemon?.version).toEqual('1337');
+    expect(scanner.info?.protocol?.name).toEqual('bar');
+    expect(scanner.info?.protocol?.version).toBeUndefined();
+    const scannerParam = scanner.info?.params?.[0];
+    expect(scannerParam).toEqual({
+      name: 'ipsum',
+      description: 'dolor',
+      paramType: 'sit',
+      mandatory: YES_VALUE,
+      default: 'amet',
+    });
+    expect(scanner2.info?.description).toBeUndefined();
+    expect(scanner2.info?.params).toEqual([]);
+  });
+
+  test('should parse port', () => {
+    const scanner = Scanner.fromElement({
+      // @ts-expect-error
+      port: '9392',
+    });
+    const scanner2 = Scanner.fromElement({
+      // @ts-expect-error
+      port: 'not-a-number',
+    });
+    const scanner3 = Scanner.fromElement({
+      // @ts-expect-error
+      port: '',
+    });
+    const scanner4 = Scanner.fromElement({ port: 1234 });
+
+    expect(scanner.port).toEqual(9392);
+    expect(scanner2.port).toBeUndefined();
+    expect(scanner3.port).toBeUndefined();
+    expect(scanner4.port).toEqual(1234);
+  });
+});
+
+describe('Scanner model method tests', () => {
+  test('isCloneable() should return correct true/false', () => {
+    const scanner1 = new Scanner({ scannerType: CVE_SCANNER_TYPE });
+    const scanner2 = new Scanner({ scannerType: OPENVAS_SCANNER_TYPE });
+    const scanner3 = new Scanner({ scannerType: AK_SHUMKAR_SENSOR_SCANNER_TYPE });
+
+    expect(scanner1.isCloneable()).toEqual(false);
+    expect(scanner2.isCloneable()).toEqual(true);
+    expect(scanner3.isCloneable()).toEqual(true);
+  });
+
+  test('isWritable() should return correct true/false', () => {
+    const scanner1 = new Scanner({ scannerType: CVE_SCANNER_TYPE });
+    const scanner2 = new Scanner({ scannerType: OPENVAS_SCANNER_TYPE });
+    const scanner3 = new Scanner({ scannerType: AK_SHUMKAR_SENSOR_SCANNER_TYPE });
+
+    expect(scanner1.isWritable()).toEqual(false);
+    expect(scanner2.isWritable()).toEqual(true);
+    expect(scanner3.isWritable()).toEqual(true);
+  });
+
+  test('hasUnixSocket() should return correct true/false', () => {
+    const scanner1 = new Scanner({ host: '/foo' });
+    const scanner2 = new Scanner({ host: 'bar' });
+    const scanner3 = new Scanner({ host: '' });
+
+    expect(scanner1.hasUnixSocket()).toEqual(true);
+    expect(scanner2.hasUnixSocket()).toEqual(false);
+    expect(scanner3.hasUnixSocket()).toEqual(false);
+  });
+});
+
+describe('Scanner model function tests', () => {
+  test('scannerTypeName() should return scanner type', () => {
+    expect(scannerTypeName(OPENVAS_SCANNER_TYPE)).toEqual('OpenVAS Scanner');
+    expect(scannerTypeName(CVE_SCANNER_TYPE)).toEqual('CVE Scanner');
+    expect(scannerTypeName(4)).toEqual('Unknown scanner type (4)');
+    expect(scannerTypeName(AK_SHUMKAR_SENSOR_SCANNER_TYPE)).toEqual(
+      'Ak Shumkar Sensor',
+    );
+    expect(scannerTypeName('42')).toEqual('Unknown scanner type (42)');
+    expect(scannerTypeName(OPENVASD_SCANNER_TYPE)).toEqual('OpenVASD Scanner');
+    expect(scannerTypeName(OPENVASD_SENSOR_SCANNER_TYPE)).toEqual(
+      'OpenVASD Sensor',
+    );
+    expect(scannerTypeName(AGENT_CONTROLLER_SCANNER_TYPE)).toEqual(
+      'Agent Controller',
+    );
+    expect(scannerTypeName(AGENT_CONTROLLER_SENSOR_SCANNER_TYPE)).toEqual(
+      'Agent Sensor',
+    );
+    expect(scannerTypeName(CONTAINER_IMAGE_SCANNER_TYPE)).toEqual(
+      'Container Image Scanner',
+    );
+    expect(scannerTypeName(undefined)).toEqual('Unknown scanner type');
+  });
+
+  test('openVasScannersFilter should return filter with correct true/false', () => {
+    // @ts-expect-error
+    expect(openVasScannersFilter({ scannerType: 42 })).toEqual(false);
+    expect(
+      openVasScannersFilter({ scannerType: AK_SHUMKAR_SENSOR_SCANNER_TYPE }),
+    ).toEqual(false);
+    expect(openVasScannersFilter({ scannerType: OPENVAS_SCANNER_TYPE })).toEqual(
+      true,
+    );
+  });
+
+  test('scannerTypeName() should never return undefined', () => {
+    const res = scannerTypeName(OPENVAS_SCANNER_TYPE);
+    expect(res).toBeDefined();
+    expect(typeof res).toBe('string');
+    expect(res.length).toBeGreaterThan(0);
+  });
+
+  test('should parse agent_control_config_defaults with all fields', () => {
+    const scanner = Scanner.fromElement({
+      agent_control_config_defaults: {
+        agent_defaults: {
+          agent_control: {
+            retry: {
+              attempts: 3,
+              delay_in_seconds: 10,
+              max_jitter_in_seconds: 5,
+            },
+          },
+          agent_script_executor: {
+            bulk_size: 100,
+            bulk_throttle_time_in_ms: 500,
+            indexer_dir_depth: 3,
+            scheduler_cron_time: {
+              item: ['0 0 * * *', '0 12 * * *'],
+            },
+          },
+          heartbeat: {
+            interval_in_seconds: 60,
+            miss_until_inactive: 3,
+          },
+        },
+        agent_control_defaults: {
+          update_to_latest: YES_VALUE,
+        },
+      },
+    });
+
+    expect(scanner.agentControlConfig).toBeDefined();
+    expect(scanner.agentControlConfig?.agentDefaults).toBeDefined();
+    expect(
+      scanner.agentControlConfig?.agentDefaults.agentControl.retry.attempts,
+    ).toEqual(3);
+    expect(
+      scanner.agentControlConfig?.agentDefaults.agentControl.retry
+        .delayInSeconds,
+    ).toEqual(10);
+    expect(
+      scanner.agentControlConfig?.agentDefaults.agentControl.retry
+        .maxJitterInSeconds,
+    ).toEqual(5);
+    expect(
+      scanner.agentControlConfig?.agentDefaults.agentScriptExecutor.bulkSize,
+    ).toEqual(100);
+    expect(
+      scanner.agentControlConfig?.agentDefaults.agentScriptExecutor
+        .bulkThrottleTimeInMs,
+    ).toEqual(500);
+    expect(
+      scanner.agentControlConfig?.agentDefaults.agentScriptExecutor
+        .indexerDirDepth,
+    ).toEqual(3);
+    expect(
+      scanner.agentControlConfig?.agentDefaults.agentScriptExecutor
+        .schedulerCronTimes,
+    ).toEqual(['0 0 * * *', '0 12 * * *']);
+    expect(
+      scanner.agentControlConfig?.agentDefaults.heartbeat.intervalInSeconds,
+    ).toEqual(60);
+    expect(
+      scanner.agentControlConfig?.agentDefaults.heartbeat.missUntilInactive,
+    ).toEqual(3);
+    expect(
+      scanner.agentControlConfig?.agentControlDefaults.updateToLatest,
+    ).toEqual(true);
+  });
+
+  test('should parse agent_control_config_defaults with single scheduler_cron_time', () => {
+    const scanner = Scanner.fromElement({
+      agent_control_config_defaults: {
+        agent_defaults: {
+          agent_script_executor: {
+            scheduler_cron_time: {
+              item: '0 3 * * *',
+            },
+          },
+        },
+      },
+    });
+
+    expect(scanner.agentControlConfig).toBeDefined();
+    expect(
+      scanner.agentControlConfig?.agentDefaults.agentScriptExecutor
+        .schedulerCronTimes,
+    ).toEqual(['0 3 * * *']);
+  });
+
+  test('should handle missing agent_control_config_defaults', () => {
+    const scanner = Scanner.fromElement({
+      type: AGENT_CONTROLLER_SCANNER_TYPE,
+    });
+
+    expect(scanner.agentControlConfig).toBeUndefined();
+  });
+
+  test('should handle empty agent_control_config_defaults', () => {
+    const scanner = Scanner.fromElement({
+      agent_control_config_defaults: {},
+    });
+
+    expect(scanner.agentControlConfig).toBeUndefined();
+  });
+
+  test('should use defaults for missing fields in agent_control_config_defaults', () => {
+    const scanner = Scanner.fromElement({
+      agent_control_config_defaults: {
+        agent_defaults: {
+          agent_control: {
+            retry: {},
+          },
+          agent_script_executor: {},
+          heartbeat: {},
+        },
+        agent_control_defaults: {},
+      },
+    });
+
+    expect(scanner.agentControlConfig).toBeDefined();
+    expect(
+      scanner.agentControlConfig?.agentDefaults.agentControl.retry.attempts,
+    ).toEqual(0);
+    expect(
+      scanner.agentControlConfig?.agentDefaults.agentControl.retry
+        .delayInSeconds,
+    ).toEqual(0);
+    expect(
+      scanner.agentControlConfig?.agentDefaults.agentScriptExecutor
+        .schedulerCronTimes,
+    ).toEqual([]);
+    expect(
+      scanner.agentControlConfig?.agentControlDefaults.updateToLatest,
+    ).toEqual(false);
+  });
+});

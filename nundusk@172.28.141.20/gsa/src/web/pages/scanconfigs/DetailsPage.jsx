@@ -1,0 +1,363 @@
+/* SPDX-FileCopyrightText: 2024 Greenbone AG
+ *
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+import React from 'react';
+import styled from 'styled-components';
+import {ScanConfigIcon} from 'web/components/icon';
+import Divider from 'web/components/layout/Divider';
+import Layout from 'web/components/layout/Layout';
+import PageTitle from 'web/components/layout/PageTitle';
+import DetailsLink from 'web/components/link/DetailsLink';
+import Link from 'web/components/link/Link';
+import Tab from 'web/components/tab/Tab';
+import TabLayout from 'web/components/tab/TabLayout';
+import TabList from 'web/components/tab/TabList';
+import TabPanel from 'web/components/tab/TabPanel';
+import TabPanels from 'web/components/tab/TabPanels';
+import Tabs from 'web/components/tab/Tabs';
+import TabsContainer from 'web/components/tab/TabsContainer';
+import StripedTable from 'web/components/table/StripedTable';
+import TableBody from 'web/components/table/TableBody';
+import TableData from 'web/components/table/TableData';
+import TableHead from 'web/components/table/TableHead';
+import TableHeader from 'web/components/table/TableHeader';
+import TableRow from 'web/components/table/TableRow';
+import EntitiesTab from 'web/entity/EntitiesTab';
+import EntityPage from 'web/entity/EntityPage';
+import EntityPermissions from 'web/entity/EntityPermissions';
+import {goToDetails, goToList} from 'web/entity/navigation';
+import EntityTags from 'web/entity/Tags';
+import withEntityContainer, {
+  permissionsResourceFilter,
+} from 'web/entity/withEntityContainer';
+import useTranslation from 'web/hooks/useTranslation';
+import ScanConfigDetails from 'web/pages/scanconfigs/Details';
+import ScanConfigComponent from 'web/pages/scanconfigs/ScanConfigComponent';
+import ScanConfigDetailsPageToolBarIcons from 'web/pages/scanconfigs/ScanConfigDetailsPageToolBarIcons';
+import Trend from 'web/pages/scanconfigs/Trend';
+import {
+  selector as permissionsSelector,
+  loadEntities as loadPermissions,
+} from 'web/store/entities/permissions';
+import {selector, loadEntity} from 'web/store/entities/scanconfigs';
+import PropTypes from 'web/utils/PropTypes';
+
+export const NvtFamilies = ({entity}) => {
+  const [_] = useTranslation();
+  const {family_list = [], families} = entity;
+  return (
+    <Layout>
+      {family_list.length > 0 && (
+        <StripedTable>
+          <TableHeader>
+            <TableRow>
+              <TableHead>{_('Family')}</TableHead>
+              <TableHead>{_('NVTs selected')}</TableHead>
+              <TableHead align={['center', 'center']}>
+                <Divider>
+                  {_('Trend')}
+                  <Trend
+                    titleDynamic={_(
+                      'The families selection is DYNAMIC. New ' +
+                        'families will automatically be added and considered.',
+                    )}
+                    titleStatic={_(
+                      'The families selection is STATIC. New ' +
+                        'families will NOT automatically be added and considered.',
+                    )}
+                    trend={families.trend}
+                  />
+                </Divider>
+              </TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {family_list.map(family => {
+              return (
+                <TableRow key={family.name}>
+                  <TableData>
+                    <span>
+                      <Link
+                        filter={'family="' + family.name + '"'}
+                        title={_('NVTs of family {{name}}', {
+                          name: family.name,
+                        })}
+                        to="nvts"
+                      >
+                        {family.name}
+                      </Link>
+                    </span>
+                  </TableData>
+                  <TableData align={['center', 'start']}>
+                    <Layout>{_('{{count}} of {{max}}', family.nvts)}</Layout>
+                  </TableData>
+                  <TableData align={['center', 'center']}>
+                    <Trend
+                      titleDynamic={_(
+                        'The NVT selection is DYNAMIC. New ' +
+                          'NVTs will automatically be added and considered.',
+                      )}
+                      titleStatic={_(
+                        'The NVT selection is STATIC. New ' +
+                          'NVTs will NOT automatically be added and considered.',
+                      )}
+                      trend={family.trend}
+                    />
+                  </TableData>
+                </TableRow>
+              );
+            })}
+          </TableBody>
+        </StripedTable>
+      )}
+    </Layout>
+  );
+};
+
+NvtFamilies.propTypes = {
+  entity: PropTypes.model.isRequired,
+};
+
+export const ScannerPreferences = ({entity}) => {
+  const [_] = useTranslation();
+  const {preferences} = entity;
+
+  return (
+    <Layout>
+      {preferences.scanner.length > 0 && (
+        <StripedTable>
+          <TableHeader>
+            <TableRow>
+              <TableHead>{_('Name')}</TableHead>
+              <TableHead>{_('Value')}</TableHead>
+              <TableHead>{_('Default Value')}</TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {preferences.scanner.map(pref => {
+              return (
+                <TableRow key={pref.name}>
+                  <TableData>{pref.name}</TableData>
+                  <TableData>{pref.value}</TableData>
+                  <TableData>{pref.default}</TableData>
+                </TableRow>
+              );
+            })}
+          </TableBody>
+        </StripedTable>
+      )}
+    </Layout>
+  );
+};
+
+ScannerPreferences.propTypes = {
+  entity: PropTypes.model.isRequired,
+};
+
+const StyledTableData = styled(TableData)`
+  word-break: break-all;
+`;
+
+export const NvtPreferences = ({entity}) => {
+  const [_] = useTranslation();
+  const {preferences} = entity;
+
+  return (
+    <Layout>
+      {preferences.nvt.length > 0 && (
+        <StripedTable>
+          <TableHeader>
+            <TableRow>
+              <TableHead width="25%">{_('NVT')}</TableHead>
+              <TableHead width="25%">{_('Name')}</TableHead>
+              <TableHead width="15%">{_('Value')}</TableHead>
+              <TableHead>{_('Default Value')}</TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {preferences.nvt.map(pref => {
+              return (
+                <TableRow key={pref.nvt.oid + pref.nvt.name + pref.name}>
+                  <TableData>
+                    <span>
+                      <DetailsLink id={pref.nvt.oid} type="nvt">
+                        {pref.nvt.name}
+                      </DetailsLink>
+                    </span>
+                  </TableData>
+                  <TableData>{pref.name}</TableData>
+                  <StyledTableData>{pref.value}</StyledTableData>
+                  <StyledTableData>{pref.default}</StyledTableData>
+                </TableRow>
+              );
+            })}
+          </TableBody>
+        </StripedTable>
+      )}
+    </Layout>
+  );
+};
+
+NvtPreferences.propTypes = {
+  entity: PropTypes.model.isRequired,
+};
+
+const Details = ({entity, ...props}) => {
+  return (
+    <Layout flex="column">
+      <ScanConfigDetails entity={entity} {...props} />
+    </Layout>
+  );
+};
+
+Details.propTypes = {
+  entity: PropTypes.model.isRequired,
+};
+
+const Page = ({
+  entity,
+  permissions = [],
+  onChanged,
+  onDownloaded,
+  onError,
+  ...props
+}) => {
+  const [_] = useTranslation();
+  return (
+    <ScanConfigComponent
+      onCloneError={onError}
+      onCloned={goToDetails('scanconfig', props)}
+      onCreated={goToDetails('scanconfig', props)}
+      onDeleteError={onError}
+      onDeleted={goToList('scanconfigs', props)}
+      onDownloadError={onError}
+      onDownloaded={onDownloaded}
+      onImported={goToDetails('scanconfig', props)}
+      onSaved={onChanged}
+    >
+      {({
+        clone,
+        create,
+        delete: deleteFunc,
+        download,
+        edit,
+        import: importFunc,
+        save,
+      }) => (
+        <EntityPage
+          {...props}
+          entity={entity}
+          sectionIcon={<ScanConfigIcon size="large" />}
+          title={_('Scan Config')}
+          toolBarIcons={ScanConfigDetailsPageToolBarIcons}
+          onScanConfigCloneClick={clone}
+          onScanConfigCreateClick={create}
+          onScanConfigDeleteClick={deleteFunc}
+          onScanConfigDownloadClick={download}
+          onScanConfigEditClick={edit}
+          onScanConfigImportClick={importFunc}
+          onScanConfigSaveClick={save}
+        >
+          {() => {
+            const {preferences} = entity;
+            return (
+              <>
+                <PageTitle
+                  title={_('Scan Config: {{name}}', {name: entity.name})}
+                />
+                <TabsContainer flex="column" grow="1">
+                  <TabLayout align={['start', 'end']} grow="1">
+                    <TabList align={['start', 'stretch']}>
+                      <Tab>{_('Information')}</Tab>
+                      <EntitiesTab entities={preferences.scanner}>
+                        {_('Scanner Preferences')}
+                      </EntitiesTab>
+                      <EntitiesTab entities={entity.family_list}>
+                        {_('NVT Families')}
+                      </EntitiesTab>
+                      <EntitiesTab entities={preferences.nvt}>
+                        {_('NVT Preferences')}
+                      </EntitiesTab>
+                      <EntitiesTab entities={entity.userTags}>
+                        {_('User Tags')}
+                      </EntitiesTab>
+                      <EntitiesTab entities={permissions}>
+                        {_('Permissions')}
+                      </EntitiesTab>
+                    </TabList>
+                  </TabLayout>
+
+                  <Tabs>
+                    <TabPanels>
+                      <TabPanel>
+                        <Details entity={entity} />
+                      </TabPanel>
+                      <TabPanel>
+                        <ScannerPreferences entity={entity} />
+                      </TabPanel>
+                      <TabPanel>
+                        <NvtFamilies entity={entity} />
+                      </TabPanel>
+                      <TabPanel>
+                        <NvtPreferences entity={entity} />
+                      </TabPanel>
+                      <TabPanel>
+                        <EntityTags
+                          entity={entity}
+                          onChanged={onChanged}
+                          onError={onError}
+                        />
+                      </TabPanel>
+                      <TabPanel>
+                        <EntityPermissions
+                          entity={entity}
+                          permissions={permissions}
+                          onChanged={onChanged}
+                          onDownloaded={onDownloaded}
+                          onError={onError}
+                        />
+                      </TabPanel>
+                    </TabPanels>
+                  </Tabs>
+                </TabsContainer>
+              </>
+            );
+          }}
+        </EntityPage>
+      )}
+    </ScanConfigComponent>
+  );
+};
+
+Page.propTypes = {
+  entity: PropTypes.model,
+  permissions: PropTypes.array,
+  onChanged: PropTypes.func.isRequired,
+  onDownloaded: PropTypes.func.isRequired,
+  onError: PropTypes.func.isRequired,
+};
+
+const load = gmp => {
+  const loadEntityFunc = loadEntity(gmp);
+  const loadPermissionsFunc = loadPermissions(gmp);
+  return id => dispatch =>
+    Promise.all([
+      dispatch(loadEntityFunc(id)),
+      dispatch(loadPermissionsFunc(permissionsResourceFilter(id))),
+    ]);
+};
+
+const mapStateToProps = (rootState, {id}) => {
+  const permissionsSel = permissionsSelector(rootState);
+  return {
+    permissions: permissionsSel.getEntities(permissionsResourceFilter(id)),
+  };
+};
+
+export default withEntityContainer('scanconfig', {
+  entitySelector: selector,
+  load,
+  mapStateToProps,
+})(Page);

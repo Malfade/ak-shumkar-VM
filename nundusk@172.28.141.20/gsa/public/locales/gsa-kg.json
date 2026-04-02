@@ -1,0 +1,6107 @@
+{
+
+  "Username": "Колдонуучунун аты",
+
+  "Password": "Сыр сөз",
+
+  "Login": "Кирүү",
+
+  "Logout": "Чыгуу",
+
+  "Dashboards": "Башкаруу панели",
+
+  "Scans": "Сканерлөө",
+
+  "Tasks": "Тапшырмалар",
+
+  "Reports": "Отчёттор",
+
+  "Results": "Жыйынтыктар",
+
+  "Assets": "Активдер",
+
+  "Compliance": "Шайкештик",
+
+  "SecInfo": "Коопсуздук маалыматы",
+
+  "Configuration": "Конфигурация",
+
+  "Administration": "Администрация",
+
+  "Settings": "Орнотуулар",
+
+  "User Settings": "Колдонуучунун орнотуулары",
+
+  "General": "Жалпы",
+
+  "Language": "Тил",
+
+  "Switch language to English": "English тилине которуу",
+
+  "Switch language to Russian": "Орус тилине которуу",
+
+  "Switch language to Kyrgyz": "Кыргыз тилине которуу",
+
+  "Audit Reports by Compliance": "Шайкештик боюнча аудит отчёттору",
+
+  "Total": "Бардыгы",
+
+  "Status": "Статус",
+
+  "# of Reports": "Отчёттордун саны",
+
+  "Apply": "Колдонуу",
+
+  "Cancel": "Жокко чыгаруу",
+
+  "Save": "Сактоо",
+
+  "Ak Shumkar": "Ak Shumkar",
+
+  "(All types)": "(Бардык түрлөрү)",
+
+  "(None)": "(Эч ким)",
+
+  "(no results)": "(жыйынтык жок)",
+
+  "(none)": "(жок)",
+
+  "{{count}} NVT was selected": "{{count}} NVT тандалды",
+
+  "{{count}} NVTs were selected": "{{count}} NVT тандалды",
+
+  "{{count}} selected": "{{count}} тандалды",
+
+  "{{count}} Result": "{{count}} жыйынтык",
+
+  "{{count}} Results": "{{count}} жыйынтык",
+
+  "{{entityType}} Filter": "{{entityType}} фильтри",
+
+  "{{family}} Preference": "{{family}} артыкчылыктары",
+
+  "{{name}} ({{count}} result)": "{{name}} ({{count}} жыйынтык)",
+
+  "{{name}} ({{count}} results)": "{{name}} ({{count}} жыйынтык)",
+
+  "{{name}} already edited. Changes would be lost. Load the saved state?": "{{name}} мурда түзөтүлгөн. Өзгөртүүлөр жоголушу мүмкүн. Сакталган абалды жүктөйсүзбү?",
+
+  "{{name}} created successfully.": "{{name}} ийгиликтүү түзүлдү.",
+
+  "{{name}} deleted successfully.": "{{name}} ийгиликтүү өчүрүлдү.",
+
+  "{{name}} edited successfully.": "{{name}} ийгиликтүү түзөтүлдү.",
+
+  "{{name}} restored successfully.": "{{name}} ийгиликтүү калыбына келтирилди.",
+
+  "{{name}} used: ": "{{name}} колдонулат: ",
+
+  "1 Day": "1 күн",
+
+  "1 Hour": "1 саат",
+
+  "1 Month": "1 ай",
+
+  "1 Week": "1 жума",
+
+  "1 Year": "1 жыл",
+
+  "Abandon": "Таштоо",
+
+  "About": "Жөнүндө",
+
+  "About {{name}}": "{{name}} жөнүндө",
+
+  "About GMP": "GMP жөнүндө",
+
+  "About Ak Shumkar Enterprise Feed": "Ak Shumkar ишкана лентасы жөнүндө",
+
+  "About Ak Shumkar Vulnerability Management Feed": "Ak Shumkar алсыздыктарды башкаруу лентасы жөнүндө",
+
+  "About GSA": "GSA жөнүндө",
+
+  "About GVM": "GVM жөнүндө",
+
+  "About Openvas Community Feed": "Ak Shumkar коомдук лентасы жөнүндө",
+
+  "Accept": "Кабыл алуу",
+
+  "Access": "Мүмкүнчүлүк",
+
+  "Access Control": "Мүмкүнчүлүктү көзөмөлдөө",
+
+  "Action": "Аракет",
+
+  "Actions": "Аракеттер",
+
+  "Active": "Активдүү",
+
+  "Actor": "Актор",
+
+  "Add": "Кошуу",
+
+  "Add all results of filter to Assets": "Фильтрдин бардык жыйынтыктарын активдерге кошуу",
+
+  "Add Dashboard": "Панель кошуу",
+
+  "Add Filter": "Фильтр кошуу",
+
+  "Add result to Assets": "Жыйынтыкты активдерге кошуу",
+
+  "Add Tag": "Тег кошуу",
+
+  "Add Tag to {{type}}": "{{type}} үчүн тег кошуу",
+
+  "Additional Metrics": "Кошумча метрикалар",
+
+  "Address": "Дарек",
+
+  "Admin": "Админ",
+
+  "Administration Menu": "Администрация менюсу",
+
+  "Administrator": "Администратор",
+
+  "Advisories": "Сунуштар",
+
+  "Advisory": "Сунуш",
+
+  "After": "Кийин",
+
+  "Agent": "Агент",
+
+  "Agent group already exists.": "Агенттер тобу мурунтан эле бар.",
+
+  "Agent Group List": "Агенттер тобунун тизмеси",
+
+  "Agent group modified.": "Агенттер тобу өзгөртүлдү.",
+
+  "Agent Groups": "Агенттер топтору",
+
+  "Agents": "Агенттер",
+
+  "Agents List": "Агенттер тизмеси",
+
+  "Agents related info": "Агенттерге тиешелүү маалымат",
+
+  "Alert": "Эскертүү",
+
+  "Alert Details": "Эскертүү чоо-жайы",
+
+  "Alert Filter": "Эскертүү фильтри",
+
+  "Alert List": "Эскертүүлөр тизмеси",
+
+  "Alert made visible for:\n{{user}}\n{{role}}\n{{group}}": "Эскертүү төмөнкүлөр үчүн көрүнүктүү болду:\n{{user}}\n{{role}}\n{{group}}",
+
+  "Alert: {{name}}": "Эскертүү: {{name}}",
+
+  "Alerts": "Эскертүүлөр",
+
+  "Alerts using this Credentials": "Бул учёттук дайындарды колдонгон эскертүүлөр",
+
+  "Alerts using this Report Format": "Бул отчёт форматын колдонгон эскертүүлөр",
+
+  "Alive Test": "Жигердүүлүктү текшерүү",
+
+  "Alive Test Method": "Жигердүүлүктү текшерүү ыкмасы",
+
+  "All": "Баары",
+
+  "all": "баары",
+
+  "All CERT-Bund Advisories": "Бардык CERT-Bund сунуштары",
+
+  "All CPEs": "Бардык CPEлер",
+
+  "All CVEs": "Бардык CVEлер",
+
+  "All DFN-CERT Advisories": "Бардык DFN-CERT сунуштары",
+
+  "All Families": "Бардык үй-бүлөлөр",
+
+  "All Hosts": "Бардык хосттор",
+
+  "All NVTs": "Бардык NVTлер",
+
+  "All Operating Systems": "Бардык операциялык системалар",
+
+  "Allow more than one scan with the same configuration to run at the same time": "Бир эле конфигурация менен бир эле учурда бирден ашык сканерлөөнү иштетүүгө уруксат берүү",
+
+  "Alphabetical": "Алфавит боюнча",
+
+  "Alterable": "Өзгөртүлмө",
+
+  "An error occurred": "Ката кетти",
+
+  "Any": "Ар кандай",
+
+  "Appearance": "Көрүнүшү",
+
+  "Appliance": "Аппарат",
+
+  "Application ID": "Тиркеме IDси",
+
+  "Apply Filter": "Фильтрди колдонуу",
+
+  "Architectural": "Архитектуралык",
+
+  "Architecture": "Архитектура",
+
+  "Archive": "Архив",
+
+  "Assigned Users": "Дайындалган колдонуучулар",
+
+  "At": "Убактысында",
+
+  "At least one family needs to be selected!": "Кеминде бир үй-бүлө тандалышы керек!",
+
+  "Attack Complexity": "Атаканын татаалдыгы",
+
+  "Attack Vector": "Атака вектору",
+
+  "Audit": "Аудит",
+
+  "Audit Details": "Аудит чоо-жайы",
+
+  "Audit List": "Аудиттер тизмеси",
+
+  "Audit Result Filter": "Аудит жыйынтыктарынын фильтри",
+
+  "Audit: {{name}}": "Аудит: {{name}}",
+
+  "Audits": "Аудиттер",
+
+  "Audits Filter": "Аудиттер фильтри",
+
+  "Auth Type": "Аутентификация түрү",
+
+  "Authentication": "Аутентификация",
+
+  "Author": "Автор",
+
+  "Automated": "Автоматташтырылган",
+
+  "Availability": "Жеткиликтүүлүк",
+
+  "Availability Impact": "Жеткиликтүүлүккө таасири",
+
+  "Average": "Орточо",
+
+  "Back": "Артка",
+
+  "Base": "Базалык",
+
+  "Base Score": "Базалык балл",
+
+  "Base Vector": "Базалык вектор",
+
+  "Basic": "Негизги",
+
+  "Batch": "Пакеттик",
+
+  "Before": "Мурда",
+
+  "Binary": "Бинардык",
+
+  "Both": "Экөө тең",
+
+  "Box": "Куту",
+
+  "Browse": "Көрүү",
+
+  "Browser": "Браузер",
+
+  "Build": "Сборка",
+
+  "By": "Боюнча",
+
+  "CA Certificate": "CA сертификаты",
+
+  "Cancel Requested": "Жокко чыгаруу суралды",
+
+  "Canceled": "Жокко чыгарылды",
+
+  "Category": "Категория",
+
+  "CERT-Bund Advisory": "CERT-Bund сунушу",
+
+  "CERT-Bund Advisory: {{name}}": "CERT-Bund сунушу: {{name}}",
+
+  "Certificate": "Сертификат",
+
+  "Change": "Өзгөртүү",
+
+  "Change Password": "Сыр сөздү өзгөртүү",
+
+  "Chart": "Диаграмма",
+
+  "Check": "Текшерүү",
+
+  "Check for updates": "Жаңыртууларды текшерүү",
+
+  "Children": "Балдар",
+
+  "Class": "Класс",
+
+  "Clean": "Таза",
+
+  "Clear": "Тазалоо",
+
+  "Client": "Клиент",
+
+  "Close": "Жабуу",
+
+  "Closed": "Жабык",
+
+  "Cloud": "Булут",
+
+  "Code": "Код",
+
+  "Color": "Түс",
+
+  "Column": "Мамыча",
+
+  "Comment": "Комментарий",
+
+  "Community": "Коомчулук",
+
+  "Compare": "Салыштыруу",
+
+  "Compliance Scan": "Шайкештикти сканерлөө",
+
+  "Config": "Конфигурация",
+
+  "Configuration Menu": "Конфигурация менюсу",
+
+  "Configure": "Конфигурациялоо",
+
+  "Confirm": "Ырастоо",
+
+  "Connected": "Туташты",
+
+  "Connection": "Туташуу",
+
+  "Contact": "Байланыш",
+
+  "Content": "Мазмун",
+
+  "Context": "Контекст",
+
+  "Control": "Көзөмөл",
+
+  "Copy": "Көчүрүү",
+
+  "Count": "Саны",
+
+  "CPE": "CPE",
+
+  "CPE: {{name}}": "CPE: {{name}}",
+
+  "Created": "Түзүлдү",
+
+  "Credential": "Учёттук дайындар",
+
+  "Credentials": "Учёттук дайындар",
+
+  "Critical": "Критикалык",
+
+  "CSV": "CSV",
+
+  "CVE": "CVE",
+
+  "CVE: {{name}}": "CVE: {{name}}",
+
+  "CVSS": "CVSS",
+
+  "Dashboard": "Башкаруу панели",
+
+  "Data": "Маалымат",
+
+  "Date": "Дата",
+
+  "Day": "Күн",
+
+  "Days": "Күндөр",
+
+  "Debug": "Мүчүлүштүктөрдү издөө",
+
+  "Default": "Алыдын ала коюлган",
+
+  "Delete": "Өчүрүү",
+
+  "Description": "Сүрөттөмө",
+
+  "Details": "Толук маалымат",
+
+  "Device": "Түзүлүш",
+
+  "DFN-CERT Advisory": "DFN-CERT сунушу",
+
+  "DFN-CERT Advisory: {{name}}": "DFN-CERT сунушу: {{name}}",
+
+  "Disabled": "Өчүрүлдү",
+
+  "Disconnected": "Ажыратылды",
+
+  "Display": "Көрүнүшү",
+
+  "Domain": "Домен",
+
+  "Done": "Даяр",
+
+  "Download": "Жүктөө",
+
+  "Duration": "Узактыгы",
+
+  "Dynamic": "Динамикалык",
+
+  "Edit": "Түзөтүү",
+
+  "Email": "Электрондук почта",
+
+  "Enabled": "Иштетилди",
+
+  "End": "Аягы",
+
+  "Error": "Ката",
+
+  "Event": "Окуя",
+
+  "Excel": "Excel",
+
+  "Execute": "Аткаруу",
+
+  "Execution": "Аткаруу",
+
+  "Exit": "Чыгуу",
+
+  "Export": "Экспорттоо",
+
+  "External": "Тышкы",
+
+  "Failed": "Ишке ашкан жок",
+
+  "Family": "Үй-бүлө",
+
+  "Feed": "Лента",
+
+  "File": "Файл",
+
+  "Filter": "Фильтр",
+
+  "Finished": "Аяктады",
+
+  "First": "Биринчи",
+
+  "Fixed": "Оңдолду",
+
+  "Folder": "Папка",
+
+  "Format": "Формат",
+
+  "From": "Дан/Төн",
+
+  "Full": "Толук",
+
+  "General Settings": "Жалпы орнотуулар",
+
+  "Group": "Топ",
+
+  "Groups": "Топтор",
+
+  "Guest": "Конок",
+
+  "Help": "Жардам",
+
+  "High": "Жогору",
+
+  "History": "Тарых",
+
+  "Host": "Хост",
+
+  "Hosts": "Хосттор",
+
+  "Hour": "Саат",
+
+  "ID": "ID",
+
+  "Identity": "Инсандык",
+
+  "Impact": "Таасири",
+
+  "Import": "Импорттоо",
+
+  "In progress": "Аткарылууда",
+
+  "Inactive": "Активдүү эмес",
+
+  "Information": "Маалымат",
+
+  "Info": "Маалымат",
+
+  "Integrity": "Бүтүндүк",
+
+  "Internal": "Ички",
+
+  "Invalid": "Жараксыз",
+
+  "IP": "IP",
+
+  "JSON": "JSON",
+
+  "Key": "Ачкыч",
+
+  "Last": "Акыркы",
+
+  "Latest": "Акыркы",
+
+  "Level": "Деңгээл",
+
+  "License": "Лицензия",
+
+  "List": "Тизме",
+
+  "Log": "Лог",
+
+  "Logging": "Логдоо",
+
+  "Low": "Төмөн",
+
+  "Manager": "Менеджер",
+
+  "Manual": "Кол менен",
+
+  "Medium": "Орточо",
+
+  "Message": "Билдирүү",
+
+  "Method": "Ыкма",
+
+  "Metrics": "Метрикалар",
+
+  "Mode": "Режим",
+
+  "Modified": "Өзгөртүлдү",
+
+  "Month": "Ай",
+
+  "Name": "Аты",
+
+  "Network": "Тармактык",
+
+  "New": "Жаңы",
+
+  "Next": "Кийинки",
+
+  "No": "Жок",
+
+  "None": "Жок",
+
+  "Note": "Эскертүү",
+
+  "Notes": "Эскертүүлөр",
+
+  "NVT": "NVT",
+
+  "Object": "Объект",
+
+  "OK": "ОК",
+
+  "Open": "Ачык",
+
+  "Options": "Параметрлер",
+
+  "Output": "Чыгаруу",
+
+  "Owner": "Ээси",
+
+  "Page": "Барак",
+
+  "Parameter": "Параметр",
+
+  "Password Reset": "Сыр сөздү баштапкы абалга келтирүү",
+
+  "Path": "Жол",
+
+  "PDF": "PDF",
+
+  "Peer": "Пир",
+
+  "Performance": "Өндүрүмдүүлүк",
+
+  "Permissions": "Уруксаттар",
+
+  "Phone": "Телефон",
+
+  "Plan": "План",
+
+  "Port": "Порт",
+
+  "Ports": "Порттор",
+
+  "Power": "Кубат",
+
+  "Preference": "Артыкчылык",
+
+  "Preferences": "Артыкчылыктар",
+
+  "Preview": "Алдын ала көрүү",
+
+  "Previous": "Мурунку",
+
+  "Priority": "Приоритет",
+
+  "Private": "Жеке",
+
+  "Profile": "Профиль",
+
+  "Progress": "Прогресс",
+
+  "Public": "Коомдук",
+
+  "Quality": "Сапаты",
+
+  "Queue": "Кезек",
+
+  "RAM": "RAM",
+
+  "Range": "Диапазон",
+
+  "Read": "Окуу",
+
+  "Reason": "Себеп",
+
+  "Recent": "Акыркы",
+
+  "Reconfigure": "Кайра конфигурациялоо",
+
+  "Record": "Жазуу",
+
+  "Refresh": "Жаңыртуу",
+
+  "Register": "Каттоо",
+
+  "Registration": "Каттоо",
+
+  "Related": "Тандалган",
+
+  "Remediation": "Түзөтүү",
+
+  "Remote": "Удалённый",
+
+  "Remove": "Өчүрүү",
+
+  "Rename": "Атын өзгөртүү",
+
+  "Repair": "Оңдоо",
+
+  "Repeat": "Кайталоо",
+
+  "Replace": "Алмаштыруу",
+
+  "Request": "Сурам",
+
+  "Required": "Милдеттүү",
+
+  "Reset": "Калыбына келтирүү",
+
+  "Resource": "Ресурс",
+
+  "Response": "Жооп",
+
+  "Restart": "Кайра баштоо",
+
+  "Restore": "Калыбына келтирүү",
+
+  "Resume": "Улантуу",
+
+  "Retry": "Кайра аракет кылуу",
+
+  "Role": "Роль",
+
+  "Roles": "Ролдор",
+
+  "Run": "Иштетүү",
+
+  "Running": "Иштеп жатат",
+
+  "Scale": "Масштаб",
+
+  "Scanner": "Сканер",
+
+  "Scanners": "Сканерлер",
+
+  "Schedule": "Расписание",
+
+  "Schedules": "Расписаниелер",
+
+  "Scope": "Область",
+
+  "Score": "Балл",
+
+  "Search": "Издөө",
+
+  "Second": "Секунд",
+
+  "Seconds": "Секундалар",
+
+  "Security": "Коопсуздук",
+
+  "Select": "Тандоо",
+
+  "Selected": "Тандалган",
+
+  "Server": "Сервер",
+
+  "Service": "Сервис",
+
+  "Session": "Сессия",
+
+  "Severity": "Критикалуулугу",
+
+  "Share": "Бөлүшүү",
+
+  "Shift": "Смена",
+
+  "Show": "Көрсөтүү",
+
+  "Sign In": "Кирүү",
+
+  "Sign Out": "Чыгуу",
+
+  "Simple": "Жөнөкөй",
+
+  "Size": "Өлчөмү",
+
+  "SMTP": "SMTP",
+
+  "SNMP": "SNMP",
+
+  "Software": "Программалык камсыздоо",
+
+  "Solution": "Чечим",
+
+  "Sort": "Сорттоо",
+
+  "Source": "Булак",
+
+  "SSH": "SSH",
+
+  "SSL": "SSL",
+
+  "Start": "Баштоо",
+
+  "Static": "Статикалык",
+
+  "Stop": "Токтотуу",
+
+  "Stopped": "Токтотулду",
+
+  "Storage": "Сактагыч",
+
+  "Summary": "Кыскача маалымат",
+
+  "Support": "Колдоо",
+
+  "Switch": "Которуу",
+
+  "Sync": "Синхрондоштуруу",
+
+  "System": "Система",
+
+  "Table": "Таблица",
+
+  "Tag": "Тег",
+
+  "Tags": "Тегдер",
+
+  "Target": "Максат",
+
+  "Targets": "Максаттар",
+
+  "TCP": "TCP",
+
+  "Technical": "Техникалык",
+
+  "Template": "Шаблон",
+
+  "Term": "Термин",
+
+  "Test": "Тест",
+
+  "Theme": "Тема",
+
+  "Third": "Үчүнчү",
+
+  "Threat": "Коркунуч",
+
+  "Ticket": "Тикет",
+
+  "Tickets": "Тикеттер",
+
+  "Time": "Убакыт",
+
+  "Timeout": "Тайм-аут",
+
+  "Title": "Аталышы",
+
+  "TLS": "TLS",
+
+  "Today": "Бүгүн",
+
+  "Toggle": "Которуу",
+
+  "Trash": "Себет",
+
+  "Trend": "Тренд",
+
+  "Trigger": "Триггер",
+
+  "Type": "Түрү",
+
+  "UDP": "UDP",
+
+  "Unknown": "Белгисиз",
+
+  "Update": "Жаңыртуу",
+
+  "Upgrade": "Жогорулатуу",
+
+  "Upload": "Жүктөө",
+
+  "URL": "URL",
+
+  "Usage": "Колдонуу",
+
+  "User": "Колдонуучу",
+
+  "Users": "Колдонуучулар",
+
+  "UUID": "UUID",
+
+  "Value": "Маани",
+
+  "Vault": "Сактагыч",
+
+  "Vendor": "Өндүрүүчү",
+
+  "Version": "Версия",
+
+  "View": "Көрүү",
+
+  "Vulnerability": "Алсыздык",
+
+  "Warning": "Эскертүү",
+
+  "Web": "Веб",
+
+  "Week": "Жума",
+
+  "Wizard": "Мастер",
+
+  "Work": "Жумуш",
+
+  "Write": "Жазуу",
+
+  "XML": "XML",
+
+  "Year": "Жыл",
+
+  "Yes": "Ооба",
+
+  "Yield": "Yield",
+
+  "Availability Requirements": "Жеткиликтүүлүк талаптары",
+
+  "Average Scan duration": "Сканерлөөнүн орточо узактыгы",
+
+  "Average Severity": "Орточо критикалуулугу",
+
+  "Bad login information": "Кирүү маалыматы туура эмес",
+
+  "Base Metrics": "Базалык метрикалар",
+
+  "Base URL": "Базалык URL",
+
+  "Base with a minimum set of NVTs": "Минималдуу NVT топтому менен базалык",
+
+  "Basic Information": "Негизги маалымат",
+
+  "Best OS": "Эң ылайыктуу ОС",
+
+  "Browser Language": "Браузердин тили",
+
+  "Bulk download completed.": "Массалык жүктөө аяктады.",
+
+  "Bulk download started.": "Массалык жүктөө башталды.",
+
+  "Bulk operation size": "Массалык операция өлчөмү",
+
+  "Bulk operation throttle time in milliseconds": "Массалык операциянын кечигүү убактысы (мс)",
+
+  "Bulk Size": "Пакеттин өлчөмү",
+
+  "Bulk Throttle Time (ms)": "Пакеттин кечигүү убактысы (мс)",
+
+  "By clicking the New Task icon": "\"Жаңы тапшырма\" сөлөкөтүн басуу менен",
+
+  "Call Description": "Чакыруу сүрөттөмөсү",
+
+  "Call Template": "Чакыруу шаблону",
+
+  "Call Type": "Чакыруу түрү",
+
+  "Cannot delete {{entity}}": "{{entity}} өчүрүү мүмкүн эмес",
+
+  "Cannot modify {{entity}}": "{{entity}} өзгөртүү мүмкүн эмес",
+
+  "Cannot modify {{entity}} settings": "{{entity}} орнотууларын өзгөртүү мүмкүн эмес",
+
+  "Cannot move {{entity}} to trashcan": "{{entity}} себетке которуу мүмкүн эмес",
+
+  "Cannot save auto cache rebuild: missing setting ID.": "Кэшти автоматтык түрдө кайра курууну сактоо мүмкүн эмес: орнотуу IDси жок.",
+
+  "Cannot save date/time format: missing setting IDs.": "Дата/убакыт форматын сактоо мүмкүн эмес: орнотуу IDлери жок.",
+
+  "Cannot save default severity: missing setting ID.": "Сунушталган критикалуулукту сактоо мүмкүн эмес: орнотуу IDси жок.",
+
+  "Cannot save details export filename: missing setting ID.": "Деталдарды экспорттоо файлынын атын сактоо мүмкүн эмес: орнотуу IDси жок.",
+
+  "Cannot save dynamic severity: missing setting ID.": "Динамикалык критикалуулукту сактоо мүмкүн эмес: орнотуу IDси жок.",
+
+  "Cannot save filter: missing setting ID.": "Фильтрди сактоо мүмкүн эмес: орнотуу IDси жок.",
+
+  "Cannot save language: missing setting ID.": "Тилди сактоо мүмкүн эмес: орнотуу IDси жок.",
+
+  "Cannot save list export filename: missing setting ID.": "Тизмени экспорттоо файлынын атын сактоо мүмкүн эмес: орнотуу IDси жок.",
+
+  "Cannot save report export filename: missing setting ID.": "Отчётту экспорттоо файлынын атын сактоо мүмкүн эмес: орнотуу IDси жок.",
+
+  "Cannot save rows per page: missing setting ID.": "Бир беттеги саптарды сактоо мүмкүн эмес: орнотуу IDси жок.",
+
+  "Cannot save setting: missing setting ID.": "Орнотууну сактоо мүмкүн эмес: орнотуу IDси жок.",
+
+  "Cannot save: scanner ID is missing.": "Сактоо мүмкүн эмес: сканер IDси жок.",
+
+  "Categories": "Категориялар",
+
+  "CERT": "CERT",
+
+  "CERT Advisories referencing this CVE": "Бул CVEге шилтеме берген CERT сунуштары",
+
+  "CERT-Bund Advisories": "CERT-Bund сунуштары",
+
+  "CERT-Bund Advisories by Creation Time": "Түзүлгөн убактысы боюнча CERT-Bund сунуштары",
+
+  "CERT-Bund Advisories by CVSS (Total: {{count}})": "CVSS боюнча CERT-Bund сунуштары (Бардыгы: {{count}})",
+
+  "CERT-Bund Advisories by Severity Class (Total: {{count}})": "Критикалуулук классы боюнча CERT-Bund сунуштары (Бардыгы: {{count}})",
+
+  "CERT-Bund Advisories Filter": "CERT-Bund сунуштарынын фильтри",
+
+  "CERT-Bund Advisory: {{title}}": "CERT-Bund сунушу: {{title}}",
+
+  "CERT-Bund Risk Rating": "CERT-Bund тобокелдик рейтинги",
+
+  "Change your password": "Сыр сөзүңүздү өзгөртүңүз",
+
+  "changed": "өзгөртүлдү",
+
+  "Changed": "Өзгөртүлдү",
+
+  "Chart: Audit Reports by Compliance": "Диаграмма: Шайкештик боюнча аудит отчёттору",
+
+  "Chart: CERT-Bund Advisories by Creation Time": "Диаграмма: Түзүлгөн убактысы боюнча CERT-Bund сунуштары",
+
+  "Chart: CERT-Bund Advisories by CVSS": "Диаграмма: CVSS боюнча CERT-Bund сунуштары",
+
+  "Chart: CERT-Bund Advisories by Severity Class": "Диаграмма: Критикалуулук классы боюнча CERT-Bund сунуштары",
+
+  "Chart: CPEs by Creation Time": "Диаграмма: Түзүлгөн убактысы боюнча CPEлер",
+
+  "Chart: CPEs by CVSS": "Диаграмма: CVSS боюнча CPEлер",
+
+  "Chart: CPEs by Severity Class": "Диаграмма: Критикалуулук классы боюнча CPEлер",
+
+  "Chart: CVEs by Creation Time": "Диаграмма: Түзүлгөн убактысы боюнча CVEлер",
+
+  "Chart: CVEs by CVSS": "Диаграмма: CVSS боюнча CVEлер",
+
+  "Chart: CVEs by Severity Class": "Диаграмма: Критикалуулук классы боюнча CVEлер",
+
+  "Chart: DFN-CERT Advisories by Creation Time": "Диаграмма: Түзүлгөн убактысы боюнча DFN-CERT сунуштары",
+
+  "Chart: DFN-CERT Advisories by CVSS": "Диаграмма: CVSS боюнча DFN-CERT сунуштары",
+
+  "Chart: DFN-CERT Advisories by Severity Class": "Диаграмма: Критикалуулук классы боюнча DFN-CERT сунуштары",
+
+  "Chart: Hosts (High) by Modification Time": "Диаграмма: Өзгөртүлгөн убактысы боюнча хосттор (Жогору)",
+
+  "Chart: Hosts by CVSS": "Диаграмма: CVSS боюнча хосттор",
+
+  "Chart: Hosts by Modification Time": "Диаграмма: Өзгөртүлгөн убактысы боюнча хосттор",
+
+  "Chart: Hosts by Severity Class": "Диаграмма: Критикалуулук классы боюнча хосттор",
+
+  "Chart: Hosts by Vulnerability Score": "Диаграмма: Алсыздык баллы боюнча хосттор",
+
+  "Chart: Hosts Topology": "Диаграмма: Хосттордун топологиясы",
+
+  "Chart: Next Scheduled Tasks": "Диаграмма: Кийинки пландаштырылган тапшырмалар",
+
+  "Chart: Notes by Active Days": "Диаграмма: Активдүү күндөрү боюнча эскертүүлөр",
+
+  "Chart: Notes by Creation Time": "Диаграмма: Түзүлгөн убактысы боюнча эскертүүлөр",
+
+  "Chart: Notes Text Word Cloud": "Диаграмма: Эскертүү текстинин сөз булуту",
+
+  "Chart: NVTs by Creation Time": "Диаграмма: Түзүлгөн убактысы боюнча NVTлер",
+
+  "Chart: NVTs by CVSS": "Диаграмма: CVSS боюнча NVTлер",
+
+  "Chart: NVTs by Family": "Диаграмма: Үй-бүлөсү боюнча NVTлер",
+
+  "Chart: NVTs by QoD": "Диаграмма: QoD боюнча NVTлер",
+
+  "Chart: NVTs by QoD-Type": "Диаграмма: QoD түрү боюнча NVTлер",
+
+  "Chart: NVTs by Severity Class": "Диаграмма: Критикалуулук классы боюнча NVTлер",
+
+  "Chart: Operating Systems by CVSS": "Диаграмма: CVSS боюнча операциялык системалар",
+
+  "Chart: Operating Systems by Severity Class": "Диаграмма: Критикалуулук классы боюнча операциялык системалар",
+
+  "Chart: Operating Systems by Vulnerability Score": "Диаграмма: Алсыздык баллы боюнча операциялык системалар",
+
+  "Chart: Overrides by Active Days": "Диаграмма: Активдүү күндөрү боюнча өзгөчөлүктөр",
+
+  "Chart: Overrides by Creation Time": "Диаграмма: Түзүлгөн убактысы боюнча өзгөчөлүктөр",
+
+  "Chart: Overrides Text Word Cloud": "Диаграмма: Өзгөчөлүк текстинин сөз булуту",
+
+  "Chart: Reports by CVSS": "Диаграмма: CVSS боюнча отчёттор",
+
+  "Chart: Reports by Severity Class": "Диаграмма: Критикалуулук классы боюнча отчёттор",
+
+  "Chart: Reports with high Results": "Диаграмма: Жогорку жыйынтыктары бар отчёттор",
+
+  "Chart: Results by CVSS": "Диаграмма: CVSS боюнча жыйынтыктар",
+
+  "Chart: Results by Severity Class": "Диаграмма: Критикалуулук классы боюнча жыйынтыктар",
+
+  "Chart: Results Description Word Cloud": "Диаграмма: Жыйынтыктарды сүрөттөө сөз булуту",
+
+  "Chart: Results Vulnerability Word Cloud": "Диаграмма: Жыйынтыктардын алсыздык сөз булуту",
+
+  "Chart: Tasks by CVSS": "Диаграмма: CVSS боюнча тапшырмалар",
+
+  "Chart: Tasks by High Results per Host": "Диаграмма: Ар бир хосттогу жогорку жыйынтыктар боюнча тапшырмалар",
+
+  "Chart: Tasks by Severity Class": "Диаграмма: Критикалуулук классы боюнча тапшырмалар",
+
+  "Chart: Tasks by Status": "Диаграмма: Статусу боюнча тапшырмалар",
+
+  "Chart: Tasks with most High Results per Host": "Диаграмма: Ар бир хосттогу эң көп жогорку жыйынтыктары бар тапшырмалар",
+
+  "Chart: Tickets by Assigned User": "Диаграмма: Дайындалган колдонуучу боюнча тикеттер",
+
+  "Chart: Tickets by Creation Time": "Диаграмма: Түзүлгөн убактысы боюнча тикеттер",
+
+  "Chart: Tickets by Status": "Диаграмма: Статусу боюнча тикеттер",
+
+  "Chart: TLS Certificates by Modification Time": "Диаграмма: Өзгөртүлгөн убактысы боюнча TLS сертификаттары",
+
+  "Chart: TLS Certificates by Status": "Диаграмма: Статусу боюнча TLS сертификаттары",
+
+  "Chart: Vulnerabilities by CVSS": "Диаграмма: CVSS боюнча алсыздыктар",
+
+  "Chart: Vulnerabilities by Hosts": "Диаграмма: Хосттор боюнча алсыздыктар",
+
+  "Chart: Vulnerabilities by Severity Class": "Диаграмма: Критикалуулук классы боюнча алсыздыктар",
+
+  "Checksum for agent installer {{name}} {{version}} copied to clipboard.": "{{name}} {{version}} агент орнотуучусунун текшерүү суммасы буферге көчүрүлдү.",
+
+  "Choose Display": "Көрүнүштү тандаңыз",
+
+  "Choose from the dropdown of common schedules, or select 'Custom cron expression' in the list to enter your own cron schedule.": "Жалпы расписаниелердин тизмесинен тандаңыз же өзүңүздүн cron расписаниеңизди киргизүү үчүн тизмеден 'Custom cron expression' тандаңыз.",
+
+  "Choose Tag": "Тегди тандаңыз",
+
+  "Clear input": "Киргизүүнү тазалоо",
+
+  "Client Certificate": "Кардар сертификаты",
+
+  "Client Certificate (from Credential)": "Кардар сертификаты (учёттук дайындардан)",
+
+  "Client Private Key": "Кардардын жеке ачкычы",
+
+  "Clone {{entity}}": "{{entity}} клонирлөө",
+
+  "Clone Alert": "Эскертүүнү клонирлөө",
+
+  "Clone Container Image Target": "Контейнер образынын максатын клонирлөө",
+
+  "Clone Credential": "Учёттук дайындарды клонирлөө",
+
+  "Clone Filter": "Фильтрди клонирлөө",
+
+  "Clone Group": "Топту клонирлөө",
+
+  "Clone Role": "Ролду клонирлөө",
+
+  "Clone Schedule": "Расписаниени клонирлөө",
+
+  "Clone Tag": "Тегди клонирлөө",
+
+  "Clone Target": "Максатты клонирлөө",
+
+  "Clone Ticket": "Тикетти клонирлөө",
+
+  "Clone User": "Колдонуучуну клонирлөө",
+
+  "Closed CVEs": "Жабык CVEлер",
+
+  "Complete": "Толук",
+
+  "Complexity": "Татаалдыгы",
+
+  "Compliance Audit Reports": "Шайкештик аудитинин отчёттору",
+
+  "Compliance Audits": "Шайкештик аудиттери",
+
+  "Compliance is changed from {{deltaCompliance}}.": "Шайкештик {{deltaCompliance}} маанисинен өзгөртүлдү.",
+
+  "Compliance Percent": "Шайкештик пайызы",
+
+  "Compliance Policies": "Шайкештик саясаттары",
+
+  "Compliance: Incomplete": "Шайкештик: Толук эмес",
+
+  "Compliance: No": "Шайкештик: Жок",
+
+  "Compliance: Yes": "Шайкештик: Ооба",
+
+  "Compliant": "Шайкеш",
+
+  "Compose": "Түзүү",
+
+  "Compose Content for Compliance Report": "Шайкештик отчёту үчүн мазмун түзүү",
+
+  "Compose Content for Scan Report": "Сканерлөө отчёту үчүн мазмун түзүү",
+
+  "Compose Report Content": "Отчёттун мазмунун түзүү",
+
+  "Concentrated": "Концентрацияланган",
+
+  "Condition": "Шарт",
+
+  "Confidentiality": "Купуялуулук",
+
+  "Confidentiality Impact": "Купуялуулукка таасири",
+
+  "Confidentiality Requirements": "Купуялуулук талаптары",
+
+  "Configs Filter": "Конфигурациялардын фильтри",
+
+  "Configurable": "Конфигурациялануучу",
+
+  "Configuration Details": "Конфигурация чоо-жайы",
+
+  "Configuration updated/System scan completed": "Конфигурация жаңыртылды/Системаны сканерлөө аяктады",
+
+  "Configure date and time display formats": "Дата жана убакыттын форматтарын конфигурациялоо",
+
+  "Confirm authorization": "Авторлоштурууну ырастоо",
+
+  "Confirm Deletion": "Өчүрүүнү ырастоо",
+
+  "Confirm deletion of user {{- name}}": "{{- name}} колдонуучусун өчүрүүнү ырастоо",
+
+  "Confirm deletion of users": "Колдонуучуларды өчүрүүнү ырастоо",
+
+  "Confirm move to trashcan": "Себетке которууну ырастоо",
+
+  "Confirm revocation": "Кайтарып алууну ырастоо",
+
+  "Confirmation does not match new password!": "Ырастоо жаңы сыр сөзгө дал келбейт!",
+
+  "Confirmation matches new password!": "Ырастоо жаңы сыр сөзгө дал келет!",
+
+  "Connection failed": "Туташуу ишке ашкан жок",
+
+  "Connection successful": "Туташуу ийгиликтүү болду",
+
+  "Connection test failed. Click to retry test.": "Туташууну текшерүү ишке ашкан жок. Кайра аракет кылуу үчүн басыңыз.",
+
+  "Connection test in progress. Please wait.": "Туташуу текшерилүүдө. Күтө туруңуз.",
+
+  "Connection test successful. Click to test again.": "Туташуу ийгиликтүү текшерилди. Кайра текшерүү үчүн басыңыз.",
+
+  "Connection to credential store server established successfully.": "Учёттук дайындар сактагычынын сервери менен туташуу ийгиликтүү түзүлдү.",
+
+  "Consider Hosts as Alive": "Хостторду активдүү деп эсептөө",
+
+  "Container Image Scanner": "Контейнер образдарынын сканери",
+
+  "Container Image Target": "Контейнер образынын максаты",
+
+  "Container Image Targets": "Контейнер образдарынын максаттары",
+
+  "Container Image Targets successfully deleted": "Контейнер образдарынын максаттары ийгиликтүү өчүрүлдү",
+
+  "Content Type": "Мазмун түрү",
+
+  "Contents": "Мазмун",
+
+  "Copied!": "Көчүрүлдү!",
+
+  "Copy Agent Installer checksum to clipboard": "Агент орнотуучунун текшерүү суммасын буферге көчүрүү",
+
+  "Corresponding Performance": "Тиешелүү өндүрүмдүүлүк",
+
+  "Corresponding Report": "Тиешелүү отчёт",
+
+  "Corresponding Results": "Тиешелүү жыйынтыктар",
+
+  "Corresponding Task": "Тиешелүү тапшырма",
+
+  "Corresponding Task ({{name}})": "Тиешелүү тапшырма ({{name}})",
+
+  "Corresponding task is in trashcan": "Тиешелүү тапшырма себетте",
+
+  "Corresponding Tickets": "Тиешелүү тикеттер",
+
+  "Corresponding TLS Certificates": "Тиешелүү TLS сертификаттары",
+
+  "Corresponding Vulnerabilities": "Тиешелүү алсыздыктар",
+
+  "Could not connect to server": "Сервер менен туташуу мүмкүн болгон жок",
+
+  "Could not load dashboard settings. Reason: {{error}}": "Панель орнотууларын жүктөө мүмкүн болгон жок. Себеби: {{error}}",
+
+  "Could not load install instructions": "Орнотуу көрсөтмөлөрү жүктөлгөн жок",
+
+  "CPE Filter": "CPEлердин фильтри",
+
+  "CPE List": "CPEлердин тизмеси",
+
+  "CPE Name ID": "CPE атынын IDси",
+
+  "CPE: {{title}}": "CPE: {{title}}",
+
+  "CPEs": "CPEлер",
+
+  "CPEs by Creation Time": "Түзүлгөн убактысы боюнча CPEлер",
+
+  "CPEs by CVSS (Total: {{count}})": "CVSS боюнча CPEлер (Бардыгы: {{count}})",
+
+  "CPEs by Severity Class (Total: {{count}})": "Критикалуулук классы боюнча CPEлер (Бардыгы: {{count}})",
+
+  "Create": "Түзүү",
+
+  "Create a credential": "Учёттук дайындарды түзүү",
+
+  "Create a new Agent Group": "Жаңы агент тобун түзүү",
+
+  "Create a new alert": "Жаңы эскертүү түзүү",
+
+  "Create a new credential": "Жаңы учёттук дайындарды түзүү",
+
+  "Create a new Credential": "Жаңы учёттук дайындарды түзүү",
+
+  "Create a new OCI image target": "Жаңы OCI образынын максатын түзүү",
+
+  "Create a new port list": "Жаңы порттор тизмесин түзүү",
+
+  "Create a new schedule": "Жаңы расписание түзүү",
+
+  "Create a new Tag": "Жаңы тег түзүү",
+
+  "Create a new target": "Жаңы максат түзүү",
+
+  "Create a new Target": "Жаңы максат түзүү",
+
+  "Create a new Task": "Жаңы тапшырма түзүү",
+
+  "Create Audit from Policy": "Саясаттан аудит түзүү",
+
+  "Create Multiple Permissions": "Бир нече уруксаттарды түзүү",
+
+  "Deleted": "Өчүрүлдү",
+
+  "Deleted CERT-Bund Advisories": "Өчүрүлгөн CERT-Bund сунуштары",
+
+  "Deleted CPEs": "Өчүрүлгөн CPEлер",
+
+  "Deleted CVEs": "Өчүрүлгөн CVEлер",
+
+  "Deleted DFN-CERT Advs": "Өчүрүлгөн DFN-CERT сунуштары",
+
+  "Deleted Notes": "Өчүрүлгөн эскертүүлөр",
+
+  "Deleted NVTs": "Өчүрүлгөн NVTлер",
+
+  "Deleted Overrides": "Өчүрүлгөн өзгөчөлүктөр",
+
+  "Deleted Reports": "Өчүрүлгөн отчёттор",
+
+  "Deleted Results": "Өчүрүлгөн жыйынтыктар",
+
+  "Deleted Tasks": "Өчүрүлгөн тапшырмалар",
+
+  "Deleted Tickets": "Өчүрүлгөн тикеттер",
+
+  "Deletion": "Өчүрүү",
+
+  "Deliver as email": "Электрондук почта аркылуу жеткирүү",
+
+  "Delivery": "Жеткирүү",
+
+  "Deny": "Тыюу салуу",
+
+  "Deny all": "Баарына тыюу салуу",
+
+  "Deny all and allow": "Баарына тыюу салуу жана уруксат берүү",
+
+  "Deny all and allow from {{addresses}}": "Баарына тыюу салуу жана {{addresses}} даректеринен уруксат берүү",
+
+  "Dependencies": "Көз карандылыктар",
+
+  "Descending": "Төмөндөө тартибинде",
+
+  "Description Word Cloud": "Сүрөттөмөнүн сөз булуту",
+
+  "Details Filter": "Толук маалыматтын фильтри",
+
+  "Details of Host {{name}}": "{{name}} хосттун чоо-жайы",
+
+  "Details of Report {{name}}": "{{name}} отчёттун чоо-жайы",
+
+  "Details of Task {{name}}": "{{name}} тапшырманын чоо-жайы",
+
+  "Details Page Toolbar": "Толук маалымат барагынын куралдар панели",
+
+  "Detection": "Аныктоо",
+
+  "device address": "түзмөк дареги",
+
+  "Device address": "Түзмөк дареги",
+
+  "Devices per Page": "Бир беттеги түзмөктөр",
+
+  "DFN-CERT Advisories": "DFN-CERT сунуштары",
+
+  "DFN-CERT Advisories by Creation Time": "Түзүлгөн убактысы боюнча DFN-CERT сунуштары",
+
+  "DFN-CERT Advisories by CVSS (Total: {{count}})": "CVSS боюнча DFN-CERT сунуштары (Бардыгы: {{count}})",
+
+  "DFN-CERT Advisories by Severity Class (Total: {{count}})": "Критикалуулук классы боюнча DFN-CERT сунуштары (Бардыгы: {{count}})",
+
+  "DFN-CERT Advisories Filter": "DFN-CERT сунуштарынын фильтри",
+
+  "DFN-CERT Advisory: {{title}}": "DFN-CERT сунушу: {{title}}",
+
+  "Diagnostic Information": "Диагностикалык маалымат",
+
+  "Diagram": "Диаграмма",
+
+  "Dialog Toolbar": "Диалогдун куралдар панели",
+
+  "Diff": "Айырма",
+
+  "Diff from": "Айырмасы",
+
+  "Disable": "Өчүрүү",
+
+  "Discovery": "Изилдөө",
+
+  "Discovery with a large set of NVTs": "NVTлердин чоң топтому менен изилдөө",
+
+  "Disk": "Диск",
+
+  "Display Format": "Көрүнүш форматы",
+
+  "Displays Filter": "Көрүнүштөрдүн фильтри",
+
+  "Distance": "Аралык",
+
+  "DNS Name": "DNS аты",
+
+  "Do you really want to delete the selected dashbard display?": "Тандалган панель көрүнүшүн чын эле өчүргүңүз келеби?",
+
+  "Do you really want to delete the selected dashboard?": "Тандалган панелди чын эле өчүргүңүз келеби?",
+
+  "Do you want to authorize all filtered agents?": "Бардык фильтрленген агенттерди авторлоштурууну каалайсызбы?",
+
+  "Do you want to revoke all filtered authorized agents?": "Бардык фильтрленген авторлоштурулган агенттердин укуктарын кайтарып алууну каалайсызбы?",
+
+  "Documentation": "Документация",
+
+  "Done.": "Даяр.",
+
+  "Don't auto-generate": "Автоматтык түрдө түзбөө",
+
+  "Don't show this again": "Муну кайра көрсөтпөө",
+
+  "Download {{name}}": "{{name}} жүктөө",
+
+  "Download Agent": "Агентти жүктөө",
+
+  "Download agent installer": "Агент орнотуучуну жүктөө",
+
+  "Download all": "Баарын жүктөө",
+
+  "Download All Selected Agents": "Бардык тандалган агенттерди жүктөө",
+
+  "Download Audit Report": "Аудит отчётун жүктөө",
+
+  "Download Audit Report:": "Аудит отчётун жүктөө:",
+
+  "Download Installer": "Орнотуучуну жүктөө",
+
+  "Download Report": "Отчётту жүктөө",
+
+  "Download Report:": "Отчётту жүктөө:",
+
+  "Downloads": "Жүктөөлөр",
+
+  "Draft": "Черновик",
+
+  "Duration (minutes)": "Узактыгы (мүнөт)",
+
+  "Dynamic Severity": "Динамикалык критикалуулук",
+
+  "E-Mail": "Электрондук почта",
+
+  "Each of your reports can also be automatically delivered to you as soon as a scan is finished. For this purpose, you must create a so called \"Alert\".": "Ар бир отчётуңуз сканерлөө аяктаганда автоматтык түрдө сизге жеткирилиши мүмкүн. Бул үчүн сиз \"Эскертүү\" түзүшүңүз керек.",
+
+  "Edit {{entity}}": "{{entity}} түзөтүү",
+
+  "Edit Alert": "Эскертүүнү түзөтүү",
+
+  "Edit Authorization": "Авторлоштурууну түзөтүү",
+
+  "Edit Container Image Target": "Контейнер образынын максатын түзөтүү",
+
+  "Edit Credential": "Учёттук дайындарды түзөтүү",
+
+  "Edit Dashboard Display": "Панель көрүнүшүн түзөтүү",
+
+  "Edit Filter": "Фильтрди түзөтүү",
+
+  "Edit Group": "Топту түзөтүү",
+
+  "Edit help status and text": "Жардам статусун жана текстин түзөтүү",
+
+  "Edit My Settings": "Менин орнотууларымды түзөтүү",
+
+  "Edit Note": "Эскертүүнү түзөтүү",
+
+  "Edit Override": "Өзгөчөлүктү түзөтүү",
+
+  "Edit Permission": "Уруксатты түзөтүү",
+
+  "Edit port list": "Порттор тизмесин түзөтүү",
+
+  "Edit Reference": "Шилтемени түзөтүү",
+
+  "Edit Role": "Ролду түзөтүү",
+
+  "Edit Scan Config": "Сканерлөө конфигурациясын түзөтүү",
+
+  "Edit Schedule": "Расписаниени түзөтүү",
+
+  "Edit Scanners": "Сканерлерди түзөтүү",
+
+  "Edit Setting": "Орнотууну түзөтүү",
+
+  "Edit Tag": "Тегди түзөтүү",
+
+  "Edit Target": "Максатты түзөтүү",
+
+  "Edit Task": "Тапшырманы түзөтүү",
+
+  "Edit Ticket": "Тикетти түзөтүү",
+
+  "Edit User": "Колдонуучуну түзөтүү",
+
+  "Elevate Privileges": "Укуктарды жогорулатуу",
+
+  "Empty Trashcan": "Себетти тазалоо",
+
+  "Ended": "Аяктады",
+
+  "Ended:": "Аяктады:",
+
+  "Endpoint": "Акыркы чекит",
+
+  "Enter a custom cron expression or select from the dropdown.": "Өзгөчө cron туюнтмасын киргизиңиз же тизмеден тандаңыз.",
+
+  "Enter text": "Текст киргизиңиз",
+
+  "Enter text...": "Текст киргизиңиз...",
+
+  "Entries per page": "Бир беттеги жазуулар",
+
+  "Entry": "Жазуу",
+
+  "EPHEM": "EPHEM",
+
+  "Ephemeral": "Эфемердик",
+
+  "Error occured": "Ката кетти",
+
+  "Error on processing the GMP result. Please try again later.": "GMP жыйынтыгын иштеп чыгууда ката кетти. Сураныч, кийинчерээк кайра аракет кылыңыз.",
+
+  "Errors Filter": "Каталардын фильтри",
+
+  "ESXi": "ESXi",
+
+  "Ethernet": "Ethernet",
+
+  "Every {{interval}} {{period}}": "Ар бир {{interval}} {{period}}",
+
+  "Every {{period}}": "Ар бир {{period}}",
+
+  "Every day": "Ар бир күн",
+
+  "Every month": "Ар бир ай",
+
+  "Every week": "Ар бир жума",
+
+  "Every year": "Ар бир жыл",
+
+  "Exact": "Так",
+
+  "Exclude": "Чыгарып салуу",
+
+  "Exclude: ": "Чыгарып салуу: ",
+
+  "Exit full screen": "Толук экран режиминен чыгуу",
+
+  "Expand": "Жайып көрсөтүү",
+
+  "Explain": "Түшүндүрүү",
+
+  "Exploit Code Maturity": "Эксплойт кодунун жетилгендиги",
+
+  "Exploitability": "Эксплуатациялоо мүмкүнчүлүгү",
+
+  "Export details as:": "Толук маалыматты экспорттоо:",
+
+  "Export File Name": "Экспорттоо файлынын аты",
+
+  "Export Filter": "Фильтрди экспорттоо",
+
+  "Export list as:": "Тизмени экспорттоо:",
+
+  "Export report as:": "Отчётту экспорттоо:",
+
+  "Export:": "Экспорттоо:",
+
+  "Extracted Files": "Чыгарылган файлдар",
+
+  "Extra Information": "Кошумча маалымат",
+
+  "Failed to delete dashbard display. Reason: {{error}}": "Панель көрүнүшүн өчүрүү мүмкүн болгон жок. Себеби: {{error}}",
+
+  "Failed to download installer. Reason: {{error}}": "Орнотуучуну жүктөө мүмкүн болгон жок. Себеби: {{error}}",
+
+  "False Positive": "Жалган позитив",
+
+  "Feed Status": "Лентанын статусу",
+
+  "Feed status is changed from {{deltaFeedStatus}}.": "Лентанын статусу {{deltaFeedStatus}} маанисинен өзгөртүлдү.",
+
+  "Feed update in progress": "Лента жаңыртылууда",
+
+  "Feed Validation": "Лентаны текшерүү",
+
+  "File Name": "Файл аты",
+
+  "Fill information automatically": "Маалыматты автоматтык түрдө толтуруу",
+
+  "Filter by": "Төмөнкү боюнча фильтрлөө",
+
+  "Filter by Tag": "Тег боюнча фильтрлөө",
+
+  "Filter configuration updated successfully.": "Фильтр конфигурациясы ийгиликтүү жаңыртылды.",
+
+  "Filter is alterable": "Фильтр өзгөртүлүүчү",
+
+  "Filter made visible for:\n{{user}}\n{{role}}\n{{group}}": "Фильтр төмөнкүлөргө көрүнүктүү болду:\n{{user}}\n{{role}}\n{{group}}",
+
+  "Filter name is required.": "Фильтрдин аты талап кылынат.",
+
+  "Filter status changed": "Фильтр статусу өзгөрүлгөн",
+
+  "Filter Term": "Фильтр термини",
+
+  "Filter: {{name}}": "Фильтр: {{name}}",
+
+  "Filters": "Фильтрлер",
+
+  "General Information": "Жалпы маалымат",
+
+  "Generate": "Түзүү",
+
+  "Generate new host IDs": "Жаңы хост IDлерин түзүү",
+
+  "Get": "Алуу",
+
+  "Global": "Глобалдык",
+
+  "Global Object": "Глобалдык объект",
+
+  "GMP Status": "GMP статусу",
+
+  "Go To List": "Тизмеге өтүү",
+
+  "Green": "Жашыл",
+
+  "Group Member": "Топ мүчөсү",
+
+  "Groups Filter": "Топтордун фильтри",
+
+  "GSA Message": "GSA билдирүүсү",
+
+  "GUI": "Интерфейс",
+
+  "Hash": "Хеш",
+
+  "Health": "Ден соолук",
+
+  "Height": "Бийиктик",
+
+  "Hide": "Жашыруу",
+
+  "Historical Results": "Тарыхый жыйынтыктар",
+
+  "Home": "Башкы барак",
+
+  "Host Details Filter": "Хосттун чоо-жайынын фильтри",
+
+  "Host Status": "Хост статусу",
+
+  "Hosts Filter": "Хосттордун фильтри",
+
+  "Hosts Topology": "Хосттордун топологиясы",
+
+  "Hours": "Саат",
+
+  "How it works:": "Кандай иштейт:",
+
+  "How to continue:": "Кантип улантуу керек:",
+
+  "HTTP Headers": "HTTP баштары",
+
+  "i": "i",
+
+  "Identifier": "Идентификатор",
+
+  "Identifiers": "Идентификаторлор",
+
+  "Idle": "Күтүүдө",
+
+  "If you just want to run a quick scan for a target, use the \"Quick-Start\"": "Эгер сиз максатты тез сканерлегиңиз келсе, \"Тез баштоо\" (Quick-Start) функциясын колдонуңуз",
+
+  "Ignore": "Этибарга албоо",
+
+  "Image": "Образ",
+
+  "Import Config": "Конфигурацияны импорттоо",
+
+  "Import Filter": "Фильтрди импорттоо",
+
+  "Import Port List": "Порттор тизмесин импорттоо",
+
+  "Import Report": "Отчётту импорттоо",
+
+  "Import Task": "Тапшырманы импорттоо",
+
+  "Include": "Киргизүү",
+
+  "include: ": "киргизүү: ",
+
+  "Incomplete": "Толук эмес",
+
+  "increased": "көбөйдү",
+
+  "Index": "Индекс",
+
+  "Inherit Alert": "Эскертүүнү мурастоо",
+
+  "Inner HTML": "Ички HTML",
+
+  "Input": "Киргизүү",
+
+  "Input Validation": "Киргизүүнү валидациялоо",
+
+  "Insert": "Киргизүү",
+
+  "Insight": "Статистика",
+
+  "Installation": "Орнотуу",
+
+  "Integrity Impact": "Бүтүндүккө таасири",
+
+  "Integrity Requirements": "Бүтүндүк талаптары",
+
+  "Interrupted": "Үзгүлтүккө учурады",
+
+  "Invalid Filter": "Жараксыз фильтр",
+
+  "inventory": "инвентаризация",
+
+  "IP Address": "IP дареги",
+
+  "IP Addresses": "IP даректер",
+
+  "IPv4 Address": "IPv4 дареги",
+
+  "IPv6 Address": "IPv6 дареги",
+
+  "is": "бул",
+
+  "is changed from {{deltaValue}}.": "{{deltaValue}} маанисинен өзгөртүлдү.",
+
+  "Items per Page": "Бир беттеги элементтер",
+
+  "JWT": "JWT",
+
+  "Keep Alive": "Байланышты сактоо",
+
+  "Keep oldest reports": "Эң эски отчётторду сактоо",
+
+  "Key Algorithm": "Ачкыч алгоритми",
+
+  "Key Size": "Ачкычтын өлчөмү",
+
+  "Kind": "Түрү",
+
+  "Label": "Белги",
+
+  "Last modified": "Акыркы жолу өзгөртүлгөн",
+
+  "Last run at": "Акыркы жолу иштетилген убактысы",
+
+  "Last Scan": "Акыркы сканерлөө",
+
+  "LDAP": "LDAP",
+
+  "Legend": "Легенда",
+
+  "Limit": "Чектөө",
+
+  "List Filter": "Тизме фильтри",
+
+  "Load": "Жүктөө",
+
+  "Local": "Жергиликтүү",
+
+  "Log in": "Кирүү",
+
+  "Log message": "Лог билдирүүсү",
+
+  "Login Failed": "Кирүү ишке ашкан жок",
+
+  "Login successful": "Ийгиликтүү кирдиңиз",
+
+  "Logouts successfully": "Ийгиликтүү чыктыңыз",
+
+  "Logs": "Логдор",
+
+  "Logs Filter": "Логдордун фильтри",
+
+  "MAC Address": "MAC дареги",
+
+  "managed by": "башкаруучусу",
+
+  "Mark items as read": "Элементтерди окулган катары белгилөө",
+
+  "Maximum": "Максималдуу",
+
+  "Member": "Мүчө",
+
+  "Members": "Мүчөлөр",
+
+  "Menu": "Меню",
+
+  "Message Context": "Билдирүү контексти",
+
+  "Meta": "Мета",
+
+  "Metric": "Метрика",
+
+  "Midnight": "Түн жарым",
+
+  "Migrating dashboard settings...": "Башкаруу панелинин орнотуулары миграцияланууда...",
+
+  "Min. QoD": "Мин. QoD",
+
+  "Minimum": "Минималдуу",
+
+  "Minute": "Мүнөт",
+
+  "minute(s)": "мүнөт",
+
+  "minutes": "мүнөт",
+
+  "Missing Credentials": "Учёттук дайындар жок",
+
+  "Mobile": "Мобилдик",
+
+  "Modification Time": "Өзгөртүлгөн убактысы",
+
+  "modified": "өзгөртүлдү",
+
+  "Modified Certificate": "Өзгөртүлгөн сертификат",
+
+  "Modified Certificates": "Өзгөртүлгөн сертификаттар",
+
+  "Modified Host": "Өзгөртүлгөн хост",
+
+  "Modified Hosts": "Өзгөртүлгөн хосттор",
+
+  "Modified TLS Certificate": "Өзгөртүлгөн TLS сертификаты",
+
+  "Modified TLS Certificates": "Өзгөртүлгөн TLS сертификаттары",
+
+  "Modular": "Модулдук",
+
+  "Monitor": "Монитор",
+
+  "Monitoring": "Мониторинг",
+
+  "month(s)": "ай",
+
+  "Monthly": "Ай сайын",
+
+  "More Information": "Кошумча маалымат",
+
+  "Move {{entity}} to trashcan": "{{entity}} себетке которуу",
+
+  "Move selection to trashcan": "Тандалгандарды себетке которуу",
+
+  "moved to trashcan": "себетке которулду",
+
+  "My Settings": "Менин орнотууларым",
+
+  "N/A": "Ж/Ж",
+
+  "Network Scan": "Тармактык сканерлөө",
+
+  "Never": "Эч качан",
+
+  "New Alert": "Жаңы эскертүү",
+
+  "New Asset": "Жаңы актив",
+
+  "New Container Image Target": "Контейнер образынын жаңы максаты",
+
+  "New Credential": "Жаңы учёттук дайындар",
+
+  "New Dashboard": "Жаңы панель",
+
+  "New Dashboard Display": "Панелдин жаңы көрүнүшү",
+
+  "New Filter": "Жаңы фильтр",
+
+  "New Group": "Жаңы топ",
+
+  "New Note": "Жаңы эскертүү",
+
+  "New Override": "Жаңы өзгөчөлүк",
+
+  "New Permission": "Жаңы уруксат",
+
+  "New Port List": "Жаңы порттор тизмеси",
+
+  "New Port Range": "Жаңы порт диапазону",
+
+  "New Reference": "Жаңы шилтеме",
+
+  "New Role": "Жаңы роль",
+
+  "New Scan Config": "Жаңы сканерлөө конфигурациясы",
+
+  "New Schedule": "Жаңы расписание",
+
+  "New Scanner": "Жаңы сканер",
+
+  "New Tag": "Жаңы тег",
+
+  "New Target": "Жаңы максат",
+
+  "New Task": "Жаңы тапшырма",
+
+  "New Ticket": "Жаңы тикет",
+
+  "New User": "Жаңы колдонуучу",
+
+  "Next run at": "Кийинки иштетүү убактысы",
+
+  "Next run from": "Кийинки иштетүү",
+
+  "Next Scheduled Tasks": "Кийинки пландаштырылган тапшырмалар",
+
+  "No CVEs": "CVEлер жок",
+
+  "No data available": "Маалымат жок",
+
+  "No data for this chart.": "Бул диаграмма үчүн маалымат жок.",
+
+  "No data to display.": "Көрсөтүлө турган маалымат жок.",
+
+  "No filter matches for tag names.": "Тег аттары үчүн фильтрге дал келгендер жок.",
+
+  "No matches for tag names.": "Тег аттары үчүн дал келгендер жок.",
+
+  "No report configured": "Отчёт конфигурацияланган эмес",
+
+  "No report format configured": "Отчёт форматы конфигурацияланган эмес",
+
+  "No Target IP/Hostname": "Максаттуу IP/хост аты жок",
+
+  "Normal": "Нормалдуу",
+
+  "Not applicable": "Колдонулбайт",
+
+  "Note: {{name}}": "Эскертүү: {{name}}",
+
+  "Notes Content Filter": "Эскертүүлөрдүн мазмунунун фильтри",
+
+  "Notes Filter": "Эскертүүлөрдүн фильтри",
+
+  "Notes List": "Эскертүүлөрдүн тизмеси",
+
+  "Notices": "Билдирүүлөр",
+
+  "Notification": "Билдирүү",
+
+  "Notifications": "Билдирүүлөр",
+
+  "NVT Family": "NVT үй-бүлөсү",
+
+  "NVT Feed": "NVT лентасы",
+
+  "NVT Selection": "NVT тандоо",
+
+  "NVTs": "NVTлер",
+
+  "NVTs Filter": "NVTлердин фильтри",
+
+  "O": "O",
+
+  "Objects Header": "Объекттердин аталышы",
+
+  "of": "ичинен",
+
+  "Offline": "Оффлайн",
+
+  "Old Password": "Эски сыр сөз",
+
+  "On the tasks page click on\":": "Тапшырмалар барагында төмөнкүнү басыңыз\":",
+
+  "Once": "Бир жолу",
+
+  "Only available to you": "Сизге гана жеткиликтүү",
+
+  "Open CVEs": "Ачык CVEлер",
+
+  "Ak Shumkar": "OpenVas",
+
+  "Operating System": "Операциялык система",
+
+  "Operating Systems": "Операциялык системалар",
+
+  "Operation": "Операция",
+
+  "Operator": "Оператор",
+
+  "Optional": "Милдеттүү эмес",
+
+  "Optionally, select a schedule to run the task regularly.": "Кошумча катары, тапшырманы үзгүлтүксүз иштетүү үчүн расписание тандаңыз.",
+
+  "Or use the wizard to guide you through creating a more": "Же мастерди колдонуңуз, ал сизге татаалыраак түзүүгө жардам берет",
+
+  "Order by": "Төмөнкү боюнча иреттөө",
+
+  "Original": "Түпнуска",
+
+  "OS": "ОС",
+
+  "Other": "Башка",
+
+  "Overall Severity": "Жалпы критикалуулугу",
+
+  "Page Header": "Барактын аталышы",
+
+  "Page size": "Барактын өлчөмү",
+
+  "Pages": "Барактар",
+
+  "Parallel NNVT per host": "Ар бир хосттогу параллелдүү NNVT",
+
+  "Parallel NVTs per host": "Ар бир хосттогу параллелдүү NVTлер",
+
+  "Parallel Scan per host": "Ар бир хосттогу параллелдүү сканерлөө",
+
+  "Parallel Scans per host": "Ар бир хосттогу параллелдүү сканерлөөлөр",
+
+  "Passwords match!": "Сыр сөздөр дал келет!",
+
+  "Pending": "Күтүлүүдө",
+
+  "Percent": "Пайыз",
+
+  "Permission": "Уруксат",
+
+  "Permissions Filter": "Уруксаттардын фильтри",
+
+  "Physical": "Физикалык",
+
+  "Ping Host": "Хостту пингдөө",
+
+  "Platform": "Платформа",
+
+  "Please choose": "Сураныч, тандаңыз",
+
+  "Please choose...": "Сураныч, тандаңыз...",
+
+  "Please enter a valid cron expression.": "Сураныч, туура cron туюнтмасын киргизиңиз.",
+
+  "Please enter a valid Port Range.": "Сураныч, туура порт диапазонун киргизиңиз.",
+
+  "Policy": "Саясат",
+
+  "Port List": "Порттор тизмеси",
+
+  "Port Lists": "Порттордун тизмелери",
+
+  "Port Lists Filter": "Порттордун тизмелеринин фильтри",
+
+  "Port Range": "Порт диапазону",
+
+  "Port ranges": "Порт диапазондору",
+
+  "Port Ranges Filter": "Порт диапазондорунун фильтри",
+
+  "Power off": "Өчүрүү",
+
+  "Power on": "Күйгүзүү",
+
+  "Power status": "Кубат статусу",
+
+  "Precision": "Тактык",
+
+  "Primary": "Негизги",
+
+  "Private Key": "Жеке ачкыч",
+
+  "Privileges": "Укуктар",
+
+  "Problems Filter": "Көйгөйлөрдүн фильтри",
+
+  "Product": "Продукт",
+
+  "Progress: ": "Прогресс: ",
+
+  "Protocols": "Протоколдор",
+
+  "provide new password": "жаңы сыр сөздү киргизиңиз",
+
+  "Public Key": "Ачык ачкыч",
+
+  "Publish": "Жарыялоо",
+
+  "QoD": "QoD",
+
+  "QoD Type": "QoD түрү",
+
+  "quality of detection": "аныктоо сапаты",
+
+  "Quality of Detection": "Аныктоо сапаты",
+
+  "Quality of Detection (Short: QoD)": "Аныктоо сапаты (кыскача: QoD)",
+
+  "Quarterly": "Квартал сайын",
+
+  "Query": "Сурам",
+
+  "Quick Report Config": "Тез отчёт конфигурациясы",
+
+  "Quick Start": "Тез баштоо",
+
+  "Quick-start a scan for a target.": "Максатты сканерлөөнү тез баштоо.",
+
+  "RADIUS": "RADIUS",
+
+  "Rank": "Ранк",
+
+  "Rate Limit": "Ылдамдык чеги",
+
+  "Re-authentication": "Кайра аутентификация",
+
+  "Read access": "Окуу мүмкүнчүлүгү",
+
+  "Reboot": "Кайра жүктөө",
+
+  "Recently Used": "Акыркы колдонулгандар",
+
+  "Recipient": "Алуучу",
+
+  "Recommended": "Сунушталат",
+
+  "Reconstruction": "Реконструкция",
+
+  "Red": "Кызыл",
+
+  "Reference": "Шилтеме",
+
+  "Reference Type": "Шилтеме түрү",
+
+  "References": "Шилтемелер",
+
+  "References Filter": "Шилтемелердин фильтри",
+
+  "Refresh interval": "Жаңыртуу интервалы",
+
+  "Regenerate": "Кайра түзүү",
+
+  "Registry": "Реестр",
+
+  "Relative": "Салыштырмалуу",
+
+  "Relay": "Реле",
+
+  "Release": "Релиз",
+
+  "Remove Alert": "Эскертүүнү өчүрүү",
+
+  "Remove Group Member": "Топ мүчөсүн өчүрүү",
+
+  "Remove Role": "Ролду өчүрүү",
+
+  "Report": "Отчёт",
+
+  "Report Contents Filter": "Отчёттун мазмунунун фильтри",
+
+  "Report Details Filter": "Отчёттун чоо-жайынын фильтри",
+
+  "Report Format": "Отчёт форматы",
+
+  "Report Format Details": "Отчёт форматынын чоо-жайы",
+
+  "Report Formats": "Отчёт форматтары",
+
+  "Report Formats Filter": "Отчёт форматтарынын фильтри",
+
+  "Report Status": "Отчёт статусу",
+
+  "Report Task Filter": "Отчёт тапшырмасынын фильтри",
+
+  "Report summary:": "Отчёттун корутундусу:",
+
+  "Report: {{name}}": "Отчёт: {{name}}",
+
+  "Reporting": "Отчёттуулук",
+
+  "Reports Filter": "Отчёттордун фильтри",
+
+  "Requested": "Суралды",
+
+  "Requesting permissions": "Уруксаттар суралууда",
+
+  "Requesting permissions. Please wait...": "Уруксаттар суралууда. Күтө туруңуз...",
+
+  "Requirements": "Талаптар",
+
+  "Reset dashboard": "Панелди баштапкы абалга келтирүү",
+
+  "Resources Filter": "Ресурстардын фильтри",
+
+  "Restore {{entity}}": "{{entity}} калыбына келтирүү",
+
+  "Restoring dashbard settings from old version...": "Башкаруу панелинин орнотуулары эски версиядан калыбына келтирилүүдө...",
+
+  "Result": "Жыйынтык",
+
+  "Result Context": "Жыйынтык контексти",
+
+  "Result details export file name is required.": "Жыйынтыктын деталдарын экспорттоо файлынын аты талап кылынат.",
+
+  "Result list export file name is required.": "Жыйынтыктар тизмесин экспорттоо файлынын аты талап кылынат.",
+
+  "Results Description Filter": "Жыйынтыктардын сүрөттөмөлөрүнүн фильтри",
+
+  "Results Filter": "Жыйынтыктардын фильтри",
+
+  "Results list by host for task": "Тапшырма үчүн хосттор боюнча жыйынтыктар тизмеси",
+
+  "Results of Host {{name}}": "{{name}} хосттун жыйынтыктары",
+
+  "Results of Report {{name}}": "{{name}} отчёттун жыйынтыктары",
+
+  "Results per Page": "Бир беттеги жыйынтыктар",
+
+  "Results Vulnerability Filter": "Жыйынтыктардын алсыздыктарынын фильтри",
+
+  "Retry Settings": "Кайра аракет орнотуулары",
+
+  "Revoke": "Кайтарып алуу",
+
+  "Revoke Agent": "Агенттин укугун кайтарып алуу",
+
+  "Revoke all filtered authorized agents": "Бардык фильтрленген авторлоштурулган агенттердин укуктарын кайтарып алуу",
+
+  "Revoke all authorized agents on this page": "Бул барактагы бардык авторлоштурулган агенттердин укуктарын кайтарып алуу",
+
+  "Revoke selected authorized agents": "Тандалган авторлоштурулган агенттердин укуктарын кайтарып алуу",
+
+  "Revoking Agent Authorization": "Агенттин авторлоштурулган укуктары кайтарылып алынууда",
+
+  "Right": "Оң",
+
+  "Risk": "Тобокелдик",
+
+  "Risk Factor": "Тобокелдик фактору",
+
+  "Risk Rating": "Тобокелдик рейтинги",
+
+  "Role: {{name}}": "Роль: {{name}}",
+
+  "Roles Filter": "Ролдордун фильтри",
+
+  "Rows per page": "Бир беттеги саптар",
+
+  "Rows per Page": "Бир беттеги саптар",
+
+  "Rules Filter": "Эрежелердин фильтри",
+
+  "S/MIME Certificate": "S/MIME сертификаты",
+
+  "Satellite Header": "Спутниктик баш",
+
+  "Save My Settings": "Менин орнотууларымды сактоо",
+
+  "Save setting": "Орнотууну сактоо",
+
+  "Saved": "Сакталды",
+
+  "SCAP": "SCAP",
+
+  "SCAP Feed": "SCAP лентасы",
+
+  "Scan": "Сканерлөө",
+
+  "Scan Config": "Сканерлөө конфигурациясы",
+
+  "Scan Config Details": "Сканерлөө конфигурациясынын чоо-жайы",
+
+  "Scan Configs": "Сканерлөө конфигурациялары",
+
+  "Scan Configs Filter": "Сканерлөө конфигурацияларынын фильтри",
+
+  "Scan configuration checked": "Сканерлөө конфигурациясы текшерилди",
+
+  "Scan Duration": "Сканерлөөнүн узактыгы",
+
+  "Scan Report": "Сканерлөө отчёту",
+
+  "Scan report:": "Сканерлөө отчёту:",
+
+  "Scanner Details": "Сканердин чоо-жайы",
+
+  "Scanner name is required.": "Сканердин аты талап кылынат.",
+
+  "Scanners Filter": "Сканерлердин фильтри",
+
+  "Schedule List": "Расписаниелердин тизмеси",
+
+  "Schedules Filter": "Расписаниелердин фильтри",
+
+  "Scopes Filter": "Областтардын фильтри",
+
+  "Script": "Скрипт",
+
+  "Search...": "Издөө...",
+
+  "second(s)": "секунд",
+
+  "seconds": "секунд",
+
+  "Secure Cookies": "Коопсуз кукилер",
+
+  "Selection Filter": "Тандоонун фильтри",
+
+  "Sensor": "Сенсор",
+
+  "Sensor: {{name}}": "Сенсор: {{name}}",
+
+  "Sensors Filter": "Сенсорлордун фильтри",
+
+  "Sensors List": "Сенсорлордун тизмеси",
+
+  "Servers": "Серверлер",
+
+  "Services": "Сервистер",
+
+  "Sessions": "Сессиялар",
+
+  "Set alert for {{name}}": "{{name}} үчүн эскертүү коюу",
+
+  "Set filter as default": "Фильтрди сунушталган катары коюу",
+
+  "Setting": "Орнотуу",
+
+  "Setting updated successfully.": "Орнотуу ийгиликтүү жаңыртылды.",
+
+  "Severity Class": "Критикалуулук классы",
+
+  "Show all": "Баарын көрсөтүү",
+
+  "Show details": "Чоо-жайын көрсөтүү",
+
+  "Show help for this page": "Бул барак үчүн жардамды көрсөтүү",
+
+  "Show list": "Тизмени көрсөтүү",
+
+  "Simple Scan Wizard": "Жөнөкөй сканерлөө мастери",
+
+  "Singular": "Жекелик",
+
+  "Ak Shumkar GSA Dashboard": "Ak Shumkar GSA башкаруу панели",
+
+  "SMB": "SMB",
+
+  "Solution Type": "Чечимдин түрү",
+
+  "source address": "булактын дареги",
+
+  "Source address": "Булактын дареги",
+
+  "source port": "булактын порту",
+
+  "Source port": "Булактын порту",
+
+  "SSO": "SSO",
+
+  "Start immediately": "Дароо баштоо",
+
+  "Start scan": "Сканерлөөнү баштоо",
+
+  "Start Task": "Тапшырманы баштоо",
+
+  "Started": "Башталды",
+
+  "Started:": "Башталды:",
+
+  "Static Severity": "Статикалык критикалуулук",
+
+  "Status: ": "Статус: ",
+
+  "Step": "Кадам",
+
+  "Subject": "Субъект",
+
+  "Subject Type": "Субъекттин түрү",
+
+  "Subjects Header": "Субъекттердин аталышы",
+
+  "successfully": "ийгиликтүү",
+
+  "Successful": "Ийгиликтүү",
+
+  "Super": "Супер",
+
+  "Suspended": "Токтотулуп турат",
+
+  "Syncing": "Синхрондоштурулууда",
+
+  "Tag: {{name}}": "Тег: {{name}}",
+
+  "Tags Filter": "Тегдердин фильтри",
+
+  "Tag Value": "Тегдин мааниси",
+
+  "Target Details Filter": "Максаттын чоо-жайынын фильтри",
+
+  "Targets Filter": "Максаттардын фильтри",
+
+  "Task": "Тапшырма",
+
+  "Task calendar": "Тапшырмалар календары",
+
+  "Task Details Filter": "Тапшырманын чоо-жайынын фильтри",
+
+  "Tasks Filter": "Тапшырмалардын фильтри",
+
+  "Technology": "Технология",
+
+  "Terms": "Терминдер",
+
+  "Text": "Текст",
+
+  "The Feed Update may take a while.": "Лентаны жаңыртуу бир аз убакытты алышы мүмкүн.",
+
+  "The requested report is being generated.": "Суралган отчёт түзүлүүдө.",
+
+  "Themes": "Темалар",
+
+  "This list shows all dashbard displays that you have defined.": "Бул тизмеде сиз аныктаган башкаруу панелинин бардык көрүнүштөрү көрсөтүлгөн.",
+
+  "This list shows all dashboards that you have defined.": "Бул тизмеде сиз аныктаган бардык башкаруу панелдери көрсөтүлгөн.",
+
+  "This list shows all scan configurations that you have defined.": "Бул тизмеде сиз аныктаган бардык сканерлөө конфигурациялары көрсөтүлгөн.",
+
+  "This list shows all tickets that were created by alerts.": "Бул тизмеде эскертүүлөр аркылуу түзүлгөн бардык тикеттер көрсөтүлгөн.",
+
+  "This list shows the results of Host {{name}}": "Бул тизмеде {{name}} хосттун жыйынтыктары көрсөтүлгөн.",
+
+  "Throughput": "Өткөрүү жөндөмдүүлүгү",
+
+  "Tiles": "Плиткалар",
+
+  "Timezone": "Убакыт алкагы",
+
+  "TLS Certificate": "TLS сертификаты",
+
+  "TLS Certificate: {{name}}": "TLS сертификаты: {{name}}",
+
+  "TLS Certificates": "TLS сертификаттары",
+
+  "TLS Certificates filter": "TLS сертификаттарынын фильтри",
+
+  "To": "чейин",
+
+  "to": "чейин",
+
+  "to {{version}}": "{{version}} версиясына чейин",
+
+  "Tomorrow": "Эртең",
+
+  "Tools": "Куралдар",
+
+  "Top": "Топ",
+
+  "Topology": "Топология",
+
+  "Total: {{count}}": "Бардыгы: {{count}}",
+
+  "Trashcan": "Себет",
+
+  "Ultra": "Ультра",
+
+  "Unauthorized": "Авторлоштурулган эмес",
+
+  "Unchanged": "Өзгөрүүсүз",
+
+  "Unique IDs": "Уникалдуу IDлер",
+
+  "Unit": "Бирдик",
+
+  "Unit: ": "Бирдик: ",
+
+  "Up": "Өйдө",
+
+  "Update Alert": "Эскертүүнү жаңыртуу",
+
+  "updated": "жаңыртылды",
+
+  "Updated": "Жаңыртылды",
+
+  "Updating dashbard settings...": "Башкаруу панелинин орнотуулары жаңыртылууда...",
+
+  "Uptime": "Иштөө убактысы",
+
+  "User: {{name}}": "Колдонуучу: {{name}}",
+
+  "Users Filter": "Колдонуучулардын фильтри",
+
+  "UTC": "UTC",
+
+  "Validation": "Валидация",
+
+  "Validation results": "Валидация жыйынтыктары",
+
+  "Values": "Маанилер",
+
+  "Variables": "Өзгөрмөлөр",
+
+  "Verification": "Текшерүү",
+
+  "versions": "версиялар",
+
+  "Vulnerabilities": "Алсыздыктар",
+
+  "Weekly": "Жума сайын",
+
+  "Weight": "Салмак",
+
+  "Width": "Кеңдик",
+
+  "Would you really like to authorize all filtered agents?": "Бардык фильтрленген агенттерди чын эле авторлоштурууну каалайсызбы?",
+
+  "Would you really like to revoke all filtered authorized agents?": "Бардык фильтрленген авторлоштурулган агенттердин укуктарын чын эле кайтарып алууну каалайсызбы?",
+
+  "Wrong old password": "Эски сыр сөз туура эмес",
+
+  "year(s)": "жыл",
+
+  "Yearly": "Жыл сайын",
+
+  "Yesterday": "Кечээ",
+
+  "You are logged in as {{user}}.": "Сиз {{user}} катары кирдиңиз.",
+
+  "Your password has been changed.": "Сыр сөзүңүз өзгөртүлдү.",
+
+  "Zone Filter": "Зона фильтри",
+
+  "\nThis could have the following reasons:\n1. The CPE might not be included in the official NVD CPE dictionary yet, and no additional information is available.\n2. You might have followed an incorrect link and the CPE does not exist.": "\nБул төмөнкүдөй себептерден улам болушу мүмкүн:\n1. CPE али расмий NVD CPE сөздүгүнө киргизиле элек жана кошумча маалымат жок.\n2. Сиз туура эмес шилтеме боюнча өткөн болушуңуз мүмкүн жана CPE жок.",
+
+  "\nThis could have the following reasons:\n1. The CVE might not be included in the SCAP database yet. For new CVEs it can take a month or more until they become available.\n2. You might have followed an incorrect link and the CVE does not exist.": "\nБул төмөнкүдөй себептерден улам болушу мүмкүн:\n1. CVE али SCAP маалымат базасына киргизиле элек. Жаңы CVEлер үчүн алар жеткиликтүү болгонго чейин бир ай же андан көп убакыт талап кылынышы мүмкүн.\n2. Сиз туура эмес шилтеме боюнча өткөн болушуңуз мүмкүн жана CVE жок.",
+
+  "\nYou might have followed an incorrect link and the {{entity}} does not exist.": "\nСиз туура эмес шилтеме боюнча өткөн болушуңуз мүмкүн жана {{entity}} жок.",
+
+  " on Port {{port}}": " {{port}} портунда",
+
+  " on port ": " портунда ",
+
+  " or just create the task so you can run it manually later.": " же кийинчерээк кол менен иштетүү үчүн тапшырманы жөн эле түзүп коюңуз.",
+
+  "\"Rows per page\" requires a value of 1 or greater.": "\"Бир беттеги саптар\" мааниси 1 же андан чоң болушу керек.",
+
+  "# of Agents": "Агенттердин саны",
+
+  "# of CERT-Bund Advisories": "CERT-Bund сунуштарынын саны",
+
+  "# of CERT-Bund Advs": "CERT-Bund сунуштарынын саны",
+
+  "# of CPEs": "CPEлердин саны",
+
+  "# of CVEs": "CVEлердин саны",
+
+  "# of Certificates": "Сертификаттардын саны",
+
+  "# of Created Notes": "Түзүлгөн эскертүүлөрдүн саны",
+
+  "# of DFN-CERT Advisories": "DFN-CERT сунуштарынын саны",
+
+  "# of DFN-CERT Advs": "DFN-CERT сунуштарынын саны",
+
+  "# of Hosts": "Хосттордун саны",
+
+  "# of Modified Certificates": "Өзгөртүлгөн сертификаттардын саны",
+
+  "# of Modified Hosts": "Өзгөртүлгөн хосттордун саны",
+
+  "# of Modified Hosts (High)": "Өзгөртүлгөн хосттордун саны (Жогору)",
+
+  "# of Modified TLS Certificates": "Өзгөртүлгөн TLS сертификаттарынын саны",
+
+  "# of NVTs": "NVTлердин саны",
+
+  "# of Notes": "Эскертүүлөрдүн саны",
+
+  "# of Operating Systems": "Операциялык системалардын саны",
+
+  "# of Overrides": "Өзгөчөлүктөрдүн саны",
+
+  "# of Results": "Жыйынтыктардын саны",
+
+  "# of Tasks": "Тапшырмалардын саны",
+
+  "# of Tickets": "Тикеттердин саны",
+
+  "# of Vulnerabilities": "Алсыздыктардын саны",
+
+  "# of created CERT-Bund Advisories": "түзүлгөн CERT-Bund сунуштарынын саны",
+
+  "# of created CPEs": "түзүлгөн CPEлердин саны",
+
+  "# of created CVEs": "түзүлгөн CVEлердин саны",
+
+  "# of created DFN-CERT Advs": "түзүлгөн DFN-CERT сунуштарынын саны",
+
+  "# of created NVTs": "түзүлгөн NVTлердин саны",
+
+  "# of created Overrides": "түзүлгөн өзгөчөлүктөрдүн саны",
+
+  "# of created Tickets": "түзүлгөн тикеттердин саны",
+
+  "(Applied filter: {{- filter}})": "(Колдонулган фильтр: {{- filter}})",
+
+  "(Credential unavailable)": "(Учёттук дайындар жеткиликтүү эмес)",
+
+  "(Global Object)": "(Глобалдык объект)",
+
+  "(Target Host)": "(Максаттуу хост)",
+
+  ", schedule the task for a later date and time,": ", тапшырманы кийинки датага жана убакытка пландаштырыңыз,",
+
+  "1 user will be deleted": "1 колдонуучу өчүрүлөт",
+
+  "12h": "12с",
+
+  "24h": "24с",
+
+  "> 0.0": "> 0.0",
+
+  "A timeout for the request to url {{- url}} occurred.": "{{- url}} дарегине сурам үчүн күтүү убактысы аяктады.",
+
+  "Accept Invalid Certificates": "Жараксыз сертификаттарды кабыл алуу",
+
+  "Access Complexity": "Кирүү татаалдыгы",
+
+  "Access Vector": "Кирүү вектору",
+
+  "Access to the feed resources is currently restricted.": "Лента ресурстарына кирүү учурда чектелген.",
+
+  "Activate the \"attach\" option to allow changes here.": "Бул жерде өзгөртүүлөрдү киргизүү үчүн \"тиркөө\" (attach) опциясын иштетиңиз.",
+
+  "Activate the \"include\" option to make changes here.": "Бул жерде өзгөртүүлөрдү киргизүү үчүн \"киргизүү\" (include) опциясын иштетиңиз.",
+
+  "Activates": "Иштетет",
+
+  "Activation": "Иштетүү",
+
+  "Active (unlimited)": "Активдүү (чексиз)",
+
+  "Active for > {{value}} days": "{{value}} күндөн ашык активдүү",
+
+  "Active for the next {{value}} days": "Кийинки {{value}} күн ичинде активдүү",
+
+  "Active until": "Төмөнкү убакытка чейин активдүү",
+
+  "Add Port Range": "Порт диапазонун кошуу",
+
+  "Add Resource by ID": "Ресурсту ID боюнча кошуу",
+
+  "Add Tag to All Filtered": "Бардык фильтрленгендерге тег кошуу",
+
+  "Add Tag to Page Contents": "Барактын мазмунуна тег кошуу",
+
+  "Add Tag to Selection": "Тандалгандарга тег кошуу",
+
+  "Add new Dashboard": "Жаңы башкаруу панелин кошуу",
+
+  "Add new Dashboard Display": "Башкаруу панелинин жаңы көрүнүшүн кошуу",
+
+  "Add new Note": "Жаңы эскертүү кошуу",
+
+  "Add new Override": "Жаңы өзгөчөлүк кошуу",
+
+  "Add results to Assets": "Жыйынтыктарды активдерге кошуу",
+
+  "Add tag to filtered": "Фильтрленгендерге тег кошуу",
+
+  "Add tag to page contents": "Барактын мазмунуна тег кошуу",
+
+  "Add tag to selection": "Тандалгандарга тег кошуу",
+
+  "Add to Assets": "Активдерге кошуу",
+
+  "Add to Assets with QoD >= 70%": "QoD >= 70% болгон активдерге кошуу",
+
+  "Add to Assets with QoD >= 70% and Overrides enabled": "QoD >= 70% болгон жана өзгөчөлүктөр иштетилген активдерге кошуу",
+
+  "Add:": "Кошуу:",
+
+  "Adjacent": "Чектеш",
+
+  "Adjust and update your filter settings.": "Фильтр орнотууларыңызды тууралаңыз жана жаңыртыңыз.",
+
+  "Advanced Task Wizard": "Тапшырмалардын өркүндөтүлгөн мастери",
+
+  "Advisory Link": "Сунуштун шилтемеси",
+
+  "Affected Software/OS": "Таасир эткен программалык камсыздоо/ОС",
+
+  "Agent Configuration": "Агенттин конфигурациясы",
+
+  "Agent Control - Retry Settings": "Агентти башкаруу - Кайра аракет орнотуулары",
+
+  "Agent Control Defaults": "Агентти башкаруунун баштапкы орнотуулары",
+
+  "Agent Controller": "Агенттин контроллери",
+
+  "Agent Group": "Агенттер тобу",
+
+  "Agent Groups Filter": "Агенттер топторунун фильтри",
+
+  "Agent ID": "Агенттин IDси",
+
+  "Agent Installer": "Агентти орнотуучу",
+
+  "Agent Installers": "Агентти орнотуучулар",
+
+  "Agent Installers Filter": "Агентти орнотуучулардын фильтри",
+
+  "Agent Name": "Агенттин аты",
+
+  "Agent Script Executor": "Агент скриптин аткаруучу",
+
+  "Agent Sensor": "Агенттин сенсору",
+
+  "Agents Filter": "Агенттердин фильтри",
+
+  "Agents Installation": "Агенттерди орнотуу",
+
+  "Agents successfully authorized": "Агенттер ийгиликтүү авторлоштурулду",
+
+  "Agents successfully deleted": "Агенттер ийгиликтүү өчүрүлдү",
+
+  "Agents successfully revoked": "Агенттердин укуктары ийгиликтүү кайтарылып алынды",
+
+  "Agents successfully synced": "Агенттер ийгиликтүү синхрондоштурулду",
+
+  "Aggregates": "Агрегаттар",
+
+  "Alemba Client ID": "Alemba кардар IDси",
+
+  "Alemba vFire": "Alemba vFire",
+
+  "Alerts Filter": "Эскертүүлөрдүн фильтри",
+
+  "Alerts List": "Эскертүүлөрдүн тизмеси",
+
+  "Alerts using this Filter": "Бул фильтрди колдонгон эскертүүлөр",
+
+  "Alerts using this Report Config": "Бул отчёт конфигурациясын колдонгон эскертүүлөр",
+
+  "All Identifiers": "Бардык идентификаторлор",
+
+  "All you need to do is enter a name for the new task and the IP address or host name of the target, and select a scan configuration.": "Сизге болгону жаңы тапшырманын атын, максаттуу хосттун IP дарегин же атын киргизип, сканерлөө конфигурациясын тандоо гана керек.",
+
+  "Allow Insecure Registry": "Коопсуз эмес реестрге уруксат берүү",
+
+  "Allow all": "Баарына уруксат берүү",
+
+  "Allow all and deny": "Баарына уруксат берүү жана тыюу салуу",
+
+  "Allow all and deny from {{addresses}}": "Баарына уруксат берүү жана {{addresses}} даректеринен тыюу салуу",
+
+  "Allow scan when credential store retrieval fails": "Учёттук дайындар сактагычынан алуу ишке ашпай калганда сканерлөөгө уруксат берүү",
+
+  "Allow simultaneous scanning via multiple IPs": "Бир нече IP аркылуу бир убакта сканерлөөгө уруксат берүү",
+
+  "Alterable Audit": "Өзгөртүлүүчү аудит",
+
+  "Alterable Task": "Өзгөртүлүүчү тапшырма",
+
+  "Always": "Ар дайым",
+
+  "Amber": "Янтарь",
+
+  "An error occurred during Testing the alert {{name}}": "{{name}} эскертүүсүн текшерүү учурунда ката кетти",
+
+  "An error occurred during making the request. Most likely the web server does not respond.": "Сурам жөнөтүү учурунда ката кетти. Кыязы, веб-сервер жооп бербей жатат.",
+
+  "An error occurred in this chart.": "Бул диаграммада ката кетти.",
+
+  "An error occurred in this dialog.": "Бул диалогдо ката кетти.",
+
+  "An error occurred on this dashboard.": "Бул башкаруу панелинде ката кетти.",
+
+  "An error occurred on this page": "Бул баракта ката кетти",
+
+  "An error occurred on this page.": "Бул баракта ката кетти.",
+
+  "An error occurred while converting gmp response to js for url {{- url}}": "{{- url}} дареги үчүн gmp жообун js'ке которуу учурунда ката кетти",
+
+  "An error occurred while emptying the trash, please try again.": "Себетти тазалоо учурунда ката кетти, сураныч, кайра аракет кылыңыз.",
+
+  "An error occurred while saving the setting, please try again.": "Орнотууну сактоо учурунда ката кетти, сураныч, кайра аракет кылыңыз.",
+
+  "Analyst": "Аналитик",
+
+  "App ID is required to verify the credential store. Please set the App ID in the edit dialog.": "Учёттук дайындар сактагычын текшерүү үчүн Колдонмо IDси (App ID) талап кылынат. Сураныч, түзөтүү диалогунда Колдонмо IDсин орнотуңуз.",
+
+  "Appearance when active": "Активдүү болгондогу көрүнүшү",
+
+  "Application": "Колдонмо",
+
+  "Application CPE": "Колдонмонун CPEси",
+
+  "Applications": "Колдонмолор",
+
+  "Applied filter: ": "Колдонулган фильтр: ",
+
+  "Apply Overrides": "Өзгөчөлүктөрдү колдонуу",
+
+  "Apply a minimum severity of 7.0.": "7.0 болгон минималдуу критикалуулукту колдонуу.",
+
+  "Apply default timeout": "Баштапкы күтүү убактысын колдонуу",
+
+  "Apply to all filtered": "Бардык фильтрленгендерге колдонуу",
+
+  "Apply to page contents": "Барактын мазмунуна колдонуу",
+
+  "Apply to selection": "Тандалгандарга колдонуу",
+
+  "Apps": "Колдонмолор",
+
+  "Are you certain you want to permanently remove the agent \"{{name}}\"?\nThis operation is irreversible.\nAfter removal, reinstalling the agent will be necessary.": "Сиз чын эле \"{{name}}\" агентин биротоло өчүрүүнү каалайсызбы?\nБул операция кайтарылгыс.\nӨчүргөндөн кийин агентти кайра орнотуу керек болот.",
+
+  "Are you sure you want to authorize all selected items?": "Бардык тандалган элементтерди авторлоштурууга ишеничиңиз барбы?",
+
+  "Are you sure you want to delete all items on this page?\nThis action cannot be undone.": "Бул барактагы бардык элементтерди өчүрүүнү каалайсызбы?\nБул аракетти жокко чыгаруу мүмкүн эмес.",
+
+  "Are you sure you want to empty the trash?": "Себетти тазалоону каалайсызбы?",
+
+  "Are you sure you want to move all items on this page to the trashcan?": "Бул барактагы бардык элементтерди себетке которууну каалайсызбы?",
+
+  "Are you sure you want to revoke all selected items?": "Бардык тандалган элементтердин укуктарын кайтарып алууга ишеничиңиз барбы?",
+
+  "As a short-cut the following steps will be done for you:": "Кыска жол катары төмөнкү кадамдар сиз үчүн аткарылат:",
+
+  "As soon as the scan progress is beyond 1%, you can already jump to the scan report by clicking on the progress bar in the \"Status\" column and review the results collected so far.": "Сканерлөө прогресси 1%дан ашканда, \"Статус\" тилкесиндеги прогресс тилкесин басып, сканерлөө отчётуна өтүп, ушул убакка чейин чогултулган жыйынтыктарды көрө аласыз.",
+
+  "Ascending": "Өсүү тартибинде",
+
+  "Asset": "Актив",
+
+  "Asset Displays": "Активдердин көрүнүштөрү",
+
+  "Assign To User": "Колдонуучуга дайындоо",
+
+  "Assigned Items": "Дайындалган элементтер",
+
+  "Assigned Ticket Changed": "Дайындалган тикет өзгөртүлдү",
+
+  "Assigned Ticket changed": "Дайындалган тикет өзгөртүлдү",
+
+  "Assigned To": "Төмөнкүгө дайындалды",
+
+  "Assigned User": "Дайындалган колдонуучу",
+
+  "Attach Content": "Мазмунду тиркөө",
+
+  "Attach list of resources with message:": "Билдирүүсү менен ресурстар тизмесин тиркөө:",
+
+  "Attach report": "Отчётту тиркөө",
+
+  "Attack Requirements": "Чабуул талаптары",
+
+  "Attacked": "Чабуул жасалды",
+
+  "Audit Report": "Аудит отчёту",
+
+  "Audit Report:": "Аудит отчёту:",
+
+  "Audit Reports": "Аудит отчёттору",
+
+  "Audit Reports Filter": "Аудит отчётторунун фильтри",
+
+  "Audit Reports List": "Аудит отчётторунун тизмеси",
+
+  "Audit Reports by Compliance (Total: {{count}})": "Комплаенс боюнча аудит отчёттору (Бардыгы: {{count}})",
+
+  "Audit is alterable": "Аудит өзгөртүлүүчү",
+
+  "Audit is configured to run on sensor {{name}}": "Аудит {{name}} сенсорунда иштөөгө конфигурацияланган",
+
+  "Audit made visible for:\n{{user}}\n{{role}}\n{{group}}": "Аудит төмөнкүлөргө көрүнүктүү болду:\n{{user}}\n{{role}}\n{{group}}",
+
+  "Audits using this Policy": "Бул саясатты колдонгон аудиттер",
+
+  "Auth": "Аутент.",
+
+  "Auth Algorithm": "Аутент. алгоритми",
+
+  "Auth. DN": "Аутент. DN",
+
+  "Authentication Type": "Аутентификация түрү",
+
+  "Authorize": "Авторлоштуруу",
+
+  "Authorize Agent": "Агентти авторлоштуруу",
+
+  "Authorize all filtered items": "Бардык фильтрленген элементтерди авторлоштуруу",
+
+  "Authorize all items on this page": "Бул барактагы бардык элементтерди авторлоштуруу",
+
+  "Authorize selected items": "Тандалган элементтерди авторлоштуруу",
+
+  "Authorized": "Авторлоштурулду",
+
+  "Authorizing items": "Элементтер авторлоштурулууда",
+
+  "Auto Cache Rebuild": "Кэшти автоматтык түрдө кайра түзүү",
+
+  "Auto Delete Reports": "Отчётторду автоматтык түрдө өчүрүү",
+
+  "Auto delete Reports": "Отчётторду автоматтык түрдө өчүрүү",
+
+  "Auto-generate": "Автоматтык түрдө түзүү",
+
+  "Automatable": "Автоматташтырылуучу",
+
+  "Automatic": "Автоматтык",
+
+  "Automatic Update Settings": "Автоматтык жаңыртуу орнотуулары",
+
+  "Automatically delete oldest reports but always keep newest": "Эң эски отчётторду автоматтык түрдө өчүрүү, бирок эң жаңыларын ар дайым сактоо",
+
+  "Automatically delete oldest reports but always keep newest {{nr}} reports": "Эң эски отчётторду автоматтык түрдө өчүрүү, бирок эң жаңы {{nr}} отчётту сактоо",
+
+  "Automatically update agents to latest version": "Агенттерди автоматтык түрдө акыркы версияга жаңыртуу",
+
+  "CVE Filter": "CVE фильтри",
+
+  "CVE List": "CVE тизмеси",
+
+  "CVE Scanner": "CVE сканери",
+
+  "CVE Severity": "CVE критикалуулугу",
+
+  "CVEs": "CVEлер",
+
+  "CVEs by CVSS (Total: {{count}})": "CVSS боюнча CVEлер (Бардыгы: {{count}})",
+
+  "CVEs by Creation Time": "Түзүлгөн убактысы боюнча CVEлер",
+
+  "CVEs by Severity Class (Total: {{count}})": "Критикалуулук классы боюнча CVEлер (Бардыгы: {{count}})",
+
+  "CVSS Base": "CVSS базасы",
+
+  "CVSS Base Vector": "CVSS базалык вектору",
+
+  "CVSS Calculator": "CVSS калькулятору",
+
+  "CVSS Date": "CVSS датасы",
+
+  "CVSS Origin": "CVSS булагы",
+
+  "CVSS base": "CVSS базасы",
+
+  "CVSS base vector": "CVSS базалык вектору",
+
+  "CVSS v3.1 Vector": "CVSS v3.1 вектору",
+
+  "CVSSv2 Base Score Calculator": "CVSSv2 базалык балл калькулятору",
+
+  "CVSSv3 Base Score Calculator": "CVSSv3 базалык балл калькулятору",
+
+  "CVSSv4 Score Calculator": "CVSSv4 балл калькулятору",
+
+  "Create Permission": "Уруксат түзүү",
+
+  "Create Schedule": "Расписание түзүү",
+
+  "Create Schedule:": "Расписание түзүү:",
+
+  "Create Target form all filtered": "Бардык фильтрленгендерден максат түзүү",
+
+  "Create Target from Host": "Хосттон максат түзүү",
+
+  "Create Target from page contents": "Барактын мазмунунан максат түзүү",
+
+  "Create Target from selection": "Тандалгандардан максат түзүү",
+
+  "Create new ESXi credential": "Жаңы ESXi учёттук дайындарын түзүү",
+
+  "Create new Import Task": "Жаңы импорттоо тапшырмасын түзүү",
+
+  "Create new Kerberos credential": "Жаңы Kerberos учёттук дайындарын түзүү",
+
+  "Create new SMB credential": "Жаңы SMB учёттук дайындарын түзүү",
+
+  "Create new SNMP credential": "Жаңы SNMP учёттук дайындарын түзүү",
+
+  "Create new SSH credential": "Жаңы SSH учёттук дайындарын түзүү",
+
+  "Create new SSH elevate credential": "Жаңы SSH укуктарын жогорулатуу учёттук дайындарын түзүү",
+
+  "Create new Ticket": "Жаңы тикет түзүү",
+
+  "Create new Ticket for Result": "Жыйынтык үчүн жаңы тикет түзүү",
+
+  "Create new Ticket for Result {{- name}}": "{{- name}} жыйынтыгы үчүн жаңы тикет түзүү",
+
+  "Create new credential": "Жаңы учёттук дайындарды түзүү",
+
+  "Create new {{entity}}": "Жаңы {{entity}} түзүү",
+
+  "Create permission to grant full read and write access among all group members and across any resources": "Бардык топ мүчөлөрүнө жана каалаган ресурстарга толук окуу жана жазуу мүмкүнчүлүгүн берүү үчүн уруксат түзүү",
+
+  "Created CERT-Bund Advs": "Түзүлгөн CERT-Bund сунуштары",
+
+  "Created CPEs": "Түзүлгөн CPEлер",
+
+  "Created CVEs": "Түзүлгөн CVEлер",
+
+  "Created DFN-CERT Advs": "Түзүлгөн DFN-CERT сунуштары",
+
+  "Created NVTs": "Түзүлгөн NVTлер",
+
+  "Created Notes": "Түзүлгөн эскертүүлөр",
+
+  "Created Overrides": "Түзүлгөн өзгөчөлүктөр",
+
+  "Created Tickets": "Түзүлгөн тикеттер",
+
+  "Created Time": "Түзүлгөн убактысы",
+
+  "Created:": "Түзүлдү:",
+
+  "Creation Time": "Түзүлгөн убактысы",
+
+  "Credential List": "Учёттук дайындардын тизмеси",
+
+  "Credential Store": "Учёттук дайындар сактагычы",
+
+  "Credential Store Client Certificate": "Учёттук дайындар сактагычынын кардар сертификаты",
+
+  "Credential Store PGP Encryption Key": "Учёттук дайындар сактагычынын PGP шифрлөө ачкычы",
+
+  "Credential Store Password only": "Учёттук дайындар сактагычынын сыр сөзү гана",
+
+  "Credential Store S/S/MIME Certificate": "Учёттук дайындар сактагычынын S/MIME сертификаты",
+
+  "Credential Store SMB (Kerberos)": "Учёттук дайындар сактагычынын SMB (Kerberos)",
+
+  "Credential Store SNMP": "Учёттук дайындар сактагычынын SNMP",
+
+  "Credential Store Username + Password": "Учёттук дайындар сактагычынын колдонуучу аты + сыр сөзү",
+
+  "Credential Store Username + SSH Key": "Учёттук дайындар сактагычынын колдонуучу аты + SSH ачкычы",
+
+  "Credential for authenticated checks": "Аутентификацияланган текшерүүлөр үчүн учёттук дайындар",
+
+  "Credential store settings saved successfully.": "Учёттук дайындар сактагычынын орнотуулары ийгиликтүү сакталды.",
+
+  "Credential: {{name}}": "Учёттук дайындар: {{name}}",
+
+  "Credentials Filter": "Учёттук дайындардын фильтри",
+
+  "Credentials for authenticated checks": "Аутентификацияланган текшерүүлөр үчүн учёттук дайындар",
+
+  "Cron expression for scheduler": "Пландаштыргыч үчүн cron туюнтмасы",
+
+  "Current": "Учурдагы",
+
+  "Current Report for Audit {{- name}} from {{- date}}": "{{- date}} датасындагы {{- name}} аудити үчүн учурдагы отчёт",
+
+  "Current Report for Task {{- name}} from {{- date}}": "{{- date}} датасындагы {{- name}} тапшырмасы үчүн учурдагы отчёт",
+
+  "Current User": "Учурдагы колдонуучу",
+
+  "Custom": "Жекече",
+
+  "Custom cron expression": "Жекече cron туюнтмасы",
+
+  "Custom...": "Жекече...",
+
+  "Daily": "Күн сайын",
+
+  "Daily at 6 AM and 6 PM": "Күн сайын саат 06:00дө жана 18:00дө",
+
+  "Daily at midnight": "Күн сайын түн жарымында",
+
+  "Daily at noon": "Күн сайын түштө",
+
+  "Dashboard Title": "Башкаруу панелинин аталышы",
+
+  "Dashboard limit reached": "Башкаруу панелинин чегине жетти",
+
+  "Dashboards limit reached": "Башкаруу панелдеринин чегине жетти",
+
+  "Date & Time Format": "Дата жана убакыт форматы",
+
+  "Date Format": "Дата форматы",
+
+  "Decrease the minimum QoD in the filter settings to 30 percent to see those results.": "Бул жыйынтыктарды көрүү үчүн фильтр орнотууларында минималдуу QoDди 30 пайызга чейин азайтыңыз.",
+
+  "Default Alert": "Баштапкы эскертүү",
+
+  "Default ESXi Credential": "Баштапкы ESXi учёттук дайындары",
+
+  "Default Port List": "Баштапкы порттор тизмеси",
+
+  "Default SMB Credential": "Баштапкы SMB учёттук дайындары",
+
+  "Default SNMP Credential": "Баштапкы SNMP учёттук дайындары",
+
+  "Default SSH Credential": "Баштапкы SSH учёттук дайындары",
+
+  "Default Schedule": "Баштапкы расписание",
+
+  "Default Severity": "Баштапкы критикалуулук",
+
+  "Default Ak Shumkar Scan Config": "Баштапкы Ak Shumkar сканерлөө конфигурациясы",
+
+  "Default Ak Shumkar Scanner": "Баштапкы Ak Shumkar сканери",
+
+  "Default Target": "Баштапкы максат",
+
+  "Default Value": "Баштапкы маани",
+
+  "Defaults": "Баштапкы орнотуулар",
+
+  "Defense Center IP": "Defense Center IP дареги",
+
+  "Defense Center Port": "Defense Center порту",
+
+  "Delay between retries in seconds": "Кайра аракеттердин ортосундагы кечигүү (секунд менен)",
+
+  "Delete Identifier": "Идентификаторду өчүрүү",
+
+  "Delete Port Range": "Порт диапазонун өчүрүү",
+
+  "Delete Report": "Отчётту өчүрүү",
+
+  "Delete Requested": "Өчүрүү суралды",
+
+  "Delete TLS Certificate": "TLS сертификатын өчүрүү",
+
+  "Delete all filtered": "Бардык фильтрленгендерди өчүрүү",
+
+  "Delete page contents": "Барактын мазмунун өчүрүү",
+
+  "Delete selection": "Тандалгандарды өчүрүү",
+
+  "Delete {{entity}}": "{{entity}} өчүрүү",
+
+  "Deleting": "Өчүрүлүүдө",
+
+  "Deletion completed": "Өчүрүү аяктады",
+
+  "Deletion started": "Өчүрүү башталды",
+
+  "Delta": "Дельта",
+
+  "Delta Report": "Дельта отчёт",
+
+  "Delta Results": "Дельта жыйынтыктар",
+
+  "Deprecated": "Тандалбайт",
+
+  "Deprecated By": "Төмөнкү тарабынан алмаштырылган",
+
+  "Details Export File Name": "Чоо-жайын экспорттоо файлынын аты",
+
+  "Details URL": "Чоо-жайынын URL дареги",
+
+  "Details: ": "Чоо-жайы: ",
+
+  "Detection Method": "Аныктоо ыкмасы",
+
+  "Detection Result": "Аныктоо жыйынтыгы",
+
+  "Credential Store S/MIME Certificate": "Учёттук дайындар сактагычынын S/MIME сертификаты",
+
+  "Detection Results": "Аныктоо жыйынтыктары",
+
+  "Different Lines": "Башка саптар",
+
+  "Diffuse": "Диффузиялык",
+
+  "Directory depth for indexer": "Индексатор үчүн папканын тереңдиги",
+
+  "Disable Tag": "Тегди өчүрүү",
+
+  "Do not automatically delete reports": "Отчётторду автоматтык түрдө өчүрбөө",
+
+  "Do not change": "Өзгөртпөө",
+
+  "Do not start automatically": "Автоматтык түрдө баштабоо",
+
+  "Do you really want to remove the Dashboard {{name}} and its configuration?": "Чын эле {{name}} башкаруу панелин жана анын конфигурациясын өчүрүүнү каалайсызбы?",
+
+  "Download Agent Installer": "Агентти орнотуучуну жүктөө",
+
+  "Download CA Certificate": "CA сертификатын жүктөө",
+
+  "Download CSV": "CSV жүктөө",
+
+  "Download Certificate": "Сертификат жүктөө",
+
+  "Download Client Certificate": "Кардар сертификатын жүктөө",
+
+  "Download Debian (.deb) Package": "Debian (.deb) пакетин жүктөө",
+
+  "Download Ak Shumkar Compliance Report": "Ak Shumkar комплаенс отчётун жүктөө",
+
+  "Download Public Key": "Ачык ачкычты жүктөө",
+
+  "Download RPM (.rpm) Package": "RPM (.rpm) пакетин жүктөө",
+
+  "Download SVG": "SVG жүктөө",
+
+  "Download TLS Certificate": "TLS сертификатын жүктөө",
+
+  "Download TLS Certificate as .pem": "TLS сертификатын .pem катары жүктөө",
+
+  "Download Windows Executable (.exe)": "Windows үчүн аткарылуучу файлды (.exe) жүктөө",
+
+  "Download filtered Report": "Фильтрленген отчётту жүктөө",
+
+  "Duration of last Scan": "Акыркы сканерлөөнүн узактыгы",
+
+  "EPSS": "EPSS",
+
+  "EPSS (CVE with highest severity)": "EPSS (эң жогорку критикалуулуктагы CVE)",
+
+  "EPSS (highest EPSS score)": "EPSS (эң жогорку EPSS баллы)",
+
+  "EPSS Percentile": "EPSS процентили",
+
+  "EPSS Score": "EPSS баллы",
+
+  "ESXi Credential": "ESXi учёттук дайындары",
+
+  "ESXi authentication was successful": "ESXi аутентификациясы ийгиликтүү өттү",
+
+  "ESXi authentication was unsuccessful": "ESXi аутентификациясы ийгиликсиз болду",
+
+  "Edit Agent": "Агентти түзөтүү",
+
+  "Edit Agent - {{name}}": "Агентти түзөтүү - {{name}}",
+
+  "Edit Agent Details": "Агенттин чоо-жайын түзөтүү",
+
+  "Edit Agent Group": "Агенттер тобун түзөтүү",
+
+  "Edit Agent Group {{name}}": "Агенттер тобун түзөтүү {{name}}",
+
+  "Edit Agent Task {{- name}}": "Агенттик тапшырманы түзөтүү {{- name}}",
+
+  "Edit Alert {{- name}}": "Эскертүүнү түзөтүү {{- name}}",
+
+  "Edit Audit {{- name}}": "Аудитти түзөтүү {{- name}}",
+
+  "Edit Container Image Target - {{- name}}": "Контейнер сүрөтүнүн максатын түзөтүү - {{- name}}",
+
+  "Edit Container Image Task {{- name}}": "Контейнер сүрөтүнүн тапшырмасын түзөтүү {{- name}}",
+
+  "Edit Credential Store": "Учёттук дайындар сактагычын түзөтүү",
+
+  "Edit Credential {{- name}}": "Учёттук дайындарды түзөтүү {{- name}}",
+
+  "Edit Dashboard": "Башкаруу панелин түзөтүү",
+
+  "Edit Dashboard Title": "Башкаруу панелинин аталышын түзөтүү",
+
+  "Edit Filter {{- name}}": "Фильтрди түзөтүү {{- name}}",
+
+  "Edit Group {{- name}}": "Топту түзөтүү {{- name}}",
+
+  "Edit Host {{name}}": "Хостту түзөтүү {{name}}",
+
+  "Edit Import Task {{- name}}": "Импорттоо тапшырмасын түзөтүү {{- name}}",
+
+  "Edit LDAP per-User Authentication": "Ар бир колдонуучу үчүн LDAP аутентификациясын түзөтүү",
+
+  "Edit Network Vulnerability Test Families ({{counts}})": "Тармактын алсыздыктарын текшерүү топторун түзөтүү ({{counts}})",
+
+  "Edit Network Vulnerability Tests": "Тармактын алсыздыктарын текшерүүнү түзөтүү",
+
+  "Edit Note {{- name}}": "Эскертүүнү түзөтүү {{- name}}",
+
+  "Edit Override {{- name}}": "Өзгөчөлүктү түзөтүү {{- name}}",
+
+  "Edit Permission {{name}}": "Уруксатты түзөтүү {{name}}",
+
+  "Edit Policy Family": "Саясаттар тобун түзөтүү",
+
+  "Edit Policy Family {{name}}": "Саясаттар тобун түзөтүү {{name}}",
+
+  "Edit Policy NVT Details": "NVT саясатынын чоо-жайын түзөтүү",
+
+  "Edit Policy NVT {{name}}": "NVT саясатын түзөтүү {{name}}",
+
+  "Edit Policy NVT {{nvtOid}}": "NVT саясатын түзөтүү {{nvtOid}}",
+
+  "Edit Policy {{- name}}": "Саясатты түзөтүү {{- name}}",
+
+  "Edit Port List {{- name}}": "Порттор тизмесин түзөтүү {{- name}}",
+
+  "Edit RADIUS Authentication": "RADIUS аутентификациясын түзөтүү",
+
+  "Edit Report Config {{- name}}": "Отчёт конфигурациясын түзөтүү {{- name}}",
+
+  "Edit Report Format {{- name}}": "Отчёт форматын түзөтүү {{- name}}",
+
+  "Edit Role {{- name}}": "Ролду түзөтүү {{- name}}",
+
+  "Edit Scan Config Family": "Сканерлөө конфигурациясынын тобун түзөтүү",
+
+  "Edit Scan Config Family {{name}}": "Сканерлөө конфигурациясынын тобун түзөтүү {{name}}",
+
+  "Edit Scan Config NVT Details": "Сканерлөө конфигурациясынын NVT чоо-жайын түзөтүү",
+
+  "Edit Scan Config NVT {{name}}": "Сканерлөө конфигурациясынын NVTсин түзөтүү {{name}}",
+
+  "Edit Scan Config NVT {{nvtOid}}": "Сканерлөө конфигурациясынын NVTсин түзөтүү {{nvtOid}}",
+
+  "Edit Scan Config {{- name}}": "Сканерлөө конфигурациясын түзөтүү {{- name}}",
+
+  "Edit Scanner Preferences ({{counts}})": "Сканердин орнотууларын түзөтүү ({{counts}})",
+
+  "Edit Scanner {{- name}}": "Сканерди түзөтүү {{- name}}",
+
+  "Edit Schedule {{- name}}": "Расписаниен түзөтүү {{- name}}",
+
+  "Edit Tag {{- name}}": "Тегди түзөтүү {{- name}}",
+
+  "Edit Target {{- name}}": "Максатты түзөтүү {{- name}}",
+
+  "Edit Task {{- name}}": "Тапшырманы түзөтүү {{- name}}",
+
+  "Edit Ticket {{- name}}": "Тикетти түзөтүү {{- name}}",
+
+  "Edit User {{- name}}": "Колдонуучуну түзөтүү {{- name}}",
+
+  "Edit permission {{name}}": "Уруксатты түзөтүү {{name}}",
+
+  "Edit {{entity}} settings": "{{entity}} орнотууларын түзөтүү",
+
+  "Effect": "Натыйжа",
+
+  "Elevate privileges": "Укуктарды жогорулатуу",
+
+  "Email Encryption": "Электрондук почтаны шифрлөө",
+
+  "Email report to": "Отчётту төмөнкү дарекке жөнөтүү",
+
+  "Email to {{address}}": "{{address}} дарегине электрондук почта жөнөтүү",
+
+  "Empty Trash": "Себетти тазалоо",
+
+  "Empty, static and fast": "Бош, статикалык жана тез",
+
+  "Enable": "Иштетүү",
+
+  "Enable Tag": "Тегди иштетүү",
+
+  "Enable automatic updates": "Автоматтык жаңыртууларды иштетүү",
+
+  "Encrypted Email to {{address}}": "{{address}} дарегине шифрленген электрондук почта жөнөтүү",
+
+  "End Date": "Аяктоо датасы",
+
+  "End Time": "Аяктоо убактысы",
+
+  "End date is same or before start date. Please adjust you start and/or end date.": "Аяктоо датасы башталуу датасына дал келет же андан мурун. Сураныч, башталуу жана/же аяктоо датасын тууралаңыз.",
+
+  "Enter a custom cron expression.": "Жекече cron туюнтмасын киргизиңиз.",
+
+  "Enter hostname or IP address, then press Enter to add KDC": "KDC кошуу үчүн хосттун атын же IP дарегин киргизип, Enter баскычын басыңыз",
+
+  "Entire Operation": "Бардык операция",
+
+  "Entity": "Объект",
+
+  "Environmental (Modified Base Metrics)": "Айлана-чөйрө (Өзгөртүлгөн базалык метрикалар)",
+
+  "Environmental (Security Requirements)": "Айлана-чөйрө (Коопсуздук талаптары)",
+
+  "Error Message": "Ката билдирүүсү",
+
+  "Error Messages": "Ката билдирүүлөрү",
+
+  "Error fetching the feed": "Лентаны алууда ката кетти",
+
+  "Error loading credential store: ": "Учёттук дайындар сактагычын жүктөөдө ката кетти: ",
+
+  "Error while loading Container Scanning Results for Report {{reportId}}": "{{reportId}} отчёту үчүн контейнерлерди сканерлөө жыйынтыктарын жүктөөдө ката кетти",
+
+  "Error while loading Report {{reportId}}": "{{reportId}} отчётун жүктөөдө ката кетти",
+
+  "Error while loading Results for Report {{reportId}}": "{{reportId}} отчёту үчүн жыйынтыктарды жүктөөдө ката кетти",
+
+  "Error: Unknown Performance Report": "Ката: Белгисиз өндүрүмдүүлүк отчёту",
+
+  "Every": "Ар бир",
+
+  "Every 12 hours": "Ар 12 саат сайын",
+
+  "Every 2 hours": "Ар 2 саат сайын",
+
+  "Every 2nd day at midnight and noon": "Ар бир 2-күнү түн жарымында жана түштө",
+
+  "Every 4 hours": "Ар 4 саат сайын",
+
+  "Every 6 hours": "Ар 6 саат сайын",
+
+  "Every 8 hours": "Ар 8 саат сайын",
+
+  "Every hour": "Ар саат сайын",
+
+  "Every minute": "Ар мүнөт сайын",
+
+  "Every month at days {{days}}": "Ар айдын {{days}}-күндөрү",
+
+  "Every second": "Ар секунд сайын",
+
+  "Every week on {{days}}": "Ар жуманын {{days}} күндөрү",
+
+  "Every {{interval}} days": "Ар {{interval}} күн сайын",
+
+  "Every {{interval}} hours": "Ар {{interval}} саат сайын",
+
+  "Every {{interval}} minutes": "Ар {{interval}} мүнөт сайын",
+
+  "Every {{interval}} month at days {{days}}": "Ар {{interval}} айдын {{days}}-күндөрү",
+
+  "Every {{interval}} months": "Ар {{interval}} ай сайын",
+
+  "Every {{interval}} seconds": "Ар {{interval}} секунд сайын",
+
+  "Every {{interval}} weeks": "Ар {{interval}} жума сайын",
+
+  "Every {{interval}} weeks on {{days}}": "Ар {{interval}} жуманын {{days}} күндөрү",
+
+  "Every {{interval}} years": "Ар {{interval}} жыл сайын",
+
+  "Example": "Мисал",
+
+  "Exclude Hosts": "Хостторду кошпоо",
+
+  "Exclude Images": "Сүрөттөрдү кошпоо",
+
+  "Excluded": "Кошулган жок",
+
+  "Executable version": "Аткарылуучу файлдын версиясы",
+
+  "Expiration": "Мөөнөтүнүн бүтүшү",
+
+  "Expired": "Мөөнөтү бүттү",
+
+  "Expires": "Мөөнөтү бүтөт",
+
+  "Exploit": "Эксплойт",
+
+  "Exploit Maturity": "Эксплойттун жетилгендиги",
+
+  "Exploitability Metrics": "Эксплуатациялануу мүмкүнчүлүгүнүн метрикалары",
+
+  "Export Alert": "Эскертүүнү экспорттоо",
+
+  "Export Alert as XML": "Эскертүүнү XML катары экспорттоо",
+
+  "Export Audit": "Аудитти экспорттоо",
+
+  "Export Audit as XML": "Аудитти XML катары экспорттоо",
+
+  "Export CERT-Bund Advisory": "CERT-Bund сунушун экспорттоо",
+
+  "Export CPE": "CPEни экспорттоо",
+
+  "Export CVE": "CVEни экспорттоо",
+
+  "Export Container Image Target": "Контейнер сүрөтүнүн максатын экспорттоо",
+
+  "Export Credential": "Учёттук дайындарды экспорттоо",
+
+  "Export Credential as XML": "Учёттук дайындарды XML катары экспорттоо",
+
+  "Export DFN-CERT Advisory": "DFN-CERT сунушун экспорттоо",
+
+  "Export Filter as XML": "Фильтрди XML катары экспорттоо",
+
+  "Export Group": "Топту экспорттоо",
+
+  "Export Group as XML": "Топту XML катары экспорттоо",
+
+  "Export Host": "Хостту экспорттоо",
+
+  "Export Host as XML": "Хостту XML катары экспорттоо",
+
+  "Export NVT": "NVTни экспорттоо",
+
+  "Export Note": "Эскертүүнү экспорттоо",
+
+  "Export Note as XML": "Эскертүүнү XML катары экспорттоо",
+
+  "Export Operating System": "Операциялык системаны экспорттоо",
+
+  "Export Override": "Өзгөчөлүктү экспорттоо",
+
+  "Export Override as XML": "Өзгөчөлүктү XML катары экспорттоо",
+
+  "Export Permission": "Уруксатты экспорттоо",
+
+  "Export Permission as XML": "Уруксатты XML катары экспорттоо",
+
+  "Export Policy": "Саясатты экспорттоо",
+
+  "Export Policy as XML": "Саясатты XML катары экспорттоо",
+
+  "Export Port List": "Порттор тизмесин экспорттоо",
+
+  "Export Port List as XML": "Порттор тизмесин XML катары экспорттоо",
+
+  "Export Report Config": "Отчёт конфигурациясын экспорттоо",
+
+  "Export Result as XML": "Жыйынтыкты XML катары экспорттоо",
+
+  "Export Role": "Ролду экспорттоо",
+
+  "Export Role as XML": "Ролду XML катары экспорттоо",
+
+  "Export Scan Config": "Сканерлөө конфигурациясын экспорттоо",
+
+  "Export Scan Config as XML": "Сканерлөө конфигурациясын XML катары экспорттоо",
+
+  "Export Scanner": "Сканерди экспорттоо",
+
+  "Export Scanner as XML": "Сканерди XML катары экспорттоо",
+
+  "Export Schedule": "Расписаниен экспорттоо",
+
+  "Export Schedule as XML": "Расписаниен XML катары экспорттоо",
+
+  "Export TLS Certificate as XML": "TLS сертификатын XML катары экспорттоо",
+
+  "Export Tag": "Тегди экспорттоо",
+
+  "Export Tag as XML": "Тегди XML катары экспорттоо",
+
+  "Export Target": "Максатты экспорттоо",
+
+  "Export Target as XML": "Максатты XML катары экспорттоо",
+
+  "Export Task": "Тапшырманы экспорттоо",
+
+  "Export Task as XML": "Тапшырманы XML катары экспорттоо",
+
+  "Export Ticket as XML": "Тикетти XML катары экспорттоо",
+
+  "Export User": "Колдонуучуну экспорттоо",
+
+  "Export User as XML": "Колдонуучуну XML катары экспорттоо",
+
+  "Export all filtered": "Бардык фильтрленгендерди экспорттоо",
+
+  "Export page contents": "Барактын мазмунун экспорттоо",
+
+  "Export selection": "Тандалгандарды экспорттоо",
+
+  "Extension": "Кеңейтүү",
+
+  "Failed to connect to credential store server. Please check your settings.": "Учёттук дайындар сактагычынын серверине туташуу ишке ашкан жок. Сураныч, орнотууларыңызды текшериңиз.",
+
+  "Failed to copy checksum for agent installer {{name}} {{version}} to clipboard.": "{{name}} {{version}} агентин орнотуучунун текшерүү суммасын алмашуу буферине көчүрүү ишке ашкан жок.",
+
+  "Failed to create a new Target because the default Port List is not available.": "Жаңы максат түзүү ишке ашкан жок, анткени баштапкы порттор тизмеси жеткиликтүү эмес.",
+
+  "Failed to create a new Task because the default Scan Config is not available.": "Жаңы тапшырма түзүү ишке ашкан жок, анткени баштапкы сканерлөө конфигурациясы жеткиликтүү эмес.",
+
+  "Failed to load {{type}} from trashcan": "Себеттен {{type}} жүктөө ишке ашкан жок",
+
+  "Failed to run alert.": "Эскертүүнү иштетүү ишке ашкан жок.",
+
+  "Failed to save filter setting": "Фильтр орнотуусун сактоо ишке ашкан жок",
+
+  "False Pos.": "Жалган оң",
+
+  "Families: Total": "Үй-бүлөлөр: Бардыгы",
+
+  "Families: Trend": "Үй-бүлөлөр: Тренд",
+
+  "Feed is currently syncing.": "Лента учурда синхрондоштурулуп жатат.",
+
+  "Feed is currently syncing. Please try again later.": "Лента учурда синхрондоштурулуп жатат. Сураныч, кийинчерээк кайра аракет кылыңыз.",
+
+  "Feeds": "Ленталар",
+
+  "File path": "Файлдын жолу",
+
+  "Filter List": "Фильтрлер тизмеси",
+
+  "Filter Name": "Фильтрдин аты",
+
+  "Filter matches at least {{count}} more {{result}} than the previous scan": "Фильтр мурунку сканерлөөгө караганда кеминде {{count}} көп {{result}} дал келтирди",
+
+  "Filter matches at least {{count}} {{type}}": "Фильтр кеминде {{count}} {{type}} дал келтирди",
+
+  "Filter out log message results.": "Лог билдирүү жыйынтыктарын фильтрлеп салуу.",
+
+  "Filter out results with compliance \"Incomplete\".": "Комплаенси \"Толук эмес\" болгон жыйынтыктарды фильтрлеп салуу.",
+
+  "Filter out results with compliance \"Undefined\".": "Комплаенси \"Аныкталбаган\" болгон жыйынтыктарды фильтрлеп салуу.",
+
+  "Filter out results with compliance \"Yes\".": "Комплаенси \"Ооба\" болгон жыйынтыктарды фильтрлеп салуу.",
+
+  "Filter out results with the severity \"Low\".": "Критикалуулугу \"Төмөн\" болгон жыйынтыктарды фильтрлеп салуу.",
+
+  "Filter out results with the severity \"Medium\".": "Критикалуулугу \"Орточо\" болгон жыйынтыктарды фильтрлеп салуу.",
+
+  "Filters Filter": "Фильтрлер фильтри",
+
+  "Fingerprint": "Манжа изи",
+
+  "First Run": "Биринчи иштетүү",
+
+  "First result": "Биринчи жыйынтык",
+
+  "Fix Verified": "Оңдоо текшерилди",
+
+  "Fold": "Бүктөө",
+
+  "Fold all details": "Бардык чоо-жайын бүктөө",
+
+  "Follow Link": "Шилтеме боюнча өтүү",
+
+  "For any other setting the defaults from \"My Settings\" will be applied.": "Башка бардык орнотуулар үчүн \"Менин орнотууларым\" бөлүмүндөгү баштапкы орнотуулар колдонулат.",
+
+  "Format: minute hour day month weekday": "Формат: мүнөт саат күн ай жума_күнү",
+
+  "Fr.": "Жум.",
+
+  "Friday": "Жума",
+
+  "From Address": "Жөнөтүүчүнүн дареги",
+
+  "From Metrics": "Метрикалардан",
+
+  "From Task (name)": "Тапшырмадан (аты)",
+
+  "From Vector": "Вектордон",
+
+  "From address": "Жөнөтүүчүнүн дареги",
+
+  "From file": "Файлдан",
+
+  "From host assets ({{count}} hosts)": "Хост активдеринен ({{count}} хост)",
+
+  "Full and fast": "Толук жана тез",
+
+  "GMP error during authentication": "Аутентификация учурунда GMP катасы кетти",
+
+  "General Command Permissions": "Командалардын жалпы уруксаттары",
+
+  "General note": "Жалпы эскертүү",
+
+  "Global {{type}}": "Глобалдык {{type}}",
+
+  "Gone": "Жок болду",
+
+  "Grant": "Укук берүү",
+
+  "Ak Shumkar": "Ak Shumkar",
+
+  "Ak Shumkar Sensor": "Ak Shumkar сенсору",
+
+  "Group ID": "Топтун IDси",
+
+  "Group Name": "Топтун аты",
+
+  "Group: {{name}}": "Топ: {{name}}",
+
+  "Groups List": "Топтор тизмеси",
+
+  "Groups {{group}}": "Топтор {{group}}",
+
+  "HTTP GET request": "HTTP GET сурамы",
+
+  "HTTP GET request to URL {{- url}}": "{{- url}} URL дарегине HTTP GET сурамы",
+
+  "HTTP Get": "HTTP Get",
+
+  "HTTP Get URL": "HTTP Get URL",
+
+  "Has permission to run all commands": "Бардык командаларды иштетүүгө уруксаты бар",
+
+  "Has read access to {{entityType}}": "{{entityType}} ресурсун окууга уруксаты бар",
+
+  "Has read access to {{type}} {{name}}": "{{type}} {{name}} ресурсун окууга уруксаты бар",
+
+  "Has super access": "Супер укугу бар",
+
+  "Has super access to all resources of {{type}} {{name}}": "{{type}} {{name}} бардык ресурстарына супер укугу бар",
+
+  "Has write access to the authentication configuration": "Аутентификация конфигурациясына жазууга уруксаты бар",
+
+  "Has write access to {{entityType}}": "{{entityType}} ресурсуна жазууга уруксаты бар",
+
+  "Has write access to {{type}} {{name}}": "{{type}} {{name}} ресурсуна жазууга уруксаты бар",
+
+  "Heartbeat": "Heartbeat",
+
+  "Heartbeat Interval (seconds)": "Heartbeat интервалы (секунд менен)",
+
+  "Heartbeat interval in seconds": "Heartbeat интервалы (секунд менен)",
+
+  "Heartbeat received": "Heartbeat алынды",
+
+  "Help:  CERT-Bund Advisories": "Жардам: CERT-Bund сунуштары",
+
+  "Help: Agent Installers": "Жардам: Агентти орнотуучулар",
+
+  "Help: Agents": "Жардам: Агенттер",
+
+  "Help: Agents Lists": "Жардам: Агенттердин тизмеси",
+
+  "Help: Alerts": "Жардам: Эскертүүлөр",
+
+  "Help: Audit Reports": "Жардам: Аудит отчёттору",
+
+  "Help: Audits": "Жардам: Аудиттер",
+
+  "Help: CERT-Bund Advisories": "Жардам: CERT-Bund сунуштары",
+
+  "Help: CPEs": "Жардам: CPEлер",
+
+  "Help: CVEs": "Жардам: CVEлер",
+
+  "Help: CVSS Base Score Calculator": "Жардам: CVSS базалык балл калькулятору",
+
+  "Help: Container Image Targets": "Жардам: Контейнер сүрөтүнүн максаттары",
+
+  "Help: Credential Store": "Жардам: Учёттук дайындар сактагычы",
+
+  "Help: Credentials": "Жардам: Учёттук дайындар",
+
+  "Help: DFN-CERT Advisories": "Жардам: DFN-CERT сунуштары",
+
+  "Help: Dashboards": "Жардам: Башкаруу панелдери",
+
+  "Help: Feed Status": "Жардам: Ленталардын статусу",
+
+  "Help: Filters": "Жардам: Фильтрлер",
+
+  "Help: Groups": "Жардам: Топтор",
+
+  "Help: Hosts": "Жардам: Хосттор",
+
+  "Help: LDAP per-User Authentication": "Жардам: Ар бир колдонуучу үчүн LDAP аутентификациясы",
+
+  "Help: My Settings": "Жардам: Менин орнотууларым",
+
+  "Help: NVTs": "Жардам: NVTлер",
+
+  "Help: Notes": "Жардам: Эскертүүлөр",
+
+  "Help: Operating Systems": "Жардам: Операциялык системалар",
+
+  "Help: Overrides": "Жардам: Өзгөчөлүктөр",
+
+  "Help: Performance": "Жардам: Өндүрүмдүүлүк",
+
+  "Help: Permissions": "Жардам: Уруксаттар",
+
+  "Help: Policies": "Жардам: Саясаттар",
+
+  "Help: Port Lists": "Жардам: Порттор тизмеси",
+
+  "Help: Powerfilter": "Жардам: Powerfilter",
+
+  "Help: RADIUS Authentication": "Жардам: RADIUS аутентификациясы",
+
+  "Help: Reading Reports": "Жардам: Отчётторду окуу",
+
+  "Help: Remediation Tickets": "Жардам: Оңдоо тикеттери",
+
+  "Help: Report Configs": "Жардам: Отчёт конфигурациялары",
+
+  "Help: Report Formats": "Жардам: Отчёт форматтары",
+
+  "Help: Reports": "Жардам: Отчёттор",
+
+  "Help: Results": "Жардам: Жыйынтыктар",
+
+  "Help: Roles": "Жардам: Ролдор",
+
+  "Help: Scan Configs": "Жардам: Сканерлөө конфигурациялары",
+
+  "Help: ScanConfigs": "Жардам: Сканерлөө конфигурациялары",
+
+  "Help: Scanners": "Жардам: Сканерлер",
+
+  "Help: Schedules": "Жардам: Расписаниелер",
+
+  "Help: TLS Certificate Assets": "Жардам: TLS сертификаттарынын активдери",
+
+  "Help: Tags": "Жардам: Тегдер",
+
+  "Help: Targets": "Жардам: Максаттар",
+
+  "Help: Tasks": "Жардам: Тапшырмалар",
+
+  "Help: Trashcan": "Жардам: Себет",
+
+  "Help: User Tags": "Жардам: Колдонуучунун тегдери",
+
+  "Help: Users": "Жардам: Колдонуучулар",
+
+  "Hide Error Details": "Катанын чоо-жайын жашыруу",
+
+  "High per Host": "Ар бир хостко жогорку критикалуулук",
+
+  "Highest": "Эң жогорку",
+
+  "Highest Severity": "Эң жогорку критикалуулук",
+
+  "Highest Severity from Results": "Жыйынтыктардагы эң жогорку критикалуулук",
+
+  "Host (IP)": "Хост (IP)",
+
+  "Host (Name)": "Хост (Аты)",
+
+  "Host Access": "Хостко кирүү",
+
+  "Host Identifier": "Хосттун идентификатору",
+
+  "Host List": "Хосттордун тизмеси",
+
+  "Host Name": "Хосттун аты",
+
+  "Hostname": "Хосттун аты",
+
+  "Hostname / IP": "Хосттун аты / IP",
+
+  "Hostname is changed from {{deltaHostname}}.": "Хосттун аты {{deltaHostname}} маанисинен өзгөртүлдү.",
+
+  "Hosts (All)": "Хосттор (Баары)",
+
+  "Hosts (Best OS)": "Хосттор (Эң ылайыктуу ОС)",
+
+  "Hosts (High) by Modification Time (Total: {{count}})": "Өзгөртүлгөн убактысы боюнча хосттор (Жогору) (Бардыгы: {{count}})",
+
+  "Hosts by CVSS (Total: {{count}})": "CVSS боюнча хосттор (Бардыгы: {{count}})",
+
+  "Hosts by Modification Time (Total: {{count}})": "Өзгөртүлгөн убактысы боюнча хосттор (Бардыгы: {{count}})",
+
+  "Hosts by Severity Class (Total: {{count}})": "Критикалуулук классы боюнча хосттор (Бардыгы: {{count}})",
+
+  "Hosts scanned": "Сканерленген хосттор",
+
+  "Hosts with Operating System {{- name}}": "{{- name}} операциялык системасы бар хосттор",
+
+  "Hosts with Operating System {{- name}} as the best match": "{{- name}} операциялык системасы эң ылайыктуу болгон хосттор",
+
+  "Hourly": "Саат сайын",
+
+  "ID:": "ID:",
+
+  "IP address or hostname:": "IP дареги же хосттун аты:",
+
+  "IPs": "IP даректер",
+
+  "If no inheriting user is selected, all owned resources will be deleted as well.": "Эгер мурастоочу колдонуучу тандалбаса, ага таандык бардык ресурстар да өчүрүлөт.",
+
+  "If the scan got interrupted you can try to re-start the task.": "Эгер сканерлөө үзгүлтүккө учураса, тапшырманы кайра баштап көрүңүз.",
+
+  "If you enter an email address in the \"Email report to\" field, a report of the scan will be sent to this address once it is finished.": "Эгер сиз \"Отчётту төмөнкү дарекке жөнөтүү\" талаасына электрондук почта дарегин киргизсеңиз, сканерлөө аяктагандан кийин анын отчёту бул дарекке жөнөтүлөт.",
+
+  "Ignore Pagination": "Барактарга бөлүүнү эске албоо",
+
+  "Image References": "Сүрөт шилтемелери",
+
+  "Import Policy": "Саясатты импорттоо",
+
+  "Import Report Format": "Отчёт форматын импорттоо",
+
+  "Import Scan Config": "Сканерлөө конфигурациясын импорттоо",
+
+  "Import XML Port List": "XML порттор тизмесин импорттоо",
+
+  "Import XML Report Format": "XML отчёт форматын импорттоо",
+
+  "Import XML config": "XML конфигурацияны импорттоо",
+
+  "Import XML policy": "XML саясатты импорттоо",
+
+  "In order to run an authenticated scan, you have to select SSH and/or SMB credentials, but you can also run an unauthenticated scan by not selecting any credentials.": "Аутентификацияланган сканерлөөнү иштетүү үчүн сиз SSH жана/же SMB учёттук дайындарын тандашыңыз керек, бирок учёттук дайындарды тандабай эле аутентификацияланбаган сканерлөөнү да иштетсеңиз болот.",
+
+  "Include Content": "Мазмунду киргизүү",
+
+  "Include list of resources with message:": "Билдирүүсү менен ресурстар тизмесин киргизүү:",
+
+  "Include log messages in your filter settings.": "Фильтр орнотууларыңызга лог билдирүүлөрүн киргизиңиз.",
+
+  "Include report": "Отчётту киргизүү",
+
+  "Included": "Киргизилди",
+
+  "Indexer Directory Depth": "Индексатор папкасынын тереңдиги",
+
+  "Inheriting user": "Мурастоочу колдонуучу",
+
+  "Initial Displays": "Баштапкы көрүнүштөр",
+
+  "Insert a Host name or IP address": "Хосттун атын же IP дарегин киргизиңиз",
+
+  "Insert a Port number": "Порт номерин киргизиңиз",
+
+  "Interval (seconds)": "Интервал (секунд менен)",
+
+  "Invalid kdc value(s)": "Жараксыз kdc мааниси (маанилери)",
+
+  "Invalid or no date available": "Жараксыз же дата жеткиликтүү эмес",
+
+  "Irrecoverable": "Калыбына келтирилгис",
+
+  "Issued By": "Төмөнкү тарабынан берилген",
+
+  "Issued by": "Төмөнкү тарабынан берилген",
+
+  "Issuer": "Берүүчү",
+
+  "Issuer DN": "Берүүчүнүн DN",
+
+  "Items": "Элементтер",
+
+  "Just wait for results to arrive.": "Жөн гана жыйынтыктар келгенче күтө туруңуз.",
+
+  "Key Distribution Center": "Ачкычты таратуу борбору (KDC)",
+
+  "Key Type": "Ачкычтын түрү",
+
+  "Known Hosts": "Белгилүү хосттор",
+
+  "LDAP Authentication Only": "LDAP аутентификациясы гана",
+
+  "LDAP Host": "LDAP хосту",
+
+  "LDAP per-User Authentication": "Ар бир колдонуучу үчүн LDAP аутентификациясы",
+
+  "Last Contact": "Акыркы байланыш",
+
+  "Last Day": "Акыркы күн",
+
+  "Last Modified": "Акыркы өзгөртүлгөн",
+
+  "Last Report": "Акыркы отчёт",
+
+  "Last Report for Audit {{- name}} from {{- date}}": "{{- date}} датасындагы {{- name}} аудити үчүн акыркы отчёт",
+
+  "Last Report for Task {{- name}} from {{- date}}": "{{- date}} датасындагы {{- name}} тапшырмасы үчүн акыркы отчёт",
+
+  "Last Seen": "Акыркы жолу көрүлгөн",
+
+  "Last Update": "Акыркы жаңыртуу",
+
+  "Last seen": "Акыркы жолу көрүлгөн",
+
+  "Last updated": "Акыркы жолу жаңыртылган",
+
+  "Last updated:": "Акыркы жолу жаңыртылган:",
+
+  "Latest Identifiers": "Акыркы идентификаторлор",
+
+  "Latest Severity": "Акыркы критикалуулук",
+
+  "Learn more": "Көбүрөөк билүү",
+
+  "License Management page": "Лицензияларды башкаруу барагы",
+
+  "License has expired": "Лицензиянын мөөнөтү бүттү",
+
+  "License is active": "Лицензия активдүү",
+
+  "License is corrupted": "Лицензия бузулган",
+
+  "List Export File Name": "Тизмени экспорттоо файлынын аты",
+
+  "List Items": "Элементтерди тизмектөө",
+
+  "Listing only the first {{num}} items. ": "Биринчи {{num}} элемент гана тизмектелүүдө. ",
+
+  "Loaded filter": "Жүктөлгөн фильтр",
+
+  "Loading": "Жүктөлүүдө",
+
+  "Loading configuration...": "Конфигурация жүктөлүүдө...",
+
+  "Loading...": "Жүктөлүүдө...",
+
+  "Location": "Жайгашкан жери",
+
+  "Location (eg. port/protocol)": "Жайгашкан жери (мис. порт/протокол)",
+
+  "Log messages are currently excluded.": "Лог билдирүүлөрү учурда кошулбайт.",
+
+  "Login Failed. Invalid password or username.": "Кирүү ишке ашкан жок. Жараксыз сыр сөз же колдонуучу аты.",
+
+  "Login Name": "Кирүү аты (логин)",
+
+  "MD5 Fingerprint": "MD5 манжа изи",
+
+  "Max High": "Максималдуу жогорку",
+
+  "Max High per Host": "Ар бир хостко максималдуу жогорку",
+
+  "Max Jitter (seconds)": "Максималдуу життер (секунд менен)",
+
+  "Max Protocol": "Максималдуу протокол",
+
+  "Max Rows Per Page (immutable)": "Бир беттеги максималдуу саптар (өзгөртүлбөйт)",
+
+  "Max. Average Severity Score": "Максималдуу орточо критикалуулук баллы",
+
+  "Max. High per Host": "Ар бир хостко максималдуу жогорку",
+
+  "Max. average Severity Score": "Максималдуу орточо критикалуулук баллы",
+
+  "Maximum Number of Hosts": "Хосттордун максималдуу саны",
+
+  "Maximum concurrently executed NVTs per host": "Ар бир хостто бир убакта аткарылган NVTлердин максималдуу саны",
+
+  "Maximum concurrently scanned hosts": "Бир убакта сканерленген хосттордун максималдуу саны",
+
+  "Maximum jitter in seconds for retry delays": "Кайра аракеттенүү кечигүүлөрү үчүн максималдуу життер (секунд менен)",
+
+  "May create a new {{entityType}}": "Жаңы {{entityType}} түзө алат",
+
+  "May create a new {{type}}": "Жаңы {{type}} түзө алат",
+
+  "May delete an existing {{entityType}}": "Иштеп жаткан {{entityType}} өчүрө алат",
+
+  "May delete {{type}} {{name}}": "{{type}} {{name}} өчүрө алат",
+
+  "May empty the trashcan": "Себетти тазалай алат",
+
+  "May get the dependencies of NVTs": "NVTлердин көз карандылыктарын ала алат",
+
+  "May get the help text": "Жардам текстин ала алат",
+
+  "May get version information": "Версия тууралуу маалымат ала алат",
+
+  "May login": "Кире алат",
+
+  "May move {{entityType}}": "{{entityType}} ресурсун которо алат",
+
+  "May restore items from the trashcan": "Элементтерди себеттен калыбына келтире алат",
+
+  "May resume Task": "Тапшырманы уланта алат",
+
+  "May run Wizard": "Мастерди (Wizard) иштете алат",
+
+  "May run multiple GMP commands in one": "Бир нече GMP командаларын бирге иштете алат",
+
+  "May start Task": "Тапшырманы баштай алат",
+
+  "May stop Task": "Тапшырманы токтото алат",
+
+  "May sync the CERT feed": "CERT лентасын синхрондоштура алат",
+
+  "May sync the NVT feed": "NVT лентасын синхрондоштура алат",
+
+  "May sync the SCAP feed": "SCAP лентасын синхрондоштура алат",
+
+  "May sync {{entityType}}": "{{entityType}} ресурсун синхрондоштура алат",
+
+  "May test Alert": "Эскертүүнү текшере алат",
+
+  "May verify {{entityType}}": "{{entityType}} ресурсун текшере алат",
+
+  "Message {{name}}": "Билдирүү {{name}}",
+
+  "Min QoD": "Минималдуу QoD",
+
+  "Miss Until Inactive": "Активдүү эмес болгонго чейин өткөрүп жиберүү",
+
+  "Mitigation": "Кесепеттерди жумшартуу",
+
+  "Mo.": "Дүй.",
+
+  "Moderate": "Орточо",
+
+  "Modified Hosts (High)": "Өзгөртүлгөн хосттор (Жогору)",
+
+  "Modified:": "Өзгөртүлдү:",
+
+  "Modify Task": "Тапшырманы өзгөртүү",
+
+  "Modify Task Wizard": "Тапшырмалар мастерин өзгөртүү",
+
+  "Monday": "Дүйшөмбү",
+
+  "Monthly (1st day at midnight)": "Ай сайын (1-күнү түн жарымында)",
+
+  "More info": "Көбүрөөк маалымат",
+
+  "More info about cron format": "Cron форматы тууралуу көбүрөөк маалымат",
+
+  "More information": "Көбүрөөк маалымат",
+
+  "More information about scheduler": "Пландаштыргыч тууралуу көбүрөөк маалымат",
+
+  "More information about schedules": "Расписаниелер тууралуу көбүрөөк маалымат",
+
+  "More runs not shown": "Башка иштетүүлөр көрсөтүлгөн жок",
+
+  "Most Vulnerable Hosts": "Эң алсыз хосттор",
+
+  "Most Vulnerable Operating Systems": "Эң алсыз операциялык системалар",
+
+  "Move all filtered to trashcan": "Бардык фильтрленгендерди себетке которуу",
+
+  "Move page contents to trashcan": "Барактын мазмунун себетке которуу",
+
+  "Move permission to trashcan": "Уруксатты себетке которуу",
+
+  "Move to Trashcan": "Себетке которуу",
+
+  "Move to trashcan completed": "Себетке которуу аяктады",
+
+  "Moving to trashcan": "Себетке которулууда",
+
+  "Multiple": "Бир нече",
+
+  "N/A (Builtin Scanner)": "Жок (камтылган сканер)",
+
+  "NVD": "NVD",
+
+  "NVT Families": "NVT үй-бүлөлөрү",
+
+  "NVT Filter": "NVT фильтри",
+
+  "NVT List": "NVT тизмеси",
+
+  "NVT Name": "NVT аты",
+
+  "NVT OID": "NVT OID",
+
+  "NVT Preferences": "NVT орнотуулары",
+
+  "NVT: {{name}}": "NVT: {{name}}",
+
+  "NVTs addressing this CVE": "Бул CVEге тиешелүү NVTлер",
+
+  "NVTs by CVSS (Total: {{count}})": "CVSS боюнча NVTлер (Бардыгы: {{count}})",
+
+  "NVTs by Creation Time": "Түзүлгөн убактысы боюнча NVTлер",
+
+  "NVTs by Family (Total: {{count}})": "Үй-бүлөсү боюнча NVTлер (Бардыгы: {{count}})",
+
+  "NVTs by QoD (Total: {{count}})": "QoD боюнча NVTлер (Бардыгы: {{count}})",
+
+  "NVTs by QoD-Type (Total: {{count}})": "QoD түрү боюнча NVTлер (Бардыгы: {{count}})",
+
+  "NVTs by Severity Class (Total: {{count}})": "Критикалуулук классы боюнча NVTлер (Бардыгы: {{count}})",
+
+  "NVTs of family {{name}}": "{{name}} үй-бүлөсүндөгү NVTлер",
+
+  "NVTs selected": "Тандалган NVTлер",
+
+  "NVTs: Total": "NVTлер: Бардыгы",
+
+  "NVTs: Trend": "NVTлер: Тренд",
+
+  "Negligible": "Эске албай турган",
+
+  "Network (Controller Name)": "Тармак (Контроллердин аты)",
+
+  "Network Vulnerability Test Preferences ({{counts}})": "Тармактын алсыздыктарын текшерүү орнотуулары ({{counts}})",
+
+  "New Agent": "Жаңы агент",
+
+  "New Agent Group": "Жаңы агенттер тобу",
+
+  "New Agent Task": "Жаңы агенттик тапшырма",
+
+  "New Audit": "Жаңы аудит",
+
+  "New Container Image Task": "Жаңы контейнер сүрөтү тапшырмасы",
+
+  "New Host": "Жаңы хост",
+
+  "New Import Task": "Жаңы импорттоо тапшырмасы",
+
+  "New Password": "Жаңы сыр сөз",
+
+  "New Policy": "Жаңы саясат",
+
+  "New Quick Task": "Жаңы тез тапшырма",
+
+  "New Report Config": "Жаңы отчёт конфигурациясы",
+
+  "New Severity": "Жаңы критикалуулук",
+
+  "New Super Permission": "Жаңы супер уруксат",
+
+  "New Task Menu": "Жаңы тапшырмалар менюсу",
+
+  "New Value": "Жаңы маани",
+
+  "New port range overlaps with an existing one!": "Жаңы порттор диапазону иштеп жаткан диапазонго дал келип жатат!",
+
+  "New {{secinfo_type}} arrived": "Жаңы {{secinfo_type}} келди",
+
+  "Newest Result": "Эң жаңы жыйынтык",
+
+  "Next Run": "Кийинки иштетүү",
+
+  "Next Schedule Time": "Кийинки расписание убактысы",
+
+  "No Applications available": "Тиркемелер жок",
+
+  "No Audits available": "Аудиттер жок",
+
+  "No CERT-Bund Advisories available": "CERT-Bund сунуштары жок",
+
+  "No CPEs available": "CPEлер жок",
+
+  "No CVEs available": "CVEлер жок",
+
+  "No Closed CVEs available": "Жабык CVEлер жок",
+
+  "No DFN-CERT Advisories available": "DFN-CERT сунуштары жок",
+
+  "No Displays": "Көрүнүштөр жок",
+
+  "No Errors available": "Каталар жок",
+
+  "No Groups available": "Топтор жок",
+
+  "No Hosts available": "Хосттор жок",
+
+  "No NVTs available": "NVTлер жок",
+
+  "No Notes available": "Эскертүүлөр жок",
+
+  "No Operating Systems available": "Операциялык системалар жок",
+
+  "No Overrides available": "Өзгөчөлүктөр жок",
+
+  "No Policies available": "Саясаттар жок",
+
+  "No Port Ranges available": "Порттор диапазондору жок",
+
+  "No Ports available": "Порттор жок",
+
+  "No Roles available": "Ролдор жок",
+
+  "No Scan Configs available": "Сканерлөө конфигурациялары жок",
+
+  "No TLS Certificates available": "TLS сертификаттары жок",
+
+  "No Tasks available": "Тапшырмалар жок",
+
+  "No Users available": "Колдонуучулар жок",
+
+  "No Vulnerabilities available": "Алсыздыктар жок",
+
+  "No agent controllers available": "Агент контроллерлору жок",
+
+  "No agent groups available": "Агенттердин топтору жок",
+
+  "No agent installers available": "Агентти орнотуучулар жок",
+
+  "No agents available": "Агенттер жок",
+
+  "No alerts available": "Эскертүүлөр жок",
+
+  "No certificates available": "Сертификаттар жок",
+
+  "No checksum available": "Текшерүү суммасы жок",
+
+  "No configurable report formats found.": "Конфигурациялануучу отчёт форматтары табылган жок.",
+
+  "No credential store configured.": "Учёттук дайындар сактагычы конфигурацияланган эмес.",
+
+  "No credential store found to verify.": "Текшерүү үчүн учёттук дайындар сактагычы табылган жок.",
+
+  "No credentials available": "Учёттук дайындар жок",
+
+  "No details available for this method.": "Бул метод үчүн чоо-жайы жок.",
+
+  "No filters available": "Фильтрлер жок",
+
+  "No first result available.": "Биринчи жыйынтык жок.",
+
+  "No hosts available": "Хосттор жок",
+
+  "No information about the Operation System": "Операциялык система тууралуу маалымат жок",
+
+  "No information available for existing file. File may not be a correct certificate.": "Бар болгон файл тууралуу маалымат жок. Файл жарактуу сертификат болбошу мүмкүн.",
+
+  "No license available": "Лицензия жок",
+
+  "No matches found.": "Дал келүүлөр табылган жок.",
+
+  "No parameters available": "Параметрлер жок",
+
+  "No permissions available": "Уруксаттар жок",
+
+  "No port lists available": "Порттордун тизмеси жок",
+
+  "No port ranges available": "Порттордун диапазону жок",
+
+  "No report configs available": "Отчёт конфигурациялары жок",
+
+  "No report formats available": "Отчёт форматтары жок",
+
+  "No reports available": "Отчёттор жок",
+
+  "No results available": "Жыйынтыктар жок",
+
+  "No scanners available": "Сканерлер жок",
+
+  "No scans yet": "Азырынча сканерлөө боло элек",
+
+  "No schedules available": "Расписаниелер жок",
+
+  "No second result available.": "Экинчи жыйынтык жок.",
+
+  "No severity available, the ticket is orphaned": "Критикалуулук жок, тикет ээсиз (orphaned)",
+
+  "No tags available": "Тегдер жок",
+
+  "No targets available": "Максаттар жок",
+
+  "No tickets available": "Тикеттер жок",
+
+  "No user tags available": "Колдонуучунун тегдери жок",
+
+  "None available": "Эч нерсе жок",
+
+  "None.": "Жок.",
+
+  "None. Result was an open port.": "Жок. Жыйынтык ачык порт болду.",
+
+  "Not Compliant": "Шайкеш келбейт",
+
+  "Not Defined": "Аныкталган эмес",
+
+  "Not Sorted": "Иреттелген эмес",
+
+  "Not a valid CA Certificate file.": "Жараксыз CA сертификатынын файлы.",
+
+  "Not a valid Client Certificate file": "Жараксыз кардар сертификатынын файлы",
+
+  "Not a valid Client Private Key file": "Жараксыз кардардын жеке ачкычынын файлы",
+
+  "Not a valid PGP file": "Жараксыз PGP файлы",
+
+  "Not a valid Private SSH Key file": "Жараксыз жеке SSH ачкычынын файлы",
+
+  "Not finished yet": "Азырынча бүтө элек",
+
+  "Not set": "Орнотулган эмес",
+
+  "Note Details": "Эскертүүнүн чоо-жайы",
+
+  "Note List": "Эскертүүлөрдүн тизмеси",
+
+  "Note for Closed": "Жабылгандыгы үчүн эскертүү",
+
+  "Note for Fixed": "Оңдолгондугу үчүн эскертүү",
+
+  "Note for Open": "Ачылгандыгы үчүн эскертүү",
+
+  "Note is active": "Эскертүү активдүү",
+
+  "Note that the Agent Task refers to generating the report with stored data.\nIf you want to change when the Scan Agents scan, go to the Agent Groups page.": "Агенттин тапшырмасы сакталган дайындар менен отчёт түзүүнү билдирет. \nЭгер сиз сканерлөө агенттери качан сканерлээрин өзгөртүүнү кааласаңыз, Агенттер топтору барагына өтүңүз.",
+
+  "Note: ": "Эскертүү: ",
+
+  "Notes Text Word Cloud": "Эскертүүлөр текстинин сөз булуту",
+
+  "Notes by Active Days (Total: {{count}})": "Активдүү күндөрү боюнча эскертүүлөр (Бардыгы: {{count}})",
+
+  "Notes by Creation Time": "Түзүлгөн убактысы боюнча эскертүүлөр",
+
+  "Notes for Task {{- name}}": "{{- name}} тапшырмасы үчүн эскертүүлөр",
+
+  "Now": "Азыр",
+
+  "Number of Hosts": "Хосттордун саны",
+
+  "Number of Resources": "Ресурстардын саны",
+
+  "Number of missed heartbeats until inactive": "Активдүү эмес деп табылганга чейинки өткөрүп жиберилген heartbeat саны",
+
+  "Number of retry attempts": "Кайра аракеттенүү саны",
+
+  "Nvt": "Nvt",
+
+  "OCI Image": "OCI сүрөтү",
+
+  "OCI Image Target": "OCI сүрөт максаты",
+
+  "OID": "OID",
+
+  "Ak Shumkar SCAN": "Ak Shumkar СКАНЕРЛӨӨ",
+
+  "OS Conflict: {{best_os_txt}}": "ОС конфликти: {{best_os_txt}}",
+
+  "OS Conflict: {{best_os_txt}} ({{best_os_cpe}})": "ОС конфликти: {{best_os_txt}} ({{best_os_cpe}})",
+
+  "Occurrences": "Кездешүүлөр",
+
+  "Old": "Эски",
+
+  "Oldest Result": "Эң эски жыйынтык",
+
+  "One more run not shown": "Дагы бир иштетүү көрсөтүлгөн жок",
+
+  "Only selected result ({{- name}})": "Тандалган жыйынтык гана ({{- name}})",
+
+  "Only show hosts that have results": "Жыйынтыктары бар хостторду гана көрсөтүү",
+
+  "Open End": "Ачык аяктоо",
+
+  "Open all details": "Бардык чоо-жайын ачуу",
+
+  "Opened": "Ачылды",
+
+  "Operating System List": "Операциялык системалардын тизмеси",
+
+  "Operating System Name": "Операциялык системанын аты",
+
+  "Operating System is in use": "Операциялык система колдонулууда",
+
+  "Operating System: {{name}}": "Операциялык система: {{name}}",
+
+  "Operating Systems Filter": "Операциялык системалар фильтри",
+
+  "Operating Systems by CVSS (Total: {{count}})": "CVSS боюнча операциялык системалар (Бардыгы: {{count}})",
+
+  "Operating Systems by Severity Class (Total: {{count}})": "Критикалуулук классы боюнча операциялык системалар (Бардыгы: {{count}})",
+
+  "Origin": "Келип чыгышы",
+
+  "Orphan": "Ээсиз (Orphan)",
+
+  "Other Links": "Башка шилтемелер",
+
+  "Override": "Өзгөчөлүк (Override)",
+
+  "Override Default Scanner Preferences": "Сканердин баштапкы орнотууларын алмаштыруу",
+
+  "Override Details": "Өзгөчөлүктүн чоо-жайы",
+
+  "Override List": "Өзгөчөлүктөр тизмеси",
+
+  "Override Text": "Өзгөчөлүк тексти",
+
+  "Override from {{- severity}} to {{- newSeverity}}": "{{- severity}} маанисинен {{- newSeverity}} маанисине өзгөртүү",
+
+  "Overrides": "Өзгөчөлүктөр",
+
+  "Overrides Filter": "Өзгөчөлүктөр фильтри",
+
+  "Overrides Text Word Cloud": "Өзгөчөлүктөр текстинин сөз булуту",
+
+  "Overrides by Active Days (Total: {{count}})": "Активдүү күндөрү боюнча өзгөчөлүктөр (Бардыгы: {{count}})",
+
+  "Overrides by Creation Time": "Түзүлгөн убактысы боюнча өзгөчөлүктөр",
+
+  "Overrides for Task {{- name}}": "{{- name}} тапшырмасы үчүн өзгөчөлүктөр",
+
+  "Overview": "Сереп",
+
+  "Owned Ticket Changed": "Таандык тикет өзгөртүлдү",
+
+  "Owned Ticket changed": "Таандык тикет өзгөртүлдү",
+
+  "Owner:": "Ээси:",
+
+  "PGP Encryption Key": "PGP шифрлөө ачкычы",
+
+  "PKCS#12 File - alternative to separate certificate/key": "PKCS#12 файлы - өзүнчө сертификатка/ачкычка альтернатива",
+
+  "PKCS12 Credential": "PKCS12 учёттук дайындары",
+
+  "PKCS12 File": "PKCS12 файлы",
+
+  "POC": "POC",
+
+  "Package check": "Пакетти текшерүү",
+
+  "Page Not Found": "Барак табылган жок",
+
+  "Page Not Found.": "Барак табылган жок.",
+
+  "Parameter Details": "Параметрдин чоо-жайы",
+
+  "Parameters": "Параметрлер",
+
+  "Partial": "Жаррым-жартылай",
+
+  "Partition": "Бөлүм (Partition)",
+
+  "Passive": "Пассивдүү",
+
+  "Passphrase": "Коддук фраза",
+
+  "Passphrase for Client Private Key": "Кардардын жеке ачкычы үчүн коддук фраза",
+
+  "Passphrase for Private SSH Key": "Жеке SSH ачкычы үчүн коддук фраза",
+
+  "Passphrase for private key or PKCS#12 file (if encrypted)": "Жеке ачкыч же PKCS#12 файлы үчүн коддук фраза (эгер шифрленген болсо)",
+
+  "Password only": "Сыр сөз гана",
+
+  "Password: Use existing Password": "Сыр сөз: Бар болгон сыр сөздү колдонуу",
+
+  "Percentile": "Процентиль",
+
+  "Period": "Мезгил",
+
+  "Permission List": "Уруксаттар тизмеси",
+
+  "Permission deleted successfully.": "Уруксат ийгиликтүү өчүрүлдү.",
+
+  "Permission to clone {{entity}} denied": "{{entity}} ресурсун клондоого уруксат берилген жок",
+
+  "Permission to create Target denied": "Максат түзүүгө уруксат берилген жок",
+
+  "Permission to create {{entity}} denied": "{{entity}} түзүүгө уруксат берилген жок",
+
+  "Permission to delete {{entity}} denied": "{{entity}} өчүрүүгө уруксат берилген жок",
+
+  "Permission to edit {{entity}} denied": "{{entity}} түзөтүүгө уруксат берилген жок",
+
+  "Permission to edit {{entity}} settings denied": "{{entity}} орнотууларын түзөтүүгө уруксат берилген жок",
+
+  "Permission to move {{entity}} to trashcan denied": "{{entity}} ресурсун себетке которууга уруксат берилген жок",
+
+  "Permission to resume {{type}} denied": "{{type}} улантууга уруксат берилген жок",
+
+  "Permission to start {{type}} denied": "{{type}} баштоого уруксат берилген жок",
+
+  "Permission to stop {{type}} denied": "{{type}} токтотууга уруксат берилген жок",
+
+  "Permission to verify {{entity}} denied": "{{entity}} текшерүүгө уруксат берилген жок",
+
+  "Permission: {{name}}": "Уруксат: {{name}}",
+
+  "Permissions ({{count}})": "Уруксаттар ({{count}})",
+
+  "Permissions to create a ticket are insufficient. You need the create_permission and get_users permissions.": "Тикет түзүү үчүн уруксаттар жетишсиз. Сизге create_permission жана get_users уруксаттары керек.",
+
+  "Permissions to verify Scanner denied": "Сканерди текшерүүгө уруксат берилген жок",
+
+  "Please be aware that:": "Сураныч, эске алыңыз:",
+
+  "Please check the automatic synchronization of your system.": "Сураныч, системаңыздын автоматтык синхрондоштуруусун текшериңиз.",
+
+  "Please configure a TLS certificate for the HTTPS service or ask your administrator to do so as soon as possible.": "Сураныч, HTTPS кызматы үчүн TLS сертификатын конфигурациялаңыз же администраторуңуздан мүмкүн болушунча тезирээк муну сураныңыз.",
+
+  "Please enter a new password!": "Сураныч, жаңы сыр сөздү киргизиңиз!",
+
+  "Please enter your old password!": "Сураныч, эски сыр сөзүңүздү киргизиңиз!",
+
+  "Please insert a name for the new filter": "Сураныч, жаңы фильтр үчүн ат киргизиңиз",
+
+  "Please note that assigning a tag to {{count}} items may take several minutes.": "Сураныч, эске алыңыз: {{count}} элементке тег ырастоо бир нече мүнөткө созулушу мүмкүн.",
+
+  "Please note: You are about to change your own personal user data as Super Admin! It is not possible to change the login name. If you have modified the login name, neither the login name nor any other changes made will be saved. If you have made any modifications other than the login name, the data will be saved when clicking OK, and you will be logged out immediately.": "Сураныч, эске алыңыз: Сиз Супер Админ катары өзүңүздүн жеке колдонуучу маалыматтарыңызды өзгөрткөнү жатасыз! Кирүү атын (логинди) өзгөртүү мүмкүн эмес. Эгер сиз кирүү атын өзгөртсөңүз, ал дагы, башка өзгөртүүлөр дагы сакталбайт. Эгер сиз кирүү атынан башка өзгөртүүлөрдү киргизген болсоңуз, анда ОК баскычын басканда маалыматтар сакталат жана сиз дароо системадан чыгарыласыз.",
+
+  "Please note: You are about to create a user without a role. This user will not have any permissions and as a result will not be able to login.": "Сураныч, эске алыңыз: Сиз ролу жок колдонуучуну түзгөнү жатасыз. Бул колдонуучунун эч кандай уруксаттары болбойт жана натыйжада системага кире албайт.",
+
+  "Please try again.": "Сураныч, кайра аракет кылып көрүңүз.",
+
+  "Please wait while the feed is syncing. Scans are not available during this time. For more information, visit the": "Лента синхрондоштурулуп жатканда күтө туруңуз. Бул учурда сканерлөө мүмкүн эмес. Көбүрөөк маалымат үчүн бул жакка баш багыңыз:",
+
+  "Policies": "Саясаттар",
+
+  "Policies Filter": "Саясаттар фильтри",
+
+  "Policies List": "Саясаттар тизмеси",
+
+  "Policy: {{name}}": "Саясат: {{name}}",
+
+  "Port Count": "Порттордун саны",
+
+  "Port Counts": "Порттордун саны",
+
+  "Port Counts: TCP": "Порттордун саны: TCP",
+
+  "Port Counts: Total": "Порттордун саны: Бардыгы",
+
+  "Port Counts: UDP": "Порттордун саны: UDP",
+
+  "Port List: {{name}}": "Порттор тизмеси: {{name}}",
+
+  "Port Ranges": "Порттор диапазондору",
+
+  "Port Ranges ({{count}})": "Порттор диапазондору ({{count}})",
+
+  "PortList List": "Порттор тизмесинин тизмеси",
+
+  "Prefs": "Орнотуулар",
+
+  "Present": "Бар",
+
+  "Previous completed report of the same task": "Ошол эле тапшырманын мурунку аяктаган отчёту",
+
+  "Privacy Algorithm": "Купуялуулук алгоритми",
+
+  "Privacy Host Identifier": "Купуялуулук хостунун идентификатору",
+
+  "Privacy Password": "Купуялуулук сыр сөзү",
+
+  "Private SSH Key": "Жеке SSH ачкычы",
+
+  "Privileges Required": "Артыкчылыктар талап кылынат",
+
+  "Processing": "Иштетилүүдө",
+
+  "Product Detection Result": "Продукцияны аныктоо жыйынтыгы",
+
+  "Protocol": "Протокол",
+
+  "Provider Urgency": "Провайдердин шашылыштыгы",
+
+  "Public PGP Key": "Ачык PGP ачкычы",
+
+  "Published": "Жарыяланды",
+
+  "Published:": "Жарыяланды:",
+
+  "QoD is changed from {{deltaQoD}}.": "QoD {{deltaQoD}} маанисинен өзгөртүлдү.",
+
+  "QoD-Type": "QoD түрү",
+
+  "Queued": "Кезекте",
+
+  "Quick edit: Modify a task": "Тез түзөтүү: Тапшырманы өзгөртүү",
+
+  "Quick start: Create a new task": "Тез баштоо: Жаңы тапшырма түзүү",
+
+  "Quick start: Immediately scan an IP address": "Тез баштоо: IP даректи дароо сканерлөө",
+
+  "RADIUS Authentication": "RADIUS аутентификациясы",
+
+  "RADIUS Authentication Only": "RADIUS аутентификациясы гана",
+
+  "RADIUS Host": "RADIUS хосту",
+
+  "Realm": "Realm (аймак)",
+
+  "Recent Activity": "Акыркы аракеттер",
+
+  "Recovery": "Калыбына келтирүү",
+
+  "Recur on day(s)": "Күндөрү кайталансын",
+
+  "Recurrence": "Кайталануу",
+
+  "Reference Source": "Шилтеме булагы",
+
+  "Reference URL": "Шилтеме URL",
+
+  "Referenced CVEs": "Шилтемеленген CVEлер",
+
+  "References CVEs": "CVEлерге шилтемелер",
+
+  "Registry check": "Реестрди текшерүү",
+
+  "Remediation Tickets": "Оңдоо тикеттери",
+
+  "Remote Attack": "Узактан чабуул жасоо",
+
+  "Remote active": "Узактан активдүү",
+
+  "Remote analysis": "Узактан анализдөө",
+
+  "Remote app": "Узактан тиркеме",
+
+  "Remote banner": "Узактан баннер",
+
+  "Remote probe": "Узактан зонддоо",
+
+  "Remote vulnerability": "Узактан алсыздык",
+
+  "Remove Dashboard": "Башкаруу панелин өчүрүү",
+
+  "Remove Dashboard {{name}}": "{{name}} башкаруу панелин өчүрүү",
+
+  "Remove Filter": "Фильтрди өчүрүү",
+
+  "Remove Tag from {{type}}": "{{type}} ресурсунан тегди өчүрүү",
+
+  "Remove all filter settings.": "Бардык фильтр орнотууларын өчүрүү.",
+
+  "Remove from Assets": "Активдерден өчүрүү",
+
+  "Remove the severity limit from your filter settings.": "Фильтр орнотууларыңыздан критикалуулук чектөөсүн өчүрүңүз.",
+
+  "Renew session timeout": "Сессиянын күтүү убактысын жаңыртуу",
+
+  "Repeat at": "Төмөнкү убакта кайталоо",
+
+  "Replace existing SNMP community with": "Иштеп жаткан SNMP коомчулугун төмөнкүгө алмаштыруу:",
+
+  "Replace existing file": "Иштеп жаткан файлды алмаштыруу",
+
+  "Replace existing passphrase with": "Иштеп жаткан коддук фразаны төмөнкүгө алмаштыруу:",
+
+  "Replace existing password with": "Иштеп жаткан сыр сөздү төмөнкүгө алмаштыруу:",
+
+  "Replace existing privacy password with": "Иштеп жаткан купуялуулук сыр сөзүн төмөнкүгө алмаштыруу:",
+
+  "Report ": "Отчёт ",
+
+  "Report 1": "Отчёт 1",
+
+  "Report 2": "Отчёт 2",
+
+  "Report Config": "Отчёт конфигурациясы",
+
+  "Report Config: {{name}}": "Отчёт конфигурациясы: {{name}}",
+
+  "Report Configs": "Отчёт конфигурациялары",
+
+  "Report Configs Filter": "Отчёт конфигурацияларынын фильтри",
+
+  "Report Configs List": "Отчёт конфигурацияларынын тизмеси",
+
+  "Report Configs using this Report Format": "Бул отчёт форматын колдонгон отчёт конфигурациялары",
+
+  "Report Content": "Отчёттун мазмуну",
+
+  "Report Details": "Отчёттун чоо-жайы",
+
+  "Report Export File Name": "Отчётту экспорттоо файлынын аты",
+
+  "Report Format: {{name}}": "Отчёт форматы: {{name}}",
+
+  "Report Formats List": "Отчёт форматтарынын тизмеси",
+
+  "Report Result Filter": "Отчёттун жыйынтыктарынын фильтри",
+
+  "Report Type": "Отчёттун түрү",
+
+  "Report content added to Assets with QoD>=70% and Overrides enabled.": "Отчёттун мазмуну QoD>=70% жана өзгөчөлүктөрдү кошкондо Активдерге кошулду.",
+
+  "Report content removed from Assets.": "Отчёттун мазмуну Активдерден өчүрүлдү.",
+
+  "Report download not available": "Отчётту жүктөө мүмкүн эмес",
+
+  "Report for Ak Shumkar Sensor": "Ak Shumkar сенсору үчүн отчёт",
+
+  "Report for Last": "Акыркы үчүн отчёт",
+
+  "Report for Last Day": "Акыркы күн үчүн отчёт",
+
+  "Report for Last Hour": "Акыркы саат үчүн отчёт",
+
+  "Report for Last Month": "Акыркы ай үчүн отчёт",
+
+  "Report for Last Week": "Акыркы жума үчүн отчёт",
+
+  "Report for Last Year": "Акыркы жыл үчүн отчёт",
+
+  "Report is selected for delta comparison": "Отчёт дельта-салыштыруу үчүн тандалды",
+
+  "Report with ID": "Төмөнкү ID менен отчёт",
+
+  "Report:": "Отчёт:",
+
+  "Reported Vulnerabilities": "Билдирилген алсыздыктар",
+
+  "Reports List": "Отчёттордун тизмеси",
+
+  "Reports by CVSS (Total: {{count}})": "CVSS боюнча отчёттор (Бардыгы: {{count}})",
+
+  "Reports by Severity Class (Total: {{count}})": "Критикалуулук классы боюнча отчёттор (Бардыгы: {{count}})",
+
+  "Reports with High Results": "Жогорку жыйынтыктары бар отчёттор",
+
+  "Reports: Last": "Отчёттор: Акыркы",
+
+  "Reports: Total": "Отчёттор: Бардыгы",
+
+  "Request canceled": "Сурам жокко чыгарылды",
+
+  "Request failed": "Сурам ишке ашкан жок",
+
+  "Request timed out": "Сурамдын күтүү убактысы бүттү",
+
+  "Reset to Default Filter": "Баштапкы фильтрге кайтаруу",
+
+  "Reset to Defaults": "Баштапкы абалга кайтаруу",
+
+  "Resilience": "Туруктуулук (Resilience)",
+
+  "Resource ID": "Ресурстун IDси",
+
+  "Resource Type": "Ресурстун түрү",
+
+  "Resources": "Ресурстар",
+
+  "Response error": "Жооп катасы",
+
+  "Result 1": "Жыйынтык 1",
+
+  "Result 2": "Жыйынтык 2",
+
+  "Result: {{name}}": "Жыйынтык: {{name}}",
+
+  "Results Description Word Cloud": "Жыйынтыктарды сыпаттоочу сөз булуту",
+
+  "Results List": "Жыйынтыктардын тизмеси",
+
+  "Results Vulnerability Word Cloud": "Жыйынтыктарды алсыздыктары боюнча сөз булуту",
+
+  "Results aren't filtered by severity.": "Жыйынтыктар критикалуулук боюнча фильтрленген эмес.",
+
+  "Results by CVSS (Total: {{count}})": "CVSS боюнча жыйынтыктар (Бардыгы: {{count}})",
+
+  "Results by Severity Class (Total: {{count}})": "Критикалуулук классы боюнча жыйынтыктар (Бардыгы: {{count}})",
+
+  "Results for Audit {{- name}}": "{{- name}} аудити үчүн жыйынтыктар",
+
+  "Results for Task {{- name}}": "{{- name}} тапшырмасы үчүн жыйынтыктар",
+
+  "Results for this Host": "Бул хост үчүн жыйынтыктар",
+
+  "Results per Host": "Хостко жыйынтыктар",
+
+  "Results per page": "Бир беттеги жыйынтыктар",
+
+  "Results with compliance \"Incomplete\" are currently included.": "\"Incomplete\" (Толук эмес) шайкештиги менен жыйынтыктар учурда камтылган.",
+
+  "Results with compliance \"Undefined\" are currently included.": "\"Undefined\" (Аныкталган эмес) шайкештиги менен жыйынтыктар учурда камтылган.",
+
+  "Results with compliance \"Yes\" are currently included.": "\"Yes\" (Ооба) шайкештиги менен жыйынтыктар учурда камтылган.",
+
+  "Results with log messages are currently included.": "Лог билдирүүлөрү бар жыйынтыктар учурда камтылган.",
+
+  "Results with the severity \"Low\" are currently included.": "\"Low\" (Төмөн) критикалуулугу бар жыйынтыктар учурда камтылган.",
+
+  "Results with the severity \"Medium\" are currently included.": "\"Medium\" (Орточо) критикалуулугу бар жыйынтыктар учурда камтылган.",
+
+  "Resume Requested": "Улантуу суралды",
+
+  "Retry Attempts": "Кайра аракеттенүү саны",
+
+  "Retry Delay (seconds)": "Кайра аракеттенүү кечигүүсү (секунд менен)",
+
+  "Reverse Lookup Only": "Тескери издөө гана (Reverse Lookup)",
+
+  "Reverse Lookup Unify": "Тескери издөөнү бириктирүү",
+
+  "Revision": "Ревизия",
+
+  "Revision History": "Өзгөртүүлөр тарыхы",
+
+  "Revoke all filtered items": "Бардык фильтрленген элементтерди жокко чыгаруу",
+
+  "Revoke all items on this page": "Бул беттеги бардык элементтерди жокко чыгаруу",
+
+  "Revoke selected items": "Тандалган элементтерди жокко чыгаруу",
+
+  "Revoking items": "Элементтерди жокко чыгаруу",
+
+  "Role ID": "Ролдун IDси",
+
+  "Roles List": "Ролдордун тизмеси",
+
+  "Roles {{role}}": "Ролдор {{role}}",
+
+  "Route": "Маршрут",
+
+  "Rows Per Page": "Бир беттеги саптар",
+
+  "Run Until": "Төмөнкү убакытка чейин иштетүү",
+
+  "Running the alert was successful": "Эскертүүнү иштетүү ийгиликтүү болду",
+
+  "SCP": "SCP",
+
+  "SCP to {{- url}}": "{{- url}} дарегине SCP аркылуу",
+
+  "SHA-256 Fingerprint": "SHA-256 манжа изи",
+
+  "SHA-256 Hash": "SHA-256 хеши",
+
+  "SMB (Kerberos)": "SMB (Kerberos)",
+
+  "SMB (Kerberos) Credential": "SMB (Kerberos) учёттук дайындары",
+
+  "SMB (NTLM)": "SMB (NTLM)",
+
+  "SMB (NTLM) Credential": "SMB (NTLM) учёттук дайындары",
+
+  "SMB Credential": "SMB учёттук дайындары",
+
+  "SMB authentication was successful": "SMB аутентификациясы ийгиликтүү өттү",
+
+  "SMB authentication was unsuccessful": "SMB аутентификациясы ийгиликсиз болду",
+
+  "SNMP Community": "SNMP коомчулугу (Community)",
+
+  "SNMP Credential": "SNMP учёттук дайындары",
+
+  "SNMP authentication was successful": "SNMP аутентификациясы ийгиликтүү өттү",
+
+  "SNMP authentication was unsuccessful": "SNMP аутентификациясы ийгиликсиз болду",
+
+  "SNMP to {{agent}}": "{{agent}} агентине SNMP аркылуу",
+
+  "SSH Credential": "SSH учёттук дайындары",
+
+  "SSH Elevate": "SSH артыкчылыктарын көтөрүү",
+
+  "SSH authentication was successful": "SSH аутентификациясы ийгиликтүү өттү",
+
+  "SSH authentication was unsuccessful": "SSH аутентификациясы ийгиликсиз болду",
+
+  "SSH elevate credential ": "SSH артыкчылыктарын көтөрүү учёттук дайындыгы ",
+
+  "SSL / TLS Certificate": "SSL / TLS сертификаты",
+
+  "Sa.": "Иш.",
+
+  "Safety": "Коопсуздук",
+
+  "Same": "Ошол эле",
+
+  "Saturday": "Ишемби",
+
+  "Save Super Admin User": "Супер Админ колдонуучусун сактоо",
+
+  "Scan Agent Groups": "Сканерлөө агенттеринин топтору",
+
+  "Scan Config: {{name}}": "Сканерлөө конфигурациясы: {{name}}",
+
+  "Scan Configs using this Scanner": "Бул сканерди колдонгон сканерлөө конфигурациялары",
+
+  "Scan Displays": "Сканерлөө көрүнүштөрү",
+
+  "Scan Duration Report 1": "Сканерлөө узактыгы боюнча отчёт 1",
+
+  "Scan Duration Report 2": "Сканерлөө узактыгы боюнча отчёт 2",
+
+  "Scan Results: False Positive": "Сканерлөө жыйынтыктары: Жалган оң (False Positive)",
+
+  "Scan Results: High": "Сканерлөө жыйынтыктары: Жогору",
+
+  "Scan Results: Log": "Сканерлөө жыйынтыктары: Лог",
+
+  "Scan Results: Low": "Сканерлөө жыйынтыктары: Төмөн",
+
+  "Scan Results: Medium": "Сканерлөө жыйынтыктары: Орточо",
+
+  "Scan Status": "Сканерлөө статусу",
+
+  "Scan Status Report 1": "Сканерлөө статусу боюнча отчёт 1",
+
+  "Scan Status Report 2": "Сканерлөө статусу боюнча отчёт 2",
+
+  "Scan Targets": "Сканерлөө максаттары",
+
+  "Scan Time": "Сканерлөө убактысы",
+
+  "Scan Time Report 1": "Сканерлөө убактысы боюнча отчёт 1",
+
+  "Scan Time Report 2": "Сканерлөө убактысы боюнча отчёт 2",
+
+  "Scan is active": "Сканерлөө активдүү",
+
+  "Scan sensor": "Сканерлөө сенсору",
+
+  "ScanConfig List": "Сканерлөө конфигурацияларынын тизмеси",
+
+  "Scanner List": "Сканерлердин тизмеси",
+
+  "Scanner Preferences": "Сканердин орнотуулары",
+
+  "Scanner Type": "Сканердин түрү",
+
+  "Scanner Verified": "Сканер текшерилди",
+
+  "Scanner agent control configuration successfully updated": "Сканердин агентин башкаруу конфигурациясы ийгиликтүү жаңыртылды",
+
+  "Scanner: {{name}}": "Сканер: {{name}}",
+
+  "Scanners using this Credential": "Бул учёттук дайындарды колдонгон сканерлер",
+
+  "Schedule Details": "Расписание чоо-жайы",
+
+  "Schedule Unavailable. Name: {{name}}, ID: {{id}}": "Расписание жеткиликсиз. Аты: {{name}}, ID: {{id}}",
+
+  "Schedule: {{name}}": "Расписание: {{name}}",
+
+  "Scheduler Cron Time": "Пландаштыргычтын Cron убактысы",
+
+  "Scheduler Options": "Пландаштыргычтын параметрлери",
+
+  "Schedules List": "Расписаниелердин тизмеси",
+
+  "Scoring": "Балл коюу (Scoring)",
+
+  "Search by content": "Мазмуну боюнча издөө",
+
+  "Search for families, preferences, or NVTs": "Үй-бүлөлөрдү, орнотууларды же NVTлерди издөө",
+
+  "SecInfo Displays": "SecInfo көрүнүштөрү",
+
+  "Secret Key": "Жашыруун ачкыч",
+
+  "Security Information": "Коопсуздук маалыматы",
+
+  "Security note: The SMB protocol does not offer a fingerprint to establish complete mutual trust. Thus a man-in-the-middle attack can not be fully prevented.": "Коопсуздук эскертүүсү: SMB протоколу толук өз ара ишенимди орнотуу үчүн манжа изин сунуштабайт. Ошондуктан \"ортомчу чабуулун\" (man-in-the-middle) толугу менен алдын алуу мүмкүн эмес.",
+
+  "Select Agents": "Агенттерди тандоо",
+
+  "Select Filter": "Фильтрди тандоо",
+
+  "Select Report for delta comparison": "Дельта-салыштыруу үчүн отчётту тандоо",
+
+  "Select Resource": "Ресурсту тандоо",
+
+  "Select a Credential": "Учёттук дайындарды тандоо",
+
+  "Select a Scanner Type": "Сканердин түрүн тандоо",
+
+  "Select a schedule": "Расписанини тандоо",
+
+  "Select all NVTs": "Бардык NVTлерди тандоо",
+
+  "Select and edit NVT details": "NVT чоо-жайын тандоо жана түзөтүү",
+
+  "Send to host": "Хостко жөнөтүү",
+
+  "Send to {{- url}}": "{{- url}} дарегине жөнөтүү",
+
+  "Serial": "Сериялык номер",
+
+  "Server CA Certificate": "Сервердин CA сертификаты",
+
+  "Session Type": "Сессиянын түрү",
+
+  "Setting a start time overwrites a possibly already existing one.": "Баштоо убактысын орнотуу бар болгон убакытты алмаштырат.",
+
+  "Setting an email Address means adding an additional Alert, not replacing an existing one.": "Электрондук почта дарегин орнотуу кошумча эскертүү кошууну билдирет, иштеп жатканды алмаштыруу эмес.",
+
+  "Settings saved": "Орнотуулар сакталды",
+
+  "Severity (Class)": "Критикалуулук (Класс)",
+
+  "Severity > 0.0": "Критикалуулук > 0.0",
+
+  "Severity Level": "Критикалуулук деңгээли",
+
+  "Severity at least": "Критикалуулук кеминде",
+
+  "Severity at least {{severity}}": "Критикалуулук кеминде {{severity}}",
+
+  "Severity decreased": "Критикалуулук төмөндөдү",
+
+  "Severity increased": "Критикалуулук жогорулады",
+
+  "Severity is changed from {{deltaSeverity}}.": "Критикалуулук {{deltaSeverity}} маанисинен өзгөрдү.",
+
+  "Severity level changed": "Критикалуулук деңгээли өзгөрдү",
+
+  "Severity level decreased": "Критикалуулук деңгээли төмөндөдү",
+
+  "Severity level increased": "Критикалуулук деңгээли жогорулады",
+
+  "Severity of Last Report": "Акыркы отчёттун критикалуулугу",
+
+  "Severity: Average": "Критикалуулук: Орточо",
+
+  "Severity: Highest": "Критикалуулук: Эң жогорку",
+
+  "Severity: Latest": "Критикалуулук: Акыркы",
+
+  "Share path": "Тармактык жол (Share path)",
+
+  "Short Name": "Кыска аты",
+
+  "Show Error Details": "Катанын чоо-жайын көрсөтүү",
+
+  "Show all Hosts with IP {{ip}}": "IP дареги {{ip}} болгон бардык хостторду көрсөтүү",
+
+  "Show all Identifiers": "Бардык идентификаторлорду көрсөтүү",
+
+  "Show latest Identifiers": "Акыркы идентификаторлорду көрсөтүү",
+
+  "Sign in": "Кирүү",
+
+  "Sign in as Guest": "Конок катары кирүү",
+
+  "Sign in to your account": "Аккаунтуңузга кириңиз",
+
+  "Simple Notice": "Жөнөкөй билдирүү",
+
+  "Single": "Жалгыз",
+
+  "Ak Shumkar Scanner": "Ak Shumkar сканери",
+
+  "Ak ShumkarD Scanner": "Ak ShumkarD сканери",
+
+  "Ak ShumkarD Sensor": "Ak ShumkarD сенсору",
+
+  "Solution Type: ": "Чечимдин түрү: ",
+
+  "Solution type": "Чечимдин түрү",
+
+  "Sort by": "Төмөнкү боюнча иреттөө",
+
+  "Sorted In Ascending Order By {{sortBy}}": "{{sortBy}} боюнча өсүү тартибинде иреттелди",
+
+  "Sorted In Descending Order By {{sortBy}}": "{{sortBy}} боюнча кемүү тартибинде иреттелди",
+
+  "Sourcefire Connector": "Sourcefire туташтыргычы",
+
+  "Sources": "Булактар",
+
+  "Special Groups": "Атайын топтор",
+
+  "Special group": "Атайын топ",
+
+  "Start Date": "Башталган күнү",
+
+  "Start Scan": "Сканерлөөнү баштоо",
+
+  "Start Time": "Башталган убактысы",
+
+  "Start this scan task right away": "Бул сканерлөө тапшырмасын дароо баштоо",
+
+  "Status Details": "Статустун чоо-жайы",
+
+  "Still in use": "Дагы эле колдонулууда",
+
+  "Stop Requested": "Токтотуу суралды",
+
+  "Store as default": "Баштапкы катары сактоо",
+
+  "Store filter as: ": "Фильтрди төмөнкүдөй сактоо: ",
+
+  "Store indicated settings (without filter) as default": "Көрсөтүлгөн орнотууларды (фильтрсиз) баштапкы катары сактоо",
+
+  "Su.": "Жек.",
+
+  "Subject DN": "Субъекттин DN (Subject DN)",
+
+  "Subsequent System Availability Impact": "Системанын жеткиликтүүлүгүнө кийинки таасири",
+
+  "Subsequent System Confidentiality Impact": "Системанын купуялуулугуна кийинки таасири",
+
+  "Subsequent System Impact Metrics": "Системага кийинки таасир этүү метрикалары",
+
+  "Subsequent System Integrity Impact": "Системанын бүтүндүгүнө кийинки таасири",
+
+  "Success": "Ийгилик",
+
+  "Sunday": "Жекшемби",
+
+  "Super (Has super access)": "Супер (толук мүмкүнчүлүгү бар)",
+
+  "Supplemental Metrics": "Кошумча метрикалар",
+
+  "Support for LDAP is not available.": "LDAP колдоосу жеткиликсиз.",
+
+  "Support for RADIUS is not available.": "RADIUS колдоосу жеткиликсиз.",
+
+  "Switch language to German": "Тилди немисчеге которуу",
+
+  "Sync Agents": "Агенттерди синхрондоштуруу",
+
+  "Synchronization issue: {{error}}": "Синхрондоштуруу көйгөйү: {{error}}",
+
+  "System Default": "Системанын баштапкы орнотуусу",
+
+  "System Logger": "Системалык логгер",
+
+  "System Reports": "Системалык отчёттор",
+
+  "System report for {{name}}": "{{name}} үчүн системалык отчёт",
+
+  "TCP Port Count": "TCP портторунун саны",
+
+  "TLS Certificate is in use": "TLS сертификаты колдонулууда",
+
+  "TLS Certificates Filter": "TLS сертификаттарынын фильтри",
+
+  "TLS Certificates List": "TLS сертификаттарынын тизмеси",
+
+  "TLS Certificates are always included for now": "TLS сертификаттары азырынча дайыма камтылат",
+
+  "TLS Certificates by Modification Time (Total: {{count}})": "Өзгөртүлгөн убактысы боюнча TLS сертификаттары (Бардыгы: {{count}})",
+
+  "TLS Certificates by Status (Total: {{count}})": "Статусу боюнча TLS сертификаттары (Бардыгы: {{count}})",
+
+  "TLS Certificates for this Host": "Бул хост үчүн TLS сертификаттары",
+
+  "Table: Audit Reports by Compliance": "Таблица: Шайкештиги боюнча аудит отчёттору",
+
+  "Table: CERT-Bund Advisories by CVSS": "Таблица: CVSS боюнча CERT-Bund сунуштары",
+
+  "Table: CERT-Bund Advisories by Creation Time": "Таблица: Түзүлгөн убактысы боюнча CERT-Bund сунуштары",
+
+  "Table: CERT-Bund Advisories by Severity Class": "Таблица: Критикалуулук классы боюнча CERT-Bund сунуштары",
+
+  "Table: CPEs by CVSS": "Таблица: CVSS боюнча CPEлер",
+
+  "Table: CPEs by Creation Time": "Таблица: Түзүлгөн убактысы боюнча CPEлер",
+
+  "Table: CPEs by Severity Class": "Таблица: Критикалуулук классы боюнча CPEлер",
+
+  "Table: CVEs by CVSS": "Таблица: CVSS боюнча CVEлер",
+
+  "Table: CVEs by Creation Time": "Таблица: Түзүлгөн убактысы боюнча CVEлер",
+
+  "Table: CVEs by Severity Class": "Таблица: Критикалуулук классы боюнча CVEлер",
+
+  "Table: DFN-CERT Advisories by CVSS": "Таблица: CVSS боюнча DFN-CERT сунуштары",
+
+  "Table: DFN-CERT Advisories by Creation Time": "Таблица: Түзүлгөн убактысы боюнча DFN-CERT сунуштары",
+
+  "Table: DFN-CERT Advisories by Severity Class": "Таблица: Критикалуулук классы боюнча DFN-CERT сунуштары",
+
+  "Table: Hosts (High) by Modification Time": "Таблица: Өзгөртүлгөн убактысы боюнча хосттор (Критикалык)",
+
+  "Table: Hosts by CVSS": "Таблица: CVSS боюнча хосттор",
+
+  "Table: Hosts by Modification Time": "Таблица: Өзгөртүлгөн убактысы боюнча хосттор",
+
+  "Table: Hosts by Severity Class": "Таблица: Критикалуулук классы боюнча хосттор",
+
+  "Table: Hosts by Vulnerability Score": "Таблица: Алсыздык упайы боюнча хосттор",
+
+  "Table: NVTs by CVSS": "Таблица: CVSS боюнча NVTлер",
+
+  "Table: NVTs by Creation Time": "Таблица: Түзүлгөн убактысы боюнча NVTлер",
+
+  "Table: NVTs by Family": "Таблица: Үй-бүлөсү боюнча NVTлер",
+
+  "Table: NVTs by QoD": "Таблица: QoD боюнча NVTлер",
+
+  "Table: NVTs by QoD-Type": "Таблица: QoD түрү боюнча NVTлер",
+
+  "Table: NVTs by Severity Class": "Таблица: Критикалуулук классы боюнча NVTлер",
+
+  "Table: Next Scheduled Tasks": "Таблица: Кийинки пландаштырылган тапшырмалар",
+
+  "Table: Notes Text Word Cloud": "Таблица: Эскертүүлөр текстинин сөз булуту",
+
+  "Table: Notes by Active Days": "Таблица: Активдүү күндөрү боюнча эскертүүлөр",
+
+  "Table: Notes by Creation Time": "Таблица: Түзүлгөн убактысы боюнча эскертүүлөр",
+
+  "Table: Operating Systems by CVSS": "Таблица: CVSS боюнча операциялык системалар",
+
+  "Table: Operating Systems by Severity Class": "Таблица: Критикалуулук классы боюнча операциялык системалар",
+
+  "Table: Operating Systems by Vulnerability Score": "Таблица: Алсыздык упайы боюнча операциялык системалар",
+
+  "Table: Overrides Text Word Cloud": "Таблица: Өзгөчөлүктөр текстинин сөз булуту",
+
+  "Table: Overrides by Active Days": "Таблица: Активдүү күндөрү боюнча өзгөчөлүктөр",
+
+  "Table: Overrides by Creation Time": "Таблица: Түзүлгөн убактысы боюнча өзгөчөлүктөр",
+
+  "Table: Reports by CVSS": "Таблица: CVSS боюнча отчёттор",
+
+  "Table: Reports by Severity Class": "Таблица: Критикалуулук классы боюнча отчёттор",
+
+  "Table: Reports with high Results": "Таблица: Жогорку жыйынтыктары бар отчёттор",
+
+  "Table: Results Description Word Cloud": "Таблица: Жыйынтыктарды сыпаттоочу сөз булуту",
+
+  "Table: Results Vulnerability Word Cloud": "Таблица: Жыйынтыктарды алсыздыктары боюнча сөз булуту",
+
+  "Table: Results by CVSS": "Таблица: CVSS боюнча жыйынтыктар",
+
+  "Table: Results by Severity Class": "Таблица: Критикалуулук классы боюнча жыйынтыктар",
+
+  "Table: TLS Certificates by Modification Time": "Таблица: Өзгөртүлгөн убактысы боюнча TLS сертификаттары",
+
+  "Table: TLS Certificates by Status": "Таблица: Статусу боюнча TLS сертификаттары",
+
+  "Table: Tasks by CVSS": "Таблица: CVSS боюнча тапшырмалар",
+
+  "Table: Tasks by High Results per Host": "Таблица: Хостко жогорку жыйынтыктары боюнча тапшырмалар",
+
+  "Table: Tasks by Severity Class": "Таблица: Критикалуулук классы боюнча тапшырмалар",
+
+  "Table: Tasks by Status": "Таблица: Статусу боюнча тапшырмалар",
+
+  "Table: Tasks with most High Results per Host": "Таблица: Хостко эң көп жогорку жыйынтыктары бар тапшырмалар",
+
+  "Table: Tickets by Assigned User": "Таблица: Дайындалган колдонуучу боюнча тикеттер",
+
+  "Table: Tickets by Creation Time": "Таблица: Түзүлгөн убактысы боюнча тикеттер",
+
+  "Table: Tickets by Status": "Таблица: Статусу боюнча тикеттер",
+
+  "Table: Vulnerabilities by CVSS": "Таблица: CVSS боюнча алсыздыктар",
+
+  "Table: Vulnerabilities by Hosts": "Таблица: Хосттор боюнча алсыздыктар",
+
+  "Table: Vulnerabilities by Severity Class": "Таблица: Критикалуулук классы боюнча алсыздыктар",
+
+  "Tag List": "Тегдердин тизмеси",
+
+  "Target Host(s)": "Максаттуу хост(тор)",
+
+  "Target List": "Максаттардын тизмеси",
+
+  "Target: {{name}}": "Максат: {{name}}",
+
+  "Targets using this Credential": "Бул учёттук дайындарды колдонгон максаттар",
+
+  "Targets using this Port List": "Бул порттор тизмесин колдонгон максаттар",
+
+  "Task List": "Тапшырмалардын тизмеси",
+
+  "Task Name": "Тапшырманын аты",
+
+  "Task Wizard": "Тапшырмалар мастери",
+
+  "Task Wizards Menu": "Тапшырмалар мастеринин менюсу",
+
+  "Task is alterable": "Тапшырма өзгөртүлүүчү (alterable)",
+
+  "Task is configured to run on sensor {{name}}": "Тапшырма {{name}} сенсорунда иштөөгө конфигурацияланган",
+
+  "Task is queued for scanning": "Тапшырма сканерлөө үчүн кезекке коюлду",
+
+  "Task made visible for:\n{{user}}\n{{role}}\n{{group}}": "Тапшырма төмөнкүлөргө көрүнүктүү болду:\n{{user}}\n{{role}}\n{{group}}",
+
+  "Task run status changed": "Тапшырманын иштөө статусу өзгөрдү",
+
+  "Task run status changed to": "Тапшырманын иштөө статусу төмөнкүгө өзгөрдү:",
+
+  "Task run status changed to {{status}}": "Тапшырманын иштөө статусу {{status}} статусуна өзгөрдү",
+
+  "Task {{- name}} resumed successfully.": "{{- name}} тапшырмасы ийгиликтүү улантылды.",
+
+  "Task {{- name}} started successfully.": "{{- name}} тапшырмасы ийгиликтүү башталды.",
+
+  "Task {{- name}} stopped successfully.": "{{- name}} тапшырмасы ийгиликтүү токтотулду.",
+
+  "Task: {{name}}": "Тапшырма: {{name}}",
+
+  "Tasks by CVSS (Total: {{count}})": "CVSS боюнча тапшырмалар (Бардыгы: {{count}})",
+
+  "Tasks by High Results per Host": "Хостко жогорку жыйынтыктары боюнча тапшырмалар",
+
+  "Tasks by Severity Class (Total: {{count}})": "Критикалуулук классы боюнча тапшырмалар (Бардыгы: {{count}})",
+
+  "Tasks by Status (Total: {{count}})": "Статусу боюнча тапшырмалар (Бардыгы: {{count}})",
+
+  "Tasks using this Alert": "Бул эскертүүнү колдонгон тапшырмалар",
+
+  "Tasks using this Scan Config": "Бул сканерлөө конфигурациясын колдонгон тапшырмалар",
+
+  "Tasks using this Scanner": "Бул сканерди колдонгон тапшырмалар",
+
+  "Tasks using this Schedule": "Бул расписанини колдонгон тапшырмалар",
+
+  "Tasks using this Target ({{count}})": "Бул максатты колдонгон тапшырмалар ({{count}})",
+
+  "Tasks with most High Results per Host": "Хостко эң көп жогорку жыйынтыктары бар тапшырмалар",
+
+  "Test Alert": "Эскертүүнү текшерүү",
+
+  "Test Connection": "Туташууну текшерүү",
+
+  "Test connection button. Click to start connection test.": "Туташууну текшерүү баскычы. Туташууну текшерүүнү баштоо үчүн басыңыз.",
+
+  "Testing connection...": "Туташуу текшерилүүдө...",
+
+  "Testing in progress...": "Текшерүү жүрүүдө...",
+
+  "Testing the alert {{name}} failed. {{message}}.": "{{name}} эскертүүсүн текшерүү ишке ашкан жок. {{message}}.",
+
+  "Testing the alert {{name}} was successful.": "{{name}} эскертүүсүн текшерүү ийгиликтүү болду.",
+
+  "Th.": "Пей.",
+
+  "The First": "Биринчи",
+
+  "The Fourth": "Төртүнчү",
+
+  "The Ak Shumkar Enterprise License for this system expired {{days}} days ago. You can still use the system without restrictions, but you will not receive updates anymore. Especially you will miss new vulnerability tests and thus your scans will not detect important new vulnerabilities in your network. Please contact your administrator for renewing the license.": "Бул система үчүн Ak Shumkar Enterprise лицензиясынын мөөнөтү {{days}} күн мурун бүткөн. Сиз дагы эле системаны чектөөсүз колдоно аласыз, бирок мындан ары жаңыртууларды албайсыз. Өзгөчө, сиз жаңы алсыздыктарды текшерүүлөрдү (NVT) өткөрүп жибересиз жана сканерлөөңүз тармагыңыздагы жаңы маанилүү алсыздыктарды аныктабай калат. Лицензияны жаңыртуу үчүн администраторуңузга кайрылыңыз.",
+
+  "The Ak Shumkar Enterprise License for this system expired {{days}} days ago. You can still use the system without restrictions, but you will not receive updates anymore. Especially, you will miss new vulnerability tests and thus your scans will not detect important new vulnerabilities in your network.": "Бул система үчүн Ak Shumkar Enterprise лицензиясынын мөөнөтү {{days}} күн мурун бүткөн. Сиз дагы эле системаны чектөөсүз колдоно аласыз, бирок мындан ары жаңыртууларды албайсыз. Өзгөчө, сиз жаңы алсыздыктарды текшерүүлөрдү өткөрүп жибересиз жана сканерлөөңүз тармагыңыздагы жаңы маанилүү алсыздыктарды аныктабай калат.",
+
+  "The Ak Shumkar Enterprise License for this system is invalid. You can still use the system without restrictions, but you will not receive updates anymore. For further advice please contact the Ak Shumkar Enterprise Support at": "Бул система үчүн Ak Shumkar Enterprise лицензиясы жараксыз. Сиз дагы эле системаны чектөөсүз колдоно аласыз, бирок мындан ары жаңыртууларды албайсыз. Кошумча кеңеш алуу үчүн Ak Shumkar Enterprise колдоо кызматына кайрылыңыз:",
+
+  "The Ak Shumkar Enterprise License for this system is invalid. You can still use the system without restrictions, but you will not receive updates anymore. Please contact your administrator.": "Бул система үчүн Ak Shumkar Enterprise лицензиясы жараксыз. Сиз дагы эле системаны чектөөсүз колдоно аласыз, бирок мындан ары жаңыртууларды албайсыз. Сураныч, администраторуңузга кайрылыңыз.",
+
+  "The Ak Shumkar Enterprise License for this system will expire in {{days}} days. After that your appliance remains valid and you can still use the system without restrictions, but you will not receive updates anymore. Please contact your administrator for extending the license.": "Бул система үчүн Ak Shumkar Enterprise лицензиясынын мөөнөтү {{days}} күндөн кийин бүтөт. Андан кийин жабдууңуз жарактуу бойдон калат жана сиз системаны чектөөсүз колдоно аласыз, бирок жаңыртууларды албайсыз. Лицензияны узартуу үчүн администраторуңузга кайрылыңыз.",
+
+  "The Ak Shumkar Enterprise License for this system will expire in {{days}} days. After that your appliance remains valid and you can still use the system without restrictions, but you will not receive updates anymore. You can find information about extending your license on the": "Бул система үчүн Ak Shumkar Enterprise лицензиясынын мөөнөтү {{days}} күндөн кийин бүтөт. Андан кийин жабдууңуз жарактуу бойдон калат жана сиз системаны чектөөсүз колдоно аласыз, бирок жаңыртууларды албайсыз. Лицензияны узартуу боюнча маалыматты бул жерден таба аласыз:",
+
+  "The Ak Shumkar Vulnerability Manager service is not responding. This could be due to system maintenance. Please try again later, check the system status, or contact your system administrator.": "Ak Shumkar Vulnerability Manager кызматы жооп бербей жатат. Бул системалык тейлөөгө байланыштуу болушу мүмкүн. Сураныч, кийинчерээк кайра аракет кылып көрүңүз, системанын статусун текшериңиз же системалык администраторуңузга кайрылыңыз.",
+
+  "The Last": "Акыркы",
+
+  "The NVT selection is DYNAMIC. New NVTs of selected families will automatically be added and considered.": "NVT тандоо ДИНАМИКАЛЫК. Тандалган үй-бүлөлөрдөгү жаңы NVTлер автоматтык түрдө кошулат жана эске алынат.",
+
+  "The NVT selection is DYNAMIC. New NVTs will automatically be added and considered.": "NVT тандоо ДИНАМИКАЛЫК. Жаңы NVTлер автоматтык түрдө кошулат жана эске алынат.",
+
+  "The NVT selection is STATIC. New NVTs of selected families will NOT automatically be added and considered.": "NVT тандоо СТАТИКАЛЫК. Тандалган үй-бүлөлөрдөгү жаңы NVTлер автоматтык түрдө кошулбайт жана эске алынбайт.",
+
+  "The NVT selection is STATIC. New NVTs will NOT automatically be added and considered.": "NVT тандоо СТАТИКАЛЫК. Жаңы NVTлер автоматтык түрдө кошулбайт жана эске алынбайт.",
+
+  "The Report is empty. This can happen for the following reasons:": "Отчёт бош. Бул төмөнкү себептерден улам болушу мүмкүн:",
+
+  "The Second": "Экинчи",
+
+  "The Target and Task will be created using the defaults as configured in \"My Settings\".": "Максат жана Тапшырма \"Менин орнотууларымда\" конфигурацияланган баштапкы маанилер менен түзүлөт.",
+
+  "The Third": "Үчүнчү",
+
+  "The connection to this web application is not encrypted, allowing anyone listening to the traffic to steal your credentials.": "Бул веб-тиркемеге туташуу шифрленген эмес, бул трафикти тыңшаган адамга сиздин учёттук дайындарыңызды уурдоого мүмкүндүк берет.",
+
+  "The current number of {{hostsCount}} hosts exceeds the maximum of {{maxHosts}}. Please apply a more specific filter.": "Учурдагы {{hostsCount}} хост саны максималдуу {{maxHosts}} чегинен ашат. Сураныч, тагыраак фильтр колдонуңуз.",
+
+  "The default address is either your computer or your network gateway.": "Баштапкы дарек - бул сиздин компьютериңиз же тармактык шлюзуңуз.",
+
+  "The end of the port range can not be below its start!": "Порттор диапазонунун аягы анын башталышынан төмөн болбошу керек!",
+
+  "The families selection is DYNAMIC. New families will automatically be added and considered.": "Үй-бүлөлөрдү тандоо ДИНАМИКАЛЫК. Жаңы үй-бүлөлөр автоматтык түрдө кошулат жана эске алынат.",
+
+  "The families selection is STATIC. New families will NOT automatically be added and considered.": "Үй-бүлөлөрдү тандоо СТАТИКАЛЫК. Жаңы үй-бүлөлөр автоматтык түрдө кошулбайт жана эске алынбайт.",
+
+  "The family selection is DYNAMIC. New families will automatically be added and considered.": "Үй-бүлөнү тандоо ДИНАМИКАЛЫК. Жаңы үй-бүлөлөр автоматтык түрдө кошулат жана эске алынат.",
+
+  "The family selection is STATIC. New families will NOT automatically be added and considered.": "Үй-бүлөнү тандоо СТАТИКАЛЫК. Жаңы үй-бүлөлөр автоматтык түрдө кошулбайт жана эске алынбайт.",
+
+  "The feed owner is currently not set.": "Лентанын ээси учурда орнотулган эмес.",
+
+  "The following filter is currently applied: ": "Учурда төмөнкү фильтр колдонулууда: ",
+
+  "The last": "Акыркы",
+
+  "The last {{weekday}} every month": "Ар айдын акыркы {{weekday}} күнү",
+
+  "The last {{weekday}} every {{interval}} months": "Ар бир {{interval}} айдын акыркы {{weekday}} күнү",
+
+  "The name must include at least one alphanumeric character or one of .,-/_# and space.": "Аты кеминде бир тамга же цифра, же болбосо .,-/_# символдорунун бирин жана боштукту камтууга тийиш.",
+
+  "The performance report format {{format}} is not supported.": "{{format}} майнаптуулук отчёт форматы колдоого алынбайт.",
+
+  "The policy is currently in use by one or more audits, therefore only name and comment can be modified.": "Бул саясат учурда бир же бир нече аудитте колдонулууда, ошондуктан аты жана комментарийи гана өзгөртүлүшү мүмкүн.",
+
+  "The port range needs numerical values for start and end!": "Порттор диапазонунун башталышы жана аягы үчүн сандык маанилер керек!",
+
+  "The report cannot be displayed because no Ak Shumkar Vulnerability Manager report format is available. This could be due to a missing gvmd data feed. Please update the gvmd data feed, check the \"feed import owner\" setting, or contact your system administrator.": "Отчётту көрсөтүү мүмкүн эмес, анткени Ak Shumkar Vulnerability Manager отчёт форматы жеткиликсиз. Бул gvmd дайындар лентасынын жоктугунан болушу мүмкүн. Сураныч, gvmd дайындар лентасын жаңыртыңыз, \"feed import owner\" орнотуусун текшериңиз же системалык администраторуңузга кайрылыңыз.",
+
+  "The report cannot be displayed because no report format is available. This could be due to a missing gvmd data feed. Please update the gvmd data feed, check the \"feed import owner\" setting, the feed status page, or contact your system administrator.": "Отчётту көрсөтүү мүмкүн эмес, анткени отчёт форматы жеткиликсиз. Бул gvmd дайындар лентасынын жоктугунан болушу мүмкүн. Сураныч, gvmd дайындар лентасын жаңыртыңыз, \"feed import owner\" орнотуусун текшериңиз, лента статусу барагын караңыз же системалык администраторуңузга кайрылыңыз.",
+
+  "The report is empty. The filter does not match any of the {{all}} results.": "Отчёт бош. Фильтр {{all}} жыйынтыктын эч бирине дал келбейт.",
+
+  "The scan config is currently in use by one or more tasks, therefore only name and comment can be modified.": "Сканерлөө конфигурациясы учурда бир же бир нече тапшырмада колдонулууда, ошондуктан аты жана комментарийи гана өзгөртүлүшү мүмкүн.",
+
+  "The scan did not collect any results": "Сканерлөө эч кандай жыйынтык чогулткан жок",
+
+  "The scan is still running and no results have arrived yet": "Сканерлөө дагы деле жүрүүдө жана жыйынтыктар али келе элек",
+
+  "The scan just started and no results have arrived yet": "Сканерлөө жаңы эле башталды жана жыйынтыктар али келе элек",
+
+  "The target hosts could be regarded dead": "Максаттуу хосттор \"өлүү\" (жооп бербейт) деп табылышы мүмкүн",
+
+  "The trial period for this system will end in {{days}} days. Please contact your administrator for purchasing a new license.": "Бул системанын сыноо мөөнөтү {{days}} күндөн кийин аяктайт. Жаңы лицензия сатып алуу үчүн администраторуңузга кайрылыңыз.",
+
+  "The trial period for this system will end in {{days}} days. You can find further information about purchasing a license on the": "Бул системанын сыноо мөөнөтү {{days}} күндөн кийин аяктайт. Лицензия сатып алуу боюнча кошумча маалыматты бул жерден таба аласыз:",
+
+  "The {{entityType}} cannot be displayed in order to maintain the performance within the browser's capabilities. The report contains too many results. Please decrease the number of results below the threshold of {{threshold}} by applying a more refined filter.": "{{entityType}} браузердин мүмкүнчүлүктөрүнүн чегинде иштөө үчүн көрсөтүлө албайт. Отчётто өтө көп жыйынтык бар. Сураныч, тагыраак фильтр колдонуу менен жыйынтыктардын санын {{threshold}} босогосунан төмөн түшүрүңүз.",
+
+  "The {{entity}} you were looking for could not be found.": "Сиз издеген {{entity}} табылган жок.",
+
+  "There are notes for this result": "Бул жыйынтык үчүн эскертүүлөр бар",
+
+  "There are overrides for this result": "Бул жыйынтык үчүн өзгөчөлүктөр (overrides) бар",
+
+  "There are tickets for this result": "Бул жыйынтык үчүн тикеттер бар",
+
+  "There may be results below the currently selected Quality of Detection (QoD).": "Учурда тандалган аныктоо сапатынан (QoD) төмөн жыйынтыктар болушу мүмкүн.",
+
+  "There was an error fetching the feed. It will be retried in a few minutes.": "Лентаны алууда ката кетти. Бир нече мүнөттөн кийин кайра аракет кылынат.",
+
+  "Third Party": "Үчүнчү тарап",
+
+  "This CPE does not appear in the CPE dictionary but is referenced by one or more CVE.": "Бул CPE CPE-сөздүгүндө жок, бирок бир же бир нече CVE тарабынан шилтемеленген.",
+
+  "This NVT is deprecated.": "Бул NVT эскирген (deprecated).",
+
+  "This dialog will open a new window for {{- to}} if you click on \"follow link\". Following this link is on your own responsibility. Ak Shumkar does not endorse the content you will see there.": "Бул диалог эгер сиз \"шилтемеге өтүү\" баскычын бассаңыз, {{- to}} үчүн жаңы терезе ачат. Бул шилтемеге өтүү - сиздин жоопкерчилигиңиз. Ak Shumkar ал жердеги мазмунду колдобойт.",
+
+  "This feature is experimental and may not work reliable under all circumstances.": "Бул функция эксперименталдык жана бардык учурларда ишенимдүү иштебеши мүмкүн.",
+
+  "This form received invalid values. Please check the inputs and submit again.": "Бул формада жараксыз маанилер бар. Сураныч, киргизилген маалыматтарды текшерип, кайра жөнөтүңүз.",
+
+  "This is an Alterable Audit. Reports may not relate to current Policy or Target!": "Бул Өзгөртүлүүчү Аудит. Отчёттор учурдагы Саясатка же Максатка тиешеси жок болушу мүмкүн!",
+
+  "This is an Alterable Task. Reports may not relate to current Scan Config or Target!": "Бул Өзгөртүлүүчү Тапшырма. Отчёттор учурдагы Сканерлөө Конфигурациясына же Максатка тиешеси жок болушу мүмкүн!",
+
+  "This issue may be due to the feed not having completed its synchronization.\nPlease try again shortly.": "Бул маселе лентанын синхрондоштуруусу бүтө электигинен болушу мүмкүн.\nСураныч, бир аздан кийин кайра аракет кылып көрүңүз.",
+
+  "This setting is not alterable once task has been run at least once.": "Тапшырма кеминде бир жолу иштетилгенден кийин бул орнотуу өзгөртүлбөйт.",
+
+  "This setting is not alterable once the audit has been run at least once.": "Аудит кеминде бир жолу иштетилгенден кийин бул орнотуу өзгөртүлбөйт.",
+
+  "This will set when the Agents scan the systems.\nA report is not automatically generated and needs to be set up as a \"New Agent Task\".": "Бул Агенттер системаларды качан сканерлээрин аныктайт.\nОтчёт автоматтык түрдө түзүлбөйт жана аны \"Жаңы Агент Тапшырмасы\" катары түзүү керек.",
+
+  "This wizard can help you by creating a new scan task and automatically starting it.": "Бул мастер сизге жаңы сканерлөө тапшырмасын түзүүгө жана аны автоматтык түрдө баштоого жардам берет.",
+
+  "This wizard will modify an existing task for you. The difference to the Edit Task dialog is that you can enter values for associated objects directly here. The objects will then be created for you automatically and assigned to the selected task.": "Бул мастер сизге иштеп жаткан тапшырманы өзгөртүүгө жардам берет. \"Тапшырманы түзөтүү\" диалогунан айырмасы, сиз бул жерде тиешелүү объекттердин маанилерин дароо киргизе аласыз. Андан кийин объекттер сиз үчүн автоматтык түрдө түзүлүп, тандалган тапшырмага дайындалат.",
+
+  "Threat Metrics": "Коркунучтардын метрикалары",
+
+  "Thursday": "Бейшемби",
+
+  "Ticket List": "Тикеттер тизмеси",
+
+  "Ticket Received": "Тикет алынды",
+
+  "Ticket Status": "Тикеттин статусу",
+
+  "Ticket note is required.": "Тикет үчүн эскертүү талап кылынат.",
+
+  "Ticket received": "Тикет алынды",
+
+  "Ticket: {{name}}": "Тикет: {{name}}",
+
+  "Tickets Filter": "Тикеттер фильтри",
+
+  "Tickets by Assigned User (Total: {{total}})": "Дайындалган колдонуучу боюнча тикеттер (Бардыгы: {{total}})",
+
+  "Tickets by Creation Time": "Түзүлгөн убактысы боюнча тикеттер",
+
+  "Tickets by Creation Time (Total: {{count}})": "Түзүлгөн убактысы боюнча тикеттер (Бардыгы: {{count}})",
+
+  "Tickets by Status (Total: {{count}})": "Статусу боюнча тикеттер (Бардыгы: {{count}})",
+
+  "Time Format": "Убакыт форматы",
+
+  "TippingPoint SMS": "TippingPoint SMS",
+
+  "To Address": "Дарекке",
+
+  "To address": "Дарекке",
+
+  "To change the filter, please filter your results on the report page. This filter will not be stored as default.": "Фильтрди өзгөртүү үчүн, отчёт барагындагы жыйынтыктарды фильтрлеңиз. Бул фильтр демейки катары сакталбайт.",
+
+  "To change the filter, please select a filter from the dropdown menu.": "Фильтрди өзгөртүү үчүн менюдан фильтрди тандаңыз.",
+
+  "To see all assigned resources click here:": "Бардык дайындалган ресурстарды көрүү үчүн бул жерди басыңыз:",
+
+  "Toggle 2D/3D view": "2D/3D көрүнүшкө которуу",
+
+  "Toggle Legend": "Легенданы которуу",
+
+  "Too many resources to list.": "Тизмектөө үчүн ресурстар өтө көп.",
+
+  "Too old ({{age}} days)": "Өтө эски ({{age}} күн)",
+
+  "Total CERT-Bund Advisories": "CERT-Bund сунуштарынын жалпы саны",
+
+  "Total CERT-Bund Advs": "CERT-Bund сунуштарынын жалпы саны",
+
+  "Total CPEs": "CPEлердин жалпы саны",
+
+  "Total CVEs": "CVEлердин жалпы саны",
+
+  "Total Certificates": "Сертификаттардын жалпы саны",
+
+  "Total DFN-CERT Advs": "DFN-CERT сунуштарынын жалпы саны",
+
+  "Total Hosts": "Хосттордун жалпы саны",
+
+  "Total Hosts (High)": "Хосттордун жалпы саны (Критикалык)",
+
+  "Total NVTs": "NVTлердин жалпы саны",
+
+  "Total Notes": "Эскертүүлөрдүн жалпы саны",
+
+  "Total Overrides": "Өзгөчөлүктөрдүн (Overrides) жалпы саны",
+
+  "Total Reports for Audit {{- name}}": "{{- name}} аудити үчүн отчёттордун жалпы саны",
+
+  "Total Reports for Task {{- name}}": "{{- name}} тапшырмасы үчүн отчёттордун жалпы саны",
+
+  "Total TLS Certificates": "TLS сертификаттардын жалпы саны",
+
+  "Total Tickets": "Тикеттердин жалпы саны",
+
+  "Trigger Alert": "Эскертүүнү иштетүү",
+
+  "Trigger Alert for Compliance Report": "Шайкештик отчёту үчүн эскертүүнү иштетүү",
+
+  "Trigger Alert for Scan Report": "Сканерлөө отчёту үчүн эскертүүнү иштетүү",
+
+  "Trust": "Ишеним",
+
+  "Trust (Last Verified)": "Ишеним (Акыркы жолу текшерилген)",
+
+  "Tu.": "Шей.",
+
+  "Tuesday": "Шейшемби",
+
+  "UDP Port Count": "UDP портторунун саны",
+
+  "Ultimate Delete Requested": "Биротоло жок кылуу суралды",
+
+  "Undefined": "Аныкталган эмес",
+
+  "Unfold": "Жайып көрсөтүү",
+
+  "Unfold all details": "Бардык чоо-жайын жайып көрсөтүү",
+
+  "Unique ID of the application issuing password requests (required)": "Пароль сурамдарын жөнөтүүчү тиркеменин уникалдуу IDси (милдеттүү)",
+
+  "Unknown Error": "Белгисиз ката",
+
+  "Unknown error occurred": "Белгисиз ката кетти",
+
+  "Unknown error on login.": "Кирүүдө белгисиз ката кетти.",
+
+  "Unknown scanner type": "Сканердин белгисиз түрү",
+
+  "Unknown scanner type ({{type}})": "Сканердин белгисиз түрү ({{type}})",
+
+  "Unnamed": "Аты жок",
+
+  "Unreliable exec. version": "Программанын ишенимсиз версиясы",
+
+  "Unreliable package check": "Пакеттин ишенимсиз текшерүүсү",
+
+  "Unreliable rem. banner": "Алыскы баннердин ишенимсиздиги",
+
+  "Unreported": "Маалымдалган эмес",
+
+  "Update Filter": "Фильтрди жаңыртуу",
+
+  "Update available to:": "Жаңыртуу жеткиликтүү:",
+
+  "Update in progress...": "Жаңыртуу жүрүүдө...",
+
+  "Update to Latest": "Акыркы версияга чейин жаңыртуу",
+
+  "Updated {{secinfo_type}} arrived": "Жаңыланган {{secinfo_type}} келди",
+
+  "Updated: ": "Жаңыртылды: ",
+
+  "Upload CA Certificate": "CA сертификатын жүктөө",
+
+  "Upload PKCS#12 file (.p12, .pfx)  ": "PKCS#12 файлын жүктөө (.p12, .pfx)  ",
+
+  "Upload client certificate (.pem, .crt)": "Клиенттин сертификатын жүктөө (.pem, .crt)",
+
+  "Upload file": "Файлды жүктөө",
+
+  "Upload private key (.pem, .key)": "Жашыруун ачкычты жүктөө (.pem, .key)",
+
+  "Upload report": "Отчётту жүктөө",
+
+  "Upload server CA certificate (.pem, .crt)": "Сервердин CA сертификатын жүктөө (.pem, .crt)",
+
+  "Uploading": "Жүктөлүүдө",
+
+  "Urgency": "Шашылыштык",
+
+  "Use LDAPS only": "LDAPS гана колдонуу",
+
+  "Use Scan Config Default": "Сканерлөө конфигурациясынын баштапкы орнотуусун колдонуу",
+
+  "Use System Default for Time and Date Format": "Убакыт жана күн форматы үчүн системалык баштапкыны колдонуу",
+
+  "Use workaround for default certificate": "Баштапкы сертификат үчүн айланып өтүү жолун колдонуу",
+
+  "User ID": "Колдонуучунун IDси",
+
+  "User Interaction": "Колдонуучунун өз ара аракети",
+
+  "User Interface Language": "Интерфейс тили",
+
+  "User Tags": "Колдонуучунун тегдери",
+
+  "User Tags ({{count}})": "Колдонуучунун тегдери ({{count}})",
+
+  "User without a role": "Ролу жок колдонуучу",
+
+  "User {{name}} will be deleted.": "Колдонуучу {{name}} жок кылынат.",
+
+  "Username + Password": "Колдонуучунун аты + Пароль",
+
+  "Username + SSH Key": "Колдонуучунун аты + SSH ачкычы",
+
+  "Users List": "Колдонуучулардын тизмеси",
+
+  "Users {{user}}": "Колдонуучулар {{user}}",
+
+  "Using Default": "Баштапкы колдонулууда",
+
+  "Valid": "Жарактуу",
+
+  "Value Density": "Маанилердин тыгыздыгы",
+
+  "Vault ID": "Vault ID",
+
+  "Vector": "Вектор",
+
+  "Vendor Fix": "Вендордон оңдоо",
+
+  "Vendorfix": "Вендордон оңдоо",
+
+  "Verify Scanner": "Сканерди текшерүү",
+
+  "Verify {{entity}}": "{{entity}} текшерүү",
+
+  "Version used: ": "Колдонулган версия: ",
+
+  "Version {{version}}": "Версия {{version}}",
+
+  "View Details of Schedule {{name}} (Next due: over)": "{{name}} расписаниесинин чоо-жайын көрүү (Кийинкиси: өттү)",
+
+  "View Details of Schedule {{name}} (Next due: {{time}} Once)": "{{name}} расписаниесинин чоо-жайын көрүү (Кийинкиси: {{time}} бир жолу)",
+
+  "View Details of Schedule {{name}} (Next due: {{time}})": "{{name}} расписаниесинин чоо-жайын көрүү (Кийинкиси: {{time}})",
+
+  "View Details of Schedule {{name}} (Next due: {{time}}, {{periods}} more times )": "{{name}} расписаниесинин чоо-жайын көрүү (Кийинкиси: {{time}}, дагы {{periods}} жолу)",
+
+  "View Details of {{cve_id}}": "{{cve_id}} чоо-жайын көрүү",
+
+  "View details of CERT-Bund Advisory {{name}}": "CERT-Bund {{name}} сунушунун чоо-жайын көрүү",
+
+  "View details of DFN-CERT Advisory {{name}}": "DFN-CERT {{name}} сунушунун чоо-жайын көрүү",
+
+  "View details of product detection": "Продукцияны аныктоо чоо-жайын көрүү",
+
+  "View list of all reports for Task {{name}}, including unfinished ones": "{{name}} тапшырмасы үчүн бардык отчёттордун тизмесин көрүү, анын ичинде бүтө электерин дагы",
+
+  "Vulnerabilities Filter": "Алсыздыктардын фильтри",
+
+  "Vulnerabilities by CVSS (Total: {{count}})": "CVSS боюнча алсыздыктар (Бардыгы: {{count}})",
+
+  "Vulnerabilities by Hosts (Total: {{count}})": "Хосттор боюнча алсыздыктар (Бардыгы: {{count}})",
+
+  "Vulnerabilities by Severity Class (Total: {{count}})": "Критикалуулук классы боюнча алсыздыктар (Бардыгы: {{count}})",
+
+  "Vulnerabilities did not change": "Алсыздыктар өзгөргөн жок",
+
+  "Vulnerability (Severity) Score": "Алсыздык (Критикалуулук) упайы",
+
+  "Vulnerability Response Effort": "Алсыздыкты жоюу аракеттери",
+
+  "Vulnerability Scoring": "Алсыздыктарды баалоо",
+
+  "Vulnerability count decreased": "Алсыздыктардын саны азайды",
+
+  "Vulnerability count increased": "Алсыздыктардын саны көбөйдү",
+
+  "Vulnerability was detected according to the Detection Method.": "Алсыздык аныктоо ыкмасына ылайык табылды.",
+
+  "Vulnerable Products": "Алсыз продукциялар",
+
+  "Vulnerable System Availability Impact": "Алсыз системанын жеткиликтүүлүгүнө таасири",
+
+  "Vulnerable System Confidentiality Impact": "Алсыз системанын купуялуулугуна таасири",
+
+  "Vulnerable System Impact Metrics": "Алсыз системага таасир этүү метрикалары",
+
+  "Vulnerable System Integrity Impact": "Алсыз системанын бүтүндүгүнө таасири",
+
+  "WARNING: Please be aware that the report has more results than the threshold of {{threshold}}. Therefore, this action can take a really long time to finish. It might even exceed the session timeout!": "ЭСКЕРТҮҮ: Отчётто {{threshold}} босогосунан көп жыйынтык бар экенин эске алыңыз. Ошондуктан, бул аракетти аяктоо үчүн абдан көп убакыт талап кылынышы мүмкүн. Ал тургай сессиянын күтүү убактысынан ашып кетиши мүмкүн!",
+
+  "Warning: Connection unencrypted": "Эскертүү: Туташуу шифрленген эмес",
+
+  "Warning: You are using IE11": "Эскертүү: Сиз IE11 колдонуп жатасыз",
+
+  "We are sorry. The page you have requested could not be found.": "Кечиресиз. Сиз сураган барак табылган жок.",
+
+  "We.": "Шар.",
+
+  "Wednesday": "Шаршемби",
+
+  "Weekday": "Иш күнү",
+
+  "Weekday, Day, Month, Year": "Апта күнү, Күн, Ай, Жыл",
+
+  "Weekday, Month, Day, Year": "Апта күнү, Ай, Күн, Жыл",
+
+  "Weekly (Sunday at midnight)": "Апта сайын (Жекшемби түн ортосунда)",
+
+  "When changing status to \"closed\", a \"Note for Closed\" is required.": "Статусту \"жабык\" (closed) деп өзгөрткөндө, \"Жабуу үчүн эскертүү\" талап кылынат.",
+
+  "When changing status to \"fixed\", a \"Note for Fixed\" is required.": "Статусту \"оңдолду\" (fixed) деп өзгөрткөндө, \"Оңдоо үчүн эскертүү\" талап кылынат.",
+
+  "When changing status to \"open\", a \"Note for Open\" is required.": "Статусту \"ачык\" (open) деп өзгөрткөндө, \"Ачуу үчүн эскертүү\" талап кылынат.",
+
+  "Will not fix": "Оңдолбойт",
+
+  "With Note": "Эскертүү менен",
+
+  "With Report": "Отчёт менен",
+
+  "Word Count": "Сөздөрдүн саны",
+
+  "Workaround": "Айланып өтүү жолу (Workaround)",
+
+  "Workweek (Monday till Friday)": "Иш жумасы (Дүйшөмбүдөн Жумага чейин)",
+
+  "You are currently using the free Ak Shumkar COMMUNITY FEED - this shows only a few vulnerabilities for business critical enterprise software such as MS Exchange, Cisco, VMware, Citrix and many more. Over 60% of all relevant exploits remain hidden.": "Сиз учурда акысыз Ak Shumkar COMMUNITY FEED колдонуп жатасыз - бул MS Exchange, Cisco, VMware, Citrix сыяктуу бизнес үчүн маанилүү корпоративдик программалардагы алсыздыктардын бир нечесин гана көрсөтөт. Бардык тиешелүү эксплойттордун 60%дан ашыгы жашыруун бойдон калууда.",
+
+  "You are leaving Ak Shumkar": "Сиз Ak Shumkarтан чыгып жатасыз",
+
+  "You are using Internet Explorer 11. This browser is not supported anymore. Please use an up-to-date alternative or contact your system administrator.": "Сиз Internet Explorer 11 колдонуп жатасыз. Бул браузер мындан ары колдоого алынбайт. Сураныч, заманбап альтернативаны колдонуңуз же системалык администраторуңузга кайрылыңыз.",
+
+  "You are using keywords setting a minimum limit on severity.": "Сиз критикалуулуктун минималдуу чегин белгилеген ачкыч сөздөрдү колдонуп жатасыз.",
+
+  "You can choose, whether you want to run the scan immediately": "Сиз сканерлөөнү дароо баштоону каалайсызбы, тандай аласыз",
+
+  "You can find information about renewing your license on the": "Лицензияны жаңыртуу боюнча маалыматты бул жерден таба аласыз:",
+
+  "You have been inactive, your session will expire in 3 minutes": "Сиз активдүү болгон жоксуз, сессияңыз 3 мүнөттөн кийин аяктайт",
+
+  "You should change the Alive Test Method of the target for the next scan. However, if the target hosts are indeed dead, the scan duration might increase significantly.": "Кийинки сканерлөө үчүн максаттын Alive Test ыкмасын өзгөртүүңүз керек. Бирок, эгер максаттуу хосттор чындыгында \"өлүү\" болсо, сканерлөө узактыгы кыйла көбөйүшү мүмкүн.",
+
+  "Your Ak Shumkar Enterprise License has expired {{days}} days ago!": "Сиздин Ak Shumkar Enterprise лицензияңыздын мөөнөтү {{days}} күн мурун бүткөн!",
+
+  "Your Ak Shumkar Enterprise License is invalid!": "Сиздин Ak Shumkar Enterprise лицензияңыз жараксыз!",
+
+  "Your Ak Shumkar Enterprise License will expire in {{days}} days!": "Сиздин Ak Shumkar Enterprise лицензияңыздын мөөнөтү {{days}} күндөн кийин бүтөт!",
+
+  "Your changes have been saved.": "Өзгөртүүлөрүңүз сакталды.",
+
+  "Your filter settings may be too refined.": "Сиздин фильтр орнотууларыңыз өтө тагыраак болушу мүмкүн.",
+
+  "Your filter settings may be too unrefined.": "Сиздин фильтр орнотууларыңыз өтө так эмес болушу мүмкүн.",
+
+  "Your last filter change may be too restrictive.": "Сиздин акыркы фильтр өзгөртүүңүз өтө чектөөчү болушу мүмкүн.",
+
+  "any value": "каалаган маани",
+
+  "audit": "аудит",
+
+  "day(s)": "күн",
+
+  "days": "күн",
+
+  "decreased": "төмөндөдү",
+
+  "default": "баштапкы",
+
+  "default:unnamed": "баштапкы:аты жок",
+
+  "expired": "мөөнөтү бүттү",
+
+  "for current resource only": "учурдагы ресурс үчүн гана",
+
+  "for related resources only": "тиешелүү ресурстар үчүн гана",
+
+  "hour(s)": "саат",
+
+  "https://www.greenbone.net/en/feed-comparison/": "https://www.greenbone.net/en/feed-comparison/",
+
+  "inactive": "активдүү эмес",
+
+  "including related resources": "тиешелүү ресурстарды кошкондо",
+
+  "is equal to": "барабар",
+
+  "is greater than": "чоңураак",
+
+  "is less than": "кичирээк",
+
+  "list separator": "тизме бөлгүч",
+
+  "matches at least": "кеминде дал келет",
+
+  "must be at least": "кеминде болушу керек",
+
+  "no": "жок",
+
+  "not available for orphaned report configs": "жетим калган отчёт конфигурациялары үчүн жеткиликсиз",
+
+  "on": "күйүк (on)",
+
+  "on port": "портто",
+
+  "or": "же",
+
+  "range": "диапазон",
+
+  "read": "окуу",
+
+  "related resource(s)": "тиешелүү ресурс(тар)",
+
+  "reports": "отчёттор",
+
+  "result(s) NVT(s)": "жыйынтык(тар) NVT(лер)",
+
+  "result(s) more than previous scan": "мурунку сканерлөөгө караганда көбүрөөк жыйынтык(тар)",
+
+  "step values": "кадам маанилери",
+
+  "task": "тапшырма",
+
+  "undefined": "аныкталган эмес",
+
+  "until {{- enddate}}": "{{- enddate}} чейин",
+
+  "verinice Connector": "verinice туташтыргычы",
+
+  "verinice.PRO Connector": "verinice.PRO туташтыргычы",
+
+  "verinice.PRO Report": "verinice.PRO отчёту",
+
+  "verinice.PRO URL": "verinice.PRO URL",
+
+  "week(s)": "жума",
+
+  "write": "жазуу",
+
+  "yes": "ооба",
+
+  "yes, always": "ооба, дайыма",
+
+  "yes, for the next": "ооба, кийинки үчүн",
+
+  "yes, until": "ооба, төмөнкүгө чейин",
+
+  "you can create a new Task yourself.": "сиз өзүңүз жаңы Тапшырма түзө аласыз.",
+
+  "{{- entity}} successfully cloned": "{{- entity}} ийгиликтүү клондолду",
+
+  "{{- entity}} successfully moved to trashcan": "{{- entity}} ийгиликтүү корзинага жылдырылды",
+
+  "{{- name}} cloned successfully.": "{{- name}} ийгиликтүү клондолду.",
+
+  "{{- name}} deleted successfully.": "{{- name}} ийгиликтүү жок кылынды.",
+
+  "{{- name}} downloaded successfully.": "{{- name}} ийгиликтүү жүктөлүп алынды.",
+
+  "{{- name}} restored successfully.": "{{- name}} ийгиликтүү калыбына келтирилди.",
+
+  "{{age}} days old": "{{age}} күндүк",
+
+  "{{count}} alert(s) only visible to other users": "{{count}} эскертүү башка колдонуучуларга гана көрүнүктүү",
+
+  "{{count}} of {{max}}": "{{count}} / {{max}} ичинен",
+
+  "{{count}} report config(s) only visible to other users": "{{count}} отчёт конфигурациясы башка колдонуучуларга гана көрүнүктүү",
+
+  "{{count}} user(s) deleted successfully": "{{count}} колдонуучу ийгиликтүү жок кылынды",
+
+  "{{count}} users will be deleted": "{{count}} колдонуучу жок кылынат",
+
+  "{{days}} day {{hours}}:{{minutes}} h": "{{days}} күн {{hours}}:{{minutes}} с",
+
+  "{{days}} days {{hours}}:{{minutes}} h": "{{days}} күн {{hours}}:{{minutes}} с",
+
+  "{{entity}} cloned successfully": "{{entity}} ийгиликтүү клондолду",
+
+  "{{entity}} is not writable": "{{entity}} жазууга мүмкүн эмес",
+
+  "{{entity}} is still in use": "{{entity}} дагы эле колдонулууда",
+
+  "{{entity}} may not be cloned": "{{entity}} клондоого болбойт",
+
+  "{{entity}} may not be created": "{{entity}} түзүүгө болбойт",
+
+  "{{entity}} may not be verified": "{{entity}} текшерүүгө мүмкүн эмес",
+
+  "{{entity}} settings is not writable": "{{entity}} орнотуулары жазууга мүмкүн эмес",
+
+  "{{entity}} successfully created": "{{entity}} ийгиликтүү түзүлдү",
+
+  "{{entity}} successfully deleted": "{{entity}} ийгиликтүү жок кылынды",
+
+  "{{entity}} successfully saved": "{{entity}} ийгиликтүү сакталды",
+
+  "{{filtered}} of {{all}}": "{{all}} ичинен {{filtered}}",
+
+  "{{first}} - {{last}} of {{filtered}}": "{{filtered}} ичинен {{first}} - {{last}}",
+
+  "{{hosts}} Host(s) with average severity {{avgSev}}": "{{hosts}} хост(тор), орточо критикалуулугу {{avgSev}}",
+
+  "{{hours}}:{{minutes}} h": "{{hours}}:{{minutes}} с",
+
+  "{{name}} Start: {{date}}": "{{name}} Башталышы: {{date}}",
+
+  "{{name}} Start: {{startDate}} End: {{endDate}}": "{{name}} Башталышы: {{startDate}} Аякташы: {{endDate}}",
+
+  "{{nr}} more times": "дагы {{nr}} жолу",
+
+  "{{nth}} {{weekday}} every month": "Ар айдын {{nth}} {{weekday}} күнү",
+
+  "{{nth}} {{weekday}} every {{interval}} months": "Ар бир {{interval}} айдын {{nth}} {{weekday}} күнү",
+
+  "{{num}} more runs not shown": "көрсөтүлбөгөн дагы {{num}} иштетүүлөр",
+
+  "{{progress}} %": "{{progress}} %",
+
+  "{{sevMax}}: ({{riskFactor}})": "{{sevMax}}: ({{riskFactor}})",
+
+  "{{status}} at {{progress}} %": "{{status}} ({{progress}} %)",
+
+  "{{subjectType}} {{- subjectName}} has all permissions": "{{subjectType}} {{- subjectName}} бардык укуктарга ээ",
+
+  "{{subjectType}} {{- subjectName}} has read access to {{resourceType}}": "{{subjectType}} {{- subjectName}} {{resourceType}} ресурсуна окуу укугуна ээ",
+
+  "{{subjectType}} {{- subjectName}} has read access to {{resourceType}} {{resourceName}}": "{{subjectType}} {{- subjectName}} {{resourceType}} {{resourceName}} ресурсуна окуу укугуна ээ",
+
+  "{{subjectType}} {{- subjectName}} has super access": "{{subjectType}} {{- subjectName}} супер-укуктарга ээ",
+
+  "{{subjectType}} {{- subjectName}} has super access to all resources of {{resourceType}} {{resourceName}}": "{{subjectType}} {{- subjectName}} {{resourceType}} {{resourceName}} бардык ресурстарына супер-укуктарга ээ",
+
+  "{{subjectType}} {{- subjectName}} has write access to the authentication configuration": "{{subjectType}} {{- subjectName}} аутентификация конфигурациясына жазуу укугуна ээ",
+
+  "{{subjectType}} {{- subjectName}} has write access to {{resourceType}}": "{{subjectType}} {{- subjectName}} {{resourceType}} ресурсуна жазуу укугуна ээ",
+
+  "{{subjectType}} {{- subjectName}} has write access to {{resourceType}} {{resourceName}}": "{{subjectType}} {{- subjectName}} {{resourceType}} {{resourceName}} ресурсуна жазуу укугуна ээ",
+
+  "{{subjectType}} {{- subjectName}} may create a new {{resourceType}}": "{{subjectType}} {{- subjectName}} жаңы {{resourceType}} түзө алат",
+
+  "{{subjectType}} {{- subjectName}} may delete an existing {{resourceType}}": "{{subjectType}} {{- subjectName}} иштеп жаткан {{resourceType}} жок кыла алат",
+
+  "{{subjectType}} {{- subjectName}} may delete {{resourceType}} {{resourceName}}": "{{subjectType}} {{- subjectName}} {{resourceType}} {{resourceName}} жок кыла алат",
+
+  "{{subjectType}} {{- subjectName}} may empty the trashcan": "{{subjectType}} {{- subjectName}} корзинаны тазалай алат",
+
+  "{{subjectType}} {{- subjectName}} may get the dependencies of NVTs": "{{subjectType}} {{- subjectName}} NVT көз карандылыктарын ала алат",
+
+  "{{subjectType}} {{- subjectName}} may get the help text": "{{subjectType}} {{- subjectName}} жардам текстин ала алат",
+
+  "{{subjectType}} {{- subjectName}} may get version information": "{{subjectType}} {{- subjectName}} версия маалыматын ала алат",
+
+  "{{subjectType}} {{- subjectName}} may login": "{{subjectType}} {{- subjectName}} системага кире алат",
+
+  "{{subjectType}} {{- subjectName}} may move {{resourceType}}": "{{subjectType}} {{- subjectName}} {{resourceType}} жылдыра алат",
+
+  "{{subjectType}} {{- subjectName}} may restore items from the trashcan": "{{subjectType}} {{- subjectName}} элементтерди корзинадан калыбына келтире алат",
+
+  "{{subjectType}} {{- subjectName}} may resume Task": "{{subjectType}} {{- subjectName}} тапшырманы уланта алат",
+
+  "{{subjectType}} {{- subjectName}} may run Wizard": "{{subjectType}} {{- subjectName}} Мастерди иштете алат",
+
+  "{{subjectType}} {{- subjectName}} may run multiple GMP commands in one": "{{subjectType}} {{- subjectName}} бир эле учурда бир нече GMP буйруктарын иштете алат",
+
+  "{{subjectType}} {{- subjectName}} may start Task": "{{subjectType}} {{- subjectName}} тапшырманы баштай алат",
+
+  "{{subjectType}} {{- subjectName}} may stop Task": "{{subjectType}} {{- subjectName}} тапшырманы токтото алат",
+
+  "{{subjectType}} {{- subjectName}} may sync the CERT feed": "{{subjectType}} {{- subjectName}} CERT лентасын синхрондоштура алат",
+
+  "{{subjectType}} {{- subjectName}} may sync the NVT feed": "{{subjectType}} {{- subjectName}} NVT лентасын синхрондоштура алат",
+
+  "{{subjectType}} {{- subjectName}} may sync the SCAP feed": "{{subjectType}} {{- subjectName}} SCAP лентасын синхрондоштура алат",
+
+  "{{subjectType}} {{- subjectName}} may sync {{resourceType}}": "{{subjectType}} {{- subjectName}} {{resourceType}} ресурсун синхрондоштура алат",
+
+  "{{subjectType}} {{- subjectName}} may test Alert": "{{subjectType}} {{- subjectName}} эскертүүнү текшере алат",
+
+  "{{subjectType}} {{- subjectName}} may verify {{resourceType}}": "{{subjectType}} {{- subjectName}} {{resourceType}} ресурсун текшере алат",
+
+  "{{title}} {{filtered}} of {{all}}": "{{title}} {{all}} ичинен {{filtered}}",
+
+  "{{type}} cannot be started manually because the assigned schedule has a duration limit": "{{type}} кол менен башталбайт, анткени дайындалган расписаниеде узактык чеги бар",
+
+  "{{type}} is already active": "{{type}} мурунтан эле активдүү",
+
+  "{{type}} is for import only": "{{type}} импорттоо үчүн гана",
+
+  "{{type}} is not stopped": "{{type}} токтотулган жок",
+
+  "{{type}} is scheduled": "{{type}} пландаштырылды",
+
+  "{{type}} owned by {{owner}}": "{{type}} ээси: {{owner}}",
+
+  "{{type}}:unnamed": "{{type}}:аты жок",
+
+  "{{value}}: {{count}} (severity: {{severity}})": "{{value}}: {{count}} (критикалуулугу: {{severity}})"
+
+}

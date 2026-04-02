@@ -1,9 +1,10 @@
 # See Dockerfile.custom-ospd-openvas — Trixie base has no libssh-gcrypt package; copy from Bookworm.
 FROM debian:bookworm-slim AS libssh-gcrypt-from-bookworm
 RUN apt-get update \
-  && apt-get install -y --no-install-recommends libssh-gcrypt-4 findutils \
+  && apt-get install -y --no-install-recommends libssh-gcrypt-4 \
   && mkdir -p /export \
-  && find /usr/lib -maxdepth 2 -name 'libssh-gcrypt.so.4*' -exec cp -a {} /export/ \; \
+  && cp -a /usr/lib/*/libssh-gcrypt.so* /export/ \
+  && test -e /export/libssh-gcrypt.so.4 \
   && rm -rf /var/lib/apt/lists/*
 
 FROM registry.community.greenbone.net/community/openvas-scanner:stable
@@ -16,4 +17,6 @@ COPY build/nasl/libopenvas_nasl.so /usr/local/lib/libopenvas_nasl.so
 COPY build/misc/libopenvas_misc.so /usr/local/lib/libopenvas_misc.so.23.41.0
 COPY build/misc/libopenvas_misc.so /usr/local/lib/libopenvas_misc.so.23
 COPY build/misc/libopenvas_misc.so /usr/local/lib/libopenvas_misc.so
-RUN ldconfig
+RUN ldconfig \
+  && test -e /usr/local/lib/libssh-gcrypt.so.4 \
+  && if ldd /usr/local/sbin/openvas 2>&1 | grep -q 'not found'; then ldd /usr/local/sbin/openvas; exit 1; fi

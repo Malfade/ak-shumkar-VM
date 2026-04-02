@@ -1,0 +1,45 @@
+/* SPDX-FileCopyrightText: 2024 Greenbone AG
+ *
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+import {describe, test, expect, testing} from '@gsa/testing';
+import {screen, rendererWith, fireEvent} from 'web/testing';
+import Capabilities from 'gmp/capabilities/capabilities';
+import Task from 'gmp/models/task';
+import CreateIcon from 'web/entity/icon/CreateIcon';
+import Theme from 'web/utils/Theme';
+
+describe('Entity CreateIcon component tests', () => {
+  test('should render in active state with correct permissions', () => {
+    const caps = new Capabilities(['everything']);
+    const entity = Task.fromElement({});
+    const clickHandler = testing.fn();
+
+    const {render} = rendererWith({capabilities: caps});
+
+    const {element} = render(
+      <CreateIcon entity={entity} onClick={clickHandler} />,
+    );
+
+    expect(caps.mayCreate('task')).toEqual(true);
+
+    fireEvent.click(element);
+
+    expect(clickHandler).toHaveBeenCalled();
+    expect(element).not.toHaveComputedStyle('fill', Theme.inputBorderGray);
+    expect(element).not.toHaveColor(Theme.inputBorderGray);
+  });
+
+  test('should not be rendered if wrong command level permissions are given', () => {
+    const caps = new Capabilities(['authenticate']);
+    const entity = Task.fromElement({});
+
+    const {render} = rendererWith({capabilities: caps});
+
+    render(<CreateIcon entity={entity} />);
+
+    expect(screen.queryByTestId('create-icon')).toEqual(null);
+    expect(caps.mayCreate('task')).toEqual(false);
+  });
+});

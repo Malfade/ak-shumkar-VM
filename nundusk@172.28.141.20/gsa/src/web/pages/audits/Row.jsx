@@ -1,0 +1,154 @@
+/* SPDX-FileCopyrightText: 2024 Greenbone AG
+ *
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+import React from 'react';
+import {AK_SHUMKAR_SENSOR_SCANNER_TYPE} from 'gmp/models/scanner';
+import {isDefined} from 'gmp/utils/identity';
+import ComplianceStatusBar from 'web/components/bar/ComplianceStatusBar';
+import Comment from 'web/components/comment/Comment';
+import DateTime from 'web/components/date/DateTime';
+import {AlterableIcon, ProvideViewIcon, SensorIcon} from 'web/components/icon';
+import IconDivider from 'web/components/layout/IconDivider';
+import Layout from 'web/components/layout/Layout';
+import DetailsLink from 'web/components/link/DetailsLink';
+import TableData from 'web/components/table/TableData';
+import TableRow from 'web/components/table/TableRow';
+import RowDetailsToggle from 'web/entities/RowDetailsToggle';
+import ObserverIcon from 'web/entity/icon/ObserverIcon';
+import useTranslation from 'web/hooks/useTranslation';
+import useUserName from 'web/hooks/useUserName';
+import Actions from 'web/pages/audits/Actions';
+import AuditStatus from 'web/pages/tasks/TaskStatus';
+import PropTypes from 'web/utils/PropTypes';
+
+const renderAuditReport = (report, links) => {
+  if (!isDefined(report)) {
+    return null;
+  }
+  return (
+    <span>
+      <DetailsLink id={report.id} textOnly={!links} type="auditreport">
+        <DateTime date={report.timestamp} />
+      </DetailsLink>
+    </span>
+  );
+};
+
+const getComplianceStatus = report => {
+  if (!isDefined(report)) {
+    return -1;
+  }
+
+  const complianceResultsTotal = isDefined(report.compliance_count)
+    ? parseInt(report.compliance_count.yes) +
+      parseInt(report.compliance_count.no) +
+      parseInt(report.compliance_count.incomplete)
+    : 0;
+
+  const complianceStatus =
+    complianceResultsTotal === 0
+      ? -1 // if there are no results at all there must have been an error
+      : parseInt(
+          (parseInt(report.compliance_count.yes) / complianceResultsTotal) *
+            100,
+        );
+
+  return complianceStatus;
+};
+
+const Row = ({
+  actionsComponent: ActionsComponent = Actions,
+  entity,
+  links = true,
+  onToggleDetailsClick,
+  ...props
+}) => {
+  const [_] = useTranslation();
+  const [username] = useUserName();
+  const {scanner, observers} = entity;
+  const obs = [];
+  let hasObservers = false;
+
+  if (isDefined(observers)) {
+    if (isDefined(observers.user)) {
+      hasObservers = true;
+      obs.user = _('Users {{user}}', {user: observers.user.join(', ')});
+    }
+    if (isDefined(observers.role)) {
+      hasObservers = true;
+      obs.role = _('Roles {{role}}', {role: observers.role.join(', ')});
+    }
+    if (isDefined(observers.group)) {
+      hasObservers = true;
+      obs.group = _('Groups {{group}}', {group: observers.group.join(', ')});
+    }
+  }
+
+  return (
+    <TableRow>
+      <TableData>
+        <Layout align="space-between">
+          <RowDetailsToggle name={entity.id} onClick={onToggleDetailsClick}>
+            {entity.name}
+          </RowDetailsToggle>
+          <IconDivider>
+            {entity.alterable === 1 && (
+              <AlterableIcon size="small" title={_('Audit is alterable')} />
+            )}
+            {isDefined(scanner) &&
+              scanner.scannerType === AK_SHUMKAR_SENSOR_SCANNER_TYPE && (
+                <SensorIcon
+                  size="small"
+                  title={_('Audit is configured to run on sensor {{name}}', {
+                    name: scanner.name,
+                  })}
+                />
+              )}
+            <ObserverIcon
+              displayName={_('Audit')}
+              entity={entity}
+              userName={username}
+            />
+            {hasObservers && (
+              <ProvideViewIcon
+                size="small"
+                title={_(
+                  'Audit made visible for:\n{{user}}\n{{role}}\n{{group}}',
+                  {
+                    user: obs.user,
+                    role: obs.role,
+                    group: obs.group,
+                  },
+                )}
+              />
+            )}
+          </IconDivider>
+        </Layout>
+        {entity.comment && <Comment>({entity.comment})</Comment>}
+      </TableData>
+      <TableData>
+        <AuditStatus isAudit={true} links={links} task={entity} />
+      </TableData>
+      <TableData>{renderAuditReport(entity.last_report, links)}</TableData>
+      <TableData>
+        {isDefined(entity.last_report) && (
+          <ComplianceStatusBar
+            complianceStatus={getComplianceStatus(entity.last_report)}
+          />
+        )}
+      </TableData>
+      <ActionsComponent {...props} entity={entity} links={links} />
+    </TableRow>
+  );
+};
+
+Row.propTypes = {
+  actionsComponent: PropTypes.component,
+  entity: PropTypes.model.isRequired,
+  links: PropTypes.bool,
+  onToggleDetailsClick: PropTypes.func.isRequired,
+};
+
+export default Row;

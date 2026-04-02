@@ -1,0 +1,323 @@
+/* SPDX-FileCopyrightText: 2024 Greenbone AG
+ *
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+import React from 'react';
+import styled from 'styled-components';
+import {
+  INCLUDE_RELATED_ALL_RESOURCES,
+  INCLUDE_RELATED_CURRENT_RESOURCE_ONLY,
+} from 'gmp/commands/permissions';
+import type Gmp from 'gmp/gmp';
+import type Rejection from 'gmp/http/rejection';
+import type Group from 'gmp/models/group';
+import type Model from 'gmp/models/model';
+import type Permission from 'gmp/models/permission';
+import type Role from 'gmp/models/role';
+import type User from 'gmp/models/user';
+import {type EntityType, getEntityType} from 'gmp/utils/entity-type';
+import {selectSaveId} from 'gmp/utils/id';
+import {isDefined} from 'gmp/utils/identity';
+import {NewIcon} from 'web/components/icon';
+import ManualIcon from 'web/components/icon/ManualIcon';
+import IconDivider from 'web/components/layout/IconDivider';
+import Layout from 'web/components/layout/Layout';
+import {type OnDownloadedFunc} from 'web/entity/hooks/useEntityDownload';
+import useCapabilities from 'web/hooks/useCapabilities';
+import useTranslation, {type TranslateFunc} from 'web/hooks/useTranslation';
+import PermissionComponent from 'web/pages/permissions/PermissionComponent';
+import PermissionMultipleDialog, {
+  type PermissionMultipleDialogSaveData,
+} from 'web/pages/permissions/PermissionMultipleDialog';
+import PermissionsTable from 'web/pages/permissions/PermissionTable';
+import compose from 'web/utils/Compose';
+import withGmp from 'web/utils/withGmp';
+import withTranslation from 'web/utils/withTranslation';
+
+interface SectionElementsProps {
+  onPermissionCreateClick?: () => void;
+}
+
+type RelatedResourcesLoader<TEntity> = ({
+  entity,
+  gmp,
+}: {
+  entity: TEntity;
+  gmp: Gmp;
+}) => Promise<Model[]>;
+
+interface PermissionsBaseState {
+  entityType?: EntityType;
+  entityName?: string;
+  groups?: Group[];
+  groupId?: string;
+  id?: string;
+  includeRelated?:
+    | typeof INCLUDE_RELATED_CURRENT_RESOURCE_ONLY
+    | typeof INCLUDE_RELATED_ALL_RESOURCES;
+  multiplePermissionDialogVisible: boolean;
+  related?: Model[];
+  roles?: Role[];
+  roleId?: string;
+  title?: string;
+  users?: User[];
+  userId?: string;
+}
+
+interface PermissionsBaseProps<TEntity> {
+  entity: TEntity;
+  gmp: Gmp;
+  permissions?: Permission[];
+  relatedResourcesLoaders?: RelatedResourcesLoader<TEntity>[];
+  _: TranslateFunc;
+  onChanged: () => void;
+  onPermissionEditClick: (permission: Permission, value: boolean) => void;
+}
+
+export interface EntityPermissionsProps<TEntity = Model> {
+  readonly entity: TEntity;
+  readonly permissions: Permission[];
+  readonly relatedResourcesLoaders?: RelatedResourcesLoader<TEntity>[];
+  readonly onChanged?: () => void;
+  readonly onDownloaded?: OnDownloadedFunc;
+  readonly onError?: (error: Error | Rejection) => void;
+}
+
+const SectionElementDivider = styled(IconDivider)`
+  margin-bottom: 3px;
+`;
+
+const SectionElements = ({onPermissionCreateClick}: SectionElementsProps) => {
+  const [_] = useTranslation();
+  const capabilities = useCapabilities();
+  return (
+    <Layout grow align="end">
+      <SectionElementDivider>
+        {capabilities.mayCreate('permission') && (
+          <NewIcon
+            title={_('New Permission')}
+            onClick={onPermissionCreateClick}
+          />
+        )}
+        <ManualIcon
+          anchor="permissions"
+          page="web-interface-access"
+          title={_('Help: Permissions')}
+        />
+      </SectionElementDivider>
+    </Layout>
+  );
+};
+
+class PermissionsBase<TEntity extends Model> extends React.Component<
+  PermissionsBaseProps<TEntity>,
+  PermissionsBaseState
+> {
+  constructor(props: PermissionsBaseProps<TEntity>) {
+    super(props);
+
+    this.state = {
+      multiplePermissionDialogVisible: false,
+    };
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleMultipleSave = this.handleMultipleSave.bind(this);
+    this.openMultiplePermissionDialog =
+      this.openMultiplePermissionDialog.bind(this);
+    this.handleCloseMultiplePermissionDialog =
+      this.handleCloseMultiplePermissionDialog.bind(this);
+    this.openPermissionDialog = this.openPermissionDialog.bind(this);
+  }
+
+  openPermissionDialog(permission: Permission) {
+    const {onPermissionEditClick} = this.props;
+
+    if (isDefined(onPermissionEditClick)) {
+      onPermissionEditClick(permission, true);
+    }
+  }
+
+  openMultiplePermissionDialog() {
+    const {_} = this.props;
+
+    const {gmp, relatedResourcesLoaders = [], entity} = this.props;
+
+    this.setState({
+      multiplePermissionDialogVisible: true,
+      entityType: getEntityType(entity),
+      entityName: entity.name,
+      id: entity.id,
+      title: _('Create Multiple Permissions'),
+    });
+
+    void Promise.all(
+      relatedResourcesLoaders.map(func => func({entity, gmp})),
+    ).then(loaded => {
+      const related = loaded.reduce((sum, cur) => sum.concat(cur), []);
+
+      this.setState({
+        related,
+        includeRelated:
+          loaded.length === 0
+            ? INCLUDE_RELATED_CURRENT_RESOURCE_ONLY
+            : INCLUDE_RELATED_ALL_RESOURCES,
+      });
+    });
+
+    // @ts-expect-error
+    gmp.groups.getAll().then(response => {
+      const {data: groups} = response;
+      this.setState({
+        groups,
+        groupId: selectSaveId(groups),
+      });
+    });
+    void gmp.roles.getAll().then(response => {
+      const {data: roles} = response;
+      this.setState({
+        roles,
+        roleId: selectSaveId(roles),
+      });
+    });
+    void gmp.users.getAll().then(response => {
+      const {data: users} = response;
+      this.setState({
+        users,
+        userId: selectSaveId(users),
+      });
+    });
+  }
+
+  closeMultiplePermissionDialog() {
+    this.setState({multiplePermissionDialogVisible: false});
+  }
+
+  handleChange(value: unknown, name?: string) {
+    if (name) {
+      // @ts-expect-error
+      this.setState({[name]: value});
+    }
+  }
+
+  handleCloseMultiplePermissionDialog() {
+    this.closeMultiplePermissionDialog();
+  }
+
+  handleMultipleSave(data: PermissionMultipleDialogSaveData) {
+    const {gmp, onChanged} = this.props;
+
+    return gmp.permissions
+      .create(data)
+      .then(onChanged)
+      .then(() => this.closeMultiplePermissionDialog());
+  }
+
+  render() {
+    const {_} = this.props;
+
+    const {entity, permissions, ...props} = this.props;
+
+    const {
+      multiplePermissionDialogVisible,
+      entityType,
+      entityName,
+      groupId,
+      groups,
+      id,
+      includeRelated,
+      related,
+      roleId,
+      roles,
+      title,
+      userId,
+      users,
+    } = this.state;
+
+    const extra = (
+      <SectionElements
+        onPermissionCreateClick={this.openMultiplePermissionDialog}
+      />
+    );
+
+    const hasPermissions = isDefined(permissions);
+    const count = hasPermissions ? permissions.length : 0;
+
+    return (
+      <Layout flex="column" title={_('Permissions ({{count}})', {count})}>
+        {extra}
+        {count === 0 && _('No permissions available')}
+        {count > 0 && (
+          <PermissionsTable
+            {...props}
+            entities={permissions}
+            footer={false}
+            footnote={false}
+            pagination={false}
+            onPermissionEditClick={this.openPermissionDialog}
+          />
+        )}
+        {multiplePermissionDialogVisible && (
+          <PermissionMultipleDialog
+            entityName={entityName}
+            entityType={entityType as EntityType}
+            groupId={groupId}
+            groups={groups}
+            id={id as string}
+            includeRelated={includeRelated}
+            related={related}
+            roleId={roleId}
+            roles={roles}
+            title={title}
+            userId={userId}
+            users={users}
+            onChange={this.handleChange}
+            onClose={this.handleCloseMultiplePermissionDialog}
+            onSave={this.handleMultipleSave}
+          />
+        )}
+      </Layout>
+    );
+  }
+}
+
+const Permissions = compose(withGmp, withTranslation)(PermissionsBase);
+
+function EntityPermissions<TEntity = Model>({
+  entity,
+  permissions,
+  relatedResourcesLoaders,
+  onChanged,
+  onDownloaded,
+  onError,
+}: EntityPermissionsProps<TEntity>) {
+  return (
+    <PermissionComponent
+      onCloneError={onError}
+      onCloned={onChanged}
+      onCreated={onChanged}
+      onDeleteError={onError}
+      onDeleted={onChanged}
+      onDownloadError={onError}
+      onDownloaded={onDownloaded}
+      onSaved={onChanged}
+    >
+      {({clone, create, delete: deleteFunc, download, edit}) => (
+        <Permissions
+          entity={entity}
+          permissions={permissions}
+          relatedResourcesLoaders={relatedResourcesLoaders}
+          toggleDetailsIcon={false}
+          onChanged={onChanged}
+          onPermissionCloneClick={clone}
+          onPermissionCreateClick={create}
+          onPermissionDeleteClick={deleteFunc}
+          onPermissionDownloadClick={download}
+          onPermissionEditClick={edit}
+        />
+      )}
+    </PermissionComponent>
+  );
+}
+
+export default EntityPermissions;

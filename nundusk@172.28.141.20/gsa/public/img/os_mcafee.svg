@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="52.509" height="52.52" version="1.0" viewBox="0 0 52.509 52.52" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <linearGradient id="linearGradient13966" x1="26.48" x2="26.48" y1="1.3939" y2="52.843" gradientUnits="userSpaceOnUse">
+   <stop stop-color="#fff" offset="0"/>
+   <stop stop-color="#fff" stop-opacity="0" offset="1"/>
+  </linearGradient>
+  <linearGradient id="linearGradient45717" x1="26.48" x2="26.48" y1="1.3939" y2="52.843" gradientTransform="translate(3.8646 6.0875)" gradientUnits="userSpaceOnUse">
+   <stop stop-color="#fff" offset="0"/>
+   <stop stop-color="#fff" stop-opacity="0" offset="1"/>
+  </linearGradient>
+  <linearGradient id="linearGradient45721" x1="46.592" x2="43.592" y1="89.585" y2="-74.733" gradientTransform="translate(.045477 -.068185)" gradientUnits="userSpaceOnUse">
+   <stop stop-color="#dbdbdb" offset="0"/>
+   <stop stop-color="#fff" offset="1"/>
+  </linearGradient>
+  <style type="text/css">.str1 {stroke:#373435;stroke-width:0.19326}
+    .str0 {stroke:#373435;stroke-width:0.19326;stroke-linejoin:bevel}
+    .fil1 {fill:none}
+    .fil7 {fill:#00AFEF}
+    .fil6 {fill:#ED3237}
+    .fil5 {fill:#F58634}
+    .fil8 {fill:#FFF212}
+    .fil2 {fill:#000203}
+    .fil3 {fill:#030101}
+    .fil4 {fill:#030201}
+    .fil0 {fill:#030300}</style>
+  <style type="text/css"/>
+ </defs>
+ <g transform="translate(-3.8191 -6.1557)">
+  <rect x="4.9538" y="7.1514" width="50.731" height="50.549" rx="7.0914" ry="7.0914" color="#000000" fill="url(#linearGradient45721)" fill-rule="evenodd" stroke="#2b2b2b" stroke-width=".997"/>
+  <path d="m6.0464 51.517-0.18182-37.636s1.0909-5.6364 5.4545-5.8182c4.3636-0.18182 37.455 0 37.455 0s5.8182 0 6 7.2727c0.18182 7.2727-0.18182 36.727-0.18182 36.727" color="#000000" fill="none" stroke="url(#linearGradient45717)"/>
+  <g transform="translate(-840.83 182.27)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <g transform="translate(-1426.6 -26.29)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <path transform="translate(3.8191 6.1557)" d="m2.1818 45.429-0.18182-37.636s1.0909-5.6364 5.4545-5.8182c4.3636-0.18182 37.455 0 37.455 0s5.8182 0 6 7.2727c0.18182 7.2727-0.18182 36.727-0.18182 36.727" color="#000000" fill="none" stroke="url(#linearGradient13966)"/>
+  <g transform="translate(-754.29 187.45)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <g transform="translate(-1340.1 -21.108)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <g transform="translate(-727.65 184.91)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <g transform="translate(-1313.4 -23.649)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <g transform="translate(-790.62 185.07)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <g transform="translate(-1376.4 -23.49)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <g transform="translate(-787.81 182.24)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <g transform="translate(-1373.6 -26.319)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <g transform="translate(-701.26 187.42)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <g transform="translate(-1287 -21.137)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <g transform="translate(-674.63 184.88)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <g transform="translate(-1260.4 -23.678)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <g transform="translate(-737.6 185.04)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <g transform="translate(-1323.4 -23.52)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <g transform="translate(-786.75 181.68)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <g transform="translate(-1372.5 -26.881)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <g transform="translate(-700.2 186.86)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <g transform="translate(-1286 -21.699)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <g transform="translate(-673.57 184.32)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <g transform="translate(-1259.3 -24.24)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <g transform="translate(-736.54 184.48)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <g transform="translate(-1322.3 -24.081)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <g transform="translate(-787.78 183.3)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <g transform="translate(-1373.6 -25.263)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <g transform="translate(-701.23 188.48)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <g transform="translate(-1287 -20.081)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <g transform="translate(-674.59 185.94)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <g transform="translate(-1260.4 -22.622)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <g transform="translate(-737.57 186.1)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <g transform="translate(-1323.3 -22.464)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <g transform="translate(-784.91 184.78)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <g transform="translate(-1370.7 -23.784)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <g transform="translate(-698.37 189.96)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <g transform="translate(-1284.1 -18.602)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <g transform="translate(-671.73 187.42)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <g transform="translate(-1257.5 -21.143)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <g transform="translate(-734.71 187.58)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <g transform="translate(-1320.5 -20.985)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <g transform="translate(-718 181.35)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <g transform="translate(-1303.8 -27.211)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <g transform="translate(-631.46 186.53)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <g transform="translate(-1217.2 -22.029)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <g transform="translate(-604.82 183.99)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <g transform="translate(-1190.6 -24.57)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <g transform="translate(-667.79 184.15)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <g transform="translate(-1253.6 -24.412)" fill="#71c000" stroke="#71c000" stroke-linejoin="bevel" stroke-width="3.379"></g>
+  <g transform="matrix(.1432 0 0 .1432 82.427 -26.735)">
+   <g transform="matrix(3.5433 0 0 3.5433 -3.5917 -49.604)" fill-rule="evenodd">
+    <g transform="matrix(.20086 0 0 .20086 40.198 45.604)">
+     <g transform="matrix(12.149 0 0 -12.149 -704.91 601.94)">
+      <path d="m0 0c-12.485 5.885-14.049 18.533-14.056 24.557-3e-3 1.265 0.068 2.214 0.12 2.739 1.197 0.288 7.509 1.759 13.936 1.759 6.428 0 12.742-1.471 13.938-1.759 0.052-0.525 0.123-1.474 0.119-2.739-6e-3 -6.024-1.571-18.672-14.057-24.557m15.209 28.414c-0.617 0.182-7.887 2.037-15.209 2.037-7.32 0-14.59-1.855-15.207-2.037-0.029-0.224-0.25-1.544-0.25-3.857 0-6.238 1.564-19.78 15.457-26.106 13.896 6.326 15.459 19.868 15.459 26.106 0 2.313-0.221 3.633-0.25 3.857" fill="#d31245" fill-rule="nonzero"/>
+     </g>
+     <g transform="matrix(12.149 0 0 -12.149 -616.57 469.63)">
+      <path d="m0 0h-3.014l-1.009 6.946-1.079-5.282-1.7 5.327 1.836 5.451h3.157l1.809-12.442zm-9.353 12.442 3.945-12.442h-3.516l-1.524 6.946-1.066-6.946h-3.028l1.984 12.442h3.205zm13.554 2.317c-0.298-0.03-4.886-0.587-11.473-0.587-6.583 0-11.173 0.557-11.47 0.587-0.051-0.813-0.076-1.599-0.074-2.359 0-15.009 9.683-19.827 11.544-20.631 1.862 0.804 11.547 5.622 11.547 20.631 0 0.76-0.023 1.546-0.074 2.359" fill="#d31245" fill-rule="nonzero"/>
+     </g>
+    </g>
+   </g>
+  </g>
+ </g>
+</svg>

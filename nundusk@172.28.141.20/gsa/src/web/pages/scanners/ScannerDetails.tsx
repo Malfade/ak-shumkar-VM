@@ -1,0 +1,150 @@
+/* SPDX-FileCopyrightText: 2024 Greenbone AG
+ *
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+import {
+  type default as Scanner,
+  scannerTypeName,
+  CVE_SCANNER_TYPE,
+} from 'gmp/models/scanner';
+import {isDefined} from 'gmp/utils/identity';
+import CertInfo from 'web/components/certinfo/CertInfo';
+import Layout from 'web/components/layout/Layout';
+import DetailsLink from 'web/components/link/DetailsLink';
+import InfoTable from 'web/components/table/InfoTable';
+import TableBody from 'web/components/table/TableBody';
+import TableCol from 'web/components/table/TableCol';
+import TableData, {TableDataAlignTop} from 'web/components/table/TableData';
+import TableRow from 'web/components/table/TableRow';
+import DetailsBlock from 'web/entity/DetailsBlock';
+import useTranslation from 'web/hooks/useTranslation';
+
+interface ScannerDetailsProps {
+  'data-testid'?: string;
+  entity: Scanner;
+}
+
+const ScannerDetails = ({
+  entity,
+  'data-testid': dataTestId = 'scanner-details',
+}: ScannerDetailsProps) => {
+  const [_] = useTranslation();
+  const {
+    comment,
+    scannerType,
+    host,
+    port,
+    credential,
+    tasks = [],
+    configs = [],
+  } = entity;
+  return (
+    <Layout grow data-testid={dataTestId} flex="column">
+      <InfoTable>
+        <colgroup>
+          <TableCol width="10%" />
+          <TableCol width="90%" />
+        </colgroup>
+        <TableBody>
+          {isDefined(comment) && (
+            <TableRow>
+              <TableData>{_('Comment')}</TableData>
+              <TableData>{comment}</TableData>
+            </TableRow>
+          )}
+
+          <TableRow>
+            <TableData>{_('Scanner Type')}</TableData>
+            <TableData>{scannerTypeName(scannerType)}</TableData>
+          </TableRow>
+
+          {!entity.hasUnixSocket() && (
+            <TableRow>
+              <TableData>{_('Host')}</TableData>
+              <TableData>
+                {scannerType === CVE_SCANNER_TYPE ? (
+                  <span>{_('N/A (Builtin Scanner)')}</span>
+                ) : (
+                  host
+                )}
+              </TableData>
+            </TableRow>
+          )}
+
+          {!entity.hasUnixSocket() && (
+            <TableRow>
+              <TableData>{_('Port')}</TableData>
+              <TableData>
+                {scannerType === CVE_SCANNER_TYPE ? (
+                  <span>{_('N/A (Builtin Scanner)')}</span>
+                ) : (
+                  port
+                )}
+              </TableData>
+            </TableRow>
+          )}
+
+          {isDefined(credential) && (
+            <TableRow>
+              <TableData>{_('Credential')}</TableData>
+              <TableData>
+                <DetailsLink id={credential.id as string} type="credential">
+                  {credential.name}
+                </DetailsLink>
+              </TableData>
+            </TableRow>
+          )}
+
+          {tasks.length > 0 && (
+            <TableRow>
+              <TableDataAlignTop>
+                {_('Tasks using this Scanner')}
+              </TableDataAlignTop>
+              <TableData>
+                {tasks.map(task => {
+                  return (
+                    <span key={task.id}>
+                      <DetailsLink
+                        id={task.id as string}
+                        type={task.usageType === 'audit' ? 'audit' : 'task'}
+                      >
+                        {task.name}
+                      </DetailsLink>
+                    </span>
+                  );
+                })}
+              </TableData>
+            </TableRow>
+          )}
+
+          {configs.length > 0 && (
+            <TableRow>
+              <TableData>{_('Scan Configs using this Scanner')}</TableData>
+              <TableData>
+                {configs.map(config => {
+                  return (
+                    <span key={config.id}>
+                      <DetailsLink id={config.id as string} type="scanconfig">
+                        {config.name}
+                      </DetailsLink>
+                    </span>
+                  );
+                })}
+              </TableData>
+            </TableRow>
+          )}
+        </TableBody>
+      </InfoTable>
+      {!entity.hasUnixSocket() &&
+        isDefined(credential) &&
+        isDefined(credential.certificateInfo) && (
+          <DetailsBlock title={_('Client Certificate (from Credential)')}>
+            <CertInfo info={credential.certificateInfo} />
+          </DetailsBlock>
+        )}
+    </Layout>
+  );
+};
+
+export default ScannerDetails;

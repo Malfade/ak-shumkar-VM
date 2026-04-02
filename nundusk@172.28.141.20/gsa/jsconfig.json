@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "baseUrl": "src",
+    "paths": {
+      "gmp/*": ["./gmp/*"],
+      "web/*": ["./web/*"],
+      "@gsa/testing": ["./testing"]
+    }
+  },
+  "include": ["src/**/*"],
+  "exclude": ["build", "coverage", "node_modules"],
+  "typeAcquisition": {
+    "enable": true
+  }
+}
