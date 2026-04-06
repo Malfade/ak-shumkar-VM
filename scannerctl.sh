@@ -8,11 +8,18 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 print_help() {
   cat <<'EOF'
 Usage:
-  ./scannerctl.sh deploy     Build and deploy scanner stack
+  ./scannerctl.sh deploy     Build and deploy scanner stack (runs start.sh)
   ./scannerctl.sh disable    Stop and disable scanner stack
   ./scannerctl.sh status     Show scanner stack status
   ./scannerctl.sh logs       Tail scanner-related logs
   ./scannerctl.sh help       Show this help
+
+deploy requires the full project directory, especially:
+  Dockerfile.custom-openvas, Dockerfile.custom-ospd-openvas, docker-compose.full.yml
+(start.sh copies those Dockerfiles into temp build contexts; replacing only shell scripts is not enough.)
+
+Force fresh image layers after fixing Dockerfiles:
+  SCANNER_DOCKER_NO_CACHE=1 ./start.sh
 
 Examples:
   ./scannerctl.sh deploy

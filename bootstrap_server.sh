@@ -27,7 +27,23 @@ install_base_packages() {
     pkg-config \
     libssl-dev \
     libmagic-dev \
-    libkrb5-dev
+    libkrb5-dev \
+    libglib2.0-dev \
+    libjson-glib-dev \
+    libgnutls28-dev \
+    libgcrypt-dev \
+    libpcap-dev \
+    libgpgme-dev \
+    libksba-dev \
+    libssh-gcrypt-dev \
+    libxml2-dev \
+    uuid-dev \
+    libcurl4-gnutls-dev \
+    libldap2-dev \
+    libsnmp-dev \
+    libpaho-mqtt-dev \
+    libbsd-dev \
+    libhiredis-dev
 }
 
 ensure_docker_stack() {
@@ -90,7 +106,10 @@ show_next_steps() {
   echo "Next steps:"
   echo "  1) If docker commands fail, re-login or run: newgrp docker"
   echo "  2) cd \"${SCRIPT_DIR}\""
-  echo "  3) ./scannerctl.sh deploy"
+  echo "  3) Ensure the full scanner tree is present (not only start.sh):"
+  echo "       Dockerfile.custom-openvas, Dockerfile.custom-ospd-openvas, docker-compose.full.yml, …"
+  echo "  4) ./scannerctl.sh deploy"
+  echo "  5) If ospd still fails after an old tarball deploy: SCANNER_DOCKER_NO_CACHE=1 ./start.sh"
 }
 
 main() {

@@ -96,7 +96,9 @@ services:
       - /bin/sh
       - -c
       - |
-        tail -f /var/log/openvas/openvas.log
+        mkdir -p /var/log/openvas
+        touch /var/log/openvas/openvas.log
+        exec tail -f /var/log/openvas/openvas.log
     depends_on:
       configure-openvas:
         condition: service_completed_successfully
