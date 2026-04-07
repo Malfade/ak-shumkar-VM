@@ -1097,10 +1097,13 @@ plugin_run_openvas_tcp_scanner (lex_ctxt *lexic)
     p = prefs_get ("max_checks");
     if (p != NULL)
       max_checks = atoi (p);
-    if (max_checks <= 0 || max_checks > 5)
+    /* Parallel connect-scan batching; cap keeps FD use bounded. */
+    if (max_checks <= 0)
+      max_checks = 12;
+    else if (max_checks > 12)
       {
-        max_checks = 5; /* bigger values do not make sense */
-        g_debug ("openvas_tcp_scanner: max_checks forced to %d", max_checks);
+        max_checks = 12;
+        g_debug ("openvas_tcp_scanner: max_checks capped to %d", max_checks);
       }
 
     min_cnx = 8 * max_checks;

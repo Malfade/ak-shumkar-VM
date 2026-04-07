@@ -14,32 +14,52 @@ interface FeedStatus {
   error?: string;
 }
 
-const FIVE_MINUTES = 5 * 60 * 1000;
+/** Poll while “syncing” can block scans; slow down when feeds are idle. */
+const POLL_MS_FEED_SYNC_ACTIVE = 45 * 1000;
+const POLL_MS_FEED_SYNC_IDLE = 5 * 60 * 1000;
 const THIRTY_SECONDS = 30 * 1000;
 
 /**
- * Custom hook to check the feed sync status updating the store with the response
- * at regular intervals defined by `FIVE_MINUTES`.
+ * Custom hook to check feed sync for scan-blocking feeds (NVT + GVMD_DATA only).
+ * Polls more often when syncing so the banner clears shortly after gvmd finishes.
  */
-
 export const useFeedSyncStatus = () => {
   const dispatch = useDispatch();
   const gmp = useGmp();
 
   useEffect(() => {
-    const fetchAndDispatch = async () => {
+    let cancelled = false;
+    let timeoutId: ReturnType<typeof setTimeout>;
+
+    const schedule = (delayMs: number) => {
+      timeoutId = setTimeout(() => void tick(), delayMs);
+    };
+
+    const tick = async () => {
+      if (cancelled) {
+        return;
+      }
+      let nextSyncing = false;
       try {
         const response = await gmp.feedstatus.checkFeedSync();
+        nextSyncing = response.isSyncing;
         dispatch(setSyncStatus(response.isSyncing));
       } catch (error) {
         dispatch(setError((error as Error | Rejection).message));
       }
+      if (!cancelled) {
+        schedule(
+          nextSyncing ? POLL_MS_FEED_SYNC_ACTIVE : POLL_MS_FEED_SYNC_IDLE,
+        );
+      }
     };
 
-    void fetchAndDispatch();
-    const intervalId = setInterval(fetchAndDispatch, FIVE_MINUTES);
+    void tick();
 
-    return () => clearInterval(intervalId);
+    return () => {
+      cancelled = true;
+      clearTimeout(timeoutId);
+    };
   }, [dispatch, gmp]);
 };
 

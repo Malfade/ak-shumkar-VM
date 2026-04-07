@@ -42,8 +42,11 @@
 
 /**
  * @brief 'Hard' limit of the max. number of concurrent plugins per host.
+ *
+ * Must match processes[] size below. Raised for high-throughput scans
+ * (see global_max_checks in openvas.c and max_checks in openvas.conf).
  */
-#define MAX_PROCESSES 32
+#define MAX_PROCESSES 80
 
 /**
  * @brief Structure to represent a process in the sense of a running NVT.

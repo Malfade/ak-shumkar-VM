@@ -8,8 +8,10 @@ set -e
 
 # --- Configuration ---
 COMPOSE_FILE="docker-compose.full.yml"
+# Match scannerctl.sh / manual `docker compose -p ...` so volumes and container names stay consistent.
+COMPOSE_PROJECT_NAME="${COMPOSE_PROJECT_NAME:-greenbone-community-edition}"
 GSA_DIR="./gsa"
-PSQL_SOCKET_VOL="greenbone-community-edition_psql_socket_vol"
+PSQL_SOCKET_VOL="${COMPOSE_PROJECT_NAME}_psql_socket_vol"
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "$SCRIPT_DIR"
@@ -52,10 +54,11 @@ verify_scanner_dockerfiles() {
 }
 
 compose_cmd() {
+  local compose_path="${SCRIPT_DIR}/${COMPOSE_FILE}"
   if command -v docker >/dev/null 2>&1 && docker compose version >/dev/null 2>&1; then
-    docker compose "$@"
+    docker compose -p "${COMPOSE_PROJECT_NAME}" -f "${compose_path}" "$@"
   elif command -v docker-compose >/dev/null 2>&1; then
-    docker-compose "$@"
+    docker-compose -p "${COMPOSE_PROJECT_NAME}" -f "${compose_path}" "$@"
   else
     echo "❌ Docker Compose not found."
     exit 1
@@ -106,7 +109,7 @@ retry_docker_pull() {
 pre_pull_images() {
   echo "📥 Pre-pulling compose images with retries..."
   local images
-  images="$(compose_cmd -f "$COMPOSE_FILE" config --images | awk 'NF')"
+  images="$(compose_cmd config --images | awk 'NF')"
   if [[ -z "${images}" ]]; then
     echo "⚠️ No compose images discovered, skipping pre-pull."
     return 0
@@ -213,7 +216,7 @@ retry_cmd 3 docker run --rm \
 
 # 2. Stop existing stack first (if any)
 echo "🐳 Stopping existing Docker containers..."
-retry_cmd 3 compose_cmd -f "$COMPOSE_FILE" down --remove-orphans
+retry_cmd 3 compose_cmd down --remove-orphans
 
 # 3. Cleanup Postgres Lock Files right before startup
 echo "🧹 Cleaning up Postgres lock files..."
@@ -222,7 +225,7 @@ retry_cmd 3 docker run --rm -v "${PSQL_SOCKET_VOL}:/socket" alpine rm -f /socket
 # 4. Startup Stack and force recreation to apply custom images/config
 echo "🐳 Starting Docker containers..."
 pre_pull_images
-retry_cmd 3 compose_cmd -f "$COMPOSE_FILE" up -d --remove-orphans --force-recreate
+retry_cmd 3 compose_cmd up -d --remove-orphans --force-recreate
 
 echo "✅ Stack is up and running!"
 echo "📍 Access GSA at: http://localhost:9393"

@@ -91,16 +91,48 @@ describe('FeedStatusCommand tests', () => {
     expect(result.isSyncing).toBe(true);
   });
 
-  test('should return isSyncing true when feed sync has an issue', async () => {
+  test('should return isSyncing false when only non-blocking feed has sync issue', async () => {
     const response = createResponse<FeedStatusElement>({
       get_feeds: {
         get_feeds_response: {
           feed: [
             {
-              type: 'OTHER',
+              type: 'CERT',
               version: 202502170647,
-              description: 'Other Feed',
-              name: 'Other Feed',
+              description: 'CERT Feed',
+              name: 'CERT Feed',
+              sync_not_available: {
+                error: 'Sync not available',
+              },
+            },
+            {
+              type: 'NVT',
+              version: 202502170647,
+              description: 'NVT Feed',
+              name: 'NVT Feed',
+            },
+          ],
+        },
+      },
+    });
+
+    const fakeHttp = createHttp(response);
+    const cmd = new FeedStatusCommand(fakeHttp);
+
+    const result = await cmd.checkFeedSync();
+    expect(result.isSyncing).toBe(false);
+  });
+
+  test('should return isSyncing true when GVMD_DATA feed has sync issue', async () => {
+    const response = createResponse<FeedStatusElement>({
+      get_feeds: {
+        get_feeds_response: {
+          feed: [
+            {
+              type: 'GVMD_DATA',
+              version: 202502170647,
+              description: 'GVMD data',
+              name: 'GVMD data',
               sync_not_available: {
                 error: 'Sync not available',
               },
@@ -121,6 +153,36 @@ describe('FeedStatusCommand tests', () => {
 
     const result = await cmd.checkFeedSync();
     expect(result.isSyncing).toBe(true);
+  });
+
+  test('should return isSyncing false when only SCAP is syncing', async () => {
+    const response = createResponse<FeedStatusElement>({
+      get_feeds: {
+        get_feeds_response: {
+          feed: [
+            {
+              type: 'SCAP',
+              description: 'SCAP Feed',
+              name: 'SCAP Feed',
+              currently_syncing: {timestamp: '202502170647'},
+              version: 202502170647,
+            },
+            {
+              type: 'NVT',
+              description: 'NVT Feed',
+              name: 'NVT Feed',
+              version: 202502170647,
+            },
+          ],
+        },
+      },
+    });
+
+    const fakeHttp = createHttp(response);
+    const cmd = new FeedStatusCommand(fakeHttp);
+
+    const result = await cmd.checkFeedSync();
+    expect(result.isSyncing).toBe(false);
   });
 
   test('should return isSyncing false when feeds are not syncing and are present', async () => {

@@ -57,6 +57,23 @@ export const CERT_FEED = 'CERT';
 export const SCAP_FEED = 'SCAP';
 export const GVMD_DATA_FEED = 'GVMD_DATA';
 
+/** Feeds that must be idle before OpenVAS/network scans can run. CERT/SCAP alone no longer block the UI. */
+const FEED_TYPES_BLOCKING_SCANS: ReadonlySet<string> = new Set([
+  NVT_FEED,
+  GVMD_DATA_FEED,
+]);
+
+/**
+ * True if this feed would block starting scans / show the feed-sync banner.
+ * Ignores CERT/SCAP stuck state so a bad advisory feed cannot lock the whole product.
+ */
+export const feedBlocksScanning = (feed: Feed): boolean => {
+  if (!FEED_TYPES_BLOCKING_SCANS.has(feed.feedType)) {
+    return false;
+  }
+  return Boolean(feed.currentlySyncing) || isDefined(feed.syncNotAvailableError);
+};
+
 export const FEED_COMMUNITY = 'Ak Shumkar Community Feed';
 export const FEED_ENTERPRISE = 'Ak Shumkar Enterprise Feed';
 
@@ -125,19 +142,14 @@ class FeedStatusCommand extends HttpCommand {
   }
 
   /**
-   * Checks if any feed is currently syncing or if required feeds are not present.
-   *
-   * @returns A promise that resolves to an object indicating if any feed is syncing or if required feeds are not present or if there was an error.
-   * @throws Throws an error if there is an issue fetching feed information.
+   * Whether scans should be blocked (banner + task.start): only NVT and GVMD_DATA
+   * must be idle. CERT/SCAP can still show issues on Feed Status without locking scans.
    */
-
   async checkFeedSync() {
     try {
       const response = await this.readFeedInformation();
 
-      const isFeedSyncing = response.data.some(
-        feed => feed.currentlySyncing || isDefined(feed.syncNotAvailableError),
-      );
+      const isFeedSyncing = response.data.some(feedBlocksScanning);
 
       return {
         isSyncing: isFeedSyncing,

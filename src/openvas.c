@@ -81,8 +81,8 @@
 /**
  * Globals that should not be touched (used in utils module).
  */
-int global_max_hosts = 15;
-int global_max_checks = 10;
+int global_max_hosts = 30;
+int global_max_checks = 64;
 
 int global_min_memory = 0;
 int global_max_sysload = 0;
@@ -140,14 +140,14 @@ set_globals_from_preferences (void)
     {
       global_max_hosts = atoi (str);
       if (global_max_hosts <= 0)
-        global_max_hosts = 15;
+        global_max_hosts = 30;
     }
 
   if ((str = prefs_get ("max_checks")) != NULL)
     {
       global_max_checks = atoi (str);
       if (global_max_checks <= 0)
-        global_max_checks = 10;
+        global_max_checks = 64;
     }
 
   if ((str = prefs_get ("max_sysload")) != NULL)

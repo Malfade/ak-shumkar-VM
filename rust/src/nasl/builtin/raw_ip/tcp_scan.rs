@@ -516,9 +516,9 @@ async fn plugin_run_openvas_tcp_scanner(context: &ScanCtx<'_>) -> Result<(), FnE
             .unwrap_or(15),
         params
             .find(|x| x.id == "max_checks")
-            .map(|x| x.value.parse::<usize>().unwrap_or(5))
-            .map(|x| if x == 0 || x > 5 { 5 } else { x })
-            .unwrap_or(5),
+            .map(|x| x.value.parse::<usize>().unwrap_or(12))
+            .map(|x| if x == 0 || x > 12 { 12 } else { x })
+            .unwrap_or(12),
         safe_checks,
     );
 

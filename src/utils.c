@@ -158,11 +158,9 @@ get_max_hosts_number (void)
   else
     max_hosts = global_max_hosts;
 
-  /* FIX: Forced Performance Mode.
-   * If the UI or preference sets max_hosts too low (e.g. 1), it bottlenecks
-   * large scans. Forcing a minimum of 5 concurrent hosts. */
-  if (max_hosts < 5)
-    max_hosts = 5;
+  /* Minimum concurrent hosts so small GVM task limits do not serialize scans. */
+  if (max_hosts < 8)
+    max_hosts = 8;
 
   return (max_hosts);
 }
@@ -196,11 +194,9 @@ get_max_checks_number (void)
   else
     max_checks = global_max_checks;
 
-  /* FIX: Forced Performance Mode.
-   * If max_checks is 1, the scanner is effectively single-threaded per host.
-   * Forcing a minimum of 10 concurrent VTs per host for meaningful speed. */
-  if (max_checks < 10)
-    max_checks = 10;
+  /* Floor for concurrent NVTs per host (GVM often defaults low). */
+  if (max_checks < 32)
+    max_checks = 32;
 
   return (max_checks);
 }

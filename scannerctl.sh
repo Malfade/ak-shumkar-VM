@@ -4,6 +4,9 @@ set -euo pipefail
 
 COMPOSE_FILE="docker-compose.full.yml"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+# Must match the project used at `docker compose up` / `start.sh`. Without this,
+# Compose uses the directory name (e.g. ak-shumkar-vm) and `logs`/`ps` see no containers.
+COMPOSE_PROJECT_NAME="${COMPOSE_PROJECT_NAME:-greenbone-community-edition}"
 
 print_help() {
   cat <<'EOF'
@@ -28,10 +31,11 @@ EOF
 }
 
 compose_cmd() {
+  local compose_path="${SCRIPT_DIR}/${COMPOSE_FILE}"
   if command -v docker >/dev/null 2>&1 && docker compose version >/dev/null 2>&1; then
-    docker compose "$@"
+    docker compose -p "${COMPOSE_PROJECT_NAME}" -f "${compose_path}" "$@"
   elif command -v docker-compose >/dev/null 2>&1; then
-    docker-compose "$@"
+    docker-compose -p "${COMPOSE_PROJECT_NAME}" -f "${compose_path}" "$@"
   else
     echo "❌ Docker Compose not found. Install Docker Compose (plugin or docker-compose binary)."
     exit 1
@@ -95,19 +99,20 @@ deploy_stack() {
 disable_stack() {
   require_docker
   echo "🛑 Disabling scanner stack..."
-  compose_cmd -f "${SCRIPT_DIR}/${COMPOSE_FILE}" down --remove-orphans
+  compose_cmd down --remove-orphans
   cleanup_conflicting_soc_stack
   echo "✅ Scanner stack is disabled."
 }
 
 status_stack() {
   require_docker
-  compose_cmd -f "${SCRIPT_DIR}/${COMPOSE_FILE}" ps
+  compose_cmd ps
 }
 
 logs_stack() {
   require_docker
-  compose_cmd -f "${SCRIPT_DIR}/${COMPOSE_FILE}" logs -f openvasd openvas ospd-openvas gvmd gsad gsa
+  echo "📜 Project: ${COMPOSE_PROJECT_NAME} (override with COMPOSE_PROJECT_NAME=...)"
+  compose_cmd logs -f --tail=100 openvasd openvas ospd-openvas gvmd gsad gsa
 }
 
 main() {
