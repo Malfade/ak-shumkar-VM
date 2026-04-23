@@ -1,0 +1,983 @@
+<html lang="ru"><body><meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="light dark" name="color-scheme"/><meta content="width=device-width, initial-scale=1" name="viewport"/>
+<link href="genindex.html" rel="index" title="Индекс"/><link href="search.html" rel="search" title="Поиск"/><link href="gmp.html" rel="next" title="14 Использование протокола управления «Ак Шумкар»"/><link href="managing-assets.html" rel="prev" title="12 Управление активами"/>
+<link as="image" href="/img/ak-shumkar.png" rel="prefetch"/>
+<link as="image" href="/img/ak-shumkar.png" rel="prefetch"/>
+<link href="/img/ak-shumkar.png" rel="icon" type="image/png"/><link href="/img/ak-shumkar.png" rel="shortcut icon" type="image/png"/><title>13 Управление секИнфо - АК-ШУМКАР – ГОС 24.10.11</title>
+<link href="_static/pygments.css%3Fv=8e8a900e.css" rel="stylesheet" type="text/css"/>
+<link href="_static/styles/furo.css%3Fv=580074bf.css" rel="stylesheet" type="text/css"/>
+<link href="_static/sphinx_greenbone.css%3Fv=8ef0bb58.css" rel="stylesheet" type="text/css"/>
+<link href="_static/styles/furo-extensions.css%3Fv=8dab3a3b.css" rel="stylesheet" type="text/css"/>
+<style>
+  body {
+    --color-code-background: #ffffff;
+  --color-code-foreground: black;
+  --font-stack: Roboto, Helvetica, sans-serif;
+  --color-content-foreground: #4D4D4D;
+  --color-foreground-primary: 4D4D4D;
+  --color-foreground-secondary: #808080;
+  --color-code-background: #333333;
+  --color-code-foreground: #E6E6E6;
+  --color-admonition-title--note: #0E823E;
+  --color-admonition-title--note-background: #D8F1E2;
+  --color-admonition-title--warning: #E5393D;
+  --color-admonition-title--warning-background: #FBDDDE;
+  --admonition-font-size: 0.9rem;
+  --color-background-primary: #FFFFFF;
+  --color-background-secondary: #F5F5F5;
+  --color-sidebar-background: #F5F5F5;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --font-stack: Roboto, Helvetica, sans-serif;
+  --color-content-foreground: #F5F5F5;
+  --color-foreground-primary: F5F5F5;
+  --color-foreground-secondary: #E6E6E6;
+  --color-code-background: #333333;
+  --color-code-foreground: #E6E6E6;
+  --color-admonition-title--note: #11AB51;
+  --admonition-font-size: 0.9rem;
+  --color-background-primary: #171717;
+  --color-background-secondary: #4D4D4D;
+  --color-sidebar-background: #333333;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --font-stack: Roboto, Helvetica, sans-serif;
+  --color-content-foreground: #F5F5F5;
+  --color-foreground-primary: F5F5F5;
+  --color-foreground-secondary: #E6E6E6;
+  --color-code-background: #333333;
+  --color-code-foreground: #E6E6E6;
+  --color-admonition-title--note: #11AB51;
+  --admonition-font-size: 0.9rem;
+  --color-background-primary: #171717;
+  --color-background-secondary: #4D4D4D;
+  --color-sidebar-background: #333333;
+  
+      }
+    }
+  }
+</style>
+<script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+<svg style="display: none;" xmlns="http://www.w3.org/2000/svg">
+<symbol id="svg-toc" viewbox="0 0 24 24">
+<title>Содержание</title>
+<svg fill="currentColor" stroke="currentColor" stroke-width="0" viewbox="0 0 1024 1024">
+<path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"></path>
+</svg>
+</symbol>
+<symbol id="svg-menu" viewbox="0 0 24 24">
+<title>Меню</title>
+<svg class="feather-menu" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<line x1="3" x2="21" y1="12" y2="12"></line>
+<line x1="3" x2="21" y1="6" y2="6"></line>
+<line x1="3" x2="21" y1="18" y2="18"></line>
+</svg>
+</symbol>
+<symbol id="svg-arrow-right" viewbox="0 0 24 24">
+<title>Расширять</title>
+<svg class="feather-chevron-right" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<polyline points="9 18 15 12 9 6"></polyline>
+</svg>
+</symbol>
+<symbol id="svg-sun" viewbox="0 0 24 24">
+<title>Светлый режим</title>
+<svg class="feather-sun" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<circle cx="12" cy="12" r="5"></circle>
+<line x1="12" x2="12" y1="1" y2="3"></line>
+<line x1="12" x2="12" y1="21" y2="23"></line>
+<line x1="4.22" x2="5.64" y1="4.22" y2="5.64"></line>
+<line x1="18.36" x2="19.78" y1="18.36" y2="19.78"></line>
+<line x1="1" x2="3" y1="12" y2="12"></line>
+<line x1="21" x2="23" y1="12" y2="12"></line>
+<line x1="4.22" x2="5.64" y1="19.78" y2="18.36"></line>
+<line x1="18.36" x2="19.78" y1="5.64" y2="4.22"></line>
+</svg>
+</symbol>
+<symbol id="svg-moon" viewbox="0 0 24 24">
+<title>Темный режим</title>
+<svg class="icon-tabler-moon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 0h24v24H0z" fill="none" stroke="none"></path>
+<path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"></path>
+</svg>
+</symbol>
+<symbol id="svg-sun-with-moon" viewbox="0 0 24 24">
+<title>Автоматический свет/темнота, в ярком режиме</title>
+<svg class="icon-custom-derived-from-feather-sun-and-tabler-moon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z" style="opacity: 50%"></path>
+<line x1="14.5" x2="14.5" y1="3.25" y2="1.25"></line>
+<line x1="14.5" x2="14.5" y1="15.85" y2="17.85"></line>
+<line x1="10.044" x2="8.63" y1="5.094" y2="3.68"></line>
+<line x1="19" x2="20.414" y1="14.05" y2="15.464"></line>
+<line x1="8.2" x2="6.2" y1="9.55" y2="9.55"></line>
+<line x1="20.8" x2="22.8" y1="9.55" y2="9.55"></line>
+<line x1="10.044" x2="8.63" y1="14.006" y2="15.42"></line>
+<line x1="19" x2="20.414" y1="5.05" y2="3.636"></line>
+<circle cx="14.5" cy="9.55" r="3.6"></circle>
+</svg>
+</symbol>
+<symbol id="svg-moon-with-sun" viewbox="0 0 24 24">
+<title>Автоматический светлый/темный, в темном режиме</title>
+<svg class="icon-custom-derived-from-feather-sun-and-tabler-moon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"></path>
+<line style="opacity: 50%" x1="18" x2="18" y1="3.705" y2="2.5"></line>
+<line style="opacity: 50%" x1="18" x2="18" y1="11.295" y2="12.5"></line>
+<line style="opacity: 50%" x1="15.316" x2="14.464" y1="4.816" y2="3.964"></line>
+<line style="opacity: 50%" x1="20.711" x2="21.563" y1="10.212" y2="11.063"></line>
+<line style="opacity: 50%" x1="14.205" x2="13.001" y1="7.5" y2="7.5"></line>
+<line style="opacity: 50%" x1="21.795" x2="23" y1="7.5" y2="7.5"></line>
+<line style="opacity: 50%" x1="15.316" x2="14.464" y1="10.184" y2="11.036"></line>
+<line style="opacity: 50%" x1="20.711" x2="21.563" y1="4.789" y2="3.937"></line>
+<circle cx="18" cy="7.5" r="2.169" style="opacity: 50%"></circle>
+</svg>
+</symbol>
+<symbol id="svg-pencil" viewbox="0 0 24 24">
+<svg class="icon-tabler-pencil-code" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4"></path>
+<path d="M13.5 6.5l4 4"></path>
+<path d="M20 21l2 -2l-2 -2"></path>
+<path d="M17 17l-2 2l2 2"></path>
+</svg>
+</symbol>
+<symbol id="svg-eye" viewbox="0 0 24 24">
+<svg class="icon-tabler-eye-code" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 0h24v24H0z" fill="none" stroke="none"></path>
+<path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"></path>
+<path d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008"></path>
+<path d="M20 21l2 -2l-2 -2"></path>
+<path d="M17 17l-2 2l2 2"></path>
+</svg>
+</symbol>
+</svg>
+<input aria-label="Включить боковую панель навигации по сайту" class="sidebar-toggle" id="__navigation" name="__navigation" type="checkbox"/>
+<input aria-label="Переключить боковую панель оглавления" class="sidebar-toggle" id="__toc" name="__toc" type="checkbox"/>
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+<a class="skip-to-content muted-link" href="managing-secinfo.html#furo-main-content">Перейти к содержимому</a>
+<div class="page">
+<header class="mobile-header">
+<div class="header-left">
+<label class="nav-overlay-icon" for="__navigation">
+<span class="icon"><svg><use href="#svg-menu"></use></svg></span>
+</label>
+</div>
+<div class="header-center">
+<a href="index.html"><div class="brand">АК-ШУМКАР – ГОС 24.10.11</div></a>
+</div>
+<div class="header-right">
+<div class="theme-toggle-container theme-toggle-header">
+<button aria-label="Переключить светлую/темную/автоматическую цветную тему" class="theme-toggle">
+<svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+<svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+<svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+<svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+</button>
+</div>
+<label class="toc-overlay-icon toc-header-icon" for="__toc">
+<span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+</label>
+</div>
+</header>
+<aside class="sidebar-drawer">
+<div class="sidebar-container">
+<div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
+<div class="sidebar-logo-container">
+<img alt="Логотип AK-SHUMKAR" class="sidebar-logo only-light" src="/img/ak-shumkar.png"/>
+<img alt="Логотип AK-SHUMKAR" class="sidebar-logo only-dark" src="/img/ak-shumkar.png"/>
+</div>
+<span class="sidebar-brand-text">АК-ШУМКАР – ГОС 24.10.11</span>
+</a><form action="search.html" class="sidebar-search-container" method="get" role="search">
+<input aria-label="Поиск" class="sidebar-search" name="q" placeholder="Поиск"/>
+<input name="check_keywords" type="hidden" value="yes"/>
+<input name="area" type="hidden" value="default"/>
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">1 Введение</a></li>
+<li class="toctree-l1"><a class="reference internal" href="read-before-use.html">2 Прочтите перед использованием</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appliance-overview.html">3 АК-ШУМКАР – Обзор</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setting-up-the-appliance.html">4 Настройка АК-ШУМКАР</a></li>
+<li class="toctree-l1"><a class="reference internal" href="upgrading-gos.html">5 Обновление АК-ШУМКАР до последней основной версии</a></li>
+<li class="toctree-l1"><a class="reference internal" href="managing-gos.html">6 Управление системой «Ак Шумкар»</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web-interface.html">7 Знакомство с веб-интерфейсом</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web-interface-access.html">8 Управление доступом к веб-интерфейсу</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scanning.html">9 Системы сканирования</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reports.html">10 отчетов и управление уязвимостями</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compliance-and-special-scans.html">11 Выполнение консультаций и технических услуг</a></li>
+<li class="toctree-l1"><a class="reference internal" href="managing-assets.html">12 Управление активами</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="managing-secinfo.html#">13 Управление информацией о безопасности</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gmp.html">14 Использование протокола управления «Ак Шумкар»</a></li>
+<li class="toctree-l1"><a class="reference internal" href="master-sensor-setup.html">15 Использование настроек главного датчика</a></li>
+<li class="toctree-l1"><a class="reference internal" href="performance.html">16 Управление производительностью</a></li>
+<li class="toctree-l1"><a class="reference internal" href="connecting-other-systems.html">17 Подключение АК-ШУМКАР к другим системам</a></li>
+<li class="toctree-l1"><a class="reference internal" href="architecture.html">18 Архитектура</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">19 часто задаваемых вопросов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">20 Глоссарий</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</aside>
+<div class="main">
+<div class="content">
+<div class="article-container">
+<a class="back-to-top muted-link" href="managing-secinfo.html#">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+</svg>
+<span>Вернуться наверх</span>
+</a>
+<div class="content-icon-container">
+<div class="theme-toggle-container theme-toggle-content">
+<button aria-label="Переключить светлую/темную/автоматическую цветную тему" class="theme-toggle">
+<svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+<svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+<svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+<svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+</button>
+</div>
+<label class="toc-overlay-icon toc-content-icon" for="__toc">
+<span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+</label>
+</div>
+<article id="furo-main-content" role="main">
+<section id="managing-secinfo">
+<span id="secinfo"></span><span id="index-0"></span><h1><span class="section-number">13 </span>Управление информацией о безопасности<a class="headerlink" href="managing-secinfo.html#managing-secinfo" title="Ссылка на эту рубрику">¶</a></h1>
+<p>Управление SecInfo обеспечивает централизованный доступ к широкому спектру информации о безопасности информационных технологий (ИТ), включая следующие категории:</p>
+<dl class="simple">
+<dt>Тесты уязвимостей (VT)</dt><dd><p>Наличие VT означает наличие системы на наличие уязвимостей.</p>
+</dd>
+<dt>Распространенные уязвимости и риски (CVE)</dt><dd><p>CVE — это уязвимости, опубликованные поставщиками и исследователями безопасности.</p>
+</dd>
+<dt>Платформа перечисления (CPE)</dt><dd><p>CPE предлагает стандартизированные названия продуктов, внедрения в ИТ.</p>
+</dd>
+<dt>Рекомендации CERT-Bund</dt><dd><p>Рекомендации CERT-Bund публикуются <a class="reference external" href="https://www.bsi.bund.de/EN/Themen/Unternehmen-und-Organisationen/Cyber-Sicherheitslage/Reaktion/CERT-Bund/cert-bund_node.html">CERT-Бунд</a>,
+Группа реагирования на компьютерные чрезвычайные ситуации <a class="reference external" href="https://www.bsi.bund.de/EN/Home/home_node.html">Федеральное управление информационной безопасности Германии (BSI)</a> (немецкий: Bundesamt für Sicherheit
+в der Informationstechnik, сокращенно BSI).
+Основным фактором CERT-Bund является функция службы ретрансляции и информации, публикующая информацию о новых уязвимостях и рисках безопасности, а также угрозах для ИТ-систем.</p>
+</dd>
+<dt>Рекомендации DFN-CERT</dt><dd><p>Рекомендации DFN-CERT публикуются <a class="reference external" href="https://www.dfn-cert.de/">ДФН-СЕРТ</a> [только на немецком языке], Группа реагирования на компьютерные ситуации <a class="reference external" href="https://www.dfn.de/en/">Немецкая национальная сеть исследований и образования</a> (Немецкий: Deutsches Forschungsnetz, сокращенно DFN).</p>
+</dd>
+</dl>
+<p>CVE и CPE публикуются и становятся доступными <a class="reference external" href="https://www.nist.gov">Национальный институт стандартов и технологий (NIST)</a> как часть <a class="reference external" href="https://nvd.nist.gov/">Уязвимости национальной базы данных
+(НВД)</a> (см. главу <a class="reference internal" href="managing-secinfo.html#scap"><span class="std std-ref">13.2</span></a>).</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>«Ак Шумкар» также предлагает все данные SecInfo онлайн, доступные через <a class="reference external" href="https://secinfo.ak-shumkar.net">Портал СекИнфо</a>.
+Портал SecInfo предоставляет всю информацию SecInfo, описанную в следующих главах, а также калькулятор CVSS.</p>
+<p>Доступ к Порталу SecInfo осуществляется посредством активации гостевого доступа (см. гл. <a class="reference internal" href="web-interface-access.html#guest-login"><span class="std std-ref">8.1.4</span></a>).</p>
+</div>
+<section id="vulnerability-tests-vt">
+<span id="nvts"></span><span id="index-1"></span><h2><span class="section-number">13.1 </span>Тесты уязвимостей (VT)<a class="headerlink" href="managing-secinfo.html#vulnerability-tests-vt" title="Ссылка на эту рубрику">¶</a></h2>
+<p>VT — это тестовые программы, используемые в качестве инструмента. Они являются частью AK-SHUMKAR ENTERPRISE FEED, которая регулярно обновляется.
+VT включает информацию о дате разработки, важных компонентах, уязвимостях и способах их ограничения.</p>
+<p><strong>Страница списка</strong></p>
+<p>Все явления ВТ можно отобразить, выбрав <span class="target" id="gos-webui-0"></span><em>SecInfo &gt; НТВ</em> в меню.</p>
+<p>Для всех ВТ отображается следующая информация:</p>
+<dl>
+<dt>Имя</dt><dd><p>Название ВТ.</p>
+</dd>
+<dt>Семья</dt><dd><p>Семейство ВТ, к чему принадлежит ВТ.</p>
+</dd>
+<dt>Созданный</dt><dd><p>Дата и время создания.</p>
+</dd>
+<dt>Модифицированный</dt><dd><p>Дата и время последнего изменения.</p>
+</dd>
+<dt>CVE</dt><dd><p>CVE, который недавно начал использовать VT.</p>
+<p>Если с VT связано несколько CVE, применяются следующие правила:</p>
+<ul class="simple">
+<li><p>Отображается CVE с достаточной степенью серьезности.</p></li>
+<li><p>Если несколько CVE имеют одинаковую длину, то из этих CVE отображается CVE с индексом EPSS.</p></li>
+<li><p>Если несколько CVE также имеют одинаковую оценку EPSS, то из CVE будет CVE с этими последними изменениями.</p></li>
+<li><p>Если в нескольких экземплярах CVE были внесены одиночные изменения, при введении всех этих CVE.</p></li>
+</ul>
+</dd>
+<dt>Тип решения <a class="reference internal" href="_images/solution_type.png"><img alt="" src="_images/solution_type.png" style="height: 1.2em;"/></a></dt><dd><p>Тип мер по устранению уязвимостей.
+существуют следующие типы решений:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="_images/st_vendorfix.png"><img alt="" src="_images/st_vendorfix.png" style="height: 1.2em;"/></a> Исправление поставщика: доступна информация об официальных исправлениях, выпущенном исходным поставщиком такого продукта.
+Если не указано иное, укажите, что это исправление полностью учитывает уязвимость.</p></li>
+<li><p><a class="reference internal" href="_images/st_workaround.png"><img alt="" src="_images/st_workaround.png" style="height: 1.2em;"/></a> Обходной путь: доступная информация о конфигурации или конкретных файлах развертывания, которые можно использовать, чтобы избежать уязвимостей.
+Обычно это «первая линия защиты» от новых уязвимостей до того, как они были выпущены или даже обнаружены меры по ее устранению или исправлению поставщика.</p></li>
+<li><p><a class="reference internal" href="_images/st_mitigation.png"><img alt="" src="_images/st_mitigation.png" style="height: 1.2em;"/></a> Смягчение: доступна информация о конфигурации или заданных файлах развертывания, которая помогает снизить риск уязвимости, но не использует уязвимость в данном продукте.</p></li>
+<li><p><a class="reference internal" href="_images/st_willnotfix.png"><img alt="" src="_images/st_willnotfix.png" style="height: 1.2em;"/></a> Не исправляет: исправлений уязвимостей нет и никогда не будет.
+Это часто происходит, когда продукт теряет свою актуальность, больше не соответствует или устаревает иным образом.
+Информация должна содержать подробную информацию о том, почему исправления не будут опубликованы.</p></li>
+<li><p><a class="reference internal" href="_images/st_nonavailable.png"><img alt="" src="_images/st_nonavailable.png" style="height: 1.2em;"/></a> Нет: в настоящее время исправлений нет.
+Информация должна содержать подробную информацию о том, почему нет исправлений.</p></li>
+</ul>
+</dd>
+<dt>Серьезность</dt><dd><p>Качественная мера серьезности уязвимостей согласно Общей системе обнаружения уязвимостей (CVSS) (см. главу) <a class="reference internal" href="managing-secinfo.html#cvss"><span class="std std-ref">13.2.3</span></a>).
+Эта оценка серьезности, которая включает в себя число от 0,0 до 10,0, где 10,0 соответствует самой серьезной степени, а также серьезному классу, основанному на этом измерении:</p>
+<ul class="simple">
+<li><p>Критический: 9,0–10,0</p></li>
+<li><p>Высокий: 7,0–8,9</p></li>
+<li><p>Средний: 4,0–6,9</p></li>
+<li><p>Низкий: 0,1–3,9</p></li>
+<li><p>Журнал: 0.0</p></li>
+</ul>
+<p>Если с VT связано несколько CVE, отображается серьезность CVE с самой высокой степенью серьезности.</p>
+</dd>
+<dt>QoD</dt><dd><p>Сокращение от «Качество обнаружения».
+QoD характеризует надежность выполненного обнаружения уязвимостей.
+Это значение от 0% до 100%, вариант 100% является наиболее надежным.</p>
+<p>По умолчанию предоставлены только результаты, Обнаруженные VT с QoD 70 % или выше.
+Фильтр можно настроить для отображения результатов с более низким качеством QoD (см. главу) <a class="reference internal" href="web-interface.html#adjusting-filter"><span class="std std-ref">7.3.1</span></a>).</p>
+<p>Для получения дополнительной информации см. главу <a class="reference internal" href="reports.html#quality-of-detection-concept"><span class="std std-ref">10.2.6</span></a>.</p>
+</dd>
+<dt>ЭПСС</dt><dd><p>Мера вероятности использования уязвимостей в соответствии с системой оценки эксплойтов (EPSS) (см. главу <a class="reference internal" href="managing-secinfo.html#epss"><span class="std std-ref">13.2.4</span></a>).</p>
+<p>Оценочные показатели уязвимости области использования, наблюдаемые в течение следующих 30 дней, представляют собой число от 0 до 1.
+Чем выше значение, тем больше опасений того, что уязвимость действительно будет использована.</p>
+<p>Процент показывает долю уязвимостей, которые были оценены так же или ниже, чем уязвимость.
+Это помогает перенести счет в контекст.</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Нажав <a class="reference internal" href="_images/export.png"><img alt="" src="_images/export.png" style="height: 1.2em;"/></a> под списком ВТ можно экспортировать более одного ВТ одновременно. Раскрывающийся список используется для выбора внешних виртуальных машин.</p>
+</div>
+<p><strong>Страница раскрыта</strong></p>
+<p>Нажмите на имя ВТ, чтобы отобразить подробную информацию о ВТ. Нажмите <a class="reference internal" href="_images/details.png"><img alt="" src="_images/details.png" style="height: 1.2em;"/></a> чтобы открыть страницу сведений о ВТ.</p>
+<p>Доступны следующие вкладки:</p>
+<dl class="simple">
+<dt>Информация</dt><dd><p>Общие сведения о ВТ.</p>
+</dd>
+<dt>Предпочтения</dt><dd><p>Предпочтения ВТ (см. главу <a class="reference internal" href="scanning.html#nvt-preferences"><span class="std std-ref">9.9.5</span></a>).</p>
+</dd>
+<dt>Пользовательские теги</dt><dd><p>Присвоенные теги (см. главу <a class="reference internal" href="web-interface.html#tags"><span class="std std-ref">7.4</span></a>).</p>
+</dd>
+</dl>
+<p>В левом верхнем углу пульта доступны следующие действия:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="_images/help.png"><img alt="" src="_images/help.png" style="height: 1.2em;"/></a> Ознакомьтесь с соответствующим главой руководства пользователя.</p></li>
+<li><p><a class="reference internal" href="_images/list.png"><img alt="" src="_images/list.png" style="height: 1.2em;"/></a> Показать страницу списка всех VT.</p></li>
+<li><p><a class="reference internal" href="_images/export.png"><img alt="" src="_images/export.png" style="height: 1.2em;"/></a> Экспортируйте VT как файл XML.</p></li>
+<li><p><a class="reference internal" href="_images/new_note.png"><img alt="" src="_images/new_note.png" style="height: 1.2em;"/></a> Сделайте новую заметку для ВТ (см. главу <a class="reference internal" href="reports.html#create-note"><span class="std std-ref">10.7.1</span></a>).</p></li>
+<li><p><a class="reference internal" href="_images/new_override.png"><img alt="" src="_images/new_override.png" style="height: 1.2em;"/></a> создать новое переопределение для VT (см. главу <a class="reference internal" href="reports.html#create-override"><span class="std std-ref">10.8.1</span></a>).</p></li>
+<li><p><a class="reference internal" href="_images/results.png"><img alt="" src="_images/results.png" style="height: 1.2em;"/></a> Покажите соответствующие результаты.</p></li>
+<li><p><a class="reference internal" href="_images/vulnerability.png"><img alt="" src="_images/vulnerability.png" style="height: 1.2em;"/></a> Укажите соответствующую уязвимость.</p></li>
+</ul>
+</section>
+<section id="security-content-automation-protocol-scap">
+<span id="scap"></span><span id="index-2"></span><h2><span class="section-number">13.2 </span>Протокол автоматизации контента (SCAP)<a class="headerlink" href="managing-secinfo.html#security-content-automation-protocol-scap" title="Ссылка на эту рубрику">¶</a></h2>
+<p> <a class="reference external" href="https://www.nist.gov">Национальный институт стандартов и технологий (NIST)</a> обеспечивает <a class="reference external" href="https://nvd.nist.gov/">Национальная база данных уязвимостей (НВД)</a>.
+ПНВ — это хранилище данных для управления уязвимостями правительства США.
+Целью является стандартизированное предоставление данных для автоматизированной обработки.
+Тем не менее, эти задачи решают проблемы уязвимостей и, в конечном итоге, обеспечивают соблюдение руководящими принципами соблюдения норм.</p>
+<p>ПНВ предоставляет различные базы данных, включая следующие:</p>
+<ul class="simple">
+<li><p>Контрольные управления</p></li>
+<li><p>Уязвимости</p></li>
+<li><p>Неправильные конфигурации</p></li>
+<li><p>Продукты</p></li>
+<li><p>Метрики угрозы</p></li>
+</ul>
+<p>НВД использует <a class="reference external" href="https://csrc.nist.gov/projects/security-content-automation-protocol/">Протокол автоматизации контента</a> (СКАП).
+SCAP представляет собой комбинацию различных совместимых стандартов.
+Многие стандарты были разработаны или получены в результате общественного обсуждения.</p>
+<p>Участие в разработке является соблюдением аспекта принятия и стандарта безопасности SCAP.
+SCAP в настоящее время указан в версии 1.3 и включает в себя следующие компоненты:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Языки</dt><dd><ul>
+<li><p>XCCDF: Формат описания контрольной таблицы регулируемой конфигурации</p></li>
+<li><p>ОВАЛ: открытый язык уязвимостей и оценок</p></li>
+<li><p>OCIL: интерактивный язык открытого контрольного списка</p></li>
+<li><p>Идентификация активов</p></li>
+<li><p>АРФ: Независимость формата в активах</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Коллекции</dt><dd><ul>
+<li><p>CCE: перечисление общих схем</p></li>
+<li><p>CPE: общая платформа перечисления</p></li>
+<li><p>CVE: распространенные уязвимости и уязвимости</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Метрики</dt><dd><ul>
+<li><p>CVSS: Общая система поиска уязвимостей</p></li>
+<li><p>CCSS: Общая система оценки конфигурации</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Честность</dt><dd><ul>
+<li><p>TMSAD: модель надежности для безопасности и автоматизации данных</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p>OVAL, CCE, CPE и CVE являются торговыми марками NIST.</p>
+<p>АК-ШУМКАР использует CVE, CPE и CVSS.
+Используйте настоящие стандарты совместимости с другими источниками питания.
+Стандарты также способствуют достижению прогрессивных результатов.</p>
+<p>Системы обнаружения уязвимостей, такие как АК-ШУМКАР, могут быть проверены NIST соответственно.
+Прибор прошел валидацию по <a class="reference external" href="https://csrc.nist.gov/Projects/Security-Content-Automation-Protocol/SCAP-Releases">СКАП версия 1.0</a>.</p>
+<section id="cve">
+<span id="index-3"></span><span id="id3"></span><h3><span class="section-number">13.2.1 </span>CVE<a class="headerlink" href="managing-secinfo.html#cve" title="Ссылка на эту рубрику">¶</a></h3>
+<p>Во избежание множественного наименования одних и тех же уязвимостей со стороны других организаций и обеспечения единых соглашений об именах, <a class="reference external" href="https://www.mitre.org/">МИТРА</a> появление <a class="reference external" href="https://www.cve.org/">Распространенные уязвимости и риски (CVE)</a> программа.
+Каждая уязвимость соответствует уникальному идентификатору MITRE или способу нумерации устройства CVE, например, поставщикам продуктов, включая координаты или анализ.
+Этот идентификатор соответствует годам выпуска и простого номера и служит центральной ссылке.</p>
+<p>CVE публикуются и становятся доступными <a class="reference external" href="https://www.nist.gov/">Национальный институт стандартов и технологий (NIST)</a> в <a class="reference external" href="https://nvd.nist.gov/">Национальная база данных уязвимостей (НВД)</a>.
+NVD выполняет информацию CVE по ликвидации, серьезности, обработке воздействий и уязвимостей продуктов.</p>
+<p>«Ак Шумкар» относится к ПНВ, и это решение конференции, информация CVE, VT и рекомендации CERT-Bund/DFN-CERT.</p>
+<p><strong>Страница списка</strong></p>
+<p>Во всех случаях CVE можно отобразить, выбрав <span class="target" id="gos-webui-1"></span><em>Информация &gt; CVE</em> в меню.</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Доступность CVE на устройстве зависит от его доступности в NVD.
+Как только он там будет опубликован, он будет находиться в SecInfo в течение 1–2 рабочих дней.</p>
+<p>Столбцы типа <em>Серьезность</em> или <em>ЭПСС</em> может отобразить <em>Н/Д</em> по одной из следующих причин:</p>
+<ul>
+<li><p>CVE был опубликован, но NVD до сих пор не провел анализ уязвимостей/оценку серьезности.
+Это может занять от нескольких дней до нескольких недель.</p>
+<p>Такие CVE можно определить при осмотре <a class="reference external" href="https://nvd.nist.gov/vuln/search">соответствующая запись ПНВ</a>.
+Пока <em>нет в наличии</em> показывать для серьезности, <em>Н/Д</em> отображает серьезную неисправность устройства.</p>
+</li>
+<li><p>Между анализом уязвимостей/оценкой серьезности и моментом публикации обновленной информации в управлении SecInfo всегда проходит задержку в течение 1–2 рабочих дней.</p></li>
+</ul>
+<p>Наличие CVE на устройстве не означает, что на нем также действует действие VT.
+Чтобы определить, покрыта ли конкретная CVE, фильтр <code class="docutils literal notranslate"><span class="pre">cve=&lt;CVE-ID&gt;</span></code> можно использовать на <em>НТВ</em> страница (см. главу <a class="reference internal" href="managing-secinfo.html#nvts"><span class="std std-ref">13.1</span></a>).</p>
+</div>
+<dl>
+<dt>Имя</dt><dd><p>Уникальный идентификатор CVE, образующийся из года выпуска и простого номера.</p>
+</dd>
+<dt>Описание</dt><dd><p>Расширенная информация о CVE.
+Это может быть включено, в любой версии возникает уязвимость, как она возникает, и как ее могут использовать злоумышленники.</p>
+</dd>
+<dt>Опубликовано</dt><dd><p>Дата и время публикации CVE в NVD.</p>
+</dd>
+<dt>Базовый вектор CVSS</dt><dd><p>Вектор CVSS, прогноз для расчета сложности CVE.
+Этот вектор включает версию CVSS, специально для CVE.</p>
+<p>Нажав на вектор, страница <em>Калькулятор оценок CVSSv2/CVSSv3/CVSSv4 (базовый)</em> открыт.
+Поле соответствующего калькулятора уже заполнено, в зависимости от того, какая версия CVSS используется для расчета серьезности CVE (см. главу) <a class="reference internal" href="managing-secinfo.html#cvss"><span class="std std-ref">13.2.3</span></a>).</p>
+</dd>
+<dt>Серьезность</dt><dd><p>Качественная мера серьезности уязвимостей согласно Общей системе обнаружения уязвимостей (CVSS) (см. главу) <a class="reference internal" href="managing-secinfo.html#cvss"><span class="std std-ref">13.2.3</span></a>).
+Эта оценка серьезности, которая включает в себя число от 0,0 до 10,0, где 10,0 соответствует самой серьезной степени, а также серьезному классу, основанному на этом измерении:</p>
+<ul class="simple">
+<li><p>Критический: 9,0–10,0</p></li>
+<li><p>Высокий: 7,0–8,9</p></li>
+<li><p>Средний: 4,0–6,9</p></li>
+<li><p>Низкий: 0,1–3,9</p></li>
+<li><p>Журнал: 0.0</p></li>
+</ul>
+</dd>
+<dt>ЭПСС</dt><dd><p>Мера вероятности использования уязвимостей в соответствии с системой оценки эксплойтов (EPSS) (см. главу <a class="reference internal" href="managing-secinfo.html#epss"><span class="std std-ref">13.2.4</span></a>).</p>
+<p>Оценочные показатели уязвимости области использования, наблюдаемые в течение следующих 30 дней, представляют собой число от 0 до 1.
+Чем выше значение, тем больше опасений того, что уязвимость действительно будет использована.</p>
+<p>Процент показывает долю уязвимостей, которые были оценены так же или ниже, чем уязвимость.
+Это помогает перенести счет в контекст.</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Нажав <a class="reference internal" href="_images/export.png"><img alt="" src="_images/export.png" style="height: 1.2em;"/></a> под списком CVE можно экспортировать более одного CVE одновременно. Раскрывающийся список используется для выбора экспортируемых CVE.</p>
+</div>
+<p><strong>Страница раскрыта</strong></p>
+<p>Нажмите на название CVE, чтобы отобразить подробную информацию о CVE. Нажмите <a class="reference internal" href="_images/details.png"><img alt="" src="_images/details.png" style="height: 1.2em;"/></a> чтобы открыть страницу сведений о CVE (см. <a class="reference internal" href="managing-secinfo.html#fig-cve-detailspage"><span class="std std-numref">Рис. 13.1</span></a>).</p>
+<figure class="align-center" id="id14">
+<span id="fig-cve-detailspage"></span><a class="reference internal image-reference" href="_images/cve_detailspage.png"><img alt="_images/cve_detailspage.png" src="_images/cve_detailspage.png" style="width: 90%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 13.1 </span><span class="caption-text">Страница с описанием CVE</span><a class="headerlink" href="managing-secinfo.html#id14" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+<p>Доступны следующие вкладки:</p>
+<dl class="simple">
+<dt>Информация</dt><dd><p>Общие сведения о CVE.</p>
+</dd>
+<dt>Пользовательские теги</dt><dd><p>Присвоенные теги (см. главу <a class="reference internal" href="web-interface.html#tags"><span class="std std-ref">7.4</span></a>).</p>
+</dd>
+</dl>
+<p>В левом верхнем углу пульта доступны следующие действия:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="_images/help.png"><img alt="" src="_images/help.png" style="height: 1.2em;"/></a> Ознакомьтесь с соответствующим главой руководства пользователя.</p></li>
+<li><p><a class="reference internal" href="_images/list.png"><img alt="" src="_images/list.png" style="height: 1.2em;"/></a> Показать страницу списка всех CVE.</p></li>
+<li><p><a class="reference internal" href="_images/export.png"><img alt="" src="_images/export.png" style="height: 1.2em;"/></a> Экспортируйте CVE как файл XML.</p></li>
+</ul>
+</section>
+<section id="cpe">
+<span id="index-4"></span><span id="id6"></span><h3><span class="section-number">13.2.2 </span>цена взаимодействия<a class="headerlink" href="managing-secinfo.html#cpe" title="Ссылка на эту рубрику">¶</a></h3>
+<p>Common Platform Enumeration (CPE) — это структурированная схема именования систем, платформ и пакетов информационных технологий.
+Основанный на общем синтаксисе ресурсов унифицированных идентификаторов (URI), CPE включает формальный формат имени, язык для описания платформы платформы, метод проверки имен в системе соответствия и формат описания для привязки текста, а также тесты по имени.</p>
+<p>CPE публикуются и становятся доступными <a class="reference external" href="https://www.nist.gov/">Национальный институт стандартов и технологий (NIST)</a> в <a class="reference external" href="https://nvd.nist.gov/">Национальная база данных уязвимостей (НВД)</a>.</p>
+<p>Имя CPE начинается с «cpe:/», после чего последующие семь частей, разделенных двоеточиями (см. <a class="reference internal" href="managing-secinfo.html#fig-cpe-name-structure"><span class="std std-numref">Рис. 13.2</span></a>).</p>
+<figure class="align-center" id="id15">
+<span id="fig-cpe-name-structure"></span><a class="reference internal image-reference" href="_images/cpe_name_structure.png"><img alt="_images/cpe_name_structure.png" src="_images/cpe_name_structure.png" style="width: 100%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 13.2 </span><span class="caption-text">Структура имени CPE</span><a class="headerlink" href="managing-secinfo.html#id15" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+<p>Сочетание стандартов CPE и CVE позволяет сделать вывод о существующих уязвимостях при обнаружении платформенного продукта.</p>
+<p><strong>Страница списка</strong></p>
+<p>Все события CPE можно отобразить, выбрав <span class="target" id="gos-webui-2"></span><em>Информация &gt; CPE</em> в меню.</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Доступность CPE на устройстве зависит от его доступности в NVD.
+Как только он там будет опубликован, он будет находиться в SecInfo в течение 1–2 рабочих дней.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Нажав <a class="reference internal" href="_images/export.png"><img alt="" src="_images/export.png" style="height: 1.2em;"/></a> под списком CPE можно экспортировать более одного CPE одновременно. Раскрывающийся список используется для выбора экспортируемого CPE.</p>
+</div>
+<p><strong>Страница раскрыта</strong></p>
+<p>Нажмите на имя CPE, чтобы отобразить подробную информацию о CPE. Нажмите <a class="reference internal" href="_images/details.png"><img alt="" src="_images/details.png" style="height: 1.2em;"/></a> чтобы открыть страницу сведений о CPE.</p>
+<p>Доступны следующие вкладки:</p>
+<dl class="simple">
+<dt>Информация</dt><dd><p>Общие сведения о ЦПЭ.</p>
+</dd>
+<dt>Пользовательские теги</dt><dd><p>Присвоенные теги (см. главу <a class="reference internal" href="web-interface.html#tags"><span class="std std-ref">7.4</span></a>).</p>
+</dd>
+</dl>
+<p>В левом верхнем углу пульта доступны следующие действия:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="_images/help.png"><img alt="" src="_images/help.png" style="height: 1.2em;"/></a> Ознакомьтесь с соответствующим главой руководства пользователя.</p></li>
+<li><p><a class="reference internal" href="_images/list.png"><img alt="" src="_images/list.png" style="height: 1.2em;"/></a> Показать страницу списка всех CPE.</p></li>
+<li><p><a class="reference internal" href="_images/export.png"><img alt="" src="_images/export.png" style="height: 1.2em;"/></a> Экспортируйте CPE как файл XML.</p></li>
+</ul>
+</section>
+<section id="cvss">
+<span id="index-5"></span><span id="id9"></span><h3><span class="section-number">13.2.3 </span>CVSS<a class="headerlink" href="managing-secinfo.html#cvss" title="Ссылка на эту рубрику">¶</a></h3>
+<p>Общая система обнаружения уязвимостей (CVSS) — это отраслевой стандарт для серьезного описания рисков безопасности в компьютерном обслуживании.</p>
+<p>Риски безопасности связаны и сравниваются с использованием различных способов.
+Это позволяет создать приоритетный список контрмеров.</p>
+<p>CVSS разработан компанией <a class="reference external" href="https://www.first.org/cvss/">Специальная группа по интересам CVSS (CVSS-SIG)</a> следствий <a class="reference external" href="https://www.first.org/">Форум групп по реагированию на инциденты и безопасность (ПЕРВЫЙ)</a>.
+Текущая версия CVSS — 4.0.</p>
+<p>GOS 24.10 поддерживает CVSS v4.0.
+Поскольку CVSS v4.0 все еще находится на ранних стадиях общеотраслевого развития, данные CVSS v4.0 пока доступны в ближайшее время.
+VT и CVE могут сохранять данные CVSS v2 и/или CVSS v3.0/v3.1.</p>
+<ul class="simple">
+<li><p>Если VT/CVE содержит как данные CVSS v2, так и данные CVSS v3.0/v3.1, данные CVSS v3.0/v3.1 всегда используются и указываются.</p></li>
+<li><p> <em>Базовый вектор CVSS</em> Представленный предварительный просмотр и запись на странице о регистрации VT могут быть версии v2, v3.0 или v3.1.</p></li>
+<li><p> <em>Базовый вектор CVSS</em> показано в таблице на странице <em>CVE</em> может быть v2, v3.0 или v3.1.
+Нажатие на базовый вектор CVSS открывает страницу. <em>Калькулятор оценок CVSSv2/CVSSv3/CVSSv4 (базовый)</em>.
+Поле ввода соответствующего калькулятора уже заполнено.</p></li>
+<li><p>Классы серьезности всегда разрабатываются в соответствии с CVSS v3.0/v3.1, даже если VT/CVE содержит только данные v2.</p>
+<ul>
+<li><p>Критический: 9,0–10,0</p></li>
+<li><p>Высокий: 7,0–8,9</p></li>
+<li><p>Средний: 4,0–6,9</p></li>
+<li><p>Низкий: 0,1–3,9</p></li>
+<li><p>Журнал: 0.0</p></li>
+</ul>
+</li>
+</ul>
+<p>Оценка CVSS поддерживает метрики координатной точки, метрики временной температуры и метрики температуры окружающей среды.</p>
+<dl class="simple">
+<dt>Базовые показатели оценки</dt><dd><p>Метрики местоположения оценивают возможность использования уязвимостей и ее влияние на целевую систему.
+Оцениваются доступ, сложность и требования аутентификации.
+Кроме того, их поддержка находится под угрозой конфиденциальности, честности или доступности.</p>
+</dd>
+<dt>Метрики временной оценки</dt><dd><p>Метрики временной оценки проверяют, существует ли завершенный пример кода, поставщик уже исправил исправления и обнаружил уязвимость.
+В течение времени счет будет кардинально меняться.</p>
+</dd>
+<dt>Показатели собственных оценок</dt><dd><p>Метрики, связанные с обнаружением какого-либо эффекта уязвимости внутри организации. Они учитывают ущерб, целевое значение, конфиденциальность, честность и доступность.
+Эта оценка сильно зависит от среды, в которой используется уязвимый продукт.</p>
+</dd>
+</dl>
+<p>Поскольку результаты определения местоположения имеют лишь общий смысл и могут постоянно контролироваться, устройство предоставляет их как часть данных SecInfo.</p>
+<p>Калькулятор CVSS можно открыть, выбрав <span class="target" id="gos-webui-3"></span><em>Справка &gt; Калькулятор CVSS</em> в меню (см. <a class="reference internal" href="managing-secinfo.html#fig-cvss-calc"><span class="std std-numref">Рис. 13.3</span></a>).
+Отобразятся калькулятор для CVSS версии 2.0, калькулятор для CVSS версии 3.0/3.1 и калькулятор для CVSS версии 4.0.</p>
+<figure class="align-center" id="id16">
+<span id="fig-cvss-calc"></span><a class="reference internal image-reference" href="_images/cvss_calc.png"><img alt="_images/cvss_calc.png" src="_images/cvss_calc.png" style="width: 70%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 13.3 </span><span class="caption-text">Калькулятор CVSS для расчета оценок серьезности</span><a class="headerlink" href="managing-secinfo.html#id16" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+<section id="cvss-version-2-0">
+<h4><span class="section-number">13.2.3.1 </span>CVSS версия 2.0<a class="headerlink" href="managing-secinfo.html#cvss-version-2-0" title="Ссылка на эту рубрику">¶</a></h4>
+<p>Следующая формула использует калькулятор CVSS версии 2.0:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Базовый балл</span> <span class="o">=</span> <span class="n">roundTo1Decimal</span><span class="p">(</span> <span class="p">(</span> <span class="p">(</span> <span class="mf">0.6</span> <span class="o">*</span> <span class="n">Влияние</span> <span class="p">)</span> <span class="o">+</span>
+            <span class="p">(</span> <span class="mf">0.4</span> <span class="o">*</span> <span class="n">Возможность использования</span> <span class="p">)</span> <span class="o">-</span> <span class="mf">1.5</span> <span class="p">)</span> <span class="o">*</span> <span class="n">ж</span><span class="p">(</span> <span class="n">Влияние</span> <span class="p">)</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p>«Воздействие» рассчитывается следующим образом:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Влияние</span> <span class="o">=</span> <span class="mf">10.41</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">КонфИмпакт</span><span class="p">)</span> <span class="o">*</span>
+         <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">ИнтегИмпакт</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">ДоступностьВлияние</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>«Эксплуатируемость» рассчитывается следующим образом:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Возможность использования</span> <span class="o">=</span> <span class="mi">20</span> <span class="o">*</span> <span class="n">Аксессвектор</span> <span class="o">*</span> <span class="n">ДоступСложность</span> <span class="o">*</span> <span class="n">Аутентификация</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Функция <code class="docutils literal notranslate"><span class="pre">е(</span> <span class="pre">Влияние</span> <span class="pre">)</span></code> равно 0, если воздействие равно 0.</p>
+<p>Во всех остальных случаях значение равно 1176.</p>
+</div>
+<p>Остальные значения являются константами:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Вектор доступа</dt><dd><ul>
+<li><p>Требуется локальный доступ: 0,395</p></li>
+<li><p>Доступность соседней сети: 0,646</p></li>
+<li><p>Доступ к сети: 1.0</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Сложность доступа</dt><dd><ul>
+<li><p>Высокий: 0,35</p></li>
+<li><p>Средний: 0,61</p></li>
+<li><p>Низкий: 0,71</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Аутентификация</dt><dd><ul>
+<li><p>Требуется несколько экземпляров аутентификации: 0,45.</p></li>
+<li><p>Требуется один экземпляр аутентификации: 0,56.</p></li>
+<li><p>Не требует аутентификации: 0,704</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>КонфИмпакт</dt><dd><ul>
+<li><p>Нет: 0,0</p></li>
+<li><p>Частичное: 0,275</p></li>
+<li><p>Завершено: 0,660</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>ИнтегИмпакт</dt><dd><ul>
+<li><p>Нет: 0,0</p></li>
+<li><p>Частичное: 0,275</p></li>
+<li><p>Завершено: 0,660</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>ДоступностьВлияние</dt><dd><ul>
+<li><p>Нет: 0,0</p></li>
+<li><p>Частичное: 0,275</p></li>
+<li><p>Завершено: 0,660</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</section>
+<section id="cvss-version-3-0-3-1">
+<h4><span class="section-number">13.2.3.2 </span>CVSS версии 3.0/3.1<a class="headerlink" href="managing-secinfo.html#cvss-version-3-0-3-1" title="Ссылка на эту рубрику">¶</a></h4>
+<p>Следующая формула использует калькулятор CVSS для версии 3.0/3.1:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">*</span> <span class="n">Если</span> <span class="n">Влияние</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Базовый балл</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="o">*</span> <span class="n">Если</span> <span class="n">Объем</span> <span class="ow">является</span> <span class="s2">«Без изменений»</span><span class="p">:</span>
+   <span class="n">Базовый балл</span> <span class="o">=</span> <span class="n">Округлять</span> <span class="p">(</span><span class="n">Минимум</span> <span class="p">((</span><span class="n">Влияние</span> <span class="o">+</span> <span class="n">Возможность использования</span><span class="p">),</span> <span class="mi">10</span><span class="p">))</span>
+
+<span class="o">*</span> <span class="n">Если</span> <span class="n">Объем</span> <span class="ow">является</span> <span class="s2">"Измененный"</span><span class="p">:</span>
+   <span class="n">Базовый балл</span> <span class="o">=</span> <span class="n">Округлять</span> <span class="p">(</span><span class="n">Минимум</span> <span class="p">(</span><span class="mf">1.08</span> <span class="o">*</span> <span class="p">(</span><span class="n">Влияние</span> <span class="o">+</span> <span class="n">Возможность использования</span><span class="p">),</span> <span class="mi">10</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>«ИСС» (подоценка воздействия) рассчитывается следующим образом:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">МКС</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="p">((</span><span class="mi">1</span> <span class="o">-</span> <span class="n">Конфиденциальность</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">Честность</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">Доступность</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>«Воздействие» рассчитывается следующим образом:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>* If Scope is "Unchanged":
+   Impact = 6.42 * ISS
+
+* If Scope is "Changed":
+   Impact = 7.52 * (ISS - 0.029) - 3.25 * (ISS - 0.02)¹⁵
+</pre></div>
+</div>
+<p>«Эксплуатируемость» рассчитывается следующим образом:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Возможность использования</span> <span class="o">=</span> <span class="mf">8.22</span> <span class="o">*</span> <span class="n">Атака</span> <span class="n">Вектор</span> <span class="o">*</span> <span class="n">Атака</span> <span class="n">Количество</span>
+                 <span class="o">*</span> <span class="n">Привилегии</span> <span class="n">Необходимый</span> <span class="o">*</span> <span class="n">Пользователь</span> <span class="n">Взаимодействие</span>
+</pre></div>
+</div>
+<p>Остальные значения являются константами:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Вектор воздействия</dt><dd><ul>
+<li><p>Сеть: 0,85</p></li>
+<li><p>Рядом: 0,62</p></li>
+<li><p>Местный: 0,55</p></li>
+<li><p>Физический: 0,2</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Сложность обработки</dt><dd><ul>
+<li><p>Низкий: 0,77</p></li>
+<li><p>Высокий: 0,44</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Требуемые привилегии</dt><dd><ul>
+<li><p>Нет: 0,85</p></li>
+<li><p>Низкий: 0,62 (или 0,68, если область действия «Изменена»)</p></li>
+<li><p>Высокий: 0,27 (или 0,5, если область действия «Изменена»)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Взаимодействие с пользователем</dt><dd><ul>
+<li><p>Нет: 0,85</p></li>
+<li><p>Требуется: 0,62</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Конфиденциальность</dt><dd><ul>
+<li><p>Нет: 0,0</p></li>
+<li><p>Низкий: 0,22</p></li>
+<li><p>Высокий: 0,56</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Честность</dt><dd><ul>
+<li><p>Нет: 0,0</p></li>
+<li><p>Низкий: 0,22</p></li>
+<li><p>Высокий: 0,56</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Доступность</dt><dd><ul>
+<li><p>Нет: 0,0</p></li>
+<li><p>Низкий: 0,22</p></li>
+<li><p>Высокий: 0,56</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</section>
+<section id="cvss-version-4-0">
+<h4><span class="section-number">13.2.3.3 </span>CVSS версии 4.0<a class="headerlink" href="managing-secinfo.html#cvss-version-4-0" title="Ссылка на эту рубрику">¶</a></h4>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>ГОС 24.10 поддерживает CVSS 4.0.
+Однако, поскольку CVSS v4.0 все еще находится на начальной стадии общеотраслевых данных, CVSS v4.0 пока доступна в наличии.</p>
+</div>
+<p>Калькулятор CVSS уже доступен для CVSS v4.0.
+Расчет, использованный для версии 4.0, описан в <a class="reference external" href="https://www.first.org/cvss/v4-0/specification-document">эта документация</a>.</p>
+</section>
+</section>
+<section id="epss">
+<span id="index-6"></span><span id="id10"></span><h3><span class="section-number">13.2.4 </span>ЭПСС<a class="headerlink" href="managing-secinfo.html#epss" title="Ссылка на эту рубрику">¶</a></h3>
+<p>Чтобы оценить уязвимость использования, была изобретена система оценки эксплойтов (EPSS).
+EPSS оценивает возможные уязвимости при эксплуатации, наблюдение в течение 30 дней.</p>
+<p>EPSS, разработанная компания <a class="reference external" href="https://www.first.org/epss/">Специальная группа по интересам EPSS (EPSS-SIG)</a> следствий <a class="reference external" href="https://www.first.org/">Форум групп по реагированию на инциденты и безопасность (ПЕРВЫЙ)</a>.
+Текущая версия EPSS — 3.0.</p>
+<p>EPSS рассчитывает условия эксплуатации в течение следующих 30 дней, что представляет собой значение от 0 до 1.
+Это основные преимущества EPSS.
+Чем выше значение, тем больше опасностей того, что уязвимость действительно будет использована.
+Кроме того, EPSS помещает этот рейтинг в контекст, выдавая процент, указывающий долю уязвимостей, которые были оценены так же или ниже, чем уязвимость.</p>
+<p>При расчете не учитывается среда, в которой возникает уязвимость, а также какие-либо меры по устранению, которые могут быть приняты.
+Более того, это значение не дает никакой информации о влиянии на эксплуатацию.</p>
+<p>Данные EPSS обновляются ежедневно для всех опубликованных CVE.</p>
+</section>
+</section>
+<section id="cert-bund-advisories">
+<span id="index-7"></span><h2><span class="section-number">13.3 </span>Рекомендации CERT-Bund<a class="headerlink" href="managing-secinfo.html#cert-bund-advisories" title="Ссылка на эту рубрику">¶</a></h2>
+<p> <a class="reference external" href="https://www.bsi.bund.de/EN/Themen/Unternehmen-und-Organisationen/Cyber-Sicherheitslage/Reaktion/CERT-Bund/cert-bund_node.html">CERT-Бунд</a>, Группа реагирования на компьютерные чрезвычайные ситуации
+Федеральное ведомство информационной безопасности Германии (BSI) является центральным контактным лицом по вопросам предотвращения и реагирования на компьютерные инциденты, связанные с безопасностью.</p>
+<p>С целью избежать вреда и оценить потенциальный ущерб работа CERT-Bund включает в себя следующее:</p>
+<ul class="simple">
+<li><p>Разработка и внедрение рекомендаций по профилактическим мерам</p></li>
+<li><p>Выявление уязвимостей в аппаратных и программных продуктах</p></li>
+<li><p>Предложение мер по устранению известных уязвимостей</p></li>
+<li><p>Поддержка правительственных органов по реагированию на инциденты ИТ-безопасности</p></li>
+<li><p>Рекомендация различных мер по смягчению последствий</p></li>
+<li><p>Тесно сотрудничая с <a class="reference external" href="https://www.bsi.bund.de/EN/Themen/Unternehmen-und-Organisationen/Cyber-Sicherheitslage/Reaktion/Nationales-IT-Lagezentrum/nationales-it-lagezentrum_node.html">Национальный ИТ-ситуационный центр</a>
+и <a class="reference external" href="https://www.bsi.bund.de/EN/Themen/Unternehmen-und-Organisationen/Cyber-Sicherheitslage/Reaktion/IT-Krisenreaktionszentrum/it-krisenreaktionszentrum_node.html">Национальный центр реагирования на ИТ-кризисы</a></p></li>
+</ul>
+<p>Услуги CERT-Bund в первую очередь доступны федеральным органам власти и включают следующее:</p>
+<ul class="simple">
+<li><p>Круглосуточное дежурство в Великобритании с Ситуационным центром ИТ</p></li>
+<li><p>Анализ полученных отчетов о происшествиях</p></li>
+<li><p>Разработка рекомендаций на основе инцидентов</p></li>
+<li><p>Поддержка федеральных органов власти во время инцидентов ИТ-безопасности</p></li>
+<li><p>Работа службы информации и информации</p></li>
+<li><p>Геометрическое оповещение федеральной администрации в случае опасности</p></li>
+</ul>
+<p>CERT-Bund предлагает услуги по анализу и информации (нем. Warn- und Informationsdienst, сокращенно WID).
+В настоящее время этот сервис предлагает два различных типа информации:</p>
+<dl class="simple">
+<dt>Рекомендации</dt><dd><p>Эта информационная служба доступна только федеральным агентствам в закрытом списке.
+В рекомендациях опишите текущую информацию о серьезных нарушениях безопасности в компьютерной сфере и последующие меры по устранению угроз безопасности.</p>
+</dd>
+<dt>Краткая информация</dt><dd><p>Краткая информация представляет собой краткое описание текущей информации о рисках безопасности и уязвимостях.
+Эта информация не всегда проверена и может быть неполной или даже неточной.</p>
+</dd>
+</dl>
+<p>AK-SHUMKAR ENTERPRISE FEED содержит уменьшенную информацию CERT-Bund.
+Обеспечьте информацию в <a class="reference external" href="https://www.bsi.bund.de/DE/Service-Navi/Abonnements/Warnmeldungen/warnmeldungen_node.html">старый формат</a> [Только на немецком языке] (до июня 2022 г.) и информация в
+<a class="reference external" href="https://wid.cert-bund.de/portal/wid/kurzinformationen">новый формат</a> [Только на немецком языке] (июнь 2022 г.) включено.</p>
+<ul class="simple">
+<li><p>Между обоими форматами имеются очень незначительные различия в рекомендательных метаданных. Форматы могут использоваться взаимозаменяемо для всех случаев использования.</p></li>
+<li><p>старая форма по образцу <code class="docutils literal notranslate"><span class="pre">CB-KYY/ID</span></code>, например <code class="docutils literal notranslate"><span class="pre">CB-K22/0704</span></code>.</p></li>
+<li><p>Информация о новой форме по образцу <code class="docutils literal notranslate"><span class="pre">WID-SEC-ГГГГ-ID</span></code>, например <code class="docutils literal notranslate"><span class="pre">WID-SEC-2022-0311</span></code>.</p></li>
+</ul>
+<p><strong>Страница списка</strong></p>
+<p>Все рекомендации CERT-Bund можно отобразить, выбрав <span class="target" id="gos-webui-4"></span><em>SecInfo &gt; Рекомендации CERT-Bund</em> в меню.</p>
+<p>Серьезность, отображаемая для рекомендаций CERT-Bund, не относится непосредственно к рекомендациям.
+Вместо этого это самая серьезная угроза среди всех CVE, упомянутых в рекомендациях.
+Если в рекомендациях CERT-Bund не упоминаются CVE, <em>Н/Д</em> объявлена ​​в своей серьезности.
+Дополнительная информация о CVE и их серьезности. в главах. <a class="reference internal" href="managing-secinfo.html#cve"><span class="std std-ref">13.2.1</span></a> и <a class="reference internal" href="managing-secinfo.html#cvss"><span class="std std-ref">13.2.3</span></a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Нажав <a class="reference internal" href="_images/export.png"><img alt="" src="_images/export.png" style="height: 1.2em;"/></a> под списком рекомендаций CERT-Bund можно экспортировать более одну одну рекомендации CERT-Bund одновременно. Раскрывающийся список используется для выбора внешних стратегий CERT-Bund.</p>
+</div>
+<p><strong>Страница раскрыта</strong></p>
+<p>Нажмите на название рекомендации CERT-Bund, чтобы отобразить подробную информацию о рекомендациях CERT-Bund. Нажмите <a class="reference internal" href="_images/details.png"><img alt="" src="_images/details.png" style="height: 1.2em;"/></a> Чтобы открыть страницу, опишите рекомендации CERT-Bund.</p>
+<p>Доступны следующие вкладки:</p>
+<dl class="simple">
+<dt>Информация</dt><dd><p>Общая информация о рекомендациях CERT-Bund.</p>
+</dd>
+<dt>Пользовательские теги</dt><dd><p>Присвоенные теги (см. главу <a class="reference internal" href="web-interface.html#tags"><span class="std std-ref">7.4</span></a>).</p>
+</dd>
+</dl>
+<p>В левом верхнем углу пульта доступны следующие действия:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="_images/help.png"><img alt="" src="_images/help.png" style="height: 1.2em;"/></a> Ознакомьтесь с соответствующим главой руководства пользователя.</p></li>
+<li><p><a class="reference internal" href="_images/list.png"><img alt="" src="_images/list.png" style="height: 1.2em;"/></a> Показать страницу со списком всех рекомендаций CERT-Bund.</p></li>
+<li><p><a class="reference internal" href="_images/export.png"><img alt="" src="_images/export.png" style="height: 1.2em;"/></a> Экспортируйте рекомендации CERT-Bund в видео XML-файл.</p></li>
+</ul>
+</section>
+<section id="dfn-cert-advisories">
+<span id="index-8"></span><h2><span class="section-number">13.4 </span>Рекомендации DFN-CERT<a class="headerlink" href="managing-secinfo.html#dfn-cert-advisories" title="Ссылка на эту рубрику">¶</a></h2>
+<p>Хотя разработка VT, CVE и CPE в первую очередь предназначена для обработки компьютерными системами, <a class="reference external" href="https://www.dfn-cert.de/">ДФН-СЕРТ</a> [Только на немецком языке] регулярно публикует новые рекомендации.</p>
+<p>DFN-CERT отвечает за расходы университетов и исследовательских институтов, <a class="reference external" href="https://www.dfn.de/en/">Немецкая научно-образовательная сеть</a> (Немецкий: Deutsches Forschungsnetz, сокращенно DFN).
+Кроме того, он предоставляет основные услуги в области безопасности правительства и промышленности.</p>
+<p>В рекомендациях о особо серьезных угрозах безопасности, требующих быстрого реагирования.
+Консультативная служба DFN-CERT включает категоризацию, распространение и рекомендации по рейтингу, выпущенным различными поставщиками и дистрибьюторами программного обеспечения.
+Рекомендации принимаются АК-ШУМКАР и включаются в исходные данные для справки.</p>
+<p><strong>Страница списка</strong></p>
+<p>Все рекомендации DFN-CERT можно отобразить, выбрав <span class="target" id="gos-webui-5"></span><em>SecInfo &gt; Рекомендации DFN-CERT</em> в меню.</p>
+<p>Серьезность, отображаемая для рекомендаций DFN-CERT, не принимается непосредственно из рекомендаций.
+Вместо этого это самая серьезная угроза среди всех CVE, упомянутых в рекомендациях.
+Если в рекомендациях DFN-CERT не указан CVE, <em>Н/Д</em> объявлена ​​в своей серьезности.
+Дополнительная информация о CVE и их серьезности. в главах. <a class="reference internal" href="managing-secinfo.html#cve"><span class="std std-ref">13.2.1</span></a> и <a class="reference internal" href="managing-secinfo.html#cvss"><span class="std std-ref">13.2.3</span></a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Нажав <a class="reference internal" href="_images/export.png"><img alt="" src="_images/export.png" style="height: 1.2em;"/></a> под списком рекомендаций DFN-CERT можно экспортировать более одной рекомендации DFN-CERT одновременно. Раскрывающийся список используется для выбора внешних стратегий DFN-CERT.</p>
+</div>
+<p><strong>Страница раскрыта</strong></p>
+<p>Нажмите на название рекомендации DFN-CERT, чтобы отобразить подробную информацию о рекомендациях DFN-CERT. Нажмите <a class="reference internal" href="_images/details.png"><img alt="" src="_images/details.png" style="height: 1.2em;"/></a> Чтобы открыть страницу, опишите рекомендации DFN-CERT.</p>
+<p>Доступны следующие вкладки:</p>
+<dl class="simple">
+<dt>Информация</dt><dd><p>Общая информация о рекомендациях DFN-CERT.</p>
+</dd>
+<dt>Пользовательские теги</dt><dd><p>Присвоенные теги (см. главу <a class="reference internal" href="web-interface.html#tags"><span class="std std-ref">7.4</span></a>).</p>
+</dd>
+</dl>
+<p>В левом верхнем углу пульта доступны следующие действия:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="_images/help.png"><img alt="" src="_images/help.png" style="height: 1.2em;"/></a> Ознакомьтесь с соответствующим главой руководства пользователя.</p></li>
+<li><p><a class="reference internal" href="_images/list.png"><img alt="" src="_images/list.png" style="height: 1.2em;"/></a> Показать страницу со списком всех рекомендаций DFN-CERT.</p></li>
+<li><p><a class="reference internal" href="_images/export.png"><img alt="" src="_images/export.png" style="height: 1.2em;"/></a> Экспортируйте рекомендации DFN-CERT в видео XML-файла.</p></li>
+</ul>
+</section>
+</section>
+</article>
+</div>
+<footer>
+<div class="related-pages">
+<a class="next-page" href="gmp.html">
+<div class="page-info">
+<div class="context">
+<span>Следующий</span>
+</div>
+<div class="title"><span class="section-number">14 </span>Использование протокола управления «Ак Шумкар»</div>
+</div>
+<svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+</a>
+<a class="prev-page" href="managing-assets.html">
+<svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+<div class="page-info">
+<div class="context">
+<span>Предыдущий</span>
+</div>
+<div class="title"><span class="section-number">12 </span>Управление активами</div>
+</div>
+</a>
+</div>
+<div class="bottom-of-page">
+<div class="left-details">
+<div class="copyright">
+                Copyright © 2015–2026, Ак Шумкар
+            </div>
+<div class="last-updated">
+              Последнее обновление: 13 марта 2026 г.</div>
+</div>
+<div class="right-details">
+</div>
+</div>
+</footer>
+</div>
+<aside class="toc-drawer">
+<div class="toc-sticky toc-scroll">
+<div class="toc-title-container">
+<span class="toc-title">
+            На этой странице
+          </span>
+</div>
+<div class="toc-tree-container">
+<div class="toc-tree">
+<ul>
+<li><a class="reference internal" href="managing-secinfo.html#">13 Управление информацией о безопасности</a><ul>
+<li><a class="reference internal" href="managing-secinfo.html#vulnerability-tests-vt">13.1 Тесты на уязвимости (VT)</a></li>
+<li><a class="reference internal" href="managing-secinfo.html#security-content-automation-protocol-scap">13.2 Протокол автоматизации контента (SCAP)</a><ul>
+<li><a class="reference internal" href="managing-secinfo.html#cve">13.2.1 CVE</a></li>
+<li><a class="reference internal" href="managing-secinfo.html#cpe">13.2.2 CPE</a></li>
+<li><a class="reference internal" href="managing-secinfo.html#cvss">13.2.3 ЦВСС</a><ul>
+<li><a class="reference internal" href="managing-secinfo.html#cvss-version-2-0">13.2.3.1 CVSS версии 2.0</a></li>
+<li><a class="reference internal" href="managing-secinfo.html#cvss-version-3-0-3-1">13.2.3.2 CVSS версии 3.0/3.1</a></li>
+<li><a class="reference internal" href="managing-secinfo.html#cvss-version-4-0">13.2.3.3 CVSS версии 4.0</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="managing-secinfo.html#epss">13.2.4 ЭПСС</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="managing-secinfo.html#cert-bund-advisories">13.3 Рекомендации CERT-Bund</a></li>
+<li><a class="reference internal" href="managing-secinfo.html#dfn-cert-advisories">13.4 Рекомендации DFN-CERT</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</aside>
+</div>
+</div><script src="_static/documentation_options.js%3Fv=bd398bb6"></script>
+<script src="_static/doctools.js%3Fv=9a2dae69"></script>
+<script src="_static/sphinx_highlight.js%3Fv=dc90522c"></script>
+<script src="_stati_static/scripts/furo.js%3Fv=46bd48cc"></script>
+</body></html>

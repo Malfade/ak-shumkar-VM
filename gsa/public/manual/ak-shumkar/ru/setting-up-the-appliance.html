@@ -1,0 +1,1219 @@
+<html lang="ru"><body><meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="light dark" name="color-scheme"/><meta content="width=device-width, initial-scale=1" name="viewport"/>
+<link href="genindex.html" rel="index" title="Индекс"/><link href="search.html" rel="search" title="Поиск"/><link href="upgrading-gos.html" rel="next" title="5 Обновление АК-ШУМКАР до последней основной версии"/><link href="appliance-overview.html" rel="prev" title="3 АК-ШУМКАР – Обзор"/>
+<link as="image" href="/img/ak-shumkar.png" rel="prefetch"/>
+<link as="image" href="/img/ak-shumkar.png" rel="prefetch"/>
+<link href="/img/ak-shumkar.png" rel="icon" type="image/png"/><link href="/img/ak-shumkar.png" rel="shortcut icon" type="image/png"/><title>4 Настройка АК-ШУМКАР - АК-ШУМКАР — ГОС 24.10.11</title>
+<link href="_static/pygments.css%3Fv=8e8a900e.css" rel="stylesheet" type="text/css"/>
+<link href="_static/styles/furo.css%3Fv=580074bf.css" rel="stylesheet" type="text/css"/>
+<link href="_static/sphinx_greenbone.css%3Fv=8ef0bb58.css" rel="stylesheet" type="text/css"/>
+<link href="_static/styles/furo-extensions.css%3Fv=8dab3a3b.css" rel="stylesheet" type="text/css"/>
+<style>
+  body {
+    --color-code-background: #ffffff;
+  --color-code-foreground: black;
+  --font-stack: Roboto, Helvetica, sans-serif;
+  --color-content-foreground: #4D4D4D;
+  --color-foreground-primary: 4D4D4D;
+  --color-foreground-secondary: #808080;
+  --color-code-background: #333333;
+  --color-code-foreground: #E6E6E6;
+  --color-admonition-title--note: #0E823E;
+  --color-admonition-title--note-background: #D8F1E2;
+  --color-admonition-title--warning: #E5393D;
+  --color-admonition-title--warning-background: #FBDDDE;
+  --admonition-font-size: 0.9rem;
+  --color-background-primary: #FFFFFF;
+  --color-background-secondary: #F5F5F5;
+  --color-sidebar-background: #F5F5F5;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --font-stack: Roboto, Helvetica, sans-serif;
+  --color-content-foreground: #F5F5F5;
+  --color-foreground-primary: F5F5F5;
+  --color-foreground-secondary: #E6E6E6;
+  --color-code-background: #333333;
+  --color-code-foreground: #E6E6E6;
+  --color-admonition-title--note: #11AB51;
+  --admonition-font-size: 0.9rem;
+  --color-background-primary: #171717;
+  --color-background-secondary: #4D4D4D;
+  --color-sidebar-background: #333333;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --font-stack: Roboto, Helvetica, sans-serif;
+  --color-content-foreground: #F5F5F5;
+  --color-foreground-primary: F5F5F5;
+  --color-foreground-secondary: #E6E6E6;
+  --color-code-background: #333333;
+  --color-code-foreground: #E6E6E6;
+  --color-admonition-title--note: #11AB51;
+  --admonition-font-size: 0.9rem;
+  --color-background-primary: #171717;
+  --color-background-secondary: #4D4D4D;
+  --color-sidebar-background: #333333;
+  
+      }
+    }
+  }
+</style>
+<script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+<svg style="display: none;" xmlns="http://www.w3.org/2000/svg">
+<symbol id="svg-toc" viewbox="0 0 24 24">
+<title>Содержание</title>
+<svg fill="currentColor" stroke="currentColor" stroke-width="0" viewbox="0 0 1024 1024">
+<path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"></path>
+</svg>
+</symbol>
+<symbol id="svg-menu" viewbox="0 0 24 24">
+<title>Меню</title>
+<svg class="feather-menu" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<line x1="3" x2="21" y1="12" y2="12"></line>
+<line x1="3" x2="21" y1="6" y2="6"></line>
+<line x1="3" x2="21" y1="18" y2="18"></line>
+</svg>
+</symbol>
+<symbol id="svg-arrow-right" viewbox="0 0 24 24">
+<title>Расширять</title>
+<svg class="feather-chevron-right" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<polyline points="9 18 15 12 9 6"></polyline>
+</svg>
+</symbol>
+<symbol id="svg-sun" viewbox="0 0 24 24">
+<title>Светлый режим</title>
+<svg class="feather-sun" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<circle cx="12" cy="12" r="5"></circle>
+<line x1="12" x2="12" y1="1" y2="3"></line>
+<line x1="12" x2="12" y1="21" y2="23"></line>
+<line x1="4.22" x2="5.64" y1="4.22" y2="5.64"></line>
+<line x1="18.36" x2="19.78" y1="18.36" y2="19.78"></line>
+<line x1="1" x2="3" y1="12" y2="12"></line>
+<line x1="21" x2="23" y1="12" y2="12"></line>
+<line x1="4.22" x2="5.64" y1="19.78" y2="18.36"></line>
+<line x1="18.36" x2="19.78" y1="5.64" y2="4.22"></line>
+</svg>
+</symbol>
+<symbol id="svg-moon" viewbox="0 0 24 24">
+<title>Темный режим</title>
+<svg class="icon-tabler-moon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 0h24v24H0z" fill="none" stroke="none"></path>
+<path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"></path>
+</svg>
+</symbol>
+<symbol id="svg-sun-with-moon" viewbox="0 0 24 24">
+<title>Автоматический свет/темнота, в ярком режиме</title>
+<svg class="icon-custom-derived-from-feather-sun-and-tabler-moon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z" style="opacity: 50%"></path>
+<line x1="14.5" x2="14.5" y1="3.25" y2="1.25"></line>
+<line x1="14.5" x2="14.5" y1="15.85" y2="17.85"></line>
+<line x1="10.044" x2="8.63" y1="5.094" y2="3.68"></line>
+<line x1="19" x2="20.414" y1="14.05" y2="15.464"></line>
+<line x1="8.2" x2="6.2" y1="9.55" y2="9.55"></line>
+<line x1="20.8" x2="22.8" y1="9.55" y2="9.55"></line>
+<line x1="10.044" x2="8.63" y1="14.006" y2="15.42"></line>
+<line x1="19" x2="20.414" y1="5.05" y2="3.636"></line>
+<circle cx="14.5" cy="9.55" r="3.6"></circle>
+</svg>
+</symbol>
+<symbol id="svg-moon-with-sun" viewbox="0 0 24 24">
+<title>Автоматический светлый/темный, в темном режиме</title>
+<svg class="icon-custom-derived-from-feather-sun-and-tabler-moon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"></path>
+<line style="opacity: 50%" x1="18" x2="18" y1="3.705" y2="2.5"></line>
+<line style="opacity: 50%" x1="18" x2="18" y1="11.295" y2="12.5"></line>
+<line style="opacity: 50%" x1="15.316" x2="14.464" y1="4.816" y2="3.964"></line>
+<line style="opacity: 50%" x1="20.711" x2="21.563" y1="10.212" y2="11.063"></line>
+<line style="opacity: 50%" x1="14.205" x2="13.001" y1="7.5" y2="7.5"></line>
+<line style="opacity: 50%" x1="21.795" x2="23" y1="7.5" y2="7.5"></line>
+<line style="opacity: 50%" x1="15.316" x2="14.464" y1="10.184" y2="11.036"></line>
+<line style="opacity: 50%" x1="20.711" x2="21.563" y1="4.789" y2="3.937"></line>
+<circle cx="18" cy="7.5" r="2.169" style="opacity: 50%"></circle>
+</svg>
+</symbol>
+<symbol id="svg-pencil" viewbox="0 0 24 24">
+<svg class="icon-tabler-pencil-code" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4"></path>
+<path d="M13.5 6.5l4 4"></path>
+<path d="M20 21l2 -2l-2 -2"></path>
+<path d="M17 17l-2 2l2 2"></path>
+</svg>
+</symbol>
+<symbol id="svg-eye" viewbox="0 0 24 24">
+<svg class="icon-tabler-eye-code" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 0h24v24H0z" fill="none" stroke="none"></path>
+<path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"></path>
+<path d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008"></path>
+<path d="M20 21l2 -2l-2 -2"></path>
+<path d="M17 17l-2 2l2 2"></path>
+</svg>
+</symbol>
+</svg>
+<input aria-label="Включить боковую панель навигации по сайту" class="sidebar-toggle" id="__navigation" name="__navigation" type="checkbox"/>
+<input aria-label="Переключить боковую панель оглавления" class="sidebar-toggle" id="__toc" name="__toc" type="checkbox"/>
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+<a class="skip-to-content muted-link" href="setting-up-the-appliance.html#furo-main-content">Перейти к содержимому</a>
+<div class="page">
+<header class="mobile-header">
+<div class="header-left">
+<label class="nav-overlay-icon" for="__navigation">
+<span class="icon"><svg><use href="#svg-menu"></use></svg></span>
+</label>
+</div>
+<div class="header-center">
+<a href="index.html"><div class="brand">АК-ШУМКАР – ГОС 24.10.11</div></a>
+</div>
+<div class="header-right">
+<div class="theme-toggle-container theme-toggle-header">
+<button aria-label="Переключить светлую/темную/автоматическую цветную тему" class="theme-toggle">
+<svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+<svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+<svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+<svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+</button>
+</div>
+<label class="toc-overlay-icon toc-header-icon" for="__toc">
+<span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+</label>
+</div>
+</header>
+<aside class="sidebar-drawer">
+<div class="sidebar-container">
+<div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
+<div class="sidebar-logo-container">
+<img alt="Логотип АК-ШУМКАР" class="sidebar-logo only-light" src="/img/ak-shumkar.png"/>
+<img alt="Логотип АК-ШУМКАР" class="sidebar-logo only-dark" src="/img/ak-shumkar.png"/>
+</div>
+<span class="sidebar-brand-text">АК-ШУМКАР – ГОС 24.10.11</span>
+</a><form action="search.html" class="sidebar-search-container" method="get" role="search">
+<input aria-label="Поиск" class="sidebar-search" name="q" placeholder="Поиск"/>
+<input name="check_keywords" type="hidden" value="yes"/>
+<input name="area" type="hidden" value="default"/>
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">1 Введение</a></li>
+<li class="toctree-l1"><a class="reference internal" href="read-before-use.html">2 Прочтите перед использованием</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appliance-overview.html">3 АК-ШУМКАР – Обзор</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="setting-up-the-appliance.html#">4 Настройка АК-ШУМКАР</a></li>
+<li class="toctree-l1"><a class="reference internal" href="upgrading-gos.html">5 Обновление АК-ШУМКАР до последней основной версии</a></li>
+<li class="toctree-l1"><a class="reference internal" href="managing-gos.html">6 Управление системой «Ак Шумкар»</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web-interface.html">7 Знакомство с веб-интерфейсом</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web-interface-access.html">8 Управление доступом к веб-интерфейсу</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scanning.html">9 Системы сканирования</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reports.html">10 отчетов и управление уязвимостями</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compliance-and-special-scans.html">11 Выполнение консультаций и технических услуг</a></li>
+<li class="toctree-l1"><a class="reference internal" href="managing-assets.html">12 Управление активами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="managing-secinfo.html">13 Управление информацией о безопасности</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gmp.html">14 Использование протокола управления «Ак Шумкар»</a></li>
+<li class="toctree-l1"><a class="reference internal" href="master-sensor-setup.html">15 Использование настроек главного датчика</a></li>
+<li class="toctree-l1"><a class="reference internal" href="performance.html">16 Управление производительностью</a></li>
+<li class="toctree-l1"><a class="reference internal" href="connecting-other-systems.html">17 Подключение АК-ШУМКАР к другим системам</a></li>
+<li class="toctree-l1"><a class="reference internal" href="architecture.html">18 Архитектура</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">19 часто задаваемых вопросов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">20 Глоссарий</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</aside>
+<div class="main">
+<div class="content">
+<div class="article-container">
+<a class="back-to-top muted-link" href="setting-up-the-appliance.html#">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+</svg>
+<span>Вернуться наверх</span>
+</a>
+<div class="content-icon-container">
+<div class="theme-toggle-container theme-toggle-content">
+<button aria-label="Переключить светлую/темную/автоматическую цветную тему" class="theme-toggle">
+<svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+<svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+<svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+<svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+</button>
+</div>
+<label class="toc-overlay-icon toc-content-icon" for="__toc">
+<span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+</label>
+</div>
+<article id="furo-main-content" role="main">
+<section id="setting-up-ak-shumkar-scan">
+<span id="setup-guides"></span><span id="index-0"></span><h1><span class="section-number">4 </span>Настройка АК-ШУМКАР<a class="headerlink" href="setting-up-the-appliance.html#setting-up-ak-shumkar-scan" title="Ссылка на эту рубрику">¶</a></h1>
+<section id="setup-requirements">
+<span id="id1"></span><h2><span class="section-number">4.1 </span>Требования к установке<a class="headerlink" href="setting-up-the-appliance.html#setup-requirements" title="Ссылка на эту рубрику">¶</a></h2>
+<section id="ak-shumkar-scan-6500-5400">
+<span id="index-1"></span><h3><span class="section-number">4.1.1 </span>АК-ШУМКАР 6500/5400<a class="headerlink" href="setting-up-the-appliance.html#ak-shumkar-scan-6500-5400" title="Ссылка на эту рубрику">¶</a></h3>
+<p>АК-ШУМКАР 5400 и АК-ШУМКАР 6500 монтируются на 19-дюймовую раму и требуют двух стоек (RU).
+В комплект входят стоечные держатели для установки на 19-дюймовую стойку.</p>
+<p>Для подключения приборов АК-ШУМКАР 5400 и АК-ШУМКАР 6500 имеют соответствующие разъемы спереди и сзади:</p>
+<ul>
+<li><dl>
+<dt>Передний</dt><dd><ul>
+<li><p>1 консольный порт RJ45, прилагается соответствующий кабель</p></li>
+<li><p>1 консольный порт Mini-USB</p></li>
+<li><p>2 порта USB 3.0</p></li>
+<li><p>2 порта Ethernet RJ45 с маркировкой «MGMT» для управления</p></li>
+<li><p>1 модуль с 8 портами Ethernet RJ45</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Дополнительные сетевые модули необходимо приобретать отдельно. Всего можно установить максимум 4 сетевых модуля.
+Сетевые модули могут поддерживать до 8 портов RJ45, 8 SFP или 2 портов SFP+ Ethernet.</p>
+</div>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Назад</dt><dd><ul class="simple">
+<li><p>1 порт VGA</p></li>
+<li><p>1 порт USB 2.0</p></li>
+<li><p>2 источник питания</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p>Для установки требуется либо монитор и клавиатура, либо последовательное подключение консоли и терминальное приложение.</p>
+</section>
+<section id="ak-shumkar-scan-650-600-450-400">
+<span id="index-2"></span><h3><span class="section-number">4.1.2 </span>АК-ШУМКАР 650/600/450/400<a class="headerlink" href="setting-up-the-appliance.html#ak-shumkar-scan-650-600-450-400" title="Ссылка на эту рубрику">¶</a></h3>
+<p>АК-ШУМКАР 400, АК-ШУМКАР 450, АК-ШУМКАР 600 и АК-ШУМКАР 650 монтируются на 19-дюймовую раму и требуют одной стойки (RU). В комплект входят стоечные держатели для установки на 19-дюймовую стойку.</p>
+<p>Для подключения приборов АК-ШУМКАР 400, АК-ШУМКАР 450, АК-ШУМКАР 600 и АК-ШУМКАР 650 имеют соответствующие разъемы спереди и сзади:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Передний</dt><dd><ul>
+<li><p>1 консольный порт RJ45, прилагается соответствующий кабель</p></li>
+<li><p>2 порта USB 3.0</p></li>
+<li><p>8 портов Ethernet RJ45</p></li>
+<li><p>2 порта Ethernet SFP</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Назад</dt><dd><ul>
+<li><p>1 порт VGA</p></li>
+<li><p>1 источник питания</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p>Для установки требуется либо монитор и клавиатура, либо последовательное подключение консоли и терминальное приложение.</p>
+</section>
+<section id="ak-shumkar-scan-150">
+<span id="index-3"></span><h3><span class="section-number">4.1.3 </span>АК-ШУМКАР 150<a class="headerlink" href="setting-up-the-appliance.html#ak-shumkar-scan-150" title="Ссылка на эту рубрику">¶</a></h3>
+<p>АК-ШУМКАР 150 монтируется на 19-дюймовую раму и требует одной стойки (RU). Дополнительный комплект RACKMOUNT150 включает в себя держатели для установки устройства в 19-дюймовую стойку.</p>
+<p>Для автономных приборов на соответствующие нижние боковые выступы необходимо установить четыре самоклеящиеся резиновые прокладки.</p>
+<p>Для подключения прибора АК-ШУМКАР 150 имеются соответствующие разъемы спереди и сзади:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Передний</dt><dd><ul>
+<li><p>1 консольный порт RJ45, прилагается соответствующий кабель</p></li>
+<li><p>2 порта USB 3.0</p></li>
+<li><p>8 портов Ethernet RJ45</p></li>
+<li><p>2 порта Ethernet SFP</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Назад</dt><dd><ul>
+<li><p>1 порт VGA</p></li>
+<li><p>1 источник питания</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p>Для установки требуется либо монитор и клавиатура, либо последовательное подключение консоли и терминальное приложение.</p>
+</section>
+<section id="ak-shumkar-scan-35">
+<span id="index-4"></span><h3><span class="section-number">4.1.4 </span>АК-ШУМКАР 35<a class="headerlink" href="setting-up-the-appliance.html#ak-shumkar-scan-35" title="Ссылка на эту рубрику">¶</a></h3>
+<p>АК-ШУМКАР 35 монтируется на 19-дюймовую раму и требует одной стойки (RU). Дополнительный комплект RACKMOUNT35 включает держатели для установки устройства в 19-дюймовую стойку.</p>
+<p>Для автономных приборов на соответствующие нижние боковые выступы необходимо установить четыре самоклеящиеся резиновые прокладки.</p>
+<p>Для подключения прибора АК-ШУМКАР 35 имеются соответствующие разъемы спереди и сзади:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Передний</dt><dd><ul>
+<li><p>1 консольный порт RJ45, прилагается соответствующий кабель</p></li>
+<li><p>2 порта USB 3.0</p></li>
+<li><p>1 порт HDMI</p></li>
+<li><p>4 порта Ethernet RJ45</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Назад</dt><dd><ul>
+<li><p>1 источник питания</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p>Для установки требуется либо монитор и клавиатура, либо последовательное подключение консоли и терминальное приложение.</p>
+</section>
+<section id="ak-shumkar-scan-deca-tera-peta-exa">
+<span id="index-5"></span><h3><span class="section-number">4.1.5 </span>АК-ШУМКАР ДЕКА/ТЕРА/ПЕТА/ЭКСА<a class="headerlink" href="setting-up-the-appliance.html#ak-shumkar-scan-deca-tera-peta-exa" title="Ссылка на эту рубрику">¶</a></h3>
+<p>В этом разделе перечислены требования для получения выгоды от развертывания АК-ШУМКАР ДЕКА, АК-ШУМКАР ТЕРА, АК-ШУМКАР ПЕТА или АК-ШУМКАР ЕХА.
+Все требования должны быть соблюдены.</p>
+<p>Виртуальным устройствам требуются и ограничены следующие ресурсы:</p>
+<ul class="simple">
+<li><p>АК-ШУМКАР ДЕКА</p>
+<ul>
+<li><p>4-х мировой процессор</p></li>
+<li><p>14 ГБ ОЗУ</p></li>
+<li><p>Виртуальный жесткий диск емкостью 500 ГБ</p></li>
+</ul>
+</li>
+<li><p>АК-ШУМКАР ТЕРА</p>
+<ul>
+<li><p>6 виртуальных процессоров</p></li>
+<li><p>14 ГБ ОЗУ</p></li>
+<li><p>Виртуальный жесткий диск емкостью 500 ГБ</p></li>
+</ul>
+</li>
+<li><p>АК-ШУМКАР ПЕТА</p>
+<ul>
+<li><p>8 виртуальных процессоров</p></li>
+<li><p>16 ГБ ОЗУ</p></li>
+<li><p>Виртуальный жесткий диск емкостью 500 ГБ</p></li>
+</ul>
+</li>
+<li><p>АК-ШУМКАР ЭКСА</p>
+<ul>
+<li><p>12 виртуальных процессоров</p></li>
+<li><p>24 ГБ ОЗУ</p></li>
+<li><p>Виртуальный жесткий диск емкостью 500 ГБ</p></li>
+</ul>
+</li>
+</ul>
+<p>Официально для работы АК-ШУМКАР DECA/TERA/PETA/EXA используются следующие гипервизоры:</p>
+<ul class="simple">
+<li><p>Microsoft Hyper-V: Server 2016 (виртуальная машина поколения 2, встроенная виртуальная машина версии 8.0 или выше)</p></li>
+<li><p>Гипервизор VMware vSphere (ESXi), версия 7.0 или выше</p></li>
+<li><p>Huawei FusionCompute, версия 8.0</p></li>
+<li><p>Виртуальная среда Proxmox (VE), версия 8.0 или выше</p></li>
+</ul>
+<p>Для Microsoft Hyper-V АК-ШУМКАР DECA/TERA/PETA/EXA имеет место в виде явления машины 2-го поколения.</p>
+<p>Требуемый режим загрузки — это режим загрузки EFI/UEFI.</p>
+</section>
+<section id="ak-shumkar-scan-ceno">
+<span id="index-6"></span><h3><span class="section-number">4.1.6 </span>АК-ШУМКАР ЦЕНО<a class="headerlink" href="setting-up-the-appliance.html#ak-shumkar-scan-ceno" title="Ссылка на эту рубрику">¶</a></h3>
+<p>В этом разделе перечислены требования для выгодного развертывания AK-SHUMKAR CENO.
+Все требования должны быть соблюдены.</p>
+<p>Виртуальному устройству требуются и ограничены следующие ресурсы:</p>
+<ul class="simple">
+<li><p>2 виртуальных процессора</p></li>
+<li><p>12 ГБ ОЗУ</p></li>
+<li><p>Виртуальный жесткий диск емкостью 500 ГБ</p></li>
+</ul>
+<p>Следующие гипервизоры официально применяются для запуска AK-SHUMKAR CENO:</p>
+<ul class="simple">
+<li><p>Microsoft Hyper-V: Server 2016 (виртуальная машина поколения 2, встроенная виртуальная машина версии 8.0 или выше)</p></li>
+<li><p>Гипервизор VMware vSphere (ESXi), версия 7.0 или выше</p></li>
+<li><p>Виртуальная среда Proxmox (VE), версия 8.0 или выше</p></li>
+</ul>
+<p>Для Microsoft Hyper-V АК-ШУМКАР CENO отображается как виртуальная машина 2-го поколения.</p>
+<p>Требуемый режим загрузки — это режим загрузки EFI/UEFI.</p>
+</section>
+<section id="ak-shumkar-scan-25v">
+<span id="index-7"></span><h3><span class="section-number">4.1.7 </span>АК-ШУМКАР 25В<a class="headerlink" href="setting-up-the-appliance.html#ak-shumkar-scan-25v" title="Ссылка на эту рубрику">¶</a></h3>
+<p>В этом разделе перечислены требования к выгоде от применения АК-ШУМКАР 25В.
+Все требования должны быть соблюдены.</p>
+<p>Виртуальному устройству требуются и ограничены следующие ресурсы:</p>
+<ul class="simple">
+<li><p>2 виртуальных процессора</p></li>
+<li><p>8 ГБ ОЗУ</p></li>
+<li><p>Виртуальный жесткий диск емкостью 500 ГБ</p></li>
+</ul>
+<p>Официально для работы АК-ШУМКАР 25В используются следующие гипервизоры:</p>
+<ul class="simple">
+<li><p>Microsoft Hyper-V: Server 2016 (виртуальная машина поколения 2, встроенная виртуальная машина версии 8.0 или выше)</p></li>
+<li><p>Гипервизор VMware vSphere (ESXi), версия 7.0 или выше</p></li>
+<li><p>Huawei FusionCompute, версия 8.0</p></li>
+<li><p>Виртуальная среда Proxmox (VE), версия 8.0 или выше</p></li>
+</ul>
+<p>Для Microsoft Hyper-V АК-ШУМКАР 25В показано в виде машины 2-го поколения.</p>
+<p>Требуемый режим загрузки — это режим загрузки EFI/UEFI.</p>
+</section>
+<section id="ak-shumkar-basic">
+<span id="index-8"></span><h3><span class="section-number">4.1.8 </span>АК-ШУМКАР БАЗОВЫЙ<a class="headerlink" href="setting-up-the-appliance.html#ak-shumkar-basic" title="Ссылка на эту рубрику">¶</a></h3>
+<p>В этом разделе перечислены требования для получения выгоды от развертывания АК-ШУМКАР БЕЙСИК.
+Все требования должны быть соблюдены.</p>
+<p>Виртуальному устройству требуются и ограничены следующие ресурсы:</p>
+<ul class="simple">
+<li><p>2 виртуальных процессора</p></li>
+<li><p>12 ГБ ОЗУ</p></li>
+<li><p>Виртуальный жесткий диск емкостью 500 ГБ</p></li>
+</ul>
+<p>Следующие гипервизоры официально применяются для запуска АК-ШУМКАР БЕЙСИК:</p>
+<ul class="simple">
+<li><p>Microsoft Hyper-V: Server 2016 (виртуальная машина поколения 2, встроенная виртуальная машина версии 8.0 или выше)</p></li>
+<li><p>Гипервизор VMware vSphere (ESXi), версия 7.0 или выше</p></li>
+<li><p>VMware Workstation Pro версии 17.0 или выше</p></li>
+<li><p>Oracle VirtualBox версии 7.0 или выше</p></li>
+<li><p>Huawei FusionCompute, версия 8.0</p></li>
+<li><p>Виртуальная среда Proxmox (VE), версия 8.0 или выше</p></li>
+</ul>
+<p>Требуемый режим загрузки — это режим загрузки EFI/UEFI.</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Следующие шаги предназначены для АК-ШУМКАР БЕЙСИК, в противном случае невозможно устранить обнаруженные уязвимости:</p>
+<ul class="simple">
+<li><p>Ввод или загрузка ключа подписки АК-ШУМКАР ПРЕДПРИЯТИЯ FEED (см. главу) <a class="reference internal" href="setting-up-the-appliance.html#setup-subscription-key"><span class="std std-ref">4.4.4</span></a>)</p></li>
+<li><p>Загрузка АК-ШУМКАРСКОЕ ПРЕДПРИЯТИЕ КОРМЫ (см. главу) <a class="reference internal" href="setting-up-the-appliance.html#setup-feed-update"><span class="std std-ref">4.4.5</span></a>)</p></li>
+</ul>
+<p>Ключ подписки AK-SHUMKAR ENTERPRISE FEED должен быть получен вместе с заказом AK-SHUMKAR BASIC.
+Если ключ не был получен, обратитесь <a class="reference external" href="mailto:sales%40ak-shumkar.net">продажа<span>@</span>ак-шумкар<span>.</span>сеть</a>.</p>
+</div>
+</section>
+<section id="ak-shumkar-scan-one">
+<span id="index-9"></span><h3><span class="section-number">4.1.9 </span>АК-ШУМКАР ONE<a class="headerlink" href="setting-up-the-appliance.html#ak-shumkar-scan-one" title="Ссылка на эту рубрику">¶</a></h3>
+<p>В этом разделе перечислены требования для получения выгоды от развертывания AK-SHUMKAR ONE.
+Все требования должны быть соблюдены.</p>
+<p>Виртуальному устройству требуются и ограничены следующие ресурсы:</p>
+<ul class="simple">
+<li><p>2 виртуальных процессора</p></li>
+<li><p>12 ГБ ОЗУ</p></li>
+<li><p>Виртуальный жесткий диск емкостью 500 ГБ</p></li>
+</ul>
+<p>Для работы AK-SHUMKAR ONE официально используются следующие гипервизоры:</p>
+<ul class="simple">
+<li><p>Oracle VirtualBox версии 7.0 или выше</p></li>
+<li><p>VMware Workstation Pro версии 17.0 или выше</p></li>
+<li><p>Виртуальная среда Proxmox (VE), версия 8.0 или выше</p></li>
+</ul>
+<p>Требуемый режим загрузки — это режим загрузки EFI/UEFI.</p>
+</section>
+</section>
+<section id="setting-up-a-hardware-appliance">
+<span id="index-10"></span><h2><span class="section-number">4.2 </span>Настройка аппаратного устройства<a class="headerlink" href="setting-up-the-appliance.html#setting-up-a-hardware-appliance" title="Ссылка на эту рубрику">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Требования к установке прибора можно найти в главе <a class="reference internal" href="setting-up-the-appliance.html#setup-requirements"><span class="std std-ref">4.1</span></a>.</p>
+</div>
+<section id="utilizing-the-serial-port">
+<h3><span class="section-number">4.2.1 </span>Использование постоянного порта<a class="headerlink" href="setting-up-the-appliance.html#utilizing-the-serial-port" title="Ссылка на эту рубрику">¶</a></h3>
+<p>Прилагаемый консольный кабель используется для использования вдали от порта.</p>
+<p>Для доступа к постоянному порту требуется терминальное приложение.
+Приложение должно быть настроено на скорости 9600 бит/с (бод).</p>
+<p>В команде Linux <code class="docutils literal notranslate"><span class="pre">экран</span></code> может использоваться в командной строке для доступа к постоянному порту.
+Устройство, предоставляющее последовательный порт, должно быть передано в следующем виде:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>screen<span class="w"> </span>/dev/ttyS0<span class="w">  </span><span class="c1">#(для постоянного порта)</span>
+screen<span class="w"> </span>/dev/ttyUSB0<span class="w"> </span><span class="c1">#(для USB-адаптера)</span>
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Кончик</p>
+<p>После запуска экрана может появиться звонок <kbd class="kbd docutils literal notranslate">Входить</kbd> несколько раз, чтобы увидеть командный текст.</p>
+</div>
+<p>Чтобы закрыть соединение, нажмите <kbd class="kbd docutils literal notranslate">Ctrl</kbd> + <kbd class="kbd docutils literal notranslate">а</kbd> и сразу после этого <kbd class="kbd docutils literal notranslate">\</kbd>.</p>
+<p>В Microsoft Windows <a class="reference external" href="https://www.chiark.greenend.org.uk/~sgtatham/putty/">Шпатлевка</a> можно использовать.
+После запуска параметров, показанные на <a class="reference internal" href="setting-up-the-appliance.html#fig-putty-serial-5400"><span class="std std-numref">Рис. 4.1</span></a> и необходимо выбрать соответствующий последовательный порт.</p>
+<figure class="align-center" id="id2">
+<span id="fig-putty-serial-5400"></span><a class="reference internal image-reference" href="_images/putty_serial.png"><img alt="_images/putty_serial.png" src="_images/putty_serial.png" style="width: 50%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 4.1 </span><span class="caption-text">Настройка последовательного порта в PuTTY</span><a class="headerlink" href="setting-up-the-appliance.html#id2" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="starting-the-appliance">
+<span id="index-11"></span><h3><span class="section-number">4.2.2 </span>Запуск устройства<a class="headerlink" href="setting-up-the-appliance.html#starting-the-appliance" title="Ссылка на эту рубрику">¶</a></h3>
+<p>После того, как устройство полностью подключено, установлено подключение к устройству с помощью консольного кабеля и настроено терминальное приложение (PuTTY, экран или подобное), устройство можно запустить.</p>
+<p>Устройство загружается, и через короткое время (в зависимости от конкретной модели) отобразится приглашение для входа в систему.
+Информация для входа по умолчанию:</p>
+<ul class="simple">
+<li><p>Пользователь: <code class="docutils literal notranslate"><span class="pre">администратор</span></code></p></li>
+<li><p>Пароль: <code class="docutils literal notranslate"><span class="pre">администратор</span></code></p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>При первой настройке этот пароль следует изменить (см. главу <a class="reference internal" href="managing-gos.html#admin-password"><span class="std std-ref">6.2.1.1</span></a>).</p>
+</div>
+</section>
+</section>
+<section id="setting-up-a-virtual-appliance">
+<span id="index-12"></span><h2><span class="section-number">4.3 </span>Настройка виртуального устройства<a class="headerlink" href="setting-up-the-appliance.html#setting-up-a-virtual-appliance" title="Ссылка на эту рубрику">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Требования к установке прибора можно найти в главе <a class="reference internal" href="setting-up-the-appliance.html#setup-requirements"><span class="std std-ref">4.1</span></a>.</p>
+</div>
+<section id="verification-of-integrity">
+<h3><span class="section-number">4.3.1 </span>Проверка правильности<a class="headerlink" href="setting-up-the-appliance.html#verification-of-integrity" title="Ссылка на эту рубрику">¶</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Целостность виртуального устройства можно проверить. По запросу служба поддержки «Ак Шумкар» предоставляет контрольную надежность.</p>
+<p>Для запроса контрольной суммы обратитесь в <a class="reference external" href="https://www.ak-shumkar.net/en/technical-support/">Команда поддержки Ак Шумкар</a> включая номер подписки.</p>
+<p>Контрольную уверенность можно рассчитать по телефону или через <a class="reference external" href="https://jira.ak-shumkar.net/servicedesk/customer/user/login?destination=portals">поддержка портала</a>.</p>
+</div>
+<p>Объем локальной проверки зависит от мощности системы хоста.</p>
+<p>В комфортном Linux можно использовать эту команду для расчета контрольной суммы:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sha256сумма</span> <span class="o">&lt;</span><span class="n">файл</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Заменить <code class="docutils literal notranslate"><span class="pre">&lt;файл&gt;</span></code> с именем файла OVA устройства.</p>
+</div>
+<p>В спокойном Microsoft Windows в Windows PowerShell можно использовать эту команду для расчета контрольной суммы:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Получить</span><span class="o">-</span><span class="n">Хеш файл</span> <span class="s1">'C:\&lt;путь&gt;\&lt;файл&gt;'</span> <span class="o">-</span><span class="n">Алгоритм</span> <span class="n">SHA256</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Заменить <code class="docutils literal notranslate"><span class="pre">&lt;путь&gt;</span></code> и <code class="docutils literal notranslate"><span class="pre">&lt;файл&gt;</span></code> с помощью и имени файла OVA устройства.</p>
+</div>
+<p>Если контрольная сумма не соответствует контрольной сумме, предоставленной службой поддержки «Ак Шумкар», виртуальное устройство было модифицировано и его нельзя использовать.</p>
+</section>
+<section id="deploying-the-appliance">
+<h3><span class="section-number">4.3.2 </span>Развертывание устройства<a class="headerlink" href="setting-up-the-appliance.html#deploying-the-appliance" title="Ссылка на эту рубрику">¶</a></h3>
+<p>Если безопасная загрузка должна быть включена, по крайней мере, версия гипервизора, защищенная в подразделениях главы <a class="reference internal" href="setting-up-the-appliance.html#setup-requirements"><span class="std std-ref">4.1</span></a> необходимо использовать и настроить следующие настройки на соответствующем гипервизоре:</p>
+<ul class="simple">
+<li><p>Гипервизор VMware vSphere (ESXi):</p>
+<ul>
+<li><p><em>Семейство гостевых ОС</em> должен быть установлен на <em>Линукс</em>.</p></li>
+<li><p><em>Версия гостевой ОС</em> должно быть установлено как минимум <em>Debian GNU/Linux 11 (64-разрядная версия)</em>.</p></li>
+</ul>
+</li>
+<li><p>Рабочая станция VMware Pro:</p>
+<ul>
+<li><p><em>Гостевая операционная система</em> должен быть установлен на <em>Линукс</em>.</p></li>
+<li><p><em>Версия гостевой системы освещения</em> должно быть установлено как минимум <em>Debian GNU/Linux 11 (64-разрядная версия)</em>.</p></li>
+</ul>
+</li>
+<li><p>Microsoft Hyper-V:</p>
+<ul>
+<li><p>Виртуальная машина должна быть соответствует машине 2-го поколения.</p></li>
+<li><p><em>Шаблон безопасной загрузки</em> должен быть установлен на <em>Центр сертификации Microsoft UEFI</em>.</p></li>
+</ul>
+</li>
+<li><p>Oracle VirtualBox:</p>
+<ul>
+<li><p>После первого включения безопасный <em>Сбросить ключи по умолчанию</em> необходимо нажать кнопку и продолжить следующий диалог.</p></li>
+</ul>
+</li>
+</ul>
+<p>Чтобы самостоятельно включить безопасную загрузку, обратитесь к технической документации используемого гипервизора.</p>
+<section id="vmware-vsphere-esxi">
+<span id="index-13"></span><h4><span class="section-number">4.3.2.1 </span>VMware vSphere/ESXi<a class="headerlink" href="setting-up-the-appliance.html#vmware-vsphere-esxi" title="Ссылка на эту рубрику">¶</a></h4>
+<p>Виртуальное устройство используется компанией «Ак Шумкар» в формате Open Virtualization Appliance (OVA).</p>
+<p>Каждое устройство активируется с помощью уникального переключателя подписки.</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Клонирование устройства и параллельное использование нескольких экземпляров без правил и правил может привести к несогласованности и нежелательным побочным результатам.</p>
+</div>
+<p>Чтобы развернуть устройство, его необходимо импортировать в выбранный гипервизор следующим образом:</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>В данном случае используется VMware ESXi, но он также применим и для VMware vCenter.</p>
+<p>На рисунках показана установка АК-ШУМКАР ТЕРА. Установка другой модели прибора.
+Имена файлов, используемые в программе, различаются в зависимости от модели устройства и переключателя подписки.</p>
+</div>
+<ol class="arabic">
+<li><p>Откройте веб-интерфейс экземпляра VMware ESXi и войдите в систему.</p></li>
+<li><p>Нажмите <em>Виртуальные машины</em> в <span class="target" id="gos-webui-0"></span><em>Навигатор</em> столбец слева.</p></li>
+<li><p>Нажмите <a class="reference internal" href="_images/create-register-vm.png"><img alt="" src="_images/create-register-vm.png" style="height: 1.2em;"/></a> <em>Создать/зарегистрировать виртуальную машину</em>.</p></li>
+<li><p>Выбирать <em>Развертывание устройства из файла OVF или OVA.</em> и нажмите <em>Следующий</em> (видеть <a class="reference internal" href="setting-up-the-appliance.html#fig-vmware-2"><span class="std std-numref">Рис. 4.2</span></a>).</p>
+<figure class="align-center" id="id3">
+<span id="fig-vmware-2"></span><a class="reference internal image-reference" href="_images/vmware_2.png"><img alt="_images/vmware_2.png" src="_images/vmware_2.png" style="width: 70%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 4.2 </span><span class="caption-text">Выбор типа создания</span><a class="headerlink" href="setting-up-the-appliance.html#id3" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Введите имя результата машины в поле ввода.</p></li>
+<li><p>Нажмите <em>Нажмите, чтобы выбрать файлы или перетащите их.</em>, выберите файл OVA устройства и нажмите <em>Следующий</em>.</p></li>
+<li><p>Выберите место хранения, в котором будут храниться файлы, и нажмите кнопку машины. <em>Следующий</em>.</p></li>
+<li><p>Настройте параметры развертывания по мере необходимости и нажмите <em>Следующий</em>.</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Можно использовать настройки развертывания по умолчанию.</p>
+</div>
+</li>
+<li><p>Проверьте конфигурацию состояния машины (см. <a class="reference internal" href="setting-up-the-appliance.html#fig-setup-vmware-readycomplete"><span class="std std-numref">Рис. 4.3</span></a>).</p>
+<div class="admonition tip">
+<p class="admonition-title">Кончик</p>
+<p>Настройки можно изменить, кнопки <em>Назад</em> и настраиваю их в соответствующем диалоге.</p>
+</div>
+<figure class="align-center" id="id4">
+<span id="fig-setup-vmware-readycomplete"></span><a class="reference internal image-reference" href="_images/setup_vmware_readycomplete.png"><img alt="_images/setup_vmware_readycomplete.png" src="_images/setup_vmware_readycomplete.png" style="width: 70%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 4.3 </span><span class="caption-text">Проверка конфигурации машины</span><a class="headerlink" href="setting-up-the-appliance.html#id4" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Нажмите <span class="target" id="gos-webui-1"></span><em>Заканчивать</em>.</p>
+<p>→ Прибор импортируется. Это может занять до 10 минут.</p>
+<div class="admonition important">
+<p class="admonition-title">Важный</p>
+<p>Не обновляйте браузер во время развертывания устройства.</p>
+</div>
+</li>
+<li><p>После импорта устройства нажмите <em>Виртуальные машины</em> в <em>Навигатор</em> столбец слева.</p></li>
+<li><p>Выберите устройство в списке и нажмите <a class="reference internal" href="_images/vm-poweron.png"><img alt="" src="_images/vm-poweron.png" style="height: 1.2em;"/></a> <span class="target" id="gos-webui-2"></span><em>Включение питания</em> (видеть <a class="reference internal" href="setting-up-the-appliance.html#fig-vmware-3"><span class="std std-numref">Рис. 4.4</span></a>).</p>
+<figure class="align-center" id="id5">
+<span id="fig-vmware-3"></span><a class="reference internal image-reference" href="_images/vmware_3.png"><img alt="_images/vmware_3.png" src="_images/vmware_3.png" style="width: 80%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 4.4 </span><span class="caption-text">Импортированная виртуальная машина</span><a class="headerlink" href="setting-up-the-appliance.html#id5" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+<p>→ Устройство загружается, и через короткое время – в зависимости от конкретной модели – появляется приглашение для входа в систему.</p>
+</li>
+<li><p>Войдите в систему, используя данные для входа по умолчанию:</p>
+<ul class="simple">
+<li><p>Пользователь: <code class="docutils literal notranslate"><span class="pre">администратор</span></code></p></li>
+<li><p>Пароль: <code class="docutils literal notranslate"><span class="pre">администратор</span></code></p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>При первой настройке этот пароль следует изменить (см. главу <a class="reference internal" href="managing-gos.html#admin-password"><span class="std std-ref">6.2.1.1</span></a>).</p>
+</div>
+</li>
+</ol>
+</section>
+<section id="oracle-virtualbox">
+<span id="index-14"></span><h4><span class="section-number">4.3.2.2 </span>Oracle VirtualBox<a class="headerlink" href="setting-up-the-appliance.html#oracle-virtualbox" title="Ссылка на эту рубрику">¶</a></h4>
+<p>Виртуальное устройство используется компанией «Ак Шумкар» в формате Open Virtualization Appliance (OVA).</p>
+<p>Каждое устройство активируется с помощью уникального переключателя подписки.</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Клонирование устройства и параллельное использование нескольких экземпляров без правил и правил может привести к несогласованности и нежелательным побочным результатам.</p>
+</div>
+<p>Чтобы развернуть устройство, его необходимо импортировать в выбранный гипервизор следующим образом:</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Имена файлов, используемые в программе, различаются в зависимости от переключателя подписки.</p>
+</div>
+<ol class="arabic">
+<li><p>Установите Oracle VirtualBox для текущей системы.</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>VirtualBox часто входит в состав дистрибутивов Linux.</p>
+<p>Если это не так и используется версия Microsoft Windows, VirtualBox доступен по адресу <a class="reference external" href="https://www.virtualbox.org/wiki/Downloads">https://www.virtualbox.org/wiki/Загрузки</a>.</p>
+</div>
+</li>
+<li><p>Запустите ВиртуалБокс.</p></li>
+<li><p>Выбирать <em>Файл &gt; Импортировать устройство…</em> в меню.</p></li>
+<li><p>Нажмите <a class="reference internal" href="_images/vbox_import_icon.png"><img alt="" src="_images/vbox_import_icon.png" style="height: 1.2em;"/></a> и выберите файл устройства OVA (см. <a class="reference internal" href="setting-up-the-appliance.html#fig-vbox-import"><span class="std std-numref">Рис. 4,5</span></a>).</p>
+<figure class="align-center" id="id6">
+<span id="fig-vbox-import"></span><a class="reference internal image-reference" href="_images/vbox_import_ONE.png"><img alt="_images/vbox_import_ONE.png" src="_images/vbox_import_ONE.png" style="width: 70%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 4,5 </span><span class="caption-text">Импорт файла OVA с устройства</span><a class="headerlink" href="setting-up-the-appliance.html#id6" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Проверьте конфигурацию состояния машины в окне <span class="target" id="gos-webui-3"></span><em>Настройки устройства</em> (видеть <a class="reference internal" href="setting-up-the-appliance.html#fig-vbox-import"><span class="std std-numref">Рис. 4,5</span></a>).</p>
+<p>Значения можно изменить, используя интеллектуальную мышь, в поле ввода обычных значений.</p>
+</li>
+<li><p>Нажмите <em>Импорт</em>.</p>
+<p>→ Прибор импортируется. Это может занять до 10 минут.</p>
+<p>Когда устройство импортировано, оно отображается в левом столбце VirtualBox.</p>
+</li>
+<li><p>Выберите устройство в списке и нажмите <em>Начинать</em>.</p>
+<p>→ Устройство загружается, и через короткое время – в зависимости от конкретной модели – появляется приглашение для входа в систему.</p>
+</li>
+<li><p>Войдите в систему, используя данные для входа по умолчанию:</p>
+<ul class="simple">
+<li><p>Пользователь: <code class="docutils literal notranslate"><span class="pre">администратор</span></code></p></li>
+<li><p>Пароль: <code class="docutils literal notranslate"><span class="pre">администратор</span></code></p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>При первой настройке этот пароль следует изменить (см. главу <a class="reference internal" href="managing-gos.html#admin-password"><span class="std std-ref">6.2.1.1</span></a>).</p>
+</div>
+</li>
+</ol>
+</section>
+<section id="proxmox-virtual-environment">
+<span id="index-15"></span><h4><span class="section-number">4.3.2.3 </span>Виртуальная среда Proxmox<a class="headerlink" href="setting-up-the-appliance.html#proxmox-virtual-environment" title="Ссылка на эту рубрику">¶</a></h4>
+<p>Виртуальное устройство происходит с Ак Шумкаром в виде сжатой резервной копии Proxmox в формате Zstandard (ZST).</p>
+<p>Каждое устройство активируется с помощью уникального переключателя подписки.</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Клонирование устройства и параллельное использование нескольких экземпляров без правил и правил может привести к несогласованности и нежелательным побочным результатам.</p>
+</div>
+<p>Чтобы развернуть устройство, его необходимо импортировать в выбранный гипервизор следующим образом:</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Имена файлов и папок, используемые в исходном коде, существуют в зависимости от конфигурации гипервизора и ключа подписки.</p>
+</div>
+<ol class="arabic">
+<li><p>Скопируйте файл ZST в папку <code class="docutils literal notranslate"><span class="pre">/var/lib/vz/дамп/</span></code> каталог экземпляра окружающей среды Proxmox.</p></li>
+<li><p>Откройте веб-интерфейс экземпляра современной среды Proxmox и войдите в систему.</p></li>
+<li><p>Нажмите <em>Центр обработки данных</em> в столбце слева и выберите соответствующий узел и стойку.</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Резервное копирование должно быть включено для хранения устройства, которое следует использовать.</p>
+</div>
+</li>
+<li><p>Нажмите <em>Резервные копии</em> в столбце посередине (см. <a class="reference internal" href="setting-up-the-appliance.html#fig-proxmox-import-1"><span class="std std-numref">Рис. 4.6</span></a>).</p>
+<figure class="align-center" id="id7">
+<span id="fig-proxmox-import-1"></span><a class="reference internal image-reference" href="_images/proxmox-import-1.png"><img alt="_images/proxmox-import-1.png" src="_images/proxmox-import-1.png" style="width: 100%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 4.6 </span><span class="caption-text">Выбор ZST-файла</span><a class="headerlink" href="setting-up-the-appliance.html#id7" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Выберите файл ZST, скопированный на шаге 1, и нажмите <em>Восстановить</em>.</p></li>
+<li><p>Проверьте конфигурацию состояния машины в окне <em>Восстановление: ВМ</em> (видеть <a class="reference internal" href="setting-up-the-appliance.html#fig-proxmox-import-2"><span class="std std-numref">Рис. 4.7</span></a>).</p>
+<p>Значения можно изменить, используя интеллектуальную мышь, в поле ввода обычных значений.</p>
+<figure class="align-center" id="id8">
+<span id="fig-proxmox-import-2"></span><a class="reference internal image-reference" href="_images/proxmox-import-2.png"><img alt="_images/proxmox-import-2.png" src="_images/proxmox-import-2.png" style="width: 45%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 4.7 </span><span class="caption-text">Проверка конфигурации машины</span><a class="headerlink" href="setting-up-the-appliance.html#id8" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Нажмите <em>Восстановить</em>.</p>
+<p>→ Прибор импортируется. Это может занять до 10 минут.</p>
+</li>
+<li><p>Выберите устройство в столбце слева и нажмите <em>Начинать</em>.</p>
+<p>→ Устройство загружается, и через короткое время – в зависимости от конкретной модели – появляется приглашение для входа в систему.</p>
+</li>
+<li><p>Войдите в систему, используя данные для входа по умолчанию:</p>
+<ul class="simple">
+<li><p>Пользователь: <code class="docutils literal notranslate"><span class="pre">администратор</span></code></p></li>
+<li><p>Пароль: <code class="docutils literal notranslate"><span class="pre">администратор</span></code></p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>При первой настройке этот пароль следует изменить (см. главу <a class="reference internal" href="managing-gos.html#admin-password"><span class="std std-ref">6.2.1.1</span></a>).</p>
+</div>
+</li>
+</ol>
+</section>
+</section>
+</section>
+<section id="performing-a-general-system-setup">
+<span id="index-16"></span><h2><span class="section-number">4.4 </span>Выполнение общей настройки системы<a class="headerlink" href="setting-up-the-appliance.html#performing-a-general-system-setup" title="Ссылка на эту рубрику">¶</a></h2>
+<p>Все устройства имеют одинаковый способ определения и проверки подлинности.</p>
+<p>При доставке устройства компанией «Ак Шумкар» или сбросе настроек системы к заводским настройкам меню в администрировании ГСН, после входа в систему отображается первый мастер настроек, помогающий настроить базовую настройку ГСН (см. <a class="reference internal" href="setting-up-the-appliance.html#fig-first-setup-wizard-1-2"><span class="std std-numref">Рис. 4,8</span></a>).</p>
+<ul class="simple">
+<li><p>Выбрав <em>Да</em> и работа <kbd class="kbd docutils literal notranslate">Входить</kbd> откроется первая мастер-настройка.</p></li>
+<li><p>Выбрав <em>Нет</em> и работа <kbd class="kbd docutils literal notranslate">Входить</kbd>, мастер настроек закроется. Незавершенные шаги еще раз при следующем входе в систему.</p></li>
+<li><p>Выбрав <em>Отмена</em> и работа <kbd class="kbd docutils literal notranslate">Входить</kbd>, мастер настроек также закроется. Однако неполные шаги <strong>нет</strong> отображается снова.</p></li>
+</ul>
+<figure class="align-center" id="id9">
+<span id="fig-first-setup-wizard-1-2"></span><a class="reference internal image-reference" href="_images/first_setup_wizard_1.png"><img alt="_images/first_setup_wizard_1.png" src="_images/first_setup_wizard_1.png" style="width: 60%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 4,8 </span><span class="caption-text">Использование мастера первой настройки</span><a class="headerlink" href="setting-up-the-appliance.html#id9" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Первый мастер настройки представляет собой движение и показывает только те шаги, которые необходимы для работы с используемой моделью устройства.
+Далее упоминаются все возможные шаги, но они могут появляться не в каждом случае.</p>
+<p>В случае возврата к заводским настройкам необходимо выполнить настройку всех действий (см. <a class="reference internal" href="faq.html#faq-factoryreset"><span class="std std-ref">19.10</span></a>).</p>
+<p>Каждый шаг можно пропустить, выбрав <span class="target" id="gos-menu-0"></span><em>Пропуск</em> или <span class="target" id="gos-menu-1"></span><em>Нет</em> и работа <kbd class="kbd docutils literal notranslate">Входить</kbd>.
+Пропущенные шаги далее при повторном входе в систему.</p>
+</div>
+<section id="configuring-the-network">
+<span id="index-17"></span><h3><span class="section-number">4.4.1 </span>Настройка сети<a class="headerlink" href="setting-up-the-appliance.html#configuring-the-network" title="Ссылка на эту рубрику">¶</a></h3>
+<p>Сеть должна быть настроена для полноценной работы устройства.
+Если IP-адрес не настроен, возникает вопрос, следует изменить настройки сети (см. <a class="reference internal" href="setting-up-the-appliance.html#fig-first-setup-wizard-10"><span class="std std-numref">Рис. 4,9</span></a>).</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>При использовании DHCP-устройства используется не MAC-адрес, а уникальный идентификатор DHCP (DUID).
+Хотя это не должно создавать проблем для современных DHCP-серверов, некоторые старые DHCP-серверы (например, Windows Server 2012) могут не оставаться на этой стороне.</p>
+<p>Одним из возможных решений является указание DUID вместо MAC-адреса на DHCP-сервере. Альтернативно на устройстве можно использовать статический IP-адрес.</p>
+</div>
+<figure class="align-center" id="id10">
+<span id="fig-first-setup-wizard-10"></span><a class="reference internal image-reference" href="_images/first_setup_wizard_10.png"><img alt="_images/first_setup_wizard_10.png" src="_images/first_setup_wizard_10.png" style="width: 60%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 4,9 </span><span class="caption-text">Настройка параметров сети</span><a class="headerlink" href="setting-up-the-appliance.html#id10" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+<ol class="arabic">
+<li><p>Выбирать <span class="target" id="gos-menu-2"></span><em>Да</em> и нажмите <kbd class="kbd docutils literal notranslate">Входить</kbd>.</p></li>
+<li><p>Выбирать <span class="target" id="gos-menu-3"></span><em>Интерфейсы</em> и нажмите <kbd class="kbd docutils literal notranslate">Входить</kbd>.</p></li>
+<li><p>Выберите нужный интерфейс и нажмите <kbd class="kbd docutils literal notranslate">Входить</kbd>.</p>
+<p>→ Интерфейс можно настроить.</p>
+</li>
+<li><p>Если необходимо использовать DHCP, выберите <span class="target" id="gos-menu-4"></span><em>DHCP</em> (для IPv4 или IPv6) и нажмите <kbd class="kbd docutils literal notranslate">Входить</kbd> (видеть <a class="reference internal" href="setting-up-the-appliance.html#fig-first-setup-wizard-12"><span class="std std-numref">Рис. 4.10</span></a>).</p>
+<figure class="align-center" id="id11">
+<span id="fig-first-setup-wizard-12"></span><a class="reference internal image-reference" href="_images/first_setup_wizard_12.png"><img alt="_images/first_setup_wizard_12.png" src="_images/first_setup_wizard_12.png" style="width: 60%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 4.10 </span><span class="caption-text">Настройка сетевого интерфейса</span><a class="headerlink" href="setting-up-the-appliance.html#id11" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Выбирать <span class="target" id="gos-menu-5"></span><em>Сохранять</em> и нажмите <kbd class="kbd docutils literal notranslate">Входить</kbd>.</p></li>
+<li><p>Выбирать <span class="target" id="gos-menu-6"></span><em>Назад</em> и нажмите <kbd class="kbd docutils literal notranslate">Входить</kbd>.</p></li>
+<li><p>Выбирать <span class="target" id="gos-menu-7"></span><em>Назад</em> и нажмите <kbd class="kbd docutils literal notranslate">Входить</kbd>.</p></li>
+<li><p>Выбирать <span class="target" id="gos-menu-8"></span><em>Готовый</em> и нажмите <kbd class="kbd docutils literal notranslate">Входить</kbd>.</p>
+<p>или</p>
+</li>
+</ol>
+<ol class="arabic" start="4">
+<li><p>Если необходимо использовать статический IP-адрес, выберите <span class="target" id="gos-menu-9"></span><em>Статический IP</em> (для IPv4 или IPv6) и нажмите <kbd class="kbd docutils literal notranslate">Входить</kbd>.</p></li>
+<li><p>Введите IP-адрес, видя префикс, в поле ввода (см. <a class="reference internal" href="setting-up-the-appliance.html#fig-first-setup-wizard-13"><span class="std std-numref">Рис. 4.11</span></a>).</p>
+<figure class="align-center" id="id12">
+<span id="fig-first-setup-wizard-13"></span><a class="reference internal image-reference" href="_images/first_setup_wizard_13.png"><img alt="_images/first_setup_wizard_13.png" src="_images/first_setup_wizard_13.png" style="width: 60%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 4.11 </span><span class="caption-text">Ввод статического IP-адреса</span><a class="headerlink" href="setting-up-the-appliance.html#id12" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Нажимать <kbd class="kbd docutils literal notranslate">Входить</kbd>.</p>
+<p>→ Сообщение информирует о том, что изменения необходимо сохранить.</p>
+</li>
+<li><p>Нажимать <kbd class="kbd docutils literal notranslate">Входить</kbd> чтобы закрыть сообщение.</p></li>
+<li><p>Выбирать <span class="target" id="gos-menu-10"></span><em>Сохранять</em> и нажмите <kbd class="kbd docutils literal notranslate">Входить</kbd>.</p></li>
+<li><p>Выбирать <span class="target" id="gos-menu-11"></span><em>Назад</em> и нажмите <kbd class="kbd docutils literal notranslate">Входить</kbd>.</p></li>
+<li><p>Выбирать <span class="target" id="gos-menu-12"></span><em>Назад</em> и нажмите <kbd class="kbd docutils literal notranslate">Входить</kbd>.</p></li>
+<li><p>Выбирать <span class="target" id="gos-menu-13"></span><em>Готовый</em> и нажмите <kbd class="kbd docutils literal notranslate">Входить</kbd>.</p></li>
+</ol>
+</section>
+<section id="importing-or-generating-an-https-certificate">
+<span id="index-18"></span><h3><span class="section-number">4.4.2 </span>Импорт или создание сертификата HTTPS<a class="headerlink" href="setting-up-the-appliance.html#importing-or-generating-an-https-certificate" title="Ссылка на эту рубрику">¶</a></h3>
+<p>Для безопасного использования веб-интерфейса рекомендуется использовать сертификат HTTPS.
+Сертификат можно импортировать или создать следующим образом:</p>
+<ol class="arabic">
+<li><p>Выбирать <span class="target" id="gos-menu-14"></span><em>Импорт</em> и нажмите <kbd class="kbd docutils literal notranslate">Входить</kbd> (видеть <a class="reference internal" href="setting-up-the-appliance.html#fig-first-setup-wizard-2-2"><span class="std std-numref">Рис. 4.12</span></a>).</p>
+<p>→ Сообщение информирует о том, что файл PKCS#12 можно импортировать.</p>
+<figure class="align-center" id="id13">
+<span id="fig-first-setup-wizard-2-2"></span><a class="reference internal image-reference" href="_images/first_setup_wizard_2.png"><img alt="_images/first_setup_wizard_2.png" src="_images/first_setup_wizard_2.png" style="width: 60%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 4.12 </span><span class="caption-text">Импорт или создание сертификата HTTPS</span><a class="headerlink" href="setting-up-the-appliance.html#id13" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Выбирать <span class="target" id="gos-menu-15"></span><em>Продолжать</em> и нажмите <kbd class="kbd docutils literal notranslate">Входить</kbd>.</p></li>
+<li><p>Откройте веб-браузер и введите отображаемый URL-адрес.</p></li>
+<li><p>Нажмите <span class="target" id="gos-webui-4"></span><em>Просмотреть…</em>, выберите файл PKCS#12 и нажмите <span class="target" id="gos-webui-5"></span><em>Загрузить</em>.</p>
+<p>→ Когда устройство получает сертификат, в меню администрирования ГОС отображается отпечаток сертификата для проверки.</p>
+</li>
+<li><p>Проверьте отпечаток пальца и подтвердите сертификат, нажав кнопку <kbd class="kbd docutils literal notranslate">Входить</kbd>.</p>
+<p>или</p>
+</li>
+</ol>
+<ol class="arabic">
+<li><p>Выбирать <span class="target" id="gos-menu-16"></span><em>Генерировать</em> и нажмите <kbd class="kbd docutils literal notranslate">Входить</kbd>.</p>
+<p>→ Сообщение информирует о том, что для создания сертификата необходимо ввести параметры.</p>
+</li>
+<li><p>Выбирать <span class="target" id="gos-menu-17"></span><em>Продолжать</em> и нажмите <kbd class="kbd docutils literal notranslate">Входить</kbd>.</p></li>
+<li><p>Укажите настройку сертификата (см. <a class="reference internal" href="setting-up-the-appliance.html#fig-first-setup-wizard-3-2"><span class="std std-numref">Рис. 4.13</span></a>).</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Допустимо создание сертификата без общего имени.
+Однако сертификат не следует создавать без альтернативного имени(а) субъекта.</p>
+<p>Если используется общее имя, оно должно соответствовать имени одной из сетей SAN.</p>
+</div>
+<figure class="align-center" id="id14">
+<span id="fig-first-setup-wizard-3-2"></span><a class="reference internal image-reference" href="_images/first_setup_wizard_3.png"><img alt="_images/first_setup_wizard_3.png" src="_images/first_setup_wizard_3.png" style="width: 60%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 4.13 </span><span class="caption-text">Внесение данных для сертификата</span><a class="headerlink" href="setting-up-the-appliance.html#id14" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Выбирать <span class="target" id="gos-menu-18"></span><em>ХОРОШО</em> и нажмите <kbd class="kbd docutils literal notranslate">Входить</kbd>.</p>
+<p>→ Сообщение информирует о том, что сертификат создан и его можно загрузить (см. <a class="reference internal" href="setting-up-the-appliance.html#fig-first-setup-wizard-8-2"><span class="std std-numref">Рис. 4.14</span></a>).</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Загрузка осуществляется не в первом мастере настроек, а в последующем меню администрирования ГСН, как указано в главе. <a class="reference internal" href="managing-gos.html#self-signed-certificates"><span class="std std-ref">6.2.4.1.7.1</span></a>, шаги 1–4 и 9–13.</p>
+</div>
+<figure class="align-center" id="id15">
+<span id="fig-first-setup-wizard-8-2"></span><a class="reference internal image-reference" href="_images/first_setup_wizard_8.png"><img alt="_images/first_setup_wizard_8.png" src="_images/first_setup_wizard_8.png" style="width: 60%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 4.14 </span><span class="caption-text">Заполнение сертификата HTTPS</span><a class="headerlink" href="setting-up-the-appliance.html#id15" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+<p>или</p>
+</li>
+</ol>
+<ol class="arabic">
+<li><p>Выбирать <span class="target" id="gos-menu-19"></span><em>КСО</em> и нажмите <kbd class="kbd docutils literal notranslate">Входить</kbd>.</p>
+<p>→ Сообщение информирует о том, что пара ключей и запрос сертификата изготовлены.</p>
+</li>
+<li><p>Выбирать <span class="target" id="gos-menu-20"></span><em>Продолжать</em> и нажмите <kbd class="kbd docutils literal notranslate">Входить</kbd>.</p></li>
+<li><p>Укажите настройку сертификата.</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Допустимо создание сертификата без общего имени.
+Однако сертификат не следует создавать без альтернативного имени(а) субъекта.</p>
+<p>Если используется общее имя, оно должно соответствовать имени одной из сетей SAN.</p>
+</div>
+</li>
+<li><p>Выбирать <span class="target" id="gos-menu-21"></span><em>ХОРОШО</em> и нажмите <kbd class="kbd docutils literal notranslate">Входить</kbd>.</p></li>
+<li><p>Откройте веб-браузер и введите отображаемый URL-адрес.</p></li>
+<li><p>Загрузите PEM-файл.</p>
+<p>→ В меню администрирования GOS отображается сообщение для проверки того, что CSR не было изменено.</p>
+</li>
+<li><p>проверить информацию, нажать кнопку <kbd class="kbd docutils literal notranslate">Входить</kbd>.</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>После подписания сертификата его необходимо загрузить на устройство.
+Загрузка осуществляется не в первом мастере настроек, а в последующем меню администрирования ГСН, как указано в главе. <a class="reference internal" href="managing-gos.html#certificate-external-ca"><span class="std std-ref">6.2.4.1.7.2</span></a>, шаги 1–4 и 11–14.</p>
+</div>
+</li>
+</ol>
+</section>
+<section id="creating-a-web-administrator">
+<span id="index-19"></span><h3><span class="section-number">4.4.3 </span>Создание веб-администратора<a class="headerlink" href="setting-up-the-appliance.html#creating-a-web-administrator" title="Ссылка на эту рубрику">¶</a></h3>
+<p>Если веб-администратора нет, возникает вопрос, следует ли создать такую ​​учетную запись (см. <a class="reference internal" href="setting-up-the-appliance.html#fig-first-setup-wizard-7-2"><span class="std std-numref">Рис. 4.15</span></a>).</p>
+<figure class="align-center" id="id16">
+<span id="fig-first-setup-wizard-7-2"></span><a class="reference internal image-reference" href="_images/first_setup_wizard_7.png"><img alt="_images/first_setup_wizard_7.png" src="_images/first_setup_wizard_7.png" style="width: 60%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 4.15 </span><span class="caption-text">Создание веб-администратора</span><a class="headerlink" href="setting-up-the-appliance.html#id16" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Для использования веб-интерфейса устройства требуется веб-администратор.</p>
+<p>Первый созданный веб-администратор (веб-пользователь) автоматически получает доход от импорта каналов (см. главу). <a class="reference internal" href="managing-gos.html#data-objects-via-feed"><span class="std std-ref">6.2.1.10</span></a>).</p>
+</div>
+<ol class="arabic">
+<li><p>Выбирать <span class="target" id="gos-menu-22"></span><em>Да</em> и нажмите <kbd class="kbd docutils literal notranslate">Входить</kbd>.</p></li>
+<li><p>Введите имя пользователя веб-администратора.</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>В имени пользователя разрешены только следующие символы:</p>
+<ul class="simple">
+<li><p>Все буквенно-цифровые символы</p></li>
+<li><p>- (бросаться)</p></li>
+<li><p>_ (подчеркивание)</p></li>
+<li><p>. (точка)</p></li>
+</ul>
+</div>
+</li>
+<li><p>Дважды введите пароль веб-администратора.</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Пароль может содержать символы любого типа и иметь размер не более 64 символов.</p>
+<p>При использовании специальных символов помните, что они должны быть доступны на всех внешних клавиатурах и правильно поддерживаться всеми клиентскими программами и операционными цепями.
+Копирование и установка специальных символов для паролей может привести к недействительным паролям в зависимости от этих факторов.</p>
+</div>
+</li>
+<li><p>Выбирать <span class="target" id="gos-menu-23"></span><em>ХОРОШО</em> и нажмите <kbd class="kbd docutils literal notranslate">Входить</kbd>.</p>
+<p>→ Сообщение информирует о том, что веб-администратор создан.</p>
+</li>
+<li><p>Нажимать <kbd class="kbd docutils literal notranslate">Входить</kbd> чтобы закрыть сообщение.</p></li>
+</ol>
+</section>
+<section id="entering-or-uploading-an-ak-shumkar-enterprise-feed-subscription-key">
+<span id="setup-subscription-key"></span><span id="index-20"></span><h3><span class="section-number">4.4.4 </span>Ввод или загрузка ключа подписки AK-SHUMKAR ENTERPRISE FEED<a class="headerlink" href="setting-up-the-appliance.html#entering-or-uploading-an-ak-shumkar-enterprise-feed-subscription-key" title="Ссылка на эту рубрику">¶</a></h3>
+<p>Если на устройстве не сохраняется действительный ключ подписки, устройство использует только общедоступный канал AK-SHUMKAR COMMUNITY FEED, а не AK-SHUMKAR ENTERPRISE FEED.</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Нет необходимости использовать ключ подписки AK-SHUMKAR ENTERPRISE FEED на вновь доставленное устройство, поскольку ключ уже установлен заранее.</p>
+<p>В качестве исключения модель АК-ШУМКАР БЕЙСИК не включается с предустановленным ключом подписки и не может использоваться с АК-ШУМКАР СООБЩЕСТВЕННОЙ ЛЕНТОЙ.</p>
+</div>
+<p>Ключ регистрации можно ввести или загрузить следующим образом:</p>
+<ol class="arabic">
+<li><p>Выбирать <span class="target" id="gos-menu-24"></span><em>Редактор</em> и нажмите <kbd class="kbd docutils literal notranslate">Входить</kbd> (видеть <a class="reference internal" href="setting-up-the-appliance.html#fig-first-setup-wizard-9-2"><span class="std std-numref">Рис. 4.16</span></a>).</p>
+<figure class="align-center" id="id17">
+<span id="fig-first-setup-wizard-9-2"></span><a class="reference internal image-reference" href="_images/first_setup_wizard_9.png"><img alt="_images/first_setup_wizard_9.png" src="_images/first_setup_wizard_9.png" style="width: 60%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 4.16 </span><span class="caption-text">Ввод или загрузка переключателя подписки</span><a class="headerlink" href="setting-up-the-appliance.html#id17" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+<p>→ Редактор открыт.</p>
+</li>
+<li><p>Используйте специальные переключатели подписки.</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Важно вводить критерии ключа, а не имя ключа (например, <code class="docutils literal notranslate"><span class="pre">gsf2022122017</span></code>).</p>
+<p>Содержимое ключа можно отобразить в любом текстовом редакторе или под Linux с помощью программы <code class="docutils literal notranslate"><span class="pre">меньше</span></code>.
+Если контент открыт в текстовом редакторе, необходимо позаботиться о том, чтобы ничего не изменить.</p>
+</div>
+</li>
+<li><p>Нажимать <kbd class="kbd docutils literal notranslate">Ctrl</kbd> + <kbd class="kbd docutils literal notranslate">С</kbd> чтобы сохранить изменения.</p></li>
+<li><p>Нажимать <kbd class="kbd docutils literal notranslate">Ctrl</kbd> + <kbd class="kbd docutils literal notranslate">Х</kbd> закрыть редактор.</p>
+<p>или</p>
+</li>
+</ol>
+<ol class="arabic simple">
+<li><p>Выбирать <span class="target" id="gos-menu-25"></span><em>HTTP-загрузка</em> и нажмите <kbd class="kbd docutils literal notranslate">Входить</kbd>.</p></li>
+<li><p>Откройте веб-браузер и введите отображаемый URL-адрес.</p></li>
+<li><p>Нажмите <span class="target" id="gos-webui-6"></span><em>Просмотреть…</em>, выберите ключ подписки и нажмите <span class="target" id="gos-webui-7"></span><em>Загрузить</em>.</p></li>
+</ol>
+</section>
+<section id="downloading-the-feed">
+<span id="setup-feed-update"></span><span id="index-21"></span><h3><span class="section-number">4.4.5 </span>Загрузка канала<a class="headerlink" href="setting-up-the-appliance.html#downloading-the-feed" title="Ссылка на эту рубрику">¶</a></h3>
+<p>Если на устройстве нет канала, его можно загрузить следующим образом:</p>
+<ol class="arabic">
+<li><p>Выбирать <span class="target" id="gos-menu-26"></span><em>Да</em> и нажмите <kbd class="kbd docutils literal notranslate">Входить</kbd> (видеть <a class="reference internal" href="setting-up-the-appliance.html#fig-first-setup-wizard-4-2"><span class="std std-numref">Рис. 4.17</span></a>).</p>
+<figure class="align-center" id="id18">
+<span id="fig-first-setup-wizard-4-2"></span><a class="reference internal image-reference" href="_images/first_setup_wizard_4.png"><img alt="_images/first_setup_wizard_4.png" src="_images/first_setup_wizard_4.png" style="width: 60%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 4.17 </span><span class="caption-text">Загрузка канала</span><a class="headerlink" href="setting-up-the-appliance.html#id18" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+<p>→ Сообщение информирует о том, что обновление ленты было запущено в фоновом режиме (см. <a class="reference internal" href="setting-up-the-appliance.html#fig-first-setup-wizard-5-2"><span class="std std-numref">Рис. 4.18</span></a>).</p>
+<figure class="align-center" id="id19">
+<span id="fig-first-setup-wizard-5-2"></span><a class="reference internal image-reference" href="_images/first_setup_wizard_5.png"><img alt="_images/first_setup_wizard_5.png" src="_images/first_setup_wizard_5.png" style="width: 60%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 4.18 </span><span class="caption-text">Загрузка канала</span><a class="headerlink" href="setting-up-the-appliance.html#id19" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Нажимать <kbd class="kbd docutils literal notranslate">Входить</kbd> чтобы закрыть сообщение.</p></li>
+</ol>
+</section>
+<section id="finishing-the-first-setup-wizard">
+<h3><span class="section-number">4.4.6 </span>Завершение работы мастера первой настройки<a class="headerlink" href="setting-up-the-appliance.html#finishing-the-first-setup-wizard" title="Ссылка на эту рубрику">¶</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>После последнего этапа проверки качества.</p>
+</div>
+<ol class="arabic">
+<li><p>После завершения проверки нажмите <kbd class="kbd docutils literal notranslate">Входить</kbd>.</p>
+<p>→ Ображаются результаты проверки (см. <a class="reference internal" href="setting-up-the-appliance.html#fig-first-setup-wizard-6-2"><span class="std std-numref">Рис. 4.19</span></a>).</p>
+<figure class="align-center" id="id20">
+<span id="fig-first-setup-wizard-6-2"></span><a class="reference internal image-reference" href="_images/first_setup_wizard_6.png"><img alt="_images/first_setup_wizard_6.png" src="_images/first_setup_wizard_6.png" style="width: 60%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 4.19 </span><span class="caption-text">Результат проверки</span><a class="headerlink" href="setting-up-the-appliance.html#id20" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Нажимать <kbd class="kbd docutils literal notranslate">Входить</kbd>.</p>
+<p>→ Меню администрирования ГСН можно использовать, как указано в главе <a class="reference internal" href="managing-gos.html#systemadmin"><span class="std std-ref">6</span></a>.</p>
+<p>Если есть незавершенные или пропущенные шаги, при повторном входе в систему отображается первая мастер-настройка.</p>
+</li>
+</ol>
+</section>
+</section>
+<section id="logging-into-the-web-interface">
+<span id="index-22"></span><h2><span class="section-number">4.5 </span>Вход в веб-интерфейс<a class="headerlink" href="setting-up-the-appliance.html#logging-into-the-web-interface" title="Ссылка на эту рубрику">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Этот шаг не касается АК-ШУМКАР 35 и АК-ШУМКАР 25В.</p>
+</div>
+<p>Основным интерфейсом устройства является веб-интерфейс, также называемый «Ак Шумкар Security Assistant» (GSA).
+Доступ к веб-интерфейсу можно получить, как указано в главе. <a class="reference internal" href="web-interface.html#login-web-interface"><span class="std std-ref">7.1</span></a>.</p>
+</section>
+</section>
+</article>
+</div>
+<footer>
+<div class="related-pages">
+<a class="next-page" href="upgrading-gos.html">
+<div class="page-info">
+<div class="context">
+<span>Следующий</span>
+</div>
+<div class="title"><span class="section-number">5 </span>Обновление АК-ШУМКАР до последней основной версии</div>
+</div>
+<svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+</a>
+<a class="prev-page" href="appliance-overview.html">
+<svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+<div class="page-info">
+<div class="context">
+<span>Предыдущий</span>
+</div>
+<div class="title"><span class="section-number">3 </span>АК-ШУМКАР – Обзор</div>
+</div>
+</a>
+</div>
+<div class="bottom-of-page">
+<div class="left-details">
+<div class="copyright">
+                Copyright © 2015–2026, Ак Шумкар
+            </div>
+<div class="last-updated">
+              Последнее обновление: 13 марта 2026 г.</div>
+</div>
+<div class="right-details">
+</div>
+</div>
+</footer>
+</div>
+<aside class="toc-drawer">
+<div class="toc-sticky toc-scroll">
+<div class="toc-title-container">
+<span class="toc-title">
+            На этой странице
+          </span>
+</div>
+<div class="toc-tree-container">
+<div class="toc-tree">
+<ul>
+<li><a class="reference internal" href="setting-up-the-appliance.html#">4 Настройка АК-ШУМКАР</a><ul>
+<li><a class="reference internal" href="setting-up-the-appliance.html#setup-requirements">4.1 Требования к настройке</a><ul>
+<li><a class="reference internal" href="setting-up-the-appliance.html#ak-shumkar-scan-6500-5400">4.1.1 АК-ШУМКАР 6500/5400</a></li>
+<li><a class="reference internal" href="setting-up-the-appliance.html#ak-shumkar-scan-650-600-450-400">4.1.2 АК-ШУМКАР 650/600/450/400</a></li>
+<li><a class="reference internal" href="setting-up-the-appliance.html#ak-shumkar-scan-150">4.1.3 АК-ШУМКАР 150</a></li>
+<li><a class="reference internal" href="setting-up-the-appliance.html#ak-shumkar-scan-35">4.1.4 АК-ШУМКАР 35</a></li>
+<li><a class="reference internal" href="setting-up-the-appliance.html#ak-shumkar-scan-deca-tera-peta-exa">4.1.5 АК-ШУМКАР ДЕКА/ТЕРА/ПЕТА/ЭКСА</a></li>
+<li><a class="reference internal" href="setting-up-the-appliance.html#ak-shumkar-scan-ceno">4.1.6 АК-ШУМКАР ЦЕНО</a></li>
+<li><a class="reference internal" href="setting-up-the-appliance.html#ak-shumkar-scan-25v">4.1.7 АК-ШУМКАР 25В</a></li>
+<li><a class="reference internal" href="setting-up-the-appliance.html#ak-shumkar-basic">4.1.8 АК-ШУМКАР БАЗОВЫЙ</a></li>
+<li><a class="reference internal" href="setting-up-the-appliance.html#ak-shumkar-scan-one">4.1.9 АК-ШУМКАР ОДИН</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="setting-up-the-appliance.html#setting-up-a-hardware-appliance">4.2 Настройка аппаратного устройства</a><ul>
+<li><a class="reference internal" href="setting-up-the-appliance.html#utilizing-the-serial-port">4.2.1 Использование постоянного порта</a></li>
+<li><a class="reference internal" href="setting-up-the-appliance.html#starting-the-appliance">4.2.2 Запуск устройства</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="setting-up-the-appliance.html#setting-up-a-virtual-appliance">4.3 Настройка виртуального устройства</a><ul>
+<li><a class="reference internal" href="setting-up-the-appliance.html#verification-of-integrity">4.3.1 Проверка надежности</a></li>
+<li><a class="reference internal" href="setting-up-the-appliance.html#deploying-the-appliance">4.3.2 Развертывание устройства</a><ul>
+<li><a class="reference internal" href="setting-up-the-appliance.html#vmware-vsphere-esxi">4.3.2.1 VMware vSphere/ESXi</a></li>
+<li><a class="reference internal" href="setting-up-the-appliance.html#oracle-virtualbox">4.3.2.2 Oracle VirtualBox</a></li>
+<li><a class="reference internal" href="setting-up-the-appliance.html#proxmox-virtual-environment">4.3.2.3 Виртуальная среда Proxmox</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="setting-up-the-appliance.html#performing-a-general-system-setup">4.4 Заполнение настроек общей системы</a><ul>
+<li><a class="reference internal" href="setting-up-the-appliance.html#configuring-the-network">4.4.1 Настройка сети</a></li>
+<li><a class="reference internal" href="setting-up-the-appliance.html#importing-or-generating-an-https-certificate">4.4.2 Импорт или создание сертификата HTTPS</a></li>
+<li><a class="reference internal" href="setting-up-the-appliance.html#creating-a-web-administrator">4.4.3 Создание веб-администратора</a></li>
+<li><a class="reference internal" href="setting-up-the-appliance.html#entering-or-uploading-an-ak-shumkar-enterprise-feed-subscription-key">4.4.4 Ввод или загрузка включения подключения AK-SHUMKAR ENTERPRISE FEED</a></li>
+<li><a class="reference internal" href="setting-up-the-appliance.html#downloading-the-feed">4.4.5 Загрузка канала</a></li>
+<li><a class="reference internal" href="setting-up-the-appliance.html#finishing-the-first-setup-wizard">4.4.6 Завершение работы первого мастера по настройке</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="setting-up-the-appliance.html#logging-into-the-web-interface">4.5 Вход в веб-интерфейс</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</aside>
+</div>
+</div><script src="_static/documentation_options.js%3Fv=bd398bb6"></script>
+<script src="_static/doctools.js%3Fv=9a2dae69"></script>
+<script src="_static/sphinx_highlight.js%3Fv=dc90522c"></script>
+<script src="_stati_static/scripts/furo.js%3Fv=46bd48cc"></script>
+</body></html>

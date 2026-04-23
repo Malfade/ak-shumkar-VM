@@ -1,0 +1,609 @@
+<html lang="ru"><body><meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="light dark" name="color-scheme"/><meta content="width=device-width, initial-scale=1" name="viewport"/>
+<link href="genindex.html" rel="index" title="Индекс"/><link href="search.html" rel="search" title="Поиск"/><link href="managing-gos.html" rel="next" title="6 Управление системой «Ак Шумкар»"/><link href="setting-up-the-appliance.html" rel="prev" title="4 Настройка АК-ШУМКАР"/>
+<link as="image" href="/img/ak-shumkar.png" rel="prefetch"/>
+<link as="image" href="/img/ak-shumkar.png" rel="prefetch"/>
+<link href="/img/ak-shumkar.png" rel="icon" type="image/png"/><link href="/img/ak-shumkar.png" rel="shortcut icon" type="image/png"/><title>5 Обновление АК-ШУМКАР до последней основной версии - АК-ШУМКАР – ГОС 24.10.11</title>
+<link href="_static/pygments.css%3Fv=8e8a900e.css" rel="stylesheet" type="text/css"/>
+<link href="_static/styles/furo.css%3Fv=580074bf.css" rel="stylesheet" type="text/css"/>
+<link href="_static/sphinx_greenbone.css%3Fv=8ef0bb58.css" rel="stylesheet" type="text/css"/>
+<link href="_static/styles/furo-extensions.css%3Fv=8dab3a3b.css" rel="stylesheet" type="text/css"/>
+<style>
+  body {
+    --color-code-background: #ffffff;
+  --color-code-foreground: black;
+  --font-stack: Roboto, Helvetica, sans-serif;
+  --color-content-foreground: #4D4D4D;
+  --color-foreground-primary: 4D4D4D;
+  --color-foreground-secondary: #808080;
+  --color-code-background: #333333;
+  --color-code-foreground: #E6E6E6;
+  --color-admonition-title--note: #0E823E;
+  --color-admonition-title--note-background: #D8F1E2;
+  --color-admonition-title--warning: #E5393D;
+  --color-admonition-title--warning-background: #FBDDDE;
+  --admonition-font-size: 0.9rem;
+  --color-background-primary: #FFFFFF;
+  --color-background-secondary: #F5F5F5;
+  --color-sidebar-background: #F5F5F5;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --font-stack: Roboto, Helvetica, sans-serif;
+  --color-content-foreground: #F5F5F5;
+  --color-foreground-primary: F5F5F5;
+  --color-foreground-secondary: #E6E6E6;
+  --color-code-background: #333333;
+  --color-code-foreground: #E6E6E6;
+  --color-admonition-title--note: #11AB51;
+  --admonition-font-size: 0.9rem;
+  --color-background-primary: #171717;
+  --color-background-secondary: #4D4D4D;
+  --color-sidebar-background: #333333;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --font-stack: Roboto, Helvetica, sans-serif;
+  --color-content-foreground: #F5F5F5;
+  --color-foreground-primary: F5F5F5;
+  --color-foreground-secondary: #E6E6E6;
+  --color-code-background: #333333;
+  --color-code-foreground: #E6E6E6;
+  --color-admonition-title--note: #11AB51;
+  --admonition-font-size: 0.9rem;
+  --color-background-primary: #171717;
+  --color-background-secondary: #4D4D4D;
+  --color-sidebar-background: #333333;
+  
+      }
+    }
+  }
+</style>
+<script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+<svg style="display: none;" xmlns="http://www.w3.org/2000/svg">
+<symbol id="svg-toc" viewbox="0 0 24 24">
+<title>Содержание</title>
+<svg fill="currentColor" stroke="currentColor" stroke-width="0" viewbox="0 0 1024 1024">
+<path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"></path>
+</svg>
+</symbol>
+<symbol id="svg-menu" viewbox="0 0 24 24">
+<title>Меню</title>
+<svg class="feather-menu" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<line x1="3" x2="21" y1="12" y2="12"></line>
+<line x1="3" x2="21" y1="6" y2="6"></line>
+<line x1="3" x2="21" y1="18" y2="18"></line>
+</svg>
+</symbol>
+<symbol id="svg-arrow-right" viewbox="0 0 24 24">
+<title>Расширять</title>
+<svg class="feather-chevron-right" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<polyline points="9 18 15 12 9 6"></polyline>
+</svg>
+</symbol>
+<symbol id="svg-sun" viewbox="0 0 24 24">
+<title>Светлый режим</title>
+<svg class="feather-sun" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<circle cx="12" cy="12" r="5"></circle>
+<line x1="12" x2="12" y1="1" y2="3"></line>
+<line x1="12" x2="12" y1="21" y2="23"></line>
+<line x1="4.22" x2="5.64" y1="4.22" y2="5.64"></line>
+<line x1="18.36" x2="19.78" y1="18.36" y2="19.78"></line>
+<line x1="1" x2="3" y1="12" y2="12"></line>
+<line x1="21" x2="23" y1="12" y2="12"></line>
+<line x1="4.22" x2="5.64" y1="19.78" y2="18.36"></line>
+<line x1="18.36" x2="19.78" y1="5.64" y2="4.22"></line>
+</svg>
+</symbol>
+<symbol id="svg-moon" viewbox="0 0 24 24">
+<title>Темный режим</title>
+<svg class="icon-tabler-moon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 0h24v24H0z" fill="none" stroke="none"></path>
+<path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"></path>
+</svg>
+</symbol>
+<symbol id="svg-sun-with-moon" viewbox="0 0 24 24">
+<title>Автоматический свет/темнота, в ярком режиме</title>
+<svg class="icon-custom-derived-from-feather-sun-and-tabler-moon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z" style="opacity: 50%"></path>
+<line x1="14.5" x2="14.5" y1="3.25" y2="1.25"></line>
+<line x1="14.5" x2="14.5" y1="15.85" y2="17.85"></line>
+<line x1="10.044" x2="8.63" y1="5.094" y2="3.68"></line>
+<line x1="19" x2="20.414" y1="14.05" y2="15.464"></line>
+<line x1="8.2" x2="6.2" y1="9.55" y2="9.55"></line>
+<line x1="20.8" x2="22.8" y1="9.55" y2="9.55"></line>
+<line x1="10.044" x2="8.63" y1="14.006" y2="15.42"></line>
+<line x1="19" x2="20.414" y1="5.05" y2="3.636"></line>
+<circle cx="14.5" cy="9.55" r="3.6"></circle>
+</svg>
+</symbol>
+<symbol id="svg-moon-with-sun" viewbox="0 0 24 24">
+<title>Автоматический светлый/темный, в темном режиме</title>
+<svg class="icon-custom-derived-from-feather-sun-and-tabler-moon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"></path>
+<line style="opacity: 50%" x1="18" x2="18" y1="3.705" y2="2.5"></line>
+<line style="opacity: 50%" x1="18" x2="18" y1="11.295" y2="12.5"></line>
+<line style="opacity: 50%" x1="15.316" x2="14.464" y1="4.816" y2="3.964"></line>
+<line style="opacity: 50%" x1="20.711" x2="21.563" y1="10.212" y2="11.063"></line>
+<line style="opacity: 50%" x1="14.205" x2="13.001" y1="7.5" y2="7.5"></line>
+<line style="opacity: 50%" x1="21.795" x2="23" y1="7.5" y2="7.5"></line>
+<line style="opacity: 50%" x1="15.316" x2="14.464" y1="10.184" y2="11.036"></line>
+<line style="opacity: 50%" x1="20.711" x2="21.563" y1="4.789" y2="3.937"></line>
+<circle cx="18" cy="7.5" r="2.169" style="opacity: 50%"></circle>
+</svg>
+</symbol>
+<symbol id="svg-pencil" viewbox="0 0 24 24">
+<svg class="icon-tabler-pencil-code" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4"></path>
+<path d="M13.5 6.5l4 4"></path>
+<path d="M20 21l2 -2l-2 -2"></path>
+<path d="M17 17l-2 2l2 2"></path>
+</svg>
+</symbol>
+<symbol id="svg-eye" viewbox="0 0 24 24">
+<svg class="icon-tabler-eye-code" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 0h24v24H0z" fill="none" stroke="none"></path>
+<path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"></path>
+<path d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008"></path>
+<path d="M20 21l2 -2l-2 -2"></path>
+<path d="M17 17l-2 2l2 2"></path>
+</svg>
+</symbol>
+</svg>
+<input aria-label="Включить боковую панель навигации по сайту" class="sidebar-toggle" id="__navigation" name="__navigation" type="checkbox"/>
+<input aria-label="Переключить боковую панель оглавления" class="sidebar-toggle" id="__toc" name="__toc" type="checkbox"/>
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+<a class="skip-to-content muted-link" href="upgrading-gos.html#furo-main-content">Перейти к содержимому</a>
+<div class="page">
+<header class="mobile-header">
+<div class="header-left">
+<label class="nav-overlay-icon" for="__navigation">
+<span class="icon"><svg><use href="#svg-menu"></use></svg></span>
+</label>
+</div>
+<div class="header-center">
+<a href="index.html"><div class="brand">АК-ШУМКАР – ГОС 24.10.11</div></a>
+</div>
+<div class="header-right">
+<div class="theme-toggle-container theme-toggle-header">
+<button aria-label="Переключить светлую/темную/автоматическую цветную тему" class="theme-toggle">
+<svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+<svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+<svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+<svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+</button>
+</div>
+<label class="toc-overlay-icon toc-header-icon" for="__toc">
+<span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+</label>
+</div>
+</header>
+<aside class="sidebar-drawer">
+<div class="sidebar-container">
+<div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
+<div class="sidebar-logo-container">
+<img alt="Логотип АК-ШУМКАР" class="sidebar-logo only-light" src="/img/ak-shumkar.png"/>
+<img alt="Логотип АК-ШУМКАР" class="sidebar-logo only-dark" src="/img/ak-shumkar.png"/>
+</div>
+<span class="sidebar-brand-text">АК-ШУМКАР – ГОС 24.10.11</span>
+</a><form action="search.html" class="sidebar-search-container" method="get" role="search">
+<input aria-label="Поиск" class="sidebar-search" name="q" placeholder="Поиск"/>
+<input name="check_keywords" type="hidden" value="yes"/>
+<input name="area" type="hidden" value="default"/>
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">1 Введение</a></li>
+<li class="toctree-l1"><a class="reference internal" href="read-before-use.html">2 Прочтите перед использованием</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appliance-overview.html">3 АК-ШУМКАР – Обзор</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setting-up-the-appliance.html">4 Настройка АК-ШУМКАР</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="upgrading-gos.html#">5 Обновление АК-ШУМКАР до последней основной версии</a></li>
+<li class="toctree-l1"><a class="reference internal" href="managing-gos.html">6 Управление системой «Ак Шумкар»</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web-interface.html">7 Знакомство с веб-интерфейсом</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web-interface-access.html">8 Управление доступом к веб-интерфейсу</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scanning.html">9 Системы сканирования</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reports.html">10 отчетов и управление уязвимостями</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compliance-and-special-scans.html">11 Выполнение консультаций и технических услуг</a></li>
+<li class="toctree-l1"><a class="reference internal" href="managing-assets.html">12 Управление активами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="managing-secinfo.html">13 Управление информацией о безопасности</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gmp.html">14 Использование протокола управления «Ак Шумкар»</a></li>
+<li class="toctree-l1"><a class="reference internal" href="master-sensor-setup.html">15 Использование настроек главного датчика</a></li>
+<li class="toctree-l1"><a class="reference internal" href="performance.html">16 Управление производительностью</a></li>
+<li class="toctree-l1"><a class="reference internal" href="connecting-other-systems.html">17 Подключение АК-ШУМКАР к другим системам</a></li>
+<li class="toctree-l1"><a class="reference internal" href="architecture.html">18 Архитектура</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">19 часто задаваемых вопросов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">20 Глоссарий</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</aside>
+<div class="main">
+<div class="content">
+<div class="article-container">
+<a class="back-to-top muted-link" href="upgrading-gos.html#">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+</svg>
+<span>Вернуться наверх</span>
+</a>
+<div class="content-icon-container">
+<div class="theme-toggle-container theme-toggle-content">
+<button aria-label="Переключить светлую/темную/автоматическую цветную тему" class="theme-toggle">
+<svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+<svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+<svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+<svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+</button>
+</div>
+<label class="toc-overlay-icon toc-content-icon" for="__toc">
+<span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+</label>
+</div>
+<article id="furo-main-content" role="main">
+<section id="upgrading-ak-shumkar-scan-to-the-latest-major-version">
+<span id="migration"></span><span id="index-0"></span><h1><span class="section-number">5 </span>Обновление АК-ШУМКАР до последней основной версии<a class="headerlink" href="upgrading-gos.html#upgrading-ak-shumkar-scan-to-the-latest-major-version" title="Ссылка на эту рубрику">¶</a></h1>
+<p>GOS 22.04 обеспечивает плавное обновление до новой основной версии GOS 24.10.</p>
+<p>Все системные настройки и данные пользователя определяются и автоматически переносятся в новую версию, если только изменение поведения по умолчанию не влияет на конкретные настройки или данные.
+Список изменений поведения по умолчанию см. во главе <a class="reference internal" href="upgrading-gos.html#changes-default-behavior"><span class="std std-ref">5.5</span></a>.</p>
+<section id="upgrading-the-operating-system">
+<h2><span class="section-number">5.1 </span>Обновление системы освещения<a class="headerlink" href="upgrading-gos.html#upgrading-the-operating-system" title="Ссылка на эту рубрику">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Перед обновлением до ГОС 24.10 необходимо скорректировать требования некоторых ГОС 22.04:</p>
+<ul class="simple">
+<li><p>На устройстве должна быть установлена ​​последняя версия GOS 22.04.</p></li>
+<li><p>Владелец импорта фиды должен быть установлен, как следует. <a class="reference external" href="https://docs.ak-shumkar.net/GSM-Manual/gos-22.04/en/managing-gos.html#changing-the-feed-import-owner">здесь</a>.</p></li>
+<li><p>Объекты данных должны быть установлены. Для этого необходимо обновить фид после настройки владельца-импортера фида.</p></li>
+<li><p> <em>гнм</em> сетевой режим должен быть установлен, как указано <a class="reference external" href="https://docs.ak-shumkar.net/GSM-Manual/gos-22.04/en/managing-gos.html#updating-the-networking-mode-to-gnm">здесь</a>.</p></li>
+<li><p>Необходимо проверить, есть ли <a class="reference external" href="https://www.ak-shumkar.net/en/roadmap-lifecycle/#tab-id-1">б/у модель устройства с поддержкой GOS 24.10</a>.
+Обратите внимание, что модели АК-ШУМКАР 400/450/600/650 R1, АК-ШУМКАР 5300/6400 и АК-ШУМКАР 150 не соответствуют ГСН 24.10.</p></li>
+</ul>
+</div>
+<p>Обновление до ГОС 24.10 можно выполнить следующим образом:</p>
+<ol class="arabic">
+<li><p>Выбирать <span class="target" id="gos-menu-0"></span><em>Обслуживание</em> и нажмите <kbd class="kbd docutils literal notranslate">Входить</kbd>.</p></li>
+<li><p>Выбирать <span class="target" id="gos-menu-1"></span><em>Обновление</em> и нажмите <kbd class="kbd docutils literal notranslate">Входить</kbd>.</p>
+<p>→ Сообщение информирует о том, что доступна новая версия ГСН.</p>
+</li>
+<li><p>Нажимать <kbd class="kbd docutils literal notranslate">Входить</kbd> чтобы закрыть сообщение.</p></li>
+<li><p>Выбирать <span class="target" id="gos-menu-2"></span><em>Переключатель выпуска</em> и нажмите <kbd class="kbd docutils literal notranslate">Входить</kbd>.</p>
+<p>→ Предупреждение информирует о том, что устройство обновлено до новой основной версии (см. <a class="reference internal" href="upgrading-gos.html#fig-gos-menu-upgrade-gos-1"><span class="std std-numref">Рис. 5.1</span></a>).</p>
+<figure class="align-center" id="id3">
+<span id="fig-gos-menu-upgrade-gos-1"></span><a class="reference internal image-reference" href="_images/gos_menu_upgrade_gos_1.png"><img alt="_images/gos_menu_upgrade_gos_1.png" src="_images/gos_menu_upgrade_gos_1.png" style="width: 60%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 5.1 </span><span class="caption-text">Предупреждение при обновлении до ГОС 24.10</span><a class="headerlink" href="upgrading-gos.html#id3" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Выбирать <span class="target" id="gos-menu-3"></span><em>Продолжать</em> и нажмите <kbd class="kbd docutils literal notranslate">Входить</kbd>.</p>
+<p>→ Предупреждение информирует о том, что при обновлении до ГОС 24.10 устройство заблокировано (см. <a class="reference internal" href="upgrading-gos.html#fig-gos-menu-upgrade-gos-2"><span class="std std-numref">Рис. 5.2</span></a>).</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Во время обновления нельзя выполнять никакие системные операции, и все текущие системные операции должны быть завершены до обновления.</p>
+</div>
+<figure class="align-center" id="id4">
+<span id="fig-gos-menu-upgrade-gos-2"></span><a class="reference internal image-reference" href="_images/gos_menu_upgrade_gos_2.png"><img alt="_images/gos_menu_upgrade_gos_2.png" src="_images/gos_menu_upgrade_gos_2.png" style="width: 60%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 5.2 </span><span class="caption-text">Предупреждение о том, что система заблокирована во время обновлений</span><a class="headerlink" href="upgrading-gos.html#id4" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Выбирать <span class="target" id="gos-menu-4"></span><em>Да</em> и нажмите <kbd class="kbd docutils literal notranslate">Входить</kbd>.</p>
+<p>→ Сообщение информирует о том, что началось обновление.</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>По завершении обновления появляется сообщение о том, что для применения всех изменений необходима перезагрузка (см. <a class="reference internal" href="upgrading-gos.html#fig-gos-menu-upgrade-gos-3"><span class="std std-numref">Рис. 5.3</span></a>).</p>
+</div>
+<figure class="align-center" id="id5">
+<span id="fig-gos-menu-upgrade-gos-3"></span><a class="reference internal image-reference" href="_images/gos_menu_upgrade_gos_3.png"><img alt="_images/gos_menu_upgrade_gos_3.png" src="_images/gos_menu_upgrade_gos_3.png" style="width: 60%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 5.3 </span><span class="caption-text">Сообщение после получения обновления</span><a class="headerlink" href="upgrading-gos.html#id5" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Выбирать <span class="target" id="gos-webui-0"></span><em>Перезагрузить</em> и нажмите <kbd class="kbd docutils literal notranslate">Входить</kbd>.</p>
+<p>→ После завершения перезагрузки наконец-то появились незавершенные этапы настройки.
+Если есть незавершенные шаги, то готовим сообщение с вопросом, следует ли их восстановить сейчас.</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Обновление канала необходимо выполнить после обновления до GOS 24.10, чтобы использовать новые функции (см. главу) <a class="reference internal" href="upgrading-gos.html#changes-default-behavior"><span class="std std-ref">5.5</span></a>).</p>
+<p>Это первоначальное обновление канала с GOS 24.10 требует больше времени и требует больше ресурсов (ЦП, ОЗУ), чем обычно, из-за различных новых изменений и функций, которые настраиваются.
+Чтобы убедиться в доступности достаточного количества системных ресурсов, рекомендуется дождаться обновления канала, прежде чем возобновить нормальное использование устройства.</p>
+</div>
+</li>
+</ol>
+</section>
+<section id="upgrading-the-flash-partition-to-the-latest-version">
+<span id="index-1"></span><h2><span class="section-number">5.2 </span>Обновление Flash-раздела до последней версии<a class="headerlink" href="upgrading-gos.html#upgrading-the-flash-partition-to-the-latest-version" title="Ссылка на эту рубрику">¶</a></h2>
+<p>Внутренний флэш-раздел устройства содержит резервную конфигурацию ГОС и используется в случае возврата к заводским настройкам.</p>
+<p>изменить версию ГОС, хранящуюся на флэш-разделе (см. главу <a class="reference internal" href="managing-gos.html#flash-partition"><span class="std std-ref">6.3.8</span></a>).</p>
+</section>
+<section id="relogging-into-the-gos-administration-menu-after-an-upgrade">
+<h2><span class="section-number">5.3 </span>Повторный вход в меню администрирования ГСН после обновления<a class="headerlink" href="upgrading-gos.html#relogging-into-the-gos-administration-menu-after-an-upgrade" title="Ссылка на эту рубрику">¶</a></h2>
+<p>Возможно, что обновление ГСН изменяет работоспособность доступного меню через администрирование ГСН.
+Этот измененный функционал будет доступен только после перезагрузки меню администрирования ГОС.
+Поэтому рекомендуется выйти из меню администрирования ГОС и снова войти в него после обновления ГОС.</p>
+</section>
+<section id="reloading-the-web-interface-after-an-upgrade">
+<span id="empty-cache"></span><h2><span class="section-number">5.4 </span>Перезагрузка веб-интерфейса после обновления<a class="headerlink" href="upgrading-gos.html#reloading-the-web-interface-after-an-upgrade" title="Ссылка на эту рубрику">¶</a></h2>
+<p>После обновления одной основной версии на другую необходимо изменить браузер, используемый для веб-кэш-интерфейса.
+Очистку кэша браузера можно выполнить в поставщике браузера.</p>
+<p>Альтернативно, кэш-страницы каждой страницы веб-интерфейса могут быть жесткими, нажав кнопку <kbd class="kbd docutils literal notranslate">Ctrl</kbd> и <kbd class="kbd docutils literal notranslate">F5</kbd>.</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Очистка кэша страниц должна выполняться для каждой отдельной страницы.</p>
+<p>Очистка кэша браузера является универсальной и применяется ко всем страницам.</p>
+</div>
+</section>
+<section id="new-features-and-changes-of-default-behavior">
+<span id="changes-default-behavior"></span><span id="index-2"></span><h2><span class="section-number">5.5 </span>Новые функции и изменения поведения по умолчанию<a class="headerlink" href="upgrading-gos.html#new-features-and-changes-of-default-behavior" title="Ссылка на эту рубрику">¶</a></h2>
+<p>В следующем списке показаны основные дополнения и изменения поведения по умолчанию между GOS 22.04 и GOS 24.10.</p>
+<p>В зависимости от последствий в настоящий момент эти изменения могут относиться к данному моменту изменения.
+Полный список изменений см. <a class="reference external" href="https://www.ak-shumkar.net/en/roadmap-lifecycle/#gos-24-10">Страница «Дорожная карта и жизненный цикл»</a>.</p>
+<section id="product-portfolio">
+<h3><span class="section-number">5.5.1 </span>Портфельные продукты<a class="headerlink" href="upgrading-gos.html#product-portfolio" title="Ссылка на эту рубрику">¶</a></h3>
+<p>Модели приборов АК-ШУМКАР 400/450/600/650 R1, АК-ШУМКАР 5300/6400 и АК-ШУМКАР 150 R1 не соответствуют ГОС 24.10.</p>
+<p>С ГСН 24.10.2 АК-ШУМКАР 150 Р1 заменен на АК-ШУМКАР 150 Р2.</p>
+</section>
+<section id="secure-boot">
+<span id="index-3"></span><h3><span class="section-number">5.5.2 </span>Безопасная загрузка<a class="headerlink" href="upgrading-gos.html#secure-boot" title="Ссылка на эту рубрику">¶</a></h3>
+<p>GOS 24.10 поддерживает безопасную загрузку для виртуальных устройств.</p>
+<ul class="simple">
+<li><p>В Huawei FusionCompute GOS 24.10 пока не поддерживается безопасная загрузка.</p></li>
+<li><p>На устройствах, поставляемых с GOS 24.10, безопасная загрузка включена по умолчанию, за исключением устройств для Oracle VirtualBox.</p></li>
+<li><p>На устройствах, которые были обновлены с GOS 22.04 до GOS 24.10, а также на новых устройствах для Oracle VirtualBox, безопасную загрузку необходимо активировать в поставщике гипервизора.</p></li>
+</ul>
+<p>Чтобы включить безопасную загрузку для устройства, на котором она не включена по умолчанию, необходимо выполнить следующее:</p>
+<ul class="simple">
+<li><p>По крайней мере, версия гипервизора, защищенная в подразделениях <a class="reference internal" href="setting-up-the-appliance.html#setup-requirements"><span class="std std-ref">4.1</span></a> необходимо использовать.</p></li>
+<li><p>В соответствующем гипервизоре необходимо выполнить следующие настройки:</p>
+<ul>
+<li><p>Гипервизор VMware vSphere (ESXi):</p>
+<ul>
+<li><p><em>Семейство гостевых ОС</em> должен быть установлен на <em>Линукс</em>.</p></li>
+<li><p><em>Версия гостевой ОС</em> должно быть установлено как минимум <em>Debian GNU/Linux 11 (64-разрядная версия)</em>.</p></li>
+</ul>
+</li>
+<li><p>Рабочая станция VMware Pro:</p>
+<ul>
+<li><p><em>Гостевая операционная система</em> должен быть установлен на <em>Линукс</em>.</p></li>
+<li><p><em>Версия гостевой системы освещения</em> должно быть установлено как минимум <em>Debian GNU/Linux 11 (64-разрядная версия)</em>.</p></li>
+</ul>
+</li>
+<li><p>Microsoft Hyper-V:</p>
+<ul>
+<li><p>Виртуальная машина должна быть соответствует машине 2-го поколения.</p></li>
+<li><p><em>Шаблон безопасной загрузки</em> должен быть установлен на <em>Центр сертификации Microsoft UEFI</em>.</p></li>
+</ul>
+</li>
+<li><p>Oracle VirtualBox:</p>
+<ul>
+<li><p>После первого включения безопасный <em>Сбросить ключи по умолчанию</em> необходимо нажать кнопку и продолжить следующий диалог.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Чтобы самостоятельно включить безопасную загрузку, обратитесь к технической документации используемого гипервизора.</p></li>
+</ul>
+</section>
+<section id="encrypted-airgap-ftp">
+<span id="index-4"></span><h3><span class="section-number">5.5.3 </span>Зашифрованный FTP Airgap<a class="headerlink" href="upgrading-gos.html#encrypted-airgap-ftp" title="Ссылка на эту рубрику">¶</a></h3>
+<p>В GOS 24.10 появилась возможность шифрования Airgap FTP.
+Шифрование осуществляется через SFTP на основе SSH.</p>
+<p>После добавления сервера для Airgap теперь можно использовать FTP или SFTP.
+Опции меню, предлагаемые в меню Airgap, зависят от этого выбора.</p>
+</section>
+<section id="sshd-configuration-options">
+<span id="index-5"></span><h3><span class="section-number">5.5.4 </span>Параметры конфигурации SSHD<a class="headerlink" href="upgrading-gos.html#sshd-configuration-options" title="Ссылка на эту рубрику">¶</a></h3>
+<p>В GOS 24.10 алгоритмы и шифры, используемые демоном SSH, можно настроить через меню администрирования GOS.
+Доступны следующие настройки:</p>
+<ul class="simple">
+<li><p>Шифры</p></li>
+<li><p>Алгоритмы восстановления ключей хоста</p></li>
+<li><p>Алгоритмы обмена ключами</p></li>
+<li><p>MAC-алгоритмы</p></li>
+<li><p>Алгоритмы открытия с ключом</p></li>
+</ul>
+</section>
+<section id="networking-mode">
+<span id="index-6"></span><h3><span class="section-number">5.5.5 </span>Сетевой режим<a class="headerlink" href="upgrading-gos.html#networking-mode" title="Ссылка на эту рубрику">¶</a></h3>
+<p>Старый сетевой режим, который был заменен сетевым режимом <em>гнм</em> (Диспетчер сети GOS) из GOS 21.04 был удален.
+Обновление с GOS 22.04 до GOS 24.10 невозможно, если с GOS 22.04 все еще используется старый сетевой режим.</p>
+</section>
+<section id="superuser-password">
+<span id="index-7"></span><h3><span class="section-number">5.5.6 </span>Пароль суперпользователя<a class="headerlink" href="upgrading-gos.html#superuser-password" title="Ссылка на эту рубрику">¶</a></h3>
+<p>В ГОС 24.10 изменен способ установки пароля суперпользователя.
+Оно также больше не восстанавливается при восстановлении административного образа или резервной копии, но остается неизменным по сравнению с первоначальным значением до импорта или восстановления.</p>
+<p>Пароль суперпользователя можно изменить, как указано в главе <a class="reference internal" href="managing-gos.html#superuser"><span class="std std-ref">6.4.2.1</span></a>.</p>
+</section>
+<section id="new-openssh-and-libssh-versions">
+<h3><span class="section-number">5.5.7 </span>Новые версии openssh и libssh<a class="headerlink" href="upgrading-gos.html#new-openssh-and-libssh-versions" title="Ссылка на эту рубрику">¶</a></h3>
+<p>В GOS 24.10 включенные пакеты <em>openssh</em> и <em>libssh</em> модернизированы.</p>
+<ul class="simple">
+<li><p><em>openssh</em>: используется версия 9.2 в отличие от версии 8.4 в предыдущей версии ГСН.
+Это может соответствовать требованиям с традиционными сетями, использующими старые реализации SSH.
+Ложноположительные уязвимости с низким качеством обнаружения могут быть обнаружены при сканировании самого устройства.</p></li>
+<li><p><em>libssh</em>: используется версия 1.10 в отличие от версии 1.9 в предыдущей версии ГСН.
+Это может быть сделано с учетом совместимости с объектами, использующими старые реализации SSH.</p></li>
+</ul>
+</section>
+<section id="web-interface">
+<span id="index-8"></span><h3><span class="section-number">5.5.8 </span>Веб-интерфейс<a class="headerlink" href="upgrading-gos.html#web-interface" title="Ссылка на эту рубрику">¶</a></h3>
+<section id="new-design-of-the-web-interface">
+<h4><span class="section-number">5.5.8.1 </span>Новый дизайн веб-интерфейса<a class="headerlink" href="upgrading-gos.html#new-design-of-the-web-interface" title="Ссылка на эту рубрику">¶</a></h4>
+<p>В ГОС 24.10 представлен новый дизайн веб-интерфейса.
+Навигация основной панели была перенесена в вертикальное меню в левой части экрана, макет и цвет всех страниц и диалоговых окон были улучшены для повышения четкости и удобства использования.
+Кроме того, было добавлено несколько новых функций (см. ниже).</p>
+<p>В GOS 24.10.2 в веб-интерфейсе добавлены модемные уведомления.
+При различных типах действий, таких как запуск, остановка или активация задач проверки или аудита, а также удаление, клонирование или экспорт любого объекта, в правом верхнем углу появляется сообщение.</p>
+</section>
+<section id="configurable-report-formats">
+<span id="index-9"></span><h4><span class="section-number">5.5.8.2 </span>Настраиваемые форматы отчетов<a class="headerlink" href="upgrading-gos.html#configurable-report-formats" title="Ссылка на эту рубрику">¶</a></h4>
+<p>В ГОС 24.10 добавлена ​​данная функция <em>Отчет о конфигурации</em> подготовить формы отчетов.
+Следующие формы отчетов можно составить:</p>
+<ul class="simple">
+<li><p>Настраиваемые результаты CSV: настройка включенных столбцов и обработка формул.</p></li>
+<li><p>Топология SVG: настройка типа графа и расстояния до узла.</p></li>
+<li><p>Verinice ISM: настройка форматов прикрепленных текстов и отправляемых сообщений</p></li>
+<li><p>Verinice ISM все результаты: настройка форматов прикрепленных статей и отправляемых сообщений.</p></li>
+</ul>
+<p>Для применения форматов отчета можно выбрать настройку отчета об экспорте или использование оповещений, включающих отправитель отчета.</p>
+</section>
+<section id="epss-support">
+<span id="index-10"></span><h4><span class="section-number">5.5.8.3 </span>Поддержка ЭПСС<a class="headerlink" href="upgrading-gos.html#epss-support" title="Ссылка на эту рубрику">¶</a></h4>
+<p>В версии GOS 24.10 к CVE и тестах на уязвимости предусмотрены оценки EPSS (система оценок эксплойтов).
+EPSS — это мера вероятности использования уязвимостей.</p>
+<p>CVE и VT теперь присваиваются баллы и проценты.
+Оценочные показатели уязвимости области использования, наблюдаемые в течение следующих 30 дней, представляют собой число от 0 до 1.
+Чем выше значение, тем больше опасений того, что уязвимость действительно будет использована.
+Процент показывает долю уязвимостей, которые были оценены так же или ниже, чем уязвимость.
+Это помогает перенести счет в контекст.</p>
+</section>
+<section id="cvss-v4-0-support">
+<h4><span class="section-number">5.5.8.4 </span>Поддержка CVSS версии 4.0<a class="headerlink" href="upgrading-gos.html#cvss-v4-0-support" title="Ссылка на эту рубрику">¶</a></h4>
+<p>В GOS 24.10 будет поддерживаться CVSS v4.0.
+Однако, поскольку CVSS v4.0 все еще находится на ранних этапах общеотраслевых данных, CVSS v4.0 пока доступен в ленте.</p>
+</section>
+<section id="dedicated-page-for-audit-reports">
+<span id="index-11"></span><h4><span class="section-number">5.5.8.5 </span>Отдельная страница для аудиторских отчетов<a class="headerlink" href="upgrading-gos.html#dedicated-page-for-audit-reports" title="Ссылка на эту рубрику">¶</a></h4>
+<p>В ГОС 24.10 добавлена ​​новая подстраница <em>Тяжёлость</em> меню веб-интерфейса: <em>Отчеты о внешнем соответствии</em>.</p>
+<p>На этой странице представлены отчеты о проверках соответствия, эквивалентные <em>Отчеты</em> страница, содержащая отчеты по задачам проверки.
+В таблице на странице показаны общие показатели крепёжной системы, а также количество результатов для каждого уровня соответствия. <em>Да</em>, <em>Нет</em> и <em>Неполный</em>.</p>
+<p>Подробное представление отчета также эквивалентно представлению задачи.
+Он обнаружил все результаты вместе с оценкой того, что требование было выполнено, не выполнено или выполнено лишь частично.</p>
+<p>Фильтры и теги были настроены и не разделялись между отчетами об аудите и сканировании.
+Кроме того, были добавлены типы тегов для соответствия политике и аудита.</p>
+</section>
+<section id="kerberos-credentials">
+<h4><span class="section-number">5.5.8.6 </span>Учетные данные Kerberos<a class="headerlink" href="upgrading-gos.html#kerberos-credentials" title="Ссылка на эту рубрику">¶</a></h4>
+<p>В GOS 24.10.2 добавлен новый тип учетных данных для аутентификации Kerberos в среде Microsoft Windows.
+Сканирование с аутентификацией через Kerberos по-прежнему будет выполняться с помощью протокола SMB.</p>
+<p>Уже существующий <em>СМБ</em> учетные данные, используемые для аутентификации NT (Новая технология) LAN Manager (NTLM), переименованные в <em>СМБ (NTLM)</em> в веб-интерфейсе, чтобы избежать путаницы.
+Если аутентификация через Kerberos не удалась, в качестве резервного соединения будет использована аутентификация NTLM.</p>
+<p>Чтобы иметь возможность пройти аутентификацию через Kerberos на объекте, устройство должно использовать DNS-сервер, способный выполнить обратный поиск объекта автоматически.
+В случае обнаружения результатов с использованием сенсорного устройства, сенсорное устройство также должно соответствовать этому устройству.
+На внешней стороне также требуется, чтобы система была частью функционирующего домена Microsoft Windows с работающим контроллером домена, инфраструктурой DNS и сетью.</p>
+</section>
+</section>
+<section id="notus-scanner-replaced-by-ak-shumkard">
+<span id="index-12"></span><h3><span class="section-number">5.5.9 </span>Сканер Нотус заменен на ак-шумкарту<a class="headerlink" href="upgrading-gos.html#notus-scanner-replaced-by-ak-shumkard" title="Ссылка на эту рубрику">¶</a></h3>
+<p>С ГОС 24.10 Нотус Сканер заменен на ак-шумкарту.
+Ак-шумкард, реализованный на языке программирования Rust, обеспечивает более безопасную и надежную работу.
+Это первый шаг к реализации всех функций сканера Ак-Шумкар в Rust в будущем.</p>
+<p>Сама функция локальной проверки безопасности (LSC) теперь дает результат через <code class="docutils literal notranslate"><span class="pre">/нотус</span></code> конечная точка Ак-Шумкард.
+В целях ускорения ЛСК сканер Ак-шумкар отправляет собранные пакеты на ак-шумкард.
+Передача осуществляется через HTTP, прослушивание ак-шумкард постановления к локальному хосту.</p>
+</section>
+<section id="ak-shumkar-management-protocol-gmp">
+<span id="index-13"></span><h3><span class="section-number">5.5.10 </span>Протокол управления Ак Шумкар (GMP)<a class="headerlink" href="upgrading-gos.html#ak-shumkar-management-protocol-gmp" title="Ссылка на эту рубрику">¶</a></h3>
+<p>Протокол управления «Ак Шумкар» (GMP) обновлен до версии 22.7, API немного скорректирован.
+Использование некоторых команд было изменено, а некоторые команды, элементы и атрибуты объявлены конфиденциальными.
+Полный справочник и список изменений доступны. <a class="reference external" href="https://docs.ak-shumkar.net/API/GMP/gmp-22.7.html">здесь</a>.</p>
+<p>Если gvm-tools и/или python-gvm используются с GMP 22.7 и GOS 24.10, требуется следующая версия:</p>
+<ul class="simple">
+<li><p>gvm-инструменты: 25.1.1 или выше</p></li>
+<li><p>python-gvm: 26.0.0 или выше</p></li>
+</ul>
+</section>
+</section>
+</section>
+</article>
+</div>
+<footer>
+<div class="related-pages">
+<a class="next-page" href="managing-gos.html">
+<div class="page-info">
+<div class="context">
+<span>Следующий</span>
+</div>
+<div class="title"><span class="section-number">6 </span>Управление системой «Ак Шумкар»</div>
+</div>
+<svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+</a>
+<a class="prev-page" href="setting-up-the-appliance.html">
+<svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+<div class="page-info">
+<div class="context">
+<span>Предыдущий</span>
+</div>
+<div class="title"><span class="section-number">4 </span>Настройка АК-ШУМКАР</div>
+</div>
+</a>
+</div>
+<div class="bottom-of-page">
+<div class="left-details">
+<div class="copyright">
+                Copyright © 2015–2026, Ак Шумкар
+            </div>
+<div class="last-updated">
+              Последнее обновление: 13 марта 2026 г.</div>
+</div>
+<div class="right-details">
+</div>
+</div>
+</footer>
+</div>
+<aside class="toc-drawer">
+<div class="toc-sticky toc-scroll">
+<div class="toc-title-container">
+<span class="toc-title">
+            На этой странице
+          </span>
+</div>
+<div class="toc-tree-container">
+<div class="toc-tree">
+<ul>
+<li><a class="reference internal" href="upgrading-gos.html#">5 Обновление АК-ШУМКАР до последней основной версии</a><ul>
+<li><a class="reference internal" href="upgrading-gos.html#upgrading-the-operating-system">5.1 Обновление акустической системы</a></li>
+<li><a class="reference internal" href="upgrading-gos.html#upgrading-the-flash-partition-to-the-latest-version">5.2 Обновление флэш-раздела до последней версии</a></li>
+<li><a class="reference internal" href="upgrading-gos.html#relogging-into-the-gos-administration-menu-after-an-upgrade">5.3 Повторный вход в меню администрирования ГСН после обновления</a></li>
+<li><a class="reference internal" href="upgrading-gos.html#reloading-the-web-interface-after-an-upgrade">5.4 Перезагрузка веб-интерфейса после обновления</a></li>
+<li><a class="reference internal" href="upgrading-gos.html#new-features-and-changes-of-default-behavior">5.5 Новые функции и изменения поведения по умолчанию</a><ul>
+<li><a class="reference internal" href="upgrading-gos.html#product-portfolio">5.5.1 Портфельные продукты</a></li>
+<li><a class="reference internal" href="upgrading-gos.html#secure-boot">5.5.2 Безопасная загрузка</a></li>
+<li><a class="reference internal" href="upgrading-gos.html#encrypted-airgap-ftp">5.5.3 Зашифрованный FTP Airgap</a></li>
+<li><a class="reference internal" href="upgrading-gos.html#sshd-configuration-options">5.5.4 Параметры конфигурации sshd</a></li>
+<li><a class="reference internal" href="upgrading-gos.html#networking-mode">5.5.5 Сетевой режим</a></li>
+<li><a class="reference internal" href="upgrading-gos.html#superuser-password">5.5.6 Пароль суперпользователя</a></li>
+<li><a class="reference internal" href="upgrading-gos.html#new-openssh-and-libssh-versions">5.5.7 Новые версии openssh и libssh</a></li>
+<li><a class="reference internal" href="upgrading-gos.html#web-interface">5.5.8 Веб-интерфейс</a><ul>
+<li><a class="reference internal" href="upgrading-gos.html#new-design-of-the-web-interface">5.5.8.1 Новый дизайн веб-интерфейса</a></li>
+<li><a class="reference internal" href="upgrading-gos.html#configurable-report-formats">5.5.8.2 Настраиваемые форматы отчетов</a></li>
+<li><a class="reference internal" href="upgrading-gos.html#epss-support">5.5.8.3 Поддержка EPSS</a></li>
+<li><a class="reference internal" href="upgrading-gos.html#cvss-v4-0-support">5.5.8.4 Поддержка CVSS v4.0</a></li>
+<li><a class="reference internal" href="upgrading-gos.html#dedicated-page-for-audit-reports">5.5.8.5 Специальная страница для аудиторских отчетов</a></li>
+<li><a class="reference internal" href="upgrading-gos.html#kerberos-credentials">5.5.8.6 Учетные данные Kerberos</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="upgrading-gos.html#notus-scanner-replaced-by-ak-shumkard">5.5.9 Сканер Нотус заменен на ак-шумкарту</a></li>
+<li><a class="reference internal" href="upgrading-gos.html#ak-shumkar-management-protocol-gmp">5.5.10 Протокол управления Ак Шумкар (GMP)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</aside>
+</div>
+</div><script src="_static/documentation_options.js%3Fv=bd398bb6"></script>
+<script src="_static/doctools.js%3Fv=9a2dae69"></script>
+<script src="_static/sphinx_highlight.js%3Fv=dc90522c"></script>
+<script src="_stati_static/scripts/furo.js%3Fv=46bd48cc"></script>
+</body></html>

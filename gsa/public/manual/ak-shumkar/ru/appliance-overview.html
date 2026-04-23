@@ -1,0 +1,496 @@
+<html lang="ru"><body>HTML
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="light dark" name="color-scheme"/><meta content="width=device-width, initial-scale=1" name="viewport"/>
+<link href="genindex.html" rel="index" title="Индекс"/><link href="search.html" rel="search" title="Поиск"/><link href="setting-up-the-appliance.html" rel="next" title="4 Настройка АК-ШУМКАР"/><link href="read-before-use.html" rel="prev" title="2 Прочтите перед использованием"/>
+<link as="image" href="/img/ak-shumkar.png" rel="prefetch"/>
+<link as="image" href="/img/ak-shumkar.png" rel="prefetch"/>
+<link href="/img/ak-shumkar.png" rel="icon" type="image/png"/><link href="/img/ak-shumkar.png" rel="shortcut icon" type="image/png"/><title>3 АК-ШУМКАР – Обзор - АК-ШУМКАР – ГСН 24.10.11</title>
+<link href="_static/pygments.css%3Fv=8e8a900e.css" rel="stylesheet" type="text/css"/>
+<link href="_static/styles/furo.css%3Fv=580074bf.css" rel="stylesheet" type="text/css"/>
+<link href="_static/sphinx_greenbone.css%3Fv=8ef0bb58.css" rel="stylesheet" type="text/css"/>
+<link href="_static/styles/furo-extensions.css%3Fv=8dab3a3b.css" rel="stylesheet" type="text/css"/>
+<style>
+  body {
+    --color-code-background: #ffffff;
+  --color-code-foreground: black;
+  --font-stack: Roboto, Helvetica, sans-serif;
+  --color-content-foreground: #4D4D4D;
+  --color-foreground-primary: 4D4D4D;
+  --color-foreground-secondary: #808080;
+  --color-code-background: #333333;
+  --color-code-foreground: #E6E6E6;
+  --color-admonition-title--note: #0E823E;
+  --color-admonition-title--note-background: #D8F1E2;
+  --color-admonition-title--warning: #E5393D;
+  --color-admonition-title--warning-background: #FBDDDE;
+  --admonition-font-size: 0.9rem;
+  --color-background-primary: #FFFFFF;
+  --color-background-secondary: #F5F5F5;
+  --color-sidebar-background: #F5F5F5;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --font-stack: Roboto, Helvetica, sans-serif;
+  --color-content-foreground: #F5F5F5;
+  --color-foreground-primary: F5F5F5;
+  --color-foreground-secondary: #E6E6E6;
+  --color-code-background: #333333;
+  --color-code-foreground: #E6E6E6;
+  --color-admonition-title--note: #11AB51;
+  --admonition-font-size: 0.9rem;
+  --color-background-primary: #171717;
+  --color-background-secondary: #4D4D4D;
+  --color-sidebar-background: #333333;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --font-stack: Roboto, Helvetica, sans-serif;
+  --color-content-foreground: #F5F5F5;
+  --color-foreground-primary: F5F5F5;
+  --color-foreground-secondary: #E6E6E6;
+  --color-code-background: #333333;
+  --color-code-foreground: #E6E6E6;
+  --color-admonition-title--note: #11AB51;
+  --admonition-font-size: 0.9rem;
+  --color-background-primary: #171717;
+  --color-background-secondary: #4D4D4D;
+  --color-sidebar-background: #333333;
+  
+      }
+    }
+  }
+</style>
+<script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+<svg style="display: none;" xmlns="http://www.w3.org/2000/svg">
+<symbol id="svg-toc" viewbox="0 0 24 24">
+<title>Содержание</title>
+<svg fill="currentColor" stroke="currentColor" stroke-width="0" viewbox="0 0 1024 1024">
+<path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"></path>
+</svg>
+</symbol>
+<symbol id="svg-menu" viewbox="0 0 24 24">
+<title>Меню</title>
+<svg class="feather-menu" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<line x1="3" x2="21" y1="12" y2="12"></line>
+<line x1="3" x2="21" y1="6" y2="6"></line>
+<line x1="3" x2="21" y1="18" y2="18"></line>
+</svg>
+</symbol>
+<symbol id="svg-arrow-right" viewbox="0 0 24 24">
+<title>Расширять</title>
+<svg class="feather-chevron-right" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<polyline points="9 18 15 12 9 6"></polyline>
+</svg>
+</symbol>
+<symbol id="svg-sun" viewbox="0 0 24 24">
+<title>Светлый режим</title>
+<svg class="feather-sun" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<circle cx="12" cy="12" r="5"></circle>
+<line x1="12" x2="12" y1="1" y2="3"></line>
+<line x1="12" x2="12" y1="21" y2="23"></line>
+<line x1="4.22" x2="5.64" y1="4.22" y2="5.64"></line>
+<line x1="18.36" x2="19.78" y1="18.36" y2="19.78"></line>
+<line x1="1" x2="3" y1="12" y2="12"></line>
+<line x1="21" x2="23" y1="12" y2="12"></line>
+<line x1="4.22" x2="5.64" y1="19.78" y2="18.36"></line>
+<line x1="18.36" x2="19.78" y1="5.64" y2="4.22"></line>
+</svg>
+</symbol>
+<symbol id="svg-moon" viewbox="0 0 24 24">
+<title>Темный режим</title>
+<svg class="icon-tabler-moon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 0h24v24H0z" fill="none" stroke="none"></path>
+<path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"></path>
+</svg>
+</symbol>
+<symbol id="svg-sun-with-moon" viewbox="0 0 24 24">
+<title>Автоматический свет/темнота, в светлом режиме</title>
+<svg class="icon-custom-derived-from-feather-sun-and-tabler-moon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z" style="opacity: 50%"></path>
+<line x1="14.5" x2="14.5" y1="3.25" y2="1.25"></line>
+<line x1="14.5" x2="14.5" y1="15.85" y2="17.85"></line>
+<line x1="10.044" x2="8.63" y1="5.094" y2="3.68"></line>
+<line x1="19" x2="20.414" y1="14.05" y2="15.464"></line>
+<line x1="8.2" x2="6.2" y1="9.55" y2="9.55"></line>
+<line x1="20.8" x2="22.8" y1="9.55" y2="9.55"></line>
+<line x1="10.044" x2="8.63" y1="14.006" y2="15.42"></line>
+<line x1="19" x2="20.414" y1="5.05" y2="3.636"></line>
+<circle cx="14.5" cy="9.55" r="3.6"></circle>
+</svg>
+</symbol>
+<symbol id="svg-moon-with-sun" viewbox="0 0 24 24">
+<title>Автоматический светлый/темный, в темном режиме</title>
+<svg class="icon-custom-derived-from-feather-sun-and-tabler-moon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"></path>
+<line style="opacity: 50%" x1="18" x2="18" y1="3.705" y2="2.5"></line>
+<line style="opacity: 50%" x1="18" x2="18" y1="11.295" y2="12.5"></line>
+<line style="opacity: 50%" x1="15.316" x2="14.464" y1="4.816" y2="3.964"></line>
+<line style="opacity: 50%" x1="20.711" x2="21.563" y1="10.212" y2="11.063"></line>
+<line style="opacity: 50%" x1="14.205" x2="13.001" y1="7.5" y2="7.5"></line>
+<line style="opacity: 50%" x1="21.795" x2="23" y1="7.5" y2="7.5"></line>
+<line style="opacity: 50%" x1="15.316" x2="14.464" y1="10.184" y2="11.036"></line>
+<line style="opacity: 50%" x1="20.711" x2="21.563" y1="4.789" y2="3.937"></line>
+<circle cx="18" cy="7.5" r="2.169" style="opacity: 50%"></circle>
+</svg>
+</symbol>
+<symbol id="svg-pencil" viewbox="0 0 24 24">
+<svg class="icon-tabler-pencil-code" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4"></path>
+<path d="M13.5 6.5l4 4"></path>
+<path d="M20 21l2 -2l-2 -2"></path>
+<path d="M17 17l-2 2l2 2"></path>
+</svg>
+</symbol>
+<symbol id="svg-eye" viewbox="0 0 24 24">
+<svg class="icon-tabler-eye-code" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 0h24v24H0z" fill="none" stroke="none"></path>
+<path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"></path>
+<path d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008"></path>
+<path d="M20 21l2 -2l-2 -2"></path>
+<path d="M17 17l-2 2l2 2"></path>
+</svg>
+</symbol>
+</svg>
+<input aria-label="Переключить боковую панель навигации по сайту" class="sidebar-toggle" id="__navigation" name="__navigation" type="checkbox"/>
+<input aria-label="Переключить боковую панель оглавления" class="sidebar-toggle" id="__toc" name="__toc" type="checkbox"/>
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+<a class="skip-to-content muted-link" href="appliance-overview.html#furo-main-content">Перейти к содержимому</a>
+<div class="page">
+<header class="mobile-header">
+<div class="header-left">
+<label class="nav-overlay-icon" for="__navigation">
+<span class="icon"><svg><use href="#svg-menu"></use></svg></span>
+</label>
+</div>
+<div class="header-center">
+<a href="index.html"><div class="brand">АК-ШУМКАР – ГОС 24.10.11</div></a>
+</div>
+<div class="header-right">
+<div class="theme-toggle-container theme-toggle-header">
+<button aria-label="Переключить светлую/темную/автоматическую цветовую тему" class="theme-toggle">
+<svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+<svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+<svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+<svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+</button>
+</div>
+<label class="toc-overlay-icon toc-header-icon" for="__toc">
+<span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+</label>
+</div>
+</header>
+<aside class="sidebar-drawer">
+<div class="sidebar-container">
+<div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
+<div class="sidebar-logo-container">
+<img alt="Логотип AK-SHUMKAR" class="sidebar-logo only-light" src="/img/ak-shumkar.png"/>
+<img alt="Логотип AK-SHUMKAR" class="sidebar-logo only-dark" src="/img/ak-shumkar.png"/>
+</div>
+<span class="sidebar-brand-text">АК-ШУМКАР – ГОС 24.10.11</span>
+</a><form action="search.html" class="sidebar-search-container" method="get" role="search">
+<input aria-label="Поиск" class="sidebar-search" name="q" placeholder="Поиск"/>
+<input name="check_keywords" type="hidden" value="yes"/>
+<input name="area" type="hidden" value="default"/>
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">1 Введение</a></li>
+<li class="toctree-l1"><a class="reference internal" href="read-before-use.html">2 Прочтите перед использованием</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="appliance-overview.html#">3 АК-ШУМКАР – Обзор</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setting-up-the-appliance.html">4 Настройка АК-ШУМКАР</a></li>
+<li class="toctree-l1"><a class="reference internal" href="upgrading-gos.html">5 Обновление АК-ШУМКАР до последней основной версии</a></li>
+<li class="toctree-l1"><a class="reference internal" href="managing-gos.html">6 Управление операционной системой «Ак Шумкар»</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web-interface.html">7 Знакомство с веб-интерфейсом</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web-interface-access.html">8 Управление доступом к веб-интерфейсу</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scanning.html">9 Сканирование системы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reports.html">10 отчетов и управление уязвимостями</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compliance-and-special-scans.html">11 Выполнение сканирования на соответствие и специального сканирования</a></li>
+<li class="toctree-l1"><a class="reference internal" href="managing-assets.html">12 Управление активами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="managing-secinfo.html">13 Управление информацией о безопасности</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gmp.html">14 Использование протокола управления «Ак Шумкар»</a></li>
+<li class="toctree-l1"><a class="reference internal" href="master-sensor-setup.html">15 Использование настройки главного датчика</a></li>
+<li class="toctree-l1"><a class="reference internal" href="performance.html">16 Управление производительностью</a></li>
+<li class="toctree-l1"><a class="reference internal" href="connecting-other-systems.html">17 Подключение АК-ШУМКАР к другим системам</a></li>
+<li class="toctree-l1"><a class="reference internal" href="architecture.html">18 Архитектура</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">19 часто задаваемых вопросов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">20 Глоссарий</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</aside>
+<div class="main">
+<div class="content">
+<div class="article-container">
+<a class="back-to-top muted-link" href="appliance-overview.html#">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+</svg>
+<span>Вернуться наверх</span>
+</a>
+<div class="content-icon-container">
+<div class="theme-toggle-container theme-toggle-content">
+<button aria-label="Переключить светлую/темную/автоматическую цветовую тему" class="theme-toggle">
+<svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+<svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+<svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+<svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+</button>
+</div>
+<label class="toc-overlay-icon toc-content-icon" for="__toc">
+<span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+</label>
+</div>
+<article id="furo-main-content" role="main">
+<section id="ak-shumkar-scan-overview">
+<span id="appliance-overview"></span><span id="index-0"></span><h1><span class="section-number">3 </span>АК-ШУМКАР – Обзор<a class="headerlink" href="appliance-overview.html#ak-shumkar-scan-overview" title="Ссылка на эту рубрику">¶</a></h1>
+<p>АК-ШУМКАР — это специализированное устройство для сканирования и управления уязвимостями.
+Предлагается в различных уровнях производительности.</p>
+<section id="hardware-appliances">
+<span id="index-1"></span><h2><span class="section-number">3.1 </span>Аппаратное обеспечение<a class="headerlink" href="appliance-overview.html#hardware-appliances" title="Ссылка на эту рубрику">¶</a></h2>
+<div class="admonition tip">
+<p class="admonition-title">Кончик</p>
+<p>Полный обзор всех моделей АК-ШУМКАР можно найти. <a class="reference external" href="https://www.ak-shumkar.net/wp-content/uploads/solution_overview_en.pdf">здесь</a>.</p>
+</div>
+<section id="large-organizations-ak-shumkar-scan-5400-6500">
+<span id="index-2"></span><h3><span class="section-number">3.1.1 </span>Крупные организации – АК-ШУМКАР 5400/6500<a class="headerlink" href="appliance-overview.html#large-organizations-ak-shumkar-scan-5400-6500" title="Ссылка на эту рубрику">¶</a></h3>
+<p>АК-ШУМКАР 5400 и АК-ШУМКАР 6500 предназначены для эксплуатации в крупных организациях.</p>
+<figure class="align-center" id="id2">
+<a class="reference internal image-reference" href="_images/Hardware_Appliance_large.png"><img alt="_images/Hardware_Appliance_large.png" src="_images/Hardware_Appliance_large.png" style="width: 50%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 3.1 </span><span class="caption-text">АК-ШУМКАР для крупных организаций</span><a class="headerlink" href="appliance-overview.html#id2" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+<p>Они могут управлять другими устройствами в качестве датчиков, а также могут управляться другими устройствами в качестве удаленных сканеров.</p>
+<p>Устройства анонимизируются в 19-дюймовом корпусе высотой 2U, что обеспечивает интеграцию с центром обработки данных.
+Для простоты установки и контроля они оснащены двухстрочным ЖК-дисплеем по 16 символов в строке.
+Для работы кондиционера они оснащены резервными источниками питания с возможностью горячей замены, 4 твердотельными накопителями (SSD) и вентиляторами.</p>
+<p>Устройства используют RAID (избыточный массив независимых дисков) 6 в видеопрограммном обеспечении RAID.
+RAID — это технология виртуализации хранения данных, которая объединяет несколько компонентов жестких дисков в один или несколько логических блоков в целях резервности данных.</p>
+<p>Для управления внешним доступом имеется дополнительный порт в дополнении к внешним портам внешнего управления Ethernet (RJ45).</p>
+<p>Для подключения к другим системам устройство оснащено адаптером с 8 портами Ethernet RJ45.
+Дополнительное устройство может быть оснащено дополнительными модулями.
+Следующие модули можно использовать в любом порядке:</p>
+<ul class="simple">
+<li><p>Модуль(и) с 8 портами RJ45 (медь)</p></li>
+<li><p>Модуль(и) с 8 портами 1 GbE SFP (подключаемый модуль молодого форм-фактора)</p></li>
+<li><p>Модуль(и) с 2 портами 10 GbE SFP+ (подключаемый модуль расширенного форм-фактора балкона)</p></li>
+</ul>
+</section>
+<section id="medium-sized-organizations-and-branches-ak-shumkar-scan-400-450-600-650">
+<span id="index-3"></span><h3><span class="section-number">3.1.2 </span>Средние организации и филиалы – АК-ШУМКАР 400/450/600/650<a class="headerlink" href="appliance-overview.html#medium-sized-organizations-and-branches-ak-shumkar-scan-400-450-600-650" title="Ссылка на эту рубрику">¶</a></h3>
+<p>АК-ШУМКАР 400, АК-ШУМКАР 450, АК-ШУМКАР 600 и АК-ШУМКАР 650 предназначены для средних организаций и крупных филиалов.</p>
+<figure class="align-center" id="id3">
+<a class="reference internal image-reference" href="_images/Hardware_Appliance_medium.png"><img alt="_images/Hardware_Appliance_medium.png" src="_images/Hardware_Appliance_medium.png" style="width: 50%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 3.2 </span><span class="caption-text">АК-ШУМКАР для организаций среднего бизнеса</span><a class="headerlink" href="appliance-overview.html#id3" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+<p>Они могут управлять другими устройствами в качестве датчиков, а также могут управляться другими устройствами в качестве удаленных сканеров.</p>
+<p>Устройства анонимизируются в 19-дюймовом корпусе высотой 1U, что обеспечивает интеграцию с центром обработки данных.
+Для простоты установки и контроля они оснащены двухстрочным ЖК-дисплеем по 16 символов в строке.
+Для курортной работы устройство оснащено резервными вентиляторами.</p>
+<p>Для управления устройством в дополнение к порту управления доступен последовательный порт Ethernet.
+Последовательный порт настроен как консольный порт, совместимый с Cisco.</p>
+<p>Для подключения к другим системам устройства оснащены в общей сложности десятью портами, предварительно настроенными и настроенными следующим образом:</p>
+<ul class="simple">
+<li><p>8 портов RJ45 (медь)</p></li>
+<li><p>2 порта 10 GbE SFP+ (подключаемый модуль улучшенного детского форм-фактора)</p></li>
+</ul>
+<p>Модульная конфигурация портов невозможна.
+Один из этих портов также используется как порт управления.</p>
+</section>
+<section id="small-organizations-and-branches-ak-shumkar-scan-150">
+<span id="index-4"></span><h3><span class="section-number">3.1.3 </span>Малые организации и филиалы — АК-ШУМКАР 150<a class="headerlink" href="appliance-overview.html#small-organizations-and-branches-ak-shumkar-scan-150" title="Ссылка на эту рубрику">¶</a></h3>
+<p>АК-ШУМКАР 150 предназначен для небольших организаций, а также для малых и средних филиалов.</p>
+<p>Управление датчиками в других зонах охраны не рассматривается.
+Однако сам АК-ШУМКАР 150 может управляться как удаленный сканер другими приборами.</p>
+<figure class="align-center" id="id4">
+<a class="reference internal image-reference" href="_images/Hardware_Appliance_small.png"><img alt="_images/Hardware_Appliance_small.png" src="_images/Hardware_Appliance_small.png" style="width: 50%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 3.3 </span><span class="caption-text">АК-ШУМКАР для небольших организаций</span><a class="headerlink" href="appliance-overview.html#id4" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+<p>Устройство расположено в 19-дюймовом корпусе высотой 1U, что обеспечивает базовую интеграцию в центр обработки данных.
+Для простоты установки и контроля он оснащен двухстрочным ЖК-дисплеем по 16 символов в строке.
+Для эффективной работы устройство оснащено резервными вентиляторами.</p>
+<p>Для управления устройством в дополнение к порту управления доступен последовательный порт Ethernet.
+Последовательный порт настроен как консольный порт, совместимый с Cisco.</p>
+<p>Для подключения к другим системам устройство оснащено в общей сложности десятью портами, предварительно настроенными и настроенными следующим образом:</p>
+<ul class="simple">
+<li><p>8 портов RJ45 (медь)</p></li>
+<li><p>2 порта 10 GbE SFP+ (подключаемый модуль улучшенного детского форм-фактора)</p></li>
+</ul>
+<p>Модульная конфигурация портов невозможна.
+Один из этих портов также используется как порт управления.</p>
+</section>
+<section id="sensor-ak-shumkar-scan-35">
+<span id="index-5"></span><h3><span class="section-number">3.1.4 </span>Датчик — АК-ШУМКАР 35<a class="headerlink" href="appliance-overview.html#sensor-ak-shumkar-scan-35" title="Ссылка на эту рубрику">¶</a></h3>
+<p>АК-ШУМКАР 35 предназначен как датчик для систем распределенного сканирования.</p>
+<figure class="align-center" id="id5">
+<a class="reference internal image-reference" href="_images/Hardware_Appliance_sensor.png"><img alt="_images/Hardware_Appliance_sensor.png" src="_images/Hardware_Appliance_sensor.png" style="width: 50%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 3.4 </span><span class="caption-text">Аппаратный датчик</span><a class="headerlink" href="appliance-overview.html#id5" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+<p>Прибор можно использовать только в сенсорном режиме, и им необходимо управлять через главное устройство.
+По этой причине у него нет самого веб-интерфейса.
+Приборы АК-ШУМКАР 400/ДЕКА могут использоваться в качестве мастеров для АК-ШУМКАР 35.</p>
+<p>Устройство выполнено в стальном корпусе высотой 1U.
+Для освещения центральной панели данных можно использовать дополнительный комплект для установки в стойку.
+Прибор не оборудован дисплеем.</p>
+<p>Для управления устройством в дополнение к порту управления доступен последовательный порт Ethernet.
+Последовательный порт настроен как консольный порт, совместимый с Cisco.</p>
+<p>Для подключения к другим системам устройство оснащено собственными портами GbE-Base-TX (медными).
+Один из этих портов также используется как управление портами.</p>
+</section>
+</section>
+<section id="virtual-appliances">
+<span id="index-6"></span><h2><span class="section-number">3.2 </span>Виртуальные устройства<a class="headerlink" href="appliance-overview.html#virtual-appliances" title="Ссылка на эту рубрику">¶</a></h2>
+<div class="admonition tip" id="index-7">
+<p class="admonition-title">Кончик</p>
+<p>Полный обзор всех моделей АК-ШУМКАР можно найти. <a class="reference external" href="https://www.ak-shumkar.net/wp-content/uploads/solution_overview_en.pdf">здесь</a>.</p>
+</div>
+<section id="medium-sized-organizations-and-branches-ak-shumkar-scan-deca-tera-peta-exa">
+<h3><span class="section-number">3.2.1 </span>Средние организации и филиалы – АК-ШУМКАР DECA/TERA/PETA/EXA<a class="headerlink" href="appliance-overview.html#medium-sized-organizations-and-branches-ak-shumkar-scan-deca-tera-peta-exa" title="Ссылка на эту рубрику">¶</a></h3>
+<p>АК-ШУМКАР ДЕКА, АК-ШУМКАР ТЕРА, АК-ШУМКАР ПЕТА и АК-ШУМКАР ЭКСА предназначены для средних организаций и крупных филиалов.</p>
+<figure class="align-center" id="id6">
+<a class="reference internal image-reference" href="_images/Virtual_Appliance.png"><img alt="_images/Virtual_Appliance.png" src="_images/Virtual_Appliance.png" style="width: 50%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 3.5 </span><span class="caption-text">АК-ШУМКАР для организаций среднего бизнеса</span><a class="headerlink" href="appliance-overview.html#id6" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+<p>Они могут управлять другими устройствами в качестве датчиков, а также могут управляться другими устройствами в качестве удаленных сканеров.</p>
+<p>Для подключения к другим системам устройство имеет всего восемь переключателей виртуальных портов в случае АК-ШУМКАР TERA/PETA/EXA или всего четыре переключателя виртуальных портов в случае АК-ШУМКАР DECA.</p>
+<p>Один из этих портов также используется как порт управления.</p>
+</section>
+<section id="small-organizations-ak-shumkar-scan-ceno">
+<span id="index-8"></span><h3><span class="section-number">3.2.2 </span>Малые организации — АК-ШУМКАР ЦЕНО<a class="headerlink" href="appliance-overview.html#small-organizations-ak-shumkar-scan-ceno" title="Ссылка на эту рубрику">¶</a></h3>
+<p>АК-ШУМКАР ЦЕНО предназначен для небольших организаций, а также для малых и средних филиалов.</p>
+<p>Управление датчиками в других зонах охраны не рассматривается.
+Однако сам АК-ШУМКАР ЦЕНО может управляться как удаленные сканеры другими приборами.</p>
+<p>Для подключения к другим системам устройство имеет в общей сложности четыре динамических виртуальных порта.</p>
+<p>Один из этих портов также используется как порт управления.</p>
+</section>
+<section id="sensor-ak-shumkar-scan-25v">
+<span id="index-9"></span><h3><span class="section-number">3.2.3 </span>Датчик — АК-ШУМКАР 25В<a class="headerlink" href="appliance-overview.html#sensor-ak-shumkar-scan-25v" title="Ссылка на эту рубрику">¶</a></h3>
+<p>АК-ШУМКАР 25В предназначен как датчик для систем распределенного сканирования.</p>
+<p>Прибор можно использовать только в сенсорном режиме, и им необходимо управлять через главное устройство.
+По этой причине у него нет самого веб-интерфейса.
+Приборы АК-ШУМКАР 400/ДЕКА могут использоваться в качестве мастеров для АК-ШУМКАР 25В.</p>
+<p>Для подключения к другим системам устройство имеет в общей сложности четыре динамических виртуальных порта.</p>
+<p>Один из этих портов также используется как порт управления.</p>
+</section>
+<section id="entry-level-solution-ak-shumkar-basic">
+<span id="index-10"></span><h3><span class="section-number">3.2.4 </span>Решение начального уровня – АК-ШУМКАР БЕЙСИК<a class="headerlink" href="appliance-overview.html#entry-level-solution-ak-shumkar-basic" title="Ссылка на эту рубрику">¶</a></h3>
+<p>АК-ШУМКАР БЕЙСИК спроектирован как прибор начального уровня с ограниченным набором функций.
+Он не может ни управлять другими устройствами в качестве датчиков, ни управляться в качестве датчика другим устройством.</p>
+<p>Устройство поставляется с одним виртуальным портом, который используется для управления, сканирования и обновлений.</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Необходимо использовать АК-ШУМКАР БЕЙСИК с АК-ШУМКАР КОРМОМ ПРЕДПРИЯТИЯ.
+Использование ленты СООБЩЕСТВА АК-ШУМКАР невозможно.</p>
+<p>Для AK-SHUMKAR BASIC ключ подписки AK-SHUMKAR ENTERPRISE FEED по умолчанию не включает доступ к службе поддержки «Ак Шумкар».
+Доступ к запросу отдельно.
+Для получения более подробной информации документов <a class="reference external" href="mailto:sales%40ak-shumkar.net">продажи<span>@</span>ак-шумкар<span>.</span>сеть</a>.</p>
+</div>
+</section>
+<section id="entry-level-solution-ak-shumkar-scan-one">
+<span id="index-11"></span><h3><span class="section-number">3.2.5 </span>Решение начального уровня — АК-ШУМКАР ONE<a class="headerlink" href="appliance-overview.html#entry-level-solution-ak-shumkar-scan-one" title="Ссылка на эту рубрику">¶</a></h3>
+<p>АК-ШУМКАР ОДНО определение как прибор начального уровня с ограниченным набором функций.
+Он не может ни управлять другими устройствами в качестве датчиков, ни управлять в качестве датчиков телефона.</p>
+<p>Устройство поставляется с одним виртуальным портом, который используется для управления, сканирования и обновлений.</p>
+</section>
+</section>
+</section>
+</article>
+</div>
+<footer>
+<div class="related-pages">
+<a class="next-page" href="setting-up-the-appliance.html">
+<div class="page-info">
+<div class="context">
+<span>Следующий</span>
+</div>
+<div class="title"><span class="section-number">4 </span>Настройка АК-ШУМКАР</div>
+</div>
+<svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+</a>
+<a class="prev-page" href="read-before-use.html">
+<svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+<div class="page-info">
+<div class="context">
+<span>Предыдущий</span>
+</div>
+<div class="title"><span class="section-number">2 </span>Прочтите перед использованием</div>
+</div>
+</a>
+</div>
+<div class="bottom-of-page">
+<div class="left-details">
+<div class="copyright">
+                Copyright © 2015–2026, Ак Шумкар
+            </div>
+<div class="last-updated">
+              Последнее обновление: 13 марта 2026 г.</div>
+</div>
+<div class="right-details">
+</div>
+</div>
+</footer>
+</div>
+<aside class="toc-drawer">
+<div class="toc-sticky toc-scroll">
+<div class="toc-title-container">
+<span class="toc-title">
+            На этой странице
+          </span>
+</div>
+<div class="toc-tree-container">
+<div class="toc-tree">
+<ul>
+<li><a class="reference internal" href="appliance-overview.html#">3 АК-ШУМКАР – Обзор</a><ul>
+<li><a class="reference internal" href="appliance-overview.html#hardware-appliances">3.1 Аппаратные средства</a><ul>
+<li><a class="reference internal" href="appliance-overview.html#large-organizations-ak-shumkar-scan-5400-6500">3.1.1 Крупные организации – АК-ШУМКАР 5400/6500</a></li>
+<li><a class="reference internal" href="appliance-overview.html#medium-sized-organizations-and-branches-ak-shumkar-scan-400-450-600-650">3.1.2 Средние организации и филиалы – АК-ШУМКАР 400/450/600/650</a></li>
+<li><a class="reference internal" href="appliance-overview.html#small-organizations-and-branches-ak-shumkar-scan-150">3.1.3 Малые организации и филиалы – АК-ШУМКАР 150</a></li>
+<li><a class="reference internal" href="appliance-overview.html#sensor-ak-shumkar-scan-35">3.1.4 Датчик – АК-ШУМКАР 35</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="appliance-overview.html#virtual-appliances">3.2 Виртуальные устройства</a><ul>
+<li><a class="reference internal" href="appliance-overview.html#medium-sized-organizations-and-branches-ak-shumkar-scan-deca-tera-peta-exa">3.2.1 Средние организации и филиалы – АК-ШУМКАР DECA/TERA/PETA/EXA</a></li>
+<li><a class="reference internal" href="appliance-overview.html#small-organizations-ak-shumkar-scan-ceno">3.2.2 Малые организации – АК-ШУМКАР ЦЕНО</a></li>
+<li><a class="reference internal" href="appliance-overview.html#sensor-ak-shumkar-scan-25v">3.2.3 Датчик – АК-ШУМКАР 25В</a></li>
+<li><a class="reference internal" href="appliance-overview.html#entry-level-solution-ak-shumkar-basic">3.2.4 Решение начального уровня – АК-ШУМКАР БАЗОВЫЙ</a></li>
+<li><a class="reference internal" href="appliance-overview.html#entry-level-solution-ak-shumkar-scan-one">3.2.5 Решение начального уровня – АК-ШУМКАР ONE</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</aside>
+</div>
+</div><script src="_static/documentation_options.js%3Fv=bd398bb6"></script>
+<script src="_static/doctools.js%3Fv=9a2dae69"></script>
+<script src="_static/sphinx_highlight.js%3Fv=dc90522c"></script>
+<script src="_stati_static/scripts/furo.js%3Fv=46bd48cc"></script>
+</body></html>

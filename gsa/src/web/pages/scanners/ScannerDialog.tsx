@@ -12,6 +12,8 @@ import {
   AK_SHUMKAR_SENSOR_SCANNER_TYPE,
   AK_SHUMKAR_SCANNER_TYPE,
   AK_SHUMKARD_SCANNER_TYPE,
+  OPENVAS_WITH_CVE_SCANNER_TYPE,
+  OPENVASD_WITH_CVE_SCANNER_TYPE,
   type ScannerType,
   scannerTypeName,
 } from 'gmp/models/scanner';
@@ -80,7 +82,9 @@ const updatePort = (scannerType: ScannerType | undefined) => {
   }
   if (
     scannerType === AK_SHUMKARD_SCANNER_TYPE ||
-    scannerType === CONTAINER_IMAGE_SCANNER_TYPE
+    scannerType === OPENVAS_WITH_CVE_SCANNER_TYPE ||
+    scannerType === CONTAINER_IMAGE_SCANNER_TYPE ||
+    scannerType === OPENVASD_WITH_CVE_SCANNER_TYPE
   ) {
     return 443;
   }
@@ -164,11 +168,14 @@ const ScannerDialog = ({
 
   const scannerTypes: ScannerType[] = [AK_SHUMKAR_SCANNER_TYPE];
 
+  // Classic OSP (OpenVAS) and composite OpenVAS+CVE: always list — patched gvmd, not gated on ENABLE_OPENVASD.
+  scannerTypes.push(AK_SHUMKARD_SCANNER_TYPE, OPENVAS_WITH_CVE_SCANNER_TYPE);
+
   if (
-    scannerType === AK_SHUMKARD_SCANNER_TYPE ||
+    scannerType === OPENVASD_WITH_CVE_SCANNER_TYPE ||
     features.featureEnabled('ENABLE_OPENVASD')
   ) {
-    scannerTypes.push(AK_SHUMKARD_SCANNER_TYPE);
+    scannerTypes.push(OPENVASD_WITH_CVE_SCANNER_TYPE);
   }
 
   if (

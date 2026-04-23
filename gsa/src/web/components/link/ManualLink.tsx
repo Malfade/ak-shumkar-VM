@@ -25,15 +25,20 @@ const ManualLink = ({
   ...props
 }: ManualLinkProps) => {
   const manualURL = useManualURL(lang);
+  const isLocalManual = manualURL.startsWith('/');
 
-  let url = manualURL + '/' + page + '.html';
+  let url = isLocalManual
+    ? `${manualURL}/index.html`
+    : `${manualURL}/${page}.html`;
 
-  if (page === 'search' && isDefined(searchTerm)) {
+  if (!isLocalManual && page === 'search' && isDefined(searchTerm)) {
     url += '?q=' + searchTerm;
-  } else if (isDefined(highlight)) {
+  } else if (!isLocalManual && isDefined(highlight)) {
     url += '?highlight=' + highlight;
   } else if (isDefined(anchor)) {
     url += '#' + anchor;
+  } else if (isLocalManual) {
+    url += '#' + page;
   }
   return <BlankLink {...props} data-testid={dataTestId} to={url} />;
 };

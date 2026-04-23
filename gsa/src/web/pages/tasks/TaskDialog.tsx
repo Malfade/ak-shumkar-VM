@@ -11,6 +11,8 @@ import Scanner, {
   AK_SHUMKARD_SCANNER_TYPE,
   AK_SHUMKAR_SENSOR_SCANNER_TYPE,
   AK_SHUMKARD_SENSOR_SCANNER_TYPE,
+  OPENVAS_WITH_CVE_SCANNER_TYPE,
+  OPENVASD_WITH_CVE_SCANNER_TYPE,
   type ScannerType,
 } from 'gmp/models/scanner';
 import {
@@ -310,7 +312,9 @@ const TaskDialog = ({
           state.scanner_type === AK_SHUMKAR_SCANNER_TYPE ||
           state.scanner_type === AK_SHUMKAR_SENSOR_SCANNER_TYPE ||
           state.scanner_type === AK_SHUMKARD_SCANNER_TYPE ||
-          state.scanner_type === AK_SHUMKARD_SENSOR_SCANNER_TYPE;
+          state.scanner_type === AK_SHUMKARD_SENSOR_SCANNER_TYPE ||
+          state.scanner_type === OPENVAS_WITH_CVE_SCANNER_TYPE ||
+          state.scanner_type === OPENVASD_WITH_CVE_SCANNER_TYPE;
 
         return (
           <>

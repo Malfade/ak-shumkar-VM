@@ -11,13 +11,19 @@ macro (Git_GET_REVISION dir variable)
   execute_process(COMMAND ${GIT_EXECUTABLE} rev-parse --abbrev-ref HEAD
                   WORKING_DIRECTORY ${dir}
                   OUTPUT_VARIABLE GIT_BRANCH
-                  OUTPUT_STRIP_TRAILING_WHITESPACE)
+                  OUTPUT_STRIP_TRAILING_WHITESPACE
+                  ERROR_QUIET)
   execute_process(COMMAND ${GIT_EXECUTABLE} log -1 --format=%h
                   WORKING_DIRECTORY ${dir}
                   OUTPUT_VARIABLE GIT_COMMIT_HASH
-                  OUTPUT_STRIP_TRAILING_WHITESPACE)
-  string (REPLACE "/" "_" GIT_BRANCH ${GIT_BRANCH})
-  set (${variable} "${GIT_COMMIT_HASH}-${GIT_BRANCH}")
+                  OUTPUT_STRIP_TRAILING_WHITESPACE
+                  ERROR_QUIET)
+  if (NOT GIT_BRANCH OR NOT GIT_COMMIT_HASH)
+    set (${variable} "unknown")
+  else (NOT GIT_BRANCH OR NOT GIT_COMMIT_HASH)
+    string (REPLACE "/" "_" GIT_BRANCH ${GIT_BRANCH})
+    set (${variable} "${GIT_COMMIT_HASH}-${GIT_BRANCH}")
+  endif (NOT GIT_BRANCH OR NOT GIT_COMMIT_HASH)
 endmacro (Git_GET_REVISION)
 
 if (EXISTS "${SOURCE_DIR}/.git/")

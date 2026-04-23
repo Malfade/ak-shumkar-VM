@@ -62,8 +62,10 @@ endif (PROJECT_DEV_VERSION)
 
 set (PROJECT_VERSION_STRING "${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}.${PROJECT_VERSION_PATCH}${PROJECT_VERSION_SUFFIX}${GIT_REVISION}")
 
-## CPack configuration
+## CPack configuration (optional: OFF avoids CPack configure_file in restricted/sandboxed trees)
+option (ENABLE_CPACK "Include CPack packaging rules (disable if cmake fails with Operation not permitted)" ON)
 
+if (ENABLE_CPACK)
 set (CPACK_CMAKE_GENERATOR "Unix Makefiles")
 set (CPACK_GENERATOR "TGZ")
 set (CPACK_INSTALL_CMAKE_PROJECTS ".;openvas;ALL;/")
@@ -91,6 +93,7 @@ set (CPACK_SOURCE_IGNORE_FILES
 )
 
 include (CPack)
+endif (ENABLE_CPACK)
 
 ## Variables
 
@@ -181,6 +184,9 @@ message ("-- Install prefix: ${CMAKE_INSTALL_PREFIX}")
 ## Version
 
 set (OPENVAS_VERSION "${PROJECT_VERSION_STRING}")
+
+# Ensure outputs exist under CMAKE_BINARY_DIR (some environments error if parents are missing)
+file (MAKE_DIRECTORY "${CMAKE_BINARY_DIR}/doc/man")
 
 # Configure Doxyfile with version number
 configure_file (doc/man/openvas.8.in doc/man/openvas.8 @ONLY)

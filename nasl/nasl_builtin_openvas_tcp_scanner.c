@@ -44,11 +44,11 @@
 #warn "FD_SETSIZE is lower than 32"
 #endif
 
-#if !defined FD_SETSIZE || FD_SETSIZE > 128
-#define GRAB_MAX_SOCK_SAFE 128
+#if !defined FD_SETSIZE || FD_SETSIZE > 256
+#define GRAB_MAX_SOCK_SAFE 256
 #else
 #define GRAB_MAX_SOCK_SAFE FD_SETSIZE
-#warn "FD_SETSIZE is lower than 128"
+#warn "FD_SETSIZE is lower than 256"
 #endif
 
 #define MAX_PASS_NB 16
@@ -1099,10 +1099,10 @@ plugin_run_openvas_tcp_scanner (lex_ctxt *lexic)
       max_checks = atoi (p);
     /* Parallel connect-scan batching; cap keeps FD use bounded. */
     if (max_checks <= 0)
-      max_checks = 12;
-    else if (max_checks > 12)
+      max_checks = 20;
+    else if (max_checks > 20)
       {
-        max_checks = 12;
+        max_checks = 20;
         g_debug ("openvas_tcp_scanner: max_checks capped to %d", max_checks);
       }
 

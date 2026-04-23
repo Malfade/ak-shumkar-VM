@@ -23,7 +23,7 @@ describe('useManualURL', () => {
     });
     const {result} = renderHook(() => useManualURL());
 
-    expect(result.current).toBe('http://localhost/manual/en');
+    expect(result.current).toBe('/manual/ru/index.html');
   });
 
   test('should return the manual URL for the German language', () => {
@@ -36,7 +36,7 @@ describe('useManualURL', () => {
     });
     const {result} = renderHook(() => useManualURL('de'));
 
-    expect(result.current).toBe('http://localhost/manual/de');
+    expect(result.current).toBe('/manual/ru/index.html');
   });
 
   test('should return the manual URL for the users language', () => {
@@ -48,10 +48,10 @@ describe('useManualURL', () => {
     });
     const {result} = renderHook(() => useManualURL());
 
-    expect(result.current).toBe('http://localhost/manual/de');
+    expect(result.current).toBe('/manual/ru/index.html');
   });
 
-  test('should return the en manual URL for unknown language', () => {
+  test('should return the ru manual URL for unknown language', () => {
     const {renderHook} = rendererWith({
       store: true,
       gmp,
@@ -61,10 +61,10 @@ describe('useManualURL', () => {
     });
     const {result} = renderHook(() => useManualURL('foo'));
 
-    expect(result.current).toBe('http://localhost/manual/en');
+    expect(result.current).toBe('/manual/ru/index.html');
   });
 
-  test('should return the en manual URL considering the language mapping', () => {
+  test('should return mapped manual URL considering the language mapping', () => {
     const {renderHook} = rendererWith({
       gmp: {
         settings: {
@@ -80,6 +80,22 @@ describe('useManualURL', () => {
     });
     const {result} = renderHook(() => useManualURL());
 
-    expect(result.current).toBe('http://localhost/manual/foo');
+    expect(result.current).toBe('http://localhost/manual/foo/index.html');
+  });
+
+  test('should migrate legacy /manual URL to ak-shumkar path', () => {
+    const {renderHook} = rendererWith({
+      gmp: {
+        settings: {
+          manualUrl: '/manual',
+        },
+      },
+      language: {
+        language: 'en',
+      },
+    });
+    const {result} = renderHook(() => useManualURL());
+
+    expect(result.current).toBe('/manual/ak-shumkar/ru/index.html');
   });
 });

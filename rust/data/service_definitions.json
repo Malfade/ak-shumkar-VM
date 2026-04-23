@@ -11,7 +11,7 @@
           "type": "http"
         }
       ],
-      "ports": [80, 8080, 8000, 3000, 8081],
+      "ports": [],
       "save_banner": true,
       "generate_result": {
         "enabled": true,
@@ -29,7 +29,7 @@
           "type": "https"
         }
       ],
-      "ports": [443, 8443, 9443],
+      "ports": [],
       "save_banner": true,
       "generate_result": {
         "enabled": true,

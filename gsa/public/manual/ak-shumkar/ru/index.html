@@ -1,0 +1,1076 @@
+<html lang="ru"><body><meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="light dark" name="color-scheme"/><meta content="width=device-width, initial-scale=1" name="viewport"/>
+<link href="genindex.html" rel="index" title="Index"/><link href="search.html" rel="search" title="Search"/><link href="introduction.html" rel="next" title="1 Введение"/>
+<link as="image" href="/img/ak-shumkar.png" rel="prefetch"/>
+<link as="image" href="/img/ak-shumkar.png" rel="prefetch"/>
+<link href="/img/ak-shumkar.png" rel="icon" type="image/png"/><link href="/img/ak-shumkar.png" rel="shortcut icon" type="image/png"/><title>АК-ШУМКАР – ГОС 24.10.11</title>
+<link href="_static/pygments.css%3Fv=8e8a900e.css" rel="stylesheet" type="text/css"/>
+<link href="_static/styles/furo.css%3Fv=580074bf.css" rel="stylesheet" type="text/css"/>
+<link href="_static/sphinx_greenbone.css%3Fv=8ef0bb58.css" rel="stylesheet" type="text/css"/>
+<link href="_static/styles/furo-extensions.css%3Fv=8dab3a3b.css" rel="stylesheet" type="text/css"/>
+<style>
+  body {
+    --color-code-background: #ffffff;
+  --color-code-foreground: black;
+  --font-stack: Roboto, Helvetica, sans-serif;
+  --color-content-foreground: #4D4D4D;
+  --color-foreground-primary: 4D4D4D;
+  --color-foreground-secondary: #808080;
+  --color-code-background: #333333;
+  --color-code-foreground: #E6E6E6;
+  --color-admonition-title--note: #0E823E;
+  --color-admonition-title--note-background: #D8F1E2;
+  --color-admonition-title--warning: #E5393D;
+  --color-admonition-title--warning-background: #FBDDDE;
+  --admonition-font-size: 0.9rem;
+  --color-background-primary: #FFFFFF;
+  --color-background-secondary: #F5F5F5;
+  --color-sidebar-background: #F5F5F5;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --font-stack: Roboto, Helvetica, sans-serif;
+  --color-content-foreground: #F5F5F5;
+  --color-foreground-primary: F5F5F5;
+  --color-foreground-secondary: #E6E6E6;
+  --color-code-background: #333333;
+  --color-code-foreground: #E6E6E6;
+  --color-admonition-title--note: #11AB51;
+  --admonition-font-size: 0.9rem;
+  --color-background-primary: #171717;
+  --color-background-secondary: #4D4D4D;
+  --color-sidebar-background: #333333;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --font-stack: Roboto, Helvetica, sans-serif;
+  --color-content-foreground: #F5F5F5;
+  --color-foreground-primary: F5F5F5;
+  --color-foreground-secondary: #E6E6E6;
+  --color-code-background: #333333;
+  --color-code-foreground: #E6E6E6;
+  --color-admonition-title--note: #11AB51;
+  --admonition-font-size: 0.9rem;
+  --color-background-primary: #171717;
+  --color-background-secondary: #4D4D4D;
+  --color-sidebar-background: #333333;
+  
+      }
+    }
+  }
+</style>
+<script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+<svg style="display: none;" xmlns="http://www.w3.org/2000/svg">
+<symbol id="svg-toc" viewbox="0 0 24 24">
+<title>Содержание</title>
+<svg fill="currentColor" stroke="currentColor" stroke-width="0" viewbox="0 0 1024 1024">
+<path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"></path>
+</svg>
+</symbol>
+<symbol id="svg-menu" viewbox="0 0 24 24">
+<title>Меню</title>
+<svg class="feather-menu" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<line x1="3" x2="21" y1="12" y2="12"></line>
+<line x1="3" x2="21" y1="6" y2="6"></line>
+<line x1="3" x2="21" y1="18" y2="18"></line>
+</svg>
+</symbol>
+<symbol id="svg-arrow-right" viewbox="0 0 24 24">
+<title>Расширять</title>
+<svg class="feather-chevron-right" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<polyline points="9 18 15 12 9 6"></polyline>
+</svg>
+</symbol>
+<symbol id="svg-sun" viewbox="0 0 24 24">
+<title>Светлый режим</title>
+<svg class="feather-sun" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<circle cx="12" cy="12" r="5"></circle>
+<line x1="12" x2="12" y1="1" y2="3"></line>
+<line x1="12" x2="12" y1="21" y2="23"></line>
+<line x1="4.22" x2="5.64" y1="4.22" y2="5.64"></line>
+<line x1="18.36" x2="19.78" y1="18.36" y2="19.78"></line>
+<line x1="1" x2="3" y1="12" y2="12"></line>
+<line x1="21" x2="23" y1="12" y2="12"></line>
+<line x1="4.22" x2="5.64" y1="19.78" y2="18.36"></line>
+<line x1="18.36" x2="19.78" y1="5.64" y2="4.22"></line>
+</svg>
+</symbol>
+<symbol id="svg-moon" viewbox="0 0 24 24">
+<title>Темный режим</title>
+<svg class="icon-tabler-moon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 0h24v24H0z" fill="none" stroke="none"></path>
+<path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"></path>
+</svg>
+</symbol>
+<symbol id="svg-sun-with-moon" viewbox="0 0 24 24">
+<title>Автоматический свет/темнота, в светлом режиме</title>
+<svg class="icon-custom-derived-from-feather-sun-and-tabler-moon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z" style="opacity: 50%"></path>
+<line x1="14.5" x2="14.5" y1="3.25" y2="1.25"></line>
+<line x1="14.5" x2="14.5" y1="15.85" y2="17.85"></line>
+<line x1="10.044" x2="8.63" y1="5.094" y2="3.68"></line>
+<line x1="19" x2="20.414" y1="14.05" y2="15.464"></line>
+<line x1="8.2" x2="6.2" y1="9.55" y2="9.55"></line>
+<line x1="20.8" x2="22.8" y1="9.55" y2="9.55"></line>
+<line x1="10.044" x2="8.63" y1="14.006" y2="15.42"></line>
+<line x1="19" x2="20.414" y1="5.05" y2="3.636"></line>
+<circle cx="14.5" cy="9.55" r="3.6"></circle>
+</svg>
+</symbol>
+<symbol id="svg-moon-with-sun" viewbox="0 0 24 24">
+<title>Автоматический светлый/темный, в темном режиме</title>
+<svg class="icon-custom-derived-from-feather-sun-and-tabler-moon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"></path>
+<line style="opacity: 50%" x1="18" x2="18" y1="3.705" y2="2.5"></line>
+<line style="opacity: 50%" x1="18" x2="18" y1="11.295" y2="12.5"></line>
+<line style="opacity: 50%" x1="15.316" x2="14.464" y1="4.816" y2="3.964"></line>
+<line style="opacity: 50%" x1="20.711" x2="21.563" y1="10.212" y2="11.063"></line>
+<line style="opacity: 50%" x1="14.205" x2="13.001" y1="7.5" y2="7.5"></line>
+<line style="opacity: 50%" x1="21.795" x2="23" y1="7.5" y2="7.5"></line>
+<line style="opacity: 50%" x1="15.316" x2="14.464" y1="10.184" y2="11.036"></line>
+<line style="opacity: 50%" x1="20.711" x2="21.563" y1="4.789" y2="3.937"></line>
+<circle cx="18" cy="7.5" r="2.169" style="opacity: 50%"></circle>
+</svg>
+</symbol>
+<symbol id="svg-pencil" viewbox="0 0 24 24">
+<svg class="icon-tabler-pencil-code" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4"></path>
+<path d="M13.5 6.5l4 4"></path>
+<path d="M20 21l2 -2l-2 -2"></path>
+<path d="M17 17l-2 2l2 2"></path>
+</svg>
+</symbol>
+<symbol id="svg-eye" viewbox="0 0 24 24">
+<svg class="icon-tabler-eye-code" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 0h24v24H0z" fill="none" stroke="none"></path>
+<path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"></path>
+<path d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008"></path>
+<path d="M20 21l2 -2l-2 -2"></path>
+<path d="M17 17l-2 2l2 2"></path>
+</svg>
+</symbol>
+</svg>
+<input aria-label="Toggle site navigation sidebar" class="sidebar-toggle" id="__navigation" name="__navigation" type="checkbox"/>
+<input aria-label="Toggle table of contents sidebar" class="sidebar-toggle" id="__toc" name="__toc" type="checkbox"/>
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+<a class="skip-to-content muted-link" href="index.html#furo-main-content">Перейти к содержимому</a>
+<div class="page">
+<header class="mobile-header">
+<div class="header-left">
+<label class="nav-overlay-icon" for="__navigation">
+<span class="icon"><svg><use href="#svg-menu"></use></svg></span>
+</label>
+</div>
+<div class="header-center">
+<a href="index.html#"><div class="brand">АК-ШУМКАР – ГОС 24.10.11</div></a>
+</div>
+<div class="header-right">
+<div class="theme-toggle-container theme-toggle-header">
+<button aria-label="Переключить светлую/темную/автоматическую цветовую тему" class="theme-toggle">
+<svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+<svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+<svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+<svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+</button>
+</div>
+<label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+<span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+</label>
+</div>
+</header>
+<aside class="sidebar-drawer">
+<div class="sidebar-container">
+<div class="sidebar-sticky"><a class="sidebar-brand" href="index.html#">
+<div class="sidebar-logo-container">
+<img alt="Ak-shumkar Logo" class="sidebar-logo only-light" src="/img/ak-shumkar.png"/>
+<img alt="Ak-shumkar Logo" class="sidebar-logo only-dark" src="/img/ak-shumkar.png"/>
+</div>
+<span class="sidebar-brand-text">АК-ШУМКАР – ГОС 24.10.11</span>
+</a><form action="search.html" class="sidebar-search-container" method="get" role="search">
+<input aria-label="Search" class="sidebar-search" name="q" placeholder="Search"/>
+<input name="check_keywords" type="hidden" value="yes"/>
+<input name="area" type="hidden" value="default"/>
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">1 Введение</a></li>
+<li class="toctree-l1"><a class="reference internal" href="read-before-use.html">2 Прочтите перед использованием</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appliance-overview.html">3 АК-ШУМКАР – Обзор</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setting-up-the-appliance.html">4 Настройка АК-ШУМКАР</a></li>
+<li class="toctree-l1"><a class="reference internal" href="upgrading-gos.html">5 Обновление АК-ШУМКАР до последней основной версии</a></li>
+<li class="toctree-l1"><a class="reference internal" href="managing-gos.html">6 Управление операционной системой «Ак Шумкар»</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web-interface.html">7 Знакомство с веб-интерфейсом</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web-interface-access.html">8 Управление доступом к веб-интерфейсу</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scanning.html">9 Сканирование системы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reports.html">10 отчетов и управление уязвимостями</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compliance-and-special-scans.html">11 Выполнение сканирования на соответствие и специального сканирования</a></li>
+<li class="toctree-l1"><a class="reference internal" href="managing-assets.html">12 Управление активами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="managing-secinfo.html">13 Управление информацией о безопасности</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gmp.html">14 Использование протокола управления «Ак Шумкар»</a></li>
+<li class="toctree-l1"><a class="reference internal" href="master-sensor-setup.html">15 Использование настройки главного датчика</a></li>
+<li class="toctree-l1"><a class="reference internal" href="performance.html">16 Управление производительностью</a></li>
+<li class="toctree-l1"><a class="reference internal" href="connecting-other-systems.html">17 Подключение АК-ШУМКАР к другим системам</a></li>
+<li class="toctree-l1"><a class="reference internal" href="architecture.html">18 Архитектура</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">19 часто задаваемых вопросов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">20 Глоссарий</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</aside>
+<div class="main">
+<div class="content">
+<div class="article-container">
+<a class="back-to-top muted-link" href="index.html#">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+</svg>
+<span>Вернуться наверх</span>
+</a>
+<div class="content-icon-container">
+<div class="theme-toggle-container theme-toggle-content">
+<button aria-label="Переключить светлую/темную/автоматическую цветовую тему" class="theme-toggle">
+<svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+<svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+<svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+<svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+</button>
+</div>
+<label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+<span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+</label>
+</div>
+<article id="furo-main-content" role="main">
+<section id="ak-shumkar-scan-with-gos-24-10-user-manual">
+<h1>АК-ШУМКАР с ГСН 24.10 – Руководство пользователя<a class="headerlink" href="index.html#ak-shumkar-scan-with-gos-24-10-user-manual" title="Link to this heading">¶</a></h1>
+<p>Это руководство пользователя АК-ШУМКАР с ОС Ак Шумкар (ГОС) версии 24.10.
+Из-за результатов определения и других отличий между GOS 24.10 и физическими версиями данного руководства пользователя не следует использовать старые версии GOS.</p>
+<p>АК-ШУМКАР находится в постоянном развитии.
+В этом руководстве пользователя делается попытка всегда документировать последнюю версию программного обеспечения.
+Однако возможно, что новейшие функциональные возможности не отражены в данном руководстве пользователя.</p>
+<p>Если у вас есть дополнительные примечания или исправления ошибок для данного руководства пользователя, свяжитесь с <a class="reference external" href="https://www.ak-shumkar.net/en/technical-support/">Команда поддержки Ак Шумкар</a>.</p>
+<p>Авторские права на данное руководство пользователя принадлежат компании «Ак Шумкар».
+Информацию о лицензии на каналы, используемые АК-ШУМКАР, можно найти по адресу <a class="reference external" href="https://www.ak-shumkar.net/en/license-information/">https://www.ak-shumkar.net/en/license-information/</a>.
+«Ак Шумкар» и логотип «Ак Шумкар» являются зарегистрированными торговыми марками компании «Ак Шумкар».
+Другие логотипы и зарегистрированные товарные знаки, используемые в данном руководстве пользователя, являются собственностью их владельцев и используются только в пояснительных целях.</p>
+<p>Настоящее руководство пользователя доступно на условиях Creative Commons.
+Международная лицензия Attribution-ShareAlike 4.0. Видеть
+<a class="reference external" href="https://creativecommons.org/licenses/by-sa/4.0/">https://creativecommons.org/licenses/by-sa/4.0/</a> для получения подробной информации.</p>
+<p>По этой лицензии вы можете:</p>
+<ul class="simple">
+<li><p><strong>Делиться</strong> — копировать и распространять материал на любом носителе и в любом формате.</p></li>
+<li><p><strong>Адаптироваться</strong> — делать ремиксы, трансформировать и использовать материал для любых целей, даже в коммерческих целях.</p></li>
+</ul>
+<p>На следующих условиях:</p>
+<ul class="simple">
+<li><p><strong>Атрибуция</strong> — Вы должны дать соответствующую оценку, предоставить ссылку на лицензию и указать, были ли внесены изменения. Вы можете сделать это любым разумным способом, но не таким образом, который бы предполагал, что «Ак Шумкар» одобряет вас или ваше использование.</p></li>
+<li><p><strong>ПоделитьсяAlike</strong> — Если вы делаете ремикс, трансформируете или основываете материал на его основе, вы должны распространять свои материалы по той же лицензии, что и оригинал.</p></li>
+<li><p><strong>Никаких дополнительных ограничений</strong> — Вы не имеете права применять юридические условия или технологические меры, которые юридически запрещают другим делать все, что разрешено лицензией.</p></li>
+</ul>
+<div class="line-block">
+<div class="line">Ак Шумкар</div>
+<div class="line">Ноймаркт 12</div>
+<div class="line">49074 Оснабрюк</div>
+<div class="line">Германия</div>
+<div class="line"><a class="reference external" href="https://www.ak-shumkar.net/en/">https://www.ak-shumkar.net/en/</a></div>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">1 Введение</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#vulnerability-management">1.1 Управление уязвимостями</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#ak-shumkar-scan">1.2 АК-ШУМКАР</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="introduction.html#components-and-field-of-application">1.2.1 Компоненты и область применения</a></li>
+<li class="toctree-l3"><a class="reference internal" href="introduction.html#types-of-scans">1.2.2 Типы сканирования</a></li>
+<li class="toctree-l3"><a class="reference internal" href="introduction.html#vulnerability-classification-and-elimination">1.2.3 Классификация и устранение уязвимостей</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="read-before-use.html">2 Прочтите перед использованием</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="read-before-use.html#using-a-supported-gos-version">2.1 Использование прикладной версии GOS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="read-before-use.html#effects-on-the-scanned-network-environment">2.2 Влияние на сканируемую сетевую среду</a></li>
+<li class="toctree-l2"><a class="reference internal" href="read-before-use.html#scanning-through-network-equipment">2.3 Сканирование через сетевое оборудование</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="read-before-use.html#general-information">2.3.1 Общая информация</a></li>
+<li class="toctree-l3"><a class="reference internal" href="read-before-use.html#firewall-specific-information">2.3.2 Информация, относящаяся к брандмауэру</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="appliance-overview.html">3 АК-ШУМКАР – Обзор</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="appliance-overview.html#hardware-appliances">3.1 Аппаратные средства</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="appliance-overview.html#large-organizations-ak-shumkar-scan-5400-6500">3.1.1 Крупные организации – АК-ШУМКАР 5400/6500</a></li>
+<li class="toctree-l3"><a class="reference internal" href="appliance-overview.html#medium-sized-organizations-and-branches-ak-shumkar-scan-400-450-600-650">3.1.2 Средние организации и филиалы – АК-ШУМКАР 400/450/600/650</a></li>
+<li class="toctree-l3"><a class="reference internal" href="appliance-overview.html#small-organizations-and-branches-ak-shumkar-scan-150">3.1.3 Малые организации и филиалы – АК-ШУМКАР 150</a></li>
+<li class="toctree-l3"><a class="reference internal" href="appliance-overview.html#sensor-ak-shumkar-scan-35">3.1.4 Датчик – АК-ШУМКАР 35</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="appliance-overview.html#virtual-appliances">3.2 Виртуальные устройства</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="appliance-overview.html#medium-sized-organizations-and-branches-ak-shumkar-scan-deca-tera-peta-exa">3.2.1 Средние организации и филиалы – АК-ШУМКАР DECA/TERA/PETA/EXA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="appliance-overview.html#small-organizations-ak-shumkar-scan-ceno">3.2.2 Малые организации – АК-ШУМКАР ЦЕНО</a></li>
+<li class="toctree-l3"><a class="reference internal" href="appliance-overview.html#sensor-ak-shumkar-scan-25v">3.2.3 Датчик – АК-ШУМКАР 25В</a></li>
+<li class="toctree-l3"><a class="reference internal" href="appliance-overview.html#entry-level-solution-ak-shumkar-basic">3.2.4 Решение начального уровня – АК-ШУМКАР БАЗОВЫЙ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="appliance-overview.html#entry-level-solution-ak-shumkar-scan-one">3.2.5 Решение начального уровня – АК-ШУМКАР ONE</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="setting-up-the-appliance.html">4 Настройка АК-ШУМКАР</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="setting-up-the-appliance.html#setup-requirements">4.1 Требования к настройке</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="setting-up-the-appliance.html#ak-shumkar-scan-6500-5400">4.1.1 АК-ШУМКАР 6500/5400</a></li>
+<li class="toctree-l3"><a class="reference internal" href="setting-up-the-appliance.html#ak-shumkar-scan-650-600-450-400">4.1.2 АК-ШУМКАР 650/600/450/400</a></li>
+<li class="toctree-l3"><a class="reference internal" href="setting-up-the-appliance.html#ak-shumkar-scan-150">4.1.3 АК-ШУМКАР 150</a></li>
+<li class="toctree-l3"><a class="reference internal" href="setting-up-the-appliance.html#ak-shumkar-scan-35">4.1.4 АК-ШУМКАР 35</a></li>
+<li class="toctree-l3"><a class="reference internal" href="setting-up-the-appliance.html#ak-shumkar-scan-deca-tera-peta-exa">4.1.5 АК-ШУМКАР ДЕКА/ТЕРА/ПЕТА/ЭКСА</a></li>
+<li class="toctree-l3"><a class="reference internal" href="setting-up-the-appliance.html#ak-shumkar-scan-ceno">4.1.6 АК-ШУМКАР ЦЕНО</a></li>
+<li class="toctree-l3"><a class="reference internal" href="setting-up-the-appliance.html#ak-shumkar-scan-25v">4.1.7 АК-ШУМКАР 25В</a></li>
+<li class="toctree-l3"><a class="reference internal" href="setting-up-the-appliance.html#ak-shumkar-basic">4.1.8 АК-ШУМКАР БАЗОВЫЙ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="setting-up-the-appliance.html#ak-shumkar-scan-one">4.1.9 АК-ШУМКАР ОДИН</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="setting-up-the-appliance.html#setting-up-a-hardware-appliance">4.2 Настройка аппаратного устройства</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="setting-up-the-appliance.html#utilizing-the-serial-port">4.2.1 Использование последовательного порта</a></li>
+<li class="toctree-l3"><a class="reference internal" href="setting-up-the-appliance.html#starting-the-appliance">4.2.2 Запуск устройства</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="setting-up-the-appliance.html#setting-up-a-virtual-appliance">4.3 Настройка виртуального устройства</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="setting-up-the-appliance.html#verification-of-integrity">4.3.1 Проверка целостности</a></li>
+<li class="toctree-l3"><a class="reference internal" href="setting-up-the-appliance.html#deploying-the-appliance">4.3.2 Развертывание устройства</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="setting-up-the-appliance.html#vmware-vsphere-esxi">4.3.2.1 VMware vSphere/ESXi</a></li>
+<li class="toctree-l4"><a class="reference internal" href="setting-up-the-appliance.html#oracle-virtualbox">4.3.2.2 Oracle VirtualBox</a></li>
+<li class="toctree-l4"><a class="reference internal" href="setting-up-the-appliance.html#proxmox-virtual-environment">4.3.2.3 Виртуальная среда Proxmox</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="setting-up-the-appliance.html#performing-a-general-system-setup">4.4 Выполнение общей настройки системы</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="setting-up-the-appliance.html#configuring-the-network">4.4.1 Настройка сети</a></li>
+<li class="toctree-l3"><a class="reference internal" href="setting-up-the-appliance.html#importing-or-generating-an-https-certificate">4.4.2 Импорт или создание сертификата HTTPS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="setting-up-the-appliance.html#creating-a-web-administrator">4.4.3 Создание веб-администратора</a></li>
+<li class="toctree-l3"><a class="reference internal" href="setting-up-the-appliance.html#entering-or-uploading-an-ak-shumkar-enterprise-feed-subscription-key">4.4.4 Ввод или загрузка включения подписки AK-SHUMKAR ENTERPRISE FEED</a></li>
+<li class="toctree-l3"><a class="reference internal" href="setting-up-the-appliance.html#downloading-the-feed">4.4.5 Загрузка канала</a></li>
+<li class="toctree-l3"><a class="reference internal" href="setting-up-the-appliance.html#finishing-the-first-setup-wizard">4.4.6 Завершение работы мастера первой настройки</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="setting-up-the-appliance.html#logging-into-the-web-interface">4.5 Вход в веб-интерфейс</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="upgrading-gos.html">5 Обновление АК-ШУМКАР до последней основной версии</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="upgrading-gos.html#upgrading-the-operating-system">5.1 Обновление операционной системы</a></li>
+<li class="toctree-l2"><a class="reference internal" href="upgrading-gos.html#upgrading-the-flash-partition-to-the-latest-version">5.2 Обновление флэш-раздела до последней версии</a></li>
+<li class="toctree-l2"><a class="reference internal" href="upgrading-gos.html#relogging-into-the-gos-administration-menu-after-an-upgrade">5.3 Повторный вход в меню администрирования ГСН после обновления</a></li>
+<li class="toctree-l2"><a class="reference internal" href="upgrading-gos.html#reloading-the-web-interface-after-an-upgrade">5.4 Перезагрузка веб-интерфейса после обновления</a></li>
+<li class="toctree-l2"><a class="reference internal" href="upgrading-gos.html#new-features-and-changes-of-default-behavior">5.5 Новые функции и изменения поведения по умолчанию</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="upgrading-gos.html#product-portfolio">5.5.1 Портфель продуктов</a></li>
+<li class="toctree-l3"><a class="reference internal" href="upgrading-gos.html#secure-boot">5.5.2 Безопасная загрузка</a></li>
+<li class="toctree-l3"><a class="reference internal" href="upgrading-gos.html#encrypted-airgap-ftp">5.5.3 Зашифрованный FTP Airgap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="upgrading-gos.html#sshd-configuration-options">5.5.4 Параметры конфигурации sshd</a></li>
+<li class="toctree-l3"><a class="reference internal" href="upgrading-gos.html#networking-mode">5.5.5 Сетевой режим</a></li>
+<li class="toctree-l3"><a class="reference internal" href="upgrading-gos.html#superuser-password">5.5.6 Пароль суперпользователя</a></li>
+<li class="toctree-l3"><a class="reference internal" href="upgrading-gos.html#new-openssh-and-libssh-versions">5.5.7 Новые версии openssh и libssh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="upgrading-gos.html#web-interface">5.5.8 Веб-интерфейс</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="upgrading-gos.html#new-design-of-the-web-interface">5.5.8.1 Новый дизайн веб-интерфейса</a></li>
+<li class="toctree-l4"><a class="reference internal" href="upgrading-gos.html#configurable-report-formats">5.5.8.2 Настраиваемые форматы отчетов</a></li>
+<li class="toctree-l4"><a class="reference internal" href="upgrading-gos.html#epss-support">5.5.8.3 Поддержка EPSS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="upgrading-gos.html#cvss-v4-0-support">5.5.8.4 Поддержка CVSS v4.0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="upgrading-gos.html#dedicated-page-for-audit-reports">5.5.8.5 Специальная страница для аудиторских отчетов</a></li>
+<li class="toctree-l4"><a class="reference internal" href="upgrading-gos.html#kerberos-credentials">5.5.8.6 Учетные данные Kerberos</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="upgrading-gos.html#notus-scanner-replaced-by-ak-shumkard">5.5.9 Сканер Нотус заменен на ак-шумкард</a></li>
+<li class="toctree-l3"><a class="reference internal" href="upgrading-gos.html#ak-shumkar-management-protocol-gmp">5.5.10 Протокол управления Ак Шумкар (GMP)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="managing-gos.html">6 Управление операционной системой «Ак Шумкар»</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="managing-gos.html#general-information">6.1 Общая информация</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="managing-gos.html#ak-shumkar-enterprise-feed-subscription-key">6.1.1 Ключ подписки AK-SHUMKAR ENTERPRISE FEED</a></li>
+<li class="toctree-l3"><a class="reference internal" href="managing-gos.html#authorization-concept">6.1.2 Концепция авторизации</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="managing-gos.html#user-level-access">6.1.2.1 Доступ на уровне пользователя</a></li>
+<li class="toctree-l4"><a class="reference internal" href="managing-gos.html#system-level-access">6.1.2.2 Доступ на уровне системы</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="managing-gos.html#using-the-gos-administration-menu">6.1.3 Использование меню администрирования ГСН</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="managing-gos.html#setup-menu">6.2 Меню настройки</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="managing-gos.html#managing-users">6.2.1 Управление пользователями</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="managing-gos.html#changing-the-system-administrator-password">6.2.1.1 Изменение пароля системного администратора</a></li>
+<li class="toctree-l4"><a class="reference internal" href="managing-gos.html#managing-web-users">6.2.1.2 Управление веб-пользователями</a></li>
+<li class="toctree-l4"><a class="reference internal" href="managing-gos.html#creating-a-web-administrator">6.2.1.3 Создание веб-администратора</a></li>
+<li class="toctree-l4"><a class="reference internal" href="managing-gos.html#enabling-a-guest-user">6.2.1.4 Включение гостевого пользователя</a></li>
+<li class="toctree-l4"><a class="reference internal" href="managing-gos.html#creating-a-super-administrator">6.2.1.5 Создание суперадминистратора</a></li>
+<li class="toctree-l4"><a class="reference internal" href="managing-gos.html#deleting-a-user-account">6.2.1.6 Удаление учетной записи пользователя</a></li>
+<li class="toctree-l4"><a class="reference internal" href="managing-gos.html#limiting-the-number-of-concurrent-web-sessions">6.2.1.7 Ограничение количества одновременных веб-сессий</a></li>
+<li class="toctree-l4"><a class="reference internal" href="managing-gos.html#changing-a-user-password">6.2.1.8 Изменение пароля пользователя</a></li>
+<li class="toctree-l4"><a class="reference internal" href="managing-gos.html#changing-the-password-policy">6.2.1.9 Изменение политики паролей</a></li>
+<li class="toctree-l4"><a class="reference internal" href="managing-gos.html#configuring-the-settings-for-data-objects">6.2.1.10 Настройка параметров объектов данных</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="managing-gos.html#configuring-the-network-settings">6.2.2 Настройка параметров сети</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="managing-gos.html#general-information-about-namespaces">6.2.2.1 Общая информация о пространствах имен</a></li>
+<li class="toctree-l4"><a class="reference internal" href="managing-gos.html#switching-an-interface-to-another-namespace">6.2.2.2 Переключение интерфейса в другое пространство имен</a></li>
+<li class="toctree-l4"><a class="reference internal" href="managing-gos.html#configuring-network-interfaces">6.2.2.3 Настройка сетевых интерфейсов</a></li>
+<li class="toctree-l4"><a class="reference internal" href="managing-gos.html#configuring-the-dns-server">6.2.2.4 Настройка DNS-сервера</a></li>
+<li class="toctree-l4"><a class="reference internal" href="managing-gos.html#configuring-the-global-gateway">6.2.2.5 Настройка глобального шлюза</a></li>
+<li class="toctree-l4"><a class="reference internal" href="managing-gos.html#setting-the-host-name-and-the-domain-name">6.2.2.6 Установка имени хоста и имени домена</a></li>
+<li class="toctree-l4"><a class="reference internal" href="managing-gos.html#restricting-the-management-access">6.2.2.7 Ограничение доступа к управлению</a></li>
+<li class="toctree-l4"><a class="reference internal" href="managing-gos.html#displaying-the-mac-and-ip-addresses-and-the-network-routes">6.2.2.8 Отображение MAC- и IP-адресов, а также сетевых маршрутов</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="managing-gos.html#configuring-a-virtual-private-network-vpn-connection">6.2.3 Настройка подключения к частной сети (VPN)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="managing-gos.html#setting-up-a-vpn-connection">6.2.3.1 Настройка VPN-соединения</a></li>
+<li class="toctree-l4"><a class="reference internal" href="managing-gos.html#editing-or-deleting-a-vpn-connection">6.2.3.2 Редактирование или удаление VPN-соединений</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="managing-gos.html#configuring-services">6.2.4 Настройка служб</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="managing-gos.html#configuring-https">6.2.4.1 Настройка HTTPS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="managing-gos.html#configuring-the-ak-shumkar-management-protocol-gmp">6.2.4.2 Настройка протокола управления «Ак Шумкар» (GMP)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="managing-gos.html#configuring-the-open-scanner-protocol-osp">6.2.4.3 Настройка протокола открытого сканера (OSP)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="managing-gos.html#configuring-ssh">6.2.4.4 Настройка SSH</a></li>
+<li class="toctree-l4"><a class="reference internal" href="managing-gos.html#configuring-snmp">6.2.4.5 Настройка SNMP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="managing-gos.html#configuring-a-port-for-the-temporary-http-server">6.2.4.6 Настройка порта для временного HTTP-сервера</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="managing-gos.html#configuring-periodic-backups">6.2.5 Настройка периодического резервного копирования</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="managing-gos.html#enabling-periodic-backups">6.2.5.1 Включение периодического резервного копирования</a></li>
+<li class="toctree-l4"><a class="reference internal" href="managing-gos.html#setting-up-a-remote-backup-server">6.2.5.2 Настройка удаленного сервера резервного копирования</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="managing-gos.html#configuring-special-upgrade-settings">6.2.6 Настройка специальных параметров обновления</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="managing-gos.html#adding-an-upgrade-key">6.2.6.1 Добавление ключа обновления</a></li>
+<li class="toctree-l4"><a class="reference internal" href="managing-gos.html#deleting-an-upgrade-key">6.2.6.2 Удаление ключа обновления</a></li>
+<li class="toctree-l4"><a class="reference internal" href="managing-gos.html#configuring-the-automatic-reboot">6.2.6.3 Настройка автоматической перезагрузки</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="managing-gos.html#configuring-the-feed-synchronization">6.2.7 Настройка синхронизации каналов</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="managing-gos.html#adding-an-ak-shumkar-enterprise-feed-subscription-key">6.2.7.1 Добавление включения подписки AK-SHUMKAR ENTERPRISE FEED</a></li>
+<li class="toctree-l4"><a class="reference internal" href="managing-gos.html#enabling-or-disabling-synchronization">6.2.7.2 Включение или отключение синхронизации</a></li>
+<li class="toctree-l4"><a class="reference internal" href="managing-gos.html#configuring-the-synchronization-port">6.2.7.3 Настройка порта синхронизации</a></li>
+<li class="toctree-l4"><a class="reference internal" href="managing-gos.html#setting-the-synchronization-proxy">6.2.7.4 Настройка прокси-сервера синхронизации</a></li>
+<li class="toctree-l4"><a class="reference internal" href="managing-gos.html#deleting-the-ak-shumkar-enterprise-feed-subscription-key">6.2.7.5 Удаление включения подписки AK-SHUMKAR ENTERPRISE FEED</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="managing-gos.html#configuring-the-appliance-as-an-airgap-master-sensor">6.2.8 Настройка устройства в качестве ведущего устройства/датчика воздушного зазора</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="managing-gos.html#using-the-airgap-usb-drive">6.2.8.1 Использование USB-накопителя Airgap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="managing-gos.html#using-the-airgap-s-ftp-server">6.2.8.2 Использование FTP-сервера Airgap (S)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="managing-gos.html#configuring-the-time-synchronization">6.2.9 Настройка синхронизации времени</a></li>
+<li class="toctree-l3"><a class="reference internal" href="managing-gos.html#selecting-the-keyboard-layout">6.2.10 Выбор раскладки клавиатуры</a></li>
+<li class="toctree-l3"><a class="reference internal" href="managing-gos.html#configuring-the-e-mails-settings">6.2.11 Настройка параметров электронной почты</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="managing-gos.html#configuring-the-mailhub">6.2.11.1 Настройка Mailhub</a></li>
+<li class="toctree-l4"><a class="reference internal" href="managing-gos.html#setting-up-smtp">6.2.11.2 Настройка SMTP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="managing-gos.html#configuring-the-size-of-included-or-attached-reports">6.2.11.3 Настройка размера включенных или прикрепленных отчетов</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="managing-gos.html#configuring-the-collection-of-logs">6.2.12 Настройка сбора журналов</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="managing-gos.html#configuring-the-logging-server">6.2.12.1 Настройка сервера журналирования</a></li>
+<li class="toctree-l4"><a class="reference internal" href="managing-gos.html#managing-https-certificates-for-logging">6.2.12.2 Управление сертификатами HTTPS для ведения журналов</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="managing-gos.html#setting-the-maintenance-time">6.2.13 Установка времени обслуживания</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="managing-gos.html#maintenance-menu">6.3 Меню обслуживания</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="managing-gos.html#performing-a-self-check">6.3.1 Выполнение самопроверки</a></li>
+<li class="toctree-l3"><a class="reference internal" href="managing-gos.html#performing-and-restoring-a-backup">6.3.2 Выполнение и восстановление резервной копии</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="managing-gos.html#incremental-backups">6.3.2.1 Инкрементальное резервное копирование</a></li>
+<li class="toctree-l4"><a class="reference internal" href="managing-gos.html#usb-backups">6.3.2.2 Резервное копирование USB</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="managing-gos.html#copying-data-and-settings-to-another-appliance-with-beaming">6.3.3 Копирование данных и настроек на другое устройство с помощью Beaming</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="managing-gos.html#beaming-directly-from-another-appliance">6.3.3.1 Передача сигнала напрямую с другого устройства</a></li>
+<li class="toctree-l4"><a class="reference internal" href="managing-gos.html#beaming-via-remote-file-system">6.3.3.2 Передача через удаленную файловую систему</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="managing-gos.html#performing-a-gos-upgrade">6.3.4 Выполнение обновления ГСН</a></li>
+<li class="toctree-l3"><a class="reference internal" href="managing-gos.html#performing-a-gos-upgrade-on-sensors">6.3.5 Выполнение обновления ГСН на датчиках</a></li>
+<li class="toctree-l3"><a class="reference internal" href="managing-gos.html#performing-a-feed-update">6.3.6 Выполнение обновления канала</a></li>
+<li class="toctree-l3"><a class="reference internal" href="managing-gos.html#performing-a-feed-update-on-sensors">6.3.7 Выполнение обновления канала на датчиках</a></li>
+<li class="toctree-l3"><a class="reference internal" href="managing-gos.html#upgrading-the-flash-partition">6.3.8 Обновление флэш-раздела</a></li>
+<li class="toctree-l3"><a class="reference internal" href="managing-gos.html#shutting-down-and-rebooting-the-appliance">6.3.9 Выключение и перезагрузка устройства</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="managing-gos.html#rebooting-the-appliance">6.3.9.1 Перезагрузка устройства</a></li>
+<li class="toctree-l4"><a class="reference internal" href="managing-gos.html#shutting-down-the-appliance">6.3.9.2 Выключение устройства</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="managing-gos.html#advanced-menu">6.4 Расширенное меню</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="managing-gos.html#displaying-the-log-files-of-the-appliance">6.4.1 Отображение файлов журнала устройства</a></li>
+<li class="toctree-l3"><a class="reference internal" href="managing-gos.html#performing-advanced-administrative-work">6.4.2 Выполнение расширенной административной работы</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="managing-gos.html#managing-the-superuser-account">6.4.2.1 Управление учетной записью суперпользователя</a></li>
+<li class="toctree-l4"><a class="reference internal" href="managing-gos.html#generating-and-downloading-a-support-package">6.4.2.2 Создание и загрузка пакета поддержки</a></li>
+<li class="toctree-l4"><a class="reference internal" href="managing-gos.html#accessing-the-shell">6.4.2.3 Доступ к оболочке</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="managing-gos.html#displaying-the-ak-shumkar-enterprise-feed-subscription-key">6.4.3 Отображение включения подписки AK-SHUMKAR ENTERPRISE FEED</a></li>
+<li class="toctree-l3"><a class="reference internal" href="managing-gos.html#displaying-the-copyright-and-license-information">6.4.4 Отображение информации об авторских правах и лицензии</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="managing-gos.html#displaying-information-about-the-appliance">6.5 Отображение информации об устройстве</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="web-interface.html">7 Знакомство с веб-интерфейсом</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="web-interface.html#logging-into-the-web-interface">7.1 Вход в веб-интерфейс</a></li>
+<li class="toctree-l2"><a class="reference internal" href="web-interface.html#using-dashboards">7.2 Использование информационных панелей</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="web-interface.html#adding-a-dashboard-display">7.2.1 Добавление панели мониторинга</a></li>
+<li class="toctree-l3"><a class="reference internal" href="web-interface.html#deleting-a-dashboard-display">7.2.2 Удаление дисплея информационной панели</a></li>
+<li class="toctree-l3"><a class="reference internal" href="web-interface.html#editing-a-dashboard-display">7.2.3 Редактирование отображения информационной панели</a></li>
+<li class="toctree-l3"><a class="reference internal" href="web-interface.html#organizing-dashboards-displays">7.2.4 Организация отображений информационных панелей</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="web-interface.html#adding-a-new-dashboard">7.2.4.1 Добавление новой информационной панели</a></li>
+<li class="toctree-l4"><a class="reference internal" href="web-interface.html#editing-a-dashboard">7.2.4.2 Редактирование информационной панели</a></li>
+<li class="toctree-l4"><a class="reference internal" href="web-interface.html#deleting-a-dashboard">7.2.4.3 Удаление информационной панели</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="web-interface.html#filtering-the-page-content">7.3 Фильтрация содержимого страницы</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="web-interface.html#using-the-filter-bar">7.3.1 Использование панели фильтров</a></li>
+<li class="toctree-l3"><a class="reference internal" href="web-interface.html#creating-a-filter-on-the-filters-page">7.3.2 Создание фильтра на <em>Фильтры</em> Страница</a></li>
+<li class="toctree-l3"><a class="reference internal" href="web-interface.html#filter-expressions">7.3.3 Выражения фильтра</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="web-interface.html#global-keywords">7.3.3.1 Глобальные ключевые слова</a></li>
+<li class="toctree-l4"><a class="reference internal" href="web-interface.html#filter-operators">7.3.3.2 Операторы фильтра</a></li>
+<li class="toctree-l4"><a class="reference internal" href="web-interface.html#text-phrases">7.3.3.3 Текстовые фразы</a></li>
+<li class="toctree-l4"><a class="reference internal" href="web-interface.html#time-specifications">7.3.3.4 Характеристики времени</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="web-interface.html#examples-for-filters-expressions">7.3.4 Примеры выражений фильтров</a></li>
+<li class="toctree-l3"><a class="reference internal" href="web-interface.html#managing-filters">7.3.5 Управление фильтрами</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="web-interface.html#using-tags">7.4 Использование тегов</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="web-interface.html#creating-a-tag-for-a-single-resource">7.4.1 Создание тега для одного ресурса</a></li>
+<li class="toctree-l3"><a class="reference internal" href="web-interface.html#creating-a-tag-for-multiple-resources">7.4.2 Создание тега для нескольких ресурсов</a></li>
+<li class="toctree-l3"><a class="reference internal" href="web-interface.html#creating-a-tag-on-the-tags-page">7.4.3 Создание тега на <em>Теги</em> Страница</a></li>
+<li class="toctree-l3"><a class="reference internal" href="web-interface.html#managing-tags">7.4.4 Управление тегами</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="web-interface.html#using-the-trashcan">7.5 Использование мусорной корзины</a></li>
+<li class="toctree-l2"><a class="reference internal" href="web-interface.html#displaying-the-feed-status">7.6 Отображение статуса ленты</a></li>
+<li class="toctree-l2"><a class="reference internal" href="web-interface.html#changing-the-user-settings">7.7 Изменение настроек пользователя</a></li>
+<li class="toctree-l2"><a class="reference internal" href="web-interface.html#opening-the-manual">7.8 Открытие руководства</a></li>
+<li class="toctree-l2"><a class="reference internal" href="web-interface.html#logging-out-of-the-web-interface">7.9 Выход из веб-интерфейса</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="web-interface-access.html">8 Управление доступом к веб-интерфейсу</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="web-interface-access.html#users">8.1 Пользователи</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="web-interface-access.html#creating-a-user">8.1.1 Создание пользователя</a></li>
+<li class="toctree-l3"><a class="reference internal" href="web-interface-access.html#managing-users">8.1.2 Управление пользователями</a></li>
+<li class="toctree-l3"><a class="reference internal" href="web-interface-access.html#simultaneous-login">8.1.3 Одновременный вход в систему</a></li>
+<li class="toctree-l3"><a class="reference internal" href="web-interface-access.html#creating-a-guest-login">8.1.4 Создание гостевого входа</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="web-interface-access.html#roles">8.2 Роли</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="web-interface-access.html#cloning-an-existing-role">8.2.1 Клонирование существующей роли</a></li>
+<li class="toctree-l3"><a class="reference internal" href="web-interface-access.html#creating-a-role">8.2.2 Создание роли</a></li>
+<li class="toctree-l3"><a class="reference internal" href="web-interface-access.html#managing-roles">8.2.3 Управление ролями</a></li>
+<li class="toctree-l3"><a class="reference internal" href="web-interface-access.html#assigning-roles-to-a-user">8.2.4 Назначение ролей пользователю</a></li>
+<li class="toctree-l3"><a class="reference internal" href="web-interface-access.html#creating-a-super-administrator">8.2.5 Создание суперадминистратора</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="web-interface-access.html#groups">8.3 Группы</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="web-interface-access.html#creating-a-group">8.3.1 Создание группы</a></li>
+<li class="toctree-l3"><a class="reference internal" href="web-interface-access.html#managing-groups">8.3.2 Управление группами</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="web-interface-access.html#permissions">8.4 Разрешения</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="web-interface-access.html#creating-and-managing-permissions">8.4.1 Создание разрешений и управление ими</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="web-interface-access.html#creating-a-permission">8.4.1.1 Создание разрешения</a></li>
+<li class="toctree-l4"><a class="reference internal" href="web-interface-access.html#creating-permissions-from-the-resource-details-page">8.4.1.2 Создание разрешений на странице сведений о ресурсе</a></li>
+<li class="toctree-l4"><a class="reference internal" href="web-interface-access.html#managing-permissions">8.4.1.3 Управление разрешениями</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="web-interface-access.html#granting-super-permissions">8.4.2 Предоставление суперразрешений</a></li>
+<li class="toctree-l3"><a class="reference internal" href="web-interface-access.html#granting-read-access-to-other-users">8.4.3 Предоставление доступа на чтение другим пользователям</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="web-interface-access.html#requirements-for-granting-read-access">8.4.3.1 Требования к предоставлению доступа для чтения</a></li>
+<li class="toctree-l4"><a class="reference internal" href="web-interface-access.html#granting-read-access">8.4.3.2 Предоставление доступа на чтение</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="web-interface-access.html#using-a-central-user-management">8.5 Использование централизованного управления пользователями</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="web-interface-access.html#ldaps">8.5.1 ЛДАПС</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="web-interface-access.html#storing-the-server-s-certificate-on-the-appliance">8.5.1.1 Хранение сертификата сервера на устройстве</a></li>
+<li class="toctree-l4"><a class="reference internal" href="web-interface-access.html#connecting-to-the-ldaps-tree">8.5.1.2 Подключение к деревянному LDAPS</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="web-interface-access.html#radius">8.5.2 РАДИУС</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="scanning.html">9 Сканирование системы</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="scanning.html#using-the-task-wizard-for-a-first-scan">9.1 Использование мастера задач для первого сканирования</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="scanning.html#using-the-task-wizard">9.1.1 Использование мастера задач</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scanning.html#using-the-advanced-task-wizard">9.1.2 Использование мастера расширенных задач</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scanning.html#using-the-wizard-to-modify-a-task">9.1.3 Использование мастера для изменения задачи</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="scanning.html#configuring-a-simple-scan-manually">9.2 Настройка простого сканирования вручную</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="scanning.html#creating-a-target">9.2.1 Создание цели</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scanning.html#creating-a-task">9.2.2 Создание задачи</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scanning.html#starting-the-task">9.2.3 Запуск задачи</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="scanning.html#configuring-an-authenticated-scan-using-local-security-checks">9.3 Настройка сканирования с проверкой подлинности с использованием локальных проверок безопасности</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="scanning.html#advantages-and-disadvantages-of-authenticated-scans">9.3.1 Преимущества и недостатки сканирований с аутентификацией</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scanning.html#using-credentials">9.3.2 Использование учетных данных</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="scanning.html#creating-credentials">9.3.2.1 Создание учетных данных</a></li>
+<li class="toctree-l4"><a class="reference internal" href="scanning.html#managing-credentials">9.3.2.2 Управление учетными данными</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="scanning.html#requirements-on-target-systems-with-microsoft-windows">9.3.3 Требования к целевым системам с Microsoft Windows</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="scanning.html#general-notes-on-the-configuration">9.3.3.1 Общие замечания по конфигурации</a></li>
+<li class="toctree-l4"><a class="reference internal" href="scanning.html#configuring-a-domain-account-for-authenticated-scans">9.3.3.2 Настройка учетной записи домена для сканирования с проверкой подлинности</a></li>
+<li class="toctree-l4"><a class="reference internal" href="scanning.html#restrictions">9.3.3.3 Ограничения</a></li>
+<li class="toctree-l4"><a class="reference internal" href="scanning.html#scanning-without-domain-administrator-and-local-administrator-permissions">9.3.3.4 Сканирование без прав администратора домена и локального администратора</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="scanning.html#requirements-on-target-systems-with-esxi">9.3.4 Требования к целевым системам с ESXi</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scanning.html#requirements-on-target-systems-with-linux-unix">9.3.5 Требования к целевым системам Linux/Unix</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="scanning.html#requirements-and-background-information-for-the-elevate-privileges-feature">9.3.5.1 Требования и исходная информация для <em>Повышение привилегий</em> Особенность</a></li>
+<li class="toctree-l4"><a class="reference internal" href="scanning.html#security-best-practices-for-ssh-based-authenticated-scans">9.3.5.2 (Безопасность) Рекомендации для обработки с проверкой региона на основе SSH</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="scanning.html#requirements-on-target-systems-with-cisco-os">9.3.6 Требования к целевым системам с ОС Cisco</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="scanning.html#snmp">9.3.6.1 SNMP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="scanning.html#ssh">9.3.6.2 SSH</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="scanning.html#requirements-on-target-systems-with-huawei-vrp">9.3.7 Требования к целевым системам с Huawei VRP</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="scanning.html#id1">9.3.7.1 SNMP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="scanning.html#id2">9.3.7.2 SSH</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="scanning.html#requirements-on-target-systems-with-euleros">9.3.8 Требования к целевым системам с EulerOS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scanning.html#requirements-on-target-systems-with-gaussdb">9.3.9 Требования к целевым системам с GaussDB</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="scanning.html#requirements-for-system-user-root">9.3.9.1 Требования к пользователю системы <em>корень</em></a></li>
+<li class="toctree-l4"><a class="reference internal" href="scanning.html#requirements-for-database-administrator-accounts-for-example-gaussdba">9.3.9.2 Требования к учетным записям администратора базы данных (например, <em>гауссдба</em>)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="scanning.html#requirements-for-a-regular-user-accounts">9.3.9.3 Требования к учетным записям обычных пользователей</a></li>
+<li class="toctree-l4"><a class="reference internal" href="scanning.html#requirements-for-a-regular-database-user-accounts-for-example-gauss">9.3.9.4 Требования к обычным учетным записям пользователей базы данных (например, <em>гаусс</em>)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="scanning.html#configuring-a-cve-scan">9.4 Настройка CVE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scanning.html#using-import-tasks">9.5 Использование задач импорта</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="scanning.html#creating-an-import-task">9.5.1 Создание задачи импорта</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scanning.html#managing-import-tasks">9.5.2 Управление задачами импорта</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="scanning.html#managing-targets">9.6 Управление целями</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scanning.html#creating-and-managing-port-lists">9.7 Создание списков портов и управление ими</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="scanning.html#creating-a-port-list">9.7.1 Создание списка портов</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scanning.html#importing-a-port-list">9.7.2 Импорт списка портов</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scanning.html#managing-port-lists">9.7.3 Управление списками портов</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="scanning.html#managing-tasks">9.8 Управление задачами</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="scanning.html#granting-permissions-for-a-task">9.8.1 Предоставление разрешений для задачи</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="scanning.html#configuring-and-managing-scan-configurations">9.9 Настройка и управление конфигурациями сканирования</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="scanning.html#default-scan-configurations">9.9.1 Конфигурации сканирования по умолчанию</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scanning.html#creating-a-scan-configuration">9.9.2 Создание конфигурации сканирования</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scanning.html#importing-a-scan-configuration">9.9.3 Импорт конфигурации сканирования</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scanning.html#editing-the-scanner-preferences">9.9.4 Редактирование настроек сканера</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="scanning.html#description-of-scanner-preferences">9.9.4.1 Описание настроек сканера</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="scanning.html#editing-the-vt-preferences">9.9.5 Редактирование настроек VT</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="scanning.html#description-of-vt-preferences">9.9.5.1 Описание свойств VT</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="scanning.html#managing-scan-configurations">9.9.6 Управление конфигурациями сканирования</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="scanning.html#performing-a-scheduled-scan">9.10 Выполнение запланированного сканирования</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="scanning.html#creating-a-schedule">9.10.1 Создание расписания</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scanning.html#managing-schedules">9.10.2 Управление расписаниями</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="scanning.html#creating-and-managing-scanners">9.11 Создание сканеров и управление ими</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="scanning.html#creating-a-scanner">9.11.1 Создание сканера</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scanning.html#managing-scanners">9.11.2 Управление сканерами</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="scanning.html#using-alerts">9.12 Использование оповещений</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="scanning.html#creating-an-alert">9.12.1 Создание оповещения</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scanning.html#assigning-an-existing-alert-to-a-task">9.12.2 Назначение существующего оповещения задаче</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scanning.html#managing-alerts">9.12.3 Управление оповещениями</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="scanning.html#obstacles-while-scanning">9.13 Препятствия при сканировании</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="scanning.html#hosts-not-found">9.13.1 Хосты не найдены</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scanning.html#long-scan-periods">9.13.2 Длинные периоды сканирования</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scanning.html#vt-not-used">9.13.3 ТН не используется</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scanning.html#scanning-vhosts">9.13.4 Сканирование виртуальных хостов</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="reports.html">10 отчетов и управление уязвимостями</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="reports.html#configuring-and-managing-report-formats">10.1 Настройка и управление форматами отчетов</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="reports.html#default-report-formats">10.1.1 Форматы отчетов по умолчанию</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reports.html#managing-report-formats">10.1.2 Управление форматами отчетов</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reports.html#adding-a-report-format">10.1.3 Добавление формата отчета</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reports.html#customizing-report-formats-with-report-configurations">10.1.4 Настройка форматов отчетов с помощью конфигураций отчетов</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reports.html#managing-report-configurations">10.1.5 Управление конфигурациями отчетов</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="reports.html#using-and-managing-reports">10.2 Использование и управление отчетами</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="reports.html#reading-a-report">10.2.1 Чтение отчета</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="reports.html#results-of-a-report">10.2.1.1 Результаты отчета</a></li>
+<li class="toctree-l4"><a class="reference internal" href="reports.html#interpreting-a-report">10.2.1.2 Интерпретация отчета</a></li>
+<li class="toctree-l4"><a class="reference internal" href="reports.html#filtering-a-report">10.2.1.3 Фильтрация отчета</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="reports.html#exporting-a-report">10.2.2 Экспорт отчета</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reports.html#importing-a-report">10.2.3 Импорт отчета</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reports.html#triggering-an-alert-for-a-report">10.2.4 Вызов оповещения об отчете</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reports.html#creating-a-delta-report">10.2.5 Создание дельта-отчета</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reports.html#quality-of-detection-concept">10.2.6 Концепция качества обнаружения</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="reports.html#displaying-all-existing-results">10.3 Отображение всех существующих результатов</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reports.html#displaying-all-existing-vulnerabilities">10.4 Отображение всех существующих уязвимостей</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reports.html#trend-of-vulnerabilities">10.5 Тенденция уязвимостей</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reports.html#using-tickets">10.6 Использование билетов</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="reports.html#creating-a-ticket">10.6.1 Создание заявки</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reports.html#changing-the-status-of-a-ticket">10.6.2 Изменение статуса заявки</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reports.html#setting-an-alert-for-a-ticket">10.6.3 Установка оповещения о заявке</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reports.html#managing-tickets">10.6.4 Управление заявками</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="reports.html#using-notes">10.7 Использование заметок</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="reports.html#creating-a-note">10.7.1 Создание заметки</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="reports.html#creating-a-note-through-a-scan-result">10.7.1.1 Создание заметки на основе результата сканирования</a></li>
+<li class="toctree-l4"><a class="reference internal" href="reports.html#creating-a-note-on-the-page-notes">10.7.1.2 Создание заметки на странице <em>Примечания</em></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="reports.html#managing-notes">10.7.2 Управление заметками</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="reports.html#using-overrides-and-false-positives">10.8 Использование переопределений и ложных срабатываний</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="reports.html#creating-an-override">10.8.1 Создание переопределения</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="reports.html#creating-an-override-through-a-scan-result">10.8.1.1 Создание переопределения с помощью результата сканирования</a></li>
+<li class="toctree-l4"><a class="reference internal" href="reports.html#creating-an-override-on-the-page-overrides">10.8.1.2 Создание переопределения на странице <em>Переопределения</em></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="reports.html#managing-overrides">10.8.2 Управление переопределениями</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reports.html#disabling-and-enabling-overrides">10.8.3 Отключение и включение переопределений</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="compliance-and-special-scans.html">11 Выполнение сканирования на соответствие и специального сканирования</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="compliance-and-special-scans.html#configuring-and-managing-policies">11.1 Настройка и управление политиками</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="compliance-and-special-scans.html#creating-a-policy">11.1.1 Создание политики</a></li>
+<li class="toctree-l3"><a class="reference internal" href="compliance-and-special-scans.html#importing-a-policy">11.1.2 Импорт политики</a></li>
+<li class="toctree-l3"><a class="reference internal" href="compliance-and-special-scans.html#managing-policies">11.1.3 Управление политиками</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="compliance-and-special-scans.html#configuring-and-managing-audits">11.2 Настройка и управление аудитами</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="compliance-and-special-scans.html#creating-an-audit">11.2.1 Создание аудита</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="compliance-and-special-scans.html#creating-an-audit-on-the-page-audits">11.2.1.1 Создание аудита на странице <em>Аудиты</em></a></li>
+<li class="toctree-l4"><a class="reference internal" href="compliance-and-special-scans.html#creating-an-audit-through-a-policy">11.2.1.2 Создание аудита с помощью политики</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="compliance-and-special-scans.html#starting-an-audit">11.2.2 Начало аудита</a></li>
+<li class="toctree-l3"><a class="reference internal" href="compliance-and-special-scans.html#managing-audits">11.2.3 Управление аудитами</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="compliance-and-special-scans.html#using-and-managing-audit-reports">11.3 Использование и управление отчетами аудита</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="compliance-and-special-scans.html#reading-an-audit-report">11.3.1 Чтение аудиторского отчета</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="compliance-and-special-scans.html#results-of-an-audit-report">11.3.1.1 Результаты аудиторского отчета</a></li>
+<li class="toctree-l4"><a class="reference internal" href="compliance-and-special-scans.html#filtering-an-audit-report">11.3.1.2 Фильтрация отчета об аудите</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="compliance-and-special-scans.html#exporting-an-audit-report">11.3.2 Экспорт отчета об аудите</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="compliance-and-special-scans.html#generic-policy-scans">11.4 Общие проверки политик</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="compliance-and-special-scans.html#checking-file-content">11.4.1 Проверка содержимого файла</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="compliance-and-special-scans.html#checking-file-content-patterns">11.4.1.1 Проверка шаблонов содержимого файлов</a></li>
+<li class="toctree-l4"><a class="reference internal" href="compliance-and-special-scans.html#changing-the-severity">11.4.1.2 Изменение серьезности</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="compliance-and-special-scans.html#checking-registry-content">11.4.2 Проверка содержимого реестра</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="compliance-and-special-scans.html#checking-registry-content-patterns">11.4.2.1 Проверка шаблонов содержимого реестра</a></li>
+<li class="toctree-l4"><a class="reference internal" href="compliance-and-special-scans.html#registry-severity">11.4.2.2 Изменение серьезности</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="compliance-and-special-scans.html#checking-file-checksums">11.4.3 Проверка контрольных сумм файлов</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="compliance-and-special-scans.html#checking-file-checksum-patterns">11.4.3.1 Проверка шаблонов контрольной суммы файла</a></li>
+<li class="toctree-l4"><a class="reference internal" href="compliance-and-special-scans.html#checksum-severity">11.4.3.2 Изменение серьезности</a></li>
+<li class="toctree-l4"><a class="reference internal" href="compliance-and-special-scans.html#checking-file-checksum-patterns-for-microsoft-windows">11.4.3.3 Проверка шаблонов контрольных сумм файлов для Microsoft Windows</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="compliance-and-special-scans.html#performing-cpe-based-checks">11.4.4 Выполнение проверок на основе CPE</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="compliance-and-special-scans.html#simple-cpe-based-checks-for-security-policies">11.4.4.1 Простые проверки политики безопасности на основе CPE</a></li>
+<li class="toctree-l4"><a class="reference internal" href="compliance-and-special-scans.html#detecting-the-presence-of-problematic-products">11.4.4.2 Обнаружение наличия проблемных продуктов</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="compliance-and-special-scans.html#checking-standard-policies">11.5 Проверка стандартных политик</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="compliance-and-special-scans.html#it-grundschutz">11.5.1 IT-Grundschutz</a></li>
+<li class="toctree-l3"><a class="reference internal" href="compliance-and-special-scans.html#bsi-tr-03116-kryptographische-vorgaben-fur-projekte-der-bundesregierung">11.5.2 BSI TR-03116: Криптографические данные для проектов Bundesregierung</a></li>
+<li class="toctree-l3"><a class="reference internal" href="compliance-and-special-scans.html#bsi-tr-02102-kryptographische-verfahren-empfehlungen-und-schlussellangen">11.5.3 BSI TR-02102: Криптографические сведения: Empfehlungen und Schlüssellängen</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="compliance-and-special-scans.html#running-a-tls-map-scan">11.6 Запуск карты TLS</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="compliance-and-special-scans.html#checking-for-tls-and-exporting-the-scan-results">11.6.1 Проверка TLS и результатов внешнего сигнала</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="managing-assets.html">12 Управление активами</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="managing-assets.html#creating-and-managing-hosts">12.1 Создание хостов и управление ими</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="managing-assets.html#creating-a-host">12.1.1 Создание хоста</a></li>
+<li class="toctree-l3"><a class="reference internal" href="managing-assets.html#managing-hosts">12.1.2 Управление хостами</a></li>
+<li class="toctree-l3"><a class="reference internal" href="managing-assets.html#creating-a-target-from-hosts">12.1.3 Создание цели из хостов</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="managing-assets.html#managing-operating-systems">12.2 Управление операционными системами</a></li>
+<li class="toctree-l2"><a class="reference internal" href="managing-assets.html#managing-tls-certificates">12.3 Управление сертификатами TLS</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="managing-secinfo.html">13 Управление информацией о безопасности</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="managing-secinfo.html#vulnerability-tests-vt">13.1 Тесты на уязвимости (VT)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="managing-secinfo.html#security-content-automation-protocol-scap">13.2 Протокол автоматизации контента (SCAP)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="managing-secinfo.html#cve">13.2.1 CVE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="managing-secinfo.html#cpe">13.2.2 CPE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="managing-secinfo.html#cvss">13.2.3 ЦВСС</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="managing-secinfo.html#cvss-version-2-0">13.2.3.1 CVSS версии 2.0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="managing-secinfo.html#cvss-version-3-0-3-1">13.2.3.2 CVSS версии 3.0/3.1</a></li>
+<li class="toctree-l4"><a class="reference internal" href="managing-secinfo.html#cvss-version-4-0">13.2.3.3 CVSS версии 4.0</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="managing-secinfo.html#epss">13.2.4 ЭПСС</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="managing-secinfo.html#cert-bund-advisories">13.3 Рекомендации CERT-Bund</a></li>
+<li class="toctree-l2"><a class="reference internal" href="managing-secinfo.html#dfn-cert-advisories">13.4 Рекомендации DFN-CERT</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gmp.html">14 Использование протокола управления «Ак Шумкар»</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="gmp.html#changes-to-gmp">14.1 Изменения в GMP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gmp.html#activating-gmp">14.2 Активация GMP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gmp.html#using-gvm-tools">14.3 Использование инструментов gvm</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gmp.html#using-gvm-cli">14.3.1 Использование <code class="docutils literal notranslate"><span class="pre">GVM-кли</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="gmp.html#connection-types">14.3.1.1 Типы соединений</a></li>
+<li class="toctree-l4"><a class="reference internal" href="gmp.html#logging-in-to-the-appliance">14.3.1.2 Вход в устройство</a></li>
+<li class="toctree-l4"><a class="reference internal" href="gmp.html#creating-and-starting-a-scan">14.3.1.3 Создание и запуск сканирования</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="gmp.html#using-gvm-pyshell">14.3.2 Использование <code class="docutils literal notranslate"><span class="pre">gvm-pyshell</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="gmp.html#id2">14.3.2.1 Типы соединений</a></li>
+<li class="toctree-l4"><a class="reference internal" href="gmp.html#passing-arguments">14.3.2.2 Передача аргументов</a></li>
+<li class="toctree-l4"><a class="reference internal" href="gmp.html#id3">14.3.2.3 Вход в устройство</a></li>
+<li class="toctree-l4"><a class="reference internal" href="gmp.html#id4">14.3.2.4 Создание и запуск сканирования</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="gmp.html#example-scripts">14.3.3 Примеры сценариев</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="gmp.html#status-codes">14.4 Коды состояния</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="master-sensor-setup.html">15 Использование настройки главного датчика</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="master-sensor-setup.html#configuring-a-master-sensor-setup">15.1 Настройка настройки главного датчика</a></li>
+<li class="toctree-l2"><a class="reference internal" href="master-sensor-setup.html#managing-all-configured-sensors">15.2 Управление всеми настроенными датчиками</a></li>
+<li class="toctree-l2"><a class="reference internal" href="master-sensor-setup.html#deploying-sensors-in-secure-networks">15.3 Развертывание датчиков в защищенных сетях</a></li>
+<li class="toctree-l2"><a class="reference internal" href="master-sensor-setup.html#configuring-a-sensor-as-a-remote-scanner">15.4 Настройка датчика в качестве удаленного сканера</a></li>
+<li class="toctree-l2"><a class="reference internal" href="master-sensor-setup.html#using-a-remote-scanner">15.5 Использование удаленного сканера</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="performance.html">16 Управление производительностью</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="performance.html#monitoring-the-appliance-performance">16.1 Мониторинг производительности устройства</a></li>
+<li class="toctree-l2"><a class="reference internal" href="performance.html#optimizing-the-scan-performance">16.2 Оптимизация производительности сканирования</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="performance.html#selecting-a-port-list-for-a-task">16.2.1 Выбор списка портов для задачи</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="performance.html#general-information-about-ports-and-port-lists">16.2.1.1 Общая информация о портах и ​​списках портов</a></li>
+<li class="toctree-l4"><a class="reference internal" href="performance.html#selecting-the-right-port-list">16.2.1.2 Выбор правильного списка портов</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="performance.html#selecting-a-scan-configuration-for-a-task">16.2.2 Выбор конфигурации сканирования для задачи</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="performance.html#scan-queuing">16.3 Очередь сканирования</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="connecting-other-systems.html">17 Подключение АК-ШУМКАР к другим системам</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="connecting-other-systems.html#using-verinice">17.1 Использование Веринице</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="connecting-other-systems.html#it-security-management">17.1.1 Управление ИТ-безопасностью</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="connecting-other-systems.html#importing-the-ism-scan-report">17.1.1.1 Импортный отчет о сканировании ISM</a></li>
+<li class="toctree-l4"><a class="reference internal" href="connecting-other-systems.html#creating-tasks">17.1.1.2 Создание задач</a></li>
+<li class="toctree-l4"><a class="reference internal" href="connecting-other-systems.html#remediating-vulnerabilities">17.1.1.3 Устранение уязвимостей</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="connecting-other-systems.html#using-nagios">17.2 Использование Nagios</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="connecting-other-systems.html#configuring-the-appliance-user">17.2.1 Настройка пользователя устройства</a></li>
+<li class="toctree-l3"><a class="reference internal" href="connecting-other-systems.html#configuring-the-script">17.2.2 Настройка сценария</a></li>
+<li class="toctree-l3"><a class="reference internal" href="connecting-other-systems.html#caching-and-multiprocessing">17.2.3 Кэширование и многопроцессорность</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="connecting-other-systems.html#using-the-cisco-firepower-management-center">17.3 Использование Центра управления огневой мощью Cisco</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="connecting-other-systems.html#configuring-the-host-input-api-clients">17.3.1 Настройка клиентов Host-Input-API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="connecting-other-systems.html#configuring-a-sourcefire-connector-alert">17.3.2 Настройка оповещения соединениятеля Sourcefire</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="connecting-other-systems.html#using-alemba-vfire">17.4 Использование Alemba vFire</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="connecting-other-systems.html#prerequisites-for-alemba-vfire">17.4.1 Предварительные условия для Alemba vFire</a></li>
+<li class="toctree-l3"><a class="reference internal" href="connecting-other-systems.html#configuring-an-alemba-vfire-alert">17.4.2 Настройка оповещения Alemba vFire</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="connecting-other-systems.html#using-splunk">17.5 Использование Splunk</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="connecting-other-systems.html#setting-up-the-ak-shumkar-splunk-app">17.5.1 Настройка приложения «Ак Шумкар-Спланк»</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="connecting-other-systems.html#installing-the-app">17.5.1.1 Установка приложения</a></li>
+<li class="toctree-l4"><a class="reference internal" href="connecting-other-systems.html#configuring-the-ak-shumkar-splunk-app">17.5.1.2 Настройка приложения «Ак Шумкар-Splunk»</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="connecting-other-systems.html#configuring-a-splunk-alert">17.5.2 Настройка оповещений Splunk</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="connecting-other-systems.html#creating-the-splunk-alert">17.5.2.1 Создание оповещений Splunk</a></li>
+<li class="toctree-l4"><a class="reference internal" href="connecting-other-systems.html#adding-the-splunk-alert-to-a-task">17.5.2.2 Добавление оповещений Splunk к задаче</a></li>
+<li class="toctree-l4"><a class="reference internal" href="connecting-other-systems.html#testing-the-splunk-alert">17.5.2.3 Тестирование оповещений Splunk</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="connecting-other-systems.html#using-the-ak-shumkar-splunk-app">17.5.3 Использование приложения «Ак Шумкар-Splunk»</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="connecting-other-systems.html#accessing-the-information-in-splunk">17.5.3.1 Доступ к информации в Splunk</a></li>
+<li class="toctree-l4"><a class="reference internal" href="connecting-other-systems.html#performing-a-search">17.5.3.2 Выполнение поиска</a></li>
+<li class="toctree-l4"><a class="reference internal" href="connecting-other-systems.html#creating-a-dashboard-for-the-top-5-affected-hosts-and-for-incoming-reports">17.5.3.3 Создание информационной панели для 5 наиболее затронутых хостов и для входящих отчетов</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="architecture.html">18 Архитектура</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html#gos-architecture">18.1 Архитектура ГСН</a></li>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html#protocols">18.2 Протоколы</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="architecture.html#appliance-as-a-client">18.2.1 Устройство как клиент</a></li>
+<li class="toctree-l3"><a class="reference internal" href="architecture.html#appliance-as-a-server">18.2.2 Устройство как сервер</a></li>
+<li class="toctree-l3"><a class="reference internal" href="architecture.html#master-sensor-setup">18.2.3 Настройка главного датчика</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html#security-gateway-considerations">18.3 Особенности шлюза безопасности</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="architecture.html#stand-alone-master-appliance">18.3.1 Автономное/главное устройство</a></li>
+<li class="toctree-l3"><a class="reference internal" href="architecture.html#sensor-appliance">18.3.2 Сенсорное устройство</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">19 часто задаваемых вопросов</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#why-is-the-scanning-process-so-slow">19.1 Почему процесс сканирования такой медленный?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#what-influences-the-scan-capacity">19.2 Что влияет на производительность сканирования?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#why-is-a-service-product-not-detected">19.3 Почему услуга/продукт не обнаруживается?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#why-is-a-vulnerability-not-detected">19.4. Почему уязвимость не обнаружена?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#why-do-the-results-for-the-same-target-differ-across-several-consecutive-scans">19.5 Почему результаты одного и того же объекта различаются при нескольких последовательных сканированиях?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#why-is-it-not-possible-to-edit-scan-configurations-port-lists-compliance-policies-or-report-formats">19.6 Почему невозможно редактировать конфигурации сканирования, списки портов, политики соответствия или форматы отчетов?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#why-is-it-not-possible-to-delete-scan-configurations-port-lists-compliance-policies-or-report-formats">19.7 Почему невозможно удалить конфигурации сканирования, списки портов, политики соответствия или форматы отчетов?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#why-does-a-vnc-dialog-appear-on-the-scanned-target-system">19.8 Почему в сканируемой встроенной системе появляется ближайшее окно VNC?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#why-does-the-scan-trigger-alarms-on-other-security-tools">19.9 Почему сканирование вызывает срабатывание сигналов тревоги в других средствах безопасности?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#how-can-a-factory-reset-of-the-appliance-be-performed">19.10 Как выполнить сброс устройства к заводским настройкам?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#why-does-neither-feed-update-nor-gos-upgrade-work-after-a-factory-reset">19.11 Почему после сброса настроек не работает ни обновление канала, ни обновление ГОС?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#how-can-an-older-backup-or-beaming-image-be-restored">19.12 Как можно восстановить старую резервную копию или переданный образ?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#what-can-be-done-if-the-gos-administration-menu-is-not-displayed-correctly-in-putty">19.13 Что делать, если меню администрирования GOS отображается в PuTTY неправильно?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#how-can-the-gmp-status-be-checked-without-using-credentials">19.14 Как можно проверить статус GMP без использования учетных данных?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#what-should-be-done-if-the-self-check-shows-raid-array-degraded">19.15 Что делать, если самопроверка показывает «RAID-массив поврежден»?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">20 Глоссарий</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="glossary.html#alert">20.1 Оповещение</a></li>
+<li class="toctree-l2"><a class="reference internal" href="glossary.html#asset">20.2 Актив</a></li>
+<li class="toctree-l2"><a class="reference internal" href="glossary.html#cert-bund-advisory">20.3 Рекомендации CERT-Bund</a></li>
+<li class="toctree-l2"><a class="reference internal" href="glossary.html#compliance-audit">20.4 Аудит соответствия</a></li>
+<li class="toctree-l2"><a class="reference internal" href="glossary.html#compliance-policy">20.5 Политика соответствия</a></li>
+<li class="toctree-l2"><a class="reference internal" href="glossary.html#cpe">20.6 Цена за взаимодействие</a></li>
+<li class="toctree-l2"><a class="reference internal" href="glossary.html#cve">20,7 CVE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="glossary.html#cvss">20.8 ЦВСС</a></li>
+<li class="toctree-l2"><a class="reference internal" href="glossary.html#dfn-cert-advisory">20.9 Рекомендации DFN-CERT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="glossary.html#epss">20.10 ЭПСС</a></li>
+<li class="toctree-l2"><a class="reference internal" href="glossary.html#filter">20.11 Фильтр</a></li>
+<li class="toctree-l2"><a class="reference internal" href="glossary.html#group">20.12 Группа</a></li>
+<li class="toctree-l2"><a class="reference internal" href="glossary.html#host">20.13 Хост</a></li>
+<li class="toctree-l2"><a class="reference internal" href="glossary.html#note">20.14 Примечание</a></li>
+<li class="toctree-l2"><a class="reference internal" href="glossary.html#vulnerability-test-vt">20.15 Тест на уязвимость (VT)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="glossary.html#override">20.16 Переопределение</a></li>
+<li class="toctree-l2"><a class="reference internal" href="glossary.html#permission">20.17 Разрешение</a></li>
+<li class="toctree-l2"><a class="reference internal" href="glossary.html#port-list">20.18 Список портов</a></li>
+<li class="toctree-l2"><a class="reference internal" href="glossary.html#quality-of-detection-qod">20.19 Определение качества (QoD)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="glossary.html#remediation-ticket">20.20 Билет на исправление</a></li>
+<li class="toctree-l2"><a class="reference internal" href="glossary.html#report">20.21 Отчет</a></li>
+<li class="toctree-l2"><a class="reference internal" href="glossary.html#report-format">20.22 Формат отчета</a></li>
+<li class="toctree-l2"><a class="reference internal" href="glossary.html#result">20.23 Результат</a></li>
+<li class="toctree-l2"><a class="reference internal" href="glossary.html#role">20.24 Роль</a></li>
+<li class="toctree-l2"><a class="reference internal" href="glossary.html#scan">20.25 Сканирование</a></li>
+<li class="toctree-l2"><a class="reference internal" href="glossary.html#scanner">20.26 Сканер</a></li>
+<li class="toctree-l2"><a class="reference internal" href="glossary.html#scan-configuration">20.27 Конфигурация сканирования</a></li>
+<li class="toctree-l2"><a class="reference internal" href="glossary.html#schedule">20.28 Расписание</a></li>
+<li class="toctree-l2"><a class="reference internal" href="glossary.html#severity">20.29 Серьезность</a></li>
+<li class="toctree-l2"><a class="reference internal" href="glossary.html#solution-type">20.30 Тип решения</a></li>
+<li class="toctree-l2"><a class="reference internal" href="glossary.html#tag">20.31 Тег</a></li>
+<li class="toctree-l2"><a class="reference internal" href="glossary.html#target">20.32 Цель</a></li>
+<li class="toctree-l2"><a class="reference internal" href="glossary.html#task">20.33 Задача</a></li>
+<li class="toctree-l2"><a class="reference internal" href="glossary.html#tls-certificate">20.34 Сертификат TLS</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="indices">
+<h1>Индексы<a class="headerlink" href="index.html#indices" title="Link to this heading">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Индекс</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Страница поиска</span></a></p></li>
+</ul>
+</section>
+</article>
+</div>
+<footer>
+<div class="related-pages">
+<a class="next-page" href="introduction.html">
+<div class="page-info">
+<div class="context">
+<span>Следующий</span>
+</div>
+<div class="title"><span class="section-number">1 </span>Введение</div>
+</div>
+<svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+</a>
+</div>
+<div class="bottom-of-page">
+<div class="left-details">
+<div class="copyright">
+                Copyright © 2015–2026, Ак Шумкар
+            </div>
+<div class="last-updated">
+              Последнее обновление: 13 марта 2026 г.</div>
+</div>
+<div class="right-details">
+</div>
+</div>
+</footer>
+</div>
+<aside class="toc-drawer no-toc">
+</aside>
+</div>
+</div><script src="_static/documentation_options.js%3Fv=bd398bb6"></script>
+<script src="_static/doctools.js%3Fv=9a2dae69"></script>
+<script src="_static/sphinx_highlight.js%3Fv=dc90522c"></script>
+<script src="_stati_static/scripts/furo.js%3Fv=46bd48cc"></script>
+</body></html>

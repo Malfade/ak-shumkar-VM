@@ -195,8 +195,8 @@ get_max_checks_number (void)
     max_checks = global_max_checks;
 
   /* Floor for concurrent NVTs per host (GVM often defaults low). */
-  if (max_checks < 32)
-    max_checks = 32;
+  if (max_checks < 48)
+    max_checks = 48;
 
   return (max_checks);
 }

@@ -46,7 +46,7 @@
  * Must match processes[] size below. Raised for high-throughput scans
  * (see global_max_checks in openvas.c and max_checks in openvas.conf).
  */
-#define MAX_PROCESSES 80
+#define MAX_PROCESSES 128
 
 /**
  * @brief Structure to represent a process in the sense of a running NVT.

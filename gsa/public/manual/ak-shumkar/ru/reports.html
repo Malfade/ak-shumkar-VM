@@ -1,0 +1,1944 @@
+<html lang="ru"><body><meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="light dark" name="color-scheme"/><meta content="width=device-width, initial-scale=1" name="viewport"/>
+<link href="genindex.html" rel="index" title="Индекс"/><link href="search.html" rel="search" title="Поиск"/><link href="compliance-and-special-scans.html" rel="next" title="11 Выполнение консультаций и технических услуг"/><link href="scanning.html" rel="prev" title="9 Системы сканирования"/>
+<link as="image" href="/img/ak-shumkar.png" rel="prefetch"/>
+<link as="image" href="/img/ak-shumkar.png" rel="prefetch"/>
+<link href="/img/ak-shumkar.png" rel="icon" type="image/png"/><link href="/img/ak-shumkar.png" rel="shortcut icon" type="image/png"/><title>10 Отчеты и управление уязвимостями - АК-ШУМКАР – ГОС 24.10.11</title>
+<link href="_static/pygments.css%3Fv=8e8a900e.css" rel="stylesheet" type="text/css"/>
+<link href="_static/styles/furo.css%3Fv=580074bf.css" rel="stylesheet" type="text/css"/>
+<link href="_static/sphinx_greenbone.css%3Fv=8ef0bb58.css" rel="stylesheet" type="text/css"/>
+<link href="_static/styles/furo-extensions.css%3Fv=8dab3a3b.css" rel="stylesheet" type="text/css"/>
+<style>
+  body {
+    --color-code-background: #ffffff;
+  --color-code-foreground: black;
+  --font-stack: Roboto, Helvetica, sans-serif;
+  --color-content-foreground: #4D4D4D;
+  --color-foreground-primary: 4D4D4D;
+  --color-foreground-secondary: #808080;
+  --color-code-background: #333333;
+  --color-code-foreground: #E6E6E6;
+  --color-admonition-title--note: #0E823E;
+  --color-admonition-title--note-background: #D8F1E2;
+  --color-admonition-title--warning: #E5393D;
+  --color-admonition-title--warning-background: #FBDDDE;
+  --admonition-font-size: 0.9rem;
+  --color-background-primary: #FFFFFF;
+  --color-background-secondary: #F5F5F5;
+  --color-sidebar-background: #F5F5F5;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --font-stack: Roboto, Helvetica, sans-serif;
+  --color-content-foreground: #F5F5F5;
+  --color-foreground-primary: F5F5F5;
+  --color-foreground-secondary: #E6E6E6;
+  --color-code-background: #333333;
+  --color-code-foreground: #E6E6E6;
+  --color-admonition-title--note: #11AB51;
+  --admonition-font-size: 0.9rem;
+  --color-background-primary: #171717;
+  --color-background-secondary: #4D4D4D;
+  --color-sidebar-background: #333333;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --font-stack: Roboto, Helvetica, sans-serif;
+  --color-content-foreground: #F5F5F5;
+  --color-foreground-primary: F5F5F5;
+  --color-foreground-secondary: #E6E6E6;
+  --color-code-background: #333333;
+  --color-code-foreground: #E6E6E6;
+  --color-admonition-title--note: #11AB51;
+  --admonition-font-size: 0.9rem;
+  --color-background-primary: #171717;
+  --color-background-secondary: #4D4D4D;
+  --color-sidebar-background: #333333;
+  
+      }
+    }
+  }
+</style>
+<script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+<svg style="display: none;" xmlns="http://www.w3.org/2000/svg">
+<symbol id="svg-toc" viewbox="0 0 24 24">
+<title>Содержание</title>
+<svg fill="currentColor" stroke="currentColor" stroke-width="0" viewbox="0 0 1024 1024">
+<path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"></path>
+</svg>
+</symbol>
+<symbol id="svg-menu" viewbox="0 0 24 24">
+<title>Меню</title>
+<svg class="feather-menu" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<line x1="3" x2="21" y1="12" y2="12"></line>
+<line x1="3" x2="21" y1="6" y2="6"></line>
+<line x1="3" x2="21" y1="18" y2="18"></line>
+</svg>
+</symbol>
+<symbol id="svg-arrow-right" viewbox="0 0 24 24">
+<title>Расширять</title>
+<svg class="feather-chevron-right" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<polyline points="9 18 15 12 9 6"></polyline>
+</svg>
+</symbol>
+<symbol id="svg-sun" viewbox="0 0 24 24">
+<title>Светлый режим</title>
+<svg class="feather-sun" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<circle cx="12" cy="12" r="5"></circle>
+<line x1="12" x2="12" y1="1" y2="3"></line>
+<line x1="12" x2="12" y1="21" y2="23"></line>
+<line x1="4.22" x2="5.64" y1="4.22" y2="5.64"></line>
+<line x1="18.36" x2="19.78" y1="18.36" y2="19.78"></line>
+<line x1="1" x2="3" y1="12" y2="12"></line>
+<line x1="21" x2="23" y1="12" y2="12"></line>
+<line x1="4.22" x2="5.64" y1="19.78" y2="18.36"></line>
+<line x1="18.36" x2="19.78" y1="5.64" y2="4.22"></line>
+</svg>
+</symbol>
+<symbol id="svg-moon" viewbox="0 0 24 24">
+<title>Темный режим</title>
+<svg class="icon-tabler-moon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 0h24v24H0z" fill="none" stroke="none"></path>
+<path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"></path>
+</svg>
+</symbol>
+<symbol id="svg-sun-with-moon" viewbox="0 0 24 24">
+<title>Автоматический свет/темнота, в ярком режиме</title>
+<svg class="icon-custom-derived-from-feather-sun-and-tabler-moon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z" style="opacity: 50%"></path>
+<line x1="14.5" x2="14.5" y1="3.25" y2="1.25"></line>
+<line x1="14.5" x2="14.5" y1="15.85" y2="17.85"></line>
+<line x1="10.044" x2="8.63" y1="5.094" y2="3.68"></line>
+<line x1="19" x2="20.414" y1="14.05" y2="15.464"></line>
+<line x1="8.2" x2="6.2" y1="9.55" y2="9.55"></line>
+<line x1="20.8" x2="22.8" y1="9.55" y2="9.55"></line>
+<line x1="10.044" x2="8.63" y1="14.006" y2="15.42"></line>
+<line x1="19" x2="20.414" y1="5.05" y2="3.636"></line>
+<circle cx="14.5" cy="9.55" r="3.6"></circle>
+</svg>
+</symbol>
+<symbol id="svg-moon-with-sun" viewbox="0 0 24 24">
+<title>Автоматический светлый/темный, в темном режиме</title>
+<svg class="icon-custom-derived-from-feather-sun-and-tabler-moon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"></path>
+<line style="opacity: 50%" x1="18" x2="18" y1="3.705" y2="2.5"></line>
+<line style="opacity: 50%" x1="18" x2="18" y1="11.295" y2="12.5"></line>
+<line style="opacity: 50%" x1="15.316" x2="14.464" y1="4.816" y2="3.964"></line>
+<line style="opacity: 50%" x1="20.711" x2="21.563" y1="10.212" y2="11.063"></line>
+<line style="opacity: 50%" x1="14.205" x2="13.001" y1="7.5" y2="7.5"></line>
+<line style="opacity: 50%" x1="21.795" x2="23" y1="7.5" y2="7.5"></line>
+<line style="opacity: 50%" x1="15.316" x2="14.464" y1="10.184" y2="11.036"></line>
+<line style="opacity: 50%" x1="20.711" x2="21.563" y1="4.789" y2="3.937"></line>
+<circle cx="18" cy="7.5" r="2.169" style="opacity: 50%"></circle>
+</svg>
+</symbol>
+<symbol id="svg-pencil" viewbox="0 0 24 24">
+<svg class="icon-tabler-pencil-code" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4"></path>
+<path d="M13.5 6.5l4 4"></path>
+<path d="M20 21l2 -2l-2 -2"></path>
+<path d="M17 17l-2 2l2 2"></path>
+</svg>
+</symbol>
+<symbol id="svg-eye" viewbox="0 0 24 24">
+<svg class="icon-tabler-eye-code" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 0h24v24H0z" fill="none" stroke="none"></path>
+<path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"></path>
+<path d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008"></path>
+<path d="M20 21l2 -2l-2 -2"></path>
+<path d="M17 17l-2 2l2 2"></path>
+</svg>
+</symbol>
+</svg>
+<input aria-label="Включить боковую панель навигации по сайту" class="sidebar-toggle" id="__navigation" name="__navigation" type="checkbox"/>
+<input aria-label="Переключить боковую панель оглавления" class="sidebar-toggle" id="__toc" name="__toc" type="checkbox"/>
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+<a class="skip-to-content muted-link" href="reports.html#furo-main-content">Перейти к содержимому</a>
+<div class="page">
+<header class="mobile-header">
+<div class="header-left">
+<label class="nav-overlay-icon" for="__navigation">
+<span class="icon"><svg><use href="#svg-menu"></use></svg></span>
+</label>
+</div>
+<div class="header-center">
+<a href="index.html"><div class="brand">АК-ШУМКАР – ГОС 24.10.11</div></a>
+</div>
+<div class="header-right">
+<div class="theme-toggle-container theme-toggle-header">
+<button aria-label="Переключить светлую/темную/автоматическую цветную тему" class="theme-toggle">
+<svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+<svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+<svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+<svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+</button>
+</div>
+<label class="toc-overlay-icon toc-header-icon" for="__toc">
+<span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+</label>
+</div>
+</header>
+<aside class="sidebar-drawer">
+<div class="sidebar-container">
+<div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
+<div class="sidebar-logo-container">
+<img alt="Логотип AK-SHUMKAR" class="sidebar-logo only-light" src="/img/ak-shumkar.png"/>
+<img alt="Логотип AK-SHUMKAR" class="sidebar-logo only-dark" src="/img/ak-shumkar.png"/>
+</div>
+<span class="sidebar-brand-text">АК-ШУМКАР – ГОС 24.10.11</span>
+</a><form action="search.html" class="sidebar-search-container" method="get" role="search">
+<input aria-label="Поиск" class="sidebar-search" name="q" placeholder="Поиск"/>
+<input name="check_keywords" type="hidden" value="yes"/>
+<input name="area" type="hidden" value="default"/>
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">1 Введение</a></li>
+<li class="toctree-l1"><a class="reference internal" href="read-before-use.html">2 Прочтите перед использованием</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appliance-overview.html">3 АК-ШУМКАР – Обзор</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setting-up-the-appliance.html">4 Настройка АК-ШУМКАР</a></li>
+<li class="toctree-l1"><a class="reference internal" href="upgrading-gos.html">5 Обновление АК-ШУМКАР до последней основной версии</a></li>
+<li class="toctree-l1"><a class="reference internal" href="managing-gos.html">6 Управление системой «Ак Шумкар»</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web-interface.html">7 Знакомство с веб-интерфейсом</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web-interface-access.html">8 Управление доступом к веб-интерфейсу</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scanning.html">9 Системы сканирования</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="reports.html#">10 отчетов и управление уязвимостями</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compliance-and-special-scans.html">11 Выполнение консультаций и технических услуг</a></li>
+<li class="toctree-l1"><a class="reference internal" href="managing-assets.html">12 Управление активами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="managing-secinfo.html">13 Управление информацией о безопасности</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gmp.html">14 Использование протокола управления «Ак Шумкар»</a></li>
+<li class="toctree-l1"><a class="reference internal" href="master-sensor-setup.html">15 Использование настроек главного датчика</a></li>
+<li class="toctree-l1"><a class="reference internal" href="performance.html">16 Управление производительностью</a></li>
+<li class="toctree-l1"><a class="reference internal" href="connecting-other-systems.html">17 Подключение АК-ШУМКАР к другим системам</a></li>
+<li class="toctree-l1"><a class="reference internal" href="architecture.html">18 Архитектура</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">19 часто задаваемых вопросов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">20 Глоссарий</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</aside>
+<div class="main">
+<div class="content">
+<div class="article-container">
+<a class="back-to-top muted-link" href="reports.html#">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+</svg>
+<span>Вернуться наверх</span>
+</a>
+<div class="content-icon-container">
+<div class="theme-toggle-container theme-toggle-content">
+<button aria-label="Переключить светлую/темную/автоматическую цветную тему" class="theme-toggle">
+<svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+<svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+<svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+<svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+</button>
+</div>
+<label class="toc-overlay-icon toc-content-icon" for="__toc">
+<span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+</label>
+</div>
+<article id="furo-main-content" role="main">
+<section id="reports-and-vulnerability-management">
+<span id="reports-section"></span><span id="reports"></span><span id="index-0"></span><h1><span class="section-number">10 </span>Отчеты и решения уязвимостей<a class="headerlink" href="reports.html#reports-and-vulnerability-management" title="Ссылка на эту рубрику">¶</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>В этой главе описаны все возможные опции меню.</p>
+<p>Однако не все модели устройств используют все эти параметры меню.
+ <a class="reference external" href="https://www.ak-shumkar.net/wp-content/uploads/solution_overview_en.pdf">обзор модели</a> Предоставляет информацию о том, доступна ли конкретная функция в используемой модели устройства.</p>
+</div>
+<p>Результаты суммируются в отчете.
+Отчеты можно отображать на веб-интерфейсе и скачивать в разных форматах.</p>
+<p>Устройство сохраняет все отчеты обо всех кабелях в локальной базе данных.
+Сохраняется не только последний отчет о сканировании, но и все отчеты обо всех когда-либо выполненных операциях.
+Это позволяет получить доступ к информации из прошлого.
+Отчеты содержат обнаруженные уязвимости и информацию о сканировании.</p>
+<p>После запуска программы можно просмотреть отчет о найденных на данный момент нарушениях.
+После завершения лечения состояния изменений на <span class="target" id="gos-webui-0"></span><em>Сделанный</em> и большего результата не будет.</p>
+<section id="configuring-and-managing-report-formats">
+<span id="additional-plugins"></span><span id="report-plugins"></span><span id="index-1"></span><h2><span class="section-number">10.1 </span>Настройка и управление формами отчетов<a class="headerlink" href="reports.html#configuring-and-managing-report-formats" title="Ссылка на эту рубрику">¶</a></h2>
+<p>Форматы представляют собой экономические формы, на основе которых создается отчет на основе результатов.
+Многие формы приводят к уменьшению количества доступных данных, чтобы отобразить их осмысленным образом.</p>
+<p>Форматы отчетов можно использовать для экспорта информационных отчетов в других форматах документов, чтобы их можно было обрабатывать другими внешними приложениями (коннекторами).</p>
+<p>Имя экспортируемого отчета можно настроить для обеспечения пользователя (см. главу <a class="reference internal" href="web-interface.html#mysettings"><span class="std std-ref">7.7</span></a>).</p>
+<p>Собственный формат XML-устройства содержит все данные и может использоваться для импорта экспортных отчетов на другое устройство.
+Для этого создайте задачу импорта (см. главу <a class="reference internal" href="scanning.html#import-task"><span class="std std-ref">9.5</span></a>).</p>
+<section id="default-report-formats">
+<span id="index-2"></span><h3><span class="section-number">10.1.1 </span>Форматы отчетов по умолчанию<a class="headerlink" href="reports.html#default-report-formats" title="Ссылка на эту рубрику">¶</a></h3>
+<p>Все форматы отчетов по факту «Ак Шумкар» представляют собой объекты данных, которые подлежат нарушению через фид.
+Они загружаются и обновляются при каждом обновлении канала.</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Формат отчетов может быть конфиденциальным.
+Они отмечены значком <em>(Устарело)</em> в веб-интерфейсе и многое другое не документировано в следующем списке.</p>
+<p>Устаревшие форматы отчетов больше использовать нельзя.
+Если отчет экспортируется в таком формате, загруженный файл может быть пустым или по каким-либо причинам непригоден для использования.</p>
+</div>
+<p>Если форматы отчетов по умолчанию отключены, возможно позднее обновление канала или установка владельцем импорта канала (см. главу) <a class="reference internal" href="managing-gos.html#feed-import-owner"><span class="std std-ref">6.2.1.10.1</span></a>).</p>
+<p>Форматы отчета по умолчанию нельзя.
+Кроме того, их может удалить только временный владелец-импортер фида или суперадминистратор.
+При следующем обновлении фида они будут загружены снова.</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Чтобы удалить отчет по умолчанию, владелец-импортёр Фида должен удалить его.
+После этого владельцу необходимо изменить импорт фида на <em>(Не установлено)</em> (см. главу <a class="reference internal" href="managing-gos.html#feed-import-owner"><span class="std std-ref">6.2.1.10.1</span></a>).</p>
+</div>
+<p>По умолчанию доступны следующие форматы отчетов:</p>
+<dl>
+<dt>Анонимный XML</dt><dd><p>Это анонимная версия в формате XML.
+IP-адреса для смены случайных IP-адресов.</p>
+</dd>
+<dt>АРФ: Формат независимости в активах v1.0.0</dt><dd><p>Настоящая форма представляет собой отчет, соответствующий стандарту деятельности NIST в Соединенном Королевстве.</p>
+</dd>
+<dt>CPE — CSV-таблица перечисления базовых платформ</dt><dd><p>В этом отчете выбираются все таблицы CPE и создается один файл с разделенными запятыми.</p>
+</dd>
+<dt>CSV-хосты</dt><dd><p>В этом отчете создается файл, разделенный запятыми, автономно обнаруженные системы.</p>
+</dd>
+<dt>Результаты CSV</dt><dd><p>В этом отчете создается файл с результатом преобразования, разделенными запятыми.</p>
+</dd>
+<dt>GCR PDF – Отчет о соответствии «Ак Шумкар»</dt><dd><p>Это полный отчет о соответствии «Ак Шумкар» по аудиту соответствия (см. главу) <a class="reference internal" href="compliance-and-special-scans.html#configuring-audits"><span class="std std-ref">11.2</span></a>) со всеми уязвимостями в графическом формате в формате PDF-файла.
+Язык отчета – английский.</p>
+</dd>
+<dt>GSR HTML – Отчет о безопасности Ак Шумкар</dt><dd><p>Это полный отчет о безопасности Ак-Шумкара со всеми уязвимостями и последствиями.
+Его можно открыть с помощью веб-браузера, в котором должен быть включен JavaScript.
+Он содержит различные алгоритмы сортировки, уникальные из веб-интерфейса.
+Язык отчета – английский.</p>
+</dd>
+<dt>GSR PDF – Отчет по безопасности Ак Шумкара</dt><dd><p>Это полный отчет о безопасности «Ак Шумкар» со всеми уязвимостями в графическом формате в виде PDF-файла.
+График топологии не включается, если в отчете зафиксировано более 100 хостов.
+Язык отчета – английский.</p>
+</dd>
+<dt>GXCR PDF – Отчет руководства «Ак Шумкар» в соответствии с требованиями</dt><dd><p>Это сокращенный отчет о соответствии «Ак Шумкар» для соответствия аудита (см. главу <a class="reference internal" href="compliance-and-special-scans.html#configuring-audits"><span class="std std-ref">11.2</span></a>) со всеми уязвимостями в графическом формате в виде PDF-файла для управления.
+Язык отчета – английский.</p>
+</dd>
+<dt>GXR PDF – Исполнительный отчет «Ак Шумкар»</dt><dd><p>Это сокращенный отчет о безопасности «Ак Шумкар» со всеми уязвимостями в графическом формате в виде PDF-файла для управления.
+График топологии не включается, если в отчете зафиксировано более 100 хостов.
+Язык отчета – английский.</p>
+</dd>
+<dt>Латекс</dt><dd><p>Этот отчет приводится в виде исходного текста в формате LaTeX.
+Язык отчета – английский.</p>
+</dd>
+<dt>НБЕ</dt><dd><p>Это старый формат отчета Ак-Шумкар/Нессус.
+В нем нет поддержки заметок, переопределений и некоторой дополнительной информации.</p>
+</dd>
+<dt>PDF</dt><dd><p>Это полный отчет в формате PDF.
+Как и формат HTML, он нейтрален.
+Язык отчета – английский.</p>
+</dd>
+<dt>Карта ТЛС</dt><dd><p>Это формат отчета для TLS Map (см. главу) <a class="reference internal" href="compliance-and-special-scans.html#tls-scan"><span class="std std-ref">11.6</span></a>).</p>
+</dd>
+<dt>Топология SVG</dt><dd><p>Результаты результатов в видеоизображении SVG.</p>
+</dd>
+<dt>ТЕКСТ</dt><dd><p>Это создает текстовый файл.
+Этот формат особенно используется при отправке по электронной почте.
+Язык отчета – английский.</p>
+</dd>
+<dt>Веринице ИСМ</dt><dd><p>Создает импортный файл для инструмента ISMS. <em>Веринис</em> (см. главу <a class="reference internal" href="connecting-other-systems.html#veri-nice"><span class="std std-ref">17.1</span></a>).</p>
+</dd>
+<dt>Веринице ISM все результаты</dt><dd><p>Создает импортный файл для инструмента ISMS. <em>Веринис</em> (см. главу <a class="reference internal" href="connecting-other-systems.html#veri-nice"><span class="std std-ref">17.1</span></a>).</p>
+</dd>
+<dt>Веринице ITG (устарело)</dt><dd><p>Создает импортный файл для инструмента ISMS. <em>Веринис</em> (см. главу <a class="reference internal" href="connecting-other-systems.html#veri-nice"><span class="std std-ref">17.1</span></a>).</p>
+</dd>
+<dt>HTML-отчет об уязвимостях (<strong>рекомендуется</strong>)</dt><dd><p>Это новый полный отчет о безопасности «Ак Шумкар» с учетом всех уязвимостей и условий.
+Его можно открыть с помощью веб-браузера или средства просмотра HTML.
+Язык отчета – английский.</p>
+</dd>
+<dt>Отчет об уязвимостях PDF (<strong>рекомендуется</strong>)</dt><dd><p>Это новый полный отчет о безопасности «Ак Шумкар» со всеми уязвимостями в графическом формате в виде PDF-файла.
+Язык отчета – английский.</p>
+<p>Отчеты этой формы ограничены сначала 500 результатами для каждого хоста.
+После того, как результаты для каждого хоста будут исключены, на главной странице отчета будет показано предупреждение.</p>
+</dd>
+<dt>XML</dt><dd><p>Отчетность по экспорту ведется в отдельном формате XML.
+В отличие от других форм, этот формат содержит все результаты и не форматирует их вообще.</p>
+</dd>
+</dl>
+</section>
+<section id="managing-report-formats">
+<span id="id1"></span><h3><span class="section-number">10.1.2 </span>Управление формами отчетов<a class="headerlink" href="reports.html#managing-report-formats" title="Ссылка на эту рубрику">¶</a></h3>
+<p><strong>Страница списка</strong></p>
+<p>Все изменения формы результатов можно отобразить, выбрав <span class="target" id="gos-webui-1"></span><em>Конфигурация &gt; Форматы отчетов</em> в меню.</p>
+<p>Для всех форматов отчетов отображается следующая информация:</p>
+<dl>
+<dt>Имя</dt><dd><p>Название формирующего отчета.</p>
+</dd>
+<dt>Расширение</dt><dd><p>Имя файла загруженного отчета состоит из UUID (уникального внутреннего идентификатора отчета) и этого расширения.
+Кроме того, расширение позволяет браузеру запускать совместимое приложение, если указанный тип контента не распознан.</p>
+</dd>
+<dt>Тип контента</dt><dd><p>Тип содержания определяет форму и представляет при представлении.
+Благодаря этому совместимое приложение можно запустить в браузере.</p>
+<p>Кроме того, внутри важен тип контента:
+он используется для предложений подключаемых модулей в своем десятилетии.
+Например, при отправке отчета по почте все плагины типа <code class="docutils literal notranslate"><span class="pre">текст/\*</span></code> обеспечены, поскольку их можно встроить в электронное письмо в удобочитаемой форме.</p>
+</dd>
+<dt>Доверять</dt><dd><p>Некоторые формы выводят только преобразующие данные, тогда как другие выполняют более сложные операции, а также запускают программы.
+Во избежание злоупотреблений каждый плагин формы отчета должен быть подписан цифровой подписью «Ак Шумкар».
+Цифровые воздействия через AK-SHUMKAR ENTERPRISE FEED.
+Если подпись аутентична и издатель гарантирует надежность, это гарантирует, что формат отчета существует именно в том формате, который сертифицирован издателем.
+Проверка достоверности происходит автоматически, и результат можно увидеть в столбце <span class="target" id="gos-webui-2"></span><em>Доверие (последняя проверка)</em>.</p>
+</dd>
+<dt>Активный</dt><dd><p>Форматы отчетов доступны в соответствующих меню, выбираемых только в том случае, если они активированы.
+Новые импортированные форматы всегда сначала деактивируются. Формат отчета можно активировать только в том случае, если ему доверяют.</p>
+</dd>
+</dl>
+<p>Для всех форматов отчетов доступны следующие действия:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="_images/trashcan.png"><img alt="" src="_images/trashcan.png" style="height: 1.2em;"/></a> Переместите формат отчета в корзину. Пока отчет не удален из корзины, он не будет загружен заново при следующем обновлении фида.</p></li>
+<li><p><a class="reference internal" href="_images/edit.png"><img alt="" src="_images/edit.png" style="height: 1.2em;"/></a> Отредактируйте формат отчета. Редактировать можно только самостоятельно созданные форматы статей.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Нажав <a class="reference internal" href="_images/trashcan.png"><img alt="" src="_images/trashcan.png" style="height: 1.2em;"/></a> под списком форматов отчетов можно одновременно переместить в корзину несколько форматов отчетов. Раскрывающийся список используется для выбора форматов отчетов, которые следует поместить в корзину.</p>
+</div>
+<p><strong>Страница раскрыта</strong></p>
+<p>Нажмите на название формы отчета, чтобы отобразить подробную информацию о форме отчета.
+Нажмите <a class="reference internal" href="_images/details.png"><img alt="" src="_images/details.png" style="height: 1.2em;"/></a> Чтобы открыть страницу, опишите формат отчета.</p>
+<p>В левом верхнем углу пульта доступны следующие действия:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="_images/help.png"><img alt="" src="_images/help.png" style="height: 1.2em;"/></a> Ознакомьтесь с соответствующим главой руководства пользователя.</p></li>
+<li><p><a class="reference internal" href="_images/list.png"><img alt="" src="_images/list.png" style="height: 1.2em;"/></a> Показать страницу со списком всех форматов отчетов.</p></li>
+<li><p><a class="reference internal" href="_images/new.png"><img alt="" src="_images/new.png" style="height: 1.2em;"/></a> добавить новый формат отчета (см. главу <a class="reference internal" href="reports.html#add-report-formats"><span class="std std-ref">10.1.3</span></a>).</p></li>
+<li><p><a class="reference internal" href="_images/edit.png"><img alt="" src="_images/edit.png" style="height: 1.2em;"/></a> Отредактируйте формат отчета. Редактировать можно только самостоятельно созданные форматы статей.</p></li>
+<li><p><a class="reference internal" href="_images/delete.png"><img alt="" src="_images/delete.png" style="height: 1.2em;"/></a> Переместите формат отчета в корзину. Пока отчет не удален из корзины, он не будет загружен заново при следующем обновлении фида.</p></li>
+</ul>
+<figure class="align-center" id="id3">
+<span id="fig-report-formats"></span><a class="reference internal image-reference" href="_images/report_formats.png"><img alt="_images/report_formats.png" src="_images/report_formats.png" style="width: 90%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 10.1 </span><span class="caption-text">Страница <em>Форматы отчета</em> использование всех доступных форматов отчетов</span><a class="headerlink" href="reports.html#id3" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="adding-a-report-format">
+<span id="add-report-formats"></span><span id="index-3"></span><h3><span class="section-number">10.1.3 </span>Добавление формы отчета<a class="headerlink" href="reports.html#adding-a-report-format" title="Ссылка на эту рубрику">¶</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Во избежание злоупотреблений все дополнительные импортированные формы отчетов должны быть проверены и подписаны цифровой подписью «Ак Шумкар». Форматы отчетов, не подписанные Ак Шумкаром, не упоминаются в ГОС и не могут быть использованы.</p>
+<p>Для получения дополнительной информации см. главу <a class="reference internal" href="reports.html#managing-report-formats"><span class="std std-ref">10.1.2</span></a> – <em>Доверять</em>.</p>
+</div>
+<p>Новый формат отчета можно импортировать следующим образом:</p>
+<ol class="arabic">
+<li><p>Предоставьте или предоставьте плагин формы отчета, который был проверен и принят «Ак Шумкар».</p></li>
+<li><p>Выбирать <span class="target" id="gos-webui-3"></span><em>Конфигурация &gt; Форматы отчетов</em> в меню.</p></li>
+<li><p>Нажмите <a class="reference internal" href="_images/import.png"><img alt="" src="_images/import.png" style="height: 1.2em;"/></a>.</p></li>
+<li><p>Нажмите <span class="target" id="gos-webui-4"></span><em>Просмотреть…</em> и выберите «Подключить форму отчета» (см. <a class="reference internal" href="reports.html#fig-report-format-new"><span class="std std-numref">Рис. 10.2</span></a>).</p>
+<figure class="align-center" id="id4">
+<span id="fig-report-format-new"></span><a class="reference internal image-reference" href="_images/report_format_new.png"><img alt="_images/report_format_new.png" src="_images/report_format_new.png" style="width: 60%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 10.2 </span><span class="caption-text">Импортировать плагин формы отчета</span><a class="headerlink" href="reports.html#id4" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Нажмите <span class="target" id="gos-webui-5"></span><em>Сохранять</em>.</p>
+<p>→ Формат импортированного отчета отображается на странице <span class="target" id="gos-webui-6"></span><em>Форматы отчета</em>.</p>
+</li>
+<li><p>В строке формирования отчета нажмите кнопку <a class="reference internal" href="_images/edit.png"><img alt="" src="_images/edit.png" style="height: 1.2em;"/></a>.</p></li>
+<li><p>Для <span class="target" id="gos-webui-7"></span><em>Активный</em> выберите переключатель <span class="target" id="gos-webui-8"></span><em>Да</em> (видеть <a class="reference internal" href="reports.html#fig-report-format-activate"><span class="std std-numref">Рис. 10.3</span></a>).</p></li>
+<li><p>Нажмите <span class="target" id="gos-webui-9"></span><em>Сохранять</em>.</p>
+<figure class="align-center" id="id5">
+<span id="fig-report-format-activate"></span><a class="reference internal image-reference" href="_images/report_format_activate.png"><img alt="_images/report_format_activate.png" src="_images/report_format_activate.png" style="width: 60%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 10.3 </span><span class="caption-text">Активация нового формирования отчета</span><a class="headerlink" href="reports.html#id5" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+</li>
+</ol>
+</section>
+<section id="customizing-report-formats-with-report-configurations">
+<span id="create-report-config"></span><span id="index-4"></span><h3><span class="section-number">10.1.4 </span>Настройка форматов отчетов с помощью конфигураций отчетов<a class="headerlink" href="reports.html#customizing-report-formats-with-report-configurations" title="Ссылка на эту рубрику">¶</a></h3>
+<p>Некоторые форматы отчетов можно изменить в соответствии с индивидуальными требованиями:</p>
+<ul class="simple">
+<li><p>Настраиваемые результаты CSV</p></li>
+<li><p>Топология SVG</p></li>
+<li><p>Веринице ИСМ</p></li>
+<li><p>Веринице ISM все результаты</p></li>
+</ul>
+<p>Формат отчета можно настроить следующим образом:</p>
+<ol class="arabic">
+<li><p>Выбирать <em>Конфигурация &gt; Отчет о конфигурации</em> в меню.</p></li>
+<li><p>создать отчет о конфигурации, нажать новую кнопку <a class="reference internal" href="_images/new.png"><img alt="" src="_images/new.png" style="height: 1.2em;"/></a>.</p></li>
+<li><p>Определите отчет о конфигурации (см. <a class="reference internal" href="reports.html#fig-report-config-new"><span class="std std-numref">Рис. 10.4</span></a>).</p>
+<figure class="align-center" id="id6">
+<span id="fig-report-config-new"></span><a class="reference internal image-reference" href="_images/report_config_new.png"><img alt="_images/report_config_new.png" src="_images/report_config_new.png" style="width: 60%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 10.4 </span><span class="caption-text">Составление нового отчета о конфигурации</span><a class="headerlink" href="reports.html#id6" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Нажмите <em>Сохранять</em>.</p></li>
+</ol>
+<p>Можно быть уверенным в составлении отчета:</p>
+<dl>
+<dt>Имя</dt><dd><p>Определение имени. Имя можно выбрать произвольно.</p>
+</dd>
+<dt>Комментарий</dt><dd><p>Необязательный комментарий может оставить дополнительную информацию.</p>
+</dd>
+<dt>Формат отчета</dt><dd><p>Выбор формирования отчета для настройки.</p>
+<p>Настраиваемые параметры зависят от формы отчета.</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Каждую заводскую настройку можно восстановить до значений, активированных соответствующим образом. <em>По умолчанию</em> флажок.
+Сброс к настройкам по умолчанию только при сохранении отчета конфигурации, а не при активации флажка.</p>
+</div>
+<ul>
+<li><p><strong>Настраиваемые результаты CSV</strong></p>
+<ul>
+<li><dl>
+<dt>Формула цитирования</dt><dd><p>Выбор, следует интерпретировать таблицы критериев как формулы в Microsoft Excel.</p>
+<ul class="simple">
+<li><p><em>Да</em>: Культура не интерпретируется как формула при добавлении. <code class="docutils literal notranslate"><span class="pre">'</span></code> в начале каждой записи, которая начинается с <code class="docutils literal notranslate"><span class="pre">=</span></code>, <code class="docutils literal notranslate"><span class="pre">@</span></code>, <code class="docutils literal notranslate"><span class="pre">+</span></code> или <code class="docutils literal notranslate"><span class="pre">-</span></code>.</p></li>
+<li><p><em>Нет</em>: Настойчивость интерпретируется как формула.</p></li>
+</ul>
+<p>Значение по умолчанию: <em>Да</em>.</p>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt>Столбцы результатов</dt><dd><p>Выбор столбцов, которые следует включить в CSV-файл.
+По умолчанию столбцы <em>ИП</em>, <em>Имя хоста</em>, <em>Порт</em>, <em>Протокол порта</em>, <em>Имя ВТ</em>, <em>Серьезность</em> и <em>Уровень серьезности</em> включен.</p>
+<p>Должен быть выбран хотя бы один столбец.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</li>
+<li><p><strong>Топология SVG</strong></p>
+<ul>
+<li><dl class="simple">
+<dt>Тип графики</dt><dd><p>Выбор макета графики.
+Макет по умолчанию <em>двапи</em>.</p>
+<ul class="simple">
+<li><p><em>цирк</em>: круговая компоновка, в которой узлы двусвязных компонентов нарисованы на окружности.</p></li>
+<li><p><em>точка</em>: иерархическая компоновка с ориентированными графами.</p></li>
+<li><p><em>двапи</em>: радиальная компоновка, при которой узлы действуют на концентрических кругах в зависимости от их расстояния от заданного корневого узла.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt>Расстояние до узла</dt><dd><p>Определение расстояния между узлами топологии графа.</p>
+<p>Расстояние до узла должно быть целым числом между <code class="docutils literal notranslate"><span class="pre">1</span></code> и <code class="docutils literal notranslate"><span class="pre">20</span></code>.
+Значение по умолчанию: <code class="docutils literal notranslate"><span class="pre">8</span></code>.
+Если введено число вне допустимого параметра, значение задается следующим образом:</p>
+<ul class="simple">
+<li><p>При входе <code class="docutils literal notranslate"><span class="pre">0</span></code> и сохранение, необходимое условие <code class="docutils literal notranslate"><span class="pre">8</span></code>.</p></li>
+<li><p>При вводе отрицательных чисел и сохранении значения предусмотренных условий <code class="docutils literal notranslate"><span class="pre">1</span></code>.</p></li>
+<li><p>При вводе числа большего, чем <code class="docutils literal notranslate"><span class="pre">20</span></code> и сохранение, необходимое условие <code class="docutils literal notranslate"><span class="pre">20</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</li>
+<li><p><strong>Веринице ИСМ</strong>/<strong>Веринице ISM все результаты</strong></p>
+<ul>
+<li><dl>
+<dt>Прикрепленные формы отчетов</dt><dd><p>Выбор формы отчета о сканировании, который импортируется в Веринице.
+Можно выбрать несколько форматов отчетов.</p>
+<p>По умолчанию формат отчета не выбран.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Описание управления ISM</dt><dd><p>Определение текста, прикрепленного к отчету, импортируемому в Verinice.
+Поле поддерживает большинство символов UTF-8, поэтому его также можно оставить пустым.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="managing-report-configurations">
+<span id="managing-report-configs"></span><span id="index-5"></span><h3><span class="section-number">10.1.5 </span>Управление составами отчетов<a class="headerlink" href="reports.html#managing-report-configurations" title="Ссылка на эту рубрику">¶</a></h3>
+<p><strong>Страница списка</strong></p>
+<p>Все составляющие заключения можно отобразить, выбрав <em>Конфигурация &gt; Отчет о конфигурации</em>  в меню.</p>
+<p>Для всех конфигураций в отчете отображается следующая информация:</p>
+<dl class="simple">
+<dt>Имя</dt><dd><p>Название отчета.</p>
+</dd>
+<dt>Формат отчета</dt><dd><p>Формат отчета, к которому применяются изменения.</p>
+</dd>
+</dl>
+<p>Для всех конфигураций доступны следующие действия:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="_images/trashcan.png"><img alt="" src="_images/trashcan.png" style="height: 1.2em;"/></a> Переместите отчет о конфигурации в корзину.</p></li>
+<li><p><a class="reference internal" href="_images/edit.png"><img alt="" src="_images/edit.png" style="height: 1.2em;"/></a> Отредактируйте отчет о конфигурации.</p></li>
+<li><p><a class="reference internal" href="_images/clone.png"><img alt="" src="_images/clone.png" style="height: 1.2em;"/></a> Клонируйте отчет о конфигурации.</p></li>
+<li><p><a class="reference internal" href="_images/export.png"><img alt="" src="_images/export.png" style="height: 1.2em;"/></a> Экспортируйте отчет о конфигурации в виде XML-файла.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Нажав <a class="reference internal" href="_images/trashcan.png"><img alt="" src="_images/trashcan.png" style="height: 1.2em;"/></a> Под списком конфигураций отчетов можно переместить в корзину более одного отчета конфигурации. Раскрывающийся список используется для выбора конфигураций отчетов, которые следует перенести в корзину.</p>
+</div>
+<p><strong>Страница раскрыта</strong></p>
+<p>используйте имя отчета, чтобы отобразить подробную информацию о конфигурации отчета. Нажмите <a class="reference internal" href="_images/details.png"><img alt="" src="_images/details.png" style="height: 1.2em;"/></a> чтобы открыть страницу содержания отчета.</p>
+<p>Доступны следующие вкладки:</p>
+<dl>
+<dt>Информация</dt><dd><p>Общая информация о составлении отчета.</p>
+</dd>
+<dt>Детальный параметр</dt><dd><p>Просмотр настроек, выбранных для индивидуального формирования отчета.</p>
+<p>В обзоре также показаны значения по умолчанию для каждого параметра, и указано, используется ли значение по умолчанию.</p>
+</dd>
+<dt>Пользовательские теги</dt><dd><p>Присвоенные теги (см. главу <a class="reference internal" href="web-interface.html#tags"><span class="std std-ref">7.4</span></a>).</p>
+</dd>
+<dt>Разрешения</dt><dd><p>Назначенные разрешения (см. главу <a class="reference internal" href="web-interface-access.html#permissions"><span class="std std-ref">8.4</span></a>).</p>
+</dd>
+</dl>
+<p>В левом верхнем углу пульта доступны следующие действия:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="_images/help.png"><img alt="" src="_images/help.png" style="height: 1.2em;"/></a> Ознакомьтесь с соответствующим главой руководства пользователя.</p></li>
+<li><p><a class="reference internal" href="_images/list.png"><img alt="" src="_images/list.png" style="height: 1.2em;"/></a> Показать страницу списка всех конфигураций отчета.</p></li>
+<li><p><a class="reference internal" href="_images/new.png"><img alt="" src="_images/new.png" style="height: 1.2em;"/></a> Составьте отчет о конфигурации (см. главу <a class="reference internal" href="reports.html#create-report-config"><span class="std std-ref">10.1.4</span></a>).</p></li>
+<li><p><a class="reference internal" href="_images/clone.png"><img alt="" src="_images/clone.png" style="height: 1.2em;"/></a> Клонируйте отчет о конфигурации.</p></li>
+<li><p><a class="reference internal" href="_images/edit.png"><img alt="" src="_images/edit.png" style="height: 1.2em;"/></a> Отредактируйте отчет о конфигурации.</p></li>
+<li><p><a class="reference internal" href="_images/trashcan.png"><img alt="" src="_images/trashcan.png" style="height: 1.2em;"/></a> Переместите отчет о конфигурации в корзину.</p></li>
+</ul>
+</section>
+</section>
+<section id="using-and-managing-reports">
+<span id="using-managing-reports"></span><h2><span class="section-number">10.2 </span>Использование и управление отчетами<a class="headerlink" href="reports.html#using-and-managing-reports" title="Ссылка на эту рубрику">¶</a></h2>
+<p>Все возможные отчеты по всем звукам можно отобразить, выбрав <span class="target" id="gos-webui-10"></span><em>Сканы &gt; Отчеты</em> в меню.</p>
+<p>На странице отображается общее количество отчетов по конкретным задачам. <span class="target" id="gos-webui-11"></span><em>Задачи</em> в столбце <span class="target" id="gos-webui-12"></span><em>Отчеты</em>.</p>
+<p>Отчеты по данной задаче могут быть следующими:</p>
+<ol class="arabic">
+<li><p>Выбирать <span class="target" id="gos-webui-13"></span><em>Сканирование &gt; Задачи</em> в меню.</p></li>
+<li><p>Для нужной задачи нажмите на общее количество отчетов в графе. <span class="target" id="gos-webui-14"></span><em>Отчеты</em> для отображения всех отчетов.</p>
+<p>→ Страница <span class="target" id="gos-webui-15"></span><em>Отчеты</em> открыт. Применяется фильтр, позволяющий отображать только отчеты для выбранной задачи.</p>
+</li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Кончик</p>
+<p>Последний отчет по данной задаче можно открыть, нажав на надпись в столбце. <em>Последний отчет</em> на <em>Задачи</em> страница.</p>
+</div>
+<figure class="align-center" id="id7">
+<span id="fig-reports-total-amount"></span><a class="reference internal image-reference" href="_images/reports_total_amount.png"><img alt="_images/reports_total_amount.png" src="_images/reports_total_amount.png" style="width: 30%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 10,5 </span><span class="caption-text">Общее количество сохраненных отчетов и дата последнего отчета.</span><a class="headerlink" href="reports.html#id7" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+<p>Для всех отчетов отображается следующая информация:</p>
+<dl>
+<dt>Дата</dt><dd><p>Дата и время создания отчета.</p>
+</dd>
+<dt>Статус</dt><dd><p>Статус соответствующей задачи.</p>
+</dd>
+<dt>Задача</dt><dd><p>Соответствующая задача.</p>
+</dd>
+<dt>Серьезность</dt><dd><p>Качественная мера серьезности уязвимостей согласно Общей системе обнаружения уязвимостей (CVSS) (см. главу) <a class="reference internal" href="managing-secinfo.html#cvss"><span class="std std-ref">13.2.3</span></a>).
+Эта оценка серьезности, которая включает в себя число от 0,0 до 10,0, где 10,0 соответствует самой серьезной степени, а также серьезному классу, основанному на этом измерении:</p>
+<ul class="simple">
+<li><p>Критический: 9,0–10,0</p></li>
+<li><p>Высокий: 7,0–8,9</p></li>
+<li><p>Средний: 4,0–6,9</p></li>
+<li><p>Низкий: 0,1–3,9</p></li>
+<li><p>Журнал: 0.0</p></li>
+</ul>
+<p>Отображается серьезная серьезность.</p>
+</dd>
+<dt>Критический/Высокий/Средний/Низкий/Лог/Ложное Поз.</dt><dd><p>Количество обнаруженных уязвимостей для каждого класса серьезности.</p>
+</dd>
+</dl>
+<p>Для всех отчетов доступны следующие действия:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="_images/delta.png"><img alt="" src="_images/delta.png" style="height: 1.2em;"/></a> Создайте дельта-отчет (см. главу <a class="reference internal" href="reports.html#delta-report"><span class="std std-ref">10.2.5</span></a>).</p></li>
+<li><p><a class="reference internal" href="_images/delete.png"><img alt="" src="_images/delete.png" style="height: 1.2em;"/></a> Удалить отчет.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Нажав <a class="reference internal" href="_images/delete.png"><img alt="" src="_images/delete.png" style="height: 1.2em;"/></a> Под списком отчетов можно удалить более одного отчета одновременно. Раскрывающийся список используется для выбора статей, которые необходимо удалить.</p>
+</div>
+<section id="reading-a-report">
+<span id="report-reading"></span><span id="index-6"></span><h3><span class="section-number">10.2.1 </span>Чтение отчета<a class="headerlink" href="reports.html#reading-a-report" title="Ссылка на эту рубрику">¶</a></h3>
+<p>Нажмите на этот отчет, чтобы отобразить подробную информацию об отчете.</p>
+<p>Доступны следующие вкладки:</p>
+<dl class="simple">
+<dt>Информация</dt><dd><p>Общая информация о соответствующем скане.</p>
+</dd>
+<dt>Результаты</dt><dd><p>Список всех результатов в этом отчете (см. главу <a class="reference internal" href="reports.html#report-results"><span class="std std-ref">10.2.1.1</span></a>).</p>
+</dd>
+<dt>Хозяева</dt><dd><p>Сканированные хосты с именами хостов и IP-адресами.
+Обнаруживаются операционные системы, количество обнаруженных уязвимостей для каждой серьезной и минимальной серьезности, обнаруженная при сканировании.</p>
+</dd>
+<dt>Порты</dt><dd><p>Сканированные порты с указанием имени порта, количества хостов и минимального уровня серьезности, обнаруженных при сканировании.</p>
+</dd>
+<dt>Приложения</dt><dd><p>Просканированные приложения с приложениями CPE, количество хостов, количество результатов, которые были обнаружены в CPE, и значительная серьезность, обнаруженная при сканировании.</p>
+</dd>
+<dt>Операционные системы</dt><dd><p>Сканированные операционные системы с указанием имени системы, имени хоста, количества сканируемых хостов и нижнего уровня серьезности, обнаруженного при сканировании.</p>
+</dd>
+<dt>CVE</dt><dd><p>CVE обнаружены при сканировании.</p>
+</dd>
+<dt>Закрытый CVE</dt><dd><p>CVE обнаружила первоначальные уязвимости, устранение которых уже было согласовано в ходе завершения.</p>
+</dd>
+<dt>TLS-сертификаты</dt><dd><p>Сертификаты TLS, обнаруженные при сканировании.</p>
+</dd>
+<dt>Сообщения об ошибках</dt><dd><p>Сообщения об ошибках, произошедших в случайное время.</p>
+</dd>
+<dt>Пользовательские теги</dt><dd><p>Присвоенные теги (см. главу <a class="reference internal" href="web-interface.html#tags"><span class="std std-ref">7.4</span></a>).</p>
+</dd>
+</dl>
+<p>Содержимое отчета можно отсортировать по выбранному столбцу, щелкнув заголовок столбца. Содержимое можно отсортировать по возрастанию или убыванию:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="_images/sorting_ascending.png"><img alt="" src="_images/sorting_ascending.png" style="height: 1.2em;"/></a> в заголовке столбца видно, что объекты отсортированы по возрасту.</p></li>
+<li><p><a class="reference internal" href="_images/sorting_descending.png"><img alt="" src="_images/sorting_descending.png" style="height: 1.2em;"/></a> в заголовке столбца видно, что объекты отсортированы по убыванию.</p></li>
+</ul>
+<p>В левом верхнем углу пульта доступны следующие действия:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="_images/help.png"><img alt="" src="_images/help.png" style="height: 1.2em;"/></a> Ознакомьтесь с соответствующим главой руководства пользователя.</p></li>
+<li><p><a class="reference internal" href="_images/list.png"><img alt="" src="_images/list.png" style="height: 1.2em;"/></a> Показать список страниц всех отчетов.</p></li>
+<li><p><a class="reference internal" href="_images/add_to_assets.png"><img alt="" src="_images/add_to_assets.png" style="height: 1.2em;"/></a> Добавьте к активам критический отчет, имеющий QoD не менее 70 % и включенные переопределения.</p></li>
+<li><p><a class="reference internal" href="_images/remove_from_assets.png"><img alt="" src="_images/remove_from_assets.png" style="height: 1.2em;"/></a> Удалите обязательный отчет о ресурсах.</p></li>
+<li><p><a class="reference internal" href="_images/task.png"><img alt="" src="_images/task.png" style="height: 1.2em;"/></a> Укажите соответствующую роль.</p></li>
+<li><p><a class="reference internal" href="_images/results.png"><img alt="" src="_images/results.png" style="height: 1.2em;"/></a> Открытая страница <span class="target" id="gos-webui-16"></span><em>Результаты</em>. Фильтр применяется только для отображения результатов данного отчета.</p></li>
+<li><p><a class="reference internal" href="_images/vulnerability.png"><img alt="" src="_images/vulnerability.png" style="height: 1.2em;"/></a> Открытая страница <span class="target" id="gos-webui-17"></span><em>Уязвимости</em>. Применен фильтр, чтобы показать только уязвимости для этого отчета.</p></li>
+<li><p><a class="reference internal" href="_images/tls_certificate.png"><img alt="" src="_images/tls_certificate.png" style="height: 1.2em;"/></a> Открытая страница <span class="target" id="gos-webui-18"></span><em>TLS-сертификаты</em>. Фильтр применяется для отображения только сертификатов TLS для данного отчета.</p></li>
+<li><p><a class="reference internal" href="_images/performance.png"><img alt="" src="_images/performance.png" style="height: 1.2em;"/></a> Открытая страница <em>Производительность</em>. Отображается производительность системы на протяжении всего проекта.</p></li>
+<li><p><a class="reference internal" href="_images/download.png"><img alt="" src="_images/download.png" style="height: 1.2em;"/></a> Загрузите отфильтрованный отчет (см. главу <a class="reference internal" href="reports.html#exporting-report"><span class="std std-ref">10.2.2</span></a>).</p></li>
+<li><p><a class="reference internal" href="_images/start.png"><img alt="" src="_images/start.png" style="height: 1.2em;"/></a> Запустить оповещение для отправки отчета (см. главу) <a class="reference internal" href="reports.html#triggering-alert-report"><span class="std std-ref">10.2.4</span></a>).</p></li>
+</ul>
+<section id="results-of-a-report">
+<span id="report-results"></span><span id="index-7"></span><h4><span class="section-number">10.2.1.1 </span>Отчет о результатах<a class="headerlink" href="reports.html#results-of-a-report" title="Ссылка на эту рубрику">¶</a></h4>
+<p>Вкладка <span class="target" id="gos-webui-19"></span><em>Результаты</em> содержит список всех уязвимостей, обнаруженных устройством (см. <a class="reference internal" href="reports.html#fig-report-results"><span class="std std-numref">Рис. 10,6</span></a>).</p>
+<figure class="align-center" id="id8">
+<span id="fig-report-results"></span><a class="reference internal image-reference" href="_images/report_results.png"><img alt="_images/report_results.png" src="_images/report_results.png" style="width: 95%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 10,6 </span><span class="caption-text">Вкладка <em>Результаты</em> показ дисплея обнаруженных уязвимостей</span><a class="headerlink" href="reports.html#id8" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>По умолчанию переопределения не применяются. Их можно применить, отфильтровав отчет (см. главу <a class="reference internal" href="reports.html#filtering-report"><span class="std std-ref">10.2.1.3</span></a>).</p>
+</div>
+<p>Для этого результата отображается следующая информация:</p>
+<dl>
+<dt>Уязвимость</dt><dd><p>Название найденной уязвимости. При упоминании названия уязвимости приведите подробные сведения об уязвимостях (см. <a class="reference internal" href="reports.html#fig-report-result-details"><span class="std std-numref">Рис. 10,7</span></a>).
+На странице обнаружена уязвимость при открытии рабочей кнопки. <a class="reference internal" href="_images/details.png"><img alt="" src="_images/details.png" style="height: 1.2em;"/></a>.</p>
+<ul class="simple">
+<li><p>Уязвимости, к которым прилагается примечание, отмечены значком <a class="reference internal" href="_images/note.png"><img alt="" src="_images/note.png" style="height: 1.2em;"/></a>.</p></li>
+<li><p>Уязвимости с прикрепленной заявкой отмечены значком <a class="reference internal" href="_images/ticket.png"><img alt="" src="_images/ticket.png" style="height: 1.2em;"/></a>.</p></li>
+<li><p>Уязвимости с переопределением отмечены значком <a class="reference internal" href="_images/override.png"><img alt="" src="_images/override.png" style="height: 1.2em;"/></a>.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Если столбец уязвимости по-прежнему отображается пустым, соответствующий VT не обновлен.</p>
+</div>
+<figure class="align-center" id="id9">
+<span id="fig-report-result-details"></span><a class="reference internal image-reference" href="_images/report_result_details.png"><img alt="_images/report_result_details.png" src="_images/report_result_details.png" style="width: 60%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 10,7 </span><span class="caption-text">Подробная информация об уязвимостях</span><a class="headerlink" href="reports.html#id9" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+</dd>
+<dt>Тип решения <a class="reference internal" href="_images/solution_type.png"><img alt="" src="_images/solution_type.png" style="height: 1.2em;"/></a></dt><dd><p>Тип мер по устранению уязвимостей.
+существуют следующие типы решений:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="_images/st_vendorfix.png"><img alt="" src="_images/st_vendorfix.png" style="height: 1.2em;"/></a> Исправление поставщика: доступна информация об официальных исправлениях, выпущенном исходным поставщиком такого продукта.
+Если не указано иное, укажите, что это исправление полностью учитывает уязвимость.</p></li>
+<li><p><a class="reference internal" href="_images/st_workaround.png"><img alt="" src="_images/st_workaround.png" style="height: 1.2em;"/></a> Обходной путь: доступная информация о конфигурации или конкретных файлах развертывания, которые можно использовать, чтобы избежать уязвимостей.
+Обычно это «первая линия защиты» от новых уязвимостей до того, как они были выпущены или даже обнаружены меры по ее устранению или исправлению поставщика.</p></li>
+<li><p><a class="reference internal" href="_images/st_mitigation.png"><img alt="" src="_images/st_mitigation.png" style="height: 1.2em;"/></a> Смягчение: доступна информация о конфигурации или заданных файлах развертывания, которая помогает снизить риск уязвимости, но не использует уязвимость в данном продукте.</p></li>
+<li><p><a class="reference internal" href="_images/st_willnotfix.png"><img alt="" src="_images/st_willnotfix.png" style="height: 1.2em;"/></a> Не исправляет: исправлений уязвимостей нет и никогда не будет.
+Это часто происходит, когда продукт теряет свою актуальность, больше не соответствует или устаревает иным образом.
+Информация должна содержать подробную информацию о том, почему исправления не будут опубликованы.</p></li>
+<li><p><a class="reference internal" href="_images/st_nonavailable.png"><img alt="" src="_images/st_nonavailable.png" style="height: 1.2em;"/></a> Нет: в настоящее время исправлений нет.
+Информация должна содержать подробную информацию о том, почему нет исправлений.</p></li>
+</ul>
+</dd>
+<dt>Серьезность</dt><dd><p>Качественная мера серьезности уязвимостей согласно Общей системе обнаружения уязвимостей (CVSS) (см. главу) <a class="reference internal" href="managing-secinfo.html#cvss"><span class="std std-ref">13.2.3</span></a>).
+Эта оценка серьезности, которая включает в себя число от 0,0 до 10,0, где 10,0 соответствует самой серьезной степени, а также серьезному классу, основанному на этом измерении:</p>
+<ul class="simple">
+<li><p>Критический: 9,0–10,0</p></li>
+<li><p>Высокий: 7,0–8,9</p></li>
+<li><p>Средний: 4,0–6,9</p></li>
+<li><p>Низкий: 0,1–3,9</p></li>
+<li><p>Журнал: 0.0</p></li>
+</ul>
+</dd>
+<dt>QoD</dt><dd><p>Сокращение от «Качество обнаружения».
+QoD характеризует надежность выполненного обнаружения уязвимостей.
+Это значение от 0% до 100%, вариант 100% является наиболее надежным.</p>
+<p>По умолчанию предоставлены только результаты, Обнаруженные VT с QoD 70 % или выше.
+Фильтр можно настроить для отображения результатов с более низким качеством QoD (см. главу <a class="reference internal" href="web-interface.html#adjusting-filter"><span class="std std-ref">7.3.1</span></a>).</p>
+<p>Для получения дополнительной информации см. главу <a class="reference internal" href="reports.html#quality-of-detection-concept"><span class="std std-ref">10.2.6</span></a>.</p>
+</dd>
+<dt>Хозяин</dt><dd><p>Хост, для которого был найден результат. IP-адрес и имя хоста указываются отдельно.</p>
+</dd>
+<dt>Расположение</dt><dd><p>Номер порта и тип протокола используются для обнаружения уязвимостей на хосте.</p>
+</dd>
+<dt>ЭПСС</dt><dd><p>Мера вероятности использования уязвимостей в соответствии с системой оценки эксплойтов (EPSS) (см. главу <a class="reference internal" href="managing-secinfo.html#epss"><span class="std std-ref">13.2.4</span></a>).</p>
+<p>Оценочные показатели уязвимости области использования, наблюдаемые в течение следующих 30 дней, представляют собой число от 0 до 1.
+Чем выше значение, тем больше опасений того, что уязвимость действительно будет использована.</p>
+<p>Процент показывает долю уязвимостей, которые были оценены так же или ниже, чем уязвимость.
+Это помогает перенести счет в контекст.</p>
+</dd>
+<dt>Созданный</dt><dd><p>Дата и время создания отчета.</p>
+</dd>
+</dl>
+</section>
+<section id="interpreting-a-report">
+<span id="index-8"></span><h4><span class="section-number">10.2.1.2 </span>Интерпретация отчета<a class="headerlink" href="reports.html#interpreting-a-report" title="Ссылка на эту рубрику">¶</a></h4>
+<p>Для достижения наилучших результатов обратите внимание на следующую информацию:</p>
+<ul>
+<li><dl>
+<dt>Ложные разработки <a class="reference internal" href="_images/severity_falsepos.png"><img alt="" src="_images/severity_falsepos.png" style="height: 0.9em;"/></a></dt><dd><p>Ложноположительный результат — это результат, описывающий проблему, которой на самом деле не существует.
+Сканеры уязвимостей часто находят доказательства, указывающие на уязвимость, но в конечном итоге вынести решение невозможно.
+Есть два случая:</p>
+<ul class="simple">
+<li><p>Ложное внедрение: сообщение о серьезности уязвимости.</p></li>
+<li><p>Ложноотрицательный результат: не сообщается о серьезных уязвимостях.</p></li>
+</ul>
+<p>Поскольку пользователь может выявлять ложные разработки, управлять ими и использовать их по сравнению с ложноотрицательными, уязвимости сканера устройства сообщают обо всех существующих уязвимостях.
+Если пользователь знает, что существует ложное обучение, можно настроить переопределение (см. главу). <a class="reference internal" href="reports.html#overrides"><span class="std std-ref">10.8</span></a>).</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Некоторые результаты могут иметь одну и ту же причину.</dt><dd><p>Если установлен особенно старый пакет программного обеспечения, часто существует множество уязвимостей.
+Каждая из этих уязвимостей тестируется отдельным ВТ и появляется предупреждение.
+Установка актуального пакета устранит сразу множество уязвимостей.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Критический <a class="reference internal" href="_images/severity_critical.png"><img alt="" src="_images/severity_critical.png" style="height: 0.9em;"/></a>, Высокий <a class="reference internal" href="_images/severity_high.png"><img alt="" src="_images/severity_high.png" style="height: 0.9em;"/></a> и средний <a class="reference internal" href="_images/severity_medium.png"><img alt="" src="_images/severity_medium.png" style="height: 0.9em;"/></a></dt><dd><p>Выводы по классам тяжести <em>Критический</em>, <em>Высокий</em> и <em>Середина</em> являются наиболее необходимыми и должны решаться в приоритетном порядке.
+Прежде чем обратиться <em>Середина</em> выводы, <em>Критический</em> и <em>Высокий</em> выводы должны быть пересмотренными.
+От этого соединения следует отклоняться только в особых случаях, например, если известно, что выводы высокого уровня не следует учитывать, поскольку к сервису невозможно получить доступ через межсетевой экран.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Низкий <a class="reference internal" href="_images/severity_low.png"><img alt="" src="_images/severity_low.png" style="height: 0.9em;"/></a> и журнал <a class="reference internal" href="_images/severity_log.png"><img alt="" src="_images/severity_log.png" style="height: 0.9em;"/></a></dt><dd><p>Выводы по классам тяжести <em>Низкий</em> и <em>Бревно</em> в основном интересны для детального понимания.
+Эти результаты по умолчанию отфильтровываются, но могут сохранить очень интересную информацию.
+Их обработка повышает безопасность сетей и систем.
+Часто для их понимания требуется более глубокое знание приложений.
+Типично для результата с классом серьезности <em>Бревно</em> заключается в том, что сервис использует баннер со своим названием и номером версии.
+Это может быть полезно злоумышленнику, если в этой версии есть известная уязвимость.</p>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt>Аутентификация прошла успешно</dt><dd><p>При выполнении аутентифицированного неожиданно (см. главу <a class="reference internal" href="scanning.html#authenticated-scan"><span class="std std-ref">9.3</span></a>), в отчете будет непосредственно указано, аутентификация прошла успешно.
+В <em>Хозяева</em> вкладка, <em>Авторизация</em> в столбце отображается одно из следующих значений:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="_images/verify.png"><img alt="" src="_images/verify.png" style="height: 1.2em;"/></a> Аутентификация прошла успешно.</p></li>
+<li><p><a class="reference internal" href="_images/no-auth.png"><img alt="" src="_images/no-auth.png" style="height: 1.2em;"/></a> Аутентификация не прошла успешно.</p></li>
+</ul>
+<p>При наведении электрода на значок отображается подсказка, какой сервис используется для аутентификации.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</section>
+<section id="filtering-a-report">
+<span id="filtering-report"></span><span id="index-9"></span><h4><span class="section-number">10.2.1.3 </span>Фильтрация отчета<a class="headerlink" href="reports.html#filtering-a-report" title="Ссылка на эту рубрику">¶</a></h4>
+<p>Поскольку отчет часто содержит большое количество результатов, можно отобразить и загрузить как полный отчет, так и только отфильтрованные результаты.</p>
+<p>Отчет можно отфильтровать следующим образом:</p>
+<ol class="arabic simple">
+<li><p>Нажмите <a class="reference internal" href="_images/edit.png"><img alt="" src="_images/edit.png" style="height: 1.2em;"/></a> в панели фильтров.</p></li>
+<li><p>Введите ключевое слово, где следует искать, в поле ввода. <span class="target" id="gos-webui-20"></span><em>Фильтр</em> (видеть <a class="reference internal" href="reports.html#fig-report-filter"><span class="std std-numref">Рис. 10,8</span></a>).</p></li>
+</ol>
+<figure class="align-center" id="id10">
+<span id="fig-report-filter"></span><a class="reference internal image-reference" href="_images/filter_edit.png"><img alt="_images/filter_edit.png" src="_images/filter_edit.png" style="width: 60%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 10,8 </span><span class="caption-text">Настройка фильтра для отчета</span><a class="headerlink" href="reports.html#id10" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+<ol class="arabic" start="3">
+<li><p>Для <span class="target" id="gos-webui-21"></span><em>Применить переопределение</em> выберите переключатель <span class="target" id="gos-webui-22"></span><em>Да</em> чтобы включить переопределение (см. главу <a class="reference internal" href="reports.html#overrides"><span class="std std-ref">10.8</span></a>).</p>
+<p>Для <span class="target" id="gos-webui-23"></span><em>Применить переопределение</em> выберите переключатель <span class="target" id="gos-webui-24"></span><em>Нет</em> чтобы отключить переопределение.</p>
+</li>
+<li><p>Активируйте флажок <span class="target" id="gos-webui-25"></span><em>Показывать только хосты, у которых есть результаты</em> если только хосты с эффектом должны быть включены.</p></li>
+<li><p>Для <span class="target" id="gos-webui-26"></span><em>QoD</em> выбранный желаемый QoD (см. главу <a class="reference internal" href="reports.html#quality-of-detection-concept"><span class="std std-ref">10.2.6</span></a>).</p></li>
+<li><p>Для <span class="target" id="gos-webui-27"></span><em>Серьезность (класс)</em> Активируйте флажки нужных классов серьезно.</p></li>
+<li><p>Для <span class="target" id="gos-webui-28"></span><em>Тип решения</em> выберите переключатели нужных типов решений.</p></li>
+<li><p>Введите имя (часть) уязвимости, хост или положение в соответствующем поле ввода.</p></li>
+<li><p>Нажмите <span class="target" id="gos-webui-29"></span><em>Обновлять</em>.</p></li>
+</ol>
+</section>
+</section>
+<section id="exporting-a-report">
+<span id="exporting-report"></span><span id="index-10"></span><h3><span class="section-number">10.2.2 </span>Экспортный отчет<a class="headerlink" href="reports.html#exporting-a-report" title="Ссылка на эту рубрику">¶</a></h3>
+<p>Поддерживаемые формы экспорта см. в главе. <a class="reference internal" href="reports.html#report-plugins"><span class="std std-ref">10.1</span></a>.</p>
+<p>Отчет можно экспортировать следующим образом:</p>
+<ol class="arabic">
+<li><p>Выбирать <span class="target" id="gos-webui-30"></span><em>Сканы &gt; Отчеты</em> в меню.</p></li>
+<li><p>Нажмите на этот отчет, чтобы открыть страницу с описанием отчета.</p></li>
+<li><p>Нажмите <a class="reference internal" href="_images/download.png"><img alt="" src="_images/download.png" style="height: 1.2em;"/></a>.</p>
+<p>→ Откроется редактор сравнения отчетов о сканировании (см. <a class="reference internal" href="reports.html#fig-report-content-composer"><span class="std std-numref">Рис. 10,9</span></a>).</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Примененный фильтр отображается в поле ввода. <span class="target" id="gos-webui-31"></span><em>Фильтр результатов</em> и не может быть изменено. Для замены фильтра см. главу <a class="reference internal" href="reports.html#filtering-report"><span class="std std-ref">10.2.1.3</span></a>.</p>
+</div>
+<figure class="align-center" id="id11">
+<span id="fig-report-content-composer"></span><a class="reference internal image-reference" href="_images/report_content_composer.png"><img alt="_images/report_content_composer.png" src="_images/report_content_composer.png" style="width: 60%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 10,9 </span><span class="caption-text">Составление отчета об экспорте</span><a class="headerlink" href="reports.html#id11" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Активируйте флажок <span class="target" id="gos-webui-32"></span><em>Примечания</em> для включения прикрепленных примечаний и установки флажка <span class="target" id="gos-webui-33"></span><em>Переопределения</em> чтобы пометить включенные переопределения и отключить их строгие текстовые поля.</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Переопределения наблюдения осуществляются только в том случае, если они включены при фильтрации отчета (см. главу <a class="reference internal" href="reports.html#filtering-report"><span class="std std-ref">10.2.1.3</span></a>).</p>
+</div>
+</li>
+<li><p>Выберите формат отчета, раскрывающий входящий список. <span class="target" id="gos-webui-34"></span><em>Формат отчета</em>.</p></li>
+<li><p>Если выбран настраиваемый формат отчета (<em>Настраиваемые результаты CSV</em>, <em>Топология SVG</em>, <em>Веринице ИСМ</em> или <em>Веринице ISM все результаты</em>), выберите конфигурацию отчета в раскрывающемся списке <em>Отчет о конфигурации</em> (см. главу <a class="reference internal" href="reports.html#create-report-config"><span class="std std-ref">10.1.4</span></a>).</p></li>
+<li><p>Активируйте флажок <span class="target" id="gos-webui-35"></span><em>Сохранить по умолчанию</em> чтобы сохранить условия для будущего экспорта.</p></li>
+<li><p>Нажмите <span class="target" id="gos-webui-36"></span><em>ХОРОШО</em>.</p>
+<p>→ Отчет загружается в выбранном формате.</p>
+</li>
+</ol>
+</section>
+<section id="importing-a-report">
+<span id="index-11"></span><h3><span class="section-number">10.2.3 </span>Отчет об импорте<a class="headerlink" href="reports.html#importing-a-report" title="Ссылка на эту рубрику">¶</a></h3>
+<p>Отчеты можно импортировать на устройство следующим образом:</p>
+<ol class="arabic">
+<li><p>Выбирать <span class="target" id="gos-webui-37"></span><em>Сканы &gt; Отчеты</em> в меню.</p></li>
+<li><p>Нажмите <a class="reference internal" href="_images/upload.png"><img alt="" src="_images/upload.png" style="height: 1.2em;"/></a>.</p></li>
+<li><p>Нажмите <span class="target" id="gos-webui-38"></span><em>Просмотреть…</em> и выберите XML-файл отчета (см. <a class="reference internal" href="reports.html#fig-report-import"><span class="std std-numref">Рис. 10.10</span></a>).</p>
+<figure class="align-center" id="id12">
+<span id="fig-report-import"></span><a class="reference internal image-reference" href="_images/report_import.png"><img alt="_images/report_import.png" src="_images/report_import.png" style="width: 60%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 10.10 </span><span class="caption-text">Отчет об импорте</span><a class="headerlink" href="reports.html#id12" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>В раскрывающемся списке выберите задачу импорта, к которой необходимо добавить отчет. <em>Импортировать задачу</em>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Кончик</p>
+<p>Нажав <a class="reference internal" href="_images/new.png"><img alt="" src="_images/new.png" style="height: 1.2em;"/></a> можно создать новую задачу по импорту (см. главу <a class="reference internal" href="scanning.html#import-task"><span class="std std-ref">9.5</span></a>).</p>
+</div>
+</li>
+<li><p>Выберите переключатель <span class="target" id="gos-webui-39"></span><em>Да</em> чтобы добавить отчет в активы.</p></li>
+<li><p>Нажмите <span class="target" id="gos-webui-40"></span><em>Импорт</em>.</p></li>
+</ol>
+</section>
+<section id="triggering-an-alert-for-a-report">
+<span id="triggering-alert-report"></span><span id="index-12"></span><h3><span class="section-number">10.2.4 </span>Запуск оповещения об отчете<a class="headerlink" href="reports.html#triggering-an-alert-for-a-report" title="Ссылка на эту рубрику">¶</a></h3>
+<p>Частое оповещение включает в себя отправку отчета. Отчет, отправленный по оповещению, используется фильтру, расширену в компоновочных показателях оповещения (см. главу <a class="reference internal" href="scanning.html#alerts"><span class="std std-ref">9.12</span></a>).
+При запуске оповещения для отчета добавляется второй фильтр, получающийся от составителя оценки отчета о сканировании (см. главу <a class="reference internal" href="reports.html#exporting-report"><span class="std std-ref">10.2.2</span></a>).</p>
+<p>Оповещение можно активировать вручную следующим образом:</p>
+<ol class="arabic">
+<li><p>Выбирать <span class="target" id="gos-webui-41"></span><em>Сканы &gt; Отчеты</em> в меню.</p></li>
+<li><p>Нажмите на этот отчет, чтобы просмотреть результаты.</p></li>
+<li><p>Отфильтруйте отчет так, чтобы отображались только те результаты, которые должны быть отправлены, с помощью Powerfilter (см. главу) <a class="reference internal" href="reports.html#filtering-report"><span class="std std-ref">10.2.1.3</span></a>) или выбрав вкладку.</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Фильтр, настроенный в компоновщике оценки предупреждений (см. главу <a class="reference internal" href="scanning.html#alerts"><span class="std std-ref">9.12</span></a>) применяются иначе.</p>
+<p>Чтобы имитировать поведение этого фильтра, настройте отчет фильтра таким образом, чтобы результаты не отфильтровывались.</p>
+</div>
+</li>
+<li><p>Нажмите <a class="reference internal" href="_images/start.png"><img alt="" src="_images/start.png" style="height: 1.2em;"/></a>.</p>
+<p>→ Откроется редактор сравнения отчетов о сканировании (см. <a class="reference internal" href="reports.html#fig-report-content-composer"><span class="std std-numref">Рис. 10,9</span></a>).</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Примененный фильтр для отображения результатов отображается в поле ввода. <span class="target" id="gos-webui-42"></span><em>Фильтр</em> и не может быть изменено. Для замены фильтра см. главу <a class="reference internal" href="reports.html#filtering-report"><span class="std std-ref">10.2.1.3</span></a>.</p>
+</div>
+</li>
+<li><p>Активируйте флажок <span class="target" id="gos-webui-43"></span><em>Примечания</em> для включения прикрепленных примечаний и установки флажка <span class="target" id="gos-webui-44"></span><em>Переопределения</em> чтобы пометить включенные переопределения и отключить их строгие текстовые поля.</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Переопределения наблюдения осуществляются только в том случае, если они включены при фильтрации отчета (см. главу <a class="reference internal" href="reports.html#filtering-report"><span class="std std-ref">10.2.1.3</span></a>).</p>
+</div>
+</li>
+<li><p>Выберите оповещения раскрывающегося списка. <span class="target" id="gos-webui-45"></span><em>Тревога</em>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Кончик</p>
+<p>Новое оповещение можно создать, нажав кнопку <a class="reference internal" href="_images/new.png"><img alt="" src="_images/new.png" style="height: 1.2em;"/></a>. Информация для ввода в поля ввода см. в главе. <a class="reference internal" href="scanning.html#alerts"><span class="std std-ref">9.12</span></a>.</p>
+</div>
+</li>
+<li><p>Активируйте флажок <span class="target" id="gos-webui-46"></span><em>Сохранить по умолчанию</em> сохранить настройки для последующего отчета.</p></li>
+<li><p>Нажмите <span class="target" id="gos-webui-47"></span><em>ХОРОШО</em>.</p>
+<figure class="align-center" id="id13">
+<span id="fig-report-trigger-alert"></span><a class="reference internal image-reference" href="_images/report_trigger_alert.png"><img alt="_images/report_trigger_alert.png" src="_images/report_trigger_alert.png" style="width: 60%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 10.11 </span><span class="caption-text">Запуск оповещений вручную</span><a class="headerlink" href="reports.html#id13" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+</li>
+</ol>
+</section>
+<section id="creating-a-delta-report">
+<span id="delta-report"></span><span id="index-13"></span><h3><span class="section-number">10.2.5 </span>Создание дельта-отчета<a class="headerlink" href="reports.html#creating-a-delta-report" title="Ссылка на эту рубрику">¶</a></h3>
+<p>Если доступно более одного отчета по одной задаче (см. главу <a class="reference internal" href="reports.html#using-managing-reports"><span class="std std-ref">10.2</span></a>), дельта-отчет можно составить следующим образом:</p>
+<ol class="arabic">
+<li><p>Выбирать <span class="target" id="gos-webui-48"></span><em>Сканирование &gt; Задачи</em> в меню.</p></li>
+<li><p>Нажмите на общее количество отчетов в столбце <span class="target" id="gos-webui-49"></span><em>Отчеты</em>.</p>
+<p>→ Страница <span class="target" id="gos-webui-50"></span><em>Отчеты</em> открыт. Применяется фильтр, позволяющий отображать только отчеты для выбранной задачи.</p>
+</li>
+<li><p>Выберите новый отчет, щелкнув <a class="reference internal" href="_images/delta.png"><img alt="" src="_images/delta.png" style="height: 1.2em;"/></a> в столбце <span class="target" id="gos-webui-51"></span><em>Действия</em> нормальный отчет (см. <a class="reference internal" href="reports.html#fig-delta-report-1"><span class="std std-numref">Рис. 10.12</span></a>).</p>
+<p>→ Значок <a class="reference internal" href="_images/delta.png"><img alt="" src="_images/delta.png" style="height: 1.2em;"/></a> для дополнительного отчета неактивен.</p>
+<figure class="align-center" id="id14">
+<span id="fig-delta-report-1"></span><a class="reference internal image-reference" href="_images/delta_report_1.png"><img alt="_images/delta_report_1.png" src="_images/delta_report_1.png" style="width: 90%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 10.12 </span><span class="caption-text">Выбор первого отчета</span><a class="headerlink" href="reports.html#id14" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Выберите старый отчет, щелкнув <a class="reference internal" href="_images/double_delta.png"><img alt="" src="_images/double_delta.png" style="height: 1.2em;"/></a> в столбце <span class="target" id="gos-webui-52"></span><em>Действия</em> нормальный отчет (см. <a class="reference internal" href="reports.html#fig-delta-report-2"><span class="std std-numref">Рис. 10.13</span></a>).</p>
+<p>→ Отображается отчет о дельтах с состоянием дельты (см. <a class="reference internal" href="reports.html#fig-delta-report-results"><span class="std std-numref">Рис. 10.14</span></a>) и могут быть экспортированы.</p>
+<figure class="align-center" id="id15">
+<span id="fig-delta-report-2"></span><a class="reference internal image-reference" href="_images/delta_report_2.png"><img alt="_images/delta_report_2.png" src="_images/delta_report_2.png" style="width: 90%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 10.13 </span><span class="caption-text">Выбор второго отчета</span><a class="headerlink" href="reports.html#id15" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id16">
+<span id="fig-delta-report-results"></span><a class="reference internal image-reference" href="_images/delta_report_results.png"><img alt="_images/delta_report_results.png" src="_images/delta_report_results.png" style="width: 90%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 10.14 </span><span class="caption-text">Отчет о дельтах с дельта-результатами</span><a class="headerlink" href="reports.html#id16" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+</li>
+</ol>
+<p>Тип дельта-результата отображается в столбце <span class="target" id="gos-webui-53"></span><em>Дельта</em>.
+Существует четыре типа дельта-результатов:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><a class="reference internal" href="_images/minus.png"><img alt="" src="_images/minus.png" style="height: 1em;"/></a> Ушел</dt><dd><p>Результат имеется во втором (более старом) отчете, но отсутствует в первом (более новом) отчете.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><a class="reference internal" href="_images/plus.png"><img alt="" src="_images/plus.png" style="height: 1em;"/></a> Новый</dt><dd><p>Результат существует в первом (более новом) отчете, но отсутствует во втором (более старом) отчете.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><a class="reference internal" href="_images/equal.png"><img alt="" src="_images/equal.png" style="height: 1em;"/></a> такой же</dt><dd><p>Результат имеется в нижних отчетах и ​​одинаках.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><a class="reference internal" href="_images/plus-minus.png"><img alt="" src="_images/plus-minus.png" style="height: 1em;"/></a> Измененный</dt><dd><p>Результат существует в обоих отчетах, но он различен.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p>Терминал <code class="docutils literal notranslate"><span class="pre">delta_states=</span></code> в панели фильтров можно ввести, чтобы отображать только текущий тип дельта-результатов (см. главу <a class="reference internal" href="web-interface.html#powerfilter"><span class="std std-ref">7.3</span></a>).</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">delta_states=g</span></code> показывает все результаты типа <span class="target" id="gos-webui-54"></span><em>Ушел</em>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">delta_states=n</span></code> показывает все результаты типа <span class="target" id="gos-webui-55"></span><em>Новый</em>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">delta_states=s</span></code> показывает все результаты типа <span class="target" id="gos-webui-56"></span><em>такой же</em>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">delta_states=c</span></code> показывает все результаты типа <span class="target" id="gos-webui-57"></span><em>Измененный</em>.</p></li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Кончик</p>
+<p>Мы можем использовать несколько типов, например <code class="docutils literal notranslate"><span class="pre">delta_states=gs</span></code> показывает все результаты типа <span class="target" id="gos-webui-58"></span><em>Ушел</em> и <span class="target" id="gos-webui-59"></span><em>такой же</em>.</p>
+</div>
+</section>
+<section id="quality-of-detection-concept">
+<span id="id2"></span><h3><span class="section-number">10.2.6 </span>Концепция определения качества<a class="headerlink" href="reports.html#quality-of-detection-concept" title="Ссылка на эту рубрику">¶</a></h3>
+<p>Качество обнаружения (QoD) — это значение от 0 % до 100 %, описывающее надежность выполненного обнаружения уязвимостей или обнаружения продукта.</p>
+<p>Хотя диапазон QoD позволяет довольно подробно описать качество, в большинстве тестов используется стандартная методология.
+Следовательно, определения QoD имеют значение QoD.
+Текущий список типов может со временем модифицироваться.</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<ul class="simple">
+<li><p>Результат QoD «Обнаружение» выше, чем фактический результат «Уязвимость», поскольку он указывает качество самого обнаруживаемого продукта – который является надежным – а не качество классификационных тестов на уязвимости, которые могут быть ненадежными.
+по разным причинам (см. таблицу).</p></li>
+<li><p>Всегда используется наименьший возможный QoD, например, в случае обнаружения несколькими методами (дистанционный или локальный/аутентифицированный).</p></li>
+</ul>
+</div>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>QoD</p></th>
+<th class="head"><p>Тип QoD</p></th>
+<th class="head"><p>Описание</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>100 %</p></td>
+<td><p>эксплуатировать</p></td>
+<td><p>Обнаружение произошло с помощью эксплойта и поэтому полностью проверено.</p></td>
+</tr>
+<tr class="row-odd"><td><p>99 %</p></td>
+<td><p>удаленный_вул</p></td>
+<td><p>Удаленные активные проверки (выполнение кода, обходная атака, SQL-инъекция и т. д.), при ответе которых четко показывает наличие уязвимости.</p></td>
+</tr>
+<tr class="row-even"><td><p>98 %</p></td>
+<td><p>удаленное_приложение</p></td>
+<td><p>Удаленные активные проверки (выполнение кода, обход атаки, SQL-инъекция и т. д.), при ответе которых четко показано наличие уязвимого приложения.</p></td>
+</tr>
+<tr class="row-odd"><td><p>97 %</p></td>
+<td><p>упаковка</p></td>
+<td><p>Аутентифицированные пакеты проверок, например, для систем Linux(oid).</p></td>
+</tr>
+<tr class="row-even"><td><p>97 %</p></td>
+<td><p>реестр</p></td>
+<td><p>Аутентифицированные проверки реестра для систем Microsoft Windows.</p></td>
+</tr>
+<tr class="row-odd"><td><p>95 %</p></td>
+<td><p>удаленный_активный</p></td>
+<td><p>Удаленные активные проверки (выполнение кода, обходная атака, SQL-инъекция и т. д.), при ответе которых показано вероятное наличие уязвимого приложения или уязвимости. «Вероятно» означает, что возможны лишь редкие обстоятельства, при обнаружении которых будут ошибочными.</p></td>
+</tr>
+<tr class="row-even"><td><p>80 %</p></td>
+<td><p>удаленный_баннер</p></td>
+<td><p>Удаленная проверка баннеров приложений, которые обеспечивают уровень исправлений в версии. Многие запатентованные продукты делают это.</p></td>
+</tr>
+<tr class="row-odd"><td><p>80 %</p></td>
+<td><p>исполняемая_версия</p></td>
+<td><p>Аутентифицированная проверка версии исполняемого файла для систем Linux(oid) или Microsoft Windows, где приложение имеет уровень исправления в версии.</p></td>
+</tr>
+<tr class="row-even"><td><p>75 %</p></td>
+<td></td>
+<td><p>Если результаты обрабатываются без какой-либо информации QoD (например, при передаче данных из стационарной системы в пациентскую в настоящее время), им присваивается это значение.</p></td>
+</tr>
+<tr class="row-odd"><td><p>70 %</p></td>
+<td><p>удаленный_анализ</p></td>
+<td><p>Удаленные проверки, которые выполняют некоторый анализ, но не всегда могут быть полностью надежными в зависимости от условий окружающей среды. Для выяснения числа подозрительных ложноположительных или ложноотрицательных крайних случаев может быть проведен анализ со стороны пользователя (см. главу <a class="reference internal" href="reports.html#overrides"><span class="std std-ref">10.8</span></a>).</p></td>
+</tr>
+<tr class="row-even"><td><p>50 %</p></td>
+<td><p>удаленный_зонд</p></td>
+<td><p>Удаленные проверки, при которых промежуточные системы, такие как брандмауэры, могут делать вид, что обнаружены правильно, так что на самом деле неясно, ответило ли само приложение. Например, это можно использовать для соединений без TLS.</p></td>
+</tr>
+<tr class="row-odd"><td><p>30 %</p></td>
+<td><p>Remote_banner_unreliable</p></td>
+<td><p>Удаленная проверка баннеров приложений, которые не обеспечивают уровень исправлений при выявлении версии. Например, это относится ко многим продуктам с открытым исходным кодом из-за исправления резервного копирования.</p></td>
+</tr>
+<tr class="row-even"><td><p>30 %</p></td>
+<td><p>executable_version_unreliable</p></td>
+<td><p>Аутентифицированная проверка исполняемого файла для систем Linux(oid), где приложение не выявило уровня исправлений при идентификации версии.</p></td>
+</tr>
+<tr class="row-odd"><td><p>30 %</p></td>
+<td><p>package_unreliable</p></td>
+<td><p>Аутентифицированные пакеты проверок, которые не всегда полностью надежны, например, для систем Linux(oid).</p></td>
+</tr>
+<tr class="row-even"><td><p>1 %</p></td>
+<td><p>Общие примечания</p></td>
+<td><p>Общее примечание о защищенной уязвимости без обнаружения какого-либо существующего применения.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>По умолчанию предоставлены только результаты, Обнаруженные VT с QoD 70 % или выше.
+Результаты, полученные с помощью теста с более низким QoD, склонны к ложноположительным результатам.
+Фильтр можно настроить для отображения результатов с более низким качеством QoD (см. главу <a class="reference internal" href="web-interface.html#adjusting-filter"><span class="std std-ref">7.3.1</span></a>).</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>При подаче фильтра по умолчанию для отображения результатов, обнаруженных тестом с низким качеством QoD, вы сами несете ответственность за определение того, что является ложноположительным результатом.</p>
+</div>
+</section>
+</section>
+<section id="displaying-all-existing-results">
+<span id="results"></span><span id="index-14"></span><h2><span class="section-number">10.3 </span>Отображение всех имеющихся результатов<a class="headerlink" href="reports.html#displaying-all-existing-results" title="Ссылка на эту рубрику">¶</a></h2>
+<p><strong>Страница списка</strong></p>
+<p>Хотя результаты отчета содержат только одно соединение, все результаты отображаются во внутренней базе данных, и их можно просмотреть, выбрав <span class="target" id="gos-webui-60"></span><em>Сканирование &gt; Результаты</em> в меню.</p>
+<p>Powerfilters можно использовать для отображения только интересных результатов (см. главу <a class="reference internal" href="web-interface.html#powerfilter"><span class="std std-ref">7.3</span></a>).</p>
+<figure class="align-center" id="id17">
+<span id="fig-results-all"></span><a class="reference internal image-reference" href="_images/results_all.png"><img alt="_images/results_all.png" src="_images/results_all.png" style="width: 95%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 10.15 </span><span class="caption-text">Страница <em>Результаты</em> показ всех результатов всех сканирований</span><a class="headerlink" href="reports.html#id17" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+<p>Для всех результатов отображается следующая информация:</p>
+<dl>
+<dt>Уязвимость</dt><dd><p>Название найденной уязвимости.</p>
+<ul class="simple">
+<li><p>Уязвимости, к которым прилагается примечание, отмечены значком <a class="reference internal" href="_images/note.png"><img alt="" src="_images/note.png" style="height: 1.2em;"/></a>.</p></li>
+<li><p>Уязвимости с прикрепленной заявкой отмечены значком <a class="reference internal" href="_images/ticket.png"><img alt="" src="_images/ticket.png" style="height: 1.2em;"/></a>.</p></li>
+<li><p>Уязвимости с переопределением отмечены значком <a class="reference internal" href="_images/override.png"><img alt="" src="_images/override.png" style="height: 1.2em;"/></a>.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Если столбец уязвимости по-прежнему отображается пустым, соответствующий VT не обновлен.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Несмотря на то, что результаты содержат много информации, внешние ссылки всегда включаются в детали.
+Они относятся к веб-сайтам, уязвимость которых уже обсуждалась.
+Доступна дополнительная справочная информация, например, о том, кто обнаружил уязвимость, какие последствия она может иметь и как ее можно устранить.</p>
+</div>
+</dd>
+<dt>Тип решения <a class="reference internal" href="_images/solution_type.png"><img alt="" src="_images/solution_type.png" style="height: 1.2em;"/></a></dt><dd><p>Тип мер по устранению уязвимостей.
+существуют следующие типы решений:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="_images/st_vendorfix.png"><img alt="" src="_images/st_vendorfix.png" style="height: 1.2em;"/></a> Исправление поставщика: доступна информация об официальных исправлениях, выпущенном исходным поставщиком такого продукта.
+Если не указано иное, укажите, что это исправление полностью учитывает уязвимость.</p></li>
+<li><p><a class="reference internal" href="_images/st_workaround.png"><img alt="" src="_images/st_workaround.png" style="height: 1.2em;"/></a> Обходной путь: доступная информация о конфигурации или конкретных файлах развертывания, которые можно использовать, чтобы избежать уязвимостей.
+Обычно это «первая линия защиты» от новых уязвимостей до того, как они были выпущены или даже обнаружены меры по ее устранению или исправлению поставщика.</p></li>
+<li><p><a class="reference internal" href="_images/st_mitigation.png"><img alt="" src="_images/st_mitigation.png" style="height: 1.2em;"/></a> Смягчение: доступна информация о конфигурации или заданных файлах развертывания, которая помогает снизить риск уязвимости, но не использует уязвимость в данном продукте.</p></li>
+<li><p><a class="reference internal" href="_images/st_willnotfix.png"><img alt="" src="_images/st_willnotfix.png" style="height: 1.2em;"/></a> Не исправляет: исправлений уязвимостей нет и никогда не будет.
+Это часто происходит, когда продукт теряет свою актуальность, больше не соответствует или устаревает иным образом.
+Информация должна содержать подробную информацию о том, почему исправления не будут опубликованы.</p></li>
+<li><p><a class="reference internal" href="_images/st_nonavailable.png"><img alt="" src="_images/st_nonavailable.png" style="height: 1.2em;"/></a> Нет: в настоящее время исправлений нет.
+Информация должна содержать подробную информацию о том, почему нет исправлений.</p></li>
+</ul>
+</dd>
+<dt>Серьезность</dt><dd><p>Качественная мера серьезности уязвимостей согласно Общей системе обнаружения уязвимостей (CVSS) (см. главу) <a class="reference internal" href="managing-secinfo.html#cvss"><span class="std std-ref">13.2.3</span></a>).
+Эта оценка серьезности, которая включает в себя число от 0,0 до 10,0, где 10,0 соответствует самой серьезной степени, а также серьезному классу, основанному на этом измерении:</p>
+<ul class="simple">
+<li><p>Критический: 9,0–10,0</p></li>
+<li><p>Высокий: 7,0–8,9</p></li>
+<li><p>Средний: 4,0–6,9</p></li>
+<li><p>Низкий: 0,1–3,9</p></li>
+<li><p>Журнал: 0.0</p></li>
+</ul>
+</dd>
+<dt>QoD</dt><dd><p>Сокращение от «Качество обнаружения».
+QoD характеризует надежность выполненного обнаружения уязвимостей.
+Это значение от 0% до 100%, вариант 100% является наиболее надежным.</p>
+<p>По умолчанию предоставлены только результаты, Обнаруженные VT с QoD 70 % или выше.
+Фильтр можно настроить для отображения результатов с более низким качеством QoD (см. главу <a class="reference internal" href="web-interface.html#adjusting-filter"><span class="std std-ref">7.3.1</span></a>).</p>
+<p>Для получения дополнительной информации см. главу <a class="reference internal" href="reports.html#quality-of-detection-concept"><span class="std std-ref">10.2.6</span></a>.</p>
+</dd>
+<dt>Хозяин</dt><dd><p>Хост, для которого был найден результат. IP-адрес и имя хоста указываются отдельно.</p>
+</dd>
+<dt>Расположение</dt><dd><p>Номер порта и тип протокола, необходимые для поиска результата на хосте.</p>
+</dd>
+<dt>ЭПСС</dt><dd><p>Мера вероятности использования уязвимостей в соответствии с системой оценки эксплойтов (EPSS) (см. главу <a class="reference internal" href="managing-secinfo.html#epss"><span class="std std-ref">13.2.4</span></a>).</p>
+<p>Оценочные показатели уязвимости области использования, наблюдаемые в течение следующих 30 дней, представляют собой число от 0 до 1.
+Чем выше значение, тем больше опасений того, что уязвимость действительно будет использована.</p>
+<p>Процент показывает долю уязвимостей, которые были оценены так же или ниже, чем уязвимость.
+Это помогает перенести счет в контекст.</p>
+</dd>
+<dt>Созданный</dt><dd><p>Дата и время создания отчета.</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Нажав <a class="reference internal" href="_images/export.png"><img alt="" src="_images/export.png" style="height: 1.2em;"/></a> под списком результатов можно экспортировать более одного результата одновременно. Раскрывающийся список используется для выбора внешних результатов.</p>
+</div>
+<p><strong>Страница раскрыта</strong></p>
+<p>Нажмите на название результата, чтобы отобразить подробную информацию о результате.
+Нажмите <a class="reference internal" href="_images/details.png"><img alt="" src="_images/details.png" style="height: 1.2em;"/></a> чтобы открыть страницу, сообщите о результате.</p>
+<p>Доступны следующие вкладки:</p>
+<dl class="simple">
+<dt>Информация</dt><dd><p>Общая информация о результате.</p>
+</dd>
+<dt>Пользовательские теги</dt><dd><p>Присвоенные теги (см. главу <a class="reference internal" href="web-interface.html#tags"><span class="std std-ref">7.4</span></a>).</p>
+</dd>
+</dl>
+<p>В левом верхнем углу пульта доступны следующие действия:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="_images/help.png"><img alt="" src="_images/help.png" style="height: 1.2em;"/></a> Ознакомьтесь с соответствующим главой руководства пользователя.</p></li>
+<li><p><a class="reference internal" href="_images/list.png"><img alt="" src="_images/list.png" style="height: 1.2em;"/></a> Показать страницу со списком всех результатов.</p></li>
+<li><p><a class="reference internal" href="_images/export.png"><img alt="" src="_images/export.png" style="height: 1.2em;"/></a> Экспортируйте результат в видео XML-файла.</p></li>
+<li><p><a class="reference internal" href="_images/new_note.png"><img alt="" src="_images/new_note.png" style="height: 1.2em;"/></a> Сделайте новую заметку для результата (см. главу <a class="reference internal" href="reports.html#create-note"><span class="std std-ref">10.7.1</span></a>).</p></li>
+<li><p><a class="reference internal" href="_images/new_override.png"><img alt="" src="_images/new_override.png" style="height: 1.2em;"/></a> создать новое переопределение результата (см.главу <a class="reference internal" href="reports.html#create-override"><span class="std std-ref">10.8.1</span></a>).</p></li>
+<li><p><a class="reference internal" href="_images/new_ticket.png"><img alt="" src="_images/new_ticket.png" style="height: 1.2em;"/></a> Создайте новый тикет для результата (см. главу <a class="reference internal" href="reports.html#create-ticket"><span class="std std-ref">10.6.1</span></a>).</p></li>
+<li><p><a class="reference internal" href="_images/task.png"><img alt="" src="_images/task.png" style="height: 1.2em;"/></a> Укажите соответствующую роль.</p></li>
+<li><p><a class="reference internal" href="_images/report.png"><img alt="" src="_images/report.png" style="height: 1.2em;"/></a> Показать соответствующий отчет.</p></li>
+</ul>
+</section>
+<section id="displaying-all-existing-vulnerabilities">
+<span id="all-vulnerabilities"></span><span id="index-15"></span><h2><span class="section-number">10.4 </span>Отображение всех существующих уязвимостей<a class="headerlink" href="reports.html#displaying-all-existing-vulnerabilities" title="Ссылка на эту рубрику">¶</a></h2>
+<p><strong>Страница списка</strong></p>
+<p>Хотя отчеты содержат только уязвимости одного кабеля, все уязвимости указаны во внутренней базе данных, и их можно просмотреть, выбрав <span class="target" id="gos-webui-61"></span><em>Сканирование &gt; Уязвимости</em> в меню.</p>
+<p>Powerfilters можно использовать для отображения только интересных уязвимостей (см. главу <a class="reference internal" href="web-interface.html#powerfilter"><span class="std std-ref">7.3</span></a>).</p>
+<figure class="align-center" id="id18">
+<span id="fig-vuln-all"></span><a class="reference internal image-reference" href="_images/vuln_all.png"><img alt="_images/vuln_all.png" src="_images/vuln_all.png" style="width: 95%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 10.16 </span><span class="caption-text">Страница <em>Уязвимости</em> показ всех уязвимостей всех сканирований</span><a class="headerlink" href="reports.html#id18" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+<p>По всем уязвимостям отображается следующая информация:</p>
+<dl>
+<dt>Имя</dt><dd><p>Название уязвимости.</p>
+</dd>
+<dt>Самый старый результат</dt><dd><p>Дата и время самого предыдущего результата, обнаруженного для уязвимости.</p>
+</dd>
+<dt>Новейший результат</dt><dd><p>Дата и время последнего результата, обнаруженного для уязвимости.</p>
+</dd>
+<dt>Серьезность</dt><dd><p>Качественная мера серьезности уязвимостей согласно Общей системе обнаружения уязвимостей (CVSS) (см. главу) <a class="reference internal" href="managing-secinfo.html#cvss"><span class="std std-ref">13.2.3</span></a>).
+Эта оценка серьезности, которая включает в себя число от 0,0 до 10,0, где 10,0 соответствует самой серьезной степени, а также серьезному классу, основанному на этом измерении:</p>
+<ul class="simple">
+<li><p>Критический: 9,0–10,0</p></li>
+<li><p>Высокий: 7,0–8,9</p></li>
+<li><p>Средний: 4,0–6,9</p></li>
+<li><p>Низкий: 0,1–3,9</p></li>
+<li><p>Журнал: 0.0</p></li>
+</ul>
+</dd>
+<dt>QoD</dt><dd><p>Сокращение от «Качество обнаружения».
+QoD характеризует надежность выполненного обнаружения уязвимостей.
+Это значение от 0% до 100%, вариант 100% является наиболее надежным.</p>
+<p>По умолчанию предоставлены только результаты, Обнаруженные VT с QoD 70 % или выше.
+Фильтр можно настроить для отображения результатов с более низким качеством QoD (см. главу <a class="reference internal" href="web-interface.html#adjusting-filter"><span class="std std-ref">7.3.1</span></a>).</p>
+<p>Для получения дополнительной информации см. главу <a class="reference internal" href="reports.html#quality-of-detection-concept"><span class="std std-ref">10.2.6</span></a>.</p>
+</dd>
+<dt>Результаты</dt><dd><p>Количество результатов, найденных для данной уязвимости.
+При необходимости на странице количества результатов <span class="target" id="gos-webui-62"></span><em>Результаты</em> открыт.
+Применяется фильтр, чтобы отображать только результаты для выбранной уязвимости.</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Нажав <a class="reference internal" href="_images/export.png"><img alt="" src="_images/export.png" style="height: 1.2em;"/></a> под списком результатов можно экспортировать более одного результата одновременно. Раскрывающийся список используется для выбора внешних результатов.</p>
+</div>
+<p><strong>Страница раскрыта</strong></p>
+<p>Нажмите на название уязвимости, чтобы открыть страницу об уязвимостях.</p>
+<p>В левом верхнем углу пульта доступны следующие действия:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="_images/help.png"><img alt="" src="_images/help.png" style="height: 1.2em;"/></a> Ознакомьтесь с соответствующим главой руководства пользователя.</p></li>
+<li><p><a class="reference internal" href="_images/list.png"><img alt="" src="_images/list.png" style="height: 1.2em;"/></a> Показать страницу со списком всех уязвимостей.</p></li>
+<li><p><a class="reference internal" href="_images/export.png"><img alt="" src="_images/export.png" style="height: 1.2em;"/></a> Экспортируйте уязвимости в виде XML-файла.</p></li>
+<li><p><a class="reference internal" href="_images/new_note.png"><img alt="" src="_images/new_note.png" style="height: 1.2em;"/></a> Сделайте новую заметку об уязвимости (см. главу <a class="reference internal" href="reports.html#create-note"><span class="std std-ref">10.7.1</span></a>).</p></li>
+<li><p><a class="reference internal" href="_images/new_override.png"><img alt="" src="_images/new_override.png" style="height: 1.2em;"/></a> создать новое переопределение уязвимостей (см. главу <a class="reference internal" href="reports.html#create-override"><span class="std std-ref">10.8.1</span></a>).</p></li>
+<li><p><a class="reference internal" href="_images/results.png"><img alt="" src="_images/results.png" style="height: 1.2em;"/></a> Покажите соответствующие результаты.</p></li>
+<li><p><a class="reference internal" href="_images/vulnerability.png"><img alt="" src="_images/vulnerability.png" style="height: 1.2em;"/></a> Укажите соответствующую уязвимость.</p></li>
+</ul>
+</section>
+<section id="trend-of-vulnerabilities">
+<span id="trend-vulnerability"></span><span id="index-16"></span><h2><span class="section-number">10.5 </span>Тенденция уязвимостей<a class="headerlink" href="reports.html#trend-of-vulnerabilities" title="Ссылка на эту рубрику">¶</a></h2>
+<p>Если задача запускалась несколько раз, на странице отображается динамик обнаруженных уязвимостей. <span class="target" id="gos-webui-63"></span><em>Задачи</em> (видеть <a class="reference internal" href="reports.html#fig-task-trend"><span class="std std-numref">Рис. 10.17</span></a>).</p>
+<figure class="align-center" id="id19">
+<span id="fig-task-trend"></span><a class="reference internal image-reference" href="_images/task_trend.png"><img alt="_images/task_trend.png" src="_images/task_trend.png" style="width: 85%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 10.17 </span><span class="caption-text">Задача с трендом</span><a class="headerlink" href="reports.html#id19" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+<p>Чтобы попасть туда, выберите <span class="target" id="gos-webui-64"></span><em>Сканирование &gt; Задачи</em> в меню.</p>
+<p>Определение описывает изменения уязвимостей между самым новым и вторым по времени отчетом. Оно отображается в столбце <span class="target" id="gos-webui-65"></span><em>Тренд</em>.</p>
+<p>Возможны следующие изменения:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="_images/trend_up.png"><img alt="" src="_images/trend_up.png" style="height: 1.2em;"/></a> В новейшем отчете самая высокая серьезность выше, чем самая серьезная высокая степень во втором новейшем отчете.</p></li>
+<li><p><a class="reference internal" href="_images/trend_more.png"><img alt="" src="_images/trend_more.png" style="height: 1.2em;"/></a> Самый высокий уровень серьезности одинаков для верхних отчётов. Однако последний отчет содержит больше проблем безопасности, чем второй новейший отчет.</p></li>
+<li><p><a class="reference internal" href="_images/trend_nochange.png"><img alt="" src="_images/trend_nochange.png" style="height: 1.2em;"/></a> Наивысшая серьезность и количество проблем безопасности одинаковы для обоих взглядов.</p></li>
+<li><p><a class="reference internal" href="_images/trend_less.png"><img alt="" src="_images/trend_less.png" style="height: 1.2em;"/></a> Самый высокий уровень серьезности одинаков для верхних отчётов. Однако последний отчет содержит меньше проблем безопасности и такой серьезности, чем второй новейший отчет.</p></li>
+<li><p><a class="reference internal" href="_images/trend_down.png"><img alt="" src="_images/trend_down.png" style="height: 1.2em;"/></a> В новейшем отчете самая высокая серьезность ниже, чем самая серьезная высокая степень во втором новейшем отчете.</p></li>
+</ul>
+</section>
+<section id="using-tickets">
+<span id="tickets"></span><span id="index-17"></span><h2><span class="section-number">10.6 </span>Использование билетов<a class="headerlink" href="reports.html#using-tickets" title="Ссылка на эту рубрику">¶</a></h2>
+<p>Билеты на исправление используются для устранения обнаруженных уязвимостей.
+Билеты могут быть назначены текущему пользователю или другому пользователю.
+Вся ценная информация, необходимая для понимания и решения проблем, связана непосредственно с ней и доступна назначенному пользователю.
+Кроме того, статус заявок помогает контролировать прогресс.</p>
+<p>Оповещения могут быть назначены для определенных событий, обязательств с заявками, например, изменения в соответствии с заявленными требованиями.</p>
+<p>Система управления заявками способна автоматически подать сигнал повторного сканирования, чтобы убедиться, что проблема решена.</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>При подаче заявки другому пользователю этот пользователь получает доступ для чтения и записи заявок.
+Кроме того, пользователь автоматически получает доступ для чтения соответствующих задач, ее отчетов и результатов.</p>
+<p>Если пользователю отозвано назначение тикета, доступ к чтению задачи и отчеты сохраняются.
+Права на задачу можно проверить и отозвать на странице описание проблемы (см. главу). <a class="reference internal" href="scanning.html#managing-tasks"><span class="std std-ref">9.8</span></a>).
+Если для результатов одного и того же отчета подготовлено несколько заявок и назначено один и тот же потребитель, одно и то же решение выносится несколько раз.</p>
+<p>Если заявка на правопреемник изменена, новый правопреемник не получает автоматический доступ для чтения задачи.
+Вместо этого владелец заявки должен изменить разрешение на странице с описанием проблемы (см. главу). <a class="reference internal" href="scanning.html#managing-tasks"><span class="std std-ref">9.8</span></a>) и обеспечить новому правопреемнику доступ к чтению.</p>
+</div>
+<section id="creating-a-ticket">
+<span id="create-ticket"></span><h3><span class="section-number">10.6.1 </span>Создание заявок<a class="headerlink" href="reports.html#creating-a-ticket" title="Ссылка на эту рубрику">¶</a></h3>
+<p>Билет можно создать следующим образом:</p>
+<ol class="arabic">
+<li><p>Выбирать <span class="target" id="gos-webui-66"></span><em>Сканы &gt; Отчеты</em> в меню и нажмите на надпись «Отчет», чтобы отобразить результаты.</p></li>
+<li><p>Нажмите на элемент в столбце <span class="target" id="gos-webui-67"></span><em>Уязвимость</em> и <a class="reference internal" href="_images/details.png"><img alt="" src="_images/details.png" style="height: 1.2em;"/></a> чтобы открыть страницу, сообщите о результате.</p>
+<p>или</p>
+</li>
+</ol>
+<ol class="arabic">
+<li><p>Выбирать <span class="target" id="gos-webui-68"></span><em>Сканирование &gt; Результаты</em> в меню.</p></li>
+<li><p>Нажмите на элемент в столбце <span class="target" id="gos-webui-69"></span><em>Уязвимость</em> и <a class="reference internal" href="_images/details.png"><img alt="" src="_images/details.png" style="height: 1.2em;"/></a> чтобы открыть страницу, сообщите о результате.</p></li>
+<li><p>Создать новый билет, кнопки <a class="reference internal" href="_images/new_ticket.png"><img alt="" src="_images/new_ticket.png" style="height: 1.2em;"/></a>.</p></li>
+<li><p>Чтобы раскрыть список выбранных пользователей, должен быть назначен билет. <span class="target" id="gos-webui-70"></span><em>Назначить пользователя</em> (видеть <a class="reference internal" href="reports.html#fig-ticket-new"><span class="std std-numref">Рис. 10.18</span></a>).</p></li>
+<li><p>Введите примечание к билету в поле ввода. <span class="target" id="gos-webui-71"></span><em>Примечание</em>.</p>
+<figure class="align-center" id="id20">
+<span id="fig-ticket-new"></span><a class="reference internal image-reference" href="_images/ticket_new.png"><img alt="_images/ticket_new.png" src="_images/ticket_new.png" style="width: 60%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 10.18 </span><span class="caption-text">Создание нового билета</span><a class="headerlink" href="reports.html#id20" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Нажмите <span class="target" id="gos-webui-72"></span><em>Сохранять</em>.</p>
+<p>→ Количество билетов в результате отображается в нижней части верхней страницы с указанием результата (см. <a class="reference internal" href="reports.html#fig-ticket-task"><span class="std std-numref">Рис. 10.19</span></a>). Нажав <a class="reference internal" href="_images/ticket.png"><img alt="" src="_images/ticket.png" style="height: 1.2em;"/></a> представляют соответствующие билеты.</p>
+<figure class="align-center" id="id21">
+<span id="fig-ticket-task"></span><a class="reference internal image-reference" href="_images/ticket_task.png"><img alt="_images/ticket_task.png" src="_images/ticket_task.png" style="width: 60%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 10.19 </span><span class="caption-text">Количество назначенных билетов</span><a class="headerlink" href="reports.html#id21" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+</li>
+</ol>
+</section>
+<section id="changing-the-status-of-a-ticket">
+<span id="index-18"></span><h3><span class="section-number">10.6.2 </span>Изменение решения заявки<a class="headerlink" href="reports.html#changing-the-status-of-a-ticket" title="Ссылка на эту рубрику">¶</a></h3>
+<p>Билет может иметь следующий статус:</p>
+<ul class="simple">
+<li><p>Открыто: уязвимость до сих пор не устранена.</p></li>
+<li><p>Исправлено: уязвимость устранена.</p></li>
+<li><p>Исправление проверено: задача была запущена повторно, и большая уязвимость не обнаружена. Этот статус устанавливается автоматически.</p></li>
+<li><p>Закрыто: исправление уязвимости подтверждено или билет больше не требуется.</p></li>
+</ul>
+<p>Статус билета можно изменить следующим образом:</p>
+<ol class="arabic">
+<li><p>Выбирать <span class="target" id="gos-webui-73"></span><em>Стабильность &gt; Билеты на исправление</em> в меню.</p></li>
+<li><p>В строке билета нажмите <a class="reference internal" href="_images/edit.png"><img alt="" src="_images/edit.png" style="height: 1.2em;"/></a>.</p></li>
+<li><p>Выберите новый статус раскрывающегося списка. <span class="target" id="gos-webui-74"></span><em>Статус</em> (видеть <a class="reference internal" href="reports.html#fig-ticket-edit"><span class="std std-numref">Рис. 10.20</span></a>).</p></li>
+<li><p>При раскрытии выбора выбранного пользователя должен быть установлен билет с новым статусом. <span class="target" id="gos-webui-75"></span><em>Назначенный пользователь</em>.</p></li>
+<li><p>Введите примечание к новому статусу в соответствующем поле ввода.</p>
+<figure class="align-center" id="id22">
+<span id="fig-ticket-edit"></span><a class="reference internal image-reference" href="_images/ticket_edit.png"><img alt="_images/ticket_edit.png" src="_images/ticket_edit.png" style="width: 60%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 10.20 </span><span class="caption-text">Изменение стоимости билета</span><a class="headerlink" href="reports.html#id22" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Нажмите <span class="target" id="gos-webui-76"></span><em>Сохранять</em>.</p></li>
+</ol>
+</section>
+<section id="setting-an-alert-for-a-ticket">
+<span id="index-19"></span><h3><span class="section-number">10.6.3 </span>Установка оповещений о заявке<a class="headerlink" href="reports.html#setting-an-alert-for-a-ticket" title="Ссылка на эту рубрику">¶</a></h3>
+<p>Оповещения о билетах можно настроить для следующих мероприятий:</p>
+<ul class="simple">
+<li><p>Получите новый билет.</p></li>
+<li><p>Изменился статус назначенного билета.</p></li>
+<li><p>Изменился статус собственного билета.</p></li>
+</ul>
+<p>Оповещение о билетах на признание следующим образом:</p>
+<ol class="arabic">
+<li><p>Выбирать <span class="target" id="gos-webui-77"></span><em>Конфигурация &gt; Оповещения</em> в меню.</p></li>
+<li><p>создать новое оповещение, кнопки <a class="reference internal" href="_images/new.png"><img alt="" src="_images/new.png" style="height: 1.2em;"/></a>.</p></li>
+<li><p>Определите предупреждение (см. <a class="reference internal" href="reports.html#fig-alert-ticket"><span class="std std-numref">Рис. 10.21</span></a>).</p></li>
+<li><p>Нажмите <span class="target" id="gos-webui-78"></span><em>Сохранять</em>.</p>
+<figure class="align-center" id="id23">
+<span id="fig-alert-ticket"></span><a class="reference internal image-reference" href="_images/alert_ticket.png"><img alt="_images/alert_ticket.png" src="_images/alert_ticket.png" style="width: 60%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 10.21 </span><span class="caption-text">Установка оповещений о билете</span><a class="headerlink" href="reports.html#id23" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+</li>
+</ol>
+<p>Можно определить следующие данные оповещения:</p>
+<dl>
+<dt>Имя</dt><dd><p>Определение имени. Имя можно выбрать произвольно.</p>
+</dd>
+<dt>Комментарий</dt><dd><p>Необязательный комментарий может оставить дополнительную информацию.</p>
+</dd>
+<dt>Событие</dt><dd><p>Выбирать <span class="target" id="gos-webui-79"></span><em>Билет получен</em> если оповещение должно быть отправлено, когда будет назначен новый билет.</p>
+<p>Выбирать <span class="target" id="gos-webui-80"></span><em>Назначенный билет изменен</em> необходимо ли подавать оповещение при внесении внесенного вам билета.</p>
+<p>Выбирать <span class="target" id="gos-webui-81"></span><em>Принадлежащий билет изменен</em> следует подавать сигналы тревоги при оказании помощи со стороны специального оператора.</p>
+</dd>
+<dt>Метод</dt><dd><p>Выбор метода оповещения. Для каждого оповещения можно выбрать только один метод.</p>
+<p>Если для одного и того же события должны быть активированы разные оповещения, необходимо создать несколько оповещений и связать их с одной и той же группой.</p>
+<p>Возможные следующие методы:</p>
+</dd>
+<dt>Электронная почта</dt><dd><p>По указанному адресу отправить электронное письмо.</p>
+<p>Передача электронной почты может быть зашифрована с использованием настраиваемого ключа S/MIME или GPG. Шифрование можно выбрать в раскрывающемся списке. <span class="target" id="gos-webui-82"></span><em>Шифирование электронной почты</em> или созданные с помощью нажатия кнопки <a class="reference internal" href="_images/new.png"><img alt="" src="_images/new.png" style="height: 1.2em;"/></a>.</p>
+</dd>
+<dt>Начать задачу</dt><dd><p>Оповещение может запустить дополнительную задачу. Задача, которую вы выбираете из выпадающего списка <span class="target" id="gos-webui-83"></span><em>Начать задачу</em>.</p>
+</dd>
+<dt>Системный регистратор</dt><dd><p>Предупреждение отправки демону системного журнала.</p>
+<p>Сервер системного журнала Определяется с помощью консоли (см. главу <a class="reference internal" href="managing-gos.html#central-logging"><span class="std std-ref">6.2.12</span></a>).</p>
+</dd>
+</dl>
+</section>
+<section id="managing-tickets">
+<h3><span class="section-number">10.6.4 </span>Управление заявками<a class="headerlink" href="reports.html#managing-tickets" title="Ссылка на эту рубрику">¶</a></h3>
+<p><strong>Страница списка</strong></p>
+<p>Все выходящие билеты можно отобразить, выбрав <span class="target" id="gos-webui-84"></span><em>Стабильность &gt; Билеты на исправление</em> в меню.</p>
+<p>По всем билетам отображается следующая информация:</p>
+<dl class="simple">
+<dt>Уязвимость</dt><dd><p>Уязвимость, для которой создан билет.</p>
+</dd>
+<dt>Серьезность</dt><dd><p>Серьезность уязвимости, для которой создан билет.</p>
+</dd>
+<dt>Хозяин</dt><dd><p>Хост, на котором была обнаружена уязвимость.</p>
+</dd>
+<dt>Тип решения</dt><dd><p>Тип решения уязвимости, для которого создан тикет.</p>
+</dd>
+<dt>Назначенный пользователь</dt><dd><p>Пользователь, назначенный билет.</p>
+</dd>
+<dt>Модификация времени</dt><dd><p>Дата и время последней модификации билета.</p>
+</dd>
+<dt>Статус</dt><dd><p>Статус билета.</p>
+</dd>
+</dl>
+<p>Для всех билетов доступны следующие действия:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="_images/trashcan.png"><img alt="" src="_images/trashcan.png" style="height: 1.2em;"/></a> Переместите билет в мусорную корзину. Выбросить билет в мусорное ведро может только владелец.</p></li>
+<li><p><a class="reference internal" href="_images/edit.png"><img alt="" src="_images/edit.png" style="height: 1.2em;"/></a> Отредактируйте билет.</p></li>
+<li><p><a class="reference internal" href="_images/clone.png"><img alt="" src="_images/clone.png" style="height: 1.2em;"/></a> Клонируйте билет.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Нажав <a class="reference internal" href="_images/trashcan.png"><img alt="" src="_images/trashcan.png" style="height: 1.2em;"/></a> или <a class="reference internal" href="_images/export.png"><img alt="" src="_images/export.png" style="height: 1.2em;"/></a> под списком билетов можно одновременно переместить в корзину или экспортировать более одного билета. Раскрывающийся список используется для выбора билетов, которые будут перенесены в корзину или экспортированы.</p>
+</div>
+<p><strong>Страница раскрыта</strong></p>
+<p>Нажмите на название билета, чтобы отобразить подробную информацию о билете.
+Нажмите <a class="reference internal" href="_images/details.png"><img alt="" src="_images/details.png" style="height: 1.2em;"/></a> чтобы открыть страницу, сообщите о билете.</p>
+<p>Доступны следующие вкладки:</p>
+<dl class="simple">
+<dt>Информация</dt><dd><p>Общая информация о билетах.</p>
+</dd>
+<dt>Пользовательские теги</dt><dd><p>Присвоенные теги (см. главу <a class="reference internal" href="web-interface.html#tags"><span class="std std-ref">7.4</span></a>).</p>
+</dd>
+</dl>
+<p>В левом верхнем углу пульта доступны следующие действия:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="_images/help.png"><img alt="" src="_images/help.png" style="height: 1.2em;"/></a> Ознакомьтесь с соответствующим главой руководства пользователя.</p></li>
+<li><p><a class="reference internal" href="_images/list.png"><img alt="" src="_images/list.png" style="height: 1.2em;"/></a> Показать страницу со списком всех билетов.</p></li>
+<li><p><a class="reference internal" href="_images/clone.png"><img alt="" src="_images/clone.png" style="height: 1.2em;"/></a> Клонируйте билет.</p></li>
+<li><p><a class="reference internal" href="_images/edit.png"><img alt="" src="_images/edit.png" style="height: 1.2em;"/></a> Отредактируйте билет.</p></li>
+<li><p><a class="reference internal" href="_images/trashcan.png"><img alt="" src="_images/trashcan.png" style="height: 1.2em;"/></a> Переместите билет в мусорную корзину. Выбросить билет в мусорное ведро может только владелец.</p></li>
+<li><p><a class="reference internal" href="_images/export.png"><img alt="" src="_images/export.png" style="height: 1.2em;"/></a> Экспортируйте билет в видео XML-файла.</p></li>
+</ul>
+</section>
+</section>
+<section id="using-notes">
+<span id="notes"></span><span id="index-20"></span><h2><span class="section-number">10.7 </span>Использование заметок<a class="headerlink" href="reports.html#using-notes" title="Ссылка на эту рубрику">¶</a></h2>
+<p>Примечания разрешить внести дополнения к ВТ, а также указать в отчетах.
+Примечание можно добавить к конкретному результату, задаче, серьезности, порту или хосту, и поэтому он будет использоваться только в определенных отчетах.
+Заметку также можно обнародовать, чтобы она отображалась во всех отчетах.</p>
+<section id="creating-a-note">
+<span id="create-note"></span><span id="index-21"></span><h3><span class="section-number">10.7.1 </span>Создание заметки<a class="headerlink" href="reports.html#creating-a-note" title="Ссылка на эту рубрику">¶</a></h3>
+<section id="creating-a-note-through-a-scan-result">
+<h4><span class="section-number">10.7.1.1 </span>Создание заметок с помощью результата<a class="headerlink" href="reports.html#creating-a-note-through-a-scan-result" title="Ссылка на эту рубрику">¶</a></h4>
+<p>Заметки можно создавать другими методами.
+Самый простой способ — через соответствующий результат в отчете:</p>
+<ol class="arabic">
+<li><p>Выбирать <span class="target" id="gos-webui-85"></span><em>Сканы &gt; Отчеты</em> в меню.</p></li>
+<li><p>Нажмите на этот отчет, чтобы просмотреть результаты.</p></li>
+<li><p>Выберите вкладку <span class="target" id="gos-webui-86"></span><em>Результаты</em>.</p></li>
+<li><p>Нажмите на результат в столбце <span class="target" id="gos-webui-87"></span><em>Уязвимость</em>.</p></li>
+<li><p>Нажмите <a class="reference internal" href="_images/details.png"><img alt="" src="_images/details.png" style="height: 1.2em;"/></a> чтобы открыть страницу, сообщите о результате.</p></li>
+<li><p>Нажмите <a class="reference internal" href="_images/new_note.png"><img alt="" src="_images/new_note.png" style="height: 1.2em;"/></a> в нижней части верхней страницы.</p></li>
+<li><p>Определите примечание (см. <a class="reference internal" href="reports.html#fig-note-new"><span class="std std-numref">Рис. 10.22</span></a>).</p>
+<figure class="align-center" id="id24">
+<span id="fig-note-new"></span><a class="reference internal image-reference" href="_images/note_new.png"><img alt="_images/note_new.png" src="_images/note_new.png" style="width: 60%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 10.22 </span><span class="caption-text">Создание новой заметки</span><a class="headerlink" href="reports.html#id24" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+<p>Можно ввести эту информацию:</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Если заметка произошла внезапно, некоторые настройки уже заполнены.</p>
+</div>
+<dl>
+<dt>НТВ</dt><dd><p>ВТ, к этому применить примечание.</p>
+</dd>
+<dt>Активный</dt><dd><p>Выбор, следует ли активировать заметку.
+Также возможна активация на определенное количество дней.</p>
+</dd>
+<dt>Хозяева</dt><dd><p>Хост или диапазон хостов, для которых необходимо найти результат, чтобы применить примечание.</p>
+<div class="admonition tip">
+<p class="admonition-title">Кончик</p>
+<p>Можно ввести различные IP-адреса и CIDR-блоки.
+Таким образом, можно создавать заметки для целых подсетей без необходимости вести каждый хост в разделенном запятом списке.</p>
+<p>Увеличение количества хостов указывает на минусы, например <code class="docutils literal notranslate"><span class="pre">198.168.1.1-198.168.1.25</span></code>. Диапазон больше 4096 не имеет значения.</p>
+</div>
+</dd>
+<dt>Расположение</dt><dd><p>Порт, для которого необходимо найти результат, применить примечание.
+Для каждой заметки используются только следующие значения:</p>
+<ul class="simple">
+<li><p>Обстановка <em>Любой</em>.</p></li>
+<li><p>Конкретный порт перехода в виде числа, за которым следует <code class="docutils literal notranslate"><span class="pre">tcp</span></code> или <code class="docutils literal notranslate"><span class="pre">udp</span></code>.</p></li>
+<li><p>Неопределенный порт, указанный в тексте <code class="docutils literal notranslate"><span class="pre">общий/TCP</span></code>.</p></li>
+<li><p>Неопределенный порт, указанный в тексте <code class="docutils literal notranslate"><span class="pre">упаковка</span></code>.</p></li>
+</ul>
+</dd>
+<dt>Серьезность</dt><dd><p>Диапазон степени ЖТ, к которому следует применять примечание.</p>
+</dd>
+<dt>Задача</dt><dd><p>Выбор задачи, для которой следует применить заметку.</p>
+</dd>
+<dt>Результат</dt><dd><p>Выбор результатов, к которым следует применять примечание.</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Радиокнопка <span class="target" id="gos-webui-88"></span><em>Любой</em> необходимо выбрать, если примечание будет применено к отчетам в будущем.</p>
+</div>
+</dd>
+<dt>Текст</dt><dd><p>Текст, описывающую заметку, более подробно.</p>
+</dd>
+</dl>
+</li>
+<li><p>Нажмите <span class="target" id="gos-webui-89"></span><em>Сохранять</em>.</p>
+<p>→ Примечание отображается на странице с описанием результата (см. <a class="reference internal" href="reports.html#fig-note-result"><span class="std std-numref">Рис. 10.23</span></a>).</p>
+</li>
+</ol>
+<figure class="align-center" id="id25">
+<span id="fig-note-result"></span><a class="reference internal image-reference" href="_images/note_result.png"><img alt="_images/note_result.png" src="_images/note_result.png" style="width: 40%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 10.23 </span><span class="caption-text">Отчет с примечанием</span><a class="headerlink" href="reports.html#id25" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="creating-a-note-on-the-page-notes">
+<h4><span class="section-number">10.7.1.2 </span>Создание заметки на странице <span class="target" id="gos-webui-90"></span><em>Примечания</em><a class="headerlink" href="reports.html#creating-a-note-on-the-page-notes" title="Ссылка на эту рубрику">¶</a></h4>
+<p>Заметки можно создавать на странице. <span class="target" id="gos-webui-91"></span><em>Примечания</em> также:</p>
+<ol class="arabic">
+<li><p>Выбирать <span class="target" id="gos-webui-92"></span><em>Сканы &gt; Заметки</em> в меню.</p></li>
+<li><p>создайте новую заметку, кнопку <a class="reference internal" href="_images/new.png"><img alt="" src="_images/new.png" style="height: 1.2em;"/></a>.</p></li>
+<li><p>Введите идентификатор виртуального терминала в поле ввода. <span class="target" id="gos-webui-93"></span><em>НВТ ОИД</em>.</p></li>
+<li><p>Дайте определение заметке.</p>
+<div class="admonition tip">
+<p class="admonition-title">Кончик</p>
+<p>В поле ввода можно ввести диапазоны IPресов и CIDR-блоков. <span class="target" id="gos-webui-94"></span><em>Хозяева</em>. Таким образом, можно создавать заметки для целых подсетей без необходимости вести каждый хост в разделенном запятым списке.</p>
+<p>Примечания можно обобщить, выбрав переключатель <span class="target" id="gos-webui-95"></span><em>Любой</em> для хостов, местположений, серьезности, задач или результатов.</p>
+</div>
+</li>
+<li><p>Нажмите <span class="target" id="gos-webui-96"></span><em>Сохранять</em>.</p></li>
+</ol>
+</section>
+</section>
+<section id="managing-notes">
+<h3><span class="section-number">10.7.2 </span>Управление заметками<a class="headerlink" href="reports.html#managing-notes" title="Ссылка на эту рубрику">¶</a></h3>
+<p><strong>Страница списка</strong></p>
+<p>Все возможные заметки можно отобразить, выбрав <span class="target" id="gos-webui-97"></span><em>Сканы &gt; Заметки</em> в меню (см. <a class="reference internal" href="reports.html#fig-notes-overview"><span class="std std-numref">Рис. 10.24</span></a>).</p>
+<figure class="align-center" id="id26">
+<span id="fig-notes-overview"></span><a class="reference internal image-reference" href="_images/notes_overview.png"><img alt="_images/notes_overview.png" src="_images/notes_overview.png" style="width: 90%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 10.24 </span><span class="caption-text">Управление заметками</span><a class="headerlink" href="reports.html#id26" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+<p>Для всех заметок доступны следующие действия:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="_images/trashcan.png"><img alt="" src="_images/trashcan.png" style="height: 1.2em;"/></a> Переместите заметку в корзину.</p></li>
+<li><p><a class="reference internal" href="_images/edit.png"><img alt="" src="_images/edit.png" style="height: 1.2em;"/></a> Отредактируйте заметку.</p></li>
+<li><p><a class="reference internal" href="_images/clone.png"><img alt="" src="_images/clone.png" style="height: 1.2em;"/></a> Клонируйте заметку.</p></li>
+<li><p><a class="reference internal" href="_images/export.png"><img alt="" src="_images/export.png" style="height: 1.2em;"/></a> Экспортируйте заметку в видео XML-файла.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Нажав <a class="reference internal" href="_images/trashcan.png"><img alt="" src="_images/trashcan.png" style="height: 1.2em;"/></a> или <a class="reference internal" href="_images/export.png"><img alt="" src="_images/export.png" style="height: 1.2em;"/></a> под списком заметок можно одновременно переместить в корзину или экспортировать более одной заметки. Раскрывающийся список используется для выбора, какие заметки перемещаются в корзину или экспортируются.</p>
+</div>
+<p><strong>Страница раскрыта</strong></p>
+<p>Нажмите на название заметки, чтобы отобразить подробную информацию о заметке.
+Нажмите <a class="reference internal" href="_images/details.png"><img alt="" src="_images/details.png" style="height: 1.2em;"/></a> чтобы открыть страницу, раскрывайте о заметке.</p>
+<p>Доступны следующие вкладки:</p>
+<dl class="simple">
+<dt>Информация</dt><dd><p>Общая информация о заметке.</p>
+</dd>
+<dt>Пользовательские теги</dt><dd><p>Присвоенные теги (см. главу <a class="reference internal" href="web-interface.html#tags"><span class="std std-ref">7.4</span></a>).</p>
+</dd>
+<dt>Разрешения</dt><dd><p>Назначенные разрешения (см. главу <a class="reference internal" href="web-interface-access.html#permissions"><span class="std std-ref">8.4</span></a>).</p>
+</dd>
+</dl>
+<p>В левом верхнем углу пульта доступны следующие действия:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="_images/help.png"><img alt="" src="_images/help.png" style="height: 1.2em;"/></a> Ознакомьтесь с соответствующим главой руководства пользователя.</p></li>
+<li><p><a class="reference internal" href="_images/list.png"><img alt="" src="_images/list.png" style="height: 1.2em;"/></a> Показать страницу списка всех заметок.</p></li>
+<li><p><a class="reference internal" href="_images/new.png"><img alt="" src="_images/new.png" style="height: 1.2em;"/></a> Создайте новую заметку (см. главу <a class="reference internal" href="reports.html#create-note"><span class="std std-ref">10.7.1</span></a>).</p></li>
+<li><p><a class="reference internal" href="_images/clone.png"><img alt="" src="_images/clone.png" style="height: 1.2em;"/></a> Клонируйте заметку.</p></li>
+<li><p><a class="reference internal" href="_images/edit.png"><img alt="" src="_images/edit.png" style="height: 1.2em;"/></a> Отредактируйте заметку.</p></li>
+<li><p><a class="reference internal" href="_images/trashcan.png"><img alt="" src="_images/trashcan.png" style="height: 1.2em;"/></a> Переместите заметку в корзину.</p></li>
+<li><p><a class="reference internal" href="_images/export.png"><img alt="" src="_images/export.png" style="height: 1.2em;"/></a> Экспортируйте заметку в видео XML-файла.</p></li>
+</ul>
+</section>
+</section>
+<section id="using-overrides-and-false-positives">
+<span id="overrides"></span><span id="index-22"></span><h2><span class="section-number">10.8 </span>Использование переопределений и ложных результатов<a class="headerlink" href="reports.html#using-overrides-and-false-positives" title="Ссылка на эту рубрику">¶</a></h2>
+<p>Серьезность результата можно изменить.
+Это называется переопределением.</p>
+<p>Переопределение полезно, особенно для результатов управления, которые обнаружены как ложноположительные и имеют высокий уровень серьезности, но в будущем ему будет присвоен другой уровень серьезности.</p>
+<p>То же самое относится и к результатам, которым присвоена только степень серьезности. <span class="target" id="gos-webui-98"></span><em>Бревно</em> но на внешнем уровне ему следует присвоить более высокий уровень серьезности.
+Этим также можно управлять с помощью переопределения.</p>
+<p>Переопределения также используются для управления приемлемыми рисками.</p>
+<section id="creating-an-override">
+<span id="create-override"></span><span id="index-23"></span><h3><span class="section-number">10.8.1 </span>Создание переопределения<a class="headerlink" href="reports.html#creating-an-override" title="Ссылка на эту рубрику">¶</a></h3>
+<section id="creating-an-override-through-a-scan-result">
+<span id="override-through-result"></span><h4><span class="section-number">10.8.1.1 </span>Создание переопределения с помощью результата быстрого<a class="headerlink" href="reports.html#creating-an-override-through-a-scan-result" title="Ссылка на эту рубрику">¶</a></h4>
+<p>Переопределение можно создавать другими методами.
+Самый простой способ — через соответствующий результат в отчете:</p>
+<ol class="arabic">
+<li><p>Выбирать <span class="target" id="gos-webui-99"></span><em>Сканы &gt; Отчеты</em> в меню.</p></li>
+<li><p>Нажмите на этот отчет, чтобы просмотреть результаты.</p></li>
+<li><p>Выберите вкладку <span class="target" id="gos-webui-100"></span><em>Результаты</em>.</p></li>
+<li><p>Нажмите на результат в столбце <span class="target" id="gos-webui-101"></span><em>Уязвимость</em>.</p></li>
+<li><p>Нажмите <a class="reference internal" href="_images/details.png"><img alt="" src="_images/details.png" style="height: 1.2em;"/></a> чтобы открыть страницу, сообщите о результате.</p></li>
+<li><p>Нажмите <a class="reference internal" href="_images/new_override.png"><img alt="" src="_images/new_override.png" style="height: 1.2em;"/></a> в нижней части верхней страницы.</p></li>
+<li><p>Определите переопределение. Выберите серьезность раскрытия входящего списка. <span class="target" id="gos-webui-102"></span><em>Новая серьезность</em> (видеть <a class="reference internal" href="reports.html#fig-override-new"><span class="std std-numref">Рис. 10.25</span></a>).</p>
+<p>Альтернативно можно создать собственную серьезность.
+Приводятся только числа от 0,0 до 10,0 с максимум одним десятичным знаком и точкой в ​​качестве десятичного разделителя.</p>
+<figure class="align-center" id="id27">
+<span id="fig-override-new"></span><a class="reference internal image-reference" href="_images/override_new.png"><img alt="_images/override_new.png" src="_images/override_new.png" style="width: 60%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 10.25 </span><span class="caption-text">Создание нового переопределения</span><a class="headerlink" href="reports.html#id27" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+<p>Можно ввести эту информацию:</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Если переопределение происходит внезапно, некоторые настройки уже заполнены.</p>
+</div>
+<dl>
+<dt>НТВ</dt><dd><p>VT, для которого применяется переопределение.</p>
+</dd>
+<dt>Активный</dt><dd><p>Выбор, следует ли активировать переопределение.
+Также возможна активация на определенное количество дней.</p>
+</dd>
+<dt>Хозяева</dt><dd><p>Хост или диапазон хостов, для которых необходимо найти результат, чтобы применить переопределение.</p>
+<div class="admonition tip">
+<p class="admonition-title">Кончик</p>
+<p>Можно ввести различные IP-адреса и CIDR-блоки.
+Таким образом, можно создавать переопределения для целых подсетей без необходимости вести каждый хост в разделенном запятом списке.</p>
+<p>Увеличение количества хостов указывает на минусы, например <code class="docutils literal notranslate"><span class="pre">198.168.1.1-198.168.1.25</span></code>. Диапазон больше 4096 не имеет значения.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Если результат соответствует нескольким переопределениям, например одно переопределение для хостов сети, а другое — для хоста в данном случае, примените более конкретное переопределение (в зависимости от результата, задачи, порта и серьезности).
+Если результат соответствует нескольким таким конкретным переопределениям, примените последнее созданное переопределение.</p>
+</div>
+</dd>
+<dt>Расположение</dt><dd><p>Порт, для которого необходимо найти результат, применить переопределение.
+Для каждого переопределения используются только следующие значения:</p>
+<ul class="simple">
+<li><p>Обстановка <em>Любой</em>.</p></li>
+<li><p>Конкретный порт перехода в виде числа, за которым следует <code class="docutils literal notranslate"><span class="pre">tcp</span></code> или <code class="docutils literal notranslate"><span class="pre">udp</span></code>.</p></li>
+<li><p>Неопределенный порт, указанный в тексте <code class="docutils literal notranslate"><span class="pre">общий/TCP</span></code>.</p></li>
+<li><p>Неопределенный порт, указанный в тексте <code class="docutils literal notranslate"><span class="pre">упаковка</span></code>.</p></li>
+</ul>
+</dd>
+<dt>Серьезность</dt><dd><p>Увеличьте серьезности ЖТ, для чего следует применить корректирующие действия.</p>
+</dd>
+<dt>Новая серьезность</dt><dd><p>Уровень серьезности, который должен иметь ТН после применения переопределения.</p>
+<p>Класс серьезности можно выбрать из раскрывающегося списка.
+В зависимости от серьезности класса предопределена новая серьезность:</p>
+<ul class="simple">
+<li><p>Критический: 10,0</p></li>
+<li><p>Высокий: 7,0</p></li>
+<li><p>Средний: 5,0</p></li>
+<li><p>Низкий: 2,0</p></li>
+<li><p>Журнал: 0.0</p></li>
+<li><p>Ложное внедрение</p></li>
+</ul>
+<p>Альтернативно в поле ввода можно ввести новую серьезность. <em>Другой</em>.
+Только цифры между <code class="docutils literal notranslate"><span class="pre">0.0</span></code> и <code class="docutils literal notranslate"><span class="pre">10.0</span></code> Максимум один десятичный знак и точка в качестве десятичного разделителя.</p>
+</dd>
+<dt>Задача</dt><dd><p>Выбор задач, для которых следует применить переопределение.</p>
+</dd>
+<dt>Результат</dt><dd><p>Выбор результатов, к которым следует применять переопределение.</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Радиокнопка <span class="target" id="gos-webui-103"></span><em>Любой</em> необходимо выбрать, если переопределение будет применено к отчетам в будущем.</p>
+</div>
+</dd>
+<dt>Текст</dt><dd><p>Текст, описывающее переопределение более подробно.</p>
+</dd>
+</dl>
+</li>
+<li><p>Нажмите <span class="target" id="gos-webui-104"></span><em>Сохранять</em>.</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Если к одному и тому же ТН в одном отчете применяется несколько переопределений, применяется и применяется самое последнее переопределение.</p>
+</div>
+</section>
+<section id="creating-an-override-on-the-page-overrides">
+<h4><span class="section-number">10.8.1.2 </span>Создание переопределения на странице <span class="target" id="gos-webui-105"></span><em>Переопределения</em><a class="headerlink" href="reports.html#creating-an-override-on-the-page-overrides" title="Ссылка на эту рубрику">¶</a></h4>
+<p>Переопределения можно создать на странице. <span class="target" id="gos-webui-106"></span><em>Переопределения</em> также:</p>
+<ol class="arabic">
+<li><p>Выбирать <span class="target" id="gos-webui-107"></span><em>Сканирование &gt; Переопределения</em> в меню.</p></li>
+<li><p>создадим новое переопределение, щелкнув <a class="reference internal" href="_images/new.png"><img alt="" src="_images/new.png" style="height: 1.2em;"/></a>.</p></li>
+<li><p>Введите идентификатор виртуального терминала в поле ввода. <span class="target" id="gos-webui-108"></span><em>НВТ ОИД</em>.</p></li>
+<li><p>Определите переопределение.</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Информация для ввода в поля ввода см. в главе. <a class="reference internal" href="reports.html#override-through-result"><span class="std std-ref">10.8.1.1</span></a>.</p>
+</div>
+</li>
+<li><p>Выберите серьезность раскрытия входящего списка. <span class="target" id="gos-webui-109"></span><em>Новая серьезность</em>.</p>
+<p>Альтернативно в поле ввода можно ввести новую серьезность. <em>Другой</em>.
+Только цифры между <code class="docutils literal notranslate"><span class="pre">0.0</span></code> и <code class="docutils literal notranslate"><span class="pre">10.0</span></code> Максимум один десятичный знак и точка в качестве десятичного разделителя.</p>
+</li>
+<li><p>Нажмите <span class="target" id="gos-webui-110"></span><em>Сохранять</em>.</p></li>
+</ol>
+</section>
+</section>
+<section id="managing-overrides">
+<h3><span class="section-number">10.8.2 </span>Управление переопределениями<a class="headerlink" href="reports.html#managing-overrides" title="Ссылка на эту рубрику">¶</a></h3>
+<p><strong>Страница списка</strong></p>
+<p>Все варианты переопределения можно отобразить, выбрав <span class="target" id="gos-webui-111"></span><em>Сканирование &gt; Переопределения</em> в меню.</p>
+<p>Для всех переопределений доступны следующие действия:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="_images/trashcan.png"><img alt="" src="_images/trashcan.png" style="height: 1.2em;"/></a> Переместите переопределение в корзину.</p></li>
+<li><p><a class="reference internal" href="_images/edit.png"><img alt="" src="_images/edit.png" style="height: 1.2em;"/></a> Отредактируйте переопределение.</p></li>
+<li><p><a class="reference internal" href="_images/clone.png"><img alt="" src="_images/clone.png" style="height: 1.2em;"/></a> Клонировать переопределение.</p></li>
+<li><p><a class="reference internal" href="_images/export.png"><img alt="" src="_images/export.png" style="height: 1.2em;"/></a> Экспортируйте переопределение в видео XML-файла.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Нажав <a class="reference internal" href="_images/trashcan.png"><img alt="" src="_images/trashcan.png" style="height: 1.2em;"/></a> или <a class="reference internal" href="_images/export.png"><img alt="" src="_images/export.png" style="height: 1.2em;"/></a> под списком переопределений можно переместить в корзину или экспортировать более одного переопределения одновременно. Раскрывающийся список используется для выбора того, какие переопределения перемещаются в корзину или экспортируются.</p>
+</div>
+<p><strong>Страница раскрыта</strong></p>
+<p>Нажмите на название переопределения, чтобы отобразить подробную информацию о переопределении.
+Нажмите <a class="reference internal" href="_images/details.png"><img alt="" src="_images/details.png" style="height: 1.2em;"/></a> чтобы открыть страницу, о переопределении.</p>
+<p>Доступны следующие вкладки:</p>
+<dl class="simple">
+<dt>Информация</dt><dd><p>Общая информация о переопределении.</p>
+</dd>
+<dt>Пользовательские теги</dt><dd><p>Присвоенные теги (см. главу <a class="reference internal" href="web-interface.html#tags"><span class="std std-ref">7.4</span></a>).</p>
+</dd>
+<dt>Разрешения</dt><dd><p>Назначенные разрешения (см. главу <a class="reference internal" href="web-interface-access.html#permissions"><span class="std std-ref">8.4</span></a>).</p>
+</dd>
+</dl>
+<p>В левом верхнем углу пульта доступны следующие действия:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="_images/help.png"><img alt="" src="_images/help.png" style="height: 1.2em;"/></a> Ознакомьтесь с соответствующим главой руководства пользователя.</p></li>
+<li><p><a class="reference internal" href="_images/list.png"><img alt="" src="_images/list.png" style="height: 1.2em;"/></a> Показать список всех переопределений.</p></li>
+<li><p><a class="reference internal" href="_images/new.png"><img alt="" src="_images/new.png" style="height: 1.2em;"/></a> создать новое переопределение (см. главу <a class="reference internal" href="reports.html#create-override"><span class="std std-ref">10.8.1</span></a>).</p></li>
+<li><p><a class="reference internal" href="_images/clone.png"><img alt="" src="_images/clone.png" style="height: 1.2em;"/></a> Клонировать переопределение.</p></li>
+<li><p><a class="reference internal" href="_images/edit.png"><img alt="" src="_images/edit.png" style="height: 1.2em;"/></a> Отредактируйте переопределение.</p></li>
+<li><p><a class="reference internal" href="_images/trashcan.png"><img alt="" src="_images/trashcan.png" style="height: 1.2em;"/></a> Переместите переопределение в корзину.</p></li>
+<li><p><a class="reference internal" href="_images/export.png"><img alt="" src="_images/export.png" style="height: 1.2em;"/></a> Экспортируйте переопределение в видео XML-файла.</p></li>
+</ul>
+</section>
+<section id="disabling-and-enabling-overrides">
+<span id="index-24"></span><h3><span class="section-number">10.8.3 </span>Отключение и включение переопределений<a class="headerlink" href="reports.html#disabling-and-enabling-overrides" title="Ссылка на эту рубрику">¶</a></h3>
+<p>Если при переопределении настраиваются параметры результатов, их можно включить или отключить.</p>
+<p>Это делается путем установки фильтра следующим образом:</p>
+<ol class="arabic">
+<li><p>Нажмите <a class="reference internal" href="_images/edit.png"><img alt="" src="_images/edit.png" style="height: 1.2em;"/></a> в панели фильтров.</p></li>
+<li><p>Для <span class="target" id="gos-webui-112"></span><em>Применить переопределение</em> выберите переключатель <span class="target" id="gos-webui-113"></span><em>Да</em> чтобы отключить переопределение.</p>
+<p>Для <span class="target" id="gos-webui-114"></span><em>Применить переопределение</em> выберите переключатель <span class="target" id="gos-webui-115"></span><em>Нет</em> чтобы отключить переопределение.</p>
+</li>
+<li><p>Нажмите <span class="target" id="gos-webui-116"></span><em>Обновлять</em>.</p></li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Кончик</p>
+<p>Переопределения можно помечать в экспортированных отчетах (см. главу) <a class="reference internal" href="reports.html#exporting-report"><span class="std std-ref">10.2.2</span></a>).</p>
+</div>
+</section>
+</section>
+</section>
+</article>
+</div>
+<footer>
+<div class="related-pages">
+<a class="next-page" href="compliance-and-special-scans.html">
+<div class="page-info">
+<div class="context">
+<span>Следующий</span>
+</div>
+<div class="title"><span class="section-number">11 </span>Выполнение сотрудничества и профессиональное обслуживание</div>
+</div>
+<svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+</a>
+<a class="prev-page" href="scanning.html">
+<svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+<div class="page-info">
+<div class="context">
+<span>Предыдущий</span>
+</div>
+<div class="title"><span class="section-number">9 </span>Системы сканирования</div>
+</div>
+</a>
+</div>
+<div class="bottom-of-page">
+<div class="left-details">
+<div class="copyright">
+                Copyright © 2015–2026, Ак Шумкар
+            </div>
+<div class="last-updated">
+              Последнее обновление: 13 марта 2026 г.</div>
+</div>
+<div class="right-details">
+</div>
+</div>
+</footer>
+</div>
+<aside class="toc-drawer">
+<div class="toc-sticky toc-scroll">
+<div class="toc-title-container">
+<span class="toc-title">
+            На этой странице
+          </span>
+</div>
+<div class="toc-tree-container">
+<div class="toc-tree">
+<ul>
+<li><a class="reference internal" href="reports.html#">10 отчетов и управление уязвимостями</a><ul>
+<li><a class="reference internal" href="reports.html#configuring-and-managing-report-formats">10.1 Настройка и управление форматами отчетов</a><ul>
+<li><a class="reference internal" href="reports.html#default-report-formats">10.1.1 Формат отчета по умолчанию</a></li>
+<li><a class="reference internal" href="reports.html#managing-report-formats">10.1.2 Управление формами отчетов</a></li>
+<li><a class="reference internal" href="reports.html#adding-a-report-format">10.1.3 Добавление формы отчета</a></li>
+<li><a class="reference internal" href="reports.html#customizing-report-formats-with-report-configurations">10.1.4 Настройка форматов отчетов с помощью конфигураций отчетов</a></li>
+<li><a class="reference internal" href="reports.html#managing-report-configurations">10.1.5 Управление отчетами</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="reports.html#using-and-managing-reports">10.2 Использование и управление отчетами</a><ul>
+<li><a class="reference internal" href="reports.html#reading-a-report">10.2.1 Чтение отчета</a><ul>
+<li><a class="reference internal" href="reports.html#results-of-a-report">10.2.1.1 Отчет о результатах</a></li>
+<li><a class="reference internal" href="reports.html#interpreting-a-report">10.2.1.2 Интерпретация отчета</a></li>
+<li><a class="reference internal" href="reports.html#filtering-a-report">10.2.1.3 Фильтрация отчета</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="reports.html#exporting-a-report">10.2.2 Экспортный отчет</a></li>
+<li><a class="reference internal" href="reports.html#importing-a-report">10.2.3 Отчет об импорте</a></li>
+<li><a class="reference internal" href="reports.html#triggering-an-alert-for-a-report">10.2.4 Вызов оповещений об отчете</a></li>
+<li><a class="reference internal" href="reports.html#creating-a-delta-report">10.2.5 Создание дельта-отчета</a></li>
+<li><a class="reference internal" href="reports.html#quality-of-detection-concept">10.2.6 Концепция определения качества</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="reports.html#displaying-all-existing-results">10.3 Отображение всех существующих результатов</a></li>
+<li><a class="reference internal" href="reports.html#displaying-all-existing-vulnerabilities">10.4 Отображение всех существующих уязвимостей</a></li>
+<li><a class="reference internal" href="reports.html#trend-of-vulnerabilities">10.5 Тенденция уязвимостей</a></li>
+<li><a class="reference internal" href="reports.html#using-tickets">10.6 Использование билетов</a><ul>
+<li><a class="reference internal" href="reports.html#creating-a-ticket">10.6.1 Создание заявок</a></li>
+<li><a class="reference internal" href="reports.html#changing-the-status-of-a-ticket">10.6.2 Изменение условий заявки</a></li>
+<li><a class="reference internal" href="reports.html#setting-an-alert-for-a-ticket">10.6.3 Установка оповещений о заявке</a></li>
+<li><a class="reference internal" href="reports.html#managing-tickets">10.6.4 Управление заявками</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="reports.html#using-notes">10.7 Использование заметок</a><ul>
+<li><a class="reference internal" href="reports.html#creating-a-note">10.7.1 Создание заметки</a><ul>
+<li><a class="reference internal" href="reports.html#creating-a-note-through-a-scan-result">10.7.1.1 Создание заметки на основе результата обработки</a></li>
+<li><a class="reference internal" href="reports.html#creating-a-note-on-the-page-notes">10.7.1.2 Создание заметки на странице <em>Примечания</em></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="reports.html#managing-notes">10.7.2 Управление заметками</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="reports.html#using-overrides-and-false-positives">10.8 Использование переопределений и ложных срабатываний</a><ul>
+<li><a class="reference internal" href="reports.html#creating-an-override">10.8.1 Создание переопределения</a><ul>
+<li><a class="reference internal" href="reports.html#creating-an-override-through-a-scan-result">10.8.1.1 Создание переопределения с помощью программного результата</a></li>
+<li><a class="reference internal" href="reports.html#creating-an-override-on-the-page-overrides">10.8.1.2 Создание переопределения на странице <em>Переопределения</em></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="reports.html#managing-overrides">10.8.2 Управление переопределениями</a></li>
+<li><a class="reference internal" href="reports.html#disabling-and-enabling-overrides">10.8.3 Отключение и включение переопределений</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</aside>
+</div>
+</div><script src="_static/documentation_options.js%3Fv=bd398bb6"></script>
+<script src="_static/doctools.js%3Fv=9a2dae69"></script>
+<script src="_static/sphinx_highlight.js%3Fv=dc90522c"></script>
+<script src="_stati_static/scripts/furo.js%3Fv=46bd48cc"></script>
+</body></html>

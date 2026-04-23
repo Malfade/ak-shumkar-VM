@@ -1,0 +1,905 @@
+<html lang="ru"><body><meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="light dark" name="color-scheme"/><meta content="width=device-width, initial-scale=1" name="viewport"/>
+<link href="genindex.html" rel="index" title="Index"/><link href="search.html" rel="search" title="Search"/><link href="master-sensor-setup.html" rel="next" title="15 Использование настройки главного датчика"/><link href="managing-secinfo.html" rel="prev" title="13 Управление SecInfo"/>
+<link as="image" href="/img/ak-shumkar.png" rel="prefetch"/>
+<link as="image" href="/img/ak-shumkar.png" rel="prefetch"/>
+<link href="/img/ak-shumkar.png" rel="icon" type="image/png"/><link href="/img/ak-shumkar.png" rel="shortcut icon" type="image/png"/><title>14 Использование протокола управления «Ак Шумкар» - АК-ШУМКАР – ГОС 24.10.11</title>
+<link href="_static/pygments.css%3Fv=8e8a900e.css" rel="stylesheet" type="text/css"/>
+<link href="_static/styles/furo.css%3Fv=580074bf.css" rel="stylesheet" type="text/css"/>
+<link href="_static/sphinx_greenbone.css%3Fv=8ef0bb58.css" rel="stylesheet" type="text/css"/>
+<link href="_static/styles/furo-extensions.css%3Fv=8dab3a3b.css" rel="stylesheet" type="text/css"/>
+<style>
+  body {
+    --color-code-background: #ffffff;
+  --color-code-foreground: black;
+  --font-stack: Roboto, Helvetica, sans-serif;
+  --color-content-foreground: #4D4D4D;
+  --color-foreground-primary: 4D4D4D;
+  --color-foreground-secondary: #808080;
+  --color-code-background: #333333;
+  --color-code-foreground: #E6E6E6;
+  --color-admonition-title--note: #0E823E;
+  --color-admonition-title--note-background: #D8F1E2;
+  --color-admonition-title--warning: #E5393D;
+  --color-admonition-title--warning-background: #FBDDDE;
+  --admonition-font-size: 0.9rem;
+  --color-background-primary: #FFFFFF;
+  --color-background-secondary: #F5F5F5;
+  --color-sidebar-background: #F5F5F5;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --font-stack: Roboto, Helvetica, sans-serif;
+  --color-content-foreground: #F5F5F5;
+  --color-foreground-primary: F5F5F5;
+  --color-foreground-secondary: #E6E6E6;
+  --color-code-background: #333333;
+  --color-code-foreground: #E6E6E6;
+  --color-admonition-title--note: #11AB51;
+  --admonition-font-size: 0.9rem;
+  --color-background-primary: #171717;
+  --color-background-secondary: #4D4D4D;
+  --color-sidebar-background: #333333;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --font-stack: Roboto, Helvetica, sans-serif;
+  --color-content-foreground: #F5F5F5;
+  --color-foreground-primary: F5F5F5;
+  --color-foreground-secondary: #E6E6E6;
+  --color-code-background: #333333;
+  --color-code-foreground: #E6E6E6;
+  --color-admonition-title--note: #11AB51;
+  --admonition-font-size: 0.9rem;
+  --color-background-primary: #171717;
+  --color-background-secondary: #4D4D4D;
+  --color-sidebar-background: #333333;
+  
+      }
+    }
+  }
+</style>
+<script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+<svg style="display: none;" xmlns="http://www.w3.org/2000/svg">
+<symbol id="svg-toc" viewbox="0 0 24 24">
+<title>Содержание</title>
+<svg fill="currentColor" stroke="currentColor" stroke-width="0" viewbox="0 0 1024 1024">
+<path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"></path>
+</svg>
+</symbol>
+<symbol id="svg-menu" viewbox="0 0 24 24">
+<title>Меню</title>
+<svg class="feather-menu" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<line x1="3" x2="21" y1="12" y2="12"></line>
+<line x1="3" x2="21" y1="6" y2="6"></line>
+<line x1="3" x2="21" y1="18" y2="18"></line>
+</svg>
+</symbol>
+<symbol id="svg-arrow-right" viewbox="0 0 24 24">
+<title>Расширять</title>
+<svg class="feather-chevron-right" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<polyline points="9 18 15 12 9 6"></polyline>
+</svg>
+</symbol>
+<symbol id="svg-sun" viewbox="0 0 24 24">
+<title>Светлый режим</title>
+<svg class="feather-sun" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<circle cx="12" cy="12" r="5"></circle>
+<line x1="12" x2="12" y1="1" y2="3"></line>
+<line x1="12" x2="12" y1="21" y2="23"></line>
+<line x1="4.22" x2="5.64" y1="4.22" y2="5.64"></line>
+<line x1="18.36" x2="19.78" y1="18.36" y2="19.78"></line>
+<line x1="1" x2="3" y1="12" y2="12"></line>
+<line x1="21" x2="23" y1="12" y2="12"></line>
+<line x1="4.22" x2="5.64" y1="19.78" y2="18.36"></line>
+<line x1="18.36" x2="19.78" y1="5.64" y2="4.22"></line>
+</svg>
+</symbol>
+<symbol id="svg-moon" viewbox="0 0 24 24">
+<title>Темный режим</title>
+<svg class="icon-tabler-moon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 0h24v24H0z" fill="none" stroke="none"></path>
+<path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"></path>
+</svg>
+</symbol>
+<symbol id="svg-sun-with-moon" viewbox="0 0 24 24">
+<title>Автоматический свет/темнота, в светлом режиме</title>
+<svg class="icon-custom-derived-from-feather-sun-and-tabler-moon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z" style="opacity: 50%"></path>
+<line x1="14.5" x2="14.5" y1="3.25" y2="1.25"></line>
+<line x1="14.5" x2="14.5" y1="15.85" y2="17.85"></line>
+<line x1="10.044" x2="8.63" y1="5.094" y2="3.68"></line>
+<line x1="19" x2="20.414" y1="14.05" y2="15.464"></line>
+<line x1="8.2" x2="6.2" y1="9.55" y2="9.55"></line>
+<line x1="20.8" x2="22.8" y1="9.55" y2="9.55"></line>
+<line x1="10.044" x2="8.63" y1="14.006" y2="15.42"></line>
+<line x1="19" x2="20.414" y1="5.05" y2="3.636"></line>
+<circle cx="14.5" cy="9.55" r="3.6"></circle>
+</svg>
+</symbol>
+<symbol id="svg-moon-with-sun" viewbox="0 0 24 24">
+<title>Автоматический светлый/темный, в темном режиме</title>
+<svg class="icon-custom-derived-from-feather-sun-and-tabler-moon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"></path>
+<line style="opacity: 50%" x1="18" x2="18" y1="3.705" y2="2.5"></line>
+<line style="opacity: 50%" x1="18" x2="18" y1="11.295" y2="12.5"></line>
+<line style="opacity: 50%" x1="15.316" x2="14.464" y1="4.816" y2="3.964"></line>
+<line style="opacity: 50%" x1="20.711" x2="21.563" y1="10.212" y2="11.063"></line>
+<line style="opacity: 50%" x1="14.205" x2="13.001" y1="7.5" y2="7.5"></line>
+<line style="opacity: 50%" x1="21.795" x2="23" y1="7.5" y2="7.5"></line>
+<line style="opacity: 50%" x1="15.316" x2="14.464" y1="10.184" y2="11.036"></line>
+<line style="opacity: 50%" x1="20.711" x2="21.563" y1="4.789" y2="3.937"></line>
+<circle cx="18" cy="7.5" r="2.169" style="opacity: 50%"></circle>
+</svg>
+</symbol>
+<symbol id="svg-pencil" viewbox="0 0 24 24">
+<svg class="icon-tabler-pencil-code" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4"></path>
+<path d="M13.5 6.5l4 4"></path>
+<path d="M20 21l2 -2l-2 -2"></path>
+<path d="M17 17l-2 2l2 2"></path>
+</svg>
+</symbol>
+<symbol id="svg-eye" viewbox="0 0 24 24">
+<svg class="icon-tabler-eye-code" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 0h24v24H0z" fill="none" stroke="none"></path>
+<path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"></path>
+<path d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008"></path>
+<path d="M20 21l2 -2l-2 -2"></path>
+<path d="M17 17l-2 2l2 2"></path>
+</svg>
+</symbol>
+</svg>
+<input aria-label="Toggle site navigation sidebar" class="sidebar-toggle" id="__navigation" name="__navigation" type="checkbox"/>
+<input aria-label="Toggle table of contents sidebar" class="sidebar-toggle" id="__toc" name="__toc" type="checkbox"/>
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+<a class="skip-to-content muted-link" href="gmp.html#furo-main-content">Перейти к содержимому</a>
+<div class="page">
+<header class="mobile-header">
+<div class="header-left">
+<label class="nav-overlay-icon" for="__navigation">
+<span class="icon"><svg><use href="#svg-menu"></use></svg></span>
+</label>
+</div>
+<div class="header-center">
+<a href="index.html"><div class="brand">АК-ШУМКАР – ГОС 24.10.11</div></a>
+</div>
+<div class="header-right">
+<div class="theme-toggle-container theme-toggle-header">
+<button aria-label="Переключить светлую/темную/автоматическую цветовую тему" class="theme-toggle">
+<svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+<svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+<svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+<svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+</button>
+</div>
+<label class="toc-overlay-icon toc-header-icon" for="__toc">
+<span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+</label>
+</div>
+</header>
+<aside class="sidebar-drawer">
+<div class="sidebar-container">
+<div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
+<div class="sidebar-logo-container">
+<img alt="Ak-shumkar Logo" class="sidebar-logo only-light" src="/img/ak-shumkar.png"/>
+<img alt="Ak-shumkar Logo" class="sidebar-logo only-dark" src="/img/ak-shumkar.png"/>
+</div>
+<span class="sidebar-brand-text">АК-ШУМКАР – ГОС 24.10.11</span>
+</a><form action="search.html" class="sidebar-search-container" method="get" role="search">
+<input aria-label="Search" class="sidebar-search" name="q" placeholder="Search"/>
+<input name="check_keywords" type="hidden" value="yes"/>
+<input name="area" type="hidden" value="default"/>
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">1 Введение</a></li>
+<li class="toctree-l1"><a class="reference internal" href="read-before-use.html">2 Прочтите перед использованием</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appliance-overview.html">3 АК-ШУМКАР – Обзор</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setting-up-the-appliance.html">4 Настройка АК-ШУМКАР</a></li>
+<li class="toctree-l1"><a class="reference internal" href="upgrading-gos.html">5 Обновление АК-ШУМКАР до последней основной версии</a></li>
+<li class="toctree-l1"><a class="reference internal" href="managing-gos.html">6 Управление операционной системой «Ак Шумкар»</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web-interface.html">7 Знакомство с веб-интерфейсом</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web-interface-access.html">8 Управление доступом к веб-интерфейсу</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scanning.html">9 Сканирование системы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reports.html">10 отчетов и управление уязвимостями</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compliance-and-special-scans.html">11 Выполнение сканирования на соответствие и специального сканирования</a></li>
+<li class="toctree-l1"><a class="reference internal" href="managing-assets.html">12 Управление активами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="managing-secinfo.html">13 Управление информацией о безопасности</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="gmp.html#">14 Использование протокола управления «Ак Шумкар»</a></li>
+<li class="toctree-l1"><a class="reference internal" href="master-sensor-setup.html">15 Использование настройки главного датчика</a></li>
+<li class="toctree-l1"><a class="reference internal" href="performance.html">16 Управление производительностью</a></li>
+<li class="toctree-l1"><a class="reference internal" href="connecting-other-systems.html">17 Подключение АК-ШУМКАР к другим системам</a></li>
+<li class="toctree-l1"><a class="reference internal" href="architecture.html">18 Архитектура</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">19 часто задаваемых вопросов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">20 Глоссарий</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</aside>
+<div class="main">
+<div class="content">
+<div class="article-container">
+<a class="back-to-top muted-link" href="gmp.html#">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+</svg>
+<span>Вернуться наверх</span>
+</a>
+<div class="content-icon-container">
+<div class="theme-toggle-container theme-toggle-content">
+<button aria-label="Переключить светлую/темную/автоматическую цветовую тему" class="theme-toggle">
+<svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+<svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+<svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+<svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+</button>
+</div>
+<label class="toc-overlay-icon toc-content-icon" for="__toc">
+<span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+</label>
+</div>
+<article id="furo-main-content" role="main">
+<section id="using-the-ak-shumkar-management-protocol">
+<span id="gmp"></span><span id="index-0"></span><h1><span class="section-number">14 </span>Использование протокола управления «Ак Шумкар»<a class="headerlink" href="gmp.html#using-the-ak-shumkar-management-protocol" title="Link to this heading">¶</a></h1>
+<p>Функциональность управления уязвимостями АК-ШУМКАР также доступна через протокол управления Ак-Шумкар (GMP).
+GMP — это удобочитаемый протокол запросов и ответов без сохранения состояния на основе XML.</p>
+<p>«Ак Шумкар» предоставляет инструменты управления уязвимостями «Ак Шумкар» (gvm-tools) для доступа к функциям, предоставляемым GMP (см. главу <a class="reference internal" href="gmp.html#tools-gmp"><span class="std std-ref">14.3</span></a>).</p>
+<p>Новейшая версия GMP документирована по адресу <a class="reference external" href="https://docs.ak-shumkar.net/API/GMP/gmp-22.7.html">https://docs.ak-shumkar.net/API/GMP/gmp-22.7.html</a>.</p>
+<section id="changes-to-gmp">
+<span id="index-1"></span><h2><span class="section-number">14.1 </span>Изменения в GMP<a class="headerlink" href="gmp.html#changes-to-gmp" title="Link to this heading">¶</a></h2>
+<p>GMP регулярно обновляется для внесения изменений в функциональность, предоставляемую базовой службой, и для обеспечения согласованного и комплексного интерфейса.</p>
+<p>Обновления приводят к появлению новой версии GMP.
+Каждая новая версия включает список добавленных, измененных и удаленных элементов протокола, например команд или атрибутов.
+Самая последняя версия списка доступна по адресу <a class="reference external" href="https://docs.ak-shumkar.net/API/GMP/gmp-22.7.html#changes">https://docs.ak-shumkar.net/API/GMP/gmp-22.7.html#changes</a>.</p>
+<p>В зависимости от изменений, старая версия может быть доступна некоторое время.
+На этом переходном этапе новая и старая версии доступны одновременно.</p>
+<p>Этот список помогает как можно быстрее подготовиться к предстоящим изменениям.
+Он не представляет полный список предстоящих изменений.</p>
+</section>
+<section id="activating-gmp">
+<span id="id1"></span><h2><span class="section-number">14.2 </span>Активация GMP<a class="headerlink" href="gmp.html#activating-gmp" title="Link to this heading">¶</a></h2>
+<p>Прежде чем использовать GMP, его необходимо активировать на устройстве.</p>
+<p>Хотя веб-интерфейс использует GMP локально на устройстве, по умолчанию GMP недоступен удаленно через сеть.</p>
+<p>Удаленную службу GMP можно активировать с помощью меню администрирования ГОС (см. главу <a class="reference internal" href="managing-gos.html#configuring-gmp"><span class="std std-ref">6.2.4.2</span></a>).</p>
+<p>Как правило, доступ к GMP аутентифицируется и шифруется с помощью SSL/TLS.
+Используются те же пользователи, что и для веб-интерфейса.
+На пользователи распространяются те же ограничения и те же разрешения.</p>
+</section>
+<section id="using-gvm-tools">
+<span id="tools-gmp"></span><span id="index-2"></span><h2><span class="section-number">14.3 </span>Использование gvm-инструментов<a class="headerlink" href="gmp.html#using-gvm-tools" title="Link to this heading">¶</a></h2>
+<p>Инструменты управления уязвимостями «Ак Шумкар» (gvm-tools) представляют собой набор инструментов, которые обеспечивают доступ к функциям протокола управления «Ак Шумкар» (GMP).
+Сценарии GMP, выполняемые с <code class="docutils literal notranslate"><span class="pre">gvm-скрипт</span></code> используйте API, предоставленный библиотекой <a class="reference external" href="https://ak-shumkar.github.io/python-gvm/">Python-GVM</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>python-gvm автоматически устанавливается при установке gvm-tools.</p>
+</div>
+<p>gvm-tools доступны в виде интерфейса командной строки (CLI) и оболочки Python для любой операционной системы, поддерживающей Python.</p>
+<p>Для использования gvm-tools с GOS 24.10 требуются следующие версии:</p>
+<ul class="simple">
+<li><p>gvm-tools: 25.1.1 или выше</p></li>
+<li><p>python-gvm: 26.0.0 или выше</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>И gvm-tools, и python-gvm используют другую схему версий, чем GOS, поэтому версии gvm-tools, python-gvm и GOS не обязательно совпадают.</p>
+<p>Рекомендуется использовать последние версии gvm-tools и python-gvm.</p>
+</div>
+<p>gvm-tools можно скачать на официальном сайте проекта. <a class="reference external" href="https://github.com/ak-shumkar/gvm-tools">Репозиторий GitHub</a>.
+Требуется Python 3.9 или более поздней версии.
+Чтобы установить gvm-tools, следуйте инструкциям, приведенным на странице <a class="reference external" href="https://ak-shumkar.github.io/gvm-tools/">https://ak-shumkar.github.io/gvm-tools/</a>.</p>
+<div class="admonition important">
+<p class="admonition-title">Важный</p>
+<p>Внешние ссылки на сайт загрузки «Ак Шумкар» чувствительны к регистру.</p>
+<p>Обратите внимание, что прописные и строчные буквы, а также специальные символы необходимо вводить точно так, как они написаны в сносках.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>gvm-tools лицензируются по лицензии GNU General Public License v3.0 и могут быть адаптированы и созданы для других случаев использования на основе исходного кода.</p>
+</div>
+<p>gvm-tools полезны для обработки больших объемов или определенных подмножеств данных, предоставляемых продуктами АК-ШУМКАР (<code class="docutils literal notranslate"><span class="pre">партия</span> <span class="pre">обработка</span></code>, <code class="docutils literal notranslate"><span class="pre">сценарии</span></code>).</p>
+<section id="using-gvm-cli">
+<span id="index-3"></span><h3><span class="section-number">14.3.1 </span>С использованием <code class="docutils literal notranslate"><span class="pre">GVM-кли</span></code><a class="headerlink" href="gmp.html#using-gvm-cli" title="Link to this heading">¶</a></h3>
+<p>Инструмент командной строки <code class="docutils literal notranslate"><span class="pre">GVM-кли</span></code> поставляемый «Ак Шумкар», предлагает легкий доступ к широкому функционалу, предоставляемому командами GMP на основе XML, описанными в разделе <a class="reference external" href="https://docs.ak-shumkar.net/API/GMP/gmp-22.7.html">https://docs.ak-shumkar.net/API/GMP/gmp-22.7.html</a>.
+Необязательные аргументы в API идентифицируются <code class="docutils literal notranslate"><span class="pre">?</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">GVM-кли</span></code> поддерживает несколько ключей командной строки, которые могут отображаться следующим образом:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ gvm-cli -h
+usage: gvm-cli [-h] [-c [CONFIG]] [--log [{DEBUG,INFO,WARNING,ERROR,CRITICAL}]] [--timeout TIMEOUT] [--gmp-username GMP_USERNAME]
+             [--gmp-password GMP_PASSWORD] [-V] [--protocol {GMP,OSP}]
+             CONNECTION_TYPE ...
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -c [CONFIG], --config [CONFIG]
+                        Configuration file path (default: ~/.config/gvm-
+                        tools.conf)
+  --log [{DEBUG,INFO,WARNING,ERROR,CRITICAL}]
+                        Activate logging (default level: None)
+  --timeout TIMEOUT     Response timeout in seconds, or -1 to wait
+                        indefinitely (default: 60)
+  --gmp-username GMP_USERNAME
+                        Username for GMP service (default: '')
+  --gmp-password GMP_PASSWORD
+                        Password for GMP service (default: '')
+  -V, --version         Show version information and exit
+  --protocol {GMP,OSP}  Service protocol to use (default: GMP)
+
+connections:
+  valid connection types
+
+  CONNECTION_TYPE       Connection type to use
+    ssh                 Use SSH to connect to service
+    tls                 Use TLS secured connection to connect to service
+    socket              Use UNIX Domain socket to connect to service
+</pre></div>
+</div>
+<section id="connection-types">
+<h4><span class="section-number">14.3.1.1 </span>Типы подключения<a class="headerlink" href="gmp.html#connection-types" title="Link to this heading">¶</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">GVM-кли</span></code> поддерживает следующие соединения:</p>
+<ul class="simple">
+<li><p>SSH</p></li>
+<li><p>ТЛС</p></li>
+<li><p>Сокет домена Unix</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Все современные устройства используют SSH для шифрования GMP.
+Использование TLS устарело, официально не поддерживается и может быть удалено в будущей версии.</p>
+</div>
+<p>Дополнительные ключи командной строки для <code class="docutils literal notranslate"><span class="pre">GVM-кли</span></code> отображаются, если указан тип подключения:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ gvm-cli ssh -h
+usage: gvm-cli ssh [-h] [--hostname HOSTNAME] [--port PORT] [--ssh-username SSH_USERNAME] [--ssh-password SSH_PASSWORD] [-A] [-X XML] [-r]
+                 [--pretty] [--duration]
+                 [infile]
+
+positional arguments:
+  infile                File to read XML commands from.
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --hostname HOSTNAME   Hostname or IP address (default: 127.0.0.1)
+  --port PORT           SSH port (default: 22)
+  --ssh-username SSH_USERNAME
+                        SSH username (default: 'gmp')
+  --ssh-password SSH_PASSWORD
+                        SSH password (default: 'gmp')
+  -A, --auto-accept-host
+                      When executed in e.g. CI, auto accept SSH host addition
+  -X XML, --xml XML     XML request to send
+  -r, --raw             Return raw XML
+  --pretty              Pretty format the returned xml
+  --duration            Measure command execution time
+</pre></div>
+</div>
+</section>
+<section id="logging-in-to-the-appliance">
+<span id="gvm-cli-conf"></span><span id="index-4"></span><h4><span class="section-number">14.3.1.2 </span>Вход в устройство<a class="headerlink" href="gmp.html#logging-in-to-the-appliance" title="Link to this heading">¶</a></h4>
+<p>Для использования <code class="docutils literal notranslate"><span class="pre">GVM-кли</span></code>, требуется вход в устройство.
+Используются те же пользователи, что и для веб-интерфейса устройства.</p>
+<p>Необходимая информация для входа должна предоставляться вместе с любой используемой командой.
+Это можно сделать либо с помощью ключей командной строки, либо с помощью файла конфигурации (<code class="docutils literal notranslate"><span class="pre">~/.config/gvm-tools.conf</span></code>).</p>
+<p>Чтобы предоставить информацию с помощью переключателей командной строки, используйте для каждой команды следующее:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>--gmp-username<span class="w"> </span>&lt;USER_NAME&gt;<span class="w"> </span>--gmp-password<span class="w"> </span>&lt;PASSWORD&gt;
+</pre></div>
+</div>
+<p>Чтобы предоставить информацию в файле конфигурации, создайте файл <code class="docutils literal notranslate"><span class="pre">~/.config/gvm-tools.conf</span></code> содержащий следующую информацию:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>Auth<span class="o">]</span>
+<span class="nv">gmp_username</span><span class="o">=</span>&lt;USER_NAME&gt;
+<span class="nv">gmp_password</span><span class="o">=</span>&lt;PASSWORD&gt;
+</pre></div>
+</div>
+<p>Этот файл конфигурации не читается по умолчанию.
+Переключатель командной строки <code class="docutils literal notranslate"><span class="pre">Конфиг</span></code> или <code class="docutils literal notranslate"><span class="pre">-с</span></code> необходимо добавить для чтения файла конфигурации.</p>
+</section>
+<section id="creating-and-starting-a-scan">
+<span id="index-5"></span><h4><span class="section-number">14.3.1.3 </span>Создание и запуск сканирования<a class="headerlink" href="gmp.html#creating-and-starting-a-scan" title="Link to this heading">¶</a></h4>
+<p>В этой главе показано использование <code class="docutils literal notranslate"><span class="pre">GVM-кли</span></code> на примере простого сканирования.</p>
+<section id="used-commands">
+<h5><span class="section-number">14.3.1.3.1 </span>Используемые команды<a class="headerlink" href="gmp.html#used-commands" title="Link to this heading">¶</a></h5>
+<p>Команды, используемые в этом примере, описаны в разделе <a class="reference external" href="https://docs.ak-shumkar.net/API/GMP/gmp-22.7.html">https://docs.ak-shumkar.net/API/GMP/gmp-22.7.html</a>.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Создать новое целевое значение</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">get_port_lists</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">задачу</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">get_configs</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Начать задачу</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">get_tasks</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">get_report_formats</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">get_reports</span></code></p></li>
+</ul>
+</section>
+<section id="used-placeholders">
+<h5><span class="section-number">14.3.1.3.2 </span>Используемые заполнители<a class="headerlink" href="gmp.html#used-placeholders" title="Link to this heading">¶</a></h5>
+<p>Используются следующие заполнители:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;ИМЯ_ПОЛЬЗОВАТЕЛЯ&gt;</span></code>: имя пользователя Интернета/GMP.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;ПАРОЛЬ&gt;</span></code>: пароль пользователя Интернета/GMP.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;APPLIANCE_IP&gt;</span></code>: IP-адрес устройства, к которому осуществляется доступ.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;TARGET_IP&gt;</span></code>: IP-адрес объекта сканирования.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;PORT_LIST_ID&gt;</span></code>: идентификатор списка используемых портов.
+Все доступные списки портов можно получить, выполнив:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ gvm-cli --gmp-username &lt;USER_NAME&gt; --gmp-password &lt;PASSWORD&gt; ssh --hostname &lt;APPLIANCE_IP&gt; --xml "&lt;get_port_lists/&gt;"
+</pre></div>
+</div>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;TARGET_ID&gt;</span></code>: идентификатор цели сканирования.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;SCAN_CONFIG_ID&gt;</span></code>: идентификатор используемой конфигурации сканирования.
+Все доступные конфигурации сканирования можно получить, выполнив:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ gvm-cli --gmp-username &lt;USER_NAME&gt; --gmp-password &lt;PASSWORD&gt; ssh --hostname &lt;APPLIANCE_IP&gt; --xml "&lt;get_configs/&gt;"
+</pre></div>
+</div>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;ИД_ЗАДАЧИ&gt;</span></code>: идентификатор задачи.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;ИД_ОТЧЕТА&gt;</span></code>: идентификатор отчета о сканировании.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;REPORT_FORMAT_ID&gt;</span></code>: идентификатор используемого формата отчета.
+Все доступные форматы отчетов можно получить, выполнив:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ gvm-cli --gmp-username &lt;USER_NAME&gt; --gmp-password &lt;PASSWORD&gt; ssh --hostname &lt;APPLIANCE_IP&gt; --xml "&lt;get_report_formats/&gt;"
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+<section id="step-by-step-instruction">
+<h5><span class="section-number">14.3.1.3.3 </span>Пошаговая инструкция<a class="headerlink" href="gmp.html#step-by-step-instruction" title="Link to this heading">¶</a></h5>
+<p>Задачу можно создать и запустить следующим образом:</p>
+<ol class="arabic simple">
+<li><p>Создайте цель сканирования:</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ gvm-cli --gmp-username &lt;USER_NAME&gt; --gmp-password &lt;PASSWORD&gt; ssh \
+--hostname &lt;APPLIANCE_IP&gt; --xml "&lt;create_target&gt;&lt;name&gt;Suspect Host&lt;/name&gt;\
+&lt;hosts&gt;&lt;TARGET_IP&gt;&lt;/hosts&gt;&lt;port_list id='&lt;PORT_LIST_ID&gt;'&gt;&lt;/port_list&gt;&lt;/create_target&gt;"
+</pre></div>
+</div>
+<p>→ Вывод включает идентификатор цели сканирования. Это необходимо для создания задачи.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">create_target_response</span> <span class="n">статус</span><span class="o">=</span><span class="s2">"201"</span> <span class="n">статус_текст</span><span class="o">=</span><span class="s2">«ОК, ресурс создан»</span> <span class="nb">идентификатор</span><span class="o">=</span><span class="s2">"&lt;TARGET_ID&gt;"</span><span class="o">/&gt;</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Создайте задачу:</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ gvm-cli --gmp-username &lt;USER_NAME&gt; --gmp-password &lt;PASSWORD&gt; ssh \
+--hostname &lt;APPLIANCE_IP&gt; --xml "&lt;create_task&gt;&lt;name&gt;Scan Suspect Host&lt;/name&gt; \
+&lt;target id='&lt;TARGET_ID&gt;'&gt;&lt;/target&gt; &lt;config id='&lt;SCAN_CONFIG_ID&gt;'&gt;&lt;/config&gt;&lt;/create_task&gt;"
+</pre></div>
+</div>
+<p>→ Вывод включает идентификатор задачи. Он необходим для запуска и мониторинга задачи.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">create_task_response</span> <span class="n">статус</span><span class="o">=</span><span class="s2">"201"</span> <span class="n">статус_текст</span><span class="o">=</span><span class="s2">«ОК, ресурс создан»</span> <span class="nb">идентификатор</span><span class="o">=</span><span class="s2">"&lt;ИДЕНТИФИКАТОР ЗАДАЧИ&gt;"</span><span class="o">/&gt;</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Запустите задачу:</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ gvm-cli --gmp-username &lt;USER_NAME&gt; --gmp-password &lt;PASSWORD&gt; ssh \
+--hostname &lt;APPLIANCE_IP&gt; --xml "&lt;start_task task_id='&lt;TASK_ID&gt;'/&gt;"
+</pre></div>
+</div>
+<p>→ Задача выполняется. Вывод включает идентификатор отчета о сканировании.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">start_task_response</span> <span class="n">статус</span><span class="o">=</span><span class="s2">"202"</span> <span class="n">статус_текст</span><span class="o">=</span><span class="s2">«ОК, запрос отправлен»</span><span class="o">&gt;&lt;</span><span class="n">№ отчета</span><span class="o">&gt;&lt;</span><span class="n">ИДЕНТИФИКАТОР_ОТЧЕТА</span><span class="o">&gt;&lt;/</span><span class="n">№ отчета</span><span class="o">&gt;&lt;/</span><span class="n">start_task_response</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>Отображение статуса задачи:</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ gvm-cli --gmp-username &lt;USER_NAME&gt; --gmp-password &lt;PASSWORD&gt; ssh \
+--hostname &lt;APPLIANCE_IP&gt; --xml "&lt;get_tasks task_id='&lt;TASK_ID&gt;'/&gt;"
+
+&lt;get_tasks_response status="200" status_text="OK"&gt;&lt;apply_overrides&gt;
+...&lt;status&gt;Running&lt;/status&gt;&lt;progress&gt;98&lt;host_progress&gt;
+&lt;host&gt;&lt;TARGET_IP&gt;&lt;/host&gt;98&lt;/host_progress&gt;&lt;/progress&gt;.../&gt;
+</pre></div>
+</div>
+<p>→ Как только сканирование будет завершено, отчет о сканировании можно будет загрузить.
+Для этого необходим идентификатор отчета, который отображался при запуске задачи.</p>
+<ol class="arabic simple" start="5">
+<li><p>Загрузите отчет о сканировании:</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ gvm-cli --gmp-username &lt;USER_NAME&gt; --gmp-password &lt;PASSWORD&gt; ssh \
+--hostname &lt;APPLIANCE_IP&gt; --xml "&lt;get_reports report_id='&lt;REPORT_ID&gt;' \
+format_id='&lt;REPORT_FORMAT_ID&gt;'/&gt;"
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Кончик</p>
+<p>Для полной и автоматической обработки данных задачу можно объединить с оповещением, которое пересылает отчет на основе заданного условия.</p>
+</div>
+</section>
+</section>
+</section>
+<section id="using-gvm-pyshell">
+<span id="gvm-pyshell"></span><span id="index-6"></span><h3><span class="section-number">14.3.2 </span>С использованием <code class="docutils literal notranslate"><span class="pre">gvm-pyshell</span></code><a class="headerlink" href="gmp.html#using-gvm-pyshell" title="Link to this heading">¶</a></h3>
+<p>Инструмент командной строки <code class="docutils literal notranslate"><span class="pre">gvm-pyshell</span></code> поставляемый Ак Шумкар, предлагает легкий доступ к широкому функционалу, предоставляемому командами GMP на основе XML через интерактивную оболочку Python.
+Команды отвечают за генерацию и анализ данных XML.
+Реализация Python соответствует GMP API, описанному в разделе <a class="reference external" href="https://docs.ak-shumkar.net/API/GMP/gmp-22.7.html">https://docs.ak-shumkar.net/API/GMP/gmp-22.7.html</a>.
+Необязательные аргументы в API идентифицируются <code class="docutils literal notranslate"><span class="pre">?</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">gvm-pyshell</span></code> поддерживает несколько ключей командной строки, которые могут отображаться следующим образом:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ gvm-pyshell -h
+usage: gvm-pyshell [-h] [-c [CONFIG]] [--log [{DEBUG,INFO,WARNING,ERROR,CRITICAL}]] [--timeout TIMEOUT]
+                   [--gmp-username GMP_USERNAME] [--gmp-password GMP_PASSWORD] [-V] [--protocol {GMP,OSP}]
+                   CONNECTION_TYPE ...
+
+options:
+  -h, --help            show this help message and exit
+  -c, --config [CONFIG]
+                        Configuration file path (default: ~/.config/gvm-tools.conf)
+  --log [{DEBUG,INFO,WARNING,ERROR,CRITICAL}]
+                        Activate logging (default level: None)
+  --timeout TIMEOUT     Response timeout in seconds, or -1 to wait indefinitely (default: 60)
+  --gmp-username GMP_USERNAME
+                        Username for GMP service (default: '')
+  --gmp-password GMP_PASSWORD
+                        Password for GMP service (default: '')
+  -V, --version         Show version information and exit
+  --protocol {GMP,OSP}  Service protocol to use (default: GMP)
+</pre></div>
+</div>
+<section id="id2">
+<h4><span class="section-number">14.3.2.1 </span>Типы подключения<a class="headerlink" href="gmp.html#id2" title="Link to this heading">¶</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">gvm-pyshell</span></code> поддерживает следующие соединения:</p>
+<ul class="simple">
+<li><p>ТЛС</p></li>
+<li><p>SSH</p></li>
+<li><p>Розетка</p></li>
+</ul>
+<p>В то время как текущие устройства используют SSH для защиты GMP, старые устройства использовали TLS и порт 9390 для передачи GMP.
+gvm-tools можно использовать как со старой, так и с текущей GOS.</p>
+<p>Дополнительные ключи командной строки для <code class="docutils literal notranslate"><span class="pre">gvm-pyshell</span></code> отображаются, если указан тип подключения:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ gvm-pyshell ssh -h
+usage: gvm-pyshell ssh [-h] [--hostname HOSTNAME] [--port PORT] [--ssh-username SSH_USERNAME] [--ssh-password SSH_PASSWORD] [-A] [-i] [SCRIPT] [ARG ...]
+
+positional arguments:
+  SCRIPT                Path to script to be preloaded (example: myscript.gmp.py)
+  ARG                   Arguments for preloaded script
+
+options:
+  -h, --help            show this help message and exit
+  --hostname HOSTNAME   Hostname or IP address (default: 127.0.0.1)
+  --port PORT           SSH port (default: 22)
+  --ssh-username SSH_USERNAME
+                        SSH username (default: 'gmp')
+  --ssh-password SSH_PASSWORD
+                        SSH password (default: 'gmp')
+  -A, --auto-accept-host
+                        When executed in e.g. CI, auto accept SSH host addition
+  -i, --interactive     Start an interactive Python shell
+</pre></div>
+</div>
+</section>
+<section id="passing-arguments">
+<h4><span class="section-number">14.3.2.2 </span>Передача аргументов<a class="headerlink" href="gmp.html#passing-arguments" title="Link to this heading">¶</a></h4>
+<p>Обязательные аргументы могут быть указаны в правильном порядке и идентифицируются автоматически:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">GMP</span><span class="o">.</span><span class="n">задачу</span><span class="p">(</span><span class="s2">"Имя"</span><span class="p">,</span><span class="s2">«Конфигурация»</span><span class="p">,</span><span class="s2">«Сканер»</span><span class="p">,</span><span class="s2">"Цель"</span><span class="p">,</span><span class="n">комментарий</span><span class="o">=</span><span class="s2">"комментарий"</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Альтернативно их можно указать, используя их идентификатор:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">GMP</span><span class="o">.</span><span class="n">задачу</span><span class="p">(</span><span class="n">имя</span><span class="o">=</span><span class="s2">"Имя"</span><span class="p">,</span><span class="n">Конфиг id</span><span class="o">=</span><span class="s2">«Конфигурация»</span><span class="p">,</span><span class="n">Scanner_id</span><span class="o">=</span><span class="s2">«Сканер»</span><span class="p">,</span>
+<span class="n">целевой_ид</span><span class="o">=</span><span class="s2">"Цель"</span><span class="p">,</span><span class="n">комментарий</span><span class="o">=</span><span class="s2">"комментарий"</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="id3">
+<h4><span class="section-number">14.3.2.3 </span>Вход в устройство<a class="headerlink" href="gmp.html#id3" title="Link to this heading">¶</a></h4>
+<p>Для использования <code class="docutils literal notranslate"><span class="pre">gvm-pyshell</span></code>, требуется вход в устройство.
+Используются те же пользователи, что и для веб-интерфейса устройства.</p>
+<p>Необходимо предоставить необходимую информацию для входа.
+Это можно сделать либо с помощью ключей командной строки, либо с помощью файла конфигурации (<code class="docutils literal notranslate"><span class="pre">~/.config/gvm-tools.conf</span></code>).</p>
+<p>Чтобы предоставить информацию с помощью переключателей командной строки, используйте следующее:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>--gmp-username<span class="w"> </span>&lt;USER_NAME&gt;<span class="w"> </span>--gmp-password<span class="w"> </span>&lt;PASSWORD&gt;
+</pre></div>
+</div>
+<p>Чтобы предоставить информацию в файле конфигурации, создайте файл <code class="docutils literal notranslate"><span class="pre">~/.config/gvm-tools.conf</span></code> содержащий следующую информацию:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>Auth<span class="o">]</span>
+<span class="nv">gmp_username</span><span class="o">=</span>&lt;USER_NAME&gt;
+<span class="nv">gmp_password</span><span class="o">=</span>&lt;PASSWORD&gt;
+</pre></div>
+</div>
+<p>Этот файл конфигурации не читается по умолчанию.
+Переключатель командной строки <code class="docutils literal notranslate"><span class="pre">Конфиг</span></code> или <code class="docutils literal notranslate"><span class="pre">-с</span></code> необходимо добавить для чтения файла конфигурации.</p>
+</section>
+<section id="id4">
+<span id="index-7"></span><span id="id5"></span><h4><span class="section-number">14.3.2.4 </span>Создание и запуск сканирования<a class="headerlink" href="gmp.html#id4" title="Link to this heading">¶</a></h4>
+<p>В этой главе показано использование <code class="docutils literal notranslate"><span class="pre">gvm-pyshell</span></code> на примере простого сканирования.</p>
+<section id="id6">
+<h5><span class="section-number">14.3.2.4.1 </span>Используемые команды<a class="headerlink" href="gmp.html#id6" title="Link to this heading">¶</a></h5>
+<p>Команды, используемые в этом примере, описаны в разделе <a class="reference external" href="https://docs.ak-shumkar.net/API/GMP/gmp-22.7.html">https://docs.ak-shumkar.net/API/GMP/gmp-22.7.html</a>.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Создать новое целевое значение</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">get_port_lists</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">задачу</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">get_configs</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Начать задачу</span></code></p></li>
+</ul>
+</section>
+<section id="id7">
+<h5><span class="section-number">14.3.2.4.2 </span>Используемые заполнители<a class="headerlink" href="gmp.html#id7" title="Link to this heading">¶</a></h5>
+<p>Используются следующие заполнители:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;ИМЯ_ПОЛЬЗОВАТЕЛЯ&gt;</span></code>: имя пользователя Интернета/GMP.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;ПАРОЛЬ&gt;</span></code>: пароль пользователя Интернета/GMP.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;APPLIANCE_IP&gt;</span></code>: IP-адрес устройства, к которому осуществляется доступ.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;TARGET_IP&gt;</span></code>: IP-адрес объекта сканирования.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;PORT_LIST_ID&gt;</span></code>: идентификатор списка используемых портов.
+Все доступные списки портов можно получить, выполнив:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">рез</span><span class="o">=</span><span class="n">GMP</span><span class="o">.</span><span class="n">get_port_lists</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">для</span> <span class="n">я</span><span class="p">,</span> <span class="n">список портов</span> <span class="ow">в</span> <span class="nb">перечислять</span><span class="p">(</span><span class="n">рез</span><span class="o">.</span><span class="n">XPath</span><span class="p">(</span><span class="s1">'список_портов'</span><span class="p">)):</span>
+<span class="o">...</span>     <span class="nb">идентификатор</span> <span class="o">=</span> <span class="n">список портов</span><span class="o">.</span><span class="n">XPath</span><span class="p">(</span><span class="s1">'@идентификатор'</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="o">...</span>     <span class="n">имя</span> <span class="o">=</span> <span class="n">список портов</span><span class="o">.</span><span class="n">XPath</span><span class="p">(</span><span class="s1">'имя/текст()'</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="o">...</span>     <span class="nb">распечатать</span><span class="p">(</span><span class="s1">'</span><span class="se">\п</span><span class="s1">(</span><span class="si">{0}</span><span class="s1">) </span><span class="si">{1}</span><span class="s1">: (</span><span class="si">{2}</span><span class="s1">)'</span><span class="o">.</span><span class="n">формат</span><span class="p">(</span><span class="n">я</span><span class="p">,</span> <span class="n">имя</span><span class="p">,</span> <span class="nb">идентификатор</span><span class="p">))</span>
+<span class="o">...</span>
+</pre></div>
+</div>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;SCAN_CONFIG_ID&gt;</span></code>: идентификатор используемой конфигурации сканирования.
+Все доступные конфигурации сканирования можно получить, выполнив:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">рез</span><span class="o">=</span><span class="n">GMP</span><span class="o">.</span><span class="n">get_scan_configs</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">для</span> <span class="n">я</span><span class="p">,</span> <span class="n">сканконфигурация</span> <span class="ow">в</span> <span class="nb">перечислять</span><span class="p">(</span><span class="n">рез</span><span class="o">.</span><span class="n">XPath</span><span class="p">(</span><span class="s1">'scan_config'</span><span class="p">)):</span>
+<span class="o">...</span>     <span class="nb">идентификатор</span> <span class="o">=</span> <span class="n">сканконфигурация</span><span class="o">.</span><span class="n">XPath</span><span class="p">(</span><span class="s1">'@идентификатор'</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="o">...</span>     <span class="n">имя</span> <span class="o">=</span> <span class="n">сканконфигурация</span><span class="o">.</span><span class="n">XPath</span><span class="p">(</span><span class="s1">'имя/текст()'</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="o">...</span>     <span class="nb">распечатать</span><span class="p">(</span><span class="s1">'</span><span class="se">\п</span><span class="s1">(</span><span class="si">{0}</span><span class="s1">) </span><span class="si">{1}</span><span class="s1">: (</span><span class="si">{2}</span><span class="s1">)'</span><span class="o">.</span><span class="n">формат</span><span class="p">(</span><span class="n">я</span><span class="p">,</span> <span class="n">имя</span><span class="p">,</span> <span class="nb">идентификатор</span><span class="p">))</span>
+<span class="o">...</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+<section id="id8">
+<h5><span class="section-number">14.3.2.4.3 </span>Пошаговая инструкция<a class="headerlink" href="gmp.html#id8" title="Link to this heading">¶</a></h5>
+<p>Задачу можно создать и запустить следующим образом:</p>
+<ol class="arabic simple">
+<li><p>Войдите в оболочку Python:</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ gvm-pyshell --gmp-username &lt;USER_NAME&gt; --gmp-password &lt;PASSWORD&gt; ssh --hostname &lt;APPLIANCE_IP&gt;
+</pre></div>
+</div>
+<p>→ Оболочка Python открыла:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ГВМ</span> <span class="n">Интерактивный</span> <span class="n">Консоль</span> <span class="mf">25.4.3</span> <span class="n">АФС</span> <span class="mf">26.8.0</span><span class="o">.</span><span class="n">Тип</span> <span class="s2">"помощь"</span> <span class="n">к</span> <span class="n">получать</span> <span class="n">информация</span> <span class="n">о</span> <span class="n">функциональность</span><span class="o">.</span>
+<span class="o">&gt;&gt;&gt;</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Создайте цель сканирования:</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">рез</span><span class="o">=</span><span class="n">GMP</span><span class="o">.</span><span class="n">Создать новое целевое значение</span><span class="p">(</span><span class="s2">«Подозреваемый хозяин»</span><span class="p">,</span> <span class="n">хозяева</span><span class="o">=</span><span class="p">[</span><span class="s1">'&lt;TARGET_IP&gt;'</span><span class="p">],</span> <span class="n">port_list_id</span><span class="o">=</span><span class="s2">"&lt;PORT_LIST_ID&gt;"</span><span class="p">)</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Определите переменную <code class="docutils literal notranslate"><span class="pre">целевой_ид</span></code> как идентификатор созданной цели:</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">целевой_ид</span> <span class="o">=</span> <span class="n">рез</span><span class="o">.</span><span class="n">XPath</span><span class="p">(</span><span class="s1">'@идентификатор'</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>Создайте задачу:</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">рез</span><span class="o">=</span><span class="n">GMP</span><span class="o">.</span><span class="n">задачу</span><span class="p">(</span><span class="s2">«Сканировать подозрительный хост»</span><span class="p">,</span> <span class="n">Конфиг id</span><span class="o">=</span><span class="s2">"&lt;SCAN_CONFIG_ID&gt;"</span><span class="p">,</span> <span class="n">Scanner_id</span><span class="o">=</span><span class="s2">"08b69003-5fc2-4037-a479-93b440211c73"</span><span class="p">,</span> <span class="n">целевой_ид</span><span class="o">=</span><span class="n">целевой_ид</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Все существующие сканеры можно отобразить с помощью команды <code class="docutils literal notranslate"><span class="pre">get_scanners</span></code>.
+Если используются только встроенные сканеры, следующие идентификаторы жестко запрограммированы:</p>
+<ul class="simple">
+<li><p>Ак-шумкар По умолчанию: 08b69003-5fc2-4037-a479-93b440211c73</p></li>
+<li><p>CVE-сканер: 6acd0832-df90-11e4-b9d5-28d24461215b</p></li>
+</ul>
+</div>
+<ol class="arabic simple" start="5">
+<li><p>Определите переменную <code class="docutils literal notranslate"><span class="pre">идентификатор_задачи</span></code> в качестве идентификатора созданной задачи:</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">идентификатор_задачи</span> <span class="o">=</span> <span class="n">рез</span><span class="o">.</span><span class="n">XPath</span><span class="p">(</span><span class="s1">'@идентификатор'</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="6">
+<li><p>Запустите задачу:</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">GMP</span><span class="o">.</span><span class="n">Начать задачу</span><span class="p">(</span><span class="n">идентификатор_задачи</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>→ Задача выполняется.</p>
+</section>
+<section id="using-a-script">
+<h5><span class="section-number">14.3.2.4.4 </span>Использование скрипта<a class="headerlink" href="gmp.html#using-a-script" title="Link to this heading">¶</a></h5>
+<p>Все команды могут поместить в скрипт Python, который может храниться оболочкой Python.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">len_args</span> <span class="o">=</span> <span class="nb">Лен</span><span class="p">(</span><span class="n">аргументы</span><span class="o">.</span><span class="n">сценарий</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+<span class="k">если</span> <span class="n">len_args</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">:</span>
+    <span class="n">сообщение</span> <span class="o">=</span> <span class="s2">"""</span>
+<span class="s2">    Этот скрипт создает новую задачу с определенным хостом.</span>
+<span class="s2">    Ему нужны два параметра после имени скрипта.</span>
+<span class="s2">    Первое — это имя цели, а второе —</span>
+<span class="s2">    один — это хост, который нужно сканировать.</span>
+
+<span class="s2">    Пример:</span>
+<span class="s2">        $ gvm-script --gmp-username &amp;lt;ИМЯ_ПОЛЬЗОВАТЕЛЯ&amp;gt; --gmp-пароль &amp;lt;ПАРОЛЬ&amp;gt; ssh --hostname &lt;APPLIANCE_IP&gt; &lt;SCRIPT_NAME&gt; «Подозреваемый хост» 127.0.0.1</span>
+<span class="s2">    """</span>
+    <span class="nb">распечатать</span><span class="p">(</span><span class="n">сообщение</span><span class="p">)</span>
+    <span class="n">покидать</span><span class="p">()</span>
+
+<span class="n">цель</span> <span class="o">=</span> <span class="n">аргументы</span><span class="o">.</span><span class="n">сценарий</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">хозяин</span> <span class="o">=</span> <span class="p">[</span><span class="n">аргументы</span><span class="o">.</span><span class="n">сценарий</span><span class="p">[</span><span class="mi">2</span><span class="p">]]</span>
+<span class="n">задача</span> <span class="o">=</span> <span class="n">цель</span> <span class="o">+</span> <span class="s2">" Задача"</span>
+
+<span class="c1"># Все TCP, назначенные IANA</span>
+<span class="n">myportlist_id</span> <span class="o">=</span> <span class="s2">"33d0cd82-57c6-11e1-8ed1-406186ea4fc5"</span>
+
+<span class="c1"># Полный и быстрый</span>
+<span class="n">myconfig_id</span> <span class="o">=</span> <span class="s2">"daba56c8-73ec-11df-a475-002264764cea"</span>
+
+<span class="c1"># Ак-шумкар Сканер</span>
+<span class="n">myscanner_id</span> <span class="o">=</span> <span class="s2">"08b69003-5fc2-4037-a479-93b440211c73"</span>
+
+<span class="n">рез</span><span class="o">=</span><span class="n">GMP</span><span class="o">.</span><span class="n">Создать новое целевое значение</span><span class="p">(</span><span class="n">цель</span><span class="p">,</span> <span class="n">хозяева</span><span class="o">=</span><span class="n">хозяин</span><span class="p">,</span> <span class="n">port_list_id</span><span class="o">=</span><span class="n">myportlist_id</span><span class="p">)</span>
+<span class="n">mytarget_id</span> <span class="o">=</span> <span class="n">рез</span><span class="o">.</span><span class="n">XPath</span><span class="p">(</span><span class="s1">'@идентификатор'</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="n">рез</span><span class="o">=</span><span class="n">GMP</span><span class="o">.</span><span class="n">задачу</span><span class="p">(</span><span class="n">имя</span><span class="o">=</span><span class="n">задача</span><span class="p">,</span> <span class="n">Конфиг id</span><span class="o">=</span><span class="n">myconfig_id</span><span class="p">,</span> <span class="n">Scanner_id</span><span class="o">=</span><span class="n">myscanner_id</span><span class="p">,</span> <span class="n">целевой_ид</span><span class="o">=</span><span class="n">mytarget_id</span><span class="p">)</span>
+<span class="n">mytask_id</span> <span class="o">=</span> <span class="n">рез</span><span class="o">.</span><span class="n">XPath</span><span class="p">(</span><span class="s1">'@идентификатор'</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="n">GMP</span><span class="o">.</span><span class="n">Начать задачу</span><span class="p">(</span><span class="n">mytask_id</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Скрипт можно запустить командой <code class="docutils literal notranslate"><span class="pre">gvm-скрипт</span></code>.
+Ему требуются два аргумента: имя цели и хоста, который следует сканировать.</p>
+<p>Пример:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">гвм</span><span class="o">-</span><span class="n">сценарий</span> <span class="o">--</span><span class="n">GMP</span><span class="o">-</span><span class="n">имя пользователя</span> <span class="o">&lt;</span><span class="n">ИМЯ ПОЛЬЗОВАТЕЛЯ</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">GMP</span><span class="o">-</span><span class="n">пароль</span> <span class="o">&lt;</span><span class="n">ПАРОЛЬ</span><span class="o">&gt;</span> <span class="n">сш</span> <span class="o">--</span><span class="n">имя хоста</span> <span class="o">&lt;</span><span class="n">ПРИЛОЖЕНИЕ_IP</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">СКРИПТ_ИМЯ</span><span class="o">&gt;</span> <span class="s2">«Подозреваемый хозяин»</span> <span class="mf">127.0.0.1</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<section id="example-scripts">
+<span id="index-8"></span><h3><span class="section-number">14.3.3 </span>Примеры сценариев<a class="headerlink" href="gmp.html#example-scripts" title="Link to this heading">¶</a></h3>
+<p>Инструменты gvm по анонимности представляют собой набор примеров, предоставляющих различные экспериментальные функции и служебную отправную точку для разработки следствий.</p>
+<p>На данный момент для gvm-tools доступны следующие скрипты: <a class="reference external" href="https://github.com/ak-shumkar/gvm-tools/tree/main/scripts">https://github.com/ak-shumkar/gvm-tools/tree/main/scripts</a></p>
+<p>Скрипты могут быть выполнены с помощью команды <code class="docutils literal notranslate"><span class="pre">gvm-скрипт</span></code>.</p>
+</section>
+</section>
+<section id="status-codes">
+<span id="index-9"></span><h2><span class="section-number">14.4 </span>Коды состояния<a class="headerlink" href="gmp.html#status-codes" title="Link to this heading">¶</a></h2>
+<p>GMP использует коды состояния, аналогичные кодам состояния HTTP.
+Используются следующие коды:</p>
+<dl>
+<dt>2хх:</dt><dd><p>Команда была отправлена, понята и успешно принята.</p>
+<dl class="simple">
+<dt>200: ОК</dt><dd></dd>
+<dt>201: Ресурс создан.</dt><dd></dd>
+<dt>202: Запрос отправлен.</dt><dd></dd>
+</dl>
+</dd>
+<dt>4хх:</dt><dd><p>Произошла ошибка пользователя.</p>
+<dl>
+<dt>400: Синтаксическая ошибка</dt><dd><p>Сюда входят различные синтаксические ошибки.
+Часто элементы или атрибуты в группе GMP отсутствуют.
+Текст запроса показывает дополнительную информацию.</p>
+<p>В настоящее время этот код состояния также используется для отсутствия или неправильной аутентификации.</p>
+</dd>
+<dt>401: Сначала пройдите аутентификацию</dt><dd><p>Это код ошибки, который используется при отсутствии или неправильной аутентификации.
+В настоящее время значение 400 все еще используется.</p>
+</dd>
+<dt>403: Доступ к ресурсу запрещен.</dt><dd><p>Это код ошибки, который используется при отсутствии достаточных разрешений.
+Часто <code class="docutils literal notranslate"><span class="pre">400:</span> <span class="pre">Разрешение</span> <span class="pre">отклонен</span></code> вместо этого также отображается.</p>
+</dd>
+<dt>404: Ресурс отсутствует</dt><dd><p>Ресурс не найден.
+Идентификатор ресурса был пуст или неверен.</p>
+</dd>
+<dt>409: Ресурс занят.</dt><dd><p>Этот код ошибки возникает, например, если синхронизация каналов запускается, когда она уже выполняется.</p>
+</dd>
+</dl>
+</dd>
+<dt>5хх:</dt><dd><p>Произошла ошибка сервера.</p>
+<dl class="simple">
+<dt>500: Внутренняя ошибка</dt><dd><p>Это может быть вызвано записями, размер которых превышает размер внутреннего буфера.</p>
+</dd>
+<dt>503: Сканер загружает NVT.</dt><dd><p>В настоящее время сканер занят загрузкой виртуальных машин из своего кэша.
+Запрос необходимо сделать еще раз позже.</p>
+</dd>
+<dt>503: Служба временно не работает.</dt><dd><p>Возможно, демон сканера не запущен.
+Часто проблемой являются просроченные сертификаты.</p>
+</dd>
+<dt>503: Служба недоступна.</dt><dd><p>Команда GMP заблокирована на устройстве.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</section>
+</article>
+</div>
+<footer>
+<div class="related-pages">
+<a class="next-page" href="master-sensor-setup.html">
+<div class="page-info">
+<div class="context">
+<span>Следующий</span>
+</div>
+<div class="title"><span class="section-number">15 </span>Использование настройки главного датчика</div>
+</div>
+<svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+</a>
+<a class="prev-page" href="managing-secinfo.html">
+<svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+<div class="page-info">
+<div class="context">
+<span>Предыдущий</span>
+</div>
+<div class="title"><span class="section-number">13 </span>Управление информацией о безопасности</div>
+</div>
+</a>
+</div>
+<div class="bottom-of-page">
+<div class="left-details">
+<div class="copyright">
+                Copyright © 2015–2026, Ак Шумкар
+            </div>
+<div class="last-updated">
+              Последнее обновление: 13 марта 2026 г.</div>
+</div>
+<div class="right-details">
+</div>
+</div>
+</footer>
+</div>
+<aside class="toc-drawer">
+<div class="toc-sticky toc-scroll">
+<div class="toc-title-container">
+<span class="toc-title">
+            На этой странице
+          </span>
+</div>
+<div class="toc-tree-container">
+<div class="toc-tree">
+<ul>
+<li><a class="reference internal" href="gmp.html#">14 Использование протокола управления «Ак Шумкар»</a><ul>
+<li><a class="reference internal" href="gmp.html#changes-to-gmp">14.1 Изменения в GMP</a></li>
+<li><a class="reference internal" href="gmp.html#activating-gmp">14.2 Активация GMP</a></li>
+<li><a class="reference internal" href="gmp.html#using-gvm-tools">14.3 Использование инструментов gvm</a><ul>
+<li><a class="reference internal" href="gmp.html#using-gvm-cli">14.3.1 Использование <code class="docutils literal notranslate"><span class="pre">GVM-кли</span></code></a><ul>
+<li><a class="reference internal" href="gmp.html#connection-types">14.3.1.1 Типы соединений</a></li>
+<li><a class="reference internal" href="gmp.html#logging-in-to-the-appliance">14.3.1.2 Вход в устройство</a></li>
+<li><a class="reference internal" href="gmp.html#creating-and-starting-a-scan">14.3.1.3 Создание и запуск сканирования</a><ul>
+<li><a class="reference internal" href="gmp.html#used-commands">14.3.1.3.1 Используемые команды</a></li>
+<li><a class="reference internal" href="gmp.html#used-placeholders">14.3.1.3.2 Используемые заполнители</a></li>
+<li><a class="reference internal" href="gmp.html#step-by-step-instruction">14.3.1.3.3 Пошаговая инструкция</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="gmp.html#using-gvm-pyshell">14.3.2 Использование <code class="docutils literal notranslate"><span class="pre">gvm-pyshell</span></code></a><ul>
+<li><a class="reference internal" href="gmp.html#id2">14.3.2.1 Типы соединений</a></li>
+<li><a class="reference internal" href="gmp.html#passing-arguments">14.3.2.2 Передача аргументов</a></li>
+<li><a class="reference internal" href="gmp.html#id3">14.3.2.3 Вход в устройство</a></li>
+<li><a class="reference internal" href="gmp.html#id4">14.3.2.4 Создание и запуск сканирования</a><ul>
+<li><a class="reference internal" href="gmp.html#id6">14.3.2.4.1 Используемые команды</a></li>
+<li><a class="reference internal" href="gmp.html#id7">14.3.2.4.2 Используемые заполнители</a></li>
+<li><a class="reference internal" href="gmp.html#id8">14.3.2.4.3 Пошаговая инструкция</a></li>
+<li><a class="reference internal" href="gmp.html#using-a-script">14.3.2.4.4 Использование сценария</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="gmp.html#example-scripts">14.3.3 Примеры сценариев</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="gmp.html#status-codes">14.4 Коды состояния</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</aside>
+</div>
+</div><script src="_static/documentation_options.js%3Fv=bd398bb6"></script>
+<script src="_static/doctools.js%3Fv=9a2dae69"></script>
+<script src="_static/sphinx_highlight.js%3Fv=dc90522c"></script>
+<script src="_stati_static/scripts/furo.js%3Fv=46bd48cc"></script>
+</body></html>

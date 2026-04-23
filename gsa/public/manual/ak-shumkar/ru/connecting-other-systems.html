@@ -1,0 +1,1161 @@
+<html lang="ru"><body><meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="light dark" name="color-scheme"/><meta content="width=device-width, initial-scale=1" name="viewport"/>
+<link href="genindex.html" rel="index" title="Индекс"/><link href="search.html" rel="search" title="Поиск"/><link href="architecture.html" rel="next" title="18 Архитектура"/><link href="performance.html" rel="prev" title="16 Управление производительностью"/>
+<link as="image" href="/img/ak-shumkar.png" rel="prefetch"/>
+<link as="image" href="/img/ak-shumkar.png" rel="prefetch"/>
+<link href="/img/ak-shumkar.png" rel="icon" type="image/png"/><link href="/img/ak-shumkar.png" rel="shortcut icon" type="image/png"/><title>17 Подключение АК-ШУМКАР к другим системам - АК-ШУМКАР – ГОС 24.10.11</title>
+<link href="_static/pygments.css%3Fv=8e8a900e.css" rel="stylesheet" type="text/css"/>
+<link href="_static/styles/furo.css%3Fv=580074bf.css" rel="stylesheet" type="text/css"/>
+<link href="_static/sphinx_greenbone.css%3Fv=8ef0bb58.css" rel="stylesheet" type="text/css"/>
+<link href="_static/styles/furo-extensions.css%3Fv=8dab3a3b.css" rel="stylesheet" type="text/css"/>
+<style>
+  body {
+    --color-code-background: #ffffff;
+  --color-code-foreground: black;
+  --font-stack: Roboto, Helvetica, sans-serif;
+  --color-content-foreground: #4D4D4D;
+  --color-foreground-primary: 4D4D4D;
+  --color-foreground-secondary: #808080;
+  --color-code-background: #333333;
+  --color-code-foreground: #E6E6E6;
+  --color-admonition-title--note: #0E823E;
+  --color-admonition-title--note-background: #D8F1E2;
+  --color-admonition-title--warning: #E5393D;
+  --color-admonition-title--warning-background: #FBDDDE;
+  --admonition-font-size: 0.9rem;
+  --color-background-primary: #FFFFFF;
+  --color-background-secondary: #F5F5F5;
+  --color-sidebar-background: #F5F5F5;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --font-stack: Roboto, Helvetica, sans-serif;
+  --color-content-foreground: #F5F5F5;
+  --color-foreground-primary: F5F5F5;
+  --color-foreground-secondary: #E6E6E6;
+  --color-code-background: #333333;
+  --color-code-foreground: #E6E6E6;
+  --color-admonition-title--note: #11AB51;
+  --admonition-font-size: 0.9rem;
+  --color-background-primary: #171717;
+  --color-background-secondary: #4D4D4D;
+  --color-sidebar-background: #333333;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --font-stack: Roboto, Helvetica, sans-serif;
+  --color-content-foreground: #F5F5F5;
+  --color-foreground-primary: F5F5F5;
+  --color-foreground-secondary: #E6E6E6;
+  --color-code-background: #333333;
+  --color-code-foreground: #E6E6E6;
+  --color-admonition-title--note: #11AB51;
+  --admonition-font-size: 0.9rem;
+  --color-background-primary: #171717;
+  --color-background-secondary: #4D4D4D;
+  --color-sidebar-background: #333333;
+  
+      }
+    }
+  }
+</style>
+<script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+<svg style="display: none;" xmlns="http://www.w3.org/2000/svg">
+<symbol id="svg-toc" viewbox="0 0 24 24">
+<title>Содержание</title>
+<svg fill="currentColor" stroke="currentColor" stroke-width="0" viewbox="0 0 1024 1024">
+<path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"></path>
+</svg>
+</symbol>
+<symbol id="svg-menu" viewbox="0 0 24 24">
+<title>Меню</title>
+<svg class="feather-menu" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<line x1="3" x2="21" y1="12" y2="12"></line>
+<line x1="3" x2="21" y1="6" y2="6"></line>
+<line x1="3" x2="21" y1="18" y2="18"></line>
+</svg>
+</symbol>
+<symbol id="svg-arrow-right" viewbox="0 0 24 24">
+<title>Расширять</title>
+<svg class="feather-chevron-right" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<polyline points="9 18 15 12 9 6"></polyline>
+</svg>
+</symbol>
+<symbol id="svg-sun" viewbox="0 0 24 24">
+<title>Светлый режим</title>
+<svg class="feather-sun" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<circle cx="12" cy="12" r="5"></circle>
+<line x1="12" x2="12" y1="1" y2="3"></line>
+<line x1="12" x2="12" y1="21" y2="23"></line>
+<line x1="4.22" x2="5.64" y1="4.22" y2="5.64"></line>
+<line x1="18.36" x2="19.78" y1="18.36" y2="19.78"></line>
+<line x1="1" x2="3" y1="12" y2="12"></line>
+<line x1="21" x2="23" y1="12" y2="12"></line>
+<line x1="4.22" x2="5.64" y1="19.78" y2="18.36"></line>
+<line x1="18.36" x2="19.78" y1="5.64" y2="4.22"></line>
+</svg>
+</symbol>
+<symbol id="svg-moon" viewbox="0 0 24 24">
+<title>Темный режим</title>
+<svg class="icon-tabler-moon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 0h24v24H0z" fill="none" stroke="none"></path>
+<path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"></path>
+</svg>
+</symbol>
+<symbol id="svg-sun-with-moon" viewbox="0 0 24 24">
+<title>Автоматический свет/темнота, в светлом режиме</title>
+<svg class="icon-custom-derived-from-feather-sun-and-tabler-moon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z" style="opacity: 50%"></path>
+<line x1="14.5" x2="14.5" y1="3.25" y2="1.25"></line>
+<line x1="14.5" x2="14.5" y1="15.85" y2="17.85"></line>
+<line x1="10.044" x2="8.63" y1="5.094" y2="3.68"></line>
+<line x1="19" x2="20.414" y1="14.05" y2="15.464"></line>
+<line x1="8.2" x2="6.2" y1="9.55" y2="9.55"></line>
+<line x1="20.8" x2="22.8" y1="9.55" y2="9.55"></line>
+<line x1="10.044" x2="8.63" y1="14.006" y2="15.42"></line>
+<line x1="19" x2="20.414" y1="5.05" y2="3.636"></line>
+<circle cx="14.5" cy="9.55" r="3.6"></circle>
+</svg>
+</symbol>
+<symbol id="svg-moon-with-sun" viewbox="0 0 24 24">
+<title>Автоматический светлый/темный, в темном режиме</title>
+<svg class="icon-custom-derived-from-feather-sun-and-tabler-moon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"></path>
+<line style="opacity: 50%" x1="18" x2="18" y1="3.705" y2="2.5"></line>
+<line style="opacity: 50%" x1="18" x2="18" y1="11.295" y2="12.5"></line>
+<line style="opacity: 50%" x1="15.316" x2="14.464" y1="4.816" y2="3.964"></line>
+<line style="opacity: 50%" x1="20.711" x2="21.563" y1="10.212" y2="11.063"></line>
+<line style="opacity: 50%" x1="14.205" x2="13.001" y1="7.5" y2="7.5"></line>
+<line style="opacity: 50%" x1="21.795" x2="23" y1="7.5" y2="7.5"></line>
+<line style="opacity: 50%" x1="15.316" x2="14.464" y1="10.184" y2="11.036"></line>
+<line style="opacity: 50%" x1="20.711" x2="21.563" y1="4.789" y2="3.937"></line>
+<circle cx="18" cy="7.5" r="2.169" style="opacity: 50%"></circle>
+</svg>
+</symbol>
+<symbol id="svg-pencil" viewbox="0 0 24 24">
+<svg class="icon-tabler-pencil-code" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4"></path>
+<path d="M13.5 6.5l4 4"></path>
+<path d="M20 21l2 -2l-2 -2"></path>
+<path d="M17 17l-2 2l2 2"></path>
+</svg>
+</symbol>
+<symbol id="svg-eye" viewbox="0 0 24 24">
+<svg class="icon-tabler-eye-code" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 0h24v24H0z" fill="none" stroke="none"></path>
+<path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"></path>
+<path d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008"></path>
+<path d="M20 21l2 -2l-2 -2"></path>
+<path d="M17 17l-2 2l2 2"></path>
+</svg>
+</symbol>
+</svg>
+<input aria-label="Переключить боковую панель навигации по сайту" class="sidebar-toggle" id="__navigation" name="__navigation" type="checkbox"/>
+<input aria-label="Переключить боковую панель оглавления" class="sidebar-toggle" id="__toc" name="__toc" type="checkbox"/>
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+<a class="skip-to-content muted-link" href="connecting-other-systems.html#furo-main-content">Перейти к содержимому</a>
+<div class="page">
+<header class="mobile-header">
+<div class="header-left">
+<label class="nav-overlay-icon" for="__navigation">
+<span class="icon"><svg><use href="#svg-menu"></use></svg></span>
+</label>
+</div>
+<div class="header-center">
+<a href="index.html"><div class="brand">АК-ШУМКАР – ГОС 24.10.11</div></a>
+</div>
+<div class="header-right">
+<div class="theme-toggle-container theme-toggle-header">
+<button aria-label="Переключить светлую/темную/автоматическую цветовую тему" class="theme-toggle">
+<svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+<svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+<svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+<svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+</button>
+</div>
+<label class="toc-overlay-icon toc-header-icon" for="__toc">
+<span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+</label>
+</div>
+</header>
+<aside class="sidebar-drawer">
+<div class="sidebar-container">
+<div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
+<div class="sidebar-logo-container">
+<img alt="Логотип Ак-Шумкар" class="sidebar-logo only-light" src="/img/ak-shumkar.png"/>
+<img alt="Логотип Ак-Шумкар" class="sidebar-logo only-dark" src="/img/ak-shumkar.png"/>
+</div>
+<span class="sidebar-brand-text">АК-ШУМКАР – ГОС 24.10.11</span>
+</a><form action="search.html" class="sidebar-search-container" method="get" role="search">
+<input aria-label="Поиск" class="sidebar-search" name="q" placeholder="Поиск"/>
+<input name="check_keywords" type="hidden" value="yes"/>
+<input name="area" type="hidden" value="default"/>
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">1 Введение</a></li>
+<li class="toctree-l1"><a class="reference internal" href="read-before-use.html">2 Прочтите перед использованием</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appliance-overview.html">3 АК-ШУМКАР – Обзор</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setting-up-the-appliance.html">4 Настройка АК-ШУМКАР</a></li>
+<li class="toctree-l1"><a class="reference internal" href="upgrading-gos.html">5 Обновление АК-ШУМКАР до последней основной версии</a></li>
+<li class="toctree-l1"><a class="reference internal" href="managing-gos.html">6 Управление операционной системой «Ак Шумкар»</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web-interface.html">7 Знакомство с веб-интерфейсом</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web-interface-access.html">8 Управление доступом к веб-интерфейсу</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scanning.html">9 Сканирование системы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reports.html">10 отчетов и управление уязвимостями</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compliance-and-special-scans.html">11 Выполнение сканирования на соответствие и специального сканирования</a></li>
+<li class="toctree-l1"><a class="reference internal" href="managing-assets.html">12 Управление активами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="managing-secinfo.html">13 Управление информацией о безопасности</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gmp.html">14 Использование протокола управления «Ак Шумкар»</a></li>
+<li class="toctree-l1"><a class="reference internal" href="master-sensor-setup.html">15 Использование настройки главного датчика</a></li>
+<li class="toctree-l1"><a class="reference internal" href="performance.html">16 Управление производительностью</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="connecting-other-systems.html#">17 Подключение АК-ШУМКАР к другим системам</a></li>
+<li class="toctree-l1"><a class="reference internal" href="architecture.html">18 Архитектура</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">19 часто задаваемых вопросов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">20 Глоссарий</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</aside>
+<div class="main">
+<div class="content">
+<div class="article-container">
+<a class="back-to-top muted-link" href="connecting-other-systems.html#">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+</svg>
+<span>Вернуться наверх</span>
+</a>
+<div class="content-icon-container">
+<div class="theme-toggle-container theme-toggle-content">
+<button aria-label="Переключить светлую/темную/автоматическую цветовую тему" class="theme-toggle">
+<svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+<svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+<svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+<svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+</button>
+</div>
+<label class="toc-overlay-icon toc-content-icon" for="__toc">
+<span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+</label>
+</div>
+<article id="furo-main-content" role="main">
+<section id="connecting-ak-shumkar-scan-to-other-systems">
+<span id="index-0"></span><h1><span class="section-number">17 </span>Подключение АК-ШУМКАР к другим системам<a class="headerlink" href="connecting-other-systems.html#connecting-ak-shumkar-scan-to-other-systems" title="Ссылка на эту рубрику">¶</a></h1>
+<p>АК-ШУМКАР может быть подключен к другим системам.</p>
+<p>Некоторые системы уже интегрированы в установку «Ак Шумкар»:</p>
+<ul class="simple">
+<li><p>verinice ITSM-система (см. главу <a class="reference internal" href="connecting-other-systems.html#veri-nice"><span class="std std-ref">17.1</span></a>)</p></li>
+<li><p>Система Диптихи Nagios (см. главу) <a class="reference internal" href="connecting-other-systems.html#nagios"><span class="std std-ref">17.2</span></a>)</p></li>
+<li><p>Центр управления огневой мощью Cisco (см. главу <a class="reference internal" href="connecting-other-systems.html#sourcefire"><span class="std std-ref">17.3</span></a>)</p></li>
+</ul>
+<p>Устройство предлагает множество интерфейсов, которые обеспечивают связь с другими системами:</p>
+<dl class="simple">
+<dt>Протокол управления Ак Шумкар (GMP)</dt><dd><p>Протокол управления «Ак Шумкар» позволяет полностью удаленно управлять устройством.
+Протокол поддерживает создание пользователей, создание и запуск задач сканирования и экспорт отчетов.</p>
+</dd>
+<dt>Формат отчета</dt><dd><p>Устройство может представлять результаты сканирования в любом формате.
+Для этого устройство уже поставляется с множеством предустановленных форматов отчетов (см. главу <a class="reference internal" href="reports.html#report-plugins"><span class="std std-ref">10.1</span></a>).
+Дополнительные форматы отчетов могут быть разработаны в сотрудничестве с «Ак Шумкар».</p>
+</dd>
+<dt>Оповещение через системный журнал, электронную почту, ловушку SNMP или HTTP (см. главу <a class="reference internal" href="scanning.html#alerts"><span class="std std-ref">9.12</span></a>)</dt><dd></dd>
+<dt>Автоматическая пересылка результатов через коннекторы</dt><dd><p>Эти разъемы созданы компанией «Ак Шумкар», проверены и интегрированы в прибор.</p>
+</dd>
+<dt>Мониторинг через SNMP</dt><dd><p>Веб-страница <a class="reference external" href="https://docs.ak-shumkar.net/API/SNMP/snmp-gos-22.04-24.10.en.html">https://docs.ak-shumkar.net/API/SNMP/snmp-gos-22.04-24.10.en.html</a> Обеспечивает настоящий файл базы управляющей информации (MIB).
+Файлы MIB содержат файлы, которые могут быть запрошены SNMP, оборудованными.</p>
+</dd>
+</dl>
+<section id="using-verinice">
+<span id="veri-nice"></span><span id="index-1"></span><h2><span class="section-number">17.1 </span>Использование Веринис<a class="headerlink" href="connecting-other-systems.html#using-verinice" title="Ссылка на эту рубрику">¶</a></h2>
+<p><a class="reference external" href="https://verinice.com/en/">Веринице</a> — это бесплатная система управления информационной безопасностью (ISMS) с открытым исходным кодом, разработанная <a class="reference external" href="https://www.sernet.de/en/">СерНет</a>.</p>
+<figure class="align-center" id="id3">
+<a class="reference internal image-reference" href="_images/verinice_integration.png"><img alt="_images/verinice_integration.png" src="_images/verinice_integration.png" style="width: 100%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 17.1 </span><span class="caption-text">Интеграция устройства с verinice</span><a class="headerlink" href="connecting-other-systems.html#id3" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+<p>Вериница подходит для:</p>
+<ul class="simple">
+<li><p>Рабочий процесс устранения уязвимостей</p></li>
+<li><p>Проведение анализа рисков на основе ISO 27005</p></li>
+<li><p>Эксплуатация СМИ на основе ISO 27001</p></li>
+<li><p>Выполнение оценок безопасности в соответствии со спецификациями VDA.</p></li>
+<li><p>Доказательство соответствия таким стандартам, как ISO 27002, IDW PS 330.</p></li>
+</ul>
+<p>Устройство может поддерживать работу СМИ.
+Для этого Ак Шумкар предлагает две формы для экспорта данных с устройства в Веринице:</p>
+<ul class="simple">
+<li><p>Веринице ИСМ</p></li>
+<li><p>Веринице ISM все результаты</p></li>
+</ul>
+<p>Можно полностью автоматически передавать данные с устройства на verinice.PRO, серверное расширение verinice.</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Для получения поддержки по использованию разъема обратитесь в SerNet или в <a class="reference external" href="https://www.ak-shumkar.net/en/technical-support/">Команда поддержки Ак Шумкар</a>.</p>
+</div>
+<section id="it-security-management">
+<h3><span class="section-number">17.1.1 </span>Управление ИТ-безопасностью<a class="headerlink" href="connecting-other-systems.html#it-security-management" title="Ссылка на эту рубрику">¶</a></h3>
+<p>Форматы отчета <em>Веринице ИСМ</em> и <em>Веринице ISM все результаты</em> для verinice доступно через AK-SHUMKAR ENTERPRISE FEED.
+С помощью этих форматов в отчете «Ак Шумкар» упоминаются рабочие уязвимости процесса в Verinice.</p>
+<dl class="simple">
+<dt>Веринице ИСМ</dt><dd><p>При использовании формата отчета <em>Веринице ИСМ</em>, verinice использует функцию заметок (см. главу <a class="reference internal" href="reports.html#notes"><span class="std std-ref">10.7</span></a>) для создания предметов для обработки.
+К каждому результату необходимо приложить примечание, которое необходимо передать Верине.
+Если используется этот формат отчета и в задаче нет примечаний, будут импортированы только ресурсы, а также полный отчет об уязвимостях.</p>
+</dd>
+<dt>Веринице ISM все результаты</dt><dd><p>При использовании формата отчета <em>Веринице ISM все результаты</em>, все результаты передаются по умолчанию.
+Нет необходимости прикреплять к результатам пометку, которая должна быть передана в Веринице.</p>
+</dd>
+</dl>
+<p>После завершения сканирования отчет необходимо экспортировать в один из форматов отчета, описанных выше (см. главу <a class="reference internal" href="reports.html#exporting-report"><span class="std std-ref">10.2.2</span></a>).
+Оба формата отчета можно настроить с помощью конфигурации отчета (см. главу <a class="reference internal" href="reports.html#create-report-config"><span class="std std-ref">10.1.4</span></a>).
+Создается файл ВНА.
+Это ZIP-файл, генерирующий данные самостоятельно.</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>В следующем примере использовалась SerNet verinice 1.18.1.</p>
+<p>Если использовать другую версию, действие может улучшиться. Обратитесь в службу поддержки Веринис за помощью.</p>
+</div>
+<section id="importing-the-ism-scan-report">
+<h4><span class="section-number">17.1.1.1 </span>Импорт отчета о сканировании ISM<a class="headerlink" href="connecting-other-systems.html#importing-the-ism-scan-report" title="Ссылка на эту рубрику">¶</a></h4>
+<p>Отчет можно импортировать в Веринице следующим образом:</p>
+<ol class="arabic">
+<li><p>Запустите Веринис.</p></li>
+<li><p>Выбирать <span class="target" id="gos-webui-0"></span><em>«Просмотр» &gt; «Показать перспективу» &gt; «Управление информационной безопасностью».</em> в меню (см. <a class="reference internal" href="connecting-other-systems.html#fig-verinice1"><span class="std std-numref">Рис. 17.2</span></a>).</p>
+<figure class="align-center" id="id4">
+<span id="fig-verinice1"></span><a class="reference internal image-reference" href="_images/verinice1.png"><img alt="_images/verinice1.png" src="_images/verinice1.png" style="width: 75%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 17.2 </span><span class="caption-text">Открывая перспективу <em>Управление информационной безопасностью</em></span><a class="headerlink" href="connecting-other-systems.html#id4" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Нажмите <a class="reference internal" href="_images/veriniceism_import_icon.png"><img alt="" src="_images/veriniceism_import_icon.png" style="height: 1.2em;"/></a> в окне <span class="target" id="gos-webui-1"></span><em>Каталоги</em> для импорта нужного каталога.</p></li>
+<li><p>Создайте организацию, нажав <a class="reference internal" href="_images/verinice4.png"><img alt="" src="_images/verinice4.png" style="height: 1.2em;"/></a> (видеть <a class="reference internal" href="connecting-other-systems.html#fig-verinice2"><span class="std std-numref">Рис. 17.3</span></a>).</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Окно определения реквизитов организации можно просто закрыть.</p>
+</div>
+<figure class="align-center" id="id5">
+<span id="fig-verinice2"></span><a class="reference internal image-reference" href="_images/verinice2.png"><img alt="_images/verinice2.png" src="_images/verinice2.png" style="width: 35%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 17.3 </span><span class="caption-text">Создание новой организации</span><a class="headerlink" href="connecting-other-systems.html#id5" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>В окне <span class="target" id="gos-webui-2"></span><em>Модель информационной безопасности</em> щелкнуть <a class="reference internal" href="_images/veriniceism_import_icon.png"><img alt="" src="_images/veriniceism_import_icon.png" style="height: 1.2em;"/></a>.</p></li>
+<li><p>Нажмите <span class="target" id="gos-webui-3"></span><em>Выбрать файл…</em> и выберите отчет ISM. Остальные параметры можно сохранить настройками по умолчанию (см. <a class="reference internal" href="connecting-other-systems.html#fig-verinice3"><span class="std std-numref">Рис. 17.4</span></a>).</p>
+<figure class="align-center" id="id6">
+<span id="fig-verinice3"></span><a class="reference internal image-reference" href="_images/verinice3.png"><img alt="_images/verinice3.png" src="_images/verinice3.png" style="width: 75%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 17.4 </span><span class="caption-text">Выбор отчета ISM</span><a class="headerlink" href="connecting-other-systems.html#id6" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Нажмите <span class="target" id="gos-webui-4"></span><em>ХОРОШО</em>.</p>
+<p>→ Ответственность за безопасность ISM импортируется и может быть возвращена в версию (см. <a class="reference internal" href="connecting-other-systems.html#fig-verinice5"><span class="std std-numref">Рис. 17.5</span></a>).</p>
+<figure class="align-center" id="id7">
+<span id="fig-verinice5"></span><a class="reference internal image-reference" href="_images/verinice5.png"><img alt="_images/verinice5.png" src="_images/verinice5.png" style="width: 35%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 17.5 </span><span class="caption-text">Раскрытие результатов отчета ISM</span><a class="headerlink" href="connecting-other-systems.html#id7" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+</li>
+</ol>
+<p>Процесс отслеживания уязвимостей импортированной организации можно разделить на два подпроцесса:</p>
+<ul class="simple">
+<li><p>Создание задач</p></li>
+<li><p>Устранение уязвимостей</p></li>
+</ul>
+</section>
+<section id="creating-tasks">
+<h4><span class="section-number">17.1.1.2 </span>Создание задач<a class="headerlink" href="connecting-other-systems.html#creating-tasks" title="Ссылка на эту рубрику">¶</a></h4>
+<p>Перед созданием задач данные для организации необходимо подготовить следующим образом:</p>
+<ol class="arabic">
+<li><p>После первого импорта организации ее необходимо переместить из группы импортируемых объектов на верхний уровень.</p>
+<p>Щелкните правой кнопкой мыши организацию и выберите <span class="target" id="gos-webui-5"></span><em>Резать</em>. Щелкните правой кнопкой мыши на верхнем уровне окна. <span class="target" id="gos-webui-6"></span><em>Модель информационной безопасности</em> и выберите <span class="target" id="gos-webui-7"></span><em>Вставить</em>.</p>
+</li>
+<li><p>Активы и элементы управления должны быть сгруппированы.</p>
+<p>Щелкните правой кнопкой мыши на <span class="target" id="gos-webui-8"></span><em>Активы</em> и выберите <span class="target" id="gos-webui-9"></span><em>Группировать по тегам…</em> (видеть <a class="reference internal" href="connecting-other-systems.html#fig-verinice10"><span class="std std-numref">Рис. 17.6</span></a>).</p>
+<p>Подтвердите сообщение, нажав <span class="target" id="gos-webui-10"></span><em>ХОРОШО</em>.</p>
+<figure class="align-center" id="id8">
+<span id="fig-verinice10"></span><a class="reference internal image-reference" href="_images/verinice10.png"><img alt="_images/verinice10.png" src="_images/verinice10.png" style="width: 60%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 17.6 </span><span class="caption-text">Группировка активов</span><a class="headerlink" href="connecting-other-systems.html#id8" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Щелкните правой кнопкой мыши на <span class="target" id="gos-webui-11"></span><em>Управление GSM-Сканированием</em> и выберите <span class="target" id="gos-webui-12"></span><em>Группировать по тегам…</em>.</p>
+<p>Подтвердите сообщение, нажав <span class="target" id="gos-webui-13"></span><em>ХОРОШО</em>.</p>
+</li>
+<li><p>За всеми группами активов должно быть закреплено ответственное лицо.</p>
+<p>Разверните организацию, щелкните правой кнопкой мыши <span class="target" id="gos-webui-14"></span><em>Персоны</em> и выберите <span class="target" id="gos-webui-15"></span><em>Добавить человека…</em>.</p>
+</li>
+<li><p>Назначьте вновь созданного человека путем перетаскивания в группу активов.</p>
+<p>→ Успешное присвоение можно отобразить в окне <span class="target" id="gos-webui-16"></span><em>Отношения</em> нажав <span class="target" id="gos-webui-17"></span><em>Активы</em> (видеть <a class="reference internal" href="connecting-other-systems.html#fig-verinice6"><span class="std std-numref">Рис. 17.7</span></a>).</p>
+<figure class="align-center" id="id9">
+<span id="fig-verinice6"></span><a class="reference internal image-reference" href="_images/verinice6.png"><img alt="_images/verinice6.png" src="_images/verinice6.png" style="width: 50%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 17.7 </span><span class="caption-text">Отображение отношений для группы</span><a class="headerlink" href="connecting-other-systems.html#id9" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Щелкните правой кнопкой мыши организацию и выберите <span class="target" id="gos-webui-18"></span><em>Задачи &gt; Ак Шумкар: Запустить процесс уязвимости…</em>.</p>
+<p>→ Проверяется, все ли активы и элементы управления сгруппированы и все ли группы активов закреплены за лицом. В сообщении будет отображен результат проверки.</p>
+</li>
+<li><p>Продолжите создание задачи или отмените создание.</p>
+<p>Задача по устранению уязвимостей называется «Устранение уязвимостей».</p>
+</li>
+</ol>
+</section>
+<section id="remediating-vulnerabilities">
+<h4><span class="section-number">17.1.1.3 </span>Устранение уязвимостей<a class="headerlink" href="connecting-other-systems.html#remediating-vulnerabilities" title="Ссылка на эту рубрику">¶</a></h4>
+<p>Созданными задачами можно управлять с помощью представления <span class="target" id="gos-webui-19"></span><em>Задача</em> (<span class="target" id="gos-webui-20"></span><em>«Просмотр» &gt; «Показать вид» &gt; «Задачи».</em> в меню) или веб-интерфейс версии verinice.PRO (в разделе: Задачи ISO 27000).</p>
+<p>Задача содержит элементы управления, сценарии и активы, которые подключены к группе управления и назначены ответственному лицу.
+Ответственное лицо устраняет уязвимости для всех активов.</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>В случае истечения срока выполнения задачи «Устранение уязвимостей» ответственному лицу отправляется письмо с напоминанием.</p>
+</div>
+<p>После завершения задачи все связи между активами и сценариями, назначенные задаче, удаляются.</p>
+<p>Возможны следующие состояния элемента управления:</p>
+<ul class="simple">
+<li><p>Реализовано: активы больше не назначаются сценарию.</p></li>
+<li><p>Частично: другие связи с активами все еще существуют.</p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="using-nagios">
+<span id="nagios"></span><span id="index-2"></span><h2><span class="section-number">17.2 </span>Использование Нагиоса<a class="headerlink" href="connecting-other-systems.html#using-nagios" title="Ссылка на эту рубрику">¶</a></h2>
+<p>Nagios может интегрировать результаты в качестве дополнительного теста для решения своих задач.
+Сканируемые системы автоматически распознаются контролируемыми сетями.
+При этом результаты в конечном итоге становятся доступными для правил оповещений и других процессов Nagios.</p>
+<figure class="align-center" id="id10">
+<a class="reference internal image-reference" href="_images/nagios_integration.png"><img alt="_images/nagios_integration.png" src="_images/nagios_integration.png" style="width: 100%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 17.8 </span><span class="caption-text">Соединение Nagios с телефоном</span><a class="headerlink" href="connecting-other-systems.html#id10" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+<p>При подключении Nagios к телефону Nagios возьмет на себя контролирующую роль.</p>
+<p>Nagios регулярно и автоматически получает новые результаты через телефон.
+Это делается с помощью команды Nagios, которая использует инструмент <span class="target" id="gos-cmd-0"></span><code class="docutils literal notranslate"><span class="pre">gvm-скрипт</span></code> вызвать сценарий <span class="target" id="gos-cmd-1"></span><code class="docutils literal notranslate"><span class="pre">проверка-gmp.gmp.py</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Другие продукты, совместимые с Nagios, такие как Open Monitoring Distribution, Icinga, Centreon и т. д. д. д., как правило, должно работать, но могут быть некоторые небольшие корректировки описанных шагов.</p>
+</div>
+<section id="configuring-the-appliance-user">
+<h3><span class="section-number">17.2.1 </span>Настройка пользователя устройства<a class="headerlink" href="connecting-other-systems.html#configuring-the-appliance-user" title="Ссылка на эту рубрику">¶</a></h3>
+<p>Для доступа к Nagios пользователь должен выбрать вход на устройстве.
+Для этого необходимо настроить конечный кабель (или несколько кабельных объектов) для всех хостов, в состоянии безопасности которых необходимо зарегистрироваться.</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Используемый здесь пример конфигурации предполагает, что существует только одна соответствующая цель, но технически возможно связать сложные настройки с несколькими целями и несколькими устройствами.</p>
+</div>
+<p>Учетная запись пользовательского устройства, предоставляемая для запроса сцен GMP, должна быть надежным объектом или, по крайней мере, иметь неограниченный доступ к ним для чтения.</p>
+<p>Задачи следует регулярно запускать в виде запланированных проверок.</p>
+<p>Кроме того, должен быть возможен сетевой доступ к устройству через GMP.
+Поэтому доступ к GMP необходимо активировать в меню администрирования ГСН (см. гл. <a class="reference internal" href="gmp.html#activating-gmp"><span class="std std-ref">14.2</span></a>).</p>
+</section>
+<section id="configuring-the-script">
+<h3><span class="section-number">17.2.2 </span>Настройка сценария<a class="headerlink" href="connecting-other-systems.html#configuring-the-script" title="Ссылка на эту рубрику">¶</a></h3>
+<p>Ак Шумкар предоставляет сценарий <span class="target" id="gos-cmd-2"></span><code class="docutils literal notranslate"><span class="pre">проверка-gmp.gmp.py</span></code> как часть коллекции скриптов gvm-tools (см. главу <a class="reference internal" href="gmp.html#tools-gmp"><span class="std std-ref">14.3</span></a>).
+Этот сценарий может быть вызван решением для мониторинга с помощью <span class="target" id="gos-cmd-3"></span><code class="docutils literal notranslate"><span class="pre">gvm-скрипт</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Ниже приводится сообщение о том, что Nagios установлен в <code class="samp docutils literal notranslate"><span class="pre">/usr/local/нагиос/</span></code>, впоследствии именуемый <code class="samp docutils literal notranslate"><span class="pre">/.../</span></code>.</p>
+<p>При необходимости измените местоположение файла.</p>
+</div>
+<ol class="arabic">
+<li><p>Скопируйте плагин в <code class="samp docutils literal notranslate"><span class="pre">/.../libexec/</span></code>.</p></li>
+<li><p>Проверьте, может ли скрипт ограничить устройство по сети, активирован GMP и правильно создан пользователем:</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>В следующем заседании замените IP-адрес IP-адреса устройства и укажите имя пользователя и созданный пароль.</p>
+</div>
+</li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nagios-host#<span class="w"> </span>gvm-script<span class="w"> </span>--gmp-username<span class="o">=</span><span class="s2">"имя пользователя"</span><span class="w"> </span>--gmp-password<span class="o">=</span><span class="s2">"пароль"</span><span class="w"> </span><span class="se">\</span>
+ssh<span class="w"> </span>--hostname<span class="w"> </span><span class="m">192</span>.168.10.169<span class="w"> </span>/.../libexec/check-gmp.gmp.py<span class="w"> </span>--ping<span class="w"> </span><span class="se">\</span>
+GMP<span class="w"> </span>OK:<span class="w"> </span>Ping<span class="w"> </span>successful
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Проверьте, есть ли доступ к данным:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nagios-host#<span class="w"> </span>gvm-script<span class="w"> </span>--gmp-username<span class="o">=</span><span class="s2">"имя пользователя"</span><span class="w"> </span>--gmp-password<span class="o">=</span><span class="s2">"пароль"</span><span class="w"> </span><span class="se">\</span>
+ssh<span class="w"> </span>--hostname<span class="w"> </span><span class="m">192</span>.168.10.169<span class="w"> </span>/.../libexec/check-gmp.gmp.py<span class="w"> </span><span class="se">\</span>
+-F<span class="w"> </span><span class="m">192</span>.168.10.130<span class="w"> </span>--last-report<span class="w"> </span>-T<span class="w"> </span><span class="s2">«Сканировать подозрительный хост»</span><span class="w"> </span>--status
+GMP<span class="w"> </span>CRITICAL:<span class="w"> </span><span class="m">284</span><span class="w"> </span>vulnerabilities<span class="w"> </span>found<span class="w"> </span>-<span class="w"> </span>High:<span class="w"> </span><span class="m">118</span><span class="w"> </span>Medium:<span class="w"> </span><span class="m">153</span><span class="w"> </span>Low:<span class="w"> </span><span class="m">13</span>
+Report<span class="w"> </span>did<span class="w"> </span>contain<span class="w"> </span><span class="m">1</span><span class="w"> </span>errors<span class="w"> </span><span class="k">для</span><span class="w"> </span>IP<span class="w"> </span><span class="m">192</span>.168.10.130
+<span class="p">|</span><span class="nv">Высокий</span><span class="o">=</span><span class="m">118</span><span class="w"> </span><span class="nv">Середина</span><span class="o">=</span><span class="m">153</span><span class="w"> </span><span class="nv">Низкий</span><span class="o">=</span><span class="m">13</span>
+</pre></div>
+</div>
+<p>Скрипт поддерживает несколько ключей командной строки. Их можно отобразить с помощью:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Нагиос</span><span class="o">-</span><span class="n">хозяин</span><span class="c1"># gvm-script -c /.../etc/gvm-tools.conf ssh --hostname</span>
+  <span class="mf">192.168.10.169</span> <span class="n">сценарии</span><span class="o">/</span><span class="n">проверять</span><span class="o">-</span><span class="n">GMP</span><span class="o">.</span><span class="n">GMP</span><span class="o">.</span><span class="n">пи</span> <span class="o">-</span><span class="n">ЧАС</span>
+<span class="n">использование</span><span class="p">:</span> <span class="n">проверять</span><span class="o">-</span><span class="n">GMP</span> <span class="p">[</span><span class="o">-</span><span class="n">ЧАС</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">В</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">кэш</span> <span class="p">[</span><span class="n">КЭШ</span><span class="p">]]</span> <span class="p">[</span><span class="o">--</span><span class="n">чистый</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">Ф</span> <span class="n">АДРЕС ХОСТА</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">Т</span> <span class="n">ЗАДАЧА</span><span class="p">]</span>
+<span class="o">...</span>
+
+<span class="n">Проверять</span><span class="o">-</span><span class="n">GMP</span> <span class="n">Нагиос</span> <span class="n">Команда</span> <span class="n">Плагин</span> <span class="mf">2.0.0</span> <span class="p">(</span><span class="n">С</span><span class="p">)</span> <span class="mi">2017</span><span class="o">-</span><span class="mi">2019</span> <span class="n">Ак Шумкар</span> <span class="n">Сети</span> <span class="n">ГмбХ</span>
+<span class="o">...</span>
+
+
+<span class="n">необязательный</span> <span class="n">аргументы</span><span class="p">:</span>
+<span class="o">-</span><span class="n">ЧАС</span>                    <span class="n">Показывать</span> <span class="n">этот</span> <span class="n">помощь</span> <span class="n">сообщение</span> <span class="ow">и</span> <span class="n">Выход</span><span class="o">.</span>
+<span class="o">-</span><span class="n">В</span><span class="p">,</span> <span class="o">--</span><span class="n">версия</span>         <span class="n">Показывать</span> <span class="n">программа</span><span class="s1">номер версии и выход</span>
+<span class="o">--</span><span class="n">кэш</span> <span class="p">[</span><span class="n">КЭШ</span><span class="p">]</span>       <span class="n">Путь</span> <span class="n">к</span> <span class="n">кэш</span> <span class="n">файл</span><span class="o">.</span> <span class="n">По умолчанию</span><span class="p">:</span> <span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">check_gmp</span><span class="o">/</span><span class="n">отчеты</span><span class="o">.</span><span class="n">БД</span><span class="o">.</span>
+<span class="o">--</span><span class="n">чистый</span>               <span class="n">Активировать</span> <span class="n">к</span> <span class="n">чистый</span> <span class="n">тот</span> <span class="n">база данных</span><span class="o">.</span>
+<span class="o">...</span>
+</pre></div>
+</div>
+<ol class="arabic" start="4">
+<li><p>Если тесты пройдены успешно, проверку можно будет интегрировать в монитор Nagios.</p>
+<p>Добавьте хост для мониторинга в раздел <code class="docutils literal notranslate"><span class="pre">ХОЗЯИН</span> <span class="pre">ОПРЕДЕЛЕНИЯ</span></code> в файле конфигурации Nagios <code class="samp docutils literal notranslate"><span class="pre">/.../etc/objects/localhost.cfg</span></code>.</p>
+<p>В этом примере хостом является Metasploitable Linux.</p>
+</li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>define<span class="w"> </span>host<span class="o">{</span>
+<span class="w">     </span>use<span class="w">                     </span>linux-server
+<span class="w">     </span>host_name<span class="w">               </span>metasploitable
+<span class="w">     </span><span class="nb">псевдоним</span><span class="w">                   </span>metasploitable
+<span class="w">     </span>address<span class="w">                 </span><span class="m">192</span>.168.10.130
+<span class="w">     </span><span class="o">}</span>
+</pre></div>
+</div>
+<ol class="arabic" start="5">
+<li><p>В том же конфигурационном файле, в разделе <code class="docutils literal notranslate"><span class="pre">УСЛУГА</span> <span class="pre">ОПРЕДЕЛЕНИЯ</span></code>, определите новый сервис, который создает команду Nagios <code class="docutils literal notranslate"><span class="pre">check_gmp_status</span></code>.</p>
+<p>Как показано в примере, имя задачи, из которой нужно получить отчет, передается команде в качестве аргумента.</p>
+</li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>define<span class="w"> </span>service<span class="o">{</span>
+<span class="w">     </span>use<span class="w">                    </span>local-service<span class="w">    </span><span class="p">;</span><span class="w"> </span>Name<span class="w"> </span>of<span class="w"> </span>service<span class="w"> </span>template<span class="w"> </span>to<span class="w"> </span>use
+<span class="w">     </span>host_name<span class="w">              </span>metasploitable
+<span class="w">     </span>service_description<span class="w">    </span>GMP<span class="w"> </span>task<span class="w"> </span>last<span class="w"> </span>report<span class="w"> </span>status
+<span class="w">     </span>check_command<span class="w">          </span>check_gmp_status!metasploitable
+<span class="w">     </span><span class="o">}</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="6">
+<li><p>Создайте <code class="docutils literal notranslate"><span class="pre">check_gmp_status</span></code> команда в файле <code class="samp docutils literal notranslate"><span class="pre">/.../etc/objects/commands.cfg</span></code>.</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>define<span class="w"> </span>command<span class="o">{</span>
+<span class="w">    </span>command_name<span class="w">    </span>check_gmp_status
+<span class="w">    </span>command_line<span class="w">    </span>gvm-script<span class="w"> </span>-c<span class="w"> </span>/.../etc/gvm-tools.conf<span class="w"> </span>ssh
+<span class="w">       </span>--hostname<span class="w"> </span><span class="m">192</span>.168.10.169<span class="w"> </span><span class="nv">$USER1</span>$/check-gmp.gmp.py<span class="w"> </span>-F<span class="w"> </span><span class="nv">$HOSTADDRESS</span>$
+<span class="w">         </span>--last-report<span class="w"> </span>-T<span class="w"> </span><span class="nv">$ARG1</span>$<span class="w"> </span>--status
+<span class="w">    </span><span class="o">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>В командной строке видно, что инструменту не передаются никакие параметры имени пользователя и пароля, а только файл конфигурации. <span class="target" id="gos-cmd-4"></span><code class="docutils literal notranslate"><span class="pre">gvm-скрипт</span></code> (см. главу <a class="reference internal" href="gmp.html#tools-gmp"><span class="std std-ref">14.3</span></a>).</p>
+</div>
+<ol class="arabic simple" start="7">
+<li><p>Перезапустите сервис Nagios, чтобы применить новую конфигурацию.</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nagios-host#<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>nagios
+</pre></div>
+</div>
+<figure class="align-center" id="id11">
+<a class="reference internal image-reference" href="_images/nagios-service-status.png"><img alt="_images/nagios-service-status.png" src="_images/nagios-service-status.png" style="width: 70%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 17.9 </span><span class="caption-text">Nagios отображает состояние отслеживаемого хоста</span><a class="headerlink" href="connecting-other-systems.html#id11" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="caching-and-multiprocessing">
+<h3><span class="section-number">17.2.3 </span>Кэширование и многопроцессорность<a class="headerlink" href="connecting-other-systems.html#caching-and-multiprocessing" title="Ссылка на эту рубрику">¶</a></h3>
+<p>Сценарий <span class="target" id="gos-cmd-5"></span><code class="docutils literal notranslate"><span class="pre">проверка-gmp.gmp.py</span></code> кэширование опоры.
+Все новые отчеты будут кэшироваться на базе данных SQLite.
+Первый вызов с неизвестного хоста займет больше времени, так как отчет необходимо получить с устройства.
+Последующие вызовы будут передавать настоящий отчет с устройства только в том случае, если окончание времени изменится.
+В противном случае используется информация из базы данных. Это значительно снижает нагрузку как на сервер Диптихи, так и на само устройство.</p>
+<p>Файл кэша записывается в <code class="docutils literal notranslate"><span class="pre">/tmp/check_gmp/reports.db</span></code> по умолчанию. Другое расположение базы данных можно указать с помощью переключателя командной строки. <code class="docutils literal notranslate"><span class="pre">--cache</span></code>.</p>
+<p>Чтобы еще больше снизить нагрузку как на сервер мониторинга, так и на устройство, плагин может ограничить максимальное количество одновременно работающих экземпляров плагина.
+Дополнительно запущенные экземпляры останавливаются и ждут продолжения. Значение по умолчанию <code class="docutils literal notranslate"><span class="pre">MAX_RUNNING_INSTANCES</span></code> равно 10. Значение по умолчанию можно изменить с помощью переключателя командной строки. <code class="docutils literal notranslate"><span class="pre">-Я</span></code>.</p>
+</section>
+</section>
+<section id="using-the-cisco-firepower-management-center">
+<span id="sourcefire"></span><span id="index-3"></span><h2><span class="section-number">17.3 </span>Использование Центра управления огневой мощью Cisco<a class="headerlink" href="connecting-other-systems.html#using-the-cisco-firepower-management-center" title="Ссылка на эту рубрику">¶</a></h2>
+<p>Cisco Firepower Management Center (ранее Sourcefire Intrusion Prevention System (IPS)) — одно из ведущих решений для обнаружения и защиты от вторжений в компьютерных сетях.
+В качестве системы обнаружения вторжений в сети (NIDS) ей поручено обнаружение, оповещение и защита от атак в сети.</p>
+<p>Чтобы правильно идентифицировать и классифицировать атаки, Центру управления огневой мощью требуется как можно больше информации о системах в сети, установленных на них приложениях и потенциальных уязвимостях для них обоих.
+Для этой цели Центр управления огневой мощью имеет собственную базу данных активов, которую можно дополнить информацией с устройства.
+Кроме того, Центр управления огневой мощью может запустить автоматическое сканирование, если что-то заподозрит.</p>
+<p>Доступны следующие способы подключения:</p>
+<dl class="simple">
+<dt>Автоматическая передача данных с телефона на NIDS/IPS</dt><dd><p>Если устройство и NIDS/IDS настроены соответствующим образом, передачу данных с устройства на NIDS/IPS можно легко использовать, как и любую другую функцию оповещения устройства.
+После завершения подготовки отчет будет отправлен в виде ссылки в NIDS/IPS в соответствии с заданными критериями.
+Если задача запускается автоматически еженедельно, создается полностью автоматизированная система. оповещения и оптимизации.</p>
+</dd>
+<dt>Активный контроль устройства с помощью NIDS/IPS</dt><dd><p>При работе могут возникнуть NIDS/IPS. Серьезные происшествия со средним риском.
+В таком случае NIDS/IPS может дать указание устройству проверить систему. <a class="footnote-reference superscript" href="connecting-other-systems.html#ips" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Для использования способов подключения необходимо включить возможность получения данных в Центре управления огневой мощью.</p>
+</div>
+<section id="configuring-the-host-input-api-clients">
+<span id="index-4"></span><h3><span class="section-number">17.3.1 </span>Настройка клиентов Host-Input-API<a class="headerlink" href="connecting-other-systems.html#configuring-the-host-input-api-clients" title="Ссылка на эту рубрику">¶</a></h3>
+<p>Host-Input-API — это интерфейс, через который Центр управления огневой мощью принимает данные из других приложений для баз данных активов.</p>
+<ol class="arabic">
+<li><p>Войдите в Центр управления огневой мощью.</p></li>
+<li><p>Выбирать <span class="target" id="gos-webui-21"></span><em>Система &gt; Интеграция</em> в меню.</p></li>
+<li><p>Выберите вкладку <span class="target" id="gos-webui-22"></span><em>Хост-клиент ввода</em>.</p></li>
+<li><p>Введите IP-адрес устройства в поле ввода. <span class="target" id="gos-webui-23"></span><em>Имя хоста</em> (видеть <a class="reference internal" href="connecting-other-systems.html#fig-host-input-api1"><span class="std std-numref">Рис. 17.10</span></a>).</p>
+<figure class="align-center" id="id12">
+<span id="fig-host-input-api1"></span><a class="reference internal image-reference" href="_images/host-input-api1.png"><img alt="_images/host-input-api1.png" src="_images/host-input-api1.png" style="width: 80%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 17.10 </span><span class="caption-text">Создание клиента ввода хоста</span><a class="headerlink" href="connecting-other-systems.html#id12" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Введите пароль в поле ввода <span class="target" id="gos-webui-24"></span><em>Пароль</em>.</p></li>
+</ol>
+<ol class="arabic" start="6">
+<li><p>Нажмите <em>Сохранять</em>.</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Соединение зашифровано TLS.</p>
+</div>
+<p>→ Центр управления огневой мощью автоматически создает закрытый ключ и сертификат.</p>
+<p>В сертификате, указанном выше, IP-адрес будет использоваться в качестве общего имени и проверяться, когда клиент устанавливает соединение.
+Если клиент использует другой IP-адрес, соединение не будет обнаружено.</p>
+<p>Созданный файл PKCS#12 дополнительно защищен паролем.</p>
+<p>После этого сертификат и ключ создаются и доступны для загрузки.</p>
+</li>
+<li><p>Нажмите <a class="reference internal" href="_images/sourcefire_download_icon.png"><img alt="" src="_images/sourcefire_download_icon.png" style="height: 1.2em;"/></a> чтобы скачать файл (см. <a class="reference internal" href="connecting-other-systems.html#fig-host-input-api2"><span class="std std-numref">Рис. 17.11</span></a>).</p>
+<figure class="align-center" id="id13">
+<span id="fig-host-input-api2"></span><a class="reference internal image-reference" href="_images/host-input-api2.png"><img alt="_images/host-input-api2.png" src="_images/host-input-api2.png" style="width: 80%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 17.11 </span><span class="caption-text">Загрузка созданного файла PKCS#12</span><a class="headerlink" href="connecting-other-systems.html#id13" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+</li>
+</ol>
+</section>
+<section id="configuring-a-sourcefire-connector-alert">
+<span id="index-5"></span><h3><span class="section-number">17.3.2 </span>Настройка оповещений соединений Sourcefire<a class="headerlink" href="connecting-other-systems.html#configuring-a-sourcefire-connector-alert" title="Ссылка на эту рубрику">¶</a></h3>
+<p>Теперь на устройстве необходимо настроить соответствующее оповещение.</p>
+<ol class="arabic">
+<li><p>Выбирать <span class="target" id="gos-webui-25"></span><em>Конфигурация &gt; Оповещения</em> в меню.</p></li>
+<li><p>Создайте новое оповещение, нажав <a class="reference internal" href="_images/new.png"><img alt="" src="_images/new.png" style="height: 1.2em;"/></a>.</p></li>
+<li><p>Определите предупреждение (см. <a class="reference internal" href="connecting-other-systems.html#fig-alert-sourcefire"><span class="std std-numref">Рис. 17.12</span></a>).</p>
+<div class="admonition tip">
+<p class="admonition-title">Кончик</p>
+<p>Информацию для ввода в поля ввода см. в главе. <a class="reference internal" href="scanning.html#alerts"><span class="std std-ref">9.12</span></a>.</p>
+</div>
+</li>
+<li><p>Выбирать <span class="target" id="gos-webui-26"></span><em>Соединитель источника огня</em> в раскрывающемся списке <span class="target" id="gos-webui-27"></span><em>Метод</em>.</p>
+<figure class="align-center" id="id14">
+<span id="fig-alert-sourcefire"></span><a class="reference internal image-reference" href="_images/alert_sourcefire.png"><img alt="_images/alert_sourcefire.png" src="_images/alert_sourcefire.png" style="width: 60%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 17.12 </span><span class="caption-text">Создание оповещений с помощью Sourcefire Connector</span><a class="headerlink" href="connecting-other-systems.html#id14" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Введите IP-адрес Центра управления в поле ввода. <em>Центр обороны ИП</em>и порт, используемый для подключения к нему, в поле ввода <em>Центр обороны Порт</em>.</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Если пароль был назначен при получении клиента, пароль для файла PKCS#12 должен быть указан в качестве учетных данных (см. главу). <a class="reference internal" href="scanning.html#creating-credential"><span class="std std-ref">9.3.2.1</span></a>).</p>
+</div>
+</li>
+<li><p>Выберите учетные данные в раскрывающемся списке. <em>Учетные данные PKCS12</em>.</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Новые учетные данные можно создать, нажав кнопку <a class="reference internal" href="_images/new.png"><img alt="" src="_images/new.png" style="height: 1.2em;"/></a>.</p>
+</div>
+</li>
+<li><p>Предоставьте файл PKCS#12, нажмите кнопку. <span class="target" id="gos-webui-28"></span><em>Просматривать…</em>.</p></li>
+<li><p>Нажмите <span class="target" id="gos-webui-29"></span><em>Сохранять</em>.</p></li>
+</ol>
+</section>
+</section>
+<section id="using-alemba-vfire">
+<span id="vfire"></span><span id="index-6"></span><h2><span class="section-number">17.4 </span>Использование Алембы vFire<a class="headerlink" href="connecting-other-systems.html#using-alemba-vfire" title="Ссылка на эту рубрику">¶</a></h2>
+<p>vFire — это приложение для управления корпоративными сервисами, разработанное <a class="reference external" href="https://alemba.com/">Алемба</a>.</p>
+<p>Устройство можно настроить на создание билетов в экземпляре vFire на основе таких событий по мере их завершения.</p>
+<section id="prerequisites-for-alemba-vfire">
+<span id="prerequisites-alemba"></span><h3><span class="section-number">17.4.1 </span>Предварительные требования для Alemba vFire<a class="headerlink" href="connecting-other-systems.html#prerequisites-for-alemba-vfire" title="Ссылка на эту рубрику">¶</a></h3>
+<p>Для работы должны быть выполнены следующие предварительные условия:
+встретился в системе vFire:</p>
+<ul class="simple">
+<li><p>Установка vFire должна поддерживать RESTful Alemba API, который был
+добавлено в vFire версии 9.7. Устаревший API старой версии не соответствует требованиям.
+через разъем Ак Шумкар.</p></li>
+<li><p>Клиент Alemba API с таким типом сеанса (аналитик/пользователь)
+и вход по паролю должен быть включен.</p></li>
+<li><p>Учетная запись пользователя, которую следует использовать, требует разрешения на использование API Alemba.</p></li>
+</ul>
+</section>
+<section id="configuring-an-alemba-vfire-alert">
+<span id="index-7"></span><h3><span class="section-number">17.4.2 </span>Настройка оповещений Alemba vFire<a class="headerlink" href="connecting-other-systems.html#configuring-an-alemba-vfire-alert" title="Ссылка на эту рубрику">¶</a></h3>
+<p>Чтобы устройство автоматически вызывало запросы (так называемые «вызовы») в vFire, необходимо настроить оповещение следующим образом:</p>
+<ol class="arabic">
+<li><p>Выбирать <span class="target" id="gos-webui-30"></span><em>Конфигурация &gt; Оповещения</em> в меню.</p></li>
+<li><p>Создайте новое оповещение, нажав <a class="reference internal" href="_images/new.png"><img alt="" src="_images/new.png" style="height: 1.2em;"/></a>.</p></li>
+<li><p>Определите предупреждение.</p>
+<div class="admonition tip">
+<p class="admonition-title">Кончик</p>
+<p>Информацию для ввода в поля ввода см. в главе. <a class="reference internal" href="scanning.html#alerts"><span class="std std-ref">9.12</span></a>.</p>
+</div>
+</li>
+<li><p>Выбирать <span class="target" id="gos-webui-31"></span><em>Алемба vFire</em> в раскрывающемся списке <span class="target" id="gos-webui-32"></span><em>Метод</em>.</p></li>
+<li><p>Нажмите <span class="target" id="gos-webui-33"></span><em>Сохранять</em>.</p></li>
+</ol>
+<p>Можно определить следующие детали оповещения:</p>
+<dl>
+<dt>Форматы отчетов</dt><dd><p>Форматы отчета, используемые для вложений.
+Можно выбрать несколько форматов отчета или оставить выбор пустым, если вложения не нужны.</p>
+</dd>
+<dt>Базовый URL</dt><dd><p>Это URL-адрес экземпляра Alemba, включая имя сервера и виртуальный каталог.
+Например, если доступ к пользовательскому интерфейсу осуществляется через <code class="docutils literal notranslate"><span class="pre">https://alemba.example.com/vfire/core.aspx</span></code>, базовый URL будет иметь вид <code class="docutils literal notranslate"><span class="pre">https://alemba.example.com/vfire</span></code>.</p>
+</dd>
+<dt>Полномочия</dt><dd><p>Имя пользователя и пароль, необходимые для входа в Alemba vFire.</p>
+</dd>
+<dt>Тип сеанса</dt><dd><p>Тип используемого сеанса.
+Это может быть как «аналитик», так и «пользователь».</p>
+<p>В качестве «аналитика» можно выполнять некоторые действия, недоступные «пользователю».
+«Пользователю» требуются специальные разрешения для этих действий, а количество одновременных входов в систему может быть ограничено.</p>
+</dd>
+<dt>Идентификатор клиента Алемба</dt><dd><p>Это идентификатор клиента Alemba API (см. главу <a class="reference internal" href="connecting-other-systems.html#prerequisites-alemba"><span class="std std-ref">17.4.1</span></a>).</p>
+</dd>
+<dt>Раздел</dt><dd><p>Раздел, в котором будет создан билет. Дополнительную информацию о разделении см. в справке Алемба vFire.</p>
+</dd>
+<dt>Описание вызова</dt><dd><p>Это шаблон текста описания, используемый для вновь созданных вызовов.
+Можно использовать те же заполнители, что и в поле ввода сообщения метода оповещения по электронной почте (см. главу <a class="reference internal" href="scanning.html#alerts"><span class="std std-ref">9.12</span></a>).</p>
+</dd>
+<dt>Шаблон звонка</dt><dd><p>Имя шаблона вызова, который будет использоваться для вызовов, созданных оповещений.
+Шаблон звонка можно настроить в vFire для заполнения всех полей, которые непосредственно участвуют в оповещениях.</p>
+</dd>
+<dt>Тип вызова</dt><dd><p>Имя типа вызова, который будет использоваться для вызовов, созданных оповещением.</p>
+</dd>
+<dt>Влияние</dt><dd><p>Полное имя значения воздействия.</p>
+</dd>
+<dt>срочность</dt><dd><p>Полное имя значения срочности.</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="using-splunk">
+<span id="splunk"></span><span id="index-8"></span><h2><span class="section-number">17.5 </span>Использование Спланка<a class="headerlink" href="connecting-other-systems.html#using-splunk" title="Ссылка на эту рубрику">¶</a></h2>
+<p>Устройство можно настроить на отправку результатов через корпоративную настройку Splunk для дальнейшего анализа и корректировок.</p>
+<p>Подключение устройства к решению Splunk не является частью основной функциональности устройства.
+В качестве дополнения «Ак Шумкар» используйте приложение для экспертов с локальными решениями Splunk Enterprise.
+Применение в настоящее время доступно по адресу <a class="reference external" href="https://download.ak-shumkar.net/tools/Ak Shumkar-Splunk-App-1.0.1.tar.gz">https://download.ak-shumkar.net/tools/Ак Шумкар-Splunk-App-1.0.1.tar.gz</a>.</p>
+<div class="admonition important">
+<p class="admonition-title">Важный</p>
+<p>Внешние ссылки на веб-страницу загрузки «Ак Шумкар» чувствительны к регистру.</p>
+<p>Обратите внимание, что прописные и строчные буквы, а также специальные символы необходимо вводить именно так, как здесь написано.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Если возникли проблемы с загрузкой или тестированием приложения, свяжитесь с <a class="reference external" href="https://www.ak-shumkar.net/en/technical-support/">Команда поддержки Ак Шумкар</a>.</p>
+<p>В прошлом используется Splunk Enterprise версии 8.5. Установка приложения на Splunk Light не является проблемой. Подключение устройства к Splunk Cloud не происходит.</p>
+</div>
+<section id="setting-up-the-ak-shumkar-splunk-app">
+<span id="ak-shumkar-splunk-app"></span><h3><span class="section-number">17.5.1 </span>Настройка приложения «Ак Шумкар-Спланк»<a class="headerlink" href="connecting-other-systems.html#setting-up-the-ak-shumkar-splunk-app" title="Ссылка на эту рубрику">¶</a></h3>
+<section id="installing-the-app">
+<h4><span class="section-number">17.5.1.1 </span>Установка приложения<a class="headerlink" href="connecting-other-systems.html#installing-the-app" title="Ссылка на эту рубрику">¶</a></h4>
+<p>Приложение «Ак Шумкар-Спланк» можно установить следующим образом:</p>
+<ol class="arabic simple">
+<li><p>Откройте Splunk Enterprise.</p></li>
+<li><p>Нажмите <a class="reference internal" href="_images/splunk_apps.png"><img alt="" src="_images/splunk_apps.png" style="height: 1.2em;"/></a> в левой панели меню (см. <a class="reference internal" href="connecting-other-systems.html#fig-splunk1"><span class="std std-numref">Рис. 17.13</span></a>).</p></li>
+</ol>
+<figure class="align-center" id="id15">
+<span id="fig-splunk1"></span><a class="reference internal image-reference" href="_images/splunk1.png"><img alt="_images/splunk1.png" src="_images/splunk1.png" style="width: 40%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 17.13 </span><span class="caption-text">Установка приложения Splunk</span><a class="headerlink" href="connecting-other-systems.html#id15" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+<ol class="arabic simple" start="3">
+<li><p>Нажмите <span class="target" id="gos-webui-34"></span><em>Установить приложение из файла</em>.</p></li>
+<li><p>Нажмите <em>Просматривать…</em>.</p></li>
+<li><p>Выберите файл TAR приложения «Ак Шумкар-Splunk».</p></li>
+<li><p>Нажмите <span class="target" id="gos-webui-35"></span><em>Загрузить</em>.</p></li>
+</ol>
+</section>
+<section id="configuring-the-ak-shumkar-splunk-app">
+<span id="configuring-splunk-app"></span><h4><span class="section-number">17.5.1.2 </span>Настройка приложения Ак Шумкар-Splunk<a class="headerlink" href="connecting-other-systems.html#configuring-the-ak-shumkar-splunk-app" title="Ссылка на эту рубрику">¶</a></h4>
+<p>Для настройки устройства необходим порт приложения «Ак Шумкар-Спланк».</p>
+<p>Проверьте порт приложения Ак Шумкар-Спланк следующим образом:</p>
+<ol class="arabic simple">
+<li><p>Выберите приложение «Ак Шумкар-Спланк» в левой панели меню.</p></li>
+<li><p>Выбирать <em>Настройки &gt; Ввод данных</em> в меню.</p></li>
+<li><p>Нажмите <em>TCP</em> (видеть <a class="reference internal" href="connecting-other-systems.html#fig-splunk4"><span class="std std-numref">Рис. 17.14</span></a>).</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Приложение «Ак Шумкар-Splunk» устанавливает ввод данных на порт 7680/TCP (порт по умолчанию) и помечает в соединениях данные <em>Результаты сканирования Ак Шумкара</em> и помещает его в индекс <em>по умолчанию</em>.</p>
+</div>
+<figure class="align-center" id="id16">
+<span id="fig-splunk4"></span><a class="reference internal image-reference" href="_images/splunk4.png"><img alt="_images/splunk4.png" src="_images/splunk4.png" style="width: 90%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 17.14 </span><span class="caption-text">Проверка порта приложения Ак Шумкар-Спланк</span><a class="headerlink" href="connecting-other-systems.html#id16" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+<p>Чтобы сделать данные более удобными для пользователя, имена полей можно заменить следующим образом:</p>
+<ol class="arabic">
+<li><p>Нажмите <a class="reference internal" href="_images/splunk_apps.png"><img alt="" src="_images/splunk_apps.png" style="height: 1.2em;"/></a> в левой панели меню.</p></li>
+<li><p>В ряду <em>Ак Шумкар</em>, нажмите <em>Просмотр объектов</em>.</p></li>
+<li><p>Нажмите <em>Результаты результата Ак Шумкар: поля FIELDALIAS-reportfields</em>.</p></li>
+<li><p>Введите псевдонимы имен полей в соответствующие поля ввода (см. <a class="reference internal" href="connecting-other-systems.html#fig-splunk5"><span class="std std-numref">Рис. 17.15</span></a>).</p>
+<figure class="align-center" id="id17">
+<span id="fig-splunk5"></span><a class="reference internal image-reference" href="_images/splunk5.png"><img alt="_images/splunk5.png" src="_images/splunk5.png" style="width: 90%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 17.15 </span><span class="caption-text">Изменение псевдонимов имен полей</span><a class="headerlink" href="connecting-other-systems.html#id17" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+</li>
+</ol>
+</section>
+</section>
+<section id="configuring-a-splunk-alert">
+<span id="index-9"></span><h3><span class="section-number">17.5.2 </span>Настройка оповещений Splunk<a class="headerlink" href="connecting-other-systems.html#configuring-a-splunk-alert" title="Ссылка на эту рубрику">¶</a></h3>
+<p>Устройство передает результаты в формате видеоотчета XML через систему оповещения непосредственно на главном сервере Splunk.</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>На панели инструментов приложения «Ак Шумкар-Спланк» отображаются результаты только из отчетов менее 7 дней назад.</p>
+<p>Если отчет отправлен более 7 дней, на панели Диптихова не будет результатов Google.
+Однако результаты отображаются в основном на индексном сервере Splunk.</p>
+</div>
+<section id="creating-the-splunk-alert">
+<h4><span class="section-number">17.5.2.1 </span>Создание оповещений Splunk<a class="headerlink" href="connecting-other-systems.html#creating-the-splunk-alert" title="Ссылка на эту рубрику">¶</a></h4>
+<p>Оповещение создается следующим образом:</p>
+<ol class="arabic">
+<li><p>Выбирать <span class="target" id="gos-webui-36"></span><em>Конфигурация &gt; Оповещения</em> в меню.</p></li>
+<li><p>Создайте новое оповещение, нажав <a class="reference internal" href="_images/new.png"><img alt="" src="_images/new.png" style="height: 1.2em;"/></a>.</p></li>
+<li><p>Определите предупреждение (см. <a class="reference internal" href="connecting-other-systems.html#fig-alert-splunk"><span class="std std-numref">Рис. 17.16</span></a>).</p>
+<div class="admonition tip">
+<p class="admonition-title">Кончик</p>
+<p>Информацию для ввода в поля ввода см. в главе. <a class="reference internal" href="scanning.html#alerts"><span class="std std-ref">9.12</span></a>.</p>
+</div>
+</li>
+<li><p>Выбирать <span class="target" id="gos-webui-37"></span><em>Отправить хосту</em> в раскрывающемся списке <span class="target" id="gos-webui-38"></span><em>Метод</em>.</p></li>
+<li><p>Введите IP-адрес сервера Splunk в поле ввода. <span class="target" id="gos-webui-39"></span><em>Отправить хосту</em> и <code class="docutils literal notranslate"><span class="pre">7680</span></code> в поле ввода <span class="target" id="gos-webui-40"></span><em>в порту</em>.</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>TCP-порт по умолчанию — 7680.</p>
+<p>Эту настройку можно проверить в приложении Ак Шумкар-Спланк, как описано в главе. <a class="reference internal" href="connecting-other-systems.html#configuring-splunk-app"><span class="std std-ref">17.5.1.2</span></a>.</p>
+</div>
+</li>
+<li><p>Выбирать <span class="target" id="gos-webui-41"></span><em>XML</em> в раскрывающемся списке <span class="target" id="gos-webui-42"></span><em>Отчет</em>.</p>
+<figure class="align-center" id="id18">
+<span id="fig-alert-splunk"></span><a class="reference internal image-reference" href="_images/alert_splunk.png"><img alt="_images/alert_splunk.png" src="_images/alert_splunk.png" style="width: 60%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 17.16 </span><span class="caption-text">Настройка оповещений Splunk</span><a class="headerlink" href="connecting-other-systems.html#id18" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Нажмите <span class="target" id="gos-webui-43"></span><em>Сохранять</em>.</p></li>
+</ol>
+</section>
+<section id="adding-the-splunk-alert-to-a-task">
+<h4><span class="section-number">17.5.2.2 </span>Добавление оповещений Splunk к задаче<a class="headerlink" href="connecting-other-systems.html#adding-the-splunk-alert-to-a-task" title="Ссылка на эту рубрику">¶</a></h4>
+<p>Оповещение теперь можно выбрать при создании новой задачи (см. главу <a class="reference internal" href="scanning.html#creating-task"><span class="std std-ref">9.2.2</span></a>) или быть добавлен к существующей задаче (см. главу <a class="reference internal" href="scanning.html#assign-alert-to-task"><span class="std std-ref">9.12.2</span></a>).</p>
+</section>
+<section id="testing-the-splunk-alert">
+<h4><span class="section-number">17.5.2.3 </span>Тестирование оповещений Splunk<a class="headerlink" href="connecting-other-systems.html#testing-the-splunk-alert" title="Ссылка на эту рубрику">¶</a></h4>
+<p>В целях тестирования существующие отчеты могут обрабатываться оповещением.</p>
+<ol class="arabic">
+<li><p>Выбирать <span class="target" id="gos-webui-44"></span><em>Сканы &gt; Отчеты</em> в меню.</p></li>
+<li><p>Нажмите на дату отчета.</p></li>
+<li><p>Нажмите <a class="reference internal" href="_images/start.png"><img alt="" src="_images/start.png" style="height: 1.2em;"/></a>.</p></li>
+<li><p>Выберите оповещение в раскрывающемся списке. <span class="target" id="gos-webui-45"></span><em>Тревога</em> (видеть <a class="reference internal" href="connecting-other-systems.html#fig-alert-report-splunk"><span class="std std-numref">Рис. 17.17</span></a>).</p>
+<figure class="align-center" id="id19">
+<span id="fig-alert-report-splunk"></span><a class="reference internal image-reference" href="_images/alert_report_splunk.png"><img alt="_images/alert_report_splunk.png" src="_images/alert_report_splunk.png" style="width: 60%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 17.17 </span><span class="caption-text">Запуск оповещения</span><a class="headerlink" href="connecting-other-systems.html#id19" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Нажмите <span class="target" id="gos-webui-46"></span><em>ХОРОШО</em>.</p></li>
+</ol>
+</section>
+</section>
+<section id="using-the-ak-shumkar-splunk-app">
+<h3><span class="section-number">17.5.3 </span>Использование приложения «Ак Шумкар-Splunk»<a class="headerlink" href="connecting-other-systems.html#using-the-ak-shumkar-splunk-app" title="Ссылка на эту рубрику">¶</a></h3>
+<section id="accessing-the-information-in-splunk">
+<h4><span class="section-number">17.5.3.1 </span>Доступ к информации в Splunk<a class="headerlink" href="connecting-other-systems.html#accessing-the-information-in-splunk" title="Ссылка на эту рубрику">¶</a></h4>
+<p>Чтобы получить доступ к информации в Splunk, последовательно в панели управления «Ак Шумкар» следующим образом:</p>
+<ol class="arabic">
+<li><p>Откройте Splunk Enterprise.</p></li>
+<li><p>Выберите приложение «Ак Шумкар-Спланк» в левой панели меню.</p></li>
+<li><p>Выбирать <em>Панели мониторинга</em> в меню.</p></li>
+<li><p>Нажмите <em>Ак Шумкар Панель управления</em>.</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>На панели инструментов приложения «Ак Шумкар-Спланк» отображаются результаты только из отчетов менее 7 дней назад.</p>
+<p>Если отчет отправлен более 7 дней, на панели Диптихова не будет результатов Google.
+Однако результаты отображаются в основном на индексном сервере Splunk.</p>
+</div>
+</li>
+</ol>
+<figure class="align-center" id="id20">
+<a class="reference internal image-reference" href="_images/splunk7.png"><img alt="_images/splunk7.png" src="_images/splunk7.png" style="width: 90%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 17.18 </span><span class="caption-text">Кабинет «Ак Шумкар» в приложении «Ак Шумкар-Splunk»</span><a class="headerlink" href="connecting-other-systems.html#id20" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+<p>Поле ввода <em>CVE-ID</em> Панель управления ниже может использоваться для отображения количества хостов, связанных с CVE, в течение времени.</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Если поле ввода осталось пустым и <kbd class="kbd docutils literal notranslate">Входить</kbd> При изменении количества хостов, подключенных ко всем CVE.</p>
+</div>
+</section>
+<section id="performing-a-search">
+<h4><span class="section-number">17.5.3.2 </span>Выполнение поиска<a class="headerlink" href="connecting-other-systems.html#performing-a-search" title="Ссылка на эту рубрику">¶</a></h4>
+<p>Поскольку информация, пересылаемая через телефон, индексируется Splunk, представление определения можно использовать для поиска данных любым следующим образом:</p>
+<ol class="arabic simple">
+<li><p>Откройте Splunk Enterprise.</p></li>
+<li><p>Выберите приложение «Ак Шумкар-Спланк» в левой панели меню.</p></li>
+<li><p>Выбирать <em>Поиск</em> в меню.</p></li>
+<li><p>Введите индекс и значение, которое следует искать, в поле ввода.</p></li>
+<li><p>Выберите временное окно в раскрывающемся списке справа от поля ввода.</p></li>
+<li><p>Нажмите <a class="reference internal" href="_images/splunk_search.png"><img alt="" src="_images/splunk_search.png" style="height: 1.2em;"/></a>.</p></li>
+</ol>
+<figure class="align-center" id="id21">
+<a class="reference internal image-reference" href="_images/splunk8.png"><img alt="_images/splunk8.png" src="_images/splunk8.png" style="width: 90%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 17.19 </span><span class="caption-text">Осуществление поиска в приложении «Ак Шумкар-Спланк»</span><a class="headerlink" href="connecting-other-systems.html#id21" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+<p>Некоторые поддерживаемые индексы:</p>
+<ul class="simple">
+<li><p>хозяин</p></li>
+<li><p>источник, тип источника</p></li>
+<li><p>дата_час, дата_минута, дата_месяц, дата_год, дата_mдата, дата_вдень, дата_зона</p></li>
+<li><p>УязвимостьРезультатNvtCVE</p></li>
+<li><p>УязвимостьResultNvtCVSS</p></li>
+<li><p>УязвимостьРезультатКод</p></li>
+<li><p>УязвимостьResultSeverity</p></li>
+<li><p>УязвимостьРезультатУгроза</p></li>
+</ul>
+</section>
+<section id="creating-a-dashboard-for-the-top-5-affected-hosts-and-for-incoming-reports">
+<h4><span class="section-number">17.5.3.3 </span>Создание информационной панели для 5 наиболее затронутых хостов и для входящих отчетов<a class="headerlink" href="connecting-other-systems.html#creating-a-dashboard-for-the-top-5-affected-hosts-and-for-incoming-reports" title="Ссылка на эту рубрику">¶</a></h4>
+<p>Можно создать новую панель «Диптихи», на которой будут находиться 5 наиболее важных хостов за все время и входящие отчеты с устройства.
+Панель «Диптихи» будет работать каждый раз, когда на экране Splunk составляет новый отчет за прошедший год.</p>
+<ol class="arabic">
+<li><p>Откройте Splunk Enterprise.</p></li>
+<li><p>Выберите приложение «Ак Шумкар-Спланк» в левой панели меню.</p></li>
+<li><p>Выбирать <em>Панели мониторинга</em> в меню.</p></li>
+<li><p>Нажмите <em>Создать новую панель мониторинга</em>.</p></li>
+<li><p>Введите заголовок в поле ввода <em>Заголовок</em>, например <code class="docutils literal notranslate"><span class="pre">Ак Шумкар</span> <span class="pre">входящий</span> <span class="pre">статистика</span></code>.</p></li>
+<li><p>Нажмите <em>Создать панель мониторинга</em>.</p></li>
+<li><p>Нажмите <em>Источник</em>.</p></li>
+<li><p>Скопируйте и вставьте следующее в поле ввода (заменив все):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">приборная панель</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">этикетка</span><span class="o">&gt;</span><span class="n">Ак Шумкар</span> <span class="n">входящий</span> <span class="n">статистика</span><span class="o">&lt;/</span><span class="n">этикетка</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">ряд</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">панель</span><span class="o">&gt;</span>
+          <span class="o">&lt;</span><span class="n">заголовок</span><span class="o">&gt;</span><span class="n">Вершина</span> <span class="mi">5</span> <span class="nb">все</span> <span class="n">время</span><span class="o">&lt;/</span><span class="n">заголовок</span><span class="o">&gt;</span>
+          <span class="o">&lt;</span><span class="n">диаграмма</span><span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="n">поиск</span><span class="o">&gt;</span>
+                  <span class="o">&lt;</span><span class="n">запрос</span><span class="o">&gt;</span><span class="n">тип источника</span> <span class="o">=</span> <span class="s2">«Результаты сканирования Ак Шумкара»</span> <span class="n">УязвимостьResultSeverity</span> <span class="o">&amp;</span><span class="n">гт</span><span class="p">;</span> <span class="mi">0</span> <span class="o">|</span> <span class="n">диаграмма</span> <span class="n">считать</span> <span class="n">над</span> <span class="n">УязвимостьResultHost</span> <span class="n">к</span> <span class="n">УязвимостьРезультатУгроза</span> <span class="o">|</span> <span class="n">заполнить нуль</span> <span class="n">Высокий</span> <span class="o">|</span> <span class="n">заполнить нуль</span> <span class="n">Середина</span> <span class="o">|</span> <span class="n">заполнить нуль</span> <span class="n">Низкий</span> <span class="o">|</span> <span class="nb">оценивать</span> <span class="n">_считать</span><span class="o">=</span> <span class="n">Высокий</span><span class="o">+</span><span class="n">Низкий</span><span class="o">+</span><span class="n">Середина</span> <span class="o">|</span> <span class="n">сортировать</span> <span class="n">к</span> <span class="n">_считать</span> <span class="n">описание</span> <span class="o">|</span> <span class="n">голова</span> <span class="mi">5</span><span class="o">&lt;/</span><span class="n">запрос</span><span class="o">&gt;</span>
+                  <span class="o">&lt;</span><span class="n">самый ранний</span><span class="o">&gt;</span><span class="mi">0</span><span class="o">&lt;/</span><span class="n">самый ранний</span><span class="o">&gt;</span>
+                  <span class="o">&lt;</span><span class="n">последний</span><span class="o">&gt;&lt;/</span><span class="n">последний</span><span class="o">&gt;</span>
+                <span class="o">&lt;/</span><span class="n">поиск</span><span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="n">вариант</span> <span class="n">имя</span><span class="o">=</span><span class="s2">"charting.axisLabelsX.majorLabelStyle.overflowMode"</span><span class="o">&gt;</span><span class="n">многоточиеНет</span><span class="o">&lt;/</span><span class="n">вариант</span><span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="n">вариант</span> <span class="n">имя</span><span class="o">=</span><span class="s2">"charting.axisLabelsX.majorLabelStyle.rotation"</span><span class="o">&gt;</span><span class="mi">0</span><span class="o">&lt;/</span><span class="n">вариант</span><span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="n">вариант</span> <span class="n">имя</span><span class="o">=</span><span class="s2">"charting.axisTitleX.visibility"</span><span class="o">&gt;</span><span class="n">видимый</span><span class="o">&lt;/</span><span class="n">вариант</span><span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="n">вариант</span> <span class="n">имя</span><span class="o">=</span><span class="s2">"charting.axisTitleY.visibility"</span><span class="o">&gt;</span><span class="n">видимый</span><span class="o">&lt;/</span><span class="n">вариант</span><span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="n">вариант</span> <span class="n">имя</span><span class="o">=</span><span class="s2">"charting.axisTitleY2.visibility"</span><span class="o">&gt;</span><span class="n">видимый</span><span class="o">&lt;/</span><span class="n">вариант</span><span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="n">вариант</span> <span class="n">имя</span><span class="o">=</span><span class="s2">"charting.axisX.scale"</span><span class="o">&gt;</span><span class="n">линейный</span><span class="o">&lt;/</span><span class="n">вариант</span><span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="n">вариант</span> <span class="n">имя</span><span class="o">=</span><span class="s2">"charting.axisY.scale"</span><span class="o">&gt;</span><span class="n">линейный</span><span class="o">&lt;/</span><span class="n">вариант</span><span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="n">вариант</span> <span class="n">имя</span><span class="o">=</span><span class="s2">"charting.axisY2.enabled"</span><span class="o">&gt;</span><span class="mi">0</span><span class="o">&lt;/</span><span class="n">вариант</span><span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="n">вариант</span> <span class="n">имя</span><span class="o">=</span><span class="s2">"charting.axisY2.scale"</span><span class="o">&gt;</span><span class="n">наследовать</span><span class="o">&lt;/</span><span class="n">вариант</span><span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="n">вариант</span> <span class="n">имя</span><span class="o">=</span><span class="s2">"диаграмма.диаграмма"</span><span class="o">&gt;</span><span class="n">бар</span><span class="o">&lt;/</span><span class="n">вариант</span><span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="n">вариант</span> <span class="n">имя</span><span class="o">=</span><span class="s2">"charting.chart.bubbleMaximumSize"</span><span class="o">&gt;</span><span class="mi">50</span><span class="o">&lt;/</span><span class="n">вариант</span><span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="n">вариант</span> <span class="n">имя</span><span class="o">=</span><span class="s2">"charting.chart.bubbleMinimumSize"</span><span class="o">&gt;</span><span class="mi">10</span><span class="o">&lt;/</span><span class="n">вариант</span><span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="n">вариант</span> <span class="n">имя</span><span class="o">=</span><span class="s2">"charting.chart.bubbleSizeBy"</span><span class="o">&gt;</span><span class="n">область</span><span class="o">&lt;/</span><span class="n">вариант</span><span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="n">вариант</span> <span class="n">имя</span><span class="o">=</span><span class="s2">"charting.chart.nullValueMode"</span><span class="o">&gt;</span><span class="n">пробелы</span><span class="o">&lt;/</span><span class="n">вариант</span><span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="n">вариант</span> <span class="n">имя</span><span class="o">=</span><span class="s2">"charting.chart.showDataLabels"</span><span class="o">&gt;</span><span class="n">никто</span><span class="o">&lt;/</span><span class="n">вариант</span><span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="n">вариант</span> <span class="n">имя</span><span class="o">=</span><span class="s2">"charting.chart.sliceCollapsingThreshold"</span><span class="o">&gt;</span><span class="mf">0.01</span><span class="o">&lt;/</span><span class="n">вариант</span><span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="n">вариант</span> <span class="n">имя</span><span class="o">=</span><span class="s2">"charting.chart.stackMode"</span><span class="o">&gt;</span><span class="n">сложенный</span><span class="o">&lt;/</span><span class="n">вариант</span><span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="n">вариант</span> <span class="n">имя</span><span class="o">=</span><span class="s2">"charting.chart.style"</span><span class="o">&gt;</span><span class="n">блестящий</span><span class="o">&lt;/</span><span class="n">вариант</span><span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="n">вариант</span> <span class="n">имя</span><span class="o">=</span><span class="s2">"charting.drilldown"</span><span class="o">&gt;</span><span class="nb">все</span><span class="o">&lt;/</span><span class="n">вариант</span><span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="n">вариант</span> <span class="n">имя</span><span class="o">=</span><span class="s2">"charting.fieldColors"</span><span class="o">&gt;</span><span class="p">{</span><span class="s2">"Высокий"</span><span class="p">:</span><span class="mh">0xD6563C</span><span class="p">,</span><span class="s2">"Середина"</span><span class="p">:</span><span class="mh">0xF2B827</span><span class="p">,</span> <span class="s2">"Низкий"</span><span class="p">:</span><span class="mh">0x1E93C6</span><span class="p">}</span><span class="o">&lt;/</span><span class="n">вариант</span><span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="n">вариант</span> <span class="n">имя</span><span class="o">=</span><span class="s2">"charting.layout.splitSeries"</span><span class="o">&gt;</span><span class="mi">0</span><span class="o">&lt;/</span><span class="n">вариант</span><span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="n">вариант</span> <span class="n">имя</span><span class="o">=</span><span class="s2">"charting.layout.splitSeries.allowIndependentYRanges"</span><span class="o">&gt;</span><span class="mi">0</span><span class="o">&lt;/</span><span class="n">вариант</span><span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="n">вариант</span> <span class="n">имя</span><span class="o">=</span><span class="s2">"charting.legend.labelStyle.overflowMode"</span><span class="o">&gt;</span><span class="n">эллипсисСредний</span><span class="o">&lt;/</span><span class="n">вариант</span><span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="n">вариант</span> <span class="n">имя</span><span class="o">=</span><span class="s2">"charting.legend.placement"</span><span class="o">&gt;</span><span class="n">верно</span><span class="o">&lt;/</span><span class="n">вариант</span><span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="n">вариант</span> <span class="n">имя</span><span class="o">=</span><span class="s2">"обновить.дисплей"</span><span class="o">&gt;</span><span class="n">индикатор прогресса</span><span class="o">&lt;/</span><span class="n">вариант</span><span class="o">&gt;</span>
+          <span class="o">&lt;/</span><span class="n">диаграмма</span><span class="o">&gt;</span>
+        <span class="o">&lt;/</span><span class="n">панель</span><span class="o">&gt;</span>
+  <span class="o">&lt;/</span><span class="n">ряд</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">ряд</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">панель</span><span class="o">&gt;</span>
+          <span class="o">&lt;</span><span class="n">диаграмма</span><span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="n">заголовок</span><span class="o">&gt;</span><span class="n">Входящий</span> <span class="n">кормить</span> <span class="n">к</span> <span class="n">Ак Шумкар</span> <span class="n">Приложение</span><span class="o">&lt;/</span><span class="n">заголовок</span><span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="n">поиск</span><span class="o">&gt;</span>
+                  <span class="o">&lt;</span><span class="n">запрос</span><span class="o">&gt;|</span> <span class="n">tstats</span> <span class="n">считать</span> <span class="n">где</span> <span class="n">тип источника</span> <span class="o">=</span> <span class="s2">«Результаты сканирования Ак Шумкара»</span> <span class="n">к</span> <span class="n">тип источника</span> <span class="n">_время</span> <span class="o">|</span> <span class="n">график времени</span> <span class="n">охватывать</span><span class="o">=</span><span class="mi">1</span><span class="n">д</span> <span class="n">считать</span> <span class="n">к</span>  <span class="n">тип источника</span><span class="o">&lt;/</span><span class="n">запрос</span><span class="o">&gt;</span>
+                  <span class="o">&lt;</span><span class="n">самый ранний</span><span class="o">&gt;</span><span class="nd">@у</span><span class="o">&lt;/</span><span class="n">самый ранний</span><span class="o">&gt;</span>
+                  <span class="o">&lt;</span><span class="n">последний</span><span class="o">&gt;</span><span class="n">сейчас</span><span class="o">&lt;/</span><span class="n">последний</span><span class="o">&gt;</span>
+                <span class="o">&lt;/</span><span class="n">поиск</span><span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="n">вариант</span> <span class="n">имя</span><span class="o">=</span><span class="s2">"диаграмма.диаграмма"</span><span class="o">&gt;</span><span class="n">линия</span><span class="o">&lt;/</span><span class="n">вариант</span><span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="n">вариант</span> <span class="n">имя</span><span class="o">=</span><span class="s2">"обновить.дисплей"</span><span class="o">&gt;</span><span class="n">индикатор прогресса</span><span class="o">&lt;/</span><span class="n">вариант</span><span class="o">&gt;</span>
+          <span class="o">&lt;/</span><span class="n">диаграмма</span><span class="o">&gt;</span>
+        <span class="o">&lt;/</span><span class="n">панель</span><span class="o">&gt;</span>
+  <span class="o">&lt;/</span><span class="n">ряд</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">приборная панель</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Нажмите <em>Сохранять</em>.</p>
+<figure class="align-center" id="id22">
+<a class="reference internal image-reference" href="_images/splunk9.png"><img alt="_images/splunk9.png" src="_images/splunk9.png" style="width: 90%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 17.20 </span><span class="caption-text">Панель мониторинга для 5 наиболее затронутых хостов и для входящих отчетов.</span><a class="headerlink" href="connecting-other-systems.html#id22" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+</li>
+</ol>
+<p class="rubric">Сноски</p>
+<aside class="footnote-list superscript">
+<aside class="footnote superscript" id="ips" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a href="connecting-other-systems.html#id1" role="doc-backlink">1</a><span class="fn-bracket">]</span></span>
+<p>Этот элемент управления не существует как завершенный <em>Исправление</em> для Центра управления огневой мощью, но его можно реализовать через GMP (см. главу <a class="reference internal" href="gmp.html#gmp"><span class="std std-ref">14</span></a>).</p>
+</aside>
+</aside>
+</section>
+</section>
+</section>
+</section>
+</article>
+</div>
+<footer>
+<div class="related-pages">
+<a class="next-page" href="architecture.html">
+<div class="page-info">
+<div class="context">
+<span>Следующий</span>
+</div>
+<div class="title"><span class="section-number">18 </span>Архитектура</div>
+</div>
+<svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+</a>
+<a class="prev-page" href="performance.html">
+<svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+<div class="page-info">
+<div class="context">
+<span>Предыдущий</span>
+</div>
+<div class="title"><span class="section-number">16 </span>Управление производительностью</div>
+</div>
+</a>
+</div>
+<div class="bottom-of-page">
+<div class="left-details">
+<div class="copyright">
+                Copyright © 2015–2026, Ак Шумкар
+            </div>
+<div class="last-updated">
+              Последнее обновление: 13 марта 2026 г.</div>
+</div>
+<div class="right-details">
+</div>
+</div>
+</footer>
+</div>
+<aside class="toc-drawer">
+<div class="toc-sticky toc-scroll">
+<div class="toc-title-container">
+<span class="toc-title">
+            На этой странице
+          </span>
+</div>
+<div class="toc-tree-container">
+<div class="toc-tree">
+<ul>
+<li><a class="reference internal" href="connecting-other-systems.html#">17 Подключение АК-ШУМКАР к другим системам</a><ul>
+<li><a class="reference internal" href="connecting-other-systems.html#using-verinice">17.1 Использование Веринице</a><ul>
+<li><a class="reference internal" href="connecting-other-systems.html#it-security-management">17.1.1 Управление ИТ-безопасностью</a><ul>
+<li><a class="reference internal" href="connecting-other-systems.html#importing-the-ism-scan-report">17.1.1.1 Импортный отчет о сканировании ISM</a></li>
+<li><a class="reference internal" href="connecting-other-systems.html#creating-tasks">17.1.1.2 Создание задач</a></li>
+<li><a class="reference internal" href="connecting-other-systems.html#remediating-vulnerabilities">17.1.1.3 Устранение уязвимостей</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="connecting-other-systems.html#using-nagios">17.2 Использование Nagios</a><ul>
+<li><a class="reference internal" href="connecting-other-systems.html#configuring-the-appliance-user">17.2.1 Настройка пользователя устройства</a></li>
+<li><a class="reference internal" href="connecting-other-systems.html#configuring-the-script">17.2.2 Настройка сценария</a></li>
+<li><a class="reference internal" href="connecting-other-systems.html#caching-and-multiprocessing">17.2.3 Кэширование и многопроцессорность</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="connecting-other-systems.html#using-the-cisco-firepower-management-center">17.3 Использование Центра управления огневой мощью Cisco</a><ul>
+<li><a class="reference internal" href="connecting-other-systems.html#configuring-the-host-input-api-clients">17.3.1 Настройка клиентов Host-Input-API</a></li>
+<li><a class="reference internal" href="connecting-other-systems.html#configuring-a-sourcefire-connector-alert">17.3.2 Настройка оповещения соединения Sourcefire</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="connecting-other-systems.html#using-alemba-vfire">17.4 Использование Alemba vFire</a><ul>
+<li><a class="reference internal" href="connecting-other-systems.html#prerequisites-for-alemba-vfire">17.4.1 Предварительные условия для Alemba vFire</a></li>
+<li><a class="reference internal" href="connecting-other-systems.html#configuring-an-alemba-vfire-alert">17.4.2 Настройка оповещения Alemba vFire</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="connecting-other-systems.html#using-splunk">17.5 Использование Splunk</a><ul>
+<li><a class="reference internal" href="connecting-other-systems.html#setting-up-the-ak-shumkar-splunk-app">17.5.1 Настройка приложения «Ак Шумкар-Спланк»</a><ul>
+<li><a class="reference internal" href="connecting-other-systems.html#installing-the-app">17.5.1.1 Установка приложения</a></li>
+<li><a class="reference internal" href="connecting-other-systems.html#configuring-the-ak-shumkar-splunk-app">17.5.1.2 Настройка приложения «Ак Шумкар-Splunk»</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="connecting-other-systems.html#configuring-a-splunk-alert">17.5.2 Настройка оповещений Splunk</a><ul>
+<li><a class="reference internal" href="connecting-other-systems.html#creating-the-splunk-alert">17.5.2.1 Создание оповещений Splunk</a></li>
+<li><a class="reference internal" href="connecting-other-systems.html#adding-the-splunk-alert-to-a-task">17.5.2.2 Добавление оповещений Splunk к задаче</a></li>
+<li><a class="reference internal" href="connecting-other-systems.html#testing-the-splunk-alert">17.5.2.3 Тестирование оповещений Splunk</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="connecting-other-systems.html#using-the-ak-shumkar-splunk-app">17.5.3 Использование приложения «Ак Шумкар-Splunk»</a><ul>
+<li><a class="reference internal" href="connecting-other-systems.html#accessing-the-information-in-splunk">17.5.3.1 Доступ к информации в Splunk</a></li>
+<li><a class="reference internal" href="connecting-other-systems.html#performing-a-search">17.5.3.2 Выполнение поиска</a></li>
+<li><a class="reference internal" href="connecting-other-systems.html#creating-a-dashboard-for-the-top-5-affected-hosts-and-for-incoming-reports">17.5.3.3 Создание информационной панели для 5 наиболее затронутых хостов и для входящих отчетов</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</aside>
+</div>
+</div><script src="_static/documentation_options.js%3Fv=bd398bb6"></script>
+<script src="_static/doctools.js%3Fv=9a2dae69"></script>
+<script src="_static/sphinx_highlight.js%3Fv=dc90522c"></script>
+<script src="_stati_static/scripts/furo.js%3Fv=46bd48cc"></script>
+</body></html>

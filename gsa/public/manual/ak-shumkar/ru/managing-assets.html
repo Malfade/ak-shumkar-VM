@@ -1,0 +1,572 @@
+<html lang="ru"><body><meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="light dark" name="color-scheme"/><meta content="width=device-width, initial-scale=1" name="viewport"/>
+<link href="genindex.html" rel="index" title="Индекс"/><link href="search.html" rel="search" title="Поиск"/><link href="managing-secinfo.html" rel="next" title="13 Управление информацией о безопасности"/><link href="compliance-and-special-scans.html" rel="prev" title="11 Выполнение сканирования на соответствие и специального сканирования"/>
+<link as="image" href="/img/ak-shumkar.png" rel="prefetch"/>
+<link as="image" href="/img/ak-shumkar.png" rel="prefetch"/>
+<link href="/img/ak-shumkar.png" rel="icon" type="image/png"/><link href="/img/ak-shumkar.png" rel="shortcut icon" type="image/png"/><title>12 Управление активами – АК-ШУМКАР – ГОС 24.10.11</title>
+<link href="_static/pygments.css%3Fv=8e8a900e.css" rel="stylesheet" type="text/css"/>
+<link href="_static/styles/furo.css%3Fv=580074bf.css" rel="stylesheet" type="text/css"/>
+<link href="_static/sphinx_greenbone.css%3Fv=8ef0bb58.css" rel="stylesheet" type="text/css"/>
+<link href="_static/styles/furo-extensions.css%3Fv=8dab3a3b.css" rel="stylesheet" type="text/css"/>
+<style>
+  body {
+    --color-code-background: #ffffff;
+  --color-code-foreground: black;
+  --font-stack: Roboto, Helvetica, sans-serif;
+  --color-content-foreground: #4D4D4D;
+  --color-foreground-primary: 4D4D4D;
+  --color-foreground-secondary: #808080;
+  --color-code-background: #333333;
+  --color-code-foreground: #E6E6E6;
+  --color-admonition-title--note: #0E823E;
+  --color-admonition-title--note-background: #D8F1E2;
+  --color-admonition-title--warning: #E5393D;
+  --color-admonition-title--warning-background: #FBDDDE;
+  --admonition-font-size: 0.9rem;
+  --color-background-primary: #FFFFFF;
+  --color-background-secondary: #F5F5F5;
+  --color-sidebar-background: #F5F5F5;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --font-stack: Roboto, Helvetica, sans-serif;
+  --color-content-foreground: #F5F5F5;
+  --color-foreground-primary: F5F5F5;
+  --color-foreground-secondary: #E6E6E6;
+  --color-code-background: #333333;
+  --color-code-foreground: #E6E6E6;
+  --color-admonition-title--note: #11AB51;
+  --admonition-font-size: 0.9rem;
+  --color-background-primary: #171717;
+  --color-background-secondary: #4D4D4D;
+  --color-sidebar-background: #333333;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --font-stack: Roboto, Helvetica, sans-serif;
+  --color-content-foreground: #F5F5F5;
+  --color-foreground-primary: F5F5F5;
+  --color-foreground-secondary: #E6E6E6;
+  --color-code-background: #333333;
+  --color-code-foreground: #E6E6E6;
+  --color-admonition-title--note: #11AB51;
+  --admonition-font-size: 0.9rem;
+  --color-background-primary: #171717;
+  --color-background-secondary: #4D4D4D;
+  --color-sidebar-background: #333333;
+  
+      }
+    }
+  }
+</style>
+<script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+<svg style="display: none;" xmlns="http://www.w3.org/2000/svg">
+<symbol id="svg-toc" viewbox="0 0 24 24">
+<title>Содержание</title>
+<svg fill="currentColor" stroke="currentColor" stroke-width="0" viewbox="0 0 1024 1024">
+<path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"></path>
+</svg>
+</symbol>
+<symbol id="svg-menu" viewbox="0 0 24 24">
+<title>Меню</title>
+<svg class="feather-menu" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<line x1="3" x2="21" y1="12" y2="12"></line>
+<line x1="3" x2="21" y1="6" y2="6"></line>
+<line x1="3" x2="21" y1="18" y2="18"></line>
+</svg>
+</symbol>
+<symbol id="svg-arrow-right" viewbox="0 0 24 24">
+<title>Расширять</title>
+<svg class="feather-chevron-right" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<polyline points="9 18 15 12 9 6"></polyline>
+</svg>
+</symbol>
+<symbol id="svg-sun" viewbox="0 0 24 24">
+<title>Светлый режим</title>
+<svg class="feather-sun" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<circle cx="12" cy="12" r="5"></circle>
+<line x1="12" x2="12" y1="1" y2="3"></line>
+<line x1="12" x2="12" y1="21" y2="23"></line>
+<line x1="4.22" x2="5.64" y1="4.22" y2="5.64"></line>
+<line x1="18.36" x2="19.78" y1="18.36" y2="19.78"></line>
+<line x1="1" x2="3" y1="12" y2="12"></line>
+<line x1="21" x2="23" y1="12" y2="12"></line>
+<line x1="4.22" x2="5.64" y1="19.78" y2="18.36"></line>
+<line x1="18.36" x2="19.78" y1="5.64" y2="4.22"></line>
+</svg>
+</symbol>
+<symbol id="svg-moon" viewbox="0 0 24 24">
+<title>Темный режим</title>
+<svg class="icon-tabler-moon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 0h24v24H0z" fill="none" stroke="none"></path>
+<path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"></path>
+</svg>
+</symbol>
+<symbol id="svg-sun-with-moon" viewbox="0 0 24 24">
+<title>Автоматический свет/темнота, в светлом режиме</title>
+<svg class="icon-custom-derived-from-feather-sun-and-tabler-moon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z" style="opacity: 50%"></path>
+<line x1="14.5" x2="14.5" y1="3.25" y2="1.25"></line>
+<line x1="14.5" x2="14.5" y1="15.85" y2="17.85"></line>
+<line x1="10.044" x2="8.63" y1="5.094" y2="3.68"></line>
+<line x1="19" x2="20.414" y1="14.05" y2="15.464"></line>
+<line x1="8.2" x2="6.2" y1="9.55" y2="9.55"></line>
+<line x1="20.8" x2="22.8" y1="9.55" y2="9.55"></line>
+<line x1="10.044" x2="8.63" y1="14.006" y2="15.42"></line>
+<line x1="19" x2="20.414" y1="5.05" y2="3.636"></line>
+<circle cx="14.5" cy="9.55" r="3.6"></circle>
+</svg>
+</symbol>
+<symbol id="svg-moon-with-sun" viewbox="0 0 24 24">
+<title>Автоматический светлый/темный, в темном режиме</title>
+<svg class="icon-custom-derived-from-feather-sun-and-tabler-moon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"></path>
+<line style="opacity: 50%" x1="18" x2="18" y1="3.705" y2="2.5"></line>
+<line style="opacity: 50%" x1="18" x2="18" y1="11.295" y2="12.5"></line>
+<line style="opacity: 50%" x1="15.316" x2="14.464" y1="4.816" y2="3.964"></line>
+<line style="opacity: 50%" x1="20.711" x2="21.563" y1="10.212" y2="11.063"></line>
+<line style="opacity: 50%" x1="14.205" x2="13.001" y1="7.5" y2="7.5"></line>
+<line style="opacity: 50%" x1="21.795" x2="23" y1="7.5" y2="7.5"></line>
+<line style="opacity: 50%" x1="15.316" x2="14.464" y1="10.184" y2="11.036"></line>
+<line style="opacity: 50%" x1="20.711" x2="21.563" y1="4.789" y2="3.937"></line>
+<circle cx="18" cy="7.5" r="2.169" style="opacity: 50%"></circle>
+</svg>
+</symbol>
+<symbol id="svg-pencil" viewbox="0 0 24 24">
+<svg class="icon-tabler-pencil-code" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4"></path>
+<path d="M13.5 6.5l4 4"></path>
+<path d="M20 21l2 -2l-2 -2"></path>
+<path d="M17 17l-2 2l2 2"></path>
+</svg>
+</symbol>
+<symbol id="svg-eye" viewbox="0 0 24 24">
+<svg class="icon-tabler-eye-code" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 0h24v24H0z" fill="none" stroke="none"></path>
+<path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"></path>
+<path d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008"></path>
+<path d="M20 21l2 -2l-2 -2"></path>
+<path d="M17 17l-2 2l2 2"></path>
+</svg>
+</symbol>
+</svg>
+<input aria-label="Переключить боковую панель навигации по сайту" class="sidebar-toggle" id="__navigation" name="__navigation" type="checkbox"/>
+<input aria-label="Переключить боковую панель оглавления" class="sidebar-toggle" id="__toc" name="__toc" type="checkbox"/>
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+<a class="skip-to-content muted-link" href="managing-assets.html#furo-main-content">Перейти к содержимому</a>
+<div class="page">
+<header class="mobile-header">
+<div class="header-left">
+<label class="nav-overlay-icon" for="__navigation">
+<span class="icon"><svg><use href="#svg-menu"></use></svg></span>
+</label>
+</div>
+<div class="header-center">
+<a href="index.html"><div class="brand">АК-ШУМКАР – ГОС 24.10.11</div></a>
+</div>
+<div class="header-right">
+<div class="theme-toggle-container theme-toggle-header">
+<button aria-label="Переключить светлую/темную/автоматическую цветовую тему" class="theme-toggle">
+<svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+<svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+<svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+<svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+</button>
+</div>
+<label class="toc-overlay-icon toc-header-icon" for="__toc">
+<span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+</label>
+</div>
+</header>
+<aside class="sidebar-drawer">
+<div class="sidebar-container">
+<div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
+<div class="sidebar-logo-container">
+<img alt="Логотип AK-SHUMKAR" class="sidebar-logo only-light" src="/img/ak-shumkar.png"/>
+<img alt="Логотип AK-SHUMKAR" class="sidebar-logo only-dark" src="/img/ak-shumkar.png"/>
+</div>
+<span class="sidebar-brand-text">АК-ШУМКАР – ГОС 24.10.11</span>
+</a><form action="search.html" class="sidebar-search-container" method="get" role="search">
+<input aria-label="Поиск" class="sidebar-search" name="q" placeholder="Поиск"/>
+<input name="check_keywords" type="hidden" value="yes"/>
+<input name="area" type="hidden" value="default"/>
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">1 Введение</a></li>
+<li class="toctree-l1"><a class="reference internal" href="read-before-use.html">2 Прочтите перед использованием</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appliance-overview.html">3 АК-ШУМКАР – Обзор</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setting-up-the-appliance.html">4 Настройка АК-ШУМКАР</a></li>
+<li class="toctree-l1"><a class="reference internal" href="upgrading-gos.html">5 Обновление АК-ШУМКАР до последней основной версии</a></li>
+<li class="toctree-l1"><a class="reference internal" href="managing-gos.html">6 Управление операционной системой «Ак Шумкар»</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web-interface.html">7 Знакомство с веб-интерфейсом</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web-interface-access.html">8 Управление доступом к веб-интерфейсу</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scanning.html">9 Сканирование системы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reports.html">10 отчетов и управление уязвимостями</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compliance-and-special-scans.html">11 Выполнение сканирования на соответствие и специального сканирования</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="managing-assets.html#">12 Управление активами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="managing-secinfo.html">13 Управление информацией о безопасности</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gmp.html">14 Использование протокола управления «Ак Шумкар»</a></li>
+<li class="toctree-l1"><a class="reference internal" href="master-sensor-setup.html">15 Использование настройки главного датчика</a></li>
+<li class="toctree-l1"><a class="reference internal" href="performance.html">16 Управление производительностью</a></li>
+<li class="toctree-l1"><a class="reference internal" href="connecting-other-systems.html">17 Подключение АК-ШУМКАР к другим системам</a></li>
+<li class="toctree-l1"><a class="reference internal" href="architecture.html">18 Архитектура</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">19 часто задаваемых вопросов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">20 Глоссарий</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</aside>
+<div class="main">
+<div class="content">
+<div class="article-container">
+<a class="back-to-top muted-link" href="managing-assets.html#">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+</svg>
+<span>Вернуться наверх</span>
+</a>
+<div class="content-icon-container">
+<div class="theme-toggle-container theme-toggle-content">
+<button aria-label="Переключить светлую/темную/автоматическую цветовую тему" class="theme-toggle">
+<svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+<svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+<svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+<svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+</button>
+</div>
+<label class="toc-overlay-icon toc-content-icon" for="__toc">
+<span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+</label>
+</div>
+<article id="furo-main-content" role="main">
+<section id="managing-assets">
+<span id="asset-management"></span><span id="index-0"></span><h1><span class="section-number">12 </span>Управление активами<a class="headerlink" href="managing-assets.html#managing-assets" title="Ссылка на эту рубрику">¶</a></h1>
+<p>К активам относятся хосты, операционные системы и сертификаты TLS.
+Они заехали во время обнаружения уязвимостей.</p>
+<p>При создании новой задачи можно указать, должны ли данные хоста, собранные во время сканирования, храниться в базе данных активов (см. главу <a class="reference internal" href="scanning.html#creating-task"><span class="std std-ref">9.2.2</span></a>).
+Подробности сохраняются, если используются параметры задачи по умолчанию.</p>
+<section id="creating-and-managing-hosts">
+<span id="asset-hosts"></span><span id="index-1"></span><h2><span class="section-number">12.1 </span>Создание и управление хостами<a class="headerlink" href="managing-assets.html#creating-and-managing-hosts" title="Ссылка на эту рубрику">¶</a></h2>
+<p>Во время сбора информации о каждом сканируемом хосте.
+Хосты идентифицируются по своим IP-адресам.</p>
+<p>Для каждого идентифицированного хоста проверяется, существует ли он уже в активах хостов.
+Если нет, создается новый хост-актив.</p>
+<p>Как при сканировании вновь созданного хоста, так и при сканировании существующего хоста к ресурсному хосту в качестве идентификаторов включаются некоторые сведения о хосте (имена хостов, IP- и MAC-адреса, операционные системы, ключи SSH и сертификаты X.509).</p>
+<p>Если <a class="reference external" href="https://httpd.apache.org/docs/current/vhosts/">виртуальный хост</a> сканирование включено – что включено по умолчанию – (см. главу <a class="reference internal" href="scanning.html#scanning-vhosts"><span class="std std-ref">9.13.4</span></a>), каждый виртуальный хост будет добавлен как активная отдельная запись.
+Таким образом, из-за внешних виртуальных хостов идентификаторы IP-адресов могут появляться несколько раз.
+Такие активы затем должны существовать по другим идентификаторам хоста.</p>
+<section id="creating-a-host">
+<span id="create-host"></span><h3><span class="section-number">12.1.1 </span>Создание хоста<a class="headerlink" href="managing-assets.html#creating-a-host" title="Ссылка на эту рубрику">¶</a></h3>
+<p>Хосты также можно вручную добавлять в систему управления активами, чтобы создавать из них целевые объекты (см. главу <a class="reference internal" href="managing-assets.html#target-from-host"><span class="std std-ref">12.1.3</span></a>).</p>
+<p>За исключением IP-адреса, никакие другие сведения о хосте не могут быть ограничены, но дополнительные сведения будут добавлены при сканировании хоста, добавленного вручную.</p>
+<p>Хост можно создать следующим образом:</p>
+<ol class="arabic">
+<li><p>Выбирать <span class="target" id="gos-webui-0"></span><em>Активы &gt; Хосты</em> в меню.</p></li>
+<li><p>Создайте новый хост, нажав <a class="reference internal" href="_images/new.png"><img alt="" src="_images/new.png" style="height: 1.2em;"/></a> в левом верхнем углу страницы.</p></li>
+<li><p>Введите IP-адрес хоста в поле ввода. <span class="target" id="gos-webui-1"></span><em>Имя</em> (видеть <a class="reference internal" href="managing-assets.html#fig-host-new"><span class="std std-numref">Рис. 12.1</span></a>).</p>
+<figure class="align-center" id="id2">
+<span id="fig-host-new"></span><a class="reference internal image-reference" href="_images/host_new.png"><img alt="_images/host_new.png" src="_images/host_new.png" style="width: 70%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 12.1 </span><span class="caption-text">Создание нового хоста</span><a class="headerlink" href="managing-assets.html#id2" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Нажмите <span class="target" id="gos-webui-2"></span><em>Сохранять</em>.</p></li>
+</ol>
+<p>Эта функция также доступна через GMP (см. главу <a class="reference internal" href="gmp.html#gmp"><span class="std std-ref">14</span></a>). С помощью этой опции можно импортировать хосты из базы данных управления конфигурацией.</p>
+</section>
+<section id="managing-hosts">
+<span id="id1"></span><h3><span class="section-number">12.1.2 </span>Управление хостами<a class="headerlink" href="managing-assets.html#managing-hosts" title="Ссылка на эту рубрику">¶</a></h3>
+<p><strong>Страница списка</strong></p>
+<p>Все существующие хосты можно отобразить, выбрав <span class="target" id="gos-webui-3"></span><em>Активы &gt; Хосты</em> в меню (см. <a class="reference internal" href="managing-assets.html#fig-hosts-scanned"><span class="std std-numref">Рис. 12.2</span></a>).</p>
+<figure class="align-center" id="id3">
+<span id="fig-hosts-scanned"></span><a class="reference internal image-reference" href="_images/hosts_scanned.png"><img alt="_images/hosts_scanned.png" src="_images/hosts_scanned.png" style="width: 90%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 12.2 </span><span class="caption-text">Страница <em>Хозяева</em> отображение всех сканированных хостов</span><a class="headerlink" href="managing-assets.html#id3" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+<p>Для всех хостов доступны следующие действия:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="_images/delete.png"><img alt="" src="_images/delete.png" style="height: 1.2em;"/></a> Удалить хост.</p></li>
+<li><p><a class="reference internal" href="_images/edit.png"><img alt="" src="_images/edit.png" style="height: 1.2em;"/></a> Отредактируйте хост.</p></li>
+<li><p><a class="reference internal" href="_images/new.png"><img alt="" src="_images/new.png" style="height: 1.2em;"/></a> Создайте новую цель на хосте (см. главу <a class="reference internal" href="managing-assets.html#target-from-host"><span class="std std-ref">12.1.3</span></a>).</p></li>
+<li><p><a class="reference internal" href="_images/export.png"><img alt="" src="_images/export.png" style="height: 1.2em;"/></a> Экспортируйте хост как файл XML.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Нажав <a class="reference internal" href="_images/delete.png"><img alt="" src="_images/delete.png" style="height: 1.2em;"/></a>, <a class="reference internal" href="_images/export.png"><img alt="" src="_images/export.png" style="height: 1.2em;"/></a> или <a class="reference internal" href="_images/new.png"><img alt="" src="_images/new.png" style="height: 1.2em;"/></a> под списком хостов можно одновременно удалить, экспортировать или использовать более одного хоста для создания новой цели. Раскрывающийся список используется для выбора хостов, которые следует удалить, экспортировать или использовать для создания новой цели.</p>
+</div>
+<p><strong>Страница сведений</strong></p>
+<p>Нажмите на имя хоста, чтобы отобразить подробную информацию о хосте. Нажмите <a class="reference internal" href="_images/details.png"><img alt="" src="_images/details.png" style="height: 1.2em;"/></a> чтобы открыть страницу сведений о хосте.</p>
+<p>Доступны следующие вкладки:</p>
+<dl>
+<dt>Информация</dt><dd><p>Общая информация о хостере.</p>
+<p>Любая определяющая информация, собранная для хоста во время обращения, например, имена хостов, IP- и MAC-адреса, операционные системы, ключи SSH и сертификаты X.509, как указано в разделе. <em>Все идентификаторы</em> (видеть <a class="reference internal" href="managing-assets.html#fig-all-identifiers"><span class="std std-numref">Рис. 12.3</span></a>).</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Если идентификаторы имеют дубликаты, отображаются только самые последние идентификаторы.
+В данном случае раздел называется <em>Последние идентификаторы</em> и все идентификаторы можно отобразить, нажав <em>Показать все идентификаторы</em> под столом.</p>
+</div>
+<p>Для всех идентификаторов хостов доступно следующее действие:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="_images/delete.png"><img alt="" src="_images/delete.png" style="height: 1.2em;"/></a> Удалить идентификатор.</p></li>
+</ul>
+<figure class="align-center" id="id4">
+<span id="fig-all-identifiers"></span><a class="reference internal image-reference" href="_images/all_identifiers.png"><img alt="_images/all_identifiers.png" src="_images/all_identifiers.png" style="width: 90%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 12.3 </span><span class="caption-text">Все идентификаторы</span><a class="headerlink" href="managing-assets.html#id4" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+</dd>
+<dt>Пользовательские теги</dt><dd><p>Присвоенные теги (см. главу <a class="reference internal" href="web-interface.html#tags"><span class="std std-ref">7.4</span></a>).</p>
+</dd>
+<dt>Разрешения</dt><dd><p>Назначенные разрешения (см. главу <a class="reference internal" href="web-interface-access.html#permissions"><span class="std std-ref">8.4</span></a>).</p>
+<p>В левом верхнем углу доступны следующие действия:</p>
+</dd>
+</dl>
+<ul class="simple">
+<li><p><a class="reference internal" href="_images/help.png"><img alt="" src="_images/help.png" style="height: 1.2em;"/></a> Откройте соответствующую главу руководства пользователя.</p></li>
+<li><p><a class="reference internal" href="_images/list.png"><img alt="" src="_images/list.png" style="height: 1.2em;"/></a> Показать страницу со списком всех хостов.</p></li>
+<li><p><a class="reference internal" href="_images/new.png"><img alt="" src="_images/new.png" style="height: 1.2em;"/></a> Создайте новый хост (см. главу <a class="reference internal" href="managing-assets.html#create-host"><span class="std std-ref">12.1.1</span></a>).</p></li>
+<li><p><a class="reference internal" href="_images/edit.png"><img alt="" src="_images/edit.png" style="height: 1.2em;"/></a> Отредактируйте хост.</p></li>
+<li><p><a class="reference internal" href="_images/trashcan.png"><img alt="" src="_images/trashcan.png" style="height: 1.2em;"/></a> Удалить хост.</p></li>
+<li><p><a class="reference internal" href="_images/export.png"><img alt="" src="_images/export.png" style="height: 1.2em;"/></a> Экспортируйте хост как файл XML.</p></li>
+<li><p><a class="reference internal" href="_images/results.png"><img alt="" src="_images/results.png" style="height: 1.2em;"/></a> Покажите соответствующие результаты.</p></li>
+</ul>
+</section>
+<section id="creating-a-target-from-hosts">
+<span id="target-from-host"></span><span id="index-2"></span><h3><span class="section-number">12.1.3 </span>Создание цели из хостов<a class="headerlink" href="managing-assets.html#creating-a-target-from-hosts" title="Ссылка на эту рубрику">¶</a></h3>
+<p>Таргет с набором хостов можно создать следующим образом:</p>
+<ol class="arabic">
+<li><p>Отфильтруйте хосты так, чтобы отображались только те хосты, которые следует использовать для целей (например, только хосты Microsoft Windows) (см. главу) <a class="reference internal" href="web-interface.html#powerfilter"><span class="std std-ref">7.3</span></a>).</p></li>
+<li><p>Создайте новую цель, нажав <a class="reference internal" href="_images/new.png"><img alt="" src="_images/new.png" style="height: 1.2em;"/></a> под списком хостов (см. <a class="reference internal" href="managing-assets.html#fig-host-new-target"><span class="std std-numref">Рис. 12.4</span></a>).</p>
+<p>→ Откроется окно создания цели. Поле ввода <span class="target" id="gos-webui-4"></span><em>Хозяева</em> предварительно заполняется набором отображаемых хостов.</p>
+<figure class="align-center" id="id5">
+<span id="fig-host-new-target"></span><a class="reference internal image-reference" href="_images/host_new_target.png"><img alt="_images/host_new_target.png" src="_images/host_new_target.png" style="width: 35%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 12.4 </span><span class="caption-text">Создание таргета с отображаемыми хостами</span><a class="headerlink" href="managing-assets.html#id5" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Определите цель и нажмите <span class="target" id="gos-webui-5"></span><em>Сохранять</em>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Кончик</p>
+<p>Информацию для ввода в поля ввода см. в главе. <a class="reference internal" href="scanning.html#vulnerabilitymanagement-create-target"><span class="std std-ref">9.2.1</span></a>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Если при дальнейшем сканировании обнаружатся дополнительные подходящие хосты, они будут <strong>нет</strong> быть добавлен к цели.</p>
+</div>
+</li>
+</ol>
+</section>
+</section>
+<section id="managing-operating-systems">
+<span id="assets-os"></span><span id="index-3"></span><h2><span class="section-number">12.2 </span>Управление операционными системами<a class="headerlink" href="managing-assets.html#managing-operating-systems" title="Ссылка на эту рубрику">¶</a></h2>
+<p>Представление операционной системы в управлении активами обеспечивает другой взгляд на хранимые данные.
+Хотя представление хостов сосредоточено на отдельных хостах, в этом представлении основное внимание уделяется операционным системам, обнаруженным во время всех сканирований уязвимостей.</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Для надежного обнаружения излучателей системы в AK-SHUMKAR ENTERPRISE FEED должны быть доступны VT(ы), связанные с обзорной системой(ами).
+Если присутствует конкретное VT, устройство все равно пытается определить операционную систему(ы), но идентификация происходит с более низким качеством обнаружения и склонностью к ложноположительным обнаружениям.</p>
+</div>
+<p><strong>Страница списка</strong></p>
+<p>Все операционные системы можно отобразить, выбрав <span class="target" id="gos-webui-6"></span><em>Активы &gt; Операционные системы</em> в меню (см. <a class="reference internal" href="managing-assets.html#fig-operatingsystems-listpage"><span class="std std-numref">Рис. 12.5</span></a>).</p>
+<p>Для всех операционных систем отображается следующая информация:</p>
+<dl class="simple">
+<dt>Имя</dt><dd><p>CPE (см. главу <a class="reference internal" href="managing-secinfo.html#cpe"><span class="std std-ref">13.2.2</span></a>) операционной системы.</p>
+</dd>
+<dt>Заголовок</dt><dd><p>Простое имя операционной системы.</p>
+</dd>
+<dt>Серьезность – последняя</dt><dd><p>Серьезность, обнаруженная для операционной системы во время последнего сканирования, обнаружившего эту операционную систему на хосте.
+Учитываются только хосты, соответствующая операционная система которых признана наиболее подходящей.</p>
+</dd>
+<dt>Серьезность – самая высокая</dt><dd><p>Для операционной системы обнаружен самый высокий уровень серьезности во время всех проверок, обнаруживших эту операционную систему на узле.
+Учитываются только хосты, соответствующая операционная система которых признана наиболее подходящей.</p>
+</dd>
+<dt>Серьезность – средняя</dt><dd><p>Средняя серьезность обнаружена для операционной системы во время всех проверок, обнаруживших эту операционную систему на узле.
+Учитываются только хосты, соответствующая операционная система которых признана наиболее подходящей.</p>
+</dd>
+<dt>Хозяева – Все</dt><dd><p>Все хосты, на которых была обнаружена операционная система.
+При нажатии на количество хостов страница <em>Хозяева</em> открыт.
+Применяется фильтр для отображения только тех хостов, для которых была обнаружена выбранная операционная система.</p>
+</dd>
+<dt>Хосты – Лучшая ОС</dt><dd><p>Хосты, операционная система которых была признана наиболее подходящей.
+При нажатии на количество хостов страница <em>Хозяева</em> открыт.
+Применяется фильтр, чтобы показать только те хосты, для которых выбранная операционная система была признана наиболее подходящей.</p>
+</dd>
+<dt>Модифицированный</dt><dd><p>Дата и время последнего изменения.</p>
+</dd>
+</dl>
+<figure class="align-center" id="id6">
+<span id="fig-operatingsystems-listpage"></span><a class="reference internal image-reference" href="_images/operatingsystems_listpage.png"><img alt="_images/operatingsystems_listpage.png" src="_images/operatingsystems_listpage.png" style="width: 90%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 12.5 </span><span class="caption-text">Страница <em>Операционные системы</em> отображение всех сканированных операционных систем</span><a class="headerlink" href="managing-assets.html#id6" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+<p>Для всех операционных систем доступны следующие действия:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="_images/delete.png"><img alt="" src="_images/delete.png" style="height: 1.2em;"/></a> Удалить операционную систему. Удалить можно только те операционные системы, которые в данный момент не используются.</p></li>
+<li><p><a class="reference internal" href="_images/export.png"><img alt="" src="_images/export.png" style="height: 1.2em;"/></a> Экспортируйте операционную систему в виде XML-файла.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Нажав <a class="reference internal" href="_images/delete.png"><img alt="" src="_images/delete.png" style="height: 1.2em;"/></a> или <a class="reference internal" href="_images/export.png"><img alt="" src="_images/export.png" style="height: 1.2em;"/></a> под списком операционных систем одновременно можно удалить или экспортировать более одной операционной системы.
+Раскрывающийся список используется для выбора операционных систем, которые необходимо удалить или экспортировать.</p>
+</div>
+<p><strong>Страница сведений</strong></p>
+<p>Нажмите на название операционной системы, чтобы открыть страницу сведений об операционной системе.</p>
+<p>Доступны следующие вкладки:</p>
+<dl class="simple">
+<dt>Информация</dt><dd><p>Общие сведения об операционной системе.</p>
+</dd>
+<dt>Пользовательские теги</dt><dd><p>Присвоенные теги (см. главу <a class="reference internal" href="web-interface.html#tags"><span class="std std-ref">7.4</span></a>).</p>
+</dd>
+<dt>Разрешения</dt><dd><p>Назначенные разрешения (см. главу <a class="reference internal" href="web-interface-access.html#permissions"><span class="std std-ref">8.4</span></a>).</p>
+</dd>
+</dl>
+<p>В левом верхнем углу доступны следующие действия:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="_images/help.png"><img alt="" src="_images/help.png" style="height: 1.2em;"/></a> Откройте соответствующую главу руководства пользователя.</p></li>
+<li><p><a class="reference internal" href="_images/list.png"><img alt="" src="_images/list.png" style="height: 1.2em;"/></a> Показать страницу списка всех операционных систем.</p></li>
+<li><p><a class="reference internal" href="_images/delete.png"><img alt="" src="_images/delete.png" style="height: 1.2em;"/></a> Удалить операционную систему. Удалить можно только те операционные системы, которые в данный момент не используются.</p></li>
+<li><p><a class="reference internal" href="_images/export.png"><img alt="" src="_images/export.png" style="height: 1.2em;"/></a> Экспортируйте операционную систему в виде XML-файла.</p></li>
+<li><p><a class="reference internal" href="_images/host.png"><img alt="" src="_images/host.png" style="height: 1.2em;"/></a> (слева) Показать хосты, для которых была обнаружена операционная система.</p></li>
+<li><p><a class="reference internal" href="_images/host.png"><img alt="" src="_images/host.png" style="height: 1.2em;"/></a> (справа) Показать хосты, для которых операционная система лучше всего подходит.</p></li>
+</ul>
+</section>
+<section id="managing-tls-certificates">
+<span id="index-4"></span><h2><span class="section-number">12.3 </span>Управление сертификатами TLS<a class="headerlink" href="managing-assets.html#managing-tls-certificates" title="Ссылка на эту рубрику">¶</a></h2>
+<p>В представленном здесь основное внимание уделяется сертификатам TLS, составленным во время всех сканирований на уязвимости, и приводится краткий обзор того, действительны ли они или срок их действия истек.</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Включена только основная информация о сертификате (хост, порт, даты активации и срока действия, отпечатки пальцев).</p>
+<p>Функциональность протокола выдачи онлайн-сертификатов (OCSP) или записи отзыва сертификатов (CRL) не происходит.</p>
+</div>
+<p><strong>Страница списка</strong></p>
+<p>Все последующие сертификаты TLS можно отобразить, выбрав <span class="target" id="gos-webui-7"></span><em>Активы &gt; Сертификаты TLS</em> в меню (см. <a class="reference internal" href="managing-assets.html#fig-tls-certificates-listpage"><span class="std std-numref">Рис. 12.6</span></a>).</p>
+<p>Для всех TLS-сертификатов доступны следующие действия:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="_images/delete.png"><img alt="" src="_images/delete.png" style="height: 1.2em;"/></a> Удалите сертификат TLS.</p></li>
+<li><p><a class="reference internal" href="_images/download.png"><img alt="" src="_images/download.png" style="height: 1.2em;"/></a> Загрузите сертификат TLS.</p></li>
+<li><p><a class="reference internal" href="_images/export.png"><img alt="" src="_images/export.png" style="height: 1.2em;"/></a> Экспортируйте сертификат TLS в видео XML-файла.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Нажав <a class="reference internal" href="_images/delete.png"><img alt="" src="_images/delete.png" style="height: 1.2em;"/></a> или <a class="reference internal" href="_images/export.png"><img alt="" src="_images/export.png" style="height: 1.2em;"/></a> под списком сертификатов TLS одновременно можно удалить или экспортировать более одного сертификата TLS.
+Раскрывающийся список используется для выбора сертификатов TLS, которые необходимо удалить или экспортировать.</p>
+</div>
+<figure class="align-center" id="id7">
+<span id="fig-tls-certificates-listpage"></span><a class="reference internal image-reference" href="_images/tls_certificates_listpage.png"><img alt="_images/tls_certificates_listpage.png" src="_images/tls_certificates_listpage.png" style="width: 90%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 12.6 </span><span class="caption-text">Страница <em>TLS-сертификаты</em> оформление всех готовых TLS-сертификатов</span><a class="headerlink" href="managing-assets.html#id7" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+<p><strong>Страница сведений</strong></p>
+<p>Нажмите на имя сертификата TLS, чтобы отобразить подробную информацию о сертификате TLS. Нажмите <a class="reference internal" href="_images/details.png"><img alt="" src="_images/details.png" style="height: 1.2em;"/></a> чтобы открыть страницу сведения о сертификате TLS.</p>
+<p>Доступны следующие вкладки:</p>
+<dl class="simple">
+<dt>Информация</dt><dd><p>Общая информация о сертификате TLS.</p>
+</dd>
+<dt>Пользовательские теги</dt><dd><p>Присвоенные теги (см. главу <a class="reference internal" href="web-interface.html#tags"><span class="std std-ref">7.4</span></a>).</p>
+</dd>
+<dt>Разрешения</dt><dd><p>Назначенные разрешения (см. главу <a class="reference internal" href="web-interface-access.html#permissions"><span class="std std-ref">8.4</span></a>).</p>
+</dd>
+</dl>
+<p>В левом верхнем углу доступны следующие действия:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="_images/help.png"><img alt="" src="_images/help.png" style="height: 1.2em;"/></a> Откройте соответствующую главу руководства пользователя.</p></li>
+<li><p><a class="reference internal" href="_images/list.png"><img alt="" src="_images/list.png" style="height: 1.2em;"/></a> Показать страницу списка всех сертификатов TLS.</p></li>
+<li><p><a class="reference internal" href="_images/delete.png"><img alt="" src="_images/delete.png" style="height: 1.2em;"/></a> Удалите сертификат TLS.</p></li>
+<li><p><a class="reference internal" href="_images/download.png"><img alt="" src="_images/download.png" style="height: 1.2em;"/></a> Загрузите сертификат TLS.</p></li>
+<li><p><a class="reference internal" href="_images/export.png"><img alt="" src="_images/export.png" style="height: 1.2em;"/></a> Экспортируйте сертификат TLS в видео XML-файла.</p></li>
+</ul>
+</section>
+</section>
+</article>
+</div>
+<footer>
+<div class="related-pages">
+<a class="next-page" href="managing-secinfo.html">
+<div class="page-info">
+<div class="context">
+<span>Следующий</span>
+</div>
+<div class="title"><span class="section-number">13 </span>Управление информацией о безопасности</div>
+</div>
+<svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+</a>
+<a class="prev-page" href="compliance-and-special-scans.html">
+<svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+<div class="page-info">
+<div class="context">
+<span>Предыдущий</span>
+</div>
+<div class="title"><span class="section-number">11 </span>Выполнение сканирования на соответствие и специального сканирования</div>
+</div>
+</a>
+</div>
+<div class="bottom-of-page">
+<div class="left-details">
+<div class="copyright">
+                Copyright © 2015–2026, Ак Шумкар
+            </div>
+<div class="last-updated">
+              Последнее обновление: 13 марта 2026 г.</div>
+</div>
+<div class="right-details">
+</div>
+</div>
+</footer>
+</div>
+<aside class="toc-drawer">
+<div class="toc-sticky toc-scroll">
+<div class="toc-title-container">
+<span class="toc-title">
+            На этой странице
+          </span>
+</div>
+<div class="toc-tree-container">
+<div class="toc-tree">
+<ul>
+<li><a class="reference internal" href="managing-assets.html#">12 Управление активами</a><ul>
+<li><a class="reference internal" href="managing-assets.html#creating-and-managing-hosts">12.1 Создание хостов и управление ими</a><ul>
+<li><a class="reference internal" href="managing-assets.html#creating-a-host">12.1.1 Создание хоста</a></li>
+<li><a class="reference internal" href="managing-assets.html#managing-hosts">12.1.2 Управление хостами</a></li>
+<li><a class="reference internal" href="managing-assets.html#creating-a-target-from-hosts">12.1.3 Создание цели из хостов</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="managing-assets.html#managing-operating-systems">12.2 Управление операционными системами</a></li>
+<li><a class="reference internal" href="managing-assets.html#managing-tls-certificates">12.3 Управление сертификатами TLS</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</aside>
+</div>
+</div><script src="_static/documentation_options.js%3Fv=bd398bb6"></script>
+<script src="_static/doctools.js%3Fv=9a2dae69"></script>
+<script src="_static/sphinx_highlight.js%3Fv=dc90522c"></script>
+<script src="_stati_static/scripts/furo.js%3Fv=46bd48cc"></script>
+</body></html>

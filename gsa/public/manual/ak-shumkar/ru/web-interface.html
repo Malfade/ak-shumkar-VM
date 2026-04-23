@@ -1,0 +1,1251 @@
+<html lang="ru"><body><meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="light dark" name="color-scheme"/><meta content="width=device-width, initial-scale=1" name="viewport"/>
+<link href="genindex.html" rel="index" title="Индекс"/><link href="search.html" rel="search" title="Поиск"/><link href="web-interface-access.html" rel="next" title="8 Управление доступом к веб-интерфейсу"/><link href="managing-gos.html" rel="prev" title="6 Управление системой «Ак Шумкар»"/>
+<link as="image" href="/img/ak-shumkar.png" rel="prefetch"/>
+<link as="image" href="/img/ak-shumkar.png" rel="prefetch"/>
+<link href="/img/ak-shumkar.png" rel="icon" type="image/png"/><link href="/img/ak-shumkar.png" rel="shortcut icon" type="image/png"/><title>7 Знакомство с веб-интерфейсом - АК-ШУМКАР – ГОС 24.10.11</title>
+<link href="_static/pygments.css%3Fv=8e8a900e.css" rel="stylesheet" type="text/css"/>
+<link href="_static/styles/furo.css%3Fv=580074bf.css" rel="stylesheet" type="text/css"/>
+<link href="_static/sphinx_greenbone.css%3Fv=8ef0bb58.css" rel="stylesheet" type="text/css"/>
+<link href="_static/styles/furo-extensions.css%3Fv=8dab3a3b.css" rel="stylesheet" type="text/css"/>
+<style>
+  body {
+    --color-code-background: #ffffff;
+  --color-code-foreground: black;
+  --font-stack: Roboto, Helvetica, sans-serif;
+  --color-content-foreground: #4D4D4D;
+  --color-foreground-primary: 4D4D4D;
+  --color-foreground-secondary: #808080;
+  --color-code-background: #333333;
+  --color-code-foreground: #E6E6E6;
+  --color-admonition-title--note: #0E823E;
+  --color-admonition-title--note-background: #D8F1E2;
+  --color-admonition-title--warning: #E5393D;
+  --color-admonition-title--warning-background: #FBDDDE;
+  --admonition-font-size: 0.9rem;
+  --color-background-primary: #FFFFFF;
+  --color-background-secondary: #F5F5F5;
+  --color-sidebar-background: #F5F5F5;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --font-stack: Roboto, Helvetica, sans-serif;
+  --color-content-foreground: #F5F5F5;
+  --color-foreground-primary: F5F5F5;
+  --color-foreground-secondary: #E6E6E6;
+  --color-code-background: #333333;
+  --color-code-foreground: #E6E6E6;
+  --color-admonition-title--note: #11AB51;
+  --admonition-font-size: 0.9rem;
+  --color-background-primary: #171717;
+  --color-background-secondary: #4D4D4D;
+  --color-sidebar-background: #333333;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --font-stack: Roboto, Helvetica, sans-serif;
+  --color-content-foreground: #F5F5F5;
+  --color-foreground-primary: F5F5F5;
+  --color-foreground-secondary: #E6E6E6;
+  --color-code-background: #333333;
+  --color-code-foreground: #E6E6E6;
+  --color-admonition-title--note: #11AB51;
+  --admonition-font-size: 0.9rem;
+  --color-background-primary: #171717;
+  --color-background-secondary: #4D4D4D;
+  --color-sidebar-background: #333333;
+  
+      }
+    }
+  }
+</style>
+<script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+<svg style="display: none;" xmlns="http://www.w3.org/2000/svg">
+<symbol id="svg-toc" viewbox="0 0 24 24">
+<title>Содержание</title>
+<svg fill="currentColor" stroke="currentColor" stroke-width="0" viewbox="0 0 1024 1024">
+<path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"></path>
+</svg>
+</symbol>
+<symbol id="svg-menu" viewbox="0 0 24 24">
+<title>Меню</title>
+<svg class="feather-menu" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<line x1="3" x2="21" y1="12" y2="12"></line>
+<line x1="3" x2="21" y1="6" y2="6"></line>
+<line x1="3" x2="21" y1="18" y2="18"></line>
+</svg>
+</symbol>
+<symbol id="svg-arrow-right" viewbox="0 0 24 24">
+<title>Расширять</title>
+<svg class="feather-chevron-right" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<polyline points="9 18 15 12 9 6"></polyline>
+</svg>
+</symbol>
+<symbol id="svg-sun" viewbox="0 0 24 24">
+<title>Светлый режим</title>
+<svg class="feather-sun" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<circle cx="12" cy="12" r="5"></circle>
+<line x1="12" x2="12" y1="1" y2="3"></line>
+<line x1="12" x2="12" y1="21" y2="23"></line>
+<line x1="4.22" x2="5.64" y1="4.22" y2="5.64"></line>
+<line x1="18.36" x2="19.78" y1="18.36" y2="19.78"></line>
+<line x1="1" x2="3" y1="12" y2="12"></line>
+<line x1="21" x2="23" y1="12" y2="12"></line>
+<line x1="4.22" x2="5.64" y1="19.78" y2="18.36"></line>
+<line x1="18.36" x2="19.78" y1="5.64" y2="4.22"></line>
+</svg>
+</symbol>
+<symbol id="svg-moon" viewbox="0 0 24 24">
+<title>Темный режим</title>
+<svg class="icon-tabler-moon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 0h24v24H0z" fill="none" stroke="none"></path>
+<path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"></path>
+</svg>
+</symbol>
+<symbol id="svg-sun-with-moon" viewbox="0 0 24 24">
+<title>Автоматический свет/темнота, в ярком режиме</title>
+<svg class="icon-custom-derived-from-feather-sun-and-tabler-moon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z" style="opacity: 50%"></path>
+<line x1="14.5" x2="14.5" y1="3.25" y2="1.25"></line>
+<line x1="14.5" x2="14.5" y1="15.85" y2="17.85"></line>
+<line x1="10.044" x2="8.63" y1="5.094" y2="3.68"></line>
+<line x1="19" x2="20.414" y1="14.05" y2="15.464"></line>
+<line x1="8.2" x2="6.2" y1="9.55" y2="9.55"></line>
+<line x1="20.8" x2="22.8" y1="9.55" y2="9.55"></line>
+<line x1="10.044" x2="8.63" y1="14.006" y2="15.42"></line>
+<line x1="19" x2="20.414" y1="5.05" y2="3.636"></line>
+<circle cx="14.5" cy="9.55" r="3.6"></circle>
+</svg>
+</symbol>
+<symbol id="svg-moon-with-sun" viewbox="0 0 24 24">
+<title>Автоматический светлый/темный, в темном режиме</title>
+<svg class="icon-custom-derived-from-feather-sun-and-tabler-moon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"></path>
+<line style="opacity: 50%" x1="18" x2="18" y1="3.705" y2="2.5"></line>
+<line style="opacity: 50%" x1="18" x2="18" y1="11.295" y2="12.5"></line>
+<line style="opacity: 50%" x1="15.316" x2="14.464" y1="4.816" y2="3.964"></line>
+<line style="opacity: 50%" x1="20.711" x2="21.563" y1="10.212" y2="11.063"></line>
+<line style="opacity: 50%" x1="14.205" x2="13.001" y1="7.5" y2="7.5"></line>
+<line style="opacity: 50%" x1="21.795" x2="23" y1="7.5" y2="7.5"></line>
+<line style="opacity: 50%" x1="15.316" x2="14.464" y1="10.184" y2="11.036"></line>
+<line style="opacity: 50%" x1="20.711" x2="21.563" y1="4.789" y2="3.937"></line>
+<circle cx="18" cy="7.5" r="2.169" style="opacity: 50%"></circle>
+</svg>
+</symbol>
+<symbol id="svg-pencil" viewbox="0 0 24 24">
+<svg class="icon-tabler-pencil-code" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4"></path>
+<path d="M13.5 6.5l4 4"></path>
+<path d="M20 21l2 -2l-2 -2"></path>
+<path d="M17 17l-2 2l2 2"></path>
+</svg>
+</symbol>
+<symbol id="svg-eye" viewbox="0 0 24 24">
+<svg class="icon-tabler-eye-code" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 0h24v24H0z" fill="none" stroke="none"></path>
+<path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"></path>
+<path d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008"></path>
+<path d="M20 21l2 -2l-2 -2"></path>
+<path d="M17 17l-2 2l2 2"></path>
+</svg>
+</symbol>
+</svg>
+<input aria-label="Включить боковую панель навигации по сайту" class="sidebar-toggle" id="__navigation" name="__navigation" type="checkbox"/>
+<input aria-label="Переключить боковую панель оглавления" class="sidebar-toggle" id="__toc" name="__toc" type="checkbox"/>
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+<a class="skip-to-content muted-link" href="web-interface.html#furo-main-content">Перейти к содержимому</a>
+<div class="page">
+<header class="mobile-header">
+<div class="header-left">
+<label class="nav-overlay-icon" for="__navigation">
+<span class="icon"><svg><use href="#svg-menu"></use></svg></span>
+</label>
+</div>
+<div class="header-center">
+<a href="index.html"><div class="brand">АК-ШУМКАР – ГОС 24.10.11</div></a>
+</div>
+<div class="header-right">
+<div class="theme-toggle-container theme-toggle-header">
+<button aria-label="Переключить светлую/темную/автоматическую цветную тему" class="theme-toggle">
+<svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+<svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+<svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+<svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+</button>
+</div>
+<label class="toc-overlay-icon toc-header-icon" for="__toc">
+<span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+</label>
+</div>
+</header>
+<aside class="sidebar-drawer">
+<div class="sidebar-container">
+<div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
+<div class="sidebar-logo-container">
+<img alt="Логотип Ак-Шумкар" class="sidebar-logo only-light" src="/img/ak-shumkar.png"/>
+<img alt="Логотип Ак-Шумкар" class="sidebar-logo only-dark" src="/img/ak-shumkar.png"/>
+</div>
+<span class="sidebar-brand-text">АК-ШУМКАР – ГОС 24.10.11</span>
+</a><form action="search.html" class="sidebar-search-container" method="get" role="search">
+<input aria-label="Поиск" class="sidebar-search" name="q" placeholder="Поиск"/>
+<input name="check_keywords" type="hidden" value="yes"/>
+<input name="area" type="hidden" value="default"/>
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">1 Введение</a></li>
+<li class="toctree-l1"><a class="reference internal" href="read-before-use.html">2 Прочтите перед использованием</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appliance-overview.html">3 АК-ШУМКАР – Обзор</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setting-up-the-appliance.html">4 Настройка АК-ШУМКАР</a></li>
+<li class="toctree-l1"><a class="reference internal" href="upgrading-gos.html">5 Обновление АК-ШУМКАР до последней основной версии</a></li>
+<li class="toctree-l1"><a class="reference internal" href="managing-gos.html">6 Управление системой «Ак Шумкар»</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="web-interface.html#">7 Знакомство с веб-интерфейсом</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web-interface-access.html">8 Управление доступом к веб-интерфейсу</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scanning.html">9 Системы сканирования</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reports.html">10 отчетов и управление уязвимостями</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compliance-and-special-scans.html">11 Выполнение консультаций и технических услуг</a></li>
+<li class="toctree-l1"><a class="reference internal" href="managing-assets.html">12 Управление активами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="managing-secinfo.html">13 Управление информацией о безопасности</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gmp.html">14 Использование протокола управления «Ак Шумкар»</a></li>
+<li class="toctree-l1"><a class="reference internal" href="master-sensor-setup.html">15 Использование настроек главного датчика</a></li>
+<li class="toctree-l1"><a class="reference internal" href="performance.html">16 Управление производительностью</a></li>
+<li class="toctree-l1"><a class="reference internal" href="connecting-other-systems.html">17 Подключение АК-ШУМКАР к другим системам</a></li>
+<li class="toctree-l1"><a class="reference internal" href="architecture.html">18 Архитектура</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">19 часто задаваемых вопросов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">20 Глоссарий</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</aside>
+<div class="main">
+<div class="content">
+<div class="article-container">
+<a class="back-to-top muted-link" href="web-interface.html#">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+</svg>
+<span>Вернуться наверх</span>
+</a>
+<div class="content-icon-container">
+<div class="theme-toggle-container theme-toggle-content">
+<button aria-label="Переключить светлую/темную/автоматическую цветную тему" class="theme-toggle">
+<svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+<svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+<svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+<svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+</button>
+</div>
+<label class="toc-overlay-icon toc-content-icon" for="__toc">
+<span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+</label>
+</div>
+<article id="furo-main-content" role="main">
+<section id="getting-to-know-the-web-interface">
+<span id="web-interface"></span><span id="index-0"></span><h1><span class="section-number">7 </span>Знакомство с веб-интерфейсом<a class="headerlink" href="web-interface.html#getting-to-know-the-web-interface" title="Ссылка на эту рубрику">¶</a></h1>
+<section id="logging-into-the-web-interface">
+<span id="login-web-interface"></span><span id="index-1"></span><h2><span class="section-number">7.1 </span>Вход в веб-интерфейс<a class="headerlink" href="web-interface.html#logging-into-the-web-interface" title="Ссылка на эту рубрику">¶</a></h2>
+<p>Основным интерфейсом устройства является веб-интерфейс, также называемый «Ак Шумкар Security Assistant» (GSA).
+Доступ к веб-интерфейсу можно получить следующим образом:</p>
+<ol class="arabic">
+<li><p>Откройте веб-браузер.</p></li>
+<li><p>Введите IP-адрес веб-интерфейса устройства.</p>
+<div class="admonition tip">
+<p class="admonition-title">Кончик</p>
+<p>IP-адрес веб-интерфейса отображается в приглашении для входа в консоль (см. главу) <a class="reference internal" href="managing-gos.html#log-in-as-admin"><span class="std std-ref">6.1.2.2.1</span></a>) или в меню администрирования ГСН при выборе <em>О</em> и работа <kbd class="kbd docutils literal notranslate">Входить</kbd>.</p>
+</div>
+</li>
+<li><p>Войдите в систему под учетной записью веб-администратора, созданной во время установки (см. главу <a class="reference internal" href="setting-up-the-appliance.html#setup-guides"><span class="std std-ref">4</span></a>).</p></li>
+</ol>
+</section>
+<section id="using-dashboards">
+<span id="dashboard"></span><span id="index-2"></span><h2><span class="section-number">7.2 </span>Использование информационных панелей<a class="headerlink" href="web-interface.html#using-dashboards" title="Ссылка на эту рубрику">¶</a></h2>
+<p>Многие страницы веб-интерфейса содержат информационные панели вверху страницы.
+Эти информационные панели состоят из индивидуально составленных и организованных диаграмм и таблиц.
+Доступные диаграммы и таблицы зависят от содержимого страницы.</p>
+<p>Для каждой страницы имеются настройки диаграмм и/или таблиц по умолчанию.
+Настройки по умолчанию можно восстановить, нажав <a class="reference internal" href="_images/reset.png"><img alt="" src="_images/reset.png" style="height: 1.2em;"/></a> справа над приборной панелью.</p>
+<section id="adding-a-dashboard-display">
+<span id="adding-dashboard-displays"></span><span id="index-3"></span><h3><span class="section-number">7.2.1 </span>Добавление дисплея информационной панели<a class="headerlink" href="web-interface.html#adding-a-dashboard-display" title="Ссылка на эту рубрику">¶</a></h3>
+<p>Новый дисплей можно добавить на информационную панель следующим образом:</p>
+<ol class="arabic">
+<li><p>Нажмите <a class="reference internal" href="_images/new.png"><img alt="" src="_images/new.png" style="height: 1.2em;"/></a> справа над приборной панелью.</p></li>
+<li><p>Выберите нужный дисплей из раскрывающегося списка (см. <a class="reference internal" href="web-interface.html#fig-dashboard-add-display"><span class="std std-numref">Рис. 7.1</span></a>).</p>
+<div class="admonition tip">
+<p class="admonition-title">Кончик</p>
+<p>Поле ввода над списком можно использовать для фильтрации параметров.</p>
+</div>
+<figure class="align-center" id="id3">
+<span id="fig-dashboard-add-display"></span><a class="reference internal image-reference" href="_images/dashboard_add_display.png"><img alt="_images/dashboard_add_display.png" src="_images/dashboard_add_display.png" style="width: 60%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 7.1 </span><span class="caption-text">Добавление дисплея</span><a class="headerlink" href="web-interface.html#id3" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Нажмите <em>Добавить</em>.</p></li>
+</ol>
+</section>
+<section id="deleting-a-dashboard-display">
+<span id="deleting-dashboard-displays"></span><span id="index-4"></span><h3><span class="section-number">7.2.2 </span>Удаление дисплея информационной панели<a class="headerlink" href="web-interface.html#deleting-a-dashboard-display" title="Ссылка на эту рубрику">¶</a></h3>
+<p>Отображение можно удалить, нажав <a class="reference internal" href="_images/delete_display_2.png"><img alt="" src="_images/delete_display_2.png" style="height: 1.2em;"/></a> в правом верхнем углу дисплея (см. <a class="reference internal" href="web-interface.html#fig-delete-display"><span class="std std-numref">Рис. 7.2</span></a>).</p>
+<figure class="align-center" id="id4">
+<span id="fig-delete-display"></span><a class="reference internal image-reference" href="_images/delete_display.png"><img alt="_images/delete_display.png" src="_images/delete_display.png" style="width: 60%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 7.2 </span><span class="caption-text">Удаление отображения</span><a class="headerlink" href="web-interface.html#id4" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="editing-a-dashboard-display">
+<span id="editing-displays"></span><h3><span class="section-number">7.2.3 </span>Редактирование отображения информационной панели<a class="headerlink" href="web-interface.html#editing-a-dashboard-display" title="Ссылка на эту рубрику">¶</a></h3>
+<p>В зависимости от дисплея существует несколько опций, которые можно выбрать, переместив курсор к правому краю дисплея (см. <a class="reference internal" href="web-interface.html#fig-dashboard-further-options"><span class="std std-numref">Рис. 7.3</span></a>):</p>
+<figure class="align-center" id="id5">
+<span id="fig-dashboard-further-options"></span><a class="reference internal image-reference" href="_images/dashboard_further_options.png"><img alt="_images/dashboard_further_options.png" src="_images/dashboard_further_options.png" style="width: 60%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 7.3 </span><span class="caption-text">Выбор дополнительных опций дисплея</span><a class="headerlink" href="web-interface.html#id5" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+<ul class="simple">
+<li><p><a class="reference internal" href="_images/filter.png"><img alt="" src="_images/filter.png" style="height: 1.2em;"/></a> Примените фильтр к диаграмме или таблице.
+Фильтр необходимо предварительно настроить и сохранить для отображаемого типа ресурса (см. главу <a class="reference internal" href="web-interface.html#filter-via-filters-page"><span class="std std-ref">7.3.2</span></a>).</p></li>
+<li><p><a class="reference internal" href="_images/download_svg.png"><img alt="" src="_images/download_svg.png" style="height: 1.2em;"/></a> Загрузите диаграмму в видеофайл SVG (только для диаграмм).</p></li>
+<li><p><a class="reference internal" href="_images/download_csv.png"><img alt="" src="_images/download_csv.png" style="height: 1.2em;"/></a> Загрузите таблицу в формате CSV (только для таблиц).</p></li>
+<li><p><a class="reference internal" href="_images/legend.png"><img alt="" src="_images/legend.png" style="height: 1.2em;"/></a> Скрыть или показать легенду (только для диаграмм).</p></li>
+<li><p><a class="reference internal" href="_images/toggle3d.png"><img alt="" src="_images/toggle3d.png" style="height: 1.2em;"/></a> Переключение между 2D- и 3D-презентацией (только для диаграммы).</p></li>
+</ul>
+</section>
+<section id="organizing-dashboards-displays">
+<h3><span class="section-number">7.2.4 </span>Организация отображений информационных панелей<a class="headerlink" href="web-interface.html#organizing-dashboards-displays" title="Ссылка на эту рубрику">¶</a></h3>
+<p>На <em>Панели мониторинга</em> На странице панели мониторинга можно группировать и упорядочивать изображения.
+Дисплеи можно объединять индивидуально, но есть также предопределенные информационные панели, которые можно выбрать.</p>
+<p>Всего может быть до 10 панелей.
+По умолчанию есть только <em>Обзор</em> информационная панель, на которой представлен краткий обзор задач CVE и VT (см. <a class="reference internal" href="web-interface.html#fig-main-dashboard"><span class="std std-numref">Рис. 7.4</span></a>).</p>
+<figure class="align-center" id="id6">
+<span id="fig-main-dashboard"></span><a class="reference internal image-reference" href="_images/main_dashboard.png"><img alt="_images/main_dashboard.png" src="_images/main_dashboard.png" style="width: 100%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 7.4 </span><span class="caption-text">Обзорная панель мониторинга</span><a class="headerlink" href="web-interface.html#id6" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+<section id="adding-a-new-dashboard">
+<h4><span class="section-number">7.2.4.1 </span>Добавление новой панели мониторинга<a class="headerlink" href="web-interface.html#adding-a-new-dashboard" title="Ссылка на эту рубрику">¶</a></h4>
+<p>Новую панель мониторинга можно создать следующим образом:</p>
+<ol class="arabic">
+<li><p>Нажмите <a class="reference internal" href="_images/new.png"><img alt="" src="_images/new.png" style="height: 1.2em;"/></a> во вкладках над информационной панелью (см. <a class="reference internal" href="web-interface.html#fig-dashboard-new"><span class="std std-numref">Рис. 7.5</span></a>).</p>
+<figure class="align-center" id="id7">
+<span id="fig-dashboard-new"></span><a class="reference internal image-reference" href="_images/dashboard_new.png"><img alt="_images/dashboard_new.png" src="_images/dashboard_new.png" style="width: 15%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 7.5 </span><span class="caption-text">Добавляем новую панель мониторинга</span><a class="headerlink" href="web-interface.html#id7" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Введите имя информационной панели в <em>Название информационной панели</em> поле ввода.</p></li>
+<li><p>Выберите дисплеи, которые должны отображаться по умолчанию, из <em>Начальные дисплеи</em> раскрывающийся список (см. <a class="reference internal" href="web-interface.html#fig-dashboard-new-2"><span class="std std-numref">Рис. 7.6</span></a>).</p>
+<p>Доступны следующие наборы дисплеев по умолчанию:</p>
+<ul class="simple">
+<li><p>По умолчанию: панель мониторинга содержит те же дисплеи, что и панель обзора.</p></li>
+<li><p>Дисплеи сканирования: панель мониторинга содержит дисплеи, касающиеся задач, результатов и отчетов.</p></li>
+<li><p>Отображения активов: панель мониторинга содержит дисплеи, касающиеся хостов и операционных систем.</p></li>
+<li><p>Отображения SecInfo: панель Диптихи содержит отображение, сети VT, CVE и рекомендации CERT-Bund.</p></li>
+<li><p>Пусто: на информационной панели нет дисплеев.</p></li>
+</ul>
+<p>Кроме того, можно выбрать уже существующие информационные панели.</p>
+<div class="admonition tip">
+<p class="admonition-title">Кончик</p>
+<p>Отображения также можно редактировать позже (см. Главы <a class="reference internal" href="web-interface.html#adding-dashboard-displays"><span class="std std-ref">7.2.1</span></a>, <a class="reference internal" href="web-interface.html#deleting-dashboard-displays"><span class="std std-ref">7.2.2</span></a> и <a class="reference internal" href="web-interface.html#editing-displays"><span class="std std-ref">7.2.3</span></a>).</p>
+</div>
+<figure class="align-center" id="id8">
+<span id="fig-dashboard-new-2"></span><a class="reference internal image-reference" href="_images/dashboard_new_2.png"><img alt="_images/dashboard_new_2.png" src="_images/dashboard_new_2.png" style="width: 60%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 7.6 </span><span class="caption-text">Добавляем новую панель мониторинга</span><a class="headerlink" href="web-interface.html#id8" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Нажмите <em>Добавить</em>.</p>
+<p>→ Панель инструментов добавляется и отображается на панели вкладок (см. <a class="reference internal" href="web-interface.html#fig-dashboard-register-bar"><span class="std std-numref">Рис. 7.7</span></a>).</p>
+<figure class="align-center" id="id9">
+<span id="fig-dashboard-register-bar"></span><a class="reference internal image-reference" href="_images/dashboard_register_bar.png"><img alt="_images/dashboard_register_bar.png" src="_images/dashboard_register_bar.png" style="width: 30%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 7.7 </span><span class="caption-text">Вкладки доступных информационных панелей</span><a class="headerlink" href="web-interface.html#id9" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+</li>
+</ol>
+</section>
+<section id="editing-a-dashboard">
+<h4><span class="section-number">7.2.4.2 </span>Редактирование панели мониторинга<a class="headerlink" href="web-interface.html#editing-a-dashboard" title="Ссылка на эту рубрику">¶</a></h4>
+<ul>
+<li><p>Дисплеи можно добавлять на информационную панель или удалять с нее, как описано в главах. <a class="reference internal" href="web-interface.html#adding-dashboard-displays"><span class="std std-ref">7.2.1</span></a> и <a class="reference internal" href="web-interface.html#deleting-dashboard-displays"><span class="std std-ref">7.2.2</span></a>.</p></li>
+<li><p>Отображения на информационной панели можно редактировать, как описано в главе <a class="reference internal" href="web-interface.html#editing-displays"><span class="std std-ref">7.2.3</span></a>.</p></li>
+<li><p>Панель управления можно переименовать следующим образом:</p>
+<ol class="arabic">
+<li><p>Нажмите <a class="reference internal" href="_images/edit.png"><img alt="" src="_images/edit.png" style="height: 1.2em;"/></a> во вкладке дашборда в панели вкладок (см. <a class="reference internal" href="web-interface.html#fig-dashboard-rename"><span class="std std-numref">Рис. 7.8</span></a>).</p>
+<figure class="align-center" id="id10">
+<span id="fig-dashboard-rename"></span><a class="reference internal image-reference" href="_images/dashboard_rename.png"><img alt="_images/dashboard_rename.png" src="_images/dashboard_rename.png" style="width: 30%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 7.8 </span><span class="caption-text">Переименование или удаление панели мониторинга</span><a class="headerlink" href="web-interface.html#id10" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Измените имя в <em>Название информационной панели</em> поле ввода.</p></li>
+<li><p>Нажмите <em>Сохранять</em>.</p></li>
+</ol>
+</li>
+</ul>
+</section>
+<section id="deleting-a-dashboard">
+<h4><span class="section-number">7.2.4.3 </span>Удаление панели мониторинга<a class="headerlink" href="web-interface.html#deleting-a-dashboard" title="Ссылка на эту рубрику">¶</a></h4>
+<p>Панель управления можно удалить, нажав кнопку <a class="reference internal" href="_images/delete.png"><img alt="" src="_images/delete.png" style="height: 1.2em;"/></a> во вкладке панели управления (см. <a class="reference internal" href="web-interface.html#fig-dashboard-rename"><span class="std std-numref">Рис. 7.8</span></a>).</p>
+</section>
+</section>
+</section>
+<section id="filtering-the-page-content">
+<span id="powerfilter"></span><span id="index-5"></span><h2><span class="section-number">7.3 </span>Фильтрация содержимого страницы<a class="headerlink" href="web-interface.html#filtering-the-page-content" title="Ссылка на эту рубрику">¶</a></h2>
+<p>Практически каждая страница веб-интерфейса предлагает возможность фильтровать отображаемый контент.</p>
+<p>Выражения фильтра состоят из ключевого слова, оператора и значения.
+Несколько выражений фильтра можно свободно комбинировать.</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Фильтр является контекстно-зависимым, что означает, что возможные выражения фильтра зависят от открытой в данный момент страницы.</p>
+<p>Фильтр не чувствителен к регистру.
+Перед применением фильтра все заглавные буквы преобразуются в строчные.</p>
+</div>
+<section id="using-the-filter-bar">
+<span id="adjusting-filter"></span><h3><span class="section-number">7.3.1 </span>Использование панели фильтров<a class="headerlink" href="web-interface.html#using-the-filter-bar" title="Ссылка на эту рубрику">¶</a></h3>
+<p>Полоса фильтров в правом верхнем углу (см. <a class="reference internal" href="web-interface.html#fig-filterbar"><span class="std std-numref">Рис. 7.9</span></a>) предлагает следующие варианты:</p>
+<ul class="simple">
+<li><p>Выражение фильтра, которое должно быть применено к открытой в данный момент странице, можно ввести непосредственно в поле ввода.
+Необходимо использовать специальный синтаксис фильтра (см. главу <a class="reference internal" href="web-interface.html#components-powerfilter"><span class="std std-ref">7.3.3</span></a>).</p></li>
+<li><p><a class="reference internal" href="_images/refresh.png"><img alt="" src="_images/refresh.png" style="height: 1.2em;"/></a> Обновите фильтр текущим входом.</p></li>
+<li><p><a class="reference internal" href="_images/delete.png"><img alt="" src="_images/delete.png" style="height: 1.2em;"/></a> Удалите текущий примененный фильтр.</p></li>
+<li><p><a class="reference internal" href="_images/reset.png"><img alt="" src="_images/reset.png" style="height: 1.2em;"/></a> Сбросьте выражения фильтра к настройкам по умолчанию.</p></li>
+<li><p><a class="reference internal" href="_images/help.png"><img alt="" src="_images/help.png" style="height: 1.2em;"/></a> Ознакомьтесь с соответствующим главой руководства пользователя.</p></li>
+<li><p><a class="reference internal" href="_images/edit.png"><img alt="" src="_images/edit.png" style="height: 1.2em;"/></a> Измените фильтр, который должен быть применен к открытой в данный момент странице (см. ниже).</p></li>
+<li><p>Сохраненный фильтр можно применить, выбрав его из раскрывающегося списка.</p></li>
+</ul>
+<figure class="align-center" id="id11">
+<span id="fig-filterbar"></span><a class="reference internal image-reference" href="_images/filterbar.png"><img alt="_images/filterbar.png" src="_images/filterbar.png" style="width: 90%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 7.9 </span><span class="caption-text">Панель фильтров вверху страницы.</span><a class="headerlink" href="web-interface.html#id11" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+<p>Фильтр можно изменить (и сохранить) следующим образом:</p>
+<ol class="arabic">
+<li><p>Нажмите <a class="reference internal" href="_images/edit.png"><img alt="" src="_images/edit.png" style="height: 1.2em;"/></a> в панели фильтров.</p></li>
+<li><p>Выберите и измените выражения фильтра (см. <a class="reference internal" href="web-interface.html#fig-filter-edit"><span class="std std-numref">Рис. 7.10</span></a>).</p>
+<p>Выражения фильтра, которые следует искать, можно ввести в поле <em>Фильтр</em> поле ввода.</p>
+<figure class="align-center" id="id12">
+<span id="fig-filter-edit"></span><a class="reference internal image-reference" href="_images/filter_edit.png"><img alt="_images/filter_edit.png" src="_images/filter_edit.png" style="width: 70%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 7.10 </span><span class="caption-text">Настройка фильтра</span><a class="headerlink" href="web-interface.html#id12" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Если фильтр необходимо сохранить для будущего использования, активируйте <em>Сохранить фильтр как</em> установите флажок и введите имя фильтра в поле ввода.</p></li>
+<li><p>Нажмите <em>Обновлять</em>.</p>
+<p>→ Фильтр применяется и, если выбран, сохраняется.
+Сохраненный фильтр можно применить с помощью раскрывающегося списка на панели фильтров (см. <a class="reference internal" href="web-interface.html#fig-filter-select"><span class="std std-numref">Рис. 7.11</span></a>).</p>
+<figure class="align-center" id="id13">
+<span id="fig-filter-select"></span><a class="reference internal image-reference" href="_images/filter_select.png"><img alt="_images/filter_select.png" src="_images/filter_select.png" style="width: 40%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 7.11 </span><span class="caption-text">Выбор сохраненного фильтра</span><a class="headerlink" href="web-interface.html#id13" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+</li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Кончик</p>
+<p>Если на странице всегда должен быть активирован определенный фильтр, его можно установить в качестве фильтра по умолчанию в настройках пользователя (см. главу <a class="reference internal" href="web-interface.html#mysettings"><span class="std std-ref">7.7</span></a>).</p>
+</div>
+</section>
+<section id="creating-a-filter-on-the-filters-page">
+<span id="filter-via-filters-page"></span><h3><span class="section-number">7.3.2 </span>Создание фильтра на <em>Фильтры</em> Страница<a class="headerlink" href="web-interface.html#creating-a-filter-on-the-filters-page" title="Ссылка на эту рубрику">¶</a></h3>
+<p>Фильтры можно создавать с помощью <em>Фильтр</em> страницу следующим образом:</p>
+<ol class="arabic">
+<li><p>Выбирать <em>Конфигурация &gt; Фильтры</em> в меню.</p></li>
+<li><p>Нажмите <a class="reference internal" href="_images/new.png"><img alt="" src="_images/new.png" style="height: 1.2em;"/></a> в нижней части шкафа.</p></li>
+<li><p>Заполните поля ввода (см. <a class="reference internal" href="web-interface.html#filter-new"><span class="std std-numref">Рис. 7.12</span></a>):</p>
+<dl>
+<dt>Имя</dt><dd><p>Имя можно выбрать свободно.
+Если возможно, следует выбрать описательное имя.</p>
+<p>Этот поле ввода является обязательным.</p>
+</dd>
+<dt>Комментарий</dt><dd><p>Необязательный комментарий позволяет указать дополнительные детали и справочную информацию.</p>
+</dd>
+<dt>Срок</dt><dd><p>Выражения фильтра, которые следует применять (см. главу <a class="reference internal" href="web-interface.html#components-powerfilter"><span class="std std-ref">7.3.3</span></a>).</p>
+<p>Если термин не введен, базовый фильтр <code class="docutils literal notranslate"><span class="pre">первый=1</span> <span class="pre">ряды=10</span> <span class="pre">сортировка=имя</span></code> используется.</p>
+</dd>
+<dt>Тип</dt><dd><p>Тип ресурса, к которому следует применить фильтр.</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Фильтр можно использовать только на той странице, для которой он создан.</p>
+</div>
+</dd>
+</dl>
+<figure class="align-center" id="id14">
+<span id="filter-new"></span><a class="reference internal image-reference" href="_images/filter_new.png"><img alt="_images/filter_new.png" src="_images/filter_new.png" style="width: 60%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 7.12 </span><span class="caption-text">Создание нового фильтра</span><a class="headerlink" href="web-interface.html#id14" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Нажмите <em>Сохранять</em>.</p>
+<p>→ Фильтр можно применить с помощью раскрывающегося списка на панели фильтров (см. <a class="reference internal" href="web-interface.html#fig-filter-select-2"><span class="std std-numref">Рис. 7.13</span></a>).</p>
+<figure class="align-center" id="id15">
+<span id="fig-filter-select-2"></span><a class="reference internal image-reference" href="_images/filter_select.png"><img alt="_images/filter_select.png" src="_images/filter_select.png" style="width: 40%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 7.13 </span><span class="caption-text">Выбор сохраненного фильтра</span><a class="headerlink" href="web-interface.html#id15" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+</li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Кончик</p>
+<p>Если на странице всегда должен быть активирован определенный фильтр, его можно установить в качестве фильтра по умолчанию в настройках пользователя (см. главу <a class="reference internal" href="web-interface.html#mysettings"><span class="std std-ref">7.7</span></a>).</p>
+</div>
+</section>
+<section id="filter-expressions">
+<span id="components-powerfilter"></span><h3><span class="section-number">7.3.3 </span>Фильтровать выражения<a class="headerlink" href="web-interface.html#filter-expressions" title="Ссылка на эту рубрику">¶</a></h3>
+<p>При применении выражения фильтра отображаются в левом нижнем углу страницы (см. <a class="reference internal" href="web-interface.html#fig-filter-syntax"><span class="std std-numref">Рис. 7.14</span></a>).</p>
+<p>Фильтр использует особый синтаксис, который необходимо учитывать.</p>
+<figure class="align-center" id="id16">
+<span id="fig-filter-syntax"></span><a class="reference internal image-reference" href="_images/filter_syntax.png"><img alt="_images/filter_syntax.png" src="_images/filter_syntax.png" style="width: 60%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 7.14 </span><span class="caption-text">Примененные выражения фильтра</span><a class="headerlink" href="web-interface.html#id16" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+<div class="admonition tip">
+<p class="admonition-title">Кончик</p>
+<p>Полный список всех ключевых слов фильтра с возможными значениями, отсортированными по типу страницы/ресурса, можно найти. <a class="reference external" href="https://www.ak-shumkar.net/wp-content/uploads/Filterkeywords_EN.pdf">здесь</a>.</p>
+</div>
+<section id="global-keywords">
+<span id="id1"></span><h4><span class="section-number">7.3.3.1 </span>Глобальные ключевые слова<a class="headerlink" href="web-interface.html#global-keywords" title="Ссылка на эту рубрику">¶</a></h4>
+<p>В общем, указание следующих ключевых слов всегда возможно.</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Эти ключевые слова применяются ко всему запросу фильтра и должны упоминаться только один раз.</p>
+<p>Пример: фильтровать запросы типа <code class="docutils literal notranslate"><span class="pre">имя~тест</span> <span class="pre">и</span> <span class="pre">ряды=20</span> <span class="pre">или</span> <span class="pre">имя~защита</span> <span class="pre">и</span> <span class="pre">строк = 30</span></code> не допускаются.
+В этом случае только <code class="docutils literal notranslate"><span class="pre">строк = 30</span></code> будет применяться.</p>
+</div>
+<dl>
+<dt><code class="docutils literal notranslate"><span class="pre">ряды</span></code></dt><dd><p>Количество строк, отображаемых на странице.</p>
+<ul class="simple">
+<li><p>Значение по умолчанию: <code class="docutils literal notranslate"><span class="pre">ряды=10</span></code>.</p></li>
+<li><p>Ввод значения <code class="docutils literal notranslate"><span class="pre">-1</span></code> отобразит все результаты.</p></li>
+<li><p>Ввод значения <code class="docutils literal notranslate"><span class="pre">-2</span></code> будет использовать значение, установленное в настройках пользователя для <em>Строков на странице</em> (см. главу <a class="reference internal" href="web-interface.html#mysettings"><span class="std std-ref">7.7</span></a>).</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>С использованием <code class="docutils literal notranslate"><span class="pre">строки=-1</span></code> может вызвать проблемы с производительностью, когда необходимо обработать большие объемы данных.</p>
+<p>Если страница загружается долго, следует использовать другой фильтр строк.</p>
+</div>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">первый</span></code></dt><dd><p>Спецификация первого отображаемого ресурса.</p>
+<p>Пример: <code class="docutils literal notranslate"><span class="pre">ряды=10</span> <span class="pre">первый=11</span></code> отображает ресурсы с 11 по 20.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">сортировать</span></code></dt><dd><p>Спецификация столбца, используемого для сортировки ресурсов.
+Ресурсы отсортированы по возрастанию.</p>
+<p>Пример: <code class="docutils literal notranslate"><span class="pre">сортировка=имя</span></code> сортирует ресурсы по имени.</p>
+<ul class="simple">
+<li><p>Сортировку также можно выполнить, щелкнув заголовок столбца.</p></li>
+<li><p>После применения фильтра прописные буквы в именах столбцов заменяются на строчные, а пробелы заменяются на подчеркивания.</p></li>
+<li><p>Типичные столбцы:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">имя</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">тяжесть</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">хозяин</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">расположение</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">код</span></code> (качество обнаружения)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">комментарий</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">модифицированный</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">созданный</span></code></p></li>
+</ul>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p><code class="docutils literal notranslate"><span class="pre">сортировать</span></code> не применимо для страниц сведений об отчете (см. главу <a class="reference internal" href="reports.html#report-reading"><span class="std std-ref">10.2.1</span></a>).</p>
+</div>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">обратная сортировка</span></code></dt><dd><p>Спецификация столбца, используемого для сортировки ресурсов.
+Те же правила, что и для <code class="docutils literal notranslate"><span class="pre">сортировать</span></code> применить (см. выше).
+Ресурсы отсортированы по убыванию.</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p><code class="docutils literal notranslate"><span class="pre">обратная сортировка</span></code> не применимо для страниц сведений об отчете (см. главу <a class="reference internal" href="reports.html#report-reading"><span class="std std-ref">10.2.1</span></a>).</p>
+</div>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">ярлык</span></code></dt><dd><p>Выбор ресурсов с определенным тегом (см. главу <a class="reference internal" href="web-interface.html#tags"><span class="std std-ref">7.4</span></a>).</p>
+<ul class="simple">
+<li><p>Либо только имя тега (<code class="docutils literal notranslate"><span class="pre">тег="сервер"</span></code>) или определенное значение тега (<code class="docutils literal notranslate"><span class="pre">тег="сервер=почта"</span></code>) можно использовать для фильтрации.</p></li>
+<li><p>Регулярные выражения также разрешены.</p></li>
+<li><p>С помощью тегов можно создавать собственные категории и использовать их в фильтрах.
+Это обеспечивает универсальную и детальную функциональность фильтра.</p></li>
+</ul>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">tag_id</span></code></dt><dd><p>Выбор ресурсов с определенным тегом (см. главу <a class="reference internal" href="web-interface.html#tags"><span class="std std-ref">7.4</span></a>).</p>
+<ul class="simple">
+<li><p>Тег UUID используется для фильтра.
+UUID тега можно найти на странице описания теге (см. главу). <a class="reference internal" href="web-interface.html#managing-tags"><span class="std std-ref">7.4.4</span></a>).</p></li>
+<li><p>Фильтр остается действительным, даже если имя тега изменено.</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="filter-operators">
+<h4><span class="section-number">7.3.3.2 </span>Операторы фильтра<a class="headerlink" href="web-interface.html#filter-operators" title="Ссылка на эту рубрику">¶</a></h4>
+<p>При указании выражений фильтра используются следующие операторы:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">=</span></code>
+равно, например <code class="docutils literal notranslate"><span class="pre">ряды=10</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">~</span></code>
+содержит, например <code class="docutils literal notranslate"><span class="pre">имя~админ</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;</span></code>
+меньше, чем, например <code class="docutils literal notranslate"><span class="pre">создано&lt;-1w</span></code> → старше недели</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&gt;</span></code>
+больше, чем, например <code class="docutils literal notranslate"><span class="pre">создано&gt;-1w</span></code> → новее недели</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">регулярное выражение</span></code>
+регулярное выражение, например <code class="docutils literal notranslate"><span class="pre">регулярное выражение</span> <span class="pre">192.168.[0-9]+.[0-9]</span></code></p></li>
+</ul>
+<p>Следующие операторы <strong>нет</strong> поддерживается:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;=</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&gt;=</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">(</span> <span class="pre">)</span></code></p></li>
+</ul>
+<p>Есть несколько особых случаев:</p>
+<ul>
+<li><p>Если значение не следует <code class="docutils literal notranslate"><span class="pre">=</span></code>, отображаются все ресурсы без значения для указанного ключевого слова.</p>
+<p>Пример: <code class="docutils literal notranslate"><span class="pre">комментарий=</span></code> показывает все ресурсы без комментариев.</p>
+</li>
+<li><p>Если значение должно быть найдено, но не определено, в каком столбце следует искать, поиск выполняется по всем столбцам.</p>
+<p>Пример: <code class="docutils literal notranslate"><span class="pre">=192.168.15.5</span></code> проверяет, содержит ли хотя бы один столбец заданное значение.</p>
+</li>
+<li><p>Выражения фильтра обычно объединяются или объединяются.
+Это также можно указать с помощью логического оператора <code class="docutils literal notranslate"><span class="pre">или</span></code>.</p>
+<p>Для достижения комбинации «и» используется логический оператор <code class="docutils literal notranslate"><span class="pre">и</span></code> должно быть указано.</p>
+<p>Пример: <code class="docutils literal notranslate"><span class="pre">изменено&gt;01.01.2019</span> <span class="pre">и</span> <span class="pre">имя=услуги</span></code></p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">и</span></code> решено раньше <code class="docutils literal notranslate"><span class="pre">или</span></code>, что означает <code class="docutils literal notranslate"><span class="pre">х</span> <span class="pre">и</span> <span class="pre">й</span> <span class="pre">или</span> <span class="pre">а</span> <span class="pre">и</span> <span class="pre">б</span></code> решено <code class="docutils literal notranslate"><span class="pre">(х</span> <span class="pre">и</span> <span class="pre">й)</span> <span class="pre">или</span> <span class="pre">(а</span> <span class="pre">и</span> <span class="pre">б)</span></code></p>
+<p>Такие термины, как <code class="docutils literal notranslate"><span class="pre">х</span> <span class="pre">и</span> <span class="pre">(а</span> <span class="pre">или</span> <span class="pre">б)</span></code> нужно написать как <code class="docutils literal notranslate"><span class="pre">х</span> <span class="pre">и</span> <span class="pre">а</span> <span class="pre">или</span> <span class="pre">х</span> <span class="pre">и</span> <span class="pre">б</span></code>.</p>
+</li>
+<li><p>С использованием <code class="docutils literal notranslate"><span class="pre">нет</span></code> отрицает фильтр.</p>
+<p>Пример: <code class="docutils literal notranslate"><span class="pre">нет</span> <span class="pre">~192.168.81.129</span></code> показывает все ресурсы, которые не содержат «192.168.81.129».</p>
+</li>
+</ul>
+</section>
+<section id="text-phrases">
+<h4><span class="section-number">7.3.3.3 </span>Текстовые фразы<a class="headerlink" href="web-interface.html#text-phrases" title="Ссылка на эту рубрику">¶</a></h4>
+<p>Обычно можно указать текстовые фразы, которые ищут.</p>
+<p>Следующие примеры демонстрируют аспекты, которые следует учитывать:</p>
+<dl>
+<dt><code class="docutils literal notranslate"><span class="pre">переполнение</span></code></dt><dd><p>Находит все ресурсы, содержащие слово «переполнение».</p>
+<p>Это относится как к «Переполнению», так и к «Переполнению буфера».</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">удаленный</span> <span class="pre">эксплуатировать</span></code></dt><dd><p>Находится все ресурсы, содержащие слова «remote» или «exploit» или и то, и другое.</p>
+<p>Ресурсы не обязательно должны находиться в одном столбце.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">удаленный</span> <span class="pre">и</span> <span class="pre">эксплуатировать</span></code></dt><dd><p>Находит все ресурсы, содержащие как «удаленный», так и «эксплойт».</p>
+<p>Ресурсы не обязательно должны находиться в одном столбце.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">"удаленный</span> <span class="pre">эксплуатировать"</span></code></dt><dd><p>Находит все ресурсы, содержащие строку «удаленный эксплойт».</p>
+<p>Ищется точная строка, а не отдельные слова.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">регулярное выражение</span> <span class="pre">192.168.[0-9]+.[0-9]</span></code></dt><dd><p>Находит заданное регулярное выражение.</p>
+</dd>
+</dl>
+</section>
+<section id="time-specifications">
+<h4><span class="section-number">7.3.3.4 </span>Характеристики времени<a class="headerlink" href="web-interface.html#time-specifications" title="Ссылка на эту рубрику">¶</a></h4>
+<p>Указания времени в фильтре могут быть абсолютными или относительными.</p>
+<dl>
+<dt>Указание абсолютного времени</dt><dd><p>Спецификация абсолютного времени имеет формат <code class="docutils literal notranslate"><span class="pre">ГГГГ-ММ-ДДТЧчММ</span></code>, например, 2024-10-02T13h50.</p>
+<p>Если время не указано, автоматически будет установлено время 12:00.</p>
+<p>Пример: <code class="docutils literal notranslate"><span class="pre">Изменено&gt;01.09.2024T15h00</span> <span class="pre">и</span> <span class="pre">Изменено&lt;2024-09-30T15h00</span></code> показывает ресурсы, которые были изменены между указанными датами.</p>
+</dd>
+<dt>Указание относительного времени</dt><dd><p>Спецификации относительного времени всегда рассчитываются относительно текущего времени.</p>
+<p>Прошедшее время указывается со знаком минус (<code class="docutils literal notranslate"><span class="pre">-</span></code>).
+Указание времени без ведущего символа интерпретируется как будущее.</p>
+<p>Для периодов времени можно использовать следующие буквы:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">с</span></code>: второй</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">м</span></code>: минута</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">час</span></code>: час</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">д</span></code>: день</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ш</span></code>: неделя</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">М</span></code>: месяц (30 дней)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">й</span></code>: год (365 дней)</p></li>
+</ul>
+<p>Пример: <code class="docutils literal notranslate"><span class="pre">создано&gt;-5d</span></code> показывает ресурсы, созданные за последние 5 дней.</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Такие комбинации, как <code class="docutils literal notranslate"><span class="pre">5д1ч</span></code> не разрешены, но должны быть заменены на <code class="docutils literal notranslate"><span class="pre">121 час</span></code>.</p>
+</div>
+</dd>
+</dl>
+</section>
+</section>
+<section id="examples-for-filters-expressions">
+<h3><span class="section-number">7.3.4 </span>Примеры выражений фильтров<a class="headerlink" href="web-interface.html#examples-for-filters-expressions" title="Ссылка на эту рубрику">¶</a></h3>
+<p>Вот несколько примеров фильтров:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">127.0.0.1</span></code> показывает любой ресурс, который имеет «127.0.0.1» в любом месте текста любого столбца.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">127.0.0.1</span> <span class="pre">Яна</span></code> показывает любой ресурс, имеющий «127.0.0.1» или «iana» в любом месте текста, любой столбец.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">127.0.0.1</span> <span class="pre">и</span> <span class="pre">Яна</span></code> показывает любой ресурс, который имеет «127.0.0.1» и «iana» в любом месте текста любого столбца.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">=127.0.0.1</span></code> показывает любой ресурс, точное имя которого в любом столбце имеет «127.0.0.1».</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">нет</span> <span class="pre">ip:192.168.100.[0-9]{1,3}</span></code> показывает любой ресурс с IP-адресом, который начинается не с «192.168.100.», за которым следует одно или два трех числа от 0 до 9.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">регулярное выражение</span> <span class="pre">192.168.[0-9]+.[0-9]</span></code> показывает любой ресурс, строку стиля IP, которая начинается с «192.168» в любом месте текста любого столбца.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">имя = локальный хост</span></code> показывает любой ресурс с прекрасным именем «localhost».</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">имя~местное</span></code> показывает любой ресурс со словом «local» в любом месте по имени.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">имя:^местный</span></code> показывает любой ресурс, имя которого начинается со слова «local».</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">список_портов~tcp</span></code> показывает любой ресурс, в списке портов которого есть «tcp».</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">изменено&gt;03.04.2023</span> <span class="pre">и</span> <span class="pre">изменено&lt;05.04.2023</span></code> показывает любой ресурс, который был изменен между 03.04.2023 0:00 и 05.04.2023 0:00.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">создано&gt;2023-04-03T13h00</span></code> показывает любой ресурс, созданный после 13:00 3 апреля 2023 г.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ряды=20</span> <span class="pre">первый=1</span> <span class="pre">сортировка=имя</span></code> показывает первые 20 ресурсов, отсортированных по столбцу <em>Имя</em>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">создано&gt;-7d</span></code> показывает любой ресурс, созданный за последние 7 дней.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tag="geo:long=52.2788"</span></code> показывает любой ресурс, имеющий тег с именем «geo:long» и значением «52.2788».</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">тег~гео</span></code> показывает любой ресурс, у которого есть тег с именем, содержащий «geo».</p></li>
+</ul>
+</section>
+<section id="managing-filters">
+<h3><span class="section-number">7.3.5 </span>Управление фильтрами<a class="headerlink" href="web-interface.html#managing-filters" title="Ссылка на эту рубрику">¶</a></h3>
+<p><strong>Страница списка</strong></p>
+<p>Все существующие фильтры можно отобразить, выбрав <em>Конфигурация &gt; Фильтры</em> в меню (см. <a class="reference internal" href="web-interface.html#filter-managing"><span class="std std-numref">Рис. 7.15</span></a>).</p>
+<p>Для всех фильтров отображается следующая информация:</p>
+<dl class="simple">
+<dt>Имя</dt><dd><p>Имя, присвоенное фильтру при его создании.</p>
+</dd>
+<dt>Срок</dt><dd><p>Выражения фильтра, образующие фильтр (см. главу <a class="reference internal" href="web-interface.html#components-powerfilter"><span class="std std-ref">7.3.3</span></a>).</p>
+</dd>
+<dt>Тип</dt><dd><p>Тип ресурса, к которому можно применить фильтр.</p>
+</dd>
+</dl>
+<p>Для всех фильтров доступны следующие действия:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="_images/trashcan.png"><img alt="" src="_images/trashcan.png" style="height: 1.2em;"/></a> Переместите фильтр в мусорное ведро.</p></li>
+<li><p><a class="reference internal" href="_images/edit.png"><img alt="" src="_images/edit.png" style="height: 1.2em;"/></a> Отредактируйте фильтр.</p></li>
+<li><p><a class="reference internal" href="_images/clone.png"><img alt="" src="_images/clone.png" style="height: 1.2em;"/></a> Клонируйте фильтр.</p></li>
+<li><p><a class="reference internal" href="_images/export.png"><img alt="" src="_images/export.png" style="height: 1.2em;"/></a> Экспортируйте фильтр как файл XML.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Нажав <a class="reference internal" href="_images/trashcan.png"><img alt="" src="_images/trashcan.png" style="height: 1.2em;"/></a> или <a class="reference internal" href="_images/export.png"><img alt="" src="_images/export.png" style="height: 1.2em;"/></a> под списком фильтров можно переместить в корзину или экспортировать более одного фильтра одновременно.
+Раскрывающийся список используется для выбора того, какие фильтры будут перемещены в корзину или экспортированы.</p>
+</div>
+<figure class="align-center" id="id17">
+<span id="filter-managing"></span><a class="reference internal image-reference" href="_images/filter_managing.png"><img alt="_images/filter_managing.png" src="_images/filter_managing.png" style="width: 95%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 7.15 </span><span class="caption-text">Управление фильтрами</span><a class="headerlink" href="web-interface.html#id17" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+<p><strong>Страница раскрыта</strong></p>
+<p>Нажмите на название фильтра, чтобы отобразить подробную информацию о нем.
+Нажмите <a class="reference internal" href="_images/details.png"><img alt="" src="_images/details.png" style="height: 1.2em;"/></a> чтобы открыть страницу сведений о фильтре.</p>
+<p>Доступны следующие вкладки:</p>
+<dl class="simple">
+<dt>Информация</dt><dd><p>Общая информация о фильтре, включая термин, тип и место использования фильтра.</p>
+</dd>
+<dt>Пользовательские теги</dt><dd><p>Присвоенный тег (см. главу <a class="reference internal" href="web-interface.html#tags"><span class="std std-ref">7.4</span></a>).</p>
+</dd>
+<dt>Разрешения</dt><dd><p>Назначенные разрешения (см. главу <a class="reference internal" href="web-interface-access.html#permissions"><span class="std std-ref">8.4</span></a>).</p>
+</dd>
+</dl>
+<p>В левом верхнем углу пульта доступны следующие действия:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="_images/help.png"><img alt="" src="_images/help.png" style="height: 1.2em;"/></a> Ознакомьтесь с соответствующим главой руководства пользователя.</p></li>
+<li><p><a class="reference internal" href="_images/list.png"><img alt="" src="_images/list.png" style="height: 1.2em;"/></a> Показать страницу со списком всех фильтров.</p></li>
+<li><p><a class="reference internal" href="_images/new.png"><img alt="" src="_images/new.png" style="height: 1.2em;"/></a> Создайте новый фильтр (см. главу <a class="reference internal" href="web-interface.html#adjusting-filter"><span class="std std-ref">7.3.1</span></a>).</p></li>
+<li><p><a class="reference internal" href="_images/clone.png"><img alt="" src="_images/clone.png" style="height: 1.2em;"/></a> Клонируйте фильтр.</p></li>
+<li><p><a class="reference internal" href="_images/edit.png"><img alt="" src="_images/edit.png" style="height: 1.2em;"/></a> Отредактируйте фильтр.</p></li>
+<li><p><a class="reference internal" href="_images/trashcan.png"><img alt="" src="_images/trashcan.png" style="height: 1.2em;"/></a> Переместите фильтр в мусорное ведро.</p></li>
+<li><p><a class="reference internal" href="_images/export.png"><img alt="" src="_images/export.png" style="height: 1.2em;"/></a> Экспортируйте фильтр как файл XML.</p></li>
+</ul>
+</section>
+</section>
+<section id="using-tags">
+<span id="tags"></span><span id="index-6"></span><h2><span class="section-number">7.4 </span>Использование тегов<a class="headerlink" href="web-interface.html#using-tags" title="Ссылка на эту рубрику">¶</a></h2>
+<p>Теги — это фрагменты информации, которые можно связать с одним или несколькими ресурсами одного типа.
+Их можно использовать для фильтрации (см. главы <a class="reference internal" href="web-interface.html#powerfilter"><span class="std std-ref">7.3</span></a> и <a class="reference internal" href="web-interface.html#global-keywords"><span class="std std-ref">7.3.3.1</span></a>).</p>
+<section id="creating-a-tag-for-a-single-resource">
+<h3><span class="section-number">7.4.1 </span>Создание тега для одного ресурса<a class="headerlink" href="web-interface.html#creating-a-tag-for-a-single-resource" title="Ссылка на эту рубрику">¶</a></h3>
+<p>Тег для одного ресурса можно создать и связать с ним напрямую следующим образом:</p>
+<ol class="arabic">
+<li><p>Откройте страницу сведений о ресурсе, щелкнув имя ресурса, а затем <a class="reference internal" href="_images/details.png"><img alt="" src="_images/details.png" style="height: 1.2em;"/></a>.</p></li>
+<li><p>Нажмите на описание <em>Пользовательские теги</em>.</p></li>
+<li><p>Нажмите <a class="reference internal" href="_images/edit.png"><img alt="" src="_images/edit.png" style="height: 1.2em;"/></a> на правой стороне.</p></li>
+<li><p>Заполните поля ввода:</p>
+<dl>
+<dt>Имя</dt><dd><p>Имя можно выбрать свободно.
+Если возможно, следует выбрать описательное имя.</p>
+<p>Этот поле ввода является обязательным.</p>
+</dd>
+<dt>Комментарий</dt><dd><p>Необязательный комментарий позволяет указать дополнительные детали и справочную информацию.</p>
+</dd>
+<dt>Ценить</dt><dd><p>Значение может быть присвоено для более детального определения.</p>
+<p>Пример: тег с именем <code class="docutils literal notranslate"><span class="pre">отделение</span></code> со значением <code class="docutils literal notranslate"><span class="pre">производство</span></code> может быть привязан к ресурсу; тег также называется <code class="docutils literal notranslate"><span class="pre">отделение</span></code> но со значением <code class="docutils literal notranslate"><span class="pre">продажа</span></code> можно связать с другим ресурсом.</p>
+</dd>
+<dt>Тип ресурса</dt><dd><p>Тип ресурса, с которым должен быть связан тег.</p>
+<p>Этот раскрывающийся список доступен только для чтения, поскольку тег создается непосредственно для ресурса.</p>
+</dd>
+<dt>Ресурсы</dt><dd><p>Выбор конкретного ресурса выбранного типа ресурса.</p>
+<p>Этот раскрывающийся список доступен только для чтения, поскольку тег создается непосредственно для ресурса.</p>
+</dd>
+<dt>Активный</dt><dd><p>Выбор, должен ли тег быть доступен для использования или нет.</p>
+</dd>
+</dl>
+</li>
+<li><p>Нажмите <em>Сохранять</em>.</p></li>
+</ol>
+</section>
+<section id="creating-a-tag-for-multiple-resources">
+<h3><span class="section-number">7.4.2 </span>Создание тега для нескольких ресурсов<a class="headerlink" href="web-interface.html#creating-a-tag-for-multiple-resources" title="Ссылка на эту рубрику">¶</a></h3>
+<p>Тег можно создать и напрямую связать с несколькими ресурсами одного типа (например, задачами, целями, сканерами) следующим образом:</p>
+<ol class="arabic">
+<li><p>Откройте страницу списка типа ресурса.</p></li>
+<li><p>Отфильтруйте список так, чтобы отображались только те ресурсы, которые должны получить этот тег.</p></li>
+<li><p>Выберите область ресурсов, к которым должен быть привязан тег, из раскрывающегося списка под списком ресурсов (см. <a class="reference internal" href="web-interface.html#fig-tag-multiple-objects-2"><span class="std std-numref">Рис. 7.16</span></a>).</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p><em>Применить к содержимому страницы</em> связывает тег со всеми ресурсами, видимыми на текущей странице.</p>
+<p><em>Применить ко всем отфильтрованным</em> связывает тег со всеми ресурсами, на которые распространяется примененный в данный момент фильтр, даже если они не видны на текущей странице.</p>
+</div>
+<figure class="align-center" id="id18">
+<span id="fig-tag-multiple-objects-2"></span><a class="reference internal image-reference" href="_images/tag_multiple_objects_2.png"><img alt="_images/tag_multiple_objects_2.png" src="_images/tag_multiple_objects_2.png" style="width: 30%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 7.16 </span><span class="caption-text">Выбор ресурсов</span><a class="headerlink" href="web-interface.html#id18" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+<p>или</p>
+</li>
+</ol>
+<ol class="arabic" start="2">
+<li><p>Выбирать <em>Применить к выбору</em> из раскрывающегося списка под списком ресурсов.</p></li>
+<li><p>В <em>Действия</em> столбце активируйте флажки тех ресурсов, которые должны получить тег.</p></li>
+<li><p>Нажмите <a class="reference internal" href="_images/tags.png"><img alt="" src="_images/tags.png" style="height: 1.2em;"/></a> под списком ресурсов.</p></li>
+<li><p>Выберите тег из <em>Выберите тег</em> раскрывающийся список (см. <a class="reference internal" href="web-interface.html#fig-tag-multiple-objects"><span class="std std-numref">Рис. 7.17</span></a>).</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Можно выбрать только теги, созданные для выбранного типа ресурса.</p>
+<p>Альтернативно новый тег можно создать, нажав кнопку <a class="reference internal" href="_images/new.png"><img alt="" src="_images/new.png" style="height: 1.2em;"/></a>.</p>
+</div>
+<figure class="align-center" id="id19">
+<span id="fig-tag-multiple-objects"></span><a class="reference internal image-reference" href="_images/tag_multiple_objects.png"><img alt="_images/tag_multiple_objects.png" src="_images/tag_multiple_objects.png" style="width: 60%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 7.17 </span><span class="caption-text">Выбор тега для нескольких ресурсов</span><a class="headerlink" href="web-interface.html#id19" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Нажмите <em>Добавить тег</em>.</p></li>
+</ol>
+</section>
+<section id="creating-a-tag-on-the-tags-page">
+<span id="create-tag"></span><h3><span class="section-number">7.4.3 </span>Создание тега на <em>Теги</em> Страница<a class="headerlink" href="web-interface.html#creating-a-tag-on-the-tags-page" title="Ссылка на эту рубрику">¶</a></h3>
+<p>Теги можно создавать без привязки непосредственно к одному или используемым ресурсам с помощью <em>Теги</em> страницу следующим образом:</p>
+<ol class="arabic">
+<li><p>Выбирать <em>Конфигурация &gt; Теги</em> в меню.</p></li>
+<li><p>Нажмите <a class="reference internal" href="_images/new.png"><img alt="" src="_images/new.png" style="height: 1.2em;"/></a> в нижней части шкафа.</p></li>
+<li><p>Заполните поля ввода (см. <a class="reference internal" href="web-interface.html#fig-tag-new"><span class="std std-numref">Рис. 7.18</span></a>):</p>
+<dl>
+<dt>Имя</dt><dd><p>Имя можно выбрать произвольно.
+Если возможно, следует выбрать описательное имя.</p>
+<p>Этот поле ввода является обязательным.</p>
+</dd>
+<dt>Комментарий</dt><dd><p>Необязательный комментарий Позволяет указать дополнительную информацию и справочную информацию.</p>
+</dd>
+<dt>Ценить</dt><dd><p>Значение может быть использовано для более детального определения.</p>
+<p>Пример: тег с именем <code class="docutils literal notranslate"><span class="pre">отделение</span></code> со значением <code class="docutils literal notranslate"><span class="pre">производство</span></code> может быть применен к ресурсу; тег также называется <code class="docutils literal notranslate"><span class="pre">отделение</span></code> но так важно <code class="docutils literal notranslate"><span class="pre">продажа</span></code> можно связаться с другим ресурсом.</p>
+</dd>
+<dt>Тип ресурса</dt><dd><p>Тип ресурса, с которым должен быть связан тег.</p>
+</dd>
+<dt>Ресурсы</dt><dd><p>Выбор типа ресурса.</p>
+</dd>
+<dt>Активный</dt><dd><p>По выбору тег должен быть доступен для использования или отсутствовать.</p>
+</dd>
+</dl>
+<figure class="align-center" id="id20">
+<span id="fig-tag-new"></span><a class="reference internal image-reference" href="_images/tag_new.png"><img alt="_images/tag_new.png" src="_images/tag_new.png" style="width: 60%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 7.18 </span><span class="caption-text">Создание нового тега</span><a class="headerlink" href="web-interface.html#id20" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Нажмите <em>Сохранять</em>.</p></li>
+</ol>
+</section>
+<section id="managing-tags">
+<span id="id2"></span><h3><span class="section-number">7.4.4 </span>Управление тегами<a class="headerlink" href="web-interface.html#managing-tags" title="Ссылка на эту рубрику">¶</a></h3>
+<p><strong>Страница списка</strong></p>
+<p>Все существующие теги можно отобразить, выбрав <em>Конфигурация &gt; Теги</em> в меню.</p>
+<p>Для всех тегов отображается следующая информация:</p>
+<dl class="simple">
+<dt>Имя</dt><dd><p>Имя, присвоенное тегу при его создании.</p>
+</dd>
+<dt>Ценить</dt><dd><p>Значение, привлеченное для тега при его создании.</p>
+</dd>
+<dt>Активный</dt><dd><p>Индикация того, доступен ли тег для использования или нет.</p>
+</dd>
+<dt>Тип ресурса</dt><dd><p>Тип ресурса, с которым может быть связан тег.</p>
+</dd>
+<dt>Количество ресурсов</dt><dd><p>Количество ресурсов, с которыми в данный момент связан тег.</p>
+</dd>
+<dt>Модифицированный</dt><dd><p>Дата и время последнего изменения тега.</p>
+</dd>
+</dl>
+<p>Для всех тегов доступны следующие действия:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="_images/disable.png"><img alt="" src="_images/disable.png" style="height: 1.2em;"/></a> Отключите тег, если он активен.</p></li>
+<li><p><a class="reference internal" href="_images/enable.png"><img alt="" src="_images/enable.png" style="height: 1.2em;"/></a> Включите тег, если он не активен.</p></li>
+<li><p><a class="reference internal" href="_images/trashcan.png"><img alt="" src="_images/trashcan.png" style="height: 1.2em;"/></a> Переместите тег в корзину.</p></li>
+<li><p><a class="reference internal" href="_images/edit.png"><img alt="" src="_images/edit.png" style="height: 1.2em;"/></a> Отредактируйте тег.</p></li>
+<li><p><a class="reference internal" href="_images/clone.png"><img alt="" src="_images/clone.png" style="height: 1.2em;"/></a> Клонируйте тег.</p></li>
+<li><p><a class="reference internal" href="_images/export.png"><img alt="" src="_images/export.png" style="height: 1.2em;"/></a> Экспортируйте тег как файл XML.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Нажав <a class="reference internal" href="_images/trashcan.png"><img alt="" src="_images/trashcan.png" style="height: 1.2em;"/></a> или <a class="reference internal" href="_images/export.png"><img alt="" src="_images/export.png" style="height: 1.2em;"/></a> под списком тегов можно переместить в корзину или экспортировать более одного тега одновременно.
+Раскрывающийся список используется для выбора тегов, которые необходимо переместить в корзину или экспортировать.</p>
+</div>
+<p><strong>Страница раскрыта</strong></p>
+<p>Нажмите на название тега, чтобы отобразить подробную информацию о теге.
+Нажмите <a class="reference internal" href="_images/details.png"><img alt="" src="_images/details.png" style="height: 1.2em;"/></a> чтобы открыть страницу, откройте о теге.</p>
+<p>Доступны следующие вкладки:</p>
+<dl class="simple">
+<dt>Информация</dt><dd><p>Общая информация о теге, включая значение, тип ресурса и то, активен он или нет.</p>
+</dd>
+<dt>Назначенные предметы</dt><dd><p>Ресурсы, с международным участием в данный момент связаны тегом.
+Ресурсы предоставляются только в том случае, если тег активен.</p>
+</dd>
+<dt>Разрешения</dt><dd><p>Назначенные разрешения (см. главу <a class="reference internal" href="web-interface-access.html#permissions"><span class="std std-ref">8.4</span></a>).</p>
+</dd>
+</dl>
+<p>В левом верхнем углу пульта доступны следующие действия:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="_images/help.png"><img alt="" src="_images/help.png" style="height: 1.2em;"/></a> Ознакомьтесь с соответствующим главой руководства пользователя.</p></li>
+<li><p><a class="reference internal" href="_images/list.png"><img alt="" src="_images/list.png" style="height: 1.2em;"/></a> Показать страницу со списком всех тегов.</p></li>
+<li><p><a class="reference internal" href="_images/new.png"><img alt="" src="_images/new.png" style="height: 1.2em;"/></a> Создать новый тег (см. главу <a class="reference internal" href="web-interface.html#create-tag"><span class="std std-ref">7.4.3</span></a>).</p></li>
+<li><p><a class="reference internal" href="_images/clone.png"><img alt="" src="_images/clone.png" style="height: 1.2em;"/></a> Клонируйте тег.</p></li>
+<li><p><a class="reference internal" href="_images/edit.png"><img alt="" src="_images/edit.png" style="height: 1.2em;"/></a> Отредактируйте тег.</p></li>
+<li><p><a class="reference internal" href="_images/trashcan.png"><img alt="" src="_images/trashcan.png" style="height: 1.2em;"/></a> Переместите тег в корзину.</p></li>
+<li><p><a class="reference internal" href="_images/export.png"><img alt="" src="_images/export.png" style="height: 1.2em;"/></a> Экспортируйте тег как файл XML.</p></li>
+<li><p><a class="reference internal" href="_images/disable.png"><img alt="" src="_images/disable.png" style="height: 1.2em;"/></a> Отключите тег, если он активен.</p></li>
+<li><p><a class="reference internal" href="_images/enable.png"><img alt="" src="_images/enable.png" style="height: 1.2em;"/></a> Включите тег, если он не активирован.</p></li>
+</ul>
+</section>
+</section>
+<section id="using-the-trashcan">
+<span id="index-7"></span><h2><span class="section-number">7.5 </span>Использование мусорной корзины<a class="headerlink" href="web-interface.html#using-the-trashcan" title="Ссылка на эту рубрику">¶</a></h2>
+<p> <em>Мусорное ведро</em> страница открыла выбор <em>Администрирование &gt; Корзина</em> в меню.
+В нем перечислены все ресурсы, находящиеся в настоящее время в корзине, сгруппированные по типам ресурсов.</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Ресурсы в корзине еще не удаленными.
+Они удаляются окончательно только тогда, когда их вручную удаляют из корзины или когда вся корзина очищается.</p>
+</div>
+<p> <em>Содержание</em> В таблице показаны все типы ресурсов, объекты которые в данный момент находятся в мусорном корзине, а также включают количество объектов (см. <a class="reference internal" href="web-interface.html#fig-trashcan-overview"><span class="std std-numref">Рис. 7.19</span></a>).</p>
+<p>Всю мусорную корзину можно использовать, нажав кнопку <em>Пустой мусор</em>.</p>
+<figure class="align-center" id="id21">
+<span id="fig-trashcan-overview"></span><a class="reference internal image-reference" href="_images/trashcan_overview.png"><img alt="_images/trashcan_overview.png" src="_images/trashcan_overview.png" style="width: 95%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 7.19 </span><span class="caption-text">Содержимое мусорной корзины</span><a class="headerlink" href="web-interface.html#id21" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+<p>При необходимости укажите тип порта, соответствующий соответствующему разделу.
+Здесь можно управлять партнерами (см. <a class="reference internal" href="web-interface.html#fig-trashcan-detail"><span class="std std-numref">Рис. 7.20</span></a>):</p>
+<ul class="simple">
+<li><p>Щелчок <a class="reference internal" href="_images/restore.png"><img alt="" src="_images/restore.png" style="height: 1.2em;"/></a> перемещает ресурс из корзины и возвращает его на обычную страницу.
+Ресурс невозможно восстановить, если он зависит от другого ресурса в мусорной корзине.
+В этом случае значок неактивен.</p></li>
+<li><p>Щелчок <a class="reference internal" href="_images/delete.png"><img alt="" src="_images/delete.png" style="height: 1.2em;"/></a> полностью восстановить ресурс из системы.
+Ресурс невозможно удалить, если от него зависит другой ресурс в корзине.
+В этом случае значок неактивен.</p></li>
+</ul>
+<figure class="align-center" id="id22">
+<span id="fig-trashcan-detail"></span><a class="reference internal image-reference" href="_images/trashcan_detail.png"><img alt="_images/trashcan_detail.png" src="_images/trashcan_detail.png" style="width: 95%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 7.20 </span><span class="caption-text">Восстановление или удаление ресурса, находящегося в корзине</span><a class="headerlink" href="web-interface.html#id22" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="displaying-the-feed-status">
+<span id="index-8"></span><h2><span class="section-number">7.6 </span>Отображение очистки ленты<a class="headerlink" href="web-interface.html#displaying-the-feed-status" title="Ссылка на эту рубрику">¶</a></h2>
+<p>Статус синхронизации всей информации SecInfo можно отобразить, выбрав <em>Администрирование &gt; Статус фида</em> в меню.</p>
+<p>Отображается следующая информация (см. <a class="reference internal" href="web-interface.html#fig-feed-status"><span class="std std-numref">Рис. 7.21</span></a>):</p>
+<dl>
+<dt>Тип</dt><dd><p>Тип корма (<em>НТВ</em>, <em>СКАП</em>, <em>СЕРТ</em> или <em>ГВМД_ДАННЫЕ</em>).</p>
+</dd>
+<dt>Содержание</dt><dd><p>Тип информации, предоставляемой фидом.</p>
+</dd>
+<dt>Источник</dt><dd><p>Имя канала службы, который используется для синхронизации SecInfo.</p>
+</dd>
+<dt>Версия</dt><dd><p>Номер версии данных фида.</p>
+</dd>
+<dt>Статус</dt><dd><p>Информация о состоянии канала, например время с момента последнего обновления.</p>
+<p>Если в данный момент достигнуто обновление фида, <em>Обновление в процессе…</em> отображается.
+Этот статус отображается для всех каналов, даже если в данный момент обновляется только один канал.</p>
+</dd>
+</dl>
+<figure class="align-center" id="id23">
+<span id="fig-feed-status"></span><a class="reference internal image-reference" href="_images/feed_status.png"><img alt="_images/feed_status.png" src="_images/feed_status.png" style="width: 90%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 7.21 </span><span class="caption-text">Отображение очистки ленты</span><a class="headerlink" href="web-interface.html#id23" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="changing-the-user-settings">
+<span id="mysettings"></span><span id="index-9"></span><h2><span class="section-number">7.7 </span>Изменение настроек пользователя<a class="headerlink" href="web-interface.html#changing-the-user-settings" title="Ссылка на эту рубрику">¶</a></h2>
+<p>Каждый пользователь устройства может управлять своими настройками веб-интерфейса.</p>
+<ol class="arabic">
+<li><p>Нанесите кислород на <a class="reference internal" href="_images/user_icon.png"><img alt="" src="_images/user_icon.png" style="height: 1.2em;"/></a> в правом верхнем углу.</p></li>
+<li><p>Нажмите <em>Настройки</em> (видеть <a class="reference internal" href="web-interface.html#fig-user-settings"><span class="std std-numref">Рис. 7.22</span></a>).</p>
+<figure class="align-center" id="id24">
+<span id="fig-user-settings"></span><a class="reference internal image-reference" href="_images/user_settings.png"><img alt="_images/user_settings.png" src="_images/user_settings.png" style="width: 20%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 7.22 </span><span class="caption-text">Доступ к настройкам пользователя</span><a class="headerlink" href="web-interface.html#id24" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Выберите в описании необходимую категорию настроек.</p></li>
+<li><p>Нажмите <a class="reference internal" href="_images/edit.png"><img alt="" src="_images/edit.png" style="height: 1.2em;"/></a> для настройки, которую следует отредактировать, и внести необходимые изменения (см. <a class="reference internal" href="web-interface.html#fig-user-settings-2"><span class="std std-numref">Рис. 7.23</span></a>).</p>
+<figure class="align-center" id="id25">
+<span id="fig-user-settings-2"></span><a class="reference internal image-reference" href="_images/user_settings_2.png"><img alt="_images/user_settings_2.png" src="_images/user_settings_2.png" style="width: 90%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 7.23 </span><span class="caption-text">Изменение настроек пользователя</span><a class="headerlink" href="web-interface.html#id25" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Нажмите <a class="reference internal" href="_images/save.png"><img alt="" src="_images/save.png" style="height: 1.2em;"/></a>.</p></li>
+</ol>
+<p>Важными настройками являются:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Категория <em>Общий</em></dt><dd><dl class="simple">
+<dt>Часовой пояс</dt><dd><p>Выбор часового пояса, используемого для отображения информации.
+Устройство сохраняет всю информацию в часовом поясе UTC±00:00 внутри себя.
+Для отображения данных в течение часа необходим соответствующий выбор.</p>
+</dd>
+<dt>Пароль</dt><dd><p>Здесь можно изменить пароль пользователя.</p>
+</dd>
+<dt>Язык пользовательского интерфейса</dt><dd><p>Язык веб-интерфейса.
+По умолчанию использовались настройки браузера.</p>
+</dd>
+<dt>Строков на странице</dt><dd><p>Количество ресурсов по умолчанию, отображаемое в списке страниц веб-интерфейса.
+Большое количество строк на странице увеличивает время загрузки.
+Пользовательские фильтры могут переопределить этот градиент (см. главу <a class="reference internal" href="web-interface.html#powerfilter"><span class="std std-ref">7.3</span></a>).</p>
+</dd>
+<dt>Подробности Имя файла экспорта</dt><dd><p>Имя файла по умолчанию для экспортированных сведений о ресурсе.
+В качестве имени файла можно использовать следующие поля:</p>
+<ul>
+<li><p>%C: дата создания в формате ГГГГМДД.
+Метки изменяются на текущую, если дата создания недоступна.</p></li>
+<li><p>%c: время создания в формате ЧЧММСС.
+Изменяется на текущее время, если время создания недоступно.</p></li>
+<li><p>%D: текущая дата в формате ГГГГМДД.</p></li>
+<li><p>%F: имя используемого отчета (XML для списка и типов, отличных от отчетов).</p></li>
+<li><p>%M: изменение даты в формате ГГГГМДД.
+Изменено на дату создания или на текущую дату, если изменение даты недоступно.</p></li>
+<li><p>%m: время изменений в формате ЧЧММСС.
+Изменено на время создания или на текущее время, если время изменения недоступно.</p></li>
+<li><p>%N: имя ресурса или связанной задачи для отчетов.
+Списки и типы без имени будут использовать тип (см. %T).</p></li>
+<li><p>%T: тип ресурса, например «задача», «список_портов». Множественное число для страниц списка.</p></li>
+<li><p>%t: текущее время в формате ЧЧММСС.</p></li>
+<li><p>%U: уникальный идентификатор ресурса или «список» для списков из нескольких ресурсов.</p></li>
+<li><p>%u: имя пользователя, вошедшего в систему в данный момент.</p></li>
+<li><p>%%: знак валюты (%).</p></li>
+</ul>
+</dd>
+<dt>Список имен файлов экспорта</dt><dd><p>Имя файла по умолчанию для экспортируемых списков ресурсов.
+Те же заполнители, что и для <em>Подробности Имя файла экспорта</em> можно использовать (см. выше).</p>
+</dd>
+<dt>Имя файла отчета об экспорте</dt><dd><p>Имя файла по умолчанию для экспортируемых отчетов.
+Те же заполнители, что и для <em>Подробности Имя файла экспорта</em> можно использовать (см. выше).</p>
+</dd>
+<dt>Автоматическое восстановление кэша</dt><dd><p>Включите или отключите уровень восстановления кэша.
+Если подряд выполняется несколько действий (например, удаление нескольких ресурсов) и включено ограничение на перестроение кэша, каждое действие запускает перестроение кэша, что замедляет процесс.
+В таких случаях восстановление кэша можно временно отключить.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Категория <em>Серьезность</em></dt><dd><dl class="simple">
+<dt>Динамическая серьезность</dt><dd><p>Выбор того, изменения ли тяжесть существующего результата, если изменения тяжесть основного ЖТ.
+В противном случае новая серьезность повлияет только на будущие кадры.</p>
+</dd>
+<dt>Уровень серьезности по умолчанию</dt><dd><p>Заявление о серьезности по умолчанию.
+Его используют, если В.Т. не придает уровня серьезности.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Категория <em>По умолчанию</em></dt><dd><p>Выбор по умолчанию или записи для различных настроек.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Категория <em>Фильтры</em></dt><dd><p>Выбор фильтров по умолчанию для каждой страницы.
+Фильтры применяются автоматически при включении страницы.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</section>
+<section id="opening-the-manual">
+<span id="index-10"></span><h2><span class="section-number">7.8 </span>Открытие руководства<a class="headerlink" href="web-interface.html#opening-the-manual" title="Ссылка на эту рубрику">¶</a></h2>
+<p>Руководство можно открыть, <a class="reference internal" href="_images/user-manual.png"><img alt="" src="_images/user-manual.png" style="height: 1.2em;"/></a> в правом верхнем углу.</p>
+<p>Кроме того, руководство можно открыть на любой странице, нажав кнопку <a class="reference internal" href="_images/help.png"><img alt="" src="_images/help.png" style="height: 1.2em;"/></a> в нижней части шкафа.
+Откроется глава, соответствующая содержимому страницы.</p>
+</section>
+<section id="logging-out-of-the-web-interface">
+<span id="index-11"></span><h2><span class="section-number">7.9 </span>Выход из веб-интерфейса<a class="headerlink" href="web-interface.html#logging-out-of-the-web-interface" title="Ссылка на эту рубрику">¶</a></h2>
+<p>Выход из веб-интерфейса можно осуществить, наведя проводник на <a class="reference internal" href="_images/user_icon.png"><img alt="" src="_images/user_icon.png" style="height: 1.2em;"/></a> в правом верхнем углу и кнопках <em>Выйти</em> (видеть <a class="reference internal" href="web-interface.html#fig-logout-web-interface"><span class="std std-numref">Рис. 7.24</span></a>).</p>
+<p>Если в веб-интерфейсе в течение определенного периода времени не выполняются никакие действия, происходит автоматический выход пользователя (см. главу <a class="reference internal" href="managing-gos.html#https-timeout"><span class="std std-ref">6.2.4.1.1</span></a>).
+Тайм-аут по умолчанию составляет 15 минут.</p>
+<p>Оставленное время до выхода пользователя из системы можно отобразить, наведя электрод на <a class="reference internal" href="_images/user_icon.png"><img alt="" src="_images/user_icon.png" style="height: 1.2em;"/></a>.
+Нажав <a class="reference internal" href="_images/refresh.png"><img alt="" src="_images/refresh.png" style="height: 1.2em;"/></a> тайм-аут можно сбросить.</p>
+<figure class="align-center" id="id26">
+<span id="fig-logout-web-interface"></span><a class="reference internal image-reference" href="_images/logout_web_interface.png"><img alt="_images/logout_web_interface.png" src="_images/logout_web_interface.png" style="width: 20%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 7.24 </span><span class="caption-text">Выход из веб-интерфейса</span><a class="headerlink" href="web-interface.html#id26" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+</article>
+</div>
+<footer>
+<div class="related-pages">
+<a class="next-page" href="web-interface-access.html">
+<div class="page-info">
+<div class="context">
+<span>Следующий</span>
+</div>
+<div class="title"><span class="section-number">8 </span>Управление доступом к веб-интерфейсу</div>
+</div>
+<svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+</a>
+<a class="prev-page" href="managing-gos.html">
+<svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+<div class="page-info">
+<div class="context">
+<span>Предыдущий</span>
+</div>
+<div class="title"><span class="section-number">6 </span>Управление системой «Ак Шумкар»</div>
+</div>
+</a>
+</div>
+<div class="bottom-of-page">
+<div class="left-details">
+<div class="copyright">
+                Copyright © 2015–2026, Ак Шумкар
+            </div>
+<div class="last-updated">
+              Последнее обновление: 13 марта 2026 г.</div>
+</div>
+<div class="right-details">
+</div>
+</div>
+</footer>
+</div>
+<aside class="toc-drawer">
+<div class="toc-sticky toc-scroll">
+<div class="toc-title-container">
+<span class="toc-title">
+            На этой странице
+          </span>
+</div>
+<div class="toc-tree-container">
+<div class="toc-tree">
+<ul>
+<li><a class="reference internal" href="web-interface.html#">7 Знакомство с веб-интерфейсом</a><ul>
+<li><a class="reference internal" href="web-interface.html#logging-into-the-web-interface">7.1 Вход в веб-интерфейс</a></li>
+<li><a class="reference internal" href="web-interface.html#using-dashboards">7.2 Использование информационных панелей</a><ul>
+<li><a class="reference internal" href="web-interface.html#adding-a-dashboard-display">7.2.1 Добавление панели Диптихи</a></li>
+<li><a class="reference internal" href="web-interface.html#deleting-a-dashboard-display">7.2.2 Удаление информационной панели дисплея</a></li>
+<li><a class="reference internal" href="web-interface.html#editing-a-dashboard-display">7.2.3 Редактирование отображения информационной панели</a></li>
+<li><a class="reference internal" href="web-interface.html#organizing-dashboards-displays">7.2.4 Составление информационных панелей</a><ul>
+<li><a class="reference internal" href="web-interface.html#adding-a-new-dashboard">7.2.4.1 Добавление новой информационной панели</a></li>
+<li><a class="reference internal" href="web-interface.html#editing-a-dashboard">7.2.4.2 Редактирование информационной панели</a></li>
+<li><a class="reference internal" href="web-interface.html#deleting-a-dashboard">7.2.4.3 Удаление информационной панели</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="web-interface.html#filtering-the-page-content">7.3 Фильтрация оценок страницы</a><ul>
+<li><a class="reference internal" href="web-interface.html#using-the-filter-bar">7.3.1 Использование фильтров панели</a></li>
+<li><a class="reference internal" href="web-interface.html#creating-a-filter-on-the-filters-page">7.3.2 Создание фильтра на <em>Фильтры</em> Страница</a></li>
+<li><a class="reference internal" href="web-interface.html#filter-expressions">7.3.3 Выражения фильтра</a><ul>
+<li><a class="reference internal" href="web-interface.html#global-keywords">7.3.3.1 Глобальные ключевые слова</a></li>
+<li><a class="reference internal" href="web-interface.html#filter-operators">7.3.3.2 Операторы фильтра</a></li>
+<li><a class="reference internal" href="web-interface.html#text-phrases">7.3.3.3 Текстовые фразы</a></li>
+<li><a class="reference internal" href="web-interface.html#time-specifications">7.3.3.4 Характеристики времени</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="web-interface.html#examples-for-filters-expressions">7.3.4 Примеры фильтров выражений</a></li>
+<li><a class="reference internal" href="web-interface.html#managing-filters">7.3.5 Управление фильтрами</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="web-interface.html#using-tags">7.4 Использование тегов</a><ul>
+<li><a class="reference internal" href="web-interface.html#creating-a-tag-for-a-single-resource">7.4.1 Создание тега для одного ресурса</a></li>
+<li><a class="reference internal" href="web-interface.html#creating-a-tag-for-multiple-resources">7.4.2 Создание тега для нескольких ресурсов</a></li>
+<li><a class="reference internal" href="web-interface.html#creating-a-tag-on-the-tags-page">7.4.3 Создание тега на <em>Теги</em> Страница</a></li>
+<li><a class="reference internal" href="web-interface.html#managing-tags">7.4.4 Управление тегами</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="web-interface.html#using-the-trashcan">7.5 Использование мусорной корзины</a></li>
+<li><a class="reference internal" href="web-interface.html#displaying-the-feed-status">7.6 Отображение очищающей ленты</a></li>
+<li><a class="reference internal" href="web-interface.html#changing-the-user-settings">7.7 Изменение настроек пользователя</a></li>
+<li><a class="reference internal" href="web-interface.html#opening-the-manual">7.8 Открытие руководства</a></li>
+<li><a class="reference internal" href="web-interface.html#logging-out-of-the-web-interface">7.9 Выход из веб-интерфейса</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</aside>
+</div>
+</div><script src="_static/documentation_options.js%3Fv=bd398bb6"></script>
+<script src="_static/doctools.js%3Fv=9a2dae69"></script>
+<script src="_static/sphinx_highlight.js%3Fv=dc90522c"></script>
+<script src="_stati_static/scripts/furo.js%3Fv=46bd48cc"></script>
+
+_stati_static/scripts/furo.js%3Fv=46bd48cc"&gt;
+</body>
+</html>

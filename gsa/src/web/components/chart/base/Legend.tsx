@@ -3,13 +3,13 @@
  * SPDX-License-Identifier: AGPL-3.0-or-later
  */
 
-import {type RefObject, type ReactNode, type Ref} from 'react';
+import { type RefObject, type ReactNode, type Ref } from 'react';
 import styled from 'styled-components';
-import {type ToString} from 'gmp/types';
-import {isDefined} from 'gmp/utils/identity';
+import { type ToString } from 'gmp/types';
+import { isDefined } from 'gmp/utils/identity';
 import LegendLabel from 'web/components/chart/base/LagendLabel';
-import {DEFAULT_SHAPE_SIZE} from 'web/components/chart/base/LegendLine';
-import ToolTip, {type ToolTipRef} from 'web/components/chart/base/Tooltip';
+import { DEFAULT_SHAPE_SIZE } from 'web/components/chart/base/LegendLine';
+import ToolTip, { type ToolTipRef } from 'web/components/chart/base/Tooltip';
 import Theme from 'web/utils/Theme';
 
 interface RectProps {
@@ -47,8 +47,8 @@ const StyledLegend = styled.div`
   display: flex;
   flex-direction: column;
   user-select: none;
-  color: ${Theme.black};
-  opacity: 0.75;
+  color: var(--ak-shumkar-text-primary, ${Theme.black});
+  opacity: 1;
 `;
 
 export const Item = styled.div`
@@ -59,8 +59,8 @@ export const Item = styled.div`
   ${props =>
     isDefined(props.onClick)
       ? {
-          cursor: 'pointer',
-        }
+        cursor: 'pointer',
+      }
       : undefined};
 `;
 
@@ -81,7 +81,7 @@ const Legend = <TData extends LegendData = LegendData>({
   <StyledLegend ref={legendRef as Ref<HTMLDivElement>}>
     {data.map(d => (
       <ToolTip key={d.label} content={d.toolTip}>
-        {({targetRef, hide, show}) =>
+        {({ targetRef, hide, show }) =>
           isDefined(children) ? (
             children({
               d,

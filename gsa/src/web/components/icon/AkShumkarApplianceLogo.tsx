@@ -64,14 +64,32 @@ export const AkShumkarWhiteLogo = ({
   size,
   ...props
 }: ApplianceIconProps) => (
-  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', ...(style as React.CSSProperties) }}>
+  <div
+    data-testid="AkShumkarWhiteLogo"
+    style={{
+      display: 'flex',
+      alignItems: 'center',
+      gap: '12px',
+      ...(style as React.CSSProperties),
+    }}
+  >
     <img
-      src="/img/AK-SHUMKAR.png"
-      alt="Ak Shumkar"
-      style={{ height: '35px', width: 'auto' }}
-      {...(props as React.ImgHTMLAttributes<HTMLImageElement>)}
+      src="/img/ak-shumkar.png"
+      alt="Eagle Logo"
+      style={{ height: '60px', width: 'auto' }}
     />
-    <span style={{ fontSize: '16px', fontWeight: 'bold', color: 'white' }}>AK SHUMKAR</span>
+    <span
+      style={{
+        fontFamily: "'Langar', cursive",
+        fontSize: '1.4rem',
+        color: '#ffffff',
+        letterSpacing: '0.05em',
+        textTransform: 'uppercase',
+      }}
+      {...(props as React.HTMLAttributes<HTMLSpanElement>)}
+    >
+      AK-SHUMKAR
+    </span>
   </div>
 );
 export const Enterprise150 = createEnterpriseComponent(

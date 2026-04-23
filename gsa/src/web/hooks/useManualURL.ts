@@ -9,10 +9,48 @@ import useGmp from 'web/hooks/useGmp';
 import useLanguage from 'web/hooks/useLanguage';
 
 const DEFAULT_LANGUAGE_MAPPING = {
-  de: 'de',
+  de: 'ru',
+  en: 'ru',
+  ru: 'ru',
 };
 
-const DEFAULT_LANGUAGE_PATH = 'en';
+const DEFAULT_LANGUAGE_PATH = 'ru';
+
+const normalizeManualUrl = (manualUrl: string) => {
+  if (manualUrl === '/manual' || manualUrl === '/manual/') {
+    return '/manual/ak-shumkar';
+  }
+
+  if (manualUrl.startsWith('/')) {
+    if (manualUrl.startsWith('/manual/') && !manualUrl.includes('/ak-shumkar')) {
+      return manualUrl.replace('/manual/', '/manual/ak-shumkar/');
+    }
+    return manualUrl;
+  }
+
+  try {
+    const url = new URL(manualUrl, global.location.origin);
+    if (
+      url.hostname === global.location.hostname &&
+      url.pathname.startsWith('/manual')
+    ) {
+      if (url.pathname === '/manual' || url.pathname === '/manual/') {
+        return '/manual/ak-shumkar';
+      }
+      if (
+        url.pathname.startsWith('/manual/') &&
+        !url.pathname.includes('/ak-shumkar')
+      ) {
+        return url.pathname.replace('/manual/', '/manual/ak-shumkar/');
+      }
+      return url.pathname;
+    }
+  } catch {
+    // Keep original value if URL parsing fails.
+  }
+
+  return manualUrl;
+};
 
 const getLanguagePath = (
   locale: string | undefined,
@@ -36,13 +74,21 @@ const useManualURL = (locale?: string) => {
     manualLanguageMapping = DEFAULT_LANGUAGE_MAPPING,
   } = gmp.settings;
 
-  const baseUrl = manualUrl.endsWith('/') ? manualUrl : `${manualUrl}/`;
+  const normalizedManualUrl = normalizeManualUrl(manualUrl);
+  const baseUrl = normalizedManualUrl.endsWith('/')
+    ? normalizedManualUrl
+    : `${normalizedManualUrl}/`;
   const languagePath = getLanguagePath(
     locale || language,
     manualLanguageMapping,
   );
 
-  return `${baseUrl}${languagePath}`;
+  const localizedBase = `${baseUrl}${languagePath}`;
+  const localizedUrl = localizedBase.endsWith('/')
+    ? localizedBase
+    : `${localizedBase}/`;
+
+  return `${localizedUrl}index.html`;
 };
 
 export default useManualURL;

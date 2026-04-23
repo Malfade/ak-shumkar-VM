@@ -208,6 +208,16 @@ export const SCANNER_TYPE_DEFINITIONS = {
     value: '10',
     name: _l('Container Image Scanner'),
   },
+  /** OpenVAS (OSP) network scan + CVE/SCAP prognosis in one report (gvmd 11). */
+  OPENVAS_WITH_CVE_SCANNER_TYPE: {
+    value: '11',
+    name: _l('OpenVAS + CVE Scanner'),
+  },
+  /** OpenVASd network scan + CVE/SCAP prognosis in one report (gvmd 12). */
+  OPENVASD_WITH_CVE_SCANNER_TYPE: {
+    value: '12',
+    name: _l('OpenVASD + CVE Scanner'),
+  },
 } as const;
 
 // Extract individual constants
@@ -226,6 +236,10 @@ export const AGENT_CONTROLLER_SENSOR_SCANNER_TYPE =
   SCANNER_TYPE_DEFINITIONS.AGENT_CONTROLLER_SENSOR_SCANNER_TYPE.value;
 export const CONTAINER_IMAGE_SCANNER_TYPE =
   SCANNER_TYPE_DEFINITIONS.CONTAINER_IMAGE_SCANNER_TYPE.value;
+export const OPENVAS_WITH_CVE_SCANNER_TYPE =
+  SCANNER_TYPE_DEFINITIONS.OPENVAS_WITH_CVE_SCANNER_TYPE.value;
+export const OPENVASD_WITH_CVE_SCANNER_TYPE =
+  SCANNER_TYPE_DEFINITIONS.OPENVASD_WITH_CVE_SCANNER_TYPE.value;
 
 // Mapping of scanner types to their display names (automatically generated)
 export const SCANNER_TYPE_NAMES = Object.fromEntries(

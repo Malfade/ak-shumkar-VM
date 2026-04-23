@@ -21,7 +21,7 @@ use crate::storage::items::kb::{self, Host, KbItem, KbKey};
 /// Maximum number of concurrent sockets (based on FD_SETSIZE)
 const GRAB_MAX_SOCK: usize = 1024;
 const GRAB_MIN_SOCK: usize = 32;
-const GRAB_MAX_SOCK_SAFE: usize = 128;
+const GRAB_MAX_SOCK_SAFE: usize = 256;
 const MAX_PASS_NB: usize = 16;
 const MAX_SANE_RTT: Duration = Duration::from_secs(2);
 
@@ -107,6 +107,7 @@ pub struct ScanResults {
     pub rtt_stats: [RttStats; 3], // 0: unfiltered, 1: open, 2: closed
     pub passes: usize,
     pub rst_rate_limited: bool,
+    pub silent_ports: usize,
 }
 
 /// Scanner configuration
@@ -258,7 +259,7 @@ impl TcpScanner {
             // Check if we need another pass
             let untested = port_states
                 .values()
-                .filter(|&&s| s == PortState::Unknown || s == PortState::Silent)
+                .filter(|&&s| s == PortState::Unknown)
                 .count();
 
             if untested == 0 {
@@ -274,6 +275,12 @@ impl TcpScanner {
                     max_connections = max_connections.min(GRAB_MAX_SOCK_SAFE);
                     results.rst_rate_limited = true;
                 }
+            }
+
+            // In line with the legacy scanner behavior, only retry silent ports
+            // when there are signs that a re-check is useful (drops or RST rate limit).
+            if pass_results.silent_ports > 0 && !pass_results.rst_rate_limited {
+                break;
             }
         }
 
@@ -351,6 +358,8 @@ impl TcpScanner {
                     }
                     PortState::Silent => {
                         results.filtered_ports.push(port);
+                        port_states.insert(port, PortState::Silent);
+                        results.silent_ports += 1;
                     }
                     PortState::Rejected => {
                         results.filtered_ports.push(port);
@@ -516,9 +525,9 @@ async fn plugin_run_openvas_tcp_scanner(context: &ScanCtx<'_>) -> Result<(), FnE
             .unwrap_or(15),
         params
             .find(|x| x.id == "max_checks")
-            .map(|x| x.value.parse::<usize>().unwrap_or(12))
-            .map(|x| if x == 0 || x > 12 { 12 } else { x })
-            .unwrap_or(12),
+            .map(|x| x.value.parse::<usize>().unwrap_or(20))
+            .map(|x| if x == 0 || x > 20 { 20 } else { x })
+            .unwrap_or(20),
         safe_checks,
     );
 

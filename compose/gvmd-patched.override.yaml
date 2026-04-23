@@ -1,0 +1,9 @@
+# Optional: use locally built gvmd with OpenVAS+CVE composite scanners.
+#   docker compose -f docker-compose.full.yml -f compose/gvmd-patched.override.yaml build gvmd
+#   docker compose -f docker-compose.full.yml -f compose/gvmd-patched.override.yaml up -d
+services:
+  gvmd:
+    build:
+      context: ..
+      dockerfile: docker/gvmd-patched.Dockerfile
+    image: ak-shumkar-gvmd:local

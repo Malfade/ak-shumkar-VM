@@ -5,8 +5,8 @@
 
 import React from 'react';
 import styled from 'styled-components';
-import {KeyCode} from 'gmp/utils/event';
-import {isDefined} from 'gmp/utils/identity';
+import { KeyCode } from 'gmp/utils/event';
+import { isDefined } from 'gmp/utils/identity';
 import ErrorContainer from 'web/components/error/ErrorContainer';
 import Button from 'web/components/form/Button';
 import FormGroup from 'web/components/form/FormGroup';
@@ -14,7 +14,7 @@ import PasswordField from 'web/components/form/PasswordField';
 import TextField from 'web/components/form/TextField';
 import useFormValues from 'web/components/form/useFormValues';
 import Img from 'web/components/img/Img';
-import AkShumkarLoginLogo from 'web/components/img/LoginLogo';
+import GlitchLogo from 'web/components/img/GlitchLogo';
 import useTranslation from 'web/hooks/useTranslation';
 import PropTypes from 'web/utils/PropTypes';
 
@@ -131,7 +131,7 @@ const LoginForm = ({
   onSubmit,
 }) => {
   const [_] = useTranslation();
-  const [{username, password}, handleValueChange] = useFormValues({
+  const [{ username, password }, handleValueChange] = useFormValues({
     username: '',
     password: '',
   });
@@ -156,7 +156,7 @@ const LoginForm = ({
           alt="AK-SHUMKAR Eagle Logo"
         />
         <LogoText>
-          <AkShumkarLoginLogo width="240px" />
+          <GlitchLogo text="AKSHUMKAR" size="2.4rem" />
         </LogoText>
       </LogoContainer>
 
@@ -165,10 +165,10 @@ const LoginForm = ({
           <StyledWarningError>
             {_('Warning: Connection unencrypted')}
           </StyledWarningError>
-          <p style={{color: 'var(--ak-shumkar-text-muted)', fontSize: '13px'}}>
+          <p style={{ color: 'var(--ak-shumkar-text-muted)', fontSize: '13px' }}>
             {_(
               'The connection to this web application is not encrypted, allowing ' +
-                'anyone listening to the traffic to steal your credentials.',
+              'anyone listening to the traffic to steal your credentials.',
             )}
           </p>
         </StyledPanel>
@@ -179,7 +179,7 @@ const LoginForm = ({
           <StyledWarningError>
             {_('Warning: You are using IE11')}
           </StyledWarningError>
-          <p style={{color: 'var(--ak-shumkar-text-muted)'}}>
+          <p style={{ color: 'var(--ak-shumkar-text-muted)' }}>
             {_(
               'You are using Internet Explorer 11. This browser is not supported anymore. Please use an up-to-date alternative.',
             )}
@@ -224,7 +224,7 @@ const LoginForm = ({
       )}
 
       {showGuestLogin && (
-        <FormGroup data-testid="guest-login" style={{marginTop: '1rem'}}>
+        <FormGroup data-testid="guest-login" style={{ marginTop: '1rem' }}>
           <FullWidthButton
             data-testid="guest-login-button"
             onClick={onGuestLoginClick}

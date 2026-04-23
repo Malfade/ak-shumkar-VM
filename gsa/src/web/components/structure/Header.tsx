@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: AGPL-3.0-or-later
  */
 
-import React, {useCallback} from 'react';
+import React, {useCallback, useEffect} from 'react';
 import {AppHeader} from '@greenbone/ui-lib';
 import {useSelector} from 'react-redux';
 import {useNavigate} from 'react-router';
@@ -30,6 +30,23 @@ const Header = () => {
     state => state.userSettings.timezone,
   );
   const manualURL = useManualURL();
+
+  useEffect(() => {
+    const manualLink = document.querySelector(
+      '[data-testid="manual-link"]',
+    ) as HTMLAnchorElement | null;
+    if (!manualLink) {
+      return;
+    }
+
+    const handleManualClick = (event: MouseEvent) => {
+      event.preventDefault();
+      global.location.assign(manualURL);
+    };
+
+    manualLink.addEventListener('click', handleManualClick);
+    return () => manualLink.removeEventListener('click', handleManualClick);
+  }, [manualURL]);
 
   const handleSettingsClick = useCallback(async () => {
     await navigate('/usersettings');

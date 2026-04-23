@@ -1,0 +1,1536 @@
+<html lang="ru"><body><meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="light dark" name="color-scheme"/><meta content="width=device-width, initial-scale=1" name="viewport"/>
+<link href="genindex.html" rel="index" title="Индекс"/><link href="search.html" rel="search" title="Поиск"/><link href="scanning.html" rel="next" title="9 Системы сканирования"/><link href="web-interface.html" rel="prev" title="7 Знакомство с веб-интерфейсом"/>
+<link as="image" href="/img/ak-shumkar.png" rel="prefetch"/>
+<link as="image" href="/img/ak-shumkar.png" rel="prefetch"/>
+<link href="/img/ak-shumkar.png" rel="icon" type="image/png"/><link href="/img/ak-shumkar.png" rel="shortcut icon" type="image/png"/><title>8 Управление доступом к веб-интерфейсу - АК-ШУМКАР – ГОС 24.10.11</title>
+<link href="_static/pygments.css%3Fv=8e8a900e.css" rel="stylesheet" type="text/css"/>
+<link href="_static/styles/furo.css%3Fv=580074bf.css" rel="stylesheet" type="text/css"/>
+<link href="_static/sphinx_greenbone.css%3Fv=8ef0bb58.css" rel="stylesheet" type="text/css"/>
+<link href="_static/styles/furo-extensions.css%3Fv=8dab3a3b.css" rel="stylesheet" type="text/css"/>
+<style>
+  body {
+    --color-code-background: #ffffff;
+  --color-code-foreground: black;
+  --font-stack: Roboto, Helvetica, sans-serif;
+  --color-content-foreground: #4D4D4D;
+  --color-foreground-primary: 4D4D4D;
+  --color-foreground-secondary: #808080;
+  --color-code-background: #333333;
+  --color-code-foreground: #E6E6E6;
+  --color-admonition-title--note: #0E823E;
+  --color-admonition-title--note-background: #D8F1E2;
+  --color-admonition-title--warning: #E5393D;
+  --color-admonition-title--warning-background: #FBDDDE;
+  --admonition-font-size: 0.9rem;
+  --color-background-primary: #FFFFFF;
+  --color-background-secondary: #F5F5F5;
+  --color-sidebar-background: #F5F5F5;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --font-stack: Roboto, Helvetica, sans-serif;
+  --color-content-foreground: #F5F5F5;
+  --color-foreground-primary: F5F5F5;
+  --color-foreground-secondary: #E6E6E6;
+  --color-code-background: #333333;
+  --color-code-foreground: #E6E6E6;
+  --color-admonition-title--note: #11AB51;
+  --admonition-font-size: 0.9rem;
+  --color-background-primary: #171717;
+  --color-background-secondary: #4D4D4D;
+  --color-sidebar-background: #333333;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --font-stack: Roboto, Helvetica, sans-serif;
+  --color-content-foreground: #F5F5F5;
+  --color-foreground-primary: F5F5F5;
+  --color-foreground-secondary: #E6E6E6;
+  --color-code-background: #333333;
+  --color-code-foreground: #E6E6E6;
+  --color-admonition-title--note: #11AB51;
+  --admonition-font-size: 0.9rem;
+  --color-background-primary: #171717;
+  --color-background-secondary: #4D4D4D;
+  --color-sidebar-background: #333333;
+  
+      }
+    }
+  }
+</style>
+<script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+<svg style="display: none;" xmlns="http://www.w3.org/2000/svg">
+<symbol id="svg-toc" viewbox="0 0 24 24">
+<title>Содержание</title>
+<svg fill="currentColor" stroke="currentColor" stroke-width="0" viewbox="0 0 1024 1024">
+<path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"></path>
+</svg>
+</symbol>
+<symbol id="svg-menu" viewbox="0 0 24 24">
+<title>Меню</title>
+<svg class="feather-menu" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<line x1="3" x2="21" y1="12" y2="12"></line>
+<line x1="3" x2="21" y1="6" y2="6"></line>
+<line x1="3" x2="21" y1="18" y2="18"></line>
+</svg>
+</symbol>
+<symbol id="svg-arrow-right" viewbox="0 0 24 24">
+<title>Расширять</title>
+<svg class="feather-chevron-right" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<polyline points="9 18 15 12 9 6"></polyline>
+</svg>
+</symbol>
+<symbol id="svg-sun" viewbox="0 0 24 24">
+<title>Светлый режим</title>
+<svg class="feather-sun" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<circle cx="12" cy="12" r="5"></circle>
+<line x1="12" x2="12" y1="1" y2="3"></line>
+<line x1="12" x2="12" y1="21" y2="23"></line>
+<line x1="4.22" x2="5.64" y1="4.22" y2="5.64"></line>
+<line x1="18.36" x2="19.78" y1="18.36" y2="19.78"></line>
+<line x1="1" x2="3" y1="12" y2="12"></line>
+<line x1="21" x2="23" y1="12" y2="12"></line>
+<line x1="4.22" x2="5.64" y1="19.78" y2="18.36"></line>
+<line x1="18.36" x2="19.78" y1="5.64" y2="4.22"></line>
+</svg>
+</symbol>
+<symbol id="svg-moon" viewbox="0 0 24 24">
+<title>Темный режим</title>
+<svg class="icon-tabler-moon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 0h24v24H0z" fill="none" stroke="none"></path>
+<path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"></path>
+</svg>
+</symbol>
+<symbol id="svg-sun-with-moon" viewbox="0 0 24 24">
+<title>Автоматический свет/темнота, в ярком режиме</title>
+<svg class="icon-custom-derived-from-feather-sun-and-tabler-moon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z" style="opacity: 50%"></path>
+<line x1="14.5" x2="14.5" y1="3.25" y2="1.25"></line>
+<line x1="14.5" x2="14.5" y1="15.85" y2="17.85"></line>
+<line x1="10.044" x2="8.63" y1="5.094" y2="3.68"></line>
+<line x1="19" x2="20.414" y1="14.05" y2="15.464"></line>
+<line x1="8.2" x2="6.2" y1="9.55" y2="9.55"></line>
+<line x1="20.8" x2="22.8" y1="9.55" y2="9.55"></line>
+<line x1="10.044" x2="8.63" y1="14.006" y2="15.42"></line>
+<line x1="19" x2="20.414" y1="5.05" y2="3.636"></line>
+<circle cx="14.5" cy="9.55" r="3.6"></circle>
+</svg>
+</symbol>
+<symbol id="svg-moon-with-sun" viewbox="0 0 24 24">
+<title>Автоматический светлый/темный, в темном режиме</title>
+<svg class="icon-custom-derived-from-feather-sun-and-tabler-moon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"></path>
+<line style="opacity: 50%" x1="18" x2="18" y1="3.705" y2="2.5"></line>
+<line style="opacity: 50%" x1="18" x2="18" y1="11.295" y2="12.5"></line>
+<line style="opacity: 50%" x1="15.316" x2="14.464" y1="4.816" y2="3.964"></line>
+<line style="opacity: 50%" x1="20.711" x2="21.563" y1="10.212" y2="11.063"></line>
+<line style="opacity: 50%" x1="14.205" x2="13.001" y1="7.5" y2="7.5"></line>
+<line style="opacity: 50%" x1="21.795" x2="23" y1="7.5" y2="7.5"></line>
+<line style="opacity: 50%" x1="15.316" x2="14.464" y1="10.184" y2="11.036"></line>
+<line style="opacity: 50%" x1="20.711" x2="21.563" y1="4.789" y2="3.937"></line>
+<circle cx="18" cy="7.5" r="2.169" style="opacity: 50%"></circle>
+</svg>
+</symbol>
+<symbol id="svg-pencil" viewbox="0 0 24 24">
+<svg class="icon-tabler-pencil-code" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4"></path>
+<path d="M13.5 6.5l4 4"></path>
+<path d="M20 21l2 -2l-2 -2"></path>
+<path d="M17 17l-2 2l2 2"></path>
+</svg>
+</symbol>
+<symbol id="svg-eye" viewbox="0 0 24 24">
+<svg class="icon-tabler-eye-code" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 0h24v24H0z" fill="none" stroke="none"></path>
+<path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"></path>
+<path d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008"></path>
+<path d="M20 21l2 -2l-2 -2"></path>
+<path d="M17 17l-2 2l2 2"></path>
+</svg>
+</symbol>
+</svg>
+<input aria-label="Включить боковую панель навигации по сайту" class="sidebar-toggle" id="__navigation" name="__navigation" type="checkbox"/>
+<input aria-label="Переключить боковую панель оглавления" class="sidebar-toggle" id="__toc" name="__toc" type="checkbox"/>
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+<a class="skip-to-content muted-link" href="web-interface-access.html#furo-main-content">Перейти к содержимому</a>
+<div class="page">
+<header class="mobile-header">
+<div class="header-left">
+<label class="nav-overlay-icon" for="__navigation">
+<span class="icon"><svg><use href="#svg-menu"></use></svg></span>
+</label>
+</div>
+<div class="header-center">
+<a href="index.html"><div class="brand">АК-ШУМКАР – ГОС 24.10.11</div></a>
+</div>
+<div class="header-right">
+<div class="theme-toggle-container theme-toggle-header">
+<button aria-label="Переключить светлую/темную/автоматическую цветную тему" class="theme-toggle">
+<svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+<svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+<svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+<svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+</button>
+</div>
+<label class="toc-overlay-icon toc-header-icon" for="__toc">
+<span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+</label>
+</div>
+</header>
+<aside class="sidebar-drawer">
+<div class="sidebar-container">
+<div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
+<div class="sidebar-logo-container">
+<img alt="Логотип Ак-Шумкар" class="sidebar-logo only-light" src="/img/ak-shumkar.png"/>
+<img alt="Логотип Ак-Шумкар" class="sidebar-logo only-dark" src="/img/ak-shumkar.png"/>
+</div>
+<span class="sidebar-brand-text">АК-ШУМКАР – ГОС 24.10.11</span>
+</a><form action="search.html" class="sidebar-search-container" method="get" role="search">
+<input aria-label="Поиск" class="sidebar-search" name="q" placeholder="Поиск"/>
+<input name="check_keywords" type="hidden" value="yes"/>
+<input name="area" type="hidden" value="default"/>
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">1 Введение</a></li>
+<li class="toctree-l1"><a class="reference internal" href="read-before-use.html">2 Прочтите перед использованием</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appliance-overview.html">3 АК-ШУМКАР – Обзор</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setting-up-the-appliance.html">4 Настройка АК-ШУМКАР</a></li>
+<li class="toctree-l1"><a class="reference internal" href="upgrading-gos.html">5 Обновление АК-ШУМКАР до последней основной версии</a></li>
+<li class="toctree-l1"><a class="reference internal" href="managing-gos.html">6 Управление системой «Ак Шумкар»</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web-interface.html">7 Знакомство с веб-интерфейсом</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="web-interface-access.html#">8 Управление доступом к веб-интерфейсу</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scanning.html">9 Системы сканирования</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reports.html">10 отчетов и управление уязвимостями</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compliance-and-special-scans.html">11 Выполнение консультаций и технических услуг</a></li>
+<li class="toctree-l1"><a class="reference internal" href="managing-assets.html">12 Управление активами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="managing-secinfo.html">13 Управление информацией о безопасности</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gmp.html">14 Использование протокола управления «Ак Шумкар»</a></li>
+<li class="toctree-l1"><a class="reference internal" href="master-sensor-setup.html">15 Использование настроек главного датчика</a></li>
+<li class="toctree-l1"><a class="reference internal" href="performance.html">16 Управление производительностью</a></li>
+<li class="toctree-l1"><a class="reference internal" href="connecting-other-systems.html">17 Подключение АК-ШУМКАР к другим системам</a></li>
+<li class="toctree-l1"><a class="reference internal" href="architecture.html">18 Архитектура</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">19 часто задаваемых вопросов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">20 Глоссарий</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</aside>
+<div class="main">
+<div class="content">
+<div class="article-container">
+<a class="back-to-top muted-link" href="web-interface-access.html#">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+</svg>
+<span>Вернуться наверх</span>
+</a>
+<div class="content-icon-container">
+<div class="theme-toggle-container theme-toggle-content">
+<button aria-label="Переключить светлую/темную/автоматическую цветную тему" class="theme-toggle">
+<svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+<svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+<svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+<svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+</button>
+</div>
+<label class="toc-overlay-icon toc-content-icon" for="__toc">
+<span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+</label>
+</div>
+<article id="furo-main-content" role="main">
+<section id="managing-the-web-interface-access">
+<span id="gui-admin"></span><span id="index-0"></span><h1><span class="section-number">8 </span>Управление доступом к веб-интерфейсу<a class="headerlink" href="web-interface-access.html#managing-the-web-interface-access" title="Ссылка на эту рубрику">¶</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>В этой главе описаны все возможные опции меню.</p>
+<p>Однако не все модели устройств используют все эти параметры меню.
+ <a class="reference external" href="https://www.ak-shumkar.net/wp-content/uploads/solution_overview_en.pdf">обзор модели</a> Предоставляет информацию о том, доступна ли конкретная функция в используемой модели устройства.</p>
+</div>
+<section id="users">
+<span id="usermanagement"></span><span id="index-1"></span><h2><span class="section-number">8.1 </span>Пользователи<a class="headerlink" href="web-interface-access.html#users" title="Ссылка на эту рубрику">¶</a></h2>
+<p>АК-ШУМКАР позволяет создавать и управлять несколькими пользователями с разными ролями и разрешениями.
+При первоначальной настройке устройства в меню администрирования ГОС будет создан первый пользователь – администратор веб/сканирования.
+С помощью этого пользователя можно создавать и управлять различными пользователями.</p>
+<dl>
+<dt>Роли</dt><dd><p>Управление пользователями устройств обеспечивает разрешения на основе ролей для доступа к веб-интерфейсу.
+Роль определяет, какие параметры веб-интерфейса может видеть и использовать пользователь.
+Доступ на чтение и запись можно настроить по роликам отдельно.</p>
+<p>Различные ролики уже настроены по умолчанию.
+Дополнительные ролики можно создать и использовать администратор.</p>
+<p>Применение роли реализуется не в веб-интерфейсе, а в базовом протоколе управления «Ак Шумкар» (GMP) и, таким образом, влияет на всех клиентов GMP.</p>
+</dd>
+<dt>Группы</dt><dd><p>Пользователи могут быть организованы в группах.
+Это служит главным образом для логических группировок.</p>
+</dd>
+</dl>
+<ul class="simple">
+<li><p>Группы и ролики можно использовать для разрешений сразу после использования.</p></li>
+<li><p>Каждому пользователю подключается ряд IP-адресов, который содержит разрешенные или запрещенные цели.
+Устройство блокирует сканирование любых других IP-адресов, кроме указанных.
+Аналогичным образом можно запретить доступ к интерфейсам устройства.</p></li>
+<li><p>Управление пользователями полностью осуществляется с помощью устройства.
+Внешние источники управления пользователями не упоминаются.
+Однако для поддержки централизованной аутентификации и синхронизации паролей устройство можно интегрировать в центральный сервер LDAPS или RADIUS (см. главу) <a class="reference internal" href="web-interface-access.html#user-ldap"><span class="std std-ref">8.5</span></a>).
+Сервер используется только для проверки пароля при входе в систему, все остальные настройки выполняются в управлении пользователями устройства.</p></li>
+</ul>
+<section id="creating-a-user">
+<span id="creating-new-user"></span><span id="index-2"></span><h3><span class="section-number">8.1.1 </span>Создание пользователя<a class="headerlink" href="web-interface-access.html#creating-a-user" title="Ссылка на эту рубрику">¶</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Только администраторы могут создавать дополнительные пользователи и управлять ими.</p>
+</div>
+<p>Пользователь может быть создан следующим образом:</p>
+<ol class="arabic">
+<li><p>Войдите в систему как администратор.</p></li>
+<li><p>Выбирать <em>Администрирование &gt; Пользователи</em> в меню.</p></li>
+<li><p>Нажмите <a class="reference internal" href="_images/new.png"><img alt="" src="_images/new.png" style="height: 1.2em;"/></a> в нижней части шкафа.</p></li>
+<li><p>Заполните поля ввода (см. <a class="reference internal" href="web-interface-access.html#fig-user-new"><span class="std std-numref">Рис. 8.1</span></a>):</p>
+<figure class="align-center" id="id4">
+<span id="fig-user-new"></span><a class="reference internal image-reference" href="_images/user_new.png"><img alt="_images/user_new.png" src="_images/user_new.png" style="width: 60%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 8.1 </span><span class="caption-text">Создание нового пользователя</span><a class="headerlink" href="web-interface-access.html#id4" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+<dl>
+<dt>Имя для входа</dt><dd><p>Имя, используемое для входа в систему.
+В имени пользователя разрешены только следующие символы:</p>
+<ul class="simple">
+<li><p>Все буквенно-цифровые символы</p></li>
+<li><p>- (бросаться)</p></li>
+<li><p>_ (подчеркивание)</p></li>
+<li><p>. (точка)</p></li>
+</ul>
+<p>Этот поле ввода является обязательным.</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>При использовании централизованного управления пользователями (см. главу <a class="reference internal" href="web-interface-access.html#user-ldap"><span class="std std-ref">8.5</span></a>), могут применяться ограничения по длине и типам символов в зависимости от сервера LDAP или RADIUS.
+Кроме того, пользователь должен быть создан с тем же именем (rDN), которое используется сервером.</p>
+</div>
+</dd>
+<dt>Аутентификация</dt><dd><p>Метод, найденный для входа в систему.</p>
+<ul>
+<li><dl>
+<dt>Пароль</dt><dd><p>Если выбран этот параметр, аутентификация выполняется локально с использованием имени входа и входа.</p>
+<ul class="simple">
+<li><p>Пароль может сохранять символы любого типа и практически не имеет ограничений по длине.</p></li>
+<li><p>При использовании специальных символов помните, что они должны быть доступны на всех внешних клавиатурах и правильно поддерживаться всеми клиентскими программами и операционными системами.
+Копирование и установка специальных символов для паролей может привести к тому, что пароли перестанут действовать в зависимости от этих внешних факторов.</p></li>
+</ul>
+<p>Если <em>Пароль</em> Переключатель выбран, поле ввода является обязательным.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Только аутентификация LDAP</dt><dd><p>Если выбрана эта опция, аутентификация осуществляется с использованием централизованного управления пользователями (см. главу). <a class="reference internal" href="web-interface-access.html#user-ldap"><span class="std std-ref">8.5</span></a>).</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Только аутентификация RADIUS</dt><dd><p>Если выбрана эта опция, аутентификация осуществляется с использованием централизованного управления пользователями (см. главу). <a class="reference internal" href="web-interface-access.html#user-ldap"><span class="std std-ref">8.5</span></a>).</p>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+<dt>Роли</dt><dd><p>Роль Определяет права пользователя.
+Каждый пользователь может иметь несколько ролей.</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Если роль не выбрана, пользователь не будет иметь никаких разрешений и, следовательно, не сможет войти в веб-интерфейс.</p>
+</div>
+<p>Роли <em>Админ</em>, <em>Пользователь</em>, <em>Информация</em>, <em>отель</em>, <em>Гость</em> и <em>Монитор</em> доступен.
+Дополнительно можно добавлять и настраивать собственные ролики (см. главу <a class="reference internal" href="web-interface-access.html#create-role"><span class="std std-ref">8.2.2</span></a>).</p>
+<p>Если пользователь с настраиваемой ролью должен иметь возможность использовать веб-интерфейс, для этого потребуется как минимум одно из следующих разрешений:</p>
+<ul class="simple">
+<li><p><em>аутентифицировать</em></p></li>
+<li><p><em>get_settings</em></p></li>
+<li><p><em>помощь</em></p></li>
+</ul>
+<p>Более подробная информация см. в Главе <a class="reference internal" href="web-interface-access.html#user-roles"><span class="std std-ref">8.2</span></a>.</p>
+</dd>
+<dt>Группы</dt><dd><p>Каждый пользователь может быть членом нескольких групп.
+Разрешениями можно управлять с помощью группы (см. главу <a class="reference internal" href="web-interface-access.html#permissions"><span class="std std-ref">8.4</span></a>).</p>
+</dd>
+<dt>Хост-доступ</dt><dd><p>Хосты, на которых пользователю разрешено проведение сканирования.
+Ограничения возражений и на администраторов, но они могут их снять самостоятельно.
+Пользователи с <em>Пользователь</em> роль или роль без доступа к управлению, пользователи не могут обходить ограничения.
+В итоге можно либо список запрещенных (разрешить все и запретить некоторые), либо список разрешенных (запретить все и разрешить некоторые).</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Разрешить все и запретить</dt><dd><p>В целом разрешена проверка всех систем.
+Сканировать нельзя только с очевидностью защищенной системы.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Запретить все и разрешить</dt><dd><p>Сканирование всех систем вообще запрещено.
+Сканировать можно только с очевидностью защищенной системы.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Кончик</p>
+<p>В целом следует использовать методологию разрешенных списков.
+Это гарантирует, что пользователи не будут сканировать системы, сотрудники из-за ответственности за свою зону ответственности, сотрудники, находящиеся где-то в Интернете, или случайно реагирующие на сбойные проверки.</p>
+</div>
+<p>Можно указать имена систем или адреса IPv4/IPv6 (отдельные IP-адреса, диапазоны IP-адресов или сегменты сети).
+В следующем списке приведены некоторые примеры:</p>
+<ul class="simple">
+<li><p>192.168.15.5 (адрес IPv4)</p></li>
+<li><p>192.168.15.5-192.168.15.27 (длинная форма адресов IPv4)</p></li>
+<li><p>192.168.15.5-27 (краткая форма электронных адресов IPv4)</p></li>
+<li><p>192.168.15.128/25 (диапазон адресов IPv4, нотация CIDR)</p></li>
+<li><p>2001:db8::1 (адрес IPv6)</p></li>
+<li><p>2001:db8::1-2001:db8::15 (полная форма протоколов IPv6)</p></li>
+<li><p>2001:db8::1-15 (краткая форма электронных адресов IPv6)</p></li>
+<li><p>2001:db8::/120 (диапазон адресов IPv6, нотация CIDR)</p></li>
+</ul>
+<p>Все параметры можно комбинировать и сопоставлять, а также приводить в виде списка разделенных запятых.
+По умолчанию маска подсети в нотации CIDR ограничена максимум 20 для IPv4 и 116 для IPv6.
+Причина этого в том, что максимальное количество IP-адресов на одну цель для большинства устройств составляет 4096.
+Если максимальное количество IP-адресов больше, например для АК-ШУМКАР 6500, можно настроить маски подсети большего размера.</p>
+</dd>
+</dl>
+</li>
+<li><p>Нажмите <em>Сохранять</em>.</p>
+<p>→ Пользователь создан и отображается на <em>Пользователи</em> страница.</p>
+</li>
+</ol>
+</section>
+<section id="managing-users">
+<h3><span class="section-number">8.1.2 </span>Управление пользователями<a class="headerlink" href="web-interface-access.html#managing-users" title="Ссылка на эту рубрику">¶</a></h3>
+<p><strong>Страница списка</strong></p>
+<p>Всех существующих пользователей можно отобразить, выбрав <em>Администрирование &gt; Пользователи</em> в меню при входе в систему как администратор.</p>
+<p>Для всех пользователей отображается следующая информация:</p>
+<dl>
+<dt>Имя</dt><dd><p>Имя, присвоенное пользователю при ведении учетной записи.</p>
+<p>Глобальные пользователи – это пользователи, созданные в меню администрирования ГСН (см. гл. <a class="reference internal" href="managing-gos.html#users-menu"><span class="std std-ref">6.2.1</span></a>).
+Они отмечены значком <a class="reference internal" href="_images/view_other.png"><img alt="" src="_images/view_other.png" style="height: 1.2em;"/></a>.</p>
+</dd>
+<dt>Роли</dt><dd><p>Роль пользователя (см. главу <a class="reference internal" href="web-interface-access.html#user-roles"><span class="std std-ref">8.2</span></a>).</p>
+</dd>
+<dt>Группы</dt><dd><p>Группы, к которым принадлежит пользователь (см. главу <a class="reference internal" href="web-interface-access.html#groups"><span class="std std-ref">8.3</span></a>).</p>
+</dd>
+<dt>Хост-доступ</dt><dd><p>Хосты, на которых пользователю разрешено проведение сканирования.</p>
+</dd>
+<dt>Тип удостоверения</dt><dd><p>Метод, найденный для входа в систему.</p>
+<ul class="simple">
+<li><p>Локальный: локальное подтверждение подлинности с использованием имени входа и президента.</p></li>
+<li><p>Аутентификация RADIUS осуществляется с помощью централизованного управления пользователей (см. главу <a class="reference internal" href="web-interface-access.html#user-ldap"><span class="std std-ref">8.5</span></a>).</p></li>
+<li><p>LDAP: аутентификация осуществляется с помощью централизованного управления пользователями (см. главу) <a class="reference internal" href="web-interface-access.html#user-ldap"><span class="std std-ref">8.5</span></a>).</p></li>
+</ul>
+</dd>
+</dl>
+<p>Для всех пользователей доступны следующие действия:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="_images/delete.png"><img alt="" src="_images/delete.png" style="height: 1.2em;"/></a> Удалить пользователя. Удалять можно только тех пользователей, которые на данный момент не зарегистрированы в системе и не являются суперадминистраторами.</p></li>
+<li><p><a class="reference internal" href="_images/edit.png"><img alt="" src="_images/edit.png" style="height: 1.2em;"/></a> Отредактируйте пользователя.</p></li>
+<li><p><a class="reference internal" href="_images/clone.png"><img alt="" src="_images/clone.png" style="height: 1.2em;"/></a> Клонировать пользователя.</p></li>
+<li><p><a class="reference internal" href="_images/export.png"><img alt="" src="_images/export.png" style="height: 1.2em;"/></a> Экспортируйте пользователя в видео XML-файла.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Нажав <a class="reference internal" href="_images/delete.png"><img alt="" src="_images/delete.png" style="height: 1.2em;"/></a> или <a class="reference internal" href="_images/export.png"><img alt="" src="_images/export.png" style="height: 1.2em;"/></a> под списком пользователей одновременно можно или экспортировать более одного пользователя. Раскрывающийся список используется для выбора пользователей, которые будут удалены или экспортированы.</p>
+</div>
+<p><strong>Страница раскрыта</strong></p>
+<p>Нажмите на имя пользователя, чтобы отобразить подробную информацию о пользователе. Нажмите <a class="reference internal" href="_images/details.png"><img alt="" src="_images/details.png" style="height: 1.2em;"/></a> чтобы открыть страницу сведений о пользователе (см. <a class="reference internal" href="web-interface-access.html#fig-user-details"><span class="std std-numref">Рис. 8.2</span></a>).</p>
+<p>Доступны следующие вкладки:</p>
+<dl class="simple">
+<dt>Информация</dt><dd><p>Общая информация о пользователе.</p>
+</dd>
+<dt>Пользовательские теги</dt><dd><p>Присвоенные теги (см. главу <a class="reference internal" href="web-interface.html#tags"><span class="std std-ref">7.4</span></a>).</p>
+</dd>
+<dt>Разрешения</dt><dd><p>Разрешения пользователя или других пользователей/ролей/групп на ресурсы пользователя (см. главу <a class="reference internal" href="web-interface-access.html#permissions"><span class="std std-ref">8.4</span></a>).</p>
+</dd>
+</dl>
+<p>В левом верхнем углу пульта доступны следующие действия:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="_images/help.png"><img alt="" src="_images/help.png" style="height: 1.2em;"/></a> Ознакомьтесь с соответствующим главой руководства пользователя.</p></li>
+<li><p><a class="reference internal" href="_images/list.png"><img alt="" src="_images/list.png" style="height: 1.2em;"/></a> Показать страницу списка всех пользователей.</p></li>
+<li><p><a class="reference internal" href="_images/new.png"><img alt="" src="_images/new.png" style="height: 1.2em;"/></a> Создайте нового пользователя (см. главу <a class="reference internal" href="web-interface-access.html#creating-new-user"><span class="std std-ref">8.1.1</span></a>).</p></li>
+<li><p><a class="reference internal" href="_images/clone.png"><img alt="" src="_images/clone.png" style="height: 1.2em;"/></a> Клонировать пользователя.</p></li>
+<li><p><a class="reference internal" href="_images/edit.png"><img alt="" src="_images/edit.png" style="height: 1.2em;"/></a> Отредактируйте пользователя.</p></li>
+<li><p><a class="reference internal" href="_images/delete.png"><img alt="" src="_images/delete.png" style="height: 1.2em;"/></a> Удалить пользователя. Удалять можно только тех пользователей, которые на данный момент не зарегистрированы в системе и не являются суперадминистраторами.</p></li>
+<li><p><a class="reference internal" href="_images/export.png"><img alt="" src="_images/export.png" style="height: 1.2em;"/></a> Экспортируйте пользователя в видео XML-файла.</p></li>
+</ul>
+<figure class="align-center" id="id5">
+<span id="fig-user-details"></span><a class="reference internal image-reference" href="_images/user_details.png"><img alt="_images/user_details.png" src="_images/user_details.png" style="width: 90%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 8.2 </span><span class="caption-text">Подробная информация о пользователе</span><a class="headerlink" href="web-interface-access.html#id5" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="simultaneous-login">
+<span id="index-3"></span><h3><span class="section-number">8.1.3 </span>Одновременный вход<a class="headerlink" href="web-interface-access.html#simultaneous-login" title="Ссылка на эту рубрику">¶</a></h3>
+<p>Одновременно в систему могут войти два пользователя.</p>
+<p>Если один и тот же пользователь хочет войти в систему более одного раза одновременно, вход необходимо выполнить с другого компьютера или с помощью другого браузера.
+Повторный вход в тот же браузер делает первый вход недействительным.</p>
+</section>
+<section id="creating-a-guest-login">
+<span id="guest-login"></span><span id="index-4"></span><h3><span class="section-number">8.1.4 </span>Создание гостевого входа<a class="headerlink" href="web-interface-access.html#creating-a-guest-login" title="Ссылка на эту рубрику">¶</a></h3>
+<p>Гость имеет лишь ограниченный доступ к веб-интерфейсу.</p>
+<p>Чтобы разрешить гостевой доступ, можно создать пользователя и назначить ему роль <em>Гость</em> (см. главу <a class="reference internal" href="web-interface-access.html#creating-new-user"><span class="std std-ref">8.1.1</span></a>).
+Зная пароль, гость теперь может войти в систему и увидеть страницу. <em>Панели мониторинга</em>.</p>
+<p>Чтобы гость мог войти в систему без пароля, эту функцию необходимо активировать в меню администрирования ГОС (см. гл. <a class="reference internal" href="managing-gos.html#enabling-guest-user"><span class="std std-ref">6.2.1.4</span></a>).</p>
+</section>
+</section>
+<section id="roles">
+<span id="user-roles"></span><span id="index-5"></span><h2><span class="section-number">8.2 </span>Роли<a class="headerlink" href="web-interface-access.html#roles" title="Ссылка на эту рубрику">¶</a></h2>
+<p>Веб-интерфейс поддерживает создание и настройку собственных ролей пользователей.</p>
+<p>По умолчанию доступны следующие роли:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Админ</dt><dd><p>Эта роль имеет все разрешения по умолчанию.
+Особенно разрешено создавать и управлять другими пользователями, ролями и группами.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Пользователь</dt><dd><p>Эта роль по умолчанию имеет все разрешения, за исключением управления пользователями, ролями и группами.
+Этой роли не разрешено синхронизировать каналы и управлять ими.
+В веб-интерфейсе нет доступа к странице <span class="target" id="gos-webui-0"></span><em>Администрация</em>.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Информация</dt><dd><p>Эта роль (информационный браузер) имеет доступ только для чтения к информации VT и SCAP.
+Вся остальная информация недоступна. Роль может изменять личные настройки, например, менять пароль.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Гость</dt><dd><p>Эта роль соответствует роли <span class="target" id="gos-role-0"></span><em>Информация</em> но не имеет права изменять настройки пользователя.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Монитор</dt><dd><p>Эта роль имеет доступ к системным отчетам устройства (см. главу <a class="reference internal" href="performance.html#monitoring-and-debugging"><span class="std std-ref">16.1</span></a>).</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>отель</dt><dd><p>Эта роль имеет доступ для чтения к системе, но не имеет права запускать или создавать новые сканирования.
+Он имеет доступ только для чтения к сканам, для которых он был установлен в качестве наблюдателя.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Суперадминистратор</dt><dd><p>Эта роль имеет доступ ко всем объектам всех пользователей.
+Никакого отношения к суперпользователю это не имеет(<span class="target" id="gos-webui-1"></span><em>su/корень</em>) в меню администрирования ГСН.
+Эту роль нельзя настроить в веб-интерфейсе, а пользователей с этой ролью нельзя удалить с помощью веб-интерфейса.
+Управление пользователями с этой ролью осуществляется с помощью меню администрирования ГОС (см. главу <a class="reference internal" href="web-interface-access.html#super-admin"><span class="std std-ref">8.2.5</span></a>).</p>
+</dd>
+</dl>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Только администраторам разрешено создавать дополнительные роли и управлять ими.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Изменение ролей по умолчанию невозможно, но их можно скопировать (клонировать) и впоследствии изменить.</p>
+<p>Это обеспечивает согласованное поведение при обновлении программного обеспечения.</p>
+</div>
+<section id="cloning-an-existing-role">
+<span id="creating-new-roles"></span><span id="index-6"></span><h3><span class="section-number">8.2.1 </span>Клонирование существующей роли<a class="headerlink" href="web-interface-access.html#cloning-an-existing-role" title="Ссылка на эту рубрику">¶</a></h3>
+<p>Если существующая роль точно соответствует требованиям, новую роль можно создать путем клонирования существующей роли:</p>
+<ol class="arabic">
+<li><p>Войдите в систему как администратор.</p></li>
+<li><p>Выбирать <span class="target" id="gos-webui-2"></span><em>Администрирование &gt; Роли</em> в меню.</p></li>
+<li><p>В строке существующей роли нажмите <a class="reference internal" href="_images/clone.png"><img alt="" src="_images/clone.png" style="height: 1.2em;"/></a>.</p></li>
+<li><p>В строке клона нажмите <a class="reference internal" href="_images/edit.png"><img alt="" src="_images/edit.png" style="height: 1.2em;"/></a>.</p></li>
+<li><p>Введите название роли в поле ввода <span class="target" id="gos-webui-3"></span><em>Имя</em> (видеть <a class="reference internal" href="web-interface-access.html#fig-role-edit"><span class="std std-numref">Рис. 8.3</span></a>).</p></li>
+<li><p>В раскрывающемся списке выберите пользователей, которым должна быть назначена роль. <span class="target" id="gos-webui-4"></span><em>Пользователи</em>.</p></li>
+<li><p>Добавьте разрешение, выбрав его в раскрывающемся списке. <span class="target" id="gos-webui-5"></span><em>Имя</em> и щелкнув <span class="target" id="gos-webui-6"></span><em>Создать разрешение</em>.</p></li>
+<li><p>Добавьте суперразрешение, выбрав соответствующую группу в раскрывающемся списке. <span class="target" id="gos-webui-7"></span><em>Группа</em> и щелкнув <span class="target" id="gos-webui-8"></span><em>Создать разрешение</em>.</p>
+<p>Удалите разрешение, нажав <a class="reference internal" href="_images/trashcan.png"><img alt="" src="_images/trashcan.png" style="height: 1.2em;"/></a> в списке <span class="target" id="gos-webui-9"></span><em>Разрешения общего командования</em>.</p>
+<figure class="align-center" id="id6">
+<span id="fig-role-edit"></span><a class="reference internal image-reference" href="_images/role_edit.png"><img alt="_images/role_edit.png" src="_images/role_edit.png" style="width: 60%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 8.3 </span><span class="caption-text">Редактирование клонированной роли</span><a class="headerlink" href="web-interface-access.html#id6" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Нажмите <span class="target" id="gos-webui-10"></span><em>Сохранять</em>.</p></li>
+</ol>
+</section>
+<section id="creating-a-role">
+<span id="create-role"></span><span id="index-7"></span><h3><span class="section-number">8.2.2 </span>Создание роли<a class="headerlink" href="web-interface-access.html#creating-a-role" title="Ссылка на эту рубрику">¶</a></h3>
+<p>Если необходимо создать роль с ограниченной функциональностью, ее можно запустить с новой пустой ролью:</p>
+<ol class="arabic">
+<li><p>Войдите в систему как администратор.</p></li>
+<li><p>Выбирать <span class="target" id="gos-webui-11"></span><em>Администрирование &gt; Роли</em> в меню.</p></li>
+<li><p>Создайте новую роль, нажав <a class="reference internal" href="_images/new.png"><img alt="" src="_images/new.png" style="height: 1.2em;"/></a>.</p></li>
+<li><p>Определите роль.</p>
+<p>Можно определить следующие детали роли:</p>
+<dl class="simple">
+<dt>Имя</dt><dd><p>Имя роли может содержать буквы и цифры и иметь длину не более 80 символов.</p>
+</dd>
+<dt>Комментарий (необязательно)</dt><dd><p>Комментарий описывает роль более подробно.</p>
+</dd>
+<dt>Пользователи</dt><dd><p>Пользователей с этой ролью можно выбрать в раскрывающемся списке. <span class="target" id="gos-webui-12"></span><em>Пользователи</em>.
+Альтернативно, ролями можно управлять в профиле пользователя (см. главу <a class="reference internal" href="web-interface-access.html#creating-new-user"><span class="std std-ref">8.1.1</span></a>).</p>
+</dd>
+</dl>
+</li>
+<li><p>Нажмите <span class="target" id="gos-webui-13"></span><em>Сохранять</em>.</p>
+<p>→ Роль создана и отображается на странице <span class="target" id="gos-webui-14"></span><em>Роли</em>.</p>
+</li>
+<li><p>В строке вновь созданной роли нажмите <a class="reference internal" href="_images/edit.png"><img alt="" src="_images/edit.png" style="height: 1.2em;"/></a>.</p></li>
+<li><p>Добавьте разрешение, выбрав его в раскрывающемся списке. <span class="target" id="gos-webui-15"></span><em>Имя</em> и щелкнув <span class="target" id="gos-webui-16"></span><em>Создать разрешение</em>.</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Если пользователи с этой ролью должны иметь возможность использовать веб-интерфейс, необходимы как минимум следующие разрешения:</p>
+<ul class="simple">
+<li><p><em>аутентифицировать</em></p></li>
+<li><p><em>get_settings</em></p></li>
+<li><p><em>помощь</em></p></li>
+</ul>
+<p>Разрешение <em>write_settings</em> позволяет пользователям менять свой пароль, часовой пояс и другие личные настройки.</p>
+</div>
+</li>
+<li><p>Добавьте суперразрешение, выбрав соответствующую группу в раскрывающемся списке. <span class="target" id="gos-webui-17"></span><em>Группа</em> и щелкнув <span class="target" id="gos-webui-18"></span><em>Создать разрешение</em>.</p>
+<p>Удалите разрешение, нажав <a class="reference internal" href="_images/trashcan.png"><img alt="" src="_images/trashcan.png" style="height: 1.2em;"/></a> в списке <span class="target" id="gos-webui-19"></span><em>Разрешения общего командования</em>.</p>
+</li>
+<li><p>Нажмите <span class="target" id="gos-webui-20"></span><em>Сохранять</em>.</p></li>
+</ol>
+</section>
+<section id="managing-roles">
+<h3><span class="section-number">8.2.3 </span>Управление ролями<a class="headerlink" href="web-interface-access.html#managing-roles" title="Ссылка на эту рубрику">¶</a></h3>
+<p><strong>Страница списка</strong></p>
+<p>Все существующие роли можно отобразить, выбрав <span class="target" id="gos-webui-21"></span><em>Администрирование &gt; Роли</em> в меню.</p>
+<p>Для всех ролей отображается следующая информация:</p>
+<dl class="simple">
+<dt>Имя</dt><dd><p>Название роли.
+Все роли по умолчанию являются глобальными ролями и отмечены значком <a class="reference internal" href="_images/view_other.png"><img alt="" src="_images/view_other.png" style="height: 1.2em;"/></a>.</p>
+</dd>
+</dl>
+<p>Для всех ролей доступны следующие действия:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="_images/trashcan.png"><img alt="" src="_images/trashcan.png" style="height: 1.2em;"/></a> Переместите роль в корзину. В корзину можно переместить только созданные вами роли.</p></li>
+<li><p><a class="reference internal" href="_images/edit.png"><img alt="" src="_images/edit.png" style="height: 1.2em;"/></a> Отредактируйте роль. Редактировать можно только самостоятельно созданные роли.</p></li>
+<li><p><a class="reference internal" href="_images/clone.png"><img alt="" src="_images/clone.png" style="height: 1.2em;"/></a> Клонируйте роль.</p></li>
+<li><p><a class="reference internal" href="_images/export.png"><img alt="" src="_images/export.png" style="height: 1.2em;"/></a> Экспортируйте роль в виде XML-файла.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Нажав <a class="reference internal" href="_images/trashcan.png"><img alt="" src="_images/trashcan.png" style="height: 1.2em;"/></a> или <a class="reference internal" href="_images/export.png"><img alt="" src="_images/export.png" style="height: 1.2em;"/></a> под списком ролей можно одновременно переместить в корзину или экспортировать более одной роли. Раскрывающийся список используется для выбора ролей, которые нужно переместить в корзину или экспортировать.</p>
+</div>
+<p><strong>Страница раскрыта</strong></p>
+<p>Нажмите на название роли, чтобы отобразить подробную информацию о роли. Нажмите <a class="reference internal" href="_images/details.png"><img alt="" src="_images/details.png" style="height: 1.2em;"/></a> чтобы открыть страницу сведений о роли.</p>
+<p>Доступны следующие вкладки:</p>
+<dl class="simple">
+<dt>Информация</dt><dd><p>Общие сведения о роли.</p>
+</dd>
+<dt>Разрешения общего командования</dt><dd><p>Команды GMP, которые может выполнять эта роль.</p>
+</dd>
+<dt>Пользовательские теги</dt><dd><p>Присвоенные теги (см. главу <a class="reference internal" href="web-interface.html#tags"><span class="std std-ref">7.4</span></a>).</p>
+</dd>
+<dt>Разрешения</dt><dd><p>Разрешения роли или других пользователей/ролей/групп на ресурсы роли (см. гл. <a class="reference internal" href="web-interface-access.html#permissions"><span class="std std-ref">8.4</span></a>).</p>
+</dd>
+</dl>
+<p>В левом верхнем углу пульта доступны следующие действия:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="_images/help.png"><img alt="" src="_images/help.png" style="height: 1.2em;"/></a> Ознакомьтесь с соответствующим главой руководства пользователя.</p></li>
+<li><p><a class="reference internal" href="_images/list.png"><img alt="" src="_images/list.png" style="height: 1.2em;"/></a> Показать страницу со списком всех ролей.</p></li>
+<li><p><a class="reference internal" href="_images/new.png"><img alt="" src="_images/new.png" style="height: 1.2em;"/></a> Создайте новую роль (см. главу <a class="reference internal" href="web-interface-access.html#create-role"><span class="std std-ref">8.2.2</span></a>).</p></li>
+<li><p><a class="reference internal" href="_images/clone.png"><img alt="" src="_images/clone.png" style="height: 1.2em;"/></a> Клонируйте роль.</p></li>
+<li><p><a class="reference internal" href="_images/edit.png"><img alt="" src="_images/edit.png" style="height: 1.2em;"/></a> Отредактируйте роль. Редактировать можно только самостоятельно созданные роли.</p></li>
+<li><p><a class="reference internal" href="_images/trashcan.png"><img alt="" src="_images/trashcan.png" style="height: 1.2em;"/></a> Переместите роль в корзину. В корзину можно переместить только созданные вами роли.</p></li>
+<li><p><a class="reference internal" href="_images/export.png"><img alt="" src="_images/export.png" style="height: 1.2em;"/></a> Экспортируйте роль в виде XML-файла.</p></li>
+</ul>
+</section>
+<section id="assigning-roles-to-a-user">
+<span id="index-8"></span><h3><span class="section-number">8.2.4 </span>Назначение ролей пользователю<a class="headerlink" href="web-interface-access.html#assigning-roles-to-a-user" title="Ссылка на эту рубрику">¶</a></h3>
+<p>Пользователь может иметь несколько ролей для группировки разрешений.</p>
+<p>Роли назначаются при создании нового пользователя (см. <a class="reference internal" href="web-interface-access.html#fig-user-multiple-roles"><span class="std std-numref">Рис. 8.4</span></a>, см. главу <a class="reference internal" href="web-interface-access.html#creating-new-user"><span class="std std-ref">8.1.1</span></a>).
+Если пользователю назначено более одной роли, разрешения ролей будут добавлены.</p>
+<figure class="align-center" id="id7">
+<span id="fig-user-multiple-roles"></span><a class="reference internal image-reference" href="_images/user_multiple_roles.png"><img alt="_images/user_multiple_roles.png" src="_images/user_multiple_roles.png" style="width: 60%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 8.4 </span><span class="caption-text">Создание нового пользователя с несколькими ролями</span><a class="headerlink" href="web-interface-access.html#id7" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="creating-a-super-administrator">
+<span id="super-admin"></span><span id="index-9"></span><h3><span class="section-number">8.2.5 </span>Создание суперадминистратора<a class="headerlink" href="web-interface-access.html#creating-a-super-administrator" title="Ссылка на эту рубрику">¶</a></h3>
+<p>Роль <span class="target" id="gos-webui-22"></span><em>Суперадминистратор</em> это высший уровень доступа.</p>
+<p>Роль <span class="target" id="gos-webui-23"></span><em>Админ</em> разрешено создавать, изменять и удалять пользователей.
+Кроме того, он может просматривать, изменять и удалять разрешения, но также подчиняется этим разрешениям.
+Если какой-либо пользователь создаст конфигурацию частного сканирования, но не предоставит к ней общий доступ, администратор не сможет получить к ней доступ.</p>
+<p>Роль <span class="target" id="gos-webui-24"></span><em>Суперадминистратор</em> больше подходит для диагностических целей.
+Суперадминистратор исключен из ограничений разрешений и имеет право просматривать и редактировать любые параметры конфигурации любого пользователя.</p>
+<p>Суперадминистратора необходимо создать в меню администрирования ГСН (см. гл. <a class="reference internal" href="managing-gos.html#create-super-admin"><span class="std std-ref">6.2.1.5</span></a>)</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Редактировать суперадминистратора может только суперадминистратор.</p>
+</div>
+</section>
+</section>
+<section id="groups">
+<span id="index-10"></span><span id="id1"></span><h2><span class="section-number">8.3 </span>Группы<a class="headerlink" href="web-interface-access.html#groups" title="Ссылка на эту рубрику">¶</a></h2>
+<p>Группы используются для логического объединения пользователей.
+Можно создать неограниченное количество групп.</p>
+<p>Разрешения могут быть назначены для групп (см. главу <a class="reference internal" href="web-interface-access.html#permissions"><span class="std std-ref">8.4</span></a>).
+По умолчанию группы не настроены.</p>
+<section id="creating-a-group">
+<span id="create-group"></span><span id="index-11"></span><h3><span class="section-number">8.3.1 </span>Создание группы<a class="headerlink" href="web-interface-access.html#creating-a-group" title="Ссылка на эту рубрику">¶</a></h3>
+<p>Группу можно создать следующим образом:</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Только администраторы могут создавать группы и управлять ими.</p>
+</div>
+<ol class="arabic">
+<li><p>Войдите в систему как администратор.</p></li>
+<li><p>Выбирать <span class="target" id="gos-webui-25"></span><em>Администрирование &gt; Группы</em> в меню.</p></li>
+<li><p>Создайте новую группу, нажав <a class="reference internal" href="_images/new.png"><img alt="" src="_images/new.png" style="height: 1.2em;"/></a>.</p></li>
+<li><p>Определите группу (см. <a class="reference internal" href="web-interface-access.html#fig-group-new"><span class="std std-numref">Рис. 8.5</span></a>).</p>
+<figure class="align-center" id="id8">
+<span id="fig-group-new"></span><a class="reference internal image-reference" href="_images/group_new.png"><img alt="_images/group_new.png" src="_images/group_new.png" style="width: 60%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 8.5 </span><span class="caption-text">Создание новой группы</span><a class="headerlink" href="web-interface-access.html#id8" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Нажмите <span class="target" id="gos-webui-26"></span><em>Сохранять</em>.</p>
+<p>→ Группа создана и отображается на странице <span class="target" id="gos-webui-27"></span><em>Группы</em>.</p>
+</li>
+</ol>
+<p>Можно определить следующие детали группы:</p>
+<dl class="simple">
+<dt>Имя</dt><dd><p>Имя группы может содержать буквы и цифры и иметь длину не более 80 символов.</p>
+</dd>
+<dt>Комментарий (необязательно)</dt><dd><p>Комментарий описывает группу более подробно.</p>
+</dd>
+<dt>Пользователи</dt><dd><p>Членов группы можно выбрать из выпадающего списка. <span class="target" id="gos-webui-28"></span><em>Пользователи</em>.
+Альтернативно, членством в группах можно управлять в профиле пользователя (см. главу <a class="reference internal" href="web-interface-access.html#creating-new-user"><span class="std std-ref">8.1.1</span></a>).</p>
+</dd>
+<dt>Специальные группы</dt><dd><p>Установите флажок, если все участники группы должны иметь доступ на чтение и запись ко всем ресурсам группы.</p>
+</dd>
+</dl>
+</section>
+<section id="managing-groups">
+<h3><span class="section-number">8.3.2 </span>Управление группами<a class="headerlink" href="web-interface-access.html#managing-groups" title="Ссылка на эту рубрику">¶</a></h3>
+<p><strong>Страница списка</strong></p>
+<p>Все существующие группы можно отобразить, выбрав <span class="target" id="gos-webui-29"></span><em>Администрирование &gt; Группы</em> в меню.</p>
+<p>Для всех групп отображается следующая информация:</p>
+<dl class="simple">
+<dt>Имя</dt><dd><p>Название группы.</p>
+</dd>
+</dl>
+<p>Для всех групп доступны следующие действия:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="_images/trashcan.png"><img alt="" src="_images/trashcan.png" style="height: 1.2em;"/></a> Переместите группу в мусорную корзину.</p></li>
+<li><p><a class="reference internal" href="_images/edit.png"><img alt="" src="_images/edit.png" style="height: 1.2em;"/></a> Отредактируйте группу.</p></li>
+<li><p><a class="reference internal" href="_images/clone.png"><img alt="" src="_images/clone.png" style="height: 1.2em;"/></a> Клонируйте группу.</p></li>
+<li><p><a class="reference internal" href="_images/export.png"><img alt="" src="_images/export.png" style="height: 1.2em;"/></a> Экспортируйте группу в виде XML-файла.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Нажав <a class="reference internal" href="_images/trashcan.png"><img alt="" src="_images/trashcan.png" style="height: 1.2em;"/></a> или <a class="reference internal" href="_images/export.png"><img alt="" src="_images/export.png" style="height: 1.2em;"/></a> под списком групп можно переместить в корзину или экспортировать более одной группы одновременно. Раскрывающийся список используется для выбора групп, которые будут перемещены в корзину или экспортированы.</p>
+</div>
+<p><strong>Страница раскрыта</strong></p>
+<p>Нажмите на название группы, чтобы отобразить подробную информацию о группе. Нажмите <a class="reference internal" href="_images/details.png"><img alt="" src="_images/details.png" style="height: 1.2em;"/></a> чтобы открыть страницу сведений о группе.</p>
+<p>Доступны следующие вкладки:</p>
+<dl class="simple">
+<dt>Информация</dt><dd><p>Общая информация о группе.</p>
+</dd>
+<dt>Пользовательские теги</dt><dd><p>Присвоенные теги (см. главу <a class="reference internal" href="web-interface.html#tags"><span class="std std-ref">7.4</span></a>).</p>
+</dd>
+<dt>Разрешения</dt><dd><p>Разрешения группы или других пользователей/ролей/групп на ресурсы группы (см. Главу <a class="reference internal" href="web-interface-access.html#permissions"><span class="std std-ref">8.4</span></a>).</p>
+</dd>
+</dl>
+<p>В левом верхнем углу пульта доступны следующие действия:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="_images/help.png"><img alt="" src="_images/help.png" style="height: 1.2em;"/></a> Ознакомьтесь с соответствующим главой руководства пользователя.</p></li>
+<li><p><a class="reference internal" href="_images/list.png"><img alt="" src="_images/list.png" style="height: 1.2em;"/></a> Показать страницу списка всех групп.</p></li>
+<li><p><a class="reference internal" href="_images/new.png"><img alt="" src="_images/new.png" style="height: 1.2em;"/></a> Создайте новую группу (см. главу <a class="reference internal" href="web-interface-access.html#create-group"><span class="std std-ref">8.3.1</span></a>).</p></li>
+<li><p><a class="reference internal" href="_images/clone.png"><img alt="" src="_images/clone.png" style="height: 1.2em;"/></a> Клонируйте группу.</p></li>
+<li><p><a class="reference internal" href="_images/edit.png"><img alt="" src="_images/edit.png" style="height: 1.2em;"/></a> Отредактируйте группу.</p></li>
+<li><p><a class="reference internal" href="_images/trashcan.png"><img alt="" src="_images/trashcan.png" style="height: 1.2em;"/></a> Переместите группу в мусорную корзину.</p></li>
+<li><p><a class="reference internal" href="_images/export.png"><img alt="" src="_images/export.png" style="height: 1.2em;"/></a> Экспортируйте группу в виде XML-файла.</p></li>
+</ul>
+</section>
+</section>
+<section id="permissions">
+<span id="index-12"></span><span id="id2"></span><h2><span class="section-number">8.4 </span>Разрешения<a class="headerlink" href="web-interface-access.html#permissions" title="Ссылка на эту рубрику">¶</a></h2>
+<p>Выбирать <span class="target" id="gos-webui-30"></span><em>Администрирование &gt; Разрешения</em> для отображения всех разрешений, назначенных в системе.
+Если создано несколько ролей, разрешений легко может быть сотни.</p>
+<p>Каждое разрешение относится ровно к одному субъекту. Разрешение позволяет субъекту выполнять связанное действие.</p>
+<p>Субъекты могут быть следующих типов:</p>
+<ul class="simple">
+<li><p>Пользователи</p></li>
+<li><p>Роли</p></li>
+<li><p>Группы</p></li>
+</ul>
+<p>Существует два типа разрешений:</p>
+<ul>
+<li><dl>
+<dt>Разрешения на команды</dt><dd><p>Разрешения на командование привязаны к протоколу управления «Ак Шумкар» (GMP).
+Каждое разрешение на команду применяется к определенной команде GMP.
+Имя разрешения — это соответствующая команда.</p>
+<p>Разрешение на команду — это либо разрешение на уровне команды, либо разрешение на уровне ресурса.</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Командный уровень</dt><dd><p>Если ресурс не указан, создается разрешение уровня команды.
+Разрешение на командном уровне позволяет субъекту запускать данную команду GMP.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Уровень ресурса</dt><dd><p>При указании ресурса создается разрешение уровня ресурса.
+Разрешение на уровне ресурса позволяет субъекту запускать данную команду GMP на определенном ресурсе.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Суперразрешения</dt><dd><p>(см. главу <a class="reference internal" href="web-interface-access.html#super"><span class="std std-ref">8.4.2</span></a>)</p>
+</dd>
+</dl>
+</li>
+</ul>
+<section id="creating-and-managing-permissions">
+<span id="index-13"></span><h3><span class="section-number">8.4.1 </span>Создание разрешений и управление ими<a class="headerlink" href="web-interface-access.html#creating-and-managing-permissions" title="Ссылка на эту рубрику">¶</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Обычно права назначаются в веб-интерфейсе с помощью управления ролями (см. главу <a class="reference internal" href="web-interface-access.html#user-roles"><span class="std std-ref">8.2</span></a>).</p>
+<p>Создание разрешений и управление ими с помощью страницы <span class="target" id="gos-webui-31"></span><em>Разрешения</em> рекомендуется только опытным пользователям, которым требуется определенное разрешение.</p>
+</div>
+<section id="creating-a-permission">
+<span id="create-permission"></span><h4><span class="section-number">8.4.1.1 </span>Создание разрешения<a class="headerlink" href="web-interface-access.html#creating-a-permission" title="Ссылка на эту рубрику">¶</a></h4>
+<p>Новое разрешение можно создать следующим образом:</p>
+<ol class="arabic">
+<li><p>Выбирать <span class="target" id="gos-webui-32"></span><em>Администрирование &gt; Разрешения</em> в меню.</p></li>
+<li><p>Создайте новое разрешение, нажав <a class="reference internal" href="_images/new.png"><img alt="" src="_images/new.png" style="height: 1.2em;"/></a>.</p></li>
+<li><p>Определите разрешение (см. <a class="reference internal" href="web-interface-access.html#fig-permission-new"><span class="std std-numref">Рис. 8.6</span></a>).</p>
+<figure class="align-center" id="id9">
+<span id="fig-permission-new"></span><a class="reference internal image-reference" href="_images/permission_new.png"><img alt="_images/permission_new.png" src="_images/permission_new.png" style="width: 60%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 8.6 </span><span class="caption-text">Создание нового разрешения</span><a class="headerlink" href="web-interface-access.html#id9" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Нажмите <span class="target" id="gos-webui-33"></span><em>Сохранять</em>.</p>
+<p>→ Разрешение создано и отображено на странице <span class="target" id="gos-webui-34"></span><em>Разрешения</em>.</p>
+</li>
+</ol>
+<p>Могут быть определены следующие детали разрешения:</p>
+<dl class="simple">
+<dt>Имя</dt><dd><p>Разрешение, которое должно быть предоставлено.</p>
+</dd>
+<dt>Комментарий (необязательно)</dt><dd><p>Комментарий описывает разрешение более подробно.</p>
+</dd>
+<dt>Предмет</dt><dd><p>Субъект (пользователь, роль или группа), которому должно быть предоставлено разрешение.</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Субъекты, для которых могут быть назначены разрешения, зависят от роли вошедшего в систему пользователя.
+Пользователи могут предоставлять разрешения другим пользователям, тогда как администраторы могут предоставлять разрешения пользователям, ролям и группам.</p>
+</div>
+<dl class="simple">
+<dt>Тип ресурса (только для разрешения <span class="target" id="gos-webui-35"></span><em>Супер (Имеет супер доступ)</em>)</dt><dd><p>Тип ресурса (пользователь, роль или группа), к которому пользователь/роль/группа имеет супердоступ.</p>
+</dd>
+<dt>Идентификатор пользователя/роли/группы (только для разрешения <span class="target" id="gos-webui-36"></span><em>Супер (Имеет супер доступ)</em>)</dt><dd><p>Идентификатор пользователя/роли/группы, к которому пользователь/роль/группа имеет супердоступ.</p>
+</dd>
+<dt>Описание</dt><dd><p>Текстовое описание разрешения.</p>
+</dd>
+</dl>
+</section>
+<section id="creating-permissions-from-the-resource-details-page">
+<span id="create-permission-details-page"></span><h4><span class="section-number">8.4.1.2 </span>Создание разрешений на странице сведений о ресурсе<a class="headerlink" href="web-interface-access.html#creating-permissions-from-the-resource-details-page" title="Ссылка на эту рубрику">¶</a></h4>
+<p>При доступе к странице сведений о ресурсе, например к странице сведений о задаче, разрешения для ресурса можно предоставить непосредственно на странице сведений следующим образом:</p>
+<ol class="arabic">
+<li><p>Откройте страницу сведений о ресурсе.</p>
+<p>Пример: Выбрать <span class="target" id="gos-webui-37"></span><em>Сканирование &gt; Задачи</em> в меню.</p>
+</li>
+<li><p>Нажмите на название задачи.</p></li>
+<li><p>Нажмите <a class="reference internal" href="_images/details.png"><img alt="" src="_images/details.png" style="height: 1.2em;"/></a> чтобы открыть страницу, раскрыть проблему.</p></li>
+<li><p>Нажмите на описание <span class="target" id="gos-webui-38"></span><em>Разрешения</em>.</p></li>
+<li><p>Нажмите <a class="reference internal" href="_images/new.png"><img alt="" src="_images/new.png" style="height: 1.2em;"/></a> в открытом разделе <span class="target" id="gos-webui-39"></span><em>Разрешения</em>.</p></li>
+<li><p>Определите разрешение (см. <a class="reference internal" href="web-interface-access.html#fig-permission-from-detailspage"><span class="std std-numref">Рис. 8.7</span></a>).</p>
+<figure class="align-center" id="id10">
+<span id="fig-permission-from-detailspage"></span><a class="reference internal image-reference" href="_images/permission_from_detailspage.png"><img alt="_images/permission_from_detailspage.png" src="_images/permission_from_detailspage.png" style="width: 60%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 8.7 </span><span class="caption-text">Создание разрешения на странице сведений о ресурсе</span><a class="headerlink" href="web-interface-access.html#id10" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Нажмите <span class="target" id="gos-webui-40"></span><em>Сохранять</em>.</p>
+<p>→ Разрешение создано и отображается в разделе <span class="target" id="gos-webui-41"></span><em>Разрешения</em> на странице сведений о ресурсе.</p>
+</li>
+</ol>
+<p>Существует два типа разрешений, которые можно предоставить непосредственно на странице сведений о ресурсе:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><span class="target" id="gos-webui-42"></span><em>читать</em></dt><dd><p>Предоставление разрешения <span class="target" id="gos-webui-43"></span><em>читать</em> означает разрешение просмотра ресурса на страницах списка и на странице его сведений.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><span class="target" id="gos-webui-44"></span><em>писать</em></dt><dd><p>Предоставление разрешения <span class="target" id="gos-webui-45"></span><em>писать</em> означает разрешение просматривать и изменять (но не удалять) ресурс.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p>Некоторые типы ресурсов включают дополнительные разрешения:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Задачи</dt><dd><p>При предоставлении разрешения <span class="target" id="gos-webui-46"></span><em>писать</em> для задачи разрешения на запуск (<span class="target" id="gos-webui-47"></span><em>start_task</em>), останавливаться (<span class="target" id="gos-webui-48"></span><em>стоп_задача</em>) и возобновить (<span class="target" id="gos-webui-49"></span><em>резюме_задача</em>) задача добавляется автоматически.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Оповещения</dt><dd><p>При предоставлении разрешения <span class="target" id="gos-webui-50"></span><em>писать</em> для оповещения разрешение на проверку оповещения (<span class="target" id="gos-webui-51"></span><em>test_alert</em>) добавляется автоматически.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Форматы отчетов и сканеры</dt><dd><p>При предоставлении разрешения <span class="target" id="gos-webui-52"></span><em>писать</em> для формата отчета или сканера — разрешения на проверку формата отчета (<span class="target" id="gos-webui-53"></span><em>verify_report_format</em>) или сканер (<span class="target" id="gos-webui-54"></span><em>проверить_сканер</em>) добавляется автоматически.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p>Для некоторых типов ресурсов можно выбрать, следует ли также предоставлять разрешения для связанных ресурсов (см. <a class="reference internal" href="web-interface-access.html#fig-permission-from-detailspage"><span class="std std-numref">Рис. 8.7</span></a>).</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Задачи</dt><dd><p>Для задач сюда входят оповещения и их фильтры, цель, а также связанные с ней учетные данные и список портов, расписание, сканер и конфигурация сканирования.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Цели</dt><dd><p>Для целей это включают учетные данные и список портов.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Оповещения</dt><dd><p>Для оповещений сюда входит фильтр, используемый в отчете.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Разрешения также можно создавать только для связанных ресурсов.</p>
+<p>Подробная информация о связанных ресурсах отображается под раскрывающимся списком.</p>
+</div>
+</section>
+<section id="managing-permissions">
+<h4><span class="section-number">8.4.1.3 </span>Управление разрешениями<a class="headerlink" href="web-interface-access.html#managing-permissions" title="Ссылка на эту рубрику">¶</a></h4>
+<p><strong>Страница списка</strong></p>
+<p>Все существующие разрешения можно отобразить, выбрав <span class="target" id="gos-webui-55"></span><em>Администрирование &gt; Разрешения</em> в меню.</p>
+<p>Для всех разрешений отображается следующая информация:</p>
+<dl class="simple">
+<dt>Имя</dt><dd><p>Название разрешения.
+Глобальное разрешение отмечено значком <a class="reference internal" href="_images/view_other.png"><img alt="" src="_images/view_other.png" style="height: 1.2em;"/></a>.</p>
+</dd>
+<dt>Описание</dt><dd><p>Текстовое описание разрешения.</p>
+</dd>
+<dt>Тип ресурса</dt><dd><p>Тип ресурса, к которому имеет доступ пользователь/роль/группа.</p>
+</dd>
+<dt>Ресурс</dt><dd><p>Имя ресурса, к которому имеет доступ пользователь/роль/группа.</p>
+</dd>
+<dt>Тип темы</dt><dd><p>Тип субъекта (пользователь/роль/группа), которому предоставлено разрешение.</p>
+</dd>
+<dt>Предмет</dt><dd><p>Субъект, которому предоставлено разрешение.</p>
+</dd>
+</dl>
+<p>Для всех разрешений доступны следующие действия:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="_images/trashcan.png"><img alt="" src="_images/trashcan.png" style="height: 1.2em;"/></a> Переместите разрешение в корзину. В корзину можно переместить только созданные вами разрешения.</p></li>
+<li><p><a class="reference internal" href="_images/edit.png"><img alt="" src="_images/edit.png" style="height: 1.2em;"/></a> Отредактируйте разрешение. Редактировать можно только разрешения, созданные самостоятельно.</p></li>
+<li><p><a class="reference internal" href="_images/clone.png"><img alt="" src="_images/clone.png" style="height: 1.2em;"/></a> Клонируйте разрешение. Клонировать можно только разрешения, созданные самостоятельно.</p></li>
+<li><p><a class="reference internal" href="_images/export.png"><img alt="" src="_images/export.png" style="height: 1.2em;"/></a> Экспортируйте разрешение в виде XML-файла.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Нажав <a class="reference internal" href="_images/trashcan.png"><img alt="" src="_images/trashcan.png" style="height: 1.2em;"/></a> или <a class="reference internal" href="_images/export.png"><img alt="" src="_images/export.png" style="height: 1.2em;"/></a> под списком разрешений можно одновременно переместить в корзину или экспортировать более одного разрешения. Раскрывающийся список используется для выбора, какие разрешения перемещаются в корзину или экспортируются.</p>
+</div>
+<p><strong>Страница раскрыта</strong></p>
+<p>Нажмите на название разрешения, чтобы отобразить подробную информацию о разрешении. Нажмите <a class="reference internal" href="_images/details.png"><img alt="" src="_images/details.png" style="height: 1.2em;"/></a> чтобы открыть страницу сведений о разрешении.</p>
+<p>Доступны следующие вкладки:</p>
+<dl class="simple">
+<dt>Информация</dt><dd><p>Общая информация о разрешении.</p>
+</dd>
+<dt>Пользовательские теги</dt><dd><p>Присвоенные теги (см. главу <a class="reference internal" href="web-interface.html#tags"><span class="std std-ref">7.4</span></a>).</p>
+</dd>
+</dl>
+<p>В левом верхнем углу пульта доступны следующие действия:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="_images/help.png"><img alt="" src="_images/help.png" style="height: 1.2em;"/></a> Ознакомьтесь с соответствующим главой руководства пользователя.</p></li>
+<li><p><a class="reference internal" href="_images/list.png"><img alt="" src="_images/list.png" style="height: 1.2em;"/></a> Показать страницу списка всех разрешений.</p></li>
+<li><p><a class="reference internal" href="_images/new.png"><img alt="" src="_images/new.png" style="height: 1.2em;"/></a> Создайте новое разрешение (см. главу <a class="reference internal" href="web-interface-access.html#create-permission"><span class="std std-ref">8.4.1.1</span></a>).</p></li>
+<li><p><a class="reference internal" href="_images/clone.png"><img alt="" src="_images/clone.png" style="height: 1.2em;"/></a> Клонируйте разрешение. Клонировать можно только разрешения, созданные самостоятельно.</p></li>
+<li><p><a class="reference internal" href="_images/edit.png"><img alt="" src="_images/edit.png" style="height: 1.2em;"/></a> Отредактируйте разрешение. Редактировать можно только разрешения, созданные самостоятельно.</p></li>
+<li><p><a class="reference internal" href="_images/trashcan.png"><img alt="" src="_images/trashcan.png" style="height: 1.2em;"/></a> Переместите разрешение в корзину. В корзину можно переместить только созданные вами разрешения.</p></li>
+<li><p><a class="reference internal" href="_images/export.png"><img alt="" src="_images/export.png" style="height: 1.2em;"/></a> Экспортируйте разрешение в виде XML-файла.</p></li>
+</ul>
+</section>
+</section>
+<section id="granting-super-permissions">
+<span id="super"></span><span id="index-14"></span><h3><span class="section-number">8.4.2 </span>Предоставление суперразрешений<a class="headerlink" href="web-interface-access.html#granting-super-permissions" title="Ссылка на эту рубрику">¶</a></h3>
+<p>Любой ресурс на устройстве (например, пользователь, задача, цель) либо глобальный, либо принадлежит конкретному пользователю.
+Глобальные ресурсы идентифицируются <a class="reference internal" href="_images/view_other.png"><img alt="" src="_images/view_other.png" style="height: 1.2em;"/></a>.</p>
+<p>Неглобальные ресурсы может просматривать и использовать только их владелец.
+Индивидуальные разрешения необходимы, чтобы сделать ресурсы доступными для других пользователей, что довольно утомительно.</p>
+<p>Чтобы избежать этого, пользователям, ролям и группам можно назначать суперразрешения.
+Это делает доступными все объекты других пользователей, ролей или групп.</p>
+<p>Пользователь может получить суперразрешения для:</p>
+<ul class="simple">
+<li><p>Пользователь</p></li>
+<li><p>Роль</p></li>
+<li><p>Группа</p></li>
+<li><p>Любой</p></li>
+</ul>
+<p>Эти суперразрешения обеспечивают полный доступ к любому ресурсу соответствующего пользователя, роли, группы или, по сути, ко всем ресурсам.</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Супер разрешение <span class="target" id="gos-webui-56"></span><em>Любой</em> не может быть задан явно. Это доступно только суперадминистратору (см. главу <a class="reference internal" href="web-interface-access.html#super-admin"><span class="std std-ref">8.2.5</span></a>) и может быть установлен только путем его создания.</p>
+</div>
+<p>Пользователь может устанавливать суперразрешения только для объектов, созданных им самим. Только суперадминистратор может предоставить суперразрешения любому другому пользователю, роли или группе.</p>
+<ol class="arabic">
+<li><p>Нажмите на имя пользователя/роли/группы на странице. <span class="target" id="gos-webui-57"></span><em>Пользователи</em>/<span class="target" id="gos-webui-58"></span><em>Роли</em>/<span class="target" id="gos-webui-59"></span><em>Группы</em> для которого должны быть назначены суперразрешения.</p></li>
+<li><p>Откройте страницу подробностей, нажав <a class="reference internal" href="_images/details.png"><img alt="" src="_images/details.png" style="height: 1.2em;"/></a>.</p>
+<p>→ Идентификатор ресурса можно найти в правом верхнем углу (см. <a class="reference internal" href="web-interface-access.html#fig-id-resource-user"><span class="std std-numref">Рис. 8.8</span></a>).</p>
+<figure class="align-center" id="id11">
+<span id="fig-id-resource-user"></span><a class="reference internal image-reference" href="_images/id_resource_user.png"><img alt="_images/id_resource_user.png" src="_images/id_resource_user.png" style="width: 80%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 8.8 </span><span class="caption-text">Идентификатор ресурса</span><a class="headerlink" href="web-interface-access.html#id11" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Запишите или скопируйте идентификатор.</p></li>
+<li><p>Выбирать <span class="target" id="gos-webui-60"></span><em>Администрирование &gt; Разрешения</em> в меню.</p></li>
+<li><p>Создайте новое разрешение, нажав <a class="reference internal" href="_images/new.png"><img alt="" src="_images/new.png" style="height: 1.2em;"/></a>.</p></li>
+<li><p>В раскрывающемся списке <span class="target" id="gos-webui-61"></span><em>Имя</em> выбирать <span class="target" id="gos-webui-62"></span><em>Супер (Имеет супер доступ)</em> (видеть <a class="reference internal" href="web-interface-access.html#fig-permission-super"><span class="std std-numref">Рис. 8.9</span></a>).</p></li>
+<li><p>Выберите переключатель типа субъекта, который должен иметь суперразрешения.</p></li>
+<li><p>В соответствующем раскрывающемся списке выберите пользователя/роль/группу, у которой должны быть суперразрешения.</p></li>
+<li><p>В раскрывающемся списке выберите тип ресурса, для которого необходимо назначить суперразрешения. <span class="target" id="gos-webui-63"></span><em>Тип ресурса</em>.</p></li>
+<li><p>Введите или вставьте ранее определенный идентификатор ресурса в поле ввода. <span class="target" id="gos-webui-64"></span><em>ИДЕНТИФИКАТОР</em>.</p>
+<figure class="align-center" id="id12">
+<span id="fig-permission-super"></span><a class="reference internal image-reference" href="_images/permission_super.png"><img alt="_images/permission_super.png" src="_images/permission_super.png" style="width: 60%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 8.9 </span><span class="caption-text">Создание нового суперразрешения</span><a class="headerlink" href="web-interface-access.html#id12" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Нажмите <span class="target" id="gos-webui-65"></span><em>Сохранять</em>.</p>
+<p>→ Суперразрешение создано и отображается на странице <span class="target" id="gos-webui-66"></span><em>Разрешения</em>.</p>
+</li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Кончик</p>
+<p>Суперразрешения упрощают управление разрешениями на устройстве.
+Их можно легко назначать для целых групп.
+Это позволяет всем пользователям группы получать доступ ко всем ресурсам, созданным другими членами группы.</p>
+</div>
+</section>
+<section id="granting-read-access-to-other-users">
+<span id="granting-read-access-to-others"></span><span id="index-15"></span><h3><span class="section-number">8.4.3 </span>Предоставление доступа на чтение другим пользователям<a class="headerlink" href="web-interface-access.html#granting-read-access-to-other-users" title="Ссылка на эту рубрику">¶</a></h3>
+<section id="requirements-for-granting-read-access">
+<span id="requirements-read-access"></span><h4><span class="section-number">8.4.3.1 </span>Требования для предоставления доступа на чтение<a class="headerlink" href="web-interface-access.html#requirements-for-granting-read-access" title="Ссылка на эту рубрику">¶</a></h4>
+<p>Каждый пользователь может делиться неограниченным количеством самостоятельно созданных ресурсов.
+Для этого пользователю требуется <strong>глобальный</strong> <em>get_users</em> разрешение, а также <strong>специфический</strong> <em>get_users</em> разрешение для соответствующего пользователя, который должен получить доступ на чтение.</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Самый простой и рекомендуемый способ поделиться самостоятельно созданными ресурсами — использовать учетную запись администратора и создать учетные записи пользователей, которые должны получить доступ для чтения с этой учетной записью администратора.</p>
+<p>Все остальные способы, описанные здесь, являются громоздкими и трудоемкими.</p>
+</div>
+<p><strong>Требования к администраторам</strong></p>
+<p>По умолчанию у администраторов уже есть глобальный доступ. <em>get_users</em> разрешение.</p>
+<p>Администратор может получить конкретные <em>get_users</em> разрешение для учетной записи, которая должна получить доступ на чтение двумя способами:</p>
+<ul class="simple">
+<li><p>Создайте учетную запись самостоятельно, поскольку администраторы автоматически получают определенные <em>get_users</em> разрешение для учетных записей, которые они создали.</p></li>
+<li><p>С помощью суперадминистратора.</p></li>
+</ul>
+<p>Суперадминистратор может предоставить определенные <em>get_users</em> разрешения администратору следующим образом:</p>
+<ol class="arabic">
+<li><p>Войдите в веб-интерфейс как суперадминистратор (см. Главы <a class="reference internal" href="managing-gos.html#create-super-admin"><span class="std std-ref">6.2.1.5</span></a> и <a class="reference internal" href="web-interface-access.html#super-admin"><span class="std std-ref">8.2.5</span></a>).</p></li>
+<li><p>Выбирать <em>Администрирование &gt; Пользователи</em> в меню.</p></li>
+<li><p>Нажмите на имя учетной записи, которая должна получить доступ на чтение от администратора.</p></li>
+<li><p>Нажмите <a class="reference internal" href="_images/details.png"><img alt="" src="_images/details.png" style="height: 1.2em;"/></a>.</p></li>
+<li><p>Нажмите на описание <em>Разрешения</em>.</p></li>
+<li><p>Создайте новое разрешение, нажав <a class="reference internal" href="_images/new.png"><img alt="" src="_images/new.png" style="height: 1.2em;"/></a> в разделе <em>Разрешения</em>.</p></li>
+<li><p>Выбирать <em>читать</em> раскрывающийся список <em>Грант</em> (видеть <a class="reference internal" href="web-interface-access.html#fig-admin-specific-get-users"><span class="std std-numref">Рис. 8.10</span></a>).</p>
+<figure class="align-center" id="id13">
+<span id="fig-admin-specific-get-users"></span><a class="reference internal image-reference" href="_images/admin_specific_get_users.png"><img alt="_images/admin_specific_get_users.png" src="_images/admin_specific_get_users.png" style="width: 60%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 8.10 </span><span class="caption-text">Предоставление администратору определенного <em>get_users</em> разрешение</span><a class="headerlink" href="web-interface-access.html#id13" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Выберите переключатель <em>Пользователь</em>.</p></li>
+<li><p>В раскрывающемся списке выберите администратора, который должен иметь возможность предоставлять доступ для чтения. <em>Пользователь</em>.</p></li>
+<li><p>Нажмите <em>Сохранять</em>.</p>
+<p>→ Конкретные <em>get_users</em> разрешение создается и отображается в списке (см. <a class="reference internal" href="web-interface-access.html#fig-admin-specific-get-users-2"><span class="std std-numref">Рис. 8.11</span></a>).</p>
+<p>Теперь администратор может предоставить доступ на чтение соответствующему пользователю, как описано в главе. <a class="reference internal" href="web-interface-access.html#granting-read-access"><span class="std std-ref">8.4.3.2</span></a>.</p>
+<figure class="align-center" id="id14">
+<span id="fig-admin-specific-get-users-2"></span><a class="reference internal image-reference" href="_images/admin_specific_get_users_2.png"><img alt="_images/admin_specific_get_users_2.png" src="_images/admin_specific_get_users_2.png" style="width: 90%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 8.11 </span><span class="caption-text">Специфический <em>get_users</em> разрешение для администратора</span><a class="headerlink" href="web-interface-access.html#id14" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+</li>
+</ol>
+<p><strong>Требования для обычных пользователей</strong></p>
+<p>Обычные пользователи не имеют глобального <em>get_users</em> разрешение по умолчанию.
+Его можно добавить следующим образом:</p>
+<ol class="arabic">
+<li><p>Войдите в веб-интерфейс как администратор.</p></li>
+<li><p>Выбирать <span class="target" id="gos-webui-67"></span><em>Администрирование &gt; Роли</em> в меню.</p></li>
+<li><p>Создайте новую роль, нажав <a class="reference internal" href="_images/new.png"><img alt="" src="_images/new.png" style="height: 1.2em;"/></a>.</p></li>
+<li><p>Входить <code class="docutils literal notranslate"><span class="pre">ГрантЧтениеПриват</span></code> в поле ввода <span class="target" id="gos-webui-68"></span><em>Имя</em>.</p></li>
+<li><p>Нажмите <span class="target" id="gos-webui-69"></span><em>Сохранять</em>.</p>
+<p>→ Роль создана и отображается на странице <span class="target" id="gos-webui-70"></span><em>Роли</em>.</p>
+</li>
+<li><p>В строке вновь созданной роли нажмите <a class="reference internal" href="_images/edit.png"><img alt="" src="_images/edit.png" style="height: 1.2em;"/></a>.</p></li>
+<li><p>В раскрывающемся списке <span class="target" id="gos-webui-71"></span><em>Имя</em> в разделе <span class="target" id="gos-webui-72"></span><em>Новое разрешение</em> выбирать <span class="target" id="gos-webui-73"></span><em>get_users</em> (видеть <a class="reference internal" href="web-interface-access.html#fig-role-permissions"><span class="std std-numref">Рис. 8.12</span></a>).</p>
+<figure class="align-center" id="id15">
+<span id="fig-role-permissions"></span><a class="reference internal image-reference" href="_images/role_permissions.png"><img alt="_images/role_permissions.png" src="_images/role_permissions.png" style="width: 60%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 8.12 </span><span class="caption-text">Выбор разрешений для новой роли</span><a class="headerlink" href="web-interface-access.html#id15" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Нажмите <span class="target" id="gos-webui-74"></span><em>Создать разрешение</em>.</p>
+<p>→ Разрешение отображается в разделе <span class="target" id="gos-webui-75"></span><em>Разрешения общего командования</em> (видеть <a class="reference internal" href="web-interface-access.html#fig-role-permissions"><span class="std std-numref">Рис. 8.12</span></a>).</p>
+</li>
+<li><p>Нажмите <span class="target" id="gos-webui-76"></span><em>Сохранять</em>.</p></li>
+<li><p>Выбирать <span class="target" id="gos-webui-77"></span><em>Администрирование &gt; Пользователи</em> в меню.</p></li>
+<li><p>В строке пользователя, которому должна быть назначена вновь созданная роль, нажмите кнопку <a class="reference internal" href="_images/edit.png"><img alt="" src="_images/edit.png" style="height: 1.2em;"/></a>.</p></li>
+<li><p>В раскрывающемся списке <span class="target" id="gos-webui-78"></span><em>Роли</em> добавить роль <span class="target" id="gos-webui-79"></span><em>ГрантЧтениеПриват</em>.</p></li>
+<li><p>Нажмите <span class="target" id="gos-webui-80"></span><em>Сохранять</em>.</p></li>
+</ol>
+<p>Суперадминистратор может предоставить определенные <em>get_users</em> разрешения для пользователя следующим образом:</p>
+<ol class="arabic">
+<li><p>Войдите в веб-интерфейс как суперадминистратор (см. Главы <a class="reference internal" href="managing-gos.html#create-super-admin"><span class="std std-ref">6.2.1.5</span></a> и <a class="reference internal" href="web-interface-access.html#super-admin"><span class="std std-ref">8.2.5</span></a>).</p></li>
+<li><p>Выбирать <em>Администрирование &gt; Пользователи</em> в меню.</p></li>
+<li><p>Нажмите на имя учетной записи, которая должна получить доступ на чтение от пользователя.</p></li>
+<li><p>Нажмите <a class="reference internal" href="_images/details.png"><img alt="" src="_images/details.png" style="height: 1.2em;"/></a>.</p></li>
+<li><p>Нажмите на описание <em>Разрешения</em>.</p></li>
+<li><p>В разделе <em>Разрешения</em> щелкнуть <a class="reference internal" href="_images/new.png"><img alt="" src="_images/new.png" style="height: 1.2em;"/></a>.</p></li>
+<li><p>Выбирать <em>читать</em> раскрывающийся список <em>Грант</em> (видеть <a class="reference internal" href="web-interface-access.html#fig-user-specific-get-users"><span class="std std-numref">Рис. 8.13</span></a>).</p>
+<figure class="align-center" id="id16">
+<span id="fig-user-specific-get-users"></span><a class="reference internal image-reference" href="_images/user_specific_get_users.png"><img alt="_images/user_специфический_get_users.png" src="_images/user_specific_get_users.png" style="width: 60%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 8.13 </span><span class="caption-text">Предоставление пользователю определенного <em>get_users</em> разрешение</span><a class="headerlink" href="web-interface-access.html#id16" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Выберите переключатель <em>Пользователь</em>.</p></li>
+<li><p>В раскрывающемся списке выберите пользователя, которому необходимо предоставить доступ на чтение. <em>Пользователь</em>.</p></li>
+<li><p>Нажмите <em>Сохранять</em>.</p>
+<p>→ Конкретные <em>get_users</em> разрешение создается и отображается в списке (см. <a class="reference internal" href="web-interface-access.html#fig-user-specific-get-users-2"><span class="std std-numref">Рис. 8.14</span></a>).</p>
+<p>Теперь пользователь может предоставить доступ на чтение соответствующему пользователю, как описано в главе. <a class="reference internal" href="web-interface-access.html#granting-read-access"><span class="std std-ref">8.4.3.2</span></a>.</p>
+<figure class="align-center" id="id17">
+<span id="fig-user-specific-get-users-2"></span><a class="reference internal image-reference" href="_images/user_specific_get_users_2.png"><img alt="_images/user_specific_get_users_2.png" src="_images/user_specific_get_users_2.png" style="width: 80%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 8.14 </span><span class="caption-text">Специфический <em>get_users</em> разрешение для пользователя</span><a class="headerlink" href="web-interface-access.html#id17" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+</li>
+</ol>
+</section>
+<section id="granting-read-access">
+<span id="id3"></span><h4><span class="section-number">8.4.3.2 </span>Предоставление доступа для чтения<a class="headerlink" href="web-interface-access.html#granting-read-access" title="Ссылка на эту рубрику">¶</a></h4>
+<p>Когда у пользователя есть <strong>глобальный</strong> и <strong>специфический</strong> <em>get_users</em> разрешение (см. главу <a class="reference internal" href="web-interface-access.html#requirements-read-access"><span class="std std-ref">8.4.3.1</span></a>), пользователь может делиться ресурсами следующим образом:</p>
+<ol class="arabic">
+<li><p>На соответствующей странице нажмите на название ресурса, которым необходимо поделиться.</p></li>
+<li><p>Откройте страницу подробностей, нажав <a class="reference internal" href="_images/details.png"><img alt="" src="_images/details.png" style="height: 1.2em;"/></a>.</p>
+<p>→ Идентификатор объекта можно найти в правом верхнем углу (см. <a class="reference internal" href="web-interface-access.html#fig-id-resource-2"><span class="std std-numref">Рис. 8.15</span></a>).</p>
+<figure class="align-center" id="id18">
+<span id="fig-id-resource-2"></span><a class="reference internal image-reference" href="_images/id_resource.png"><img alt="_images/id_resource.png" src="_images/id_resource.png" style="width: 90%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 8.15 </span><span class="caption-text">Идентификатор ресурса</span><a class="headerlink" href="web-interface-access.html#id18" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Запишите или скопируйте идентификатор.</p></li>
+<li><p>Выбирать <span class="target" id="gos-webui-81"></span><em>Администрирование &gt; Разрешения</em> в меню.</p></li>
+<li><p>Создайте новое разрешение, нажав <a class="reference internal" href="_images/new.png"><img alt="" src="_images/new.png" style="height: 1.2em;"/></a>.</p></li>
+<li><p>В раскрывающемся списке <span class="target" id="gos-webui-82"></span><em>Имя</em> выберите разрешение для объекта, к которому будет предоставлен общий доступ.</p>
+<ul class="simple">
+<li><p>Фильтр: <span class="target" id="gos-perm-0"></span><em>get_filters</em></p></li>
+<li><p>Конфигурация сканирования: <span class="target" id="gos-perm-1"></span><em>get_configs</em></p></li>
+<li><p>Тревога: <span class="target" id="gos-perm-2"></span><em>get_alerts</em></p></li>
+<li><p>Примечание: <span class="target" id="gos-perm-3"></span><em>get_notes</em></p></li>
+<li><p>Переопределить: <span class="target" id="gos-perm-4"></span><em>get_overrides</em></p></li>
+<li><p>Ярлык: <span class="target" id="gos-perm-5"></span><em>get_tags</em></p></li>
+<li><p>Цель: <span class="target" id="gos-perm-6"></span><em>get_targets</em></p></li>
+<li><p>Задача с отчетом: <span class="target" id="gos-perm-7"></span><em>get_tasks</em></p></li>
+<li><p>Расписание: <span class="target" id="gos-perm-8"></span><em>get_schedules</em></p></li>
+</ul>
+</li>
+<li><p>Выберите переключатель <em>Пользователь</em> (видеть <a class="reference internal" href="web-interface-access.html#fig-permission-share-objects"><span class="std std-numref">Рис. 8.16</span></a>).</p></li>
+<li><p>В соответствующем раскрывающемся списке выберите пользователя, которому будет предоставлен доступ к объекту.</p></li>
+<li><p>Введите или вставьте ранее определенный идентификатор ресурса в поле ввода. <span class="target" id="gos-webui-83"></span><em>ИДЕНТИФИКАТОР</em>.</p>
+<figure class="align-center" id="id19">
+<span id="fig-permission-share-objects"></span><a class="reference internal image-reference" href="_images/permission_share_objects.png"><img alt="_images/permission_share_objects.png" src="_images/permission_share_objects.png" style="width: 60%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 8.16 </span><span class="caption-text">Делитесь объектами с другими пользователями</span><a class="headerlink" href="web-interface-access.html#id19" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Нажмите <span class="target" id="gos-webui-84"></span><em>Сохранять</em>.</p>
+<p>→ Разрешение создано и отображено на странице <span class="target" id="gos-webui-85"></span><em>Разрешения</em>.</p>
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Кроме того, ресурсы можно использовать совместно с ролями или группами.</p>
+<p>Для этого глобальные и специальные разрешения <span class="target" id="gos-perm-9"></span><em>get_groups</em> – предоставление доступа на чтение группе – или <span class="target" id="gos-perm-10"></span><em>get_roles</em> – предоставление доступа на чтение к роли – являются обязательными и следуют тому же принципу, что описан в главе <a class="reference internal" href="web-interface-access.html#requirements-read-access"><span class="std std-ref">8.4.3.1</span></a>.</p>
+<p>Исключение: пользователи с ролью по умолчанию уже имеют определенные <em>get_roles</em> разрешения для всех ролей по умолчанию.</p>
+</div>
+</section>
+</section>
+</section>
+<section id="using-a-central-user-management">
+<span id="user-ldap"></span><span id="index-16"></span><h2><span class="section-number">8.5 </span>Использование централизованного управления пользователями<a class="headerlink" href="web-interface-access.html#using-a-central-user-management" title="Ссылка на эту рубрику">¶</a></h2>
+<p>Часто бывает сложно добиться успеха паролей, особенно в больших условиях с несколькими пользователями.
+Усилия по созданию новых или сбросу паролей часто очень велики.
+Чтобы избежать этого, устройства используют центральное хранилище паролей с использованием LDAPS или RADIUS.</p>
+<p>Устройство будет использовать эту службу только для аутентификации отдельно для каждого пользователя. Это означает, что пользователи, которые должны иметь возможность проходить аутентификацию с помощью службы, должны быть настроены для аутентификации и также существовать на устройстве.</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Обязательным условием для использования центральной аутентификации является присвоение пользователям тех же имен, что и объекты в локальной сети LDAPS или на сервере RADIUS.</p>
+</div>
+<section id="ldaps">
+<span id="index-17"></span><h3><span class="section-number">8.5.1 </span>ЛДАПС<a class="headerlink" href="web-interface-access.html#ldaps" title="Ссылка на эту рубрику">¶</a></h3>
+<p>Устройство поддерживает только зашифрованные соединения через LDAP с использованием STARTTLS (порт 389) или LDAPS с использованием SSL/TLS (порт 636).
+Сервер LDAPS должен сделать свои службы доступными для SSL/TLS.</p>
+<p>Следующие ссылки полезные для точной настройки всех доступных серверов LDAPS:</p>
+<ul class="simple">
+<li><p>Майкрософт: <a class="reference external" href="https://learn.microsoft.com/en-us/archive/technet-wiki/2980.ldap-over-ssl-ldaps-certificate">https://learn.microsoft.com/en-us/archive/technet-wiki/2980.ldap-over-ssl-ldaps-certificate</a></p></li>
+<li><p>OpenLDAP: <a class="reference external" href="https://www.openldap.org/doc/admin24/tls.html">https://www.openldap.org/doc/admin24/tls.html</a></p></li>
+</ul>
+<section id="storing-the-server-s-certificate-on-the-appliance">
+<span id="ldaps-certificate"></span><h4><span class="section-number">8.5.1.1 </span>Хранение сертификата сервера на устройстве<a class="headerlink" href="web-interface-access.html#storing-the-server-s-certificate-on-the-appliance" title="Ссылка на эту рубрику">¶</a></h4>
+<p>Чтобы проверить происхождение сервера LDAPS, устройство должно доверять сертификату сервера.
+Для этого сертификат, выдавший центр сертификации (CA), должен храниться на устройстве.</p>
+<p>Для этого сертификата ЦС необходимо экспортировать в видеофайл в кодировке Base64.
+Сертификат кодировки Base64 часто имеет расширение файла <code class="docutils literal notranslate"><span class="pre">.pem</span></code>. Сам файл начинается с <code class="docutils literal notranslate"><span class="pre">------НАЧИНАТЬ</span> <span class="pre">СЕРТИФИКАТ -------</span></code>.</p>
+<p>Если ЦС является промежуточным ЦС, необходимо импортировать полную цепочку сертификатов. Это часто справедливо, если используется официальный центр сертификации, поскольку корневой центр сертификации отделен от выдающего центра сертификации.</p>
+<p>В этих случаях содержимое файла выглядит следующим образом:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-----</span><span class="n">НАЧИНАТЬ</span> <span class="n">СЕРТИФИКАТ</span><span class="o">-----</span>
+<span class="o">......</span>
+<span class="n">Выпуск</span> <span class="n">Калифорния</span>
+<span class="o">......</span>
+<span class="o">-----</span><span class="n">КОНЕЦ</span> <span class="n">СЕРТИФИКАТ</span><span class="o">-----</span>
+<span class="o">-----</span><span class="n">НАЧИНАТЬ</span> <span class="n">СЕРТИФИКАТ</span><span class="o">-----</span>
+<span class="o">......</span>
+<span class="n">Корень</span> <span class="n">Калифорния</span>
+<span class="o">......</span>
+<span class="o">-----</span><span class="n">КОНЕЦ</span> <span class="n">СЕРТИФИКАТ</span><span class="o">-----</span>
+</pre></div>
+</div>
+<p>Фактическое местонахождение сертификата может различаться в зависимости от среды.</p>
+<ul>
+<li><p>Корпоративный сервер Univention (UCS)</p>
+<p>Здесь сертификат CA получен из файла <code class="docutils literal notranslate"><span class="pre">/etc/univention/ssl/ucsCA/CAcert.pem</span></code>.
+Этот файл уже содержит сертификат в правильном формате, и его необходимо загрузить при включении LDAPS.</p>
+</li>
+<li><p>Активный каталог ЛДАПС</p>
+<p>Если служба LDAP Active Directory еще не использует LDAPS, можно воспользоваться полезной следующей статьей: <a class="reference external" href="https://learn.microsoft.com/en-us/archive/technet-wiki/2980.ldap-over-ssl-ldaps-certificate">https://learn.microsoft.com/en-us/archive/technet-wiki/2980.ldap-over-ssl-ldaps-certificate</a>.</p>
+<p>Сертификат CA LDAPS Active Directory, а затем можно экспортировать следующим образом:</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Эти шаги необходимо выполнять за рабочим столом или сервером, имеющим доступ к консоли CA.</p>
+</div>
+<ol class="arabic">
+<li><p>Откройте консоль CA на любом компьютере или на границе домена.</p></li>
+<li><p>Щелкните правой кнопкой мыши имя центра сертификации и выберите <span class="target" id="gos-webui-86"></span><em>Характеристики</em>.</p></li>
+<li><p>В диалоговом окне Сертификаты ЦС выберите вкладку <span class="target" id="gos-webui-87"></span><em>Общий</em>.</p></li>
+<li><p>Выберите сертификат ЦС, к которому необходимо получить доступ.</p></li>
+<li><p>Нажмите <span class="target" id="gos-webui-88"></span><em>Посмотреть сертификат</em>.</p></li>
+<li><p>В диалоговом окне <span class="target" id="gos-webui-89"></span><em>Сертификат</em>, выберите вкладку <span class="target" id="gos-webui-90"></span><em>Удостоверяющий центр</em>.</p></li>
+<li><p>Выберите имя корневого центра сертификации и нажмите <span class="target" id="gos-webui-91"></span><em>Посмотреть сертификат</em>.</p></li>
+<li><p>В диалоговом окне <span class="target" id="gos-webui-92"></span><em>Сертификат</em>, выберите вкладку <span class="target" id="gos-webui-93"></span><em>Подробности</em>.</p></li>
+<li><p>Нажмите <span class="target" id="gos-webui-94"></span><em>Копировать в файл</em>.</p>
+<p>→ Откроется мастер экспорта сертификатов.</p>
+</li>
+<li><p>Нажмите <span class="target" id="gos-webui-95"></span><em>Следующий</em>.</p></li>
+<li><p>Выбирать <span class="target" id="gos-webui-96"></span><em>X.509 в кодировке Base-64 (.CER)</em> на странице <span class="target" id="gos-webui-97"></span><em>Формат файла экспорта</em>.</p></li>
+<li><p>Нажмите <span class="target" id="gos-webui-98"></span><em>Следующий</em>.</p></li>
+<li><p>Введите путь и имя сертификата в поле ввода. <span class="target" id="gos-webui-99"></span><em>Файл для экспорта</em>.</p></li>
+<li><p>Нажмите <span class="target" id="gos-webui-100"></span><em>Следующий</em>.</p></li>
+<li><p>Нажмите <span class="target" id="gos-webui-101"></span><em>Заканчивать</em>.</p>
+<p>→ Файл CER создается в указанном месте. Окно экспортного диалога сообщает, что процесс продвигается успешно.</p>
+</li>
+<li><p>Нажмите <span class="target" id="gos-webui-102"></span><em>ХОРОШО</em>.</p></li>
+</ol>
+<p>Содержимое файла необходимо загрузить при включении LDAPS.</p>
+</li>
+</ul>
+</section>
+<section id="connecting-to-the-ldaps-tree">
+<h4><span class="section-number">8.5.1.2 </span>Подключение к дереву LDAPS<a class="headerlink" href="web-interface-access.html#connecting-to-the-ldaps-tree" title="Ссылка на эту рубрику">¶</a></h4>
+<p>Для подключения к дереву устройство LDAPS использует очень простой интерфейс и простую операцию привязки с жестко заданным способом к объекту.
+Аутентификация LDAPS выполняется следующим образом:</p>
+<ol class="arabic">
+<li><p>Войдите в систему как администратор.</p></li>
+<li><p>Выбирать <span class="target" id="gos-webui-103"></span><em>Администрирование &gt; LDAP</em> в меню.</p></li>
+<li><p>Нажмите <a class="reference internal" href="_images/edit.png"><img alt="" src="_images/edit.png" style="height: 1.2em;"/></a>.</p></li>
+<li><p>Активируйте флажок <span class="target" id="gos-webui-104"></span><em>Давать возможность</em> (видеть <a class="reference internal" href="web-interface-access.html#fig-ldap-config"><span class="std std-numref">Рис. 8.17</span></a>).</p>
+<figure class="align-center" id="id20">
+<span id="fig-ldap-config"></span><a class="reference internal image-reference" href="_images/ldap_config.png"><img alt="_images/ldap_config.png" src="_images/ldap_config.png" style="width: 60%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 8.17 </span><span class="caption-text">Настройка аутентификации LDAPS</span><a class="headerlink" href="web-interface-access.html#id20" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Введите хост LDAPS в поле ввода. <span class="target" id="gos-webui-105"></span><em>LDAP-хост</em>.</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Только в системе можно войти по IP-адресу или по имени.</p>
+<p>Устройство применяется к хосту LDAPS с помощью SSL/TLS. Для проверки хоста сертификат сертификата хоста должен быть загружен на устройство (см. главу <a class="reference internal" href="web-interface-access.html#ldaps-certificate"><span class="std std-ref">8.5.1.1</span></a>).
+Без аутентификации SSL/TLS LDAPS не будет принят.</p>
+</div>
+</li>
+<li><p>Введите различаемые (DN) имена объектов в поле ввода. <span class="target" id="gos-webui-106"></span><em>Авт. DN</em>.</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Подстановочный знак <code class="docutils literal notranslate"><span class="pre">%s</span></code> заменяет имя пользователя.</p>
+<p>Примеры для <span class="target" id="gos-webui-107"></span><em>Авт. DN</em> являются:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">cn=%s,ou=люди,dc=домен,dc=de</span></code></dt><dd><p>Этот формат работает для любого сервера LDAPS с указанными атрибутами.
+Атрибут <span class="target" id="gos-webui-108"></span><em>Китай</em> (общее имя).
+Пользователи в разных поддеревьях или на разной рекурсивной деревянном дереве LDAPS не применяются.
+Все пользователи, подключающиеся к устройству, должны находиться в одной ветке и на одном уровне дерева LDAPS.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">uid=%s,ou=люди,dc=домен,dc=de</span></code></dt><dd><p>Этот формат работает для любого сервера LDAPS с указанными атрибутами.
+Атрибут <span class="target" id="gos-webui-109"></span><em>жидкость</em> (идентификатор пользователя) используется в качестве фильтра.
+Оно должно быть на первом месте.
+Атрибуты <span class="target" id="gos-webui-110"></span><em>ou=люди,dc=домен,dc=de</em> используются в качестве базовых объектов для выполнения поиска и соответствующего DN.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">%s@domain.de</span></code></dt><dd><p>Этот формат обычно используется Active Directory. Точное определение пользовательского объекта не имеет значения.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">домен.de\%s</span></code></dt><dd><p>Этот формат обычно используется Active Directory. Точное определение пользовательского объекта не имеет значения.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+</li>
+<li><p>Для проверки хоста загрузите сертификат хоста, нажав кнопку <span class="target" id="gos-webui-111"></span><em>Просмотреть…</em>.</p></li>
+<li><p>Активируйте флажок <em>Используйте только LDAPS</em> если должны быть разрешены только соединения через LDAPS.</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Эта опция отключает STARTTLS и обычные текстовые соединения с сервером LDAP, разрешая соединения только через LDAPS.
+Это полезно в случаях, когда порт LDAP заблокирован брандмауэром.</p>
+</div>
+</li>
+<li><p>Нажмите <span class="target" id="gos-webui-112"></span><em>ХОРОШО</em>.</p>
+<p>→ Если аутентификация LDAPS включена (см. <a class="reference internal" href="web-interface-access.html#ldap-config-2"><span class="std std-numref">Рис. 8.18</span></a>), вариант <span class="target" id="gos-webui-113"></span><em>Только аутентификация LDAP</em> доступен при создании или редактировании пользователя. По умолчанию эта опция отключена.</p>
+<figure class="align-center" id="id21">
+<span id="ldap-config-2"></span><a class="reference internal image-reference" href="_images/ldap_config_2.png"><img alt="_images/ldap_config_2.png" src="_images/ldap_config_2.png" style="width: 70%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 8.18 </span><span class="caption-text">Включена аутентификация LDAPS.</span><a class="headerlink" href="web-interface-access.html#id21" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Создайте нового пользователя или отредактируйте существующего пользователя (см. главу <a class="reference internal" href="web-interface-access.html#usermanagement"><span class="std std-ref">8.1</span></a>).</p></li>
+<li><p>Активируйте флажок <span class="target" id="gos-webui-114"></span><em>Только аутентификация LDAP</em> когда пользователю должно быть разрешено аутентифицироваться с помощью LDAPS (см. <a class="reference internal" href="web-interface-access.html#fig-user-ldap"><span class="std std-numref">Рис. 8.19</span></a>).</p>
+<figure class="align-center" id="id22">
+<span id="fig-user-ldap"></span><a class="reference internal image-reference" href="_images/user_ldap.png"><img alt="_images/user_ldap.png" src="_images/user_ldap.png" style="width: 60%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 8.19 </span><span class="caption-text">Включение аутентификации с помощью LDAPS</span><a class="headerlink" href="web-interface-access.html#id22" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Прежде чем можно будет использовать аутентификацию с помощью LDAPS, пользователь должен существовать с тем же именем в LDAPS. Устройство не добавляет, не изменяет и не удаляет пользователей в LDAPS и не обеспечивает никому из пользователей LDAPS автоматический доступ к устройству.</p>
+<p>Если аутентификация LDAPS не работает, убедитесь, что запись в <span class="target" id="gos-webui-115"></span><em>LDAP-хост</em> соответствует commonName сертификата сервера LDAPS.
+При наличии отклонений устройство отказывается использовать LDAPS-сервер.</p>
+</div>
+</section>
+</section>
+<section id="radius">
+<span id="index-18"></span><h3><span class="section-number">8.5.2 </span>РАДИУС<a class="headerlink" href="web-interface-access.html#radius" title="Ссылка на эту рубрику">¶</a></h3>
+<p>Аутентификация RADIUS выполняется следующим образом:</p>
+<ol class="arabic">
+<li><p>Войдите в систему как администратор.</p></li>
+<li><p>Выбирать <span class="target" id="gos-webui-116"></span><em>Администрирование &gt; Радиус</em> в меню.</p></li>
+<li><p>Нажмите <a class="reference internal" href="_images/edit.png"><img alt="" src="_images/edit.png" style="height: 1.2em;"/></a>.</p></li>
+<li><p>Активируйте флажок <span class="target" id="gos-webui-117"></span><em>Давать возможность</em> (видеть <a class="reference internal" href="web-interface-access.html#fig-radiusauth"><span class="std std-numref">Рис. 8.20</span></a>).</p></li>
+<li><p>Введите имя хоста или IP-адрес сервера RADIUS в поле ввода. <span class="target" id="gos-webui-118"></span><em>РАДИУС-хост</em>.</p></li>
+<li><p>Введите общий общий секретный ключ в поле ввода. <span class="target" id="gos-webui-119"></span><em>Секретный ключ</em>.</p>
+<figure class="align-center" id="id23">
+<span id="fig-radiusauth"></span><a class="reference internal image-reference" href="_images/radius_config.png"><img alt="_images/radius_config.png" src="_images/radius_config.png" style="width: 60%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 8.20 </span><span class="caption-text">Настройка аутентификации RADIUS</span><a class="headerlink" href="web-interface-access.html#id23" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Нажмите <span class="target" id="gos-webui-120"></span><em>ХОРОШО</em>.</p>
+<p>→ Если аутентификация RADIUS включена, опция <span class="target" id="gos-webui-121"></span><em>Только аутентификация RADIUS</em> доступен при создании или редактировании пользователя. По умолчанию эта опция отключена.</p>
+</li>
+<li><p>Создайте нового пользователя или отредактируйте существующего пользователя (см. главу <a class="reference internal" href="web-interface-access.html#usermanagement"><span class="std std-ref">8.1</span></a>).</p></li>
+<li><p>Активируйте флажок <span class="target" id="gos-webui-122"></span><em>Только аутентификация RADIUS</em> когда клиенту должно быть разрешено провести аутентификацию с использованием RADIUS (см. <a class="reference internal" href="web-interface-access.html#fig-radiususer"><span class="std std-numref">Рис. 8.21</span></a>).</p>
+<figure class="align-center" id="id24">
+<span id="fig-radiususer"></span><a class="reference internal image-reference" href="_images/user_radius.png"><img alt="_images/user_radius.png" src="_images/user_radius.png" style="width: 60%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 8.21 </span><span class="caption-text">Включение аутентификации с использованием RADIUS</span><a class="headerlink" href="web-interface-access.html#id24" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+</li>
+</ol>
+</section>
+</section>
+</section>
+</article>
+</div>
+<footer>
+<div class="related-pages">
+<a class="next-page" href="scanning.html">
+<div class="page-info">
+<div class="context">
+<span>Следующий</span>
+</div>
+<div class="title"><span class="section-number">9 </span>Системы сканирования</div>
+</div>
+<svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+</a>
+<a class="prev-page" href="web-interface.html">
+<svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+<div class="page-info">
+<div class="context">
+<span>Предыдущий</span>
+</div>
+<div class="title"><span class="section-number">7 </span>Знакомство с веб-интерфейсом</div>
+</div>
+</a>
+</div>
+<div class="bottom-of-page">
+<div class="left-details">
+<div class="copyright">
+                Copyright © 2015–2026, Ак Шумкар
+            </div>
+<div class="last-updated">
+              Последнее обновление: 13 марта 2026 г.</div>
+</div>
+<div class="right-details">
+</div>
+</div>
+</footer>
+</div>
+<aside class="toc-drawer">
+<div class="toc-sticky toc-scroll">
+<div class="toc-title-container">
+<span class="toc-title">
+            На этой странице
+          </span>
+</div>
+<div class="toc-tree-container">
+<div class="toc-tree">
+<ul>
+<li><a class="reference internal" href="web-interface-access.html#">8 Управление доступом к веб-интерфейсу</a><ul>
+<li><a class="reference internal" href="web-interface-access.html#users">8.1 Пользователи</a><ul>
+<li><a class="reference internal" href="web-interface-access.html#creating-a-user">8.1.1 Создание пользователя</a></li>
+<li><a class="reference internal" href="web-interface-access.html#managing-users">8.1.2 Управление пользователями</a></li>
+<li><a class="reference internal" href="web-interface-access.html#simultaneous-login">8.1.3 Одновременный вход в систему</a></li>
+<li><a class="reference internal" href="web-interface-access.html#creating-a-guest-login">8.1.4 Создание гостевого входа</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="web-interface-access.html#roles">8.2 Роли</a><ul>
+<li><a class="reference internal" href="web-interface-access.html#cloning-an-existing-role">8.2.1 Клонирование существующей роли</a></li>
+<li><a class="reference internal" href="web-interface-access.html#creating-a-role">8.2.2 Создание роли</a></li>
+<li><a class="reference internal" href="web-interface-access.html#managing-roles">8.2.3 Управление ролями</a></li>
+<li><a class="reference internal" href="web-interface-access.html#assigning-roles-to-a-user">8.2.4 Назначение ролей пользователю</a></li>
+<li><a class="reference internal" href="web-interface-access.html#creating-a-super-administrator">8.2.5 Создание суперадминистратора</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="web-interface-access.html#groups">8.3 Группы</a><ul>
+<li><a class="reference internal" href="web-interface-access.html#creating-a-group">8.3.1 Создание группы</a></li>
+<li><a class="reference internal" href="web-interface-access.html#managing-groups">8.3.2 Управление группами</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="web-interface-access.html#permissions">8.4 Разрешения</a><ul>
+<li><a class="reference internal" href="web-interface-access.html#creating-and-managing-permissions">8.4.1 Создание разрешений и управление ими</a><ul>
+<li><a class="reference internal" href="web-interface-access.html#creating-a-permission">8.4.1.1 Создание разрешения</a></li>
+<li><a class="reference internal" href="web-interface-access.html#creating-permissions-from-the-resource-details-page">8.4.1.2 Создание разрешений на странице сведений о ресурсе</a></li>
+<li><a class="reference internal" href="web-interface-access.html#managing-permissions">8.4.1.3 Управление разрешениями</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="web-interface-access.html#granting-super-permissions">8.4.2 Предоставление суперразрешений</a></li>
+<li><a class="reference internal" href="web-interface-access.html#granting-read-access-to-other-users">8.4.3 Предоставление доступа на чтение другим пользователям</a><ul>
+<li><a class="reference internal" href="web-interface-access.html#requirements-for-granting-read-access">8.4.3.1 Требования к предоставлению доступа для чтения</a></li>
+<li><a class="reference internal" href="web-interface-access.html#granting-read-access">8.4.3.2 Предоставление доступа на чтение</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="web-interface-access.html#using-a-central-user-management">8.5 Использование централизованного управления пользователями</a><ul>
+<li><a class="reference internal" href="web-interface-access.html#ldaps">8.5.1 ЛДАПС</a><ul>
+<li><a class="reference internal" href="web-interface-access.html#storing-the-server-s-certificate-on-the-appliance">8.5.1.1 Хранение сертификата сервера на устройстве</a></li>
+<li><a class="reference internal" href="web-interface-access.html#connecting-to-the-ldaps-tree">8.5.1.2 Подключение к деревянному LDAPS</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="web-interface-access.html#radius">8.5.2 РАДИУС</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</aside>
+</div>
+</div><script src="_static/documentation_options.js%3Fv=bd398bb6"></script>
+<script src="_static/doctools.js%3Fv=9a2dae69"></script>
+<script src="_static/sphinx_highlight.js%3Fv=dc90522c"></script>
+<script src="_stati_static/scripts/furo.js%3Fv=46bd48cc"></script>
+</body></html>

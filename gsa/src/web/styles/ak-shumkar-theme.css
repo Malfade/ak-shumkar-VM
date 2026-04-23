@@ -1,3 +1,6 @@
+/* Google Fonts — Langar (glitch logo) + Poppins (UI) */
+@import url('https://fonts.googleapis.com/css2?family=Langar&family=Poppins:wght@400;500;600;700&display=swap');
+
 /* =====================================================
  * Ak Shumkar VM — Global CSS Design Token Overrides
  * Based on https://ak-shumkar.beeline.kg visual style
@@ -133,8 +136,7 @@ div._navigation_1w11a_1,
  * ===================================================== */
 
 .mantine-Paper-root,
-.mantine-Card-root,
-div.sc-gmPhUo.kPbhJw {
+.mantine-Card-root {
   background-color: rgba(39, 39, 42, 0.6) !important;
   backdrop-filter: blur(16px) !important;
   -webkit-backdrop-filter: blur(16px) !important;
@@ -148,14 +150,13 @@ div.sc-gmPhUo.kPbhJw {
 
 .mantine-Paper-root:hover,
 .mantine-Card-root:hover {
-  transform: translateY(-2px) !important;
+  /* transform removed: was causing chart viewport shift revealing hidden DataTable */
   box-shadow: 0 12px 48px rgba(0, 0, 0, 0.5) !important;
 }
 
 /* Card Headers */
 .mantine-Paper-root h2,
-.mantine-Paper-root h3,
-div.sc-gmPhUo.kPbhJw h2 {
+.mantine-Paper-root h3 {
   font-size: 13px !important;
   font-weight: 700 !important;
   text-transform: uppercase !important;
@@ -192,16 +193,16 @@ div.sc-gmPhUo.kPbhJw h2 {
 /* =====================================================
  * Tables
  * ===================================================== */
-table {
+.entities-table table {
   background-color: transparent !important;
   border-collapse: collapse !important;
 }
 
-thead tr {
+.entities-table thead tr {
   background-color: var(--ak-shumkar-bg-deep) !important;
 }
 
-thead th {
+.entities-table thead th {
   color: var(--ak-shumkar-text-muted) !important;
   font-size: 11px !important;
   font-weight: 700 !important;
@@ -211,24 +212,59 @@ thead th {
   padding: 14px 16px !important;
 }
 
-tbody tr:nth-child(odd) {
+.entities-table tbody tr:nth-child(odd) {
   background-color: var(--ak-shumkar-bg-base) !important;
 }
 
-tbody tr:nth-child(even) {
+.entities-table tbody tr:nth-child(even) {
   background-color: rgba(39, 39, 42, 0.4) !important;
 }
 
-tbody tr:hover {
+.entities-table tbody tr:hover {
   background-color: var(--ak-shumkar-bg-card-hover) !important;
 }
 
-tbody td {
+.entities-table tbody td {
   color: var(--ak-shumkar-text-primary) !important;
   border-bottom: 1px solid rgba(63, 63, 70, 0.4) !important;
-  padding: 14px 16px !important;
+  padding: 10px 16px !important;
   border-right: none !important;
   border-left: none !important;
+}
+
+/* Fix for "floating" design under the main table (Pagination & Bottom bar) */
+.entities-table+div,
+div[class*='PaginationLayout'],
+.mantine-Table-tfoot {
+  background-color: var(--ak-shumkar-bg-deep) !important;
+  border-top: 1px solid var(--ak-shumkar-border) !important;
+  border-bottom-left-radius: var(--ak-shumkar-radius-card) !important;
+  border-bottom-right-radius: var(--ak-shumkar-radius-card) !important;
+  padding: 12px 20px !important;
+  margin-top: -1px !important;
+  /* Merge with table border */
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  gap: 15px !important;
+}
+
+div[class*='PaginationText'],
+.pagination-text {
+  font-size: 13px !important;
+  color: var(--ak-shumkar-text-muted) !important;
+}
+
+/* Ensure text in table cells and legend items defaults to light color */
+td,
+th {
+  color: var(--ak-shumkar-text-primary) !important;
+}
+
+/* Chart legend labels (HTML spans inside visx legend) */
+.visx-legend-item span,
+.visx-legend-label {
+  color: var(--ak-shumkar-text-primary) !important;
 }
 
 /* =====================================================
@@ -272,6 +308,7 @@ tbody td {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--ak-shumkar-mediumGray, #71717a);
 }
+
 /* === Dashboard Chart (Datamonitor) Overrides === */
 div[class*='DisplayView'],
 div[class*='DisplayContent'],
@@ -289,7 +326,7 @@ div[class*='StyledLayout'] {
 }
 
 /* Header within charts */
-div[class*='HeaderContainer'] > div {
+div[class*='HeaderContainer']>div {
   background-color: transparent !important;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
 }
@@ -301,7 +338,12 @@ div[class*='HeaderContainer'] > div {
 }
 
 .axis-label,
-.pie-label,
-text {
-  fill: #a1a1aa !important; /* Theme.darkGray */
+.pie-label {
+  fill: #a1a1aa !important;
+  /* Theme.darkGray */
+}
+
+/* SVG text elements: axis ticks, pie labels, chart annotations */
+svg text {
+  fill: #a1a1aa !important;
 }

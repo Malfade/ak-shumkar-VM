@@ -1,0 +1,655 @@
+<html lang="ru"><body>HTML
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="light dark" name="color-scheme"/><meta content="width=device-width, initial-scale=1" name="viewport"/>
+<link href="genindex.html" rel="index" title="Индекс"/><link href="search.html" rel="search" title="Поиск"/><link href="faq.html" rel="next" title="19 часто задаваемых вопросов"/><link href="connecting-other-systems.html" rel="prev" title="17 Подключение АК-ШУМКАР к другим системам"/>
+<link as="image" href="/img/ak-shumkar.png" rel="prefetch"/>
+<link as="image" href="/img/ak-shumkar.png" rel="prefetch"/>
+<link href="/img/ak-shumkar.png" rel="icon" type="image/png"/><link href="/img/ak-shumkar.png" rel="shortcut icon" type="image/png"/><title>18 Архитектура – ​​АК-ШУМКАР – ГОС 24.10.11</title>
+<link href="_static/pygments.css%3Fv=8e8a900e.css" rel="stylesheet" type="text/css"/>
+<link href="_static/styles/furo.css%3Fv=580074bf.css" rel="stylesheet" type="text/css"/>
+<link href="_static/sphinx_greenbone.css%3Fv=8ef0bb58.css" rel="stylesheet" type="text/css"/>
+<link href="_static/styles/furo-extensions.css%3Fv=8dab3a3b.css" rel="stylesheet" type="text/css"/>
+<style>
+  body {
+    --color-code-background: #ffffff;
+  --color-code-foreground: black;
+  --font-stack: Roboto, Helvetica, sans-serif;
+  --color-content-foreground: #4D4D4D;
+  --color-foreground-primary: 4D4D4D;
+  --color-foreground-secondary: #808080;
+  --color-code-background: #333333;
+  --color-code-foreground: #E6E6E6;
+  --color-admonition-title--note: #0E823E;
+  --color-admonition-title--note-background: #D8F1E2;
+  --color-admonition-title--warning: #E5393D;
+  --color-admonition-title--warning-background: #FBDDDE;
+  --admonition-font-size: 0.9rem;
+  --color-background-primary: #FFFFFF;
+  --color-background-secondary: #F5F5F5;
+  --color-sidebar-background: #F5F5F5;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --font-stack: Roboto, Helvetica, sans-serif;
+  --color-content-foreground: #F5F5F5;
+  --color-foreground-primary: F5F5F5;
+  --color-foreground-secondary: #E6E6E6;
+  --color-code-background: #333333;
+  --color-code-foreground: #E6E6E6;
+  --color-admonition-title--note: #11AB51;
+  --admonition-font-size: 0.9rem;
+  --color-background-primary: #171717;
+  --color-background-secondary: #4D4D4D;
+  --color-sidebar-background: #333333;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --font-stack: Roboto, Helvetica, sans-serif;
+  --color-content-foreground: #F5F5F5;
+  --color-foreground-primary: F5F5F5;
+  --color-foreground-secondary: #E6E6E6;
+  --color-code-background: #333333;
+  --color-code-foreground: #E6E6E6;
+  --color-admonition-title--note: #11AB51;
+  --admonition-font-size: 0.9rem;
+  --color-background-primary: #171717;
+  --color-background-secondary: #4D4D4D;
+  --color-sidebar-background: #333333;
+  
+      }
+    }
+  }
+</style>
+<script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+<svg style="display: none;" xmlns="http://www.w3.org/2000/svg">
+<symbol id="svg-toc" viewbox="0 0 24 24">
+<title>Содержание</title>
+<svg fill="currentColor" stroke="currentColor" stroke-width="0" viewbox="0 0 1024 1024">
+<path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"></path>
+</svg>
+</symbol>
+<symbol id="svg-menu" viewbox="0 0 24 24">
+<title>Меню</title>
+<svg class="feather-menu" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<line x1="3" x2="21" y1="12" y2="12"></line>
+<line x1="3" x2="21" y1="6" y2="6"></line>
+<line x1="3" x2="21" y1="18" y2="18"></line>
+</svg>
+</symbol>
+<symbol id="svg-arrow-right" viewbox="0 0 24 24">
+<title>Расширять</title>
+<svg class="feather-chevron-right" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<polyline points="9 18 15 12 9 6"></polyline>
+</svg>
+</symbol>
+<symbol id="svg-sun" viewbox="0 0 24 24">
+<title>Светлый режим</title>
+<svg class="feather-sun" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<circle cx="12" cy="12" r="5"></circle>
+<line x1="12" x2="12" y1="1" y2="3"></line>
+<line x1="12" x2="12" y1="21" y2="23"></line>
+<line x1="4.22" x2="5.64" y1="4.22" y2="5.64"></line>
+<line x1="18.36" x2="19.78" y1="18.36" y2="19.78"></line>
+<line x1="1" x2="3" y1="12" y2="12"></line>
+<line x1="21" x2="23" y1="12" y2="12"></line>
+<line x1="4.22" x2="5.64" y1="19.78" y2="18.36"></line>
+<line x1="18.36" x2="19.78" y1="5.64" y2="4.22"></line>
+</svg>
+</symbol>
+<symbol id="svg-moon" viewbox="0 0 24 24">
+<title>Темный режим</title>
+<svg class="icon-tabler-moon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 0h24v24H0z" fill="none" stroke="none"></path>
+<path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"></path>
+</svg>
+</symbol>
+<symbol id="svg-sun-with-moon" viewbox="0 0 24 24">
+<title>Автоматический свет/темнота, в светлом режиме</title>
+<svg class="icon-custom-derived-from-feather-sun-and-tabler-moon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z" style="opacity: 50%"></path>
+<line x1="14.5" x2="14.5" y1="3.25" y2="1.25"></line>
+<line x1="14.5" x2="14.5" y1="15.85" y2="17.85"></line>
+<line x1="10.044" x2="8.63" y1="5.094" y2="3.68"></line>
+<line x1="19" x2="20.414" y1="14.05" y2="15.464"></line>
+<line x1="8.2" x2="6.2" y1="9.55" y2="9.55"></line>
+<line x1="20.8" x2="22.8" y1="9.55" y2="9.55"></line>
+<line x1="10.044" x2="8.63" y1="14.006" y2="15.42"></line>
+<line x1="19" x2="20.414" y1="5.05" y2="3.636"></line>
+<circle cx="14.5" cy="9.55" r="3.6"></circle>
+</svg>
+</symbol>
+<symbol id="svg-moon-with-sun" viewbox="0 0 24 24">
+<title>Автоматический светлый/темный, в темном режиме</title>
+<svg class="icon-custom-derived-from-feather-sun-and-tabler-moon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"></path>
+<line style="opacity: 50%" x1="18" x2="18" y1="3.705" y2="2.5"></line>
+<line style="opacity: 50%" x1="18" x2="18" y1="11.295" y2="12.5"></line>
+<line style="opacity: 50%" x1="15.316" x2="14.464" y1="4.816" y2="3.964"></line>
+<line style="opacity: 50%" x1="20.711" x2="21.563" y1="10.212" y2="11.063"></line>
+<line style="opacity: 50%" x1="14.205" x2="13.001" y1="7.5" y2="7.5"></line>
+<line style="opacity: 50%" x1="21.795" x2="23" y1="7.5" y2="7.5"></line>
+<line style="opacity: 50%" x1="15.316" x2="14.464" y1="10.184" y2="11.036"></line>
+<line style="opacity: 50%" x1="20.711" x2="21.563" y1="4.789" y2="3.937"></line>
+<circle cx="18" cy="7.5" r="2.169" style="opacity: 50%"></circle>
+</svg>
+</symbol>
+<symbol id="svg-pencil" viewbox="0 0 24 24">
+<svg class="icon-tabler-pencil-code" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4"></path>
+<path d="M13.5 6.5l4 4"></path>
+<path d="M20 21l2 -2l-2 -2"></path>
+<path d="M17 17l-2 2l2 2"></path>
+</svg>
+</symbol>
+<symbol id="svg-eye" viewbox="0 0 24 24">
+<svg class="icon-tabler-eye-code" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 0h24v24H0z" fill="none" stroke="none"></path>
+<path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"></path>
+<path d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008"></path>
+<path d="M20 21l2 -2l-2 -2"></path>
+<path d="M17 17l-2 2l2 2"></path>
+</svg>
+</symbol>
+</svg>
+<input aria-label="Переключить боковую панель навигации по сайту" class="sidebar-toggle" id="__navigation" name="__navigation" type="checkbox"/>
+<input aria-label="Переключить боковую панель оглавления" class="sidebar-toggle" id="__toc" name="__toc" type="checkbox"/>
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+<a class="skip-to-content muted-link" href="architecture.html#furo-main-content">Перейти к содержимому</a>
+<div class="page">
+<header class="mobile-header">
+<div class="header-left">
+<label class="nav-overlay-icon" for="__navigation">
+<span class="icon"><svg><use href="#svg-menu"></use></svg></span>
+</label>
+</div>
+<div class="header-center">
+<a href="index.html"><div class="brand">АК-ШУМКАР – ГОС 24.10.11</div></a>
+</div>
+<div class="header-right">
+<div class="theme-toggle-container theme-toggle-header">
+<button aria-label="Переключить светлую/темную/автоматическую цветовую тему" class="theme-toggle">
+<svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+<svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+<svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+<svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+</button>
+</div>
+<label class="toc-overlay-icon toc-header-icon" for="__toc">
+<span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+</label>
+</div>
+</header>
+<aside class="sidebar-drawer">
+<div class="sidebar-container">
+<div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
+<div class="sidebar-logo-container">
+<img alt="Логотип AK-SHUMKAR" class="sidebar-logo only-light" src="/img/ak-shumkar.png"/>
+<img alt="Логотип AK-SHUMKAR" class="sidebar-logo only-dark" src="/img/ak-shumkar.png"/>
+</div>
+<span class="sidebar-brand-text">АК-ШУМКАР – ГОС 24.10.11</span>
+</a><form action="search.html" class="sidebar-search-container" method="get" role="search">
+<input aria-label="Поиск" class="sidebar-search" name="q" placeholder="Поиск"/>
+<input name="check_keywords" type="hidden" value="yes"/>
+<input name="area" type="hidden" value="default"/>
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">1 Введение</a></li>
+<li class="toctree-l1"><a class="reference internal" href="read-before-use.html">2 Прочтите перед использованием</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appliance-overview.html">3 АК-ШУМКАР – Обзор</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setting-up-the-appliance.html">4 Настройка АК-ШУМКАР</a></li>
+<li class="toctree-l1"><a class="reference internal" href="upgrading-gos.html">5 Обновление АК-ШУМКАР до последней основной версии</a></li>
+<li class="toctree-l1"><a class="reference internal" href="managing-gos.html">6 Управление операционной системой «Ак Шумкар»</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web-interface.html">7 Знакомство с веб-интерфейсом</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web-interface-access.html">8 Управление доступом к веб-интерфейсу</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scanning.html">9 Сканирование системы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reports.html">10 отчетов и управление уязвимостями</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compliance-and-special-scans.html">11 Выполнение сканирования на соответствие и специального сканирования</a></li>
+<li class="toctree-l1"><a class="reference internal" href="managing-assets.html">12 Управление активами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="managing-secinfo.html">13 Управление информацией о безопасности</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gmp.html">14 Использование протокола управления «Ак Шумкар»</a></li>
+<li class="toctree-l1"><a class="reference internal" href="master-sensor-setup.html">15 Использование настройки главного датчика</a></li>
+<li class="toctree-l1"><a class="reference internal" href="performance.html">16 Управление производительностью</a></li>
+<li class="toctree-l1"><a class="reference internal" href="connecting-other-systems.html">17 Подключение АК-ШУМКАР к другим системам</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="architecture.html#">18 Архитектура</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">19 часто задаваемых вопросов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">20 Глоссарий</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</aside>
+<div class="main">
+<div class="content">
+<div class="article-container">
+<a class="back-to-top muted-link" href="architecture.html#">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+</svg>
+<span>Вернуться наверх</span>
+</a>
+<div class="content-icon-container">
+<div class="theme-toggle-container theme-toggle-content">
+<button aria-label="Переключить светлую/темную/автоматическую цветовую тему" class="theme-toggle">
+<svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+<svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+<svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+<svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+</button>
+</div>
+<label class="toc-overlay-icon toc-content-icon" for="__toc">
+<span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+</label>
+</div>
+<article id="furo-main-content" role="main">
+<section id="architecture">
+<span id="id1"></span><h1><span class="section-number">18 </span>Архитектура<a class="headerlink" href="architecture.html#architecture" title="Ссылка на эту рубрику">¶</a></h1>
+<section id="gos-architecture">
+<span id="index-0"></span><h2><span class="section-number">18.1 </span>ГОС Архитектура<a class="headerlink" href="architecture.html#gos-architecture" title="Ссылка на эту рубрику">¶</a></h2>
+<p>ОС «Ак Шумкар» (ГОС) — операционная система АК-ШУМКАР.
+Вот обзор конструкции ГОС 24.10.</p>
+<figure class="align-center" id="id3">
+<a class="reference internal image-reference" href="_images/GOS_architecture.png"><img alt="_images/GOS_architecture.png" src="_images/GOS_architecture.png" style="width: 100%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 18.1 </span><span class="caption-text">Архитектура ГОС 24.10</span><a class="headerlink" href="architecture.html#id3" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+<p>Уровень управления ГСН обеспечивает доступ к администрированию ОС «Ак Шумкар» (ГОС).
+Поддерживается только одна учетная запись системного администратора.
+Системный администратор не может изменять системные файлы напрямую, но может дать команду системе изменить конфигурации.</p>
+<p>Управление ГСН осуществляется с помощью графического интерфейса на основе меню (меню администрирования ГОС).
+Системному администратору не требуется использовать командную строку (оболочку) для задач настройки или обслуживания.
+Доступ к оболочке предоставляется только в целях поддержки и устранения неполадок.</p>
+<p>Для доступа к системному ровню требуется либо доступ к консоли (последовательный порт, гипервизор или монитор/клавиатура), либо подключение через SSH.</p>
+<p>Гось позволяет пользователям настраивать, запускать и останавливать все службы AK-SHUMKAR COMMUNITY EDITION.</p>
+<p><strong>АК-ШУМКАР СООБЩЕСТВЕННОЕ ИЗДАНИЕ</strong></p>
+<p>AK-SHUMKAR COMMUNITY EDITION состоит из платформы с несколькими сервисами.
+Разработан в составе продукции АК-ШУМКАР компанией «Ак Шумкар».</p>
+<p>Он состоит из демона управления уязвимостями Ак Шумкар (gvmd), помощника безопасности Ак Шумкар (GSA) с демоном помощника безопасности Ак Шумкар (gsad) и исполняемого приложения, запускающего тесты на уязвимости (VT) в целевых системах.</p>
+<p>АК-ШУМКАР COMMUNITY EDITION распространяется по лицензии с открытым исходным кодом.
+Используя его, дистрибутивы Linux могут создавать и предоставлять программные компоненты в виде установочных пакетов.</p>
+<p><strong>Демон управления уязвимостями Ак Шумкар (gvmd)</strong></p>
+<p> <a class="reference external" href="https://github.com/ak-shumkar/gvmd">Демон управления уязвимостями Ак Шумкар (gvmd)</a> – также называется «Ак Шумкар Менеджер уязвимостей» – это центральный сервис, который выполняет простую проверку уязвимостей для полного решения проблем управления.
+директор gvmd сканером Ак-Шумкар через <a class="reference external" href="https://docs.ak-shumkar.net/API/OSP/osp-24.10.html">Открытый протокол (OSP)</a>.
+Он основан на XML, не сохраняет состояние и не требует постоянных соединений для связи.</p>
+<p>Сама услуга предлагает основанную на XML <a class="reference external" href="https://docs.ak-shumkar.net/API/GMP/gmp-22.7.html">Протокол управления Ак Шумкар (GMP)</a> (см. главу <a class="reference internal" href="gmp.html#gmp"><span class="std std-ref">14</span></a>).
+gvmd также управляет базой данных SQL (PostgreSQL), в которой централизованно извлекаются все данные и результаты автоматически.
+Кроме того, gvmd также содержит несколько углов управления пользователями, включая управление разрешениями с помощью групп и ролей.
+И, наконец, в сервисе есть встроенная система выполнения запланированных задач и других событий.</p>
+<p><strong>Ак Шумкар Помощник службы безопасности (GSA)</strong></p>
+<p> <a class="reference external" href="https://github.com/ak-shumkar/gsa">Ак Шумкар Помощник службы безопасности (GSA)</a> — это веб-интерфейс, с помощью которого пользователь управления компьютерами получает доступ к информации об уязвимостях.
+Это основная точка контакта пользователя с телефоном.
+Он находится к gvmd через веб-сервер Ak Shumkar Security Assistant Daemon (gsad), предоставляющий полнофункциональное веб-приложение для управления уязвимостями.
+Обеспечение связи с использованием протокола управления «Ак Шумкар» (GMP), с которым пользователь также может напрямую общаться, используя различные инструменты.</p>
+<p><strong>Ак-Шумкар Сканер</strong></p>
+<p>Основной сканер <a class="reference external" href="https://github.com/ak-shumkar/ak-shumkar-scanner">Ак-Шумкар Сканер</a> — это полнофункциональный модуль, который выполняет тесты на уязвимости (VT) целевых систем.
+Для этого он использует ежедневно обновляемые и полные каналы: полнофункциональные, обширные, <a class="reference external" href="https://www.ak-shumkar.net/en/feed-comparison/">коммерческий КОРМ АК-ШУМКАР ПРЕДПРИЯТИЕ или бесплатный КОРМ АК-ШУМКАР СООБЩЕСТВО</a>.</p>
+<p>Сканер состоит из компонентов <a class="reference external" href="https://github.com/ak-shumkar/ospd-ak-shumkar">ОСПД-АК-Шумкар</a> и <a class="reference external" href="https://github.com/ak-shumkar/ak-shumkar-scanner">ак-шумкар-сканер</a>.
+Сканер «Ак-Шумкар» управляется через OSP.
+Демон OSP для сканера Ак-шумкар (ospd-ak-shumkar) связан с gvmd через OSP: при переносе данных VT, сканер останавливается и останавливается, а результаты случайно передаются в gvmd через ospd.</p>
+<p><strong>ак-шумкард</strong></p>
+<p>Для обеспечения безопасности локальных проверок (LSC) ак-шумкар-сканер отправляет собранные пакеты на ак-шумкард.
+Передача осуществляется через http, прослушивание ак-шумкарда постановления на локальном хосту.</p>
+<p>ак-шумкард заменяет логику всех надежно LSC на базе NASL.
+Вместо выполнения протокола VT для каждого программного обеспечения LSC, установленного на хосте, используется со списком известного уязвимого программного обеспечения.</p>
+<p>Штатный Ак-Шумкар Сканер загружает каждый NASL LSC индивидуально и выполняет его поочередно для каждого хоста.
+Затем появилась одна известная уязвимость, связанная с соответствием установленному программному обеспечению.
+Это повторяется для всех LSC.
+При ак-шумкарде установленный список ПО загружается, но напрямую изменяется со всем известным уязвимым ПО для включения сканируемого системы. хоста.
+Это обязательное условие запуска LSC, поскольку информация об известных уязвимостях ПО собирается в единый список и не удаляется по NASL-скриптам.</p>
+<p>Это обеспечивает лучшую производительность за счет меньшего потребления системных ресурсов и, следовательно, более быстрого сканирования.</p>
+<p><strong>GMP-клиенты</strong></p>
+<p> <a class="reference external" href="https://github.com/ak-shumkar/gvm-tools">Инструменты управления уязвимостями «Ак Шумкар» (gvm-tools)</a> Это набор инструментов, с помощью которых можно удаленно управлять АК-ШУМКАР и Конгрессом на его основе демоном уязвимости Ак Шумкар (gvmd).
+Эти инструменты позволяют получить доступ к протоколам связи GMP (Протокол управления «Ак Шумкар») и OSP (Протокол открытого сканера).</p>
+<p>Этот модуль состоит из интерактивных и неинтерактивных клиентов.
+Язык программирования Python применяется непосредственно для интерактивного написания.
+Но также возможно подавать удаленные команды GMP/OSP без программирования на Python.</p>
+</section>
+<section id="protocols">
+<h2><span class="section-number">18.2 </span>Протоколы<a class="headerlink" href="architecture.html#protocols" title="Ссылка на эту рубрику">¶</a></h2>
+<p>Существуют обязательные и факультативные протоколы. Некоторые протоколы используются только в определенных конфигурациях.</p>
+<p>Для полноценной работы устройству требуется несколько протоколов. Эти протоколы управляют обновлениями каналов, определением доменных имен (DNS), времени и т. д. д. д. д.</p>
+<section id="appliance-as-a-client">
+<span id="index-1"></span><h3><span class="section-number">18.2.1 </span>Устройство как клиент<a class="headerlink" href="architecture.html#appliance-as-a-client" title="Ссылка на эту рубрику">¶</a></h3>
+<figure class="align-center" id="id4">
+<a class="reference internal image-reference" href="_images/appliance_acting_as_client.png"><img alt="_images/appliance_acting_as_client.png" src="_images/appliance_acting_as_client.png" style="width: 100%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 18.2 </span><span class="caption-text">Устройство в роли клиента</span><a class="headerlink" href="architecture.html#id4" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+<p>Следующие протоколы используются автономной системой или главным устройством для инициации подключений в качестве клиента:</p>
+<p><strong>DNS – определение имен</strong></p>
+<ul class="simple">
+<li><p>Подключение к 53/UDP и 53/TCP</p></li>
+<li><p>Обязательный</p></li>
+<li><p>Не зашифровано</p></li>
+<li><p>Можно использовать внутренний DNS-сервер</p></li>
+</ul>
+<p><strong>NTP – синхронизация времени</strong></p>
+<ul class="simple">
+<li><p>Подключение к 123/UDP</p></li>
+<li><p>Необязательный</p></li>
+<li><p>Не зашифровано</p></li>
+<li><p>Можно использовать внутренний NTP-сервер</p></li>
+</ul>
+<p><strong>Каналы (см. ниже)</strong></p>
+<ul class="simple">
+<li><p>Прямой</p>
+<ul>
+<li><p>Подключение к 24/TCP или 443/TCP можно выбрать в меню администрирования ГОС.</p></li>
+<li><p>Требуется прямой доступ в Интернет</p></li>
+</ul>
+</li>
+<li><p>Через прокси</p>
+<ul>
+<li><p>Подключение к внешнему HTTP-прокси, поддерживающему методу CONNECT, через настраиваемый порт.</p></li>
+</ul>
+</li>
+<li><p>Подключение к Feed.ak-shumkar.net</p></li>
+<li><p>Обязательно для автономных и главных приборов.</p></li>
+<li><p>Протокол: SSH.</p></li>
+<li><p>Шифрование и двунаправленная аутентификация через SSH.</p>
+<ul>
+<li><p>Сервер: открытый ключ</p></li>
+<li><p>Клиент: открытый ключ</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>DHCP</strong></p>
+<ul class="simple">
+<li><p>Подключение к 67/UDP и 68/UDP</p></li>
+<li><p>Необязательный</p></li>
+<li><p>Не зашифровано</p></li>
+</ul>
+<p><strong>Воздушный зазор (S)FTP</strong></p>
+<ul class="simple">
+<li><p>Порт можно настроить индивидуально в меню администрирования ГОС.</p>
+<ul>
+<li><p>По умолчанию подключение к 20/TCP и 21/TCP для FTP и 22/TCP для SFTP.</p></li>
+</ul>
+</li>
+<li><p>Необязательный</p></li>
+<li><p>Не зашифровано или зашифровано и имеет двустороннюю аутентификацию через SSH.</p></li>
+</ul>
+<p><strong>LDAPS – аутентификация пользователя</strong></p>
+<ul class="simple">
+<li><p>Порт можно настроить индивидуально в веб-интерфейсе.</p>
+<ul>
+<li><p>По умолчанию подключение к 389/TCP для LDAP с использованием STARTTLS и 636/TCP для LDAPS.</p></li>
+</ul>
+</li>
+<li><p>Необязательный</p></li>
+<li><p>Шифрование и аутентификация через SSL/TLS.</p>
+<ul>
+<li><p>Сервер: сертификат</p></li>
+<li><p>Клиент: имя пользователя/пароль</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>РАДИУС – аутентификация пользователя</strong></p>
+<ul class="simple">
+<li><p>Подключение к 1812/UDP</p></li>
+<li><p>Необязательный</p></li>
+<li><p>незашифрованный</p></li>
+</ul>
+<p><strong>Системный журнал – удаленное ведение журнала и оповещения</strong></p>
+<ul class="simple">
+<li><p>Порт можно настроить индивидуально в меню администрирования ГОС.</p>
+<ul>
+<li><p>По умолчанию подключение к 512/UDP или 512/TCP.</p></li>
+</ul>
+</li>
+<li><p>Необязательный</p></li>
+<li><p>Не зашифровано</p></li>
+</ul>
+<p><strong>SNMP-ловушки для оповещений</strong></p>
+<ul class="simple">
+<li><p>Подключение к 162</p></li>
+<li><p>Необязательный</p></li>
+<li><p>Только SNMPv1</p></li>
+<li><p>Не зашифровано</p></li>
+</ul>
+<p><strong>SMTP(S) для оповещений по электронной почте</strong></p>
+<ul class="simple">
+<li><p>Порт можно настроить индивидуально в меню администрирования ГОС.</p>
+<ul>
+<li><p>По умолчанию подключение к 465/TCP для SMTPS и 25/TCP для SMTP, альтернативное подключение к 587/TCP.</p></li>
+</ul>
+</li>
+<li><p>Необязательный</p></li>
+<li><p>SMTPS можно использовать всегда.</p></li>
+<li><p>Шифрование через STARTTLS, если SMTPS не применяется.</p></li>
+<li><p>Не зашифровано, если шифрование через STARTTLS невозможно.</p></li>
+</ul>
+<p><strong>SFTP для резервного копирования</strong></p>
+<ul class="simple">
+<li><p>Порт можно настроить индивидуально в меню администрирования ГОС.</p>
+<ul>
+<li><p>По умолчанию подключение к 22</p></li>
+</ul>
+</li>
+<li><p>Необязательный</p></li>
+<li><p>Шифрование и двунаправленная аутентификация через SSH.</p>
+<ul>
+<li><p>Сервер: открытый ключ</p></li>
+<li><p>Клиент: открытый ключ</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Cisco Firepower (Sourcefire) для региональных IPS</strong></p>
+<ul class="simple">
+<li><p>Порт можно настроить индивидуально в веб-интерфейсе.</p>
+<ul>
+<li><p>По умолчанию подключение к 8307/TCP.</p></li>
+</ul>
+</li>
+<li><p>Необязательный</p></li>
+<li><p>Шифрование и двунаправленная аутентификация через SSL/TLS.</p>
+<ul>
+<li><p>Сервер: сертификат</p></li>
+<li><p>Клиент: сертификат</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>verinice.PRO</strong></p>
+<ul class="simple">
+<li><p>Подключение к 443</p></li>
+<li><p>Необязательный</p></li>
+<li><p>Шифрование через SSL/TLS</p>
+<ul>
+<li><p>Сервер: опционально через сертификат</p></li>
+<li><p>Клиент: имя пользователя/пароль</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Переломный момент СМС</strong></p>
+<ul class="simple">
+<li><p>Подключение к 443</p></li>
+<li><p>Необязательный</p></li>
+<li><p>Шифрование через SSL/TLS</p>
+<ul>
+<li><p>Сервер: сертификат</p></li>
+<li><p>Клиент: сертификат, имя пользователя/пароль</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="appliance-as-a-server">
+<span id="index-2"></span><h3><span class="section-number">18.2.2 </span>Устройство как сервер<a class="headerlink" href="architecture.html#appliance-as-a-server" title="Ссылка на эту рубрику">¶</a></h3>
+<figure class="align-center" id="id5">
+<a class="reference internal image-reference" href="_images/appliance_acting_as_a_server.png"><img alt="_images/appliance_acting_as_a_server.png" src="_images/appliance_acting_as_a_server.png" style="width: 100%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 18.3 </span><span class="caption-text">Устройство, выполняющее роль сервера</span><a class="headerlink" href="architecture.html#id5" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+<p>Следующие соединения поддерживаются устройством, выступающим в качестве сервера:</p>
+<p><strong>HTTPS – веб-интерфейс</strong></p>
+<ul class="simple">
+<li><p>443/ПТС</p></li>
+<li><p>Обязательно для автономных и главных приборов.</p></li>
+<li><p>Шифрование и аутентификация через SSL/TLS.</p>
+<ul>
+<li><p>Сервер: опционально через сертификат</p></li>
+<li><p>Клиент: имя пользователя/пароль</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>SSH — доступ через CLI и GMP</strong></p>
+<ul class="simple">
+<li><p>22/ПТС</p></li>
+<li><p>Необязательный</p></li>
+<li><p>Шифрование и аутентификация через SSH.</p>
+<ul>
+<li><p>Сервер: открытый ключ</p></li>
+<li><p>Клиент: имя пользователя/пароль</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>SNMP</strong></p>
+<ul class="simple">
+<li><p>161/УДП</p></li>
+<li><p>Необязательный</p></li>
+<li><p>Опционально зашифровано при использовании SNMPv3.</p></li>
+</ul>
+</section>
+<section id="master-sensor-setup">
+<span id="index-3"></span><h3><span class="section-number">18.2.3 </span>Настройка главного датчика<a class="headerlink" href="architecture.html#master-sensor-setup" title="Ссылка на эту рубрику">¶</a></h3>
+<figure class="align-center" id="id6">
+<a class="reference internal image-reference" href="_images/Master_Sensor_Communication.png"><img alt="_images/Master_Sensor_Communication.png" src="_images/Master_Sensor_Communication.png" style="width: 100%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 18.4 </span><span class="caption-text">Мастер устройства и датчик</span><a class="headerlink" href="architecture.html#id6" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+<p>При настройке главного датчика применяются следующие дополнительные требования. Мастер (сервер) инициирует до трех дополнительных подключений к датчику (клиенту):</p>
+<p><strong>SSH для обновленных GOS, обновленных каналов, GMP и OSP</strong></p>
+<ul class="simple">
+<li><p>Подключение через 22/TCP по умолчанию</p>
+<ul>
+<li><p>Альтернативное подключение через 9390/TCP для обратной совместимости.</p></li>
+</ul>
+</li>
+<li><p>Обязательный</p></li>
+<li><p>Шифрование и двунаправленная аутентификация через SSH.</p>
+<ul>
+<li><p>Сервер: открытый ключ</p></li>
+<li><p>Клиент: открытый ключ</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section id="security-gateway-considerations">
+<span id="index-4"></span><h2><span class="section-number">18.3 </span>Рекомендации по шлюзу безопасности<a class="headerlink" href="architecture.html#security-gateway-considerations" title="Ссылка на эту рубрику">¶</a></h2>
+<p>Многие предприятия используют шлюзы безопасности для ограничения доступа в Интернет.
+Эти шлюзы безопасности могут работать как фильтры пакетов или шлюзы прикладного уровня.</p>
+<p>Некоторые продукты поддерживают глубокую проверку и пытаются определить фактический протокол, используемый в каналах связи.
+Они могут даже попытаться расшифровать и проанализировать любое зашифрованное сообщение.</p>
+<section id="stand-alone-master-appliance">
+<span id="index-5"></span><h3><span class="section-number">18.3.1 </span>Автономное/главное устройство<a class="headerlink" href="architecture.html#stand-alone-master-appliance" title="Ссылка на эту рубрику">¶</a></h3>
+<p>Хотя многие протоколы, используемые устройством, используются только внутри, некоторые протоколы требуют доступа к Интернету.
+Эти протоколы могут фильтроваться таким шлюзом безопасности.</p>
+<p>При развертывании устройства в качестве автономного или главного устройства оно должно иметь доступ к ФИДУ ПРЕДПРИЯТИЯ АК-ШУМКАР.
+Доступ к AK-SHUMKAR ENTERPRISE FEED можно получить напрямую через порт 24/TCP или 443/TCP или с помощью прокси.</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Во всех случаях используется протокол SSH, даже при использовании портала 443/TCP или HTTP-прокси.</p>
+</div>
+<p>Брандмауэр с глубокой проверкой может использовать протокол SSH, работающий на порту 443/TCP, и сбросить или заблокировать трафик.</p>
+<p>Если шлюз безопасности попытается расшифровать трафик с использованием метода «человек-посредине», связь между телефоном и сервером, передача данных не будет удалена.
+Протокол SSH, использующий двунаправленную аутентификацию на основе открытых ключей, любые возможные подходы «человек посередине», разрыв соединения.</p>
+<p>Дополнительные протоколы, необходимые для доступа в Интернет, — это DNS и NTP.
+И DNS, и NTP можно настроить на использование внутренних DNS и NTP-серверов.</p>
+</section>
+<section id="sensor-appliance">
+<span id="index-6"></span><h3><span class="section-number">18.3.2 </span>Сенсорное устройство<a class="headerlink" href="architecture.html#sensor-appliance" title="Ссылка на эту рубрику">¶</a></h3>
+<p>Если между главным устройством и датчиком используются шлюзы безопасности, безопасность шлюза должна разрешить соединения SSH (22/TCP) между главным устройством и датчиком.</p>
+</section>
+</section>
+</section>
+</article>
+</div>
+<footer>
+<div class="related-pages">
+<a class="next-page" href="faq.html">
+<div class="page-info">
+<div class="context">
+<span>Следующий</span>
+</div>
+<div class="title"><span class="section-number">19 </span>Часто задаваемые вопросы</div>
+</div>
+<svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+</a>
+<a class="prev-page" href="connecting-other-systems.html">
+<svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+<div class="page-info">
+<div class="context">
+<span>Предыдущий</span>
+</div>
+<div class="title"><span class="section-number">17 </span>Подключение АК-ШУМКАР к другим системам</div>
+</div>
+</a>
+</div>
+<div class="bottom-of-page">
+<div class="left-details">
+<div class="copyright">
+                Copyright © 2015–2026, Ак Шумкар
+            </div>
+<div class="last-updated">
+              Последнее обновление: 13 марта 2026 г.</div>
+</div>
+<div class="right-details">
+</div>
+</div>
+</footer>
+</div>
+<aside class="toc-drawer">
+<div class="toc-sticky toc-scroll">
+<div class="toc-title-container">
+<span class="toc-title">
+            На этой странице
+          </span>
+</div>
+<div class="toc-tree-container">
+<div class="toc-tree">
+<ul>
+<li><a class="reference internal" href="architecture.html#">18 Архитектура</a><ul>
+<li><a class="reference internal" href="architecture.html#gos-architecture">18.1 Архитектура ГСН</a></li>
+<li><a class="reference internal" href="architecture.html#protocols">18.2 Протоколы</a><ul>
+<li><a class="reference internal" href="architecture.html#appliance-as-a-client">18.2.1 Устройство как клиент</a></li>
+<li><a class="reference internal" href="architecture.html#appliance-as-a-server">18.2.2 Устройство как сервер</a></li>
+<li><a class="reference internal" href="architecture.html#master-sensor-setup">18.2.3 Настройка главного датчика</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="architecture.html#security-gateway-considerations">18.3 Особенности шлюза безопасности</a><ul>
+<li><a class="reference internal" href="architecture.html#stand-alone-master-appliance">18.3.1 Автономное/главное устройство</a></li>
+<li><a class="reference internal" href="architecture.html#sensor-appliance">18.3.2 Сенсорное устройство</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</aside>
+</div>
+</div><script src="_static/documentation_options.js%3Fv=bd398bb6"></script>
+<script src="_static/doctools.js%3Fv=9a2dae69"></script>
+<script src="_static/sphinx_highlight.js%3Fv=dc90522c"></script>
+<script src="_stati_static/scripts/furo.js%3Fv=46bd48cc"></script>
+</body></html>

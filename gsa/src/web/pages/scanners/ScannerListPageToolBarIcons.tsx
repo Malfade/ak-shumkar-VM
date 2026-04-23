@@ -6,9 +6,6 @@
 import {NewIcon} from 'web/components/icon';
 import ManualIcon from 'web/components/icon/ManualIcon';
 import IconDivider from 'web/components/layout/IconDivider';
-import useCapabilities from 'web/hooks/useCapabilities';
-import useFeatures from 'web/hooks/useFeatures';
-import useGmp from 'web/hooks/useGmp';
 import useTranslation from 'web/hooks/useTranslation';
 
 interface ScannerListPageToolBarIconsProps {
@@ -18,14 +15,7 @@ interface ScannerListPageToolBarIconsProps {
 const ScannerListPageToolBarIcons = ({
   onScannerCreateClick,
 }: ScannerListPageToolBarIconsProps) => {
-  const gmp = useGmp();
-  const capabilities = useCapabilities();
-  const features = useFeatures();
   const [_] = useTranslation();
-  const showNewScannerIcon =
-    capabilities.mayCreate('scanner') &&
-    (gmp.settings.enableAkShumkarSensor ||
-      features.featureEnabled('ENABLE_AGENTS'));
   return (
     <IconDivider>
       <ManualIcon
@@ -33,12 +23,10 @@ const ScannerListPageToolBarIcons = ({
         page="scanning"
         title={_('Help: Scanners')}
       />
-      {showNewScannerIcon && (
-        <NewIcon
-          title={_('New Scanner')}
-          onClick={() => onScannerCreateClick && onScannerCreateClick()}
-        />
-      )}
+      <NewIcon
+        title={_('New Scanner')}
+        onClick={() => onScannerCreateClick && onScannerCreateClick()}
+      />
     </IconDivider>
   );
 };

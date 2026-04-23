@@ -1,0 +1,502 @@
+<html lang="ru"><body><meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="light dark" name="color-scheme"/><meta content="width=device-width, initial-scale=1" name="viewport"/>
+<link href="genindex.html" rel="index" title="Индекс"/><link href="search.html" rel="search" title="Поиск"/><link href="connecting-other-systems.html" rel="next" title="17 Подключение АК-ШУМКАР к другим системам"/><link href="master-sensor-setup.html" rel="prev" title="15 Использование настроек главного датчика"/>
+<link as="image" href="/img/ak-shumkar.png" rel="prefetch"/>
+<link as="image" href="/img/ak-shumkar.png" rel="prefetch"/>
+<link href="/img/ak-shumkar.png" rel="icon" type="image/png"/><link href="/img/ak-shumkar.png" rel="shortcut icon" type="image/png"/><title>16 Управление производительностью - АК-ШУМКАР – ГОС 24.10.11</title>
+<link href="_static/pygments.css%3Fv=8e8a900e.css" rel="stylesheet" type="text/css"/>
+<link href="_static/styles/furo.css%3Fv=580074bf.css" rel="stylesheet" type="text/css"/>
+<link href="_static/sphinx_greenbone.css%3Fv=8ef0bb58.css" rel="stylesheet" type="text/css"/>
+<link href="_static/styles/furo-extensions.css%3Fv=8dab3a3b.css" rel="stylesheet" type="text/css"/>
+<style>
+  body {
+    --color-code-background: #ffffff;
+  --color-code-foreground: black;
+  --font-stack: Roboto, Helvetica, sans-serif;
+  --color-content-foreground: #4D4D4D;
+  --color-foreground-primary: 4D4D4D;
+  --color-foreground-secondary: #808080;
+  --color-code-background: #333333;
+  --color-code-foreground: #E6E6E6;
+  --color-admonition-title--note: #0E823E;
+  --color-admonition-title--note-background: #D8F1E2;
+  --color-admonition-title--warning: #E5393D;
+  --color-admonition-title--warning-background: #FBDDDE;
+  --admonition-font-size: 0.9rem;
+  --color-background-primary: #FFFFFF;
+  --color-background-secondary: #F5F5F5;
+  --color-sidebar-background: #F5F5F5;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --font-stack: Roboto, Helvetica, sans-serif;
+  --color-content-foreground: #F5F5F5;
+  --color-foreground-primary: F5F5F5;
+  --color-foreground-secondary: #E6E6E6;
+  --color-code-background: #333333;
+  --color-code-foreground: #E6E6E6;
+  --color-admonition-title--note: #11AB51;
+  --admonition-font-size: 0.9rem;
+  --color-background-primary: #171717;
+  --color-background-secondary: #4D4D4D;
+  --color-sidebar-background: #333333;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --font-stack: Roboto, Helvetica, sans-serif;
+  --color-content-foreground: #F5F5F5;
+  --color-foreground-primary: F5F5F5;
+  --color-foreground-secondary: #E6E6E6;
+  --color-code-background: #333333;
+  --color-code-foreground: #E6E6E6;
+  --color-admonition-title--note: #11AB51;
+  --admonition-font-size: 0.9rem;
+  --color-background-primary: #171717;
+  --color-background-secondary: #4D4D4D;
+  --color-sidebar-background: #333333;
+  
+      }
+    }
+  }
+</style>
+<script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+<svg style="display: none;" xmlns="http://www.w3.org/2000/svg">
+<symbol id="svg-toc" viewbox="0 0 24 24">
+<title>Содержание</title>
+<svg fill="currentColor" stroke="currentColor" stroke-width="0" viewbox="0 0 1024 1024">
+<path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"></path>
+</svg>
+</symbol>
+<symbol id="svg-menu" viewbox="0 0 24 24">
+<title>Меню</title>
+<svg class="feather-menu" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<line x1="3" x2="21" y1="12" y2="12"></line>
+<line x1="3" x2="21" y1="6" y2="6"></line>
+<line x1="3" x2="21" y1="18" y2="18"></line>
+</svg>
+</symbol>
+<symbol id="svg-arrow-right" viewbox="0 0 24 24">
+<title>Расширять</title>
+<svg class="feather-chevron-right" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<polyline points="9 18 15 12 9 6"></polyline>
+</svg>
+</symbol>
+<symbol id="svg-sun" viewbox="0 0 24 24">
+<title>Светлый режим</title>
+<svg class="feather-sun" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<circle cx="12" cy="12" r="5"></circle>
+<line x1="12" x2="12" y1="1" y2="3"></line>
+<line x1="12" x2="12" y1="21" y2="23"></line>
+<line x1="4.22" x2="5.64" y1="4.22" y2="5.64"></line>
+<line x1="18.36" x2="19.78" y1="18.36" y2="19.78"></line>
+<line x1="1" x2="3" y1="12" y2="12"></line>
+<line x1="21" x2="23" y1="12" y2="12"></line>
+<line x1="4.22" x2="5.64" y1="19.78" y2="18.36"></line>
+<line x1="18.36" x2="19.78" y1="5.64" y2="4.22"></line>
+</svg>
+</symbol>
+<symbol id="svg-moon" viewbox="0 0 24 24">
+<title>Темный режим</title>
+<svg class="icon-tabler-moon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 0h24v24H0z" fill="none" stroke="none"></path>
+<path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"></path>
+</svg>
+</symbol>
+<symbol id="svg-sun-with-moon" viewbox="0 0 24 24">
+<title>Автоматический свет/темнота, в ярком режиме</title>
+<svg class="icon-custom-derived-from-feather-sun-and-tabler-moon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z" style="opacity: 50%"></path>
+<line x1="14.5" x2="14.5" y1="3.25" y2="1.25"></line>
+<line x1="14.5" x2="14.5" y1="15.85" y2="17.85"></line>
+<line x1="10.044" x2="8.63" y1="5.094" y2="3.68"></line>
+<line x1="19" x2="20.414" y1="14.05" y2="15.464"></line>
+<line x1="8.2" x2="6.2" y1="9.55" y2="9.55"></line>
+<line x1="20.8" x2="22.8" y1="9.55" y2="9.55"></line>
+<line x1="10.044" x2="8.63" y1="14.006" y2="15.42"></line>
+<line x1="19" x2="20.414" y1="5.05" y2="3.636"></line>
+<circle cx="14.5" cy="9.55" r="3.6"></circle>
+</svg>
+</symbol>
+<symbol id="svg-moon-with-sun" viewbox="0 0 24 24">
+<title>Автоматический светлый/темный, в темном режиме</title>
+<svg class="icon-custom-derived-from-feather-sun-and-tabler-moon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"></path>
+<line style="opacity: 50%" x1="18" x2="18" y1="3.705" y2="2.5"></line>
+<line style="opacity: 50%" x1="18" x2="18" y1="11.295" y2="12.5"></line>
+<line style="opacity: 50%" x1="15.316" x2="14.464" y1="4.816" y2="3.964"></line>
+<line style="opacity: 50%" x1="20.711" x2="21.563" y1="10.212" y2="11.063"></line>
+<line style="opacity: 50%" x1="14.205" x2="13.001" y1="7.5" y2="7.5"></line>
+<line style="opacity: 50%" x1="21.795" x2="23" y1="7.5" y2="7.5"></line>
+<line style="opacity: 50%" x1="15.316" x2="14.464" y1="10.184" y2="11.036"></line>
+<line style="opacity: 50%" x1="20.711" x2="21.563" y1="4.789" y2="3.937"></line>
+<circle cx="18" cy="7.5" r="2.169" style="opacity: 50%"></circle>
+</svg>
+</symbol>
+<symbol id="svg-pencil" viewbox="0 0 24 24">
+<svg class="icon-tabler-pencil-code" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4"></path>
+<path d="M13.5 6.5l4 4"></path>
+<path d="M20 21l2 -2l-2 -2"></path>
+<path d="M17 17l-2 2l2 2"></path>
+</svg>
+</symbol>
+<symbol id="svg-eye" viewbox="0 0 24 24">
+<svg class="icon-tabler-eye-code" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 0h24v24H0z" fill="none" stroke="none"></path>
+<path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"></path>
+<path d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008"></path>
+<path d="M20 21l2 -2l-2 -2"></path>
+<path d="M17 17l-2 2l2 2"></path>
+</svg>
+</symbol>
+</svg>
+<input aria-label="Включить боковую панель навигации по сайту" class="sidebar-toggle" id="__navigation" name="__navigation" type="checkbox"/>
+<input aria-label="Переключить боковую панель оглавления" class="sidebar-toggle" id="__toc" name="__toc" type="checkbox"/>
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+<a class="skip-to-content muted-link" href="performance.html#furo-main-content">Перейти к содержимому</a>
+<div class="page">
+<header class="mobile-header">
+<div class="header-left">
+<label class="nav-overlay-icon" for="__navigation">
+<span class="icon"><svg><use href="#svg-menu"></use></svg></span>
+</label>
+</div>
+<div class="header-center">
+<a href="index.html"><div class="brand">АК-ШУМКАР – ГОС 24.10.11</div></a>
+</div>
+<div class="header-right">
+<div class="theme-toggle-container theme-toggle-header">
+<button aria-label="Переключить светлую/темную/автоматическую цветную тему" class="theme-toggle">
+<svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+<svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+<svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+<svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+</button>
+</div>
+<label class="toc-overlay-icon toc-header-icon" for="__toc">
+<span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+</label>
+</div>
+</header>
+<aside class="sidebar-drawer">
+<div class="sidebar-container">
+<div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
+<div class="sidebar-logo-container">
+<img alt="Логотип AK-SHUMKAR" class="sidebar-logo only-light" src="/img/ak-shumkar.png"/>
+<img alt="Логотип AK-SHUMKAR" class="sidebar-logo only-dark" src="/img/ak-shumkar.png"/>
+</div>
+<span class="sidebar-brand-text">АК-ШУМКАР – ГОС 24.10.11</span>
+</a><form action="search.html" class="sidebar-search-container" method="get" role="search">
+<input aria-label="Поиск" class="sidebar-search" name="q" placeholder="Поиск"/>
+<input name="check_keywords" type="hidden" value="yes"/>
+<input name="area" type="hidden" value="default"/>
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">1 Введение</a></li>
+<li class="toctree-l1"><a class="reference internal" href="read-before-use.html">2 Прочтите перед использованием</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appliance-overview.html">3 АК-ШУМКАР – Обзор</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setting-up-the-appliance.html">4 Настройка АК-ШУМКАР</a></li>
+<li class="toctree-l1"><a class="reference internal" href="upgrading-gos.html">5 Обновление АК-ШУМКАР до последней основной версии</a></li>
+<li class="toctree-l1"><a class="reference internal" href="managing-gos.html">6 Управление системой «Ак Шумкар»</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web-interface.html">7 Знакомство с веб-интерфейсом</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web-interface-access.html">8 Управление доступом к веб-интерфейсу</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scanning.html">9 Системы сканирования</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reports.html">10 отчетов и управление уязвимостями</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compliance-and-special-scans.html">11 Выполнение консультаций и технических услуг</a></li>
+<li class="toctree-l1"><a class="reference internal" href="managing-assets.html">12 Управление активами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="managing-secinfo.html">13 Управление информацией о безопасности</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gmp.html">14 Использование протокола управления «Ак Шумкар»</a></li>
+<li class="toctree-l1"><a class="reference internal" href="master-sensor-setup.html">15 Использование настроек главного датчика</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="performance.html#">16 Управление производительностью</a></li>
+<li class="toctree-l1"><a class="reference internal" href="connecting-other-systems.html">17 Подключение АК-ШУМКАР к другим системам</a></li>
+<li class="toctree-l1"><a class="reference internal" href="architecture.html">18 Архитектура</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">19 часто задаваемых вопросов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">20 Глоссарий</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</aside>
+<div class="main">
+<div class="content">
+<div class="article-container">
+<a class="back-to-top muted-link" href="performance.html#">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+</svg>
+<span>Вернуться наверх</span>
+</a>
+<div class="content-icon-container">
+<div class="theme-toggle-container theme-toggle-content">
+<button aria-label="Переключить светлую/темную/автоматическую цветную тему" class="theme-toggle">
+<svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+<svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+<svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+<svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+</button>
+</div>
+<label class="toc-overlay-icon toc-content-icon" for="__toc">
+<span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+</label>
+</div>
+<article id="furo-main-content" role="main">
+<section id="managing-the-performance">
+<span id="index-0"></span><h1><span class="section-number">16 </span>Управление производительностью<a class="headerlink" href="performance.html#managing-the-performance" title="Ссылка на эту рубрику">¶</a></h1>
+<p>При работе АК-ШУМКАР между прибором, объектами и любыми сенсорными устройствами могут передаваться значительные объемы данных.
+Кроме того, результаты необходимо анализировать, фильтровать и обрабатывать через компьютер.
+В зависимости от модели устройства, количества пользователей и конфигурации задач проверки, многие из этих процессов будут выполняться одновременно.</p>
+<section id="monitoring-the-appliance-performance">
+<span id="monitoring-and-debugging"></span><span id="index-1"></span><h2><span class="section-number">16.1 </span>Мониторинг производительности устройства<a class="headerlink" href="performance.html#monitoring-the-appliance-performance" title="Ссылка на эту рубрику">¶</a></h2>
+<p>Общую работу АК-ШУМКАРА можно отслеживать, выбрав <span class="target" id="gos-webui-0"></span><em>Администрирование &gt; Производительность</em> в меню (см. <a class="reference internal" href="performance.html#fig-performance2"><span class="std std-numref">Рис. 16.1</span></a>).</p>
+<figure class="align-center" id="id4">
+<span id="fig-performance2"></span><a class="reference internal image-reference" href="_images/performance2.png"><img alt="_images/ Performance2.png" src="_images/performance2.png" style="width: 70%;"/>
+</a>
+<figcaption>
+<p><span class="caption-number">Рис. 16.1 </span><span class="caption-text">Отображение производительности прибора</span><a class="headerlink" href="performance.html#id4" title="Ссылка на это изображение">¶</a></p>
+</figcaption>
+</figure>
+<p>Можно отобразить использование ресурсов устройства за последний час, день, неделю, месяц или год.</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Производительность датчика настроения также может быть включена в ведущее устройство.</p>
+</div>
+<p>Следующие разделы важны:</p>
+<dl class="simple">
+<dt>Процессы</dt><dd><p>Большое количество процессов не критично.
+Однако в первую очередь должны быть только воспроизводимые и запущенные процессы.</p>
+</dd>
+<dt>Загрузка системы</dt><dd><p>Постоянная высокая загрузка имеет решающее значение.
+Допустимой считается нагрузка 4 на систему с 4 ядрами.</p>
+</dd>
+<dt>Использование ЦП</dt><dd><p>Особенно важен высокий уровень Wait-IO.</p>
+</dd>
+<dt>Использование</dt><dd><p>Устройство использует агрессивное кэширование.
+Использование большей части памяти в объеме кэша допускается.</p>
+</dd>
+<dt>Использование свопа</dt><dd><p>Использование подкачки памяти указывает на потенциальную перегрузку системы.</p>
+</dd>
+</dl>
+</section>
+<section id="optimizing-the-scan-performance">
+<span id="index-2"></span><h2><span class="section-number">16.2 </span>Оптимизация производительности<a class="headerlink" href="performance.html#optimizing-the-scan-performance" title="Ссылка на эту рубрику">¶</a></h2>
+<p>Скорость поворота зависит от многих параметров:</p>
+<ul class="simple">
+<li><p>Выбранные порты</p></li>
+<li><p>Выбранная внешняя сторона</p></li>
+<li><p>Порядок достижения целей</p></li>
+</ul>
+<section id="selecting-a-port-list-for-a-task">
+<span id="index-3"></span><h3><span class="section-number">16.2.1 </span>Выбор списка портов для задачи<a class="headerlink" href="performance.html#selecting-a-port-list-for-a-task" title="Ссылка на эту рубрику">¶</a></h3>
+<p>Список портов, настроенный для целей, оказывает большое влияние на продолжительность живого теста и случайные уязвимости целей.</p>
+<section id="general-information-about-ports-and-port-lists">
+<h4><span class="section-number">16.2.1.1 </span>Общая информация о портах и ​​списках портов<a class="headerlink" href="performance.html#general-information-about-ports-and-port-lists" title="Ссылка на эту рубрику">¶</a></h4>
+<p>Порты — это точки подключения сетевой связи. Каждая портовая система связана с портом другой системы.</p>
+<p><strong>Порты протокола управления передачей (TCP)</strong></p>
+<ul class="simple">
+<li><p>65535 TCP-портов для каждой системы</p></li>
+<li><p>Передача данных происходит в обоих направлениях между двумя портами TCP.</p></li>
+<li><p>Сканирование TCP-портов обычно происходит просто и быстро.</p></li>
+</ul>
+<p><strong>Порты протокола идентификации дейтаграмм (UDP)</strong></p>
+<ul class="simple">
+<li><p>65535 портов UDP для каждой системы</p></li>
+<li><p>Передача данных происходит только в одном направлении между двумя портами UDP.</p></li>
+<li><p>Данные, полученные по UDP, не обязательно подтверждаются, поэтому проверка портов UDP обычно занимает больше времени.</p></li>
+</ul>
+<p>Порты с номерами от 0 до 1023 являются привилегированными или системными портами и не могут быть открыты пользовательскими приложениями. <a class="footnote-reference superscript" href="performance.html#id3" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.</p>
+<p> <a class="reference external" href="https://www.iana.org/">Управление по присвоению номеров в Интернете (IANA)</a> Включите порты, например, порт 80 — «http» или порт 443 — «https».
+Зарегистрировано более 5000 портов.</p>
+<p>Сканирование всех портов во многих случаях занимает много времени, и многие порты обычно не используются.
+Чтобы решить эту проблему, можно использовать управляемые порты.</p>
+<p>Проанализированы все порты всех систем, доступных через Интернет, и созданы наиболее часто используемые порты.
+Они не обязательно отражают список IANA, поскольку они не обязательно регистрируют конкретный тип услуги для обычного порта.
+<a class="reference external" href="https://nmap.org/">Нмап</a>, сканер портов с открытым исходным кодом и сканер «Ак-шумкар» по умолчанию используют разные методы, а также не проверяют все порты.</p>
+<p>Для большинства сканирований зачастую достаточно сканировать порты, зарегистрированные в IANA.</p>
+<p>На устройстве предварительно сохраняются следующие управляемые порты:</p>
+<ul class="simple">
+<li><p>Все TCP, назначенные IANA: все TCP-порты, назначенные Управлением по присвоению номеров в Интернете (IANA), постоянно обновляются.</p></li>
+<li><p>Все TCP и UDP, назначенные IANA: все порты TCP и UDP, назначенные Управлением по присвоению номеров в Интернете (IANA), постоянно обновляются.</p></li>
+<li><p>Все привилегированные ПТС</p></li>
+<li><p>Все привилегированные TCP и UDP</p></li>
+<li><p>Все TCP</p></li>
+<li><p>Все 100 лучших UDP TCP и Nmap: все порты TCP и 100 лучших портов UDP по данным сетевого сканера Nmap, постоянно обновляемые.</p></li>
+<li><p>Все TCP и Nmap Top 1000 UDP: все TCP-порты и 1000 лучших UDP-портов по данным сетевого сканера Nmap постоянно обновляются.</p></li>
+<li><p>Nmap Top 2000 TCP и Top 100 UDP: 2000 лучших TCP-портов и 100 лучших UDP-портов по данным сетевого сканера Nmap, постоянно обновляемые.</p></li>
+<li><p>Ак-шумкар по умолчанию: TCP-порты, которые сканируются сканером Ак-шумкар при открытии внешних портов по умолчанию.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Дополнительные заданные порты можно создать, как следует в главе <a class="reference internal" href="scanning.html#creating-port-lists"><span class="std std-ref">9.7</span></a>.</p>
+</div>
+</section>
+<section id="selecting-the-right-port-list">
+<span id="seleting-port-list"></span><span id="index-4"></span><h4><span class="section-number">16.2.1.2 </span>Выбор итогового списка портов<a class="headerlink" href="performance.html#selecting-the-right-port-list" title="Ссылка на эту рубрику">¶</a></h4>
+<p>При выборе списка портов необходимо учитывать производительность и продолжительность работы.</p>
+<p>Продолжительность оказания услуг в определенной конфигурации сети и предоставлении проверяемых портов.</p>
+<p>Службы, не относящиеся к портам в списке, не проверяют наличие уязвимостей.
+Кроме того, приоритетные заявления, направленные к таким портам, не будут обнаружены.
+Вредоносные приложения в основном используют открытые порты, которые обычно не используются, и находятся далеко от системных портов.</p>
+<p>Другими критериями являются механизмы крепления, которые активируются при тщательном сканировании портов и инициируют контрмеры или оповещения.
+Даже при обычном сканировании брандмауэры могут имитировать активность всех портов 65535 и, таким образом, замедлять фактическое сканирование с помощью так называемых тайм-аутов.</p>
+<p>Кроме того, на каждой запрашиваемой портовой службе, стоящей за ним, реагирует как минимум одна запись в журнале.
+По организационным причинам некоторые службы можно сканировать только в ограниченное время.</p>
+<section id="scan-duration">
+<span id="port-list-scan-duration"></span><h5><span class="section-number">16.2.1.2.1 </span>Продолжительность оказания помощи<a class="headerlink" href="performance.html#scan-duration" title="Ссылка на эту рубрику">¶</a></h5>
+<p>В некоторых случаях при регулировке портов проверка всех портов TCP и UDP может занимать до 24 часов и более для одной системы.
+Поскольку проверка выполняется параллельно, обе системы требуют немного больше времени, чем одна система.
+Однако распараллеливание имеет свои ограничения из-за системных ресурсов и производительности сети.</p>
+<p>Для подключения всех TCP-портов IANA обычно требуется всего несколько минут.</p>
+<p>Поскольку контрмеры могут увеличить продолжительность стабилизации, регулирование можно предотвратить, внеся некоторые изменения в конфигурацию защитной системы.</p>
+<p>В случае возникновения подозрений на компрометацию или серьезных нарушений безопасности, неизбежна полная неожиданность.</p>
+</section>
+<section id="total-security">
+<h5><span class="section-number">16.2.1.2.2 </span>Полная безопасность<a class="headerlink" href="performance.html#total-security" title="Ссылка на эту рубрику">¶</a></h5>
+<p>При сканировании портов полной безопасности не существует, а это означает, что даже при сканировании всех портов TCP и UDP заданное время ожидания тестирования порта может быть слишком коротким, чтобы обеспечить скрытое гарантированное решение.</p>
+<p>При наличии первичного подозрения следует проверяться опытным тестером на проникновение.</p>
+</section>
+</section>
+</section>
+<section id="selecting-a-scan-configuration-for-a-task">
+<span id="index-5"></span><h3><span class="section-number">16.2.2 </span>Выбор оформления офиса для задачи<a class="headerlink" href="performance.html#selecting-a-scan-configuration-for-a-task" title="Ссылка на эту рубрику">¶</a></h3>
+<p>Конфигурация также влияет на продолжительность коррекции.
+Устройство предлагает четыре различных модуля для устранения уязвимостей:</p>
+<ul class="simple">
+<li><p>Полный и быстрый</p></li>
+<li><p>Полный и быстрый ульт</p></li>
+<li><p>Полный и очень глубокий</p></li>
+<li><p>Полный и очень глубокий ульт</p></li>
+</ul>
+<p>Конфигурации <span class="target" id="gos-webui-1"></span><em>Полный и быстрый</em> и <span class="target" id="gos-webui-2"></span><em>Полный и быстрый ульт</em> Оптимизируйте процесс обработки, используя информацию, полученную ранее при сканировании.
+Вы изобретены только полезную ВТ, что приводит к уменьшению продолжительности жизни.</p>
+<p>Сканирование с использованием конфигураций программного обеспечения <span class="target" id="gos-webui-3"></span><em>Полный и очень глубокий</em> и <span class="target" id="gos-webui-4"></span><em>Полный и очень глубокий ульт</em> отключите уже обнаруженную информацию и выполните все доступные ВТ без исключения.</p>
+</section>
+</section>
+<section id="scan-queuing">
+<span id="index-6"></span><span id="id2"></span><h2><span class="section-number">16.3 </span>Очередь<a class="headerlink" href="performance.html#scan-queuing" title="Ссылка на эту рубрику">¶</a></h2>
+<p>Когда <a class="reference internal" href="_images/start.png"><img alt="" src="_images/start.png" style="height: 1.2em;"/></a> нажимается на задачу или аудит, он добавляется в очередь ожидания и получает статус <em>В очереди</em>.
+Сканер начинает сканирование только в том случае, если доступно достаточно системных ресурсов.
+Доступные ресурсы, основанные на моделях устройств, используемой версии ГСН и современных технологиях на основе промышленных систем.
+Кроме того, синхронизация в очереди запускается с интервалом в 1 минуту, чтобы избежать перегрузки системы.</p>
+<p>Наиболее важным ресурсом для подключения является оперативная память (ОЗУ).
+Для выполнения каждого решения требуется минимум операций памяти, поскольку один и тот же процесс не может обрабатывать несколько сканирований разными пользователями или даже одним и тем же пользователем.
+Оперативная память имеет физические ограничения и не может быть использована удовлетворительным образом.</p>
+<p>ЦП, сетевое соединение и дисковый ввод-вывод также являются обязательными для системных задач.
+Однако, в отличие от оперативной памяти, их можно использовать совместно за счет более медленного аппаратного выполнения.</p>
+<div class="admonition warning">
+<p class="admonition-title">Предупреждение</p>
+<p>Если одновременно запускается большое количество задач, например, по одному и такому же расписанию, это, в свою очередь, не приведет к влиянию на технику, пока не будет превышен объем ОЗУ.
+Это может оказать негативное влияние на производительность системы и привести к ее сбоям.</p>
+</div>
+<p>Диаграммы производительности системы предоставляют подробную информацию о динамике оперативной памяти (см. главу <a class="reference internal" href="performance.html#monitoring-and-debugging"><span class="std std-ref">16.1</span></a>).</p>
+<p>В некоторых случаях задачи/аудиты остаются в очереди ожидания:</p>
+<ul class="simple">
+<li><p>Слишком много задач/аудитов для выполнения и выполнения одновременно, и недостаточно оперативной памяти.</p></li>
+<li><p>Устройство осуществляет канал обновления и в настоящее время загружает новые виртуальные машины.</p></li>
+<li><p>Устройство только что запущено и в настоящий момент загружает виртуальные терминалы.</p></li>
+</ul>
+<p>Когда необходимая оперативная память снова становится доступной или завершается загрузка ВТ, для выполнения задачи/аудита из очереди ожидания по принципу «первым пришел — первым отключен».</p>
+<p>Встроенное управление с помощью главного датчика обеспечивает рабочее управление как ведущим телефоном, так и датчиком.
+Каждый датчик управления включается автоматически, как показано выше, и расходует ресурсы для выполнения тестов на уязвимости устройства.
+Мастер расходует ресурсы для каждой задачи датчика, которой он должен управлять.</p>
+<div class="admonition warning">
+<p class="admonition-title">Предупреждение</p>
+<p>Если одновременно включается большое количество датчиков задач, например, по одному и такому же расписанию, включение не приведет к влиянию мощности на тех пор, пока не превысит объем ОЗУ.
+Это может оказать негативное влияние на производительность системы и привести к ее сбоям.</p>
+</div>
+<p class="rubric">Сноски</p>
+<aside class="footnote-list superscript">
+<aside class="footnote superscript" id="id3" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a href="performance.html#id1" role="doc-backlink">1</a><span class="fn-bracket">]</span></span>
+<p>В Unix-подобных сервисах доступ к привилегированным портам разрешен только привилегированным пользователям (то есть root).
+Порты, начинающиеся с 1024, также доступны непривилегированным пользователям.</p>
+</aside>
+</aside>
+</section>
+</section>
+</article>
+</div>
+<footer>
+<div class="related-pages">
+<a class="next-page" href="connecting-other-systems.html">
+<div class="page-info">
+<div class="context">
+<span>Следующий</span>
+</div>
+<div class="title"><span class="section-number">17 </span>Подключение АК-ШУМКАР к другим системам</div>
+</div>
+<svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+</a>
+<a class="prev-page" href="master-sensor-setup.html">
+<svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+<div class="page-info">
+<div class="context">
+<span>Предыдущий</span>
+</div>
+<div class="title"><span class="section-number">15 </span>Использование настройки главного датчика</div>
+</div>
+</a>
+</div>
+<div class="bottom-of-page">
+<div class="left-details">
+<div class="copyright">
+                Copyright © 2015–2026, Ак Шумкар
+            </div>
+<div class="last-updated">
+              Последнее обновление: 13 марта 2026 г.</div>
+</div>
+<div class="right-details">
+</div>
+</div>
+</footer>
+</div>
+<aside class="toc-drawer">
+<div class="toc-sticky toc-scroll">
+<div class="toc-title-container">
+<span class="toc-title">
+            На этой странице
+          </span>
+</div>
+<div class="toc-tree-container">
+<div class="toc-tree">
+<ul>
+<li><a class="reference internal" href="performance.html#">16 Управление производительностью</a><ul>
+<li><a class="reference internal" href="performance.html#monitoring-the-appliance-performance">16.1 Мониторинг производительности устройства</a></li>
+<li><a class="reference internal" href="performance.html#optimizing-the-scan-performance">16.2 Оптимизация производительности дешево</a><ul>
+<li><a class="reference internal" href="performance.html#selecting-a-port-list-for-a-task">16.2.1 Выбор списка портов для задачи</a><ul>
+<li><a class="reference internal" href="performance.html#general-information-about-ports-and-port-lists">16.2.1.1 Общая информация о портах и ​​списках портов</a></li>
+<li><a class="reference internal" href="performance.html#selecting-the-right-port-list">16.2.1.2 Выбор списка портов</a><ul>
+<li><a class="reference internal" href="performance.html#scan-duration">16.2.1.2.1 Продолжительность процедуры</a></li>
+<li><a class="reference internal" href="performance.html#total-security">16.2.1.2.2 Полная безопасность</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="performance.html#selecting-a-scan-configuration-for-a-task">16.2.2 Выбор конфигурации офиса для задачи</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="performance.html#scan-queuing">16.3 Очередной звонок</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</aside>
+</div>
+</div><script src="_static/documentation_options.js%3Fv=bd398bb6"></script>
+<script src="_static/doctools.js%3Fv=9a2dae69"></script>
+<script src="_static/sphinx_highlight.js%3Fv=dc90522c"></script>
+<script src="_stati_static/scripts/furo.js%3Fv=46bd48cc"></script>
+</body></html>

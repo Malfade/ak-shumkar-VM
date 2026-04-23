@@ -80,7 +80,8 @@ set (CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG} -Werror")
 add_definitions (-DOPENVAS_MISC_VERSION="${PROJECT_VERSION_STRING}")
 
 include_directories (${GLIB_INCLUDE_DIRS} ${GLIB_JSON_INCLUDE_DIRS}
-                     ${LIBGVM_BASE_INCLUDE_DIRS}
+                     ${LIBGVM_BASE_INCLUDE_DIRS} ${LIBGVM_UTIL_INCLUDE_DIRS}
+                     ${LIBGVM_BOREAS_INCLUDE_DIRS}
                      ${GNUTLS_INCLUDE_DIRS} ${CURL_INCLUDE_DIRS} ${KRB5_INCLUDE_DIRS} ${KRB5_GSSAPI_INCLUDE_DIRS})
 
 # Library
@@ -103,6 +104,7 @@ set_target_properties (openvas_misc_shared PROPERTIES SOVERSION "${PROJECT_VERSI
 set_target_properties (openvas_misc_shared PROPERTIES VERSION "${PROJECT_VERSION_STRING}")
 
 target_link_libraries (openvas_misc_shared LINK_PRIVATE
+                       ${LIBGVM_BASE_LDFLAGS} ${LIBGVM_UTIL_LDFLAGS}
                        ${GNUTLS_LDFLAGS} ${UUID_LDFLAGS}
                        ${GLIB_LDFLAGS} ${GLIB_JSON_LDFLAGS} ${MAGIC_LDFLAGS}
                        ${PCAP_LDFLAGS} ${LIBGVM_BOREAS_LDFLAGS} ${CURL_LDFLAGS} ${KRB5_LDFLAGS} ${KRB5_GSSAPI_LDFLAGS}

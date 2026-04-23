@@ -25,7 +25,7 @@ describe('ManualLink tests', () => {
     const {element} = render(<ManualLink page="foo" title="Foo" />);
 
     expect(element).toHaveAttribute('title', 'Foo');
-    expect(element).toHaveAttribute('href', 'http://foo.bar/en/foo.html');
+    expect(element).toHaveAttribute('href', 'http://foo.bar/ru/foo.html');
     expect(element).toHaveAttribute('target', '_blank');
     expect(element).toHaveAttribute('rel', 'noopener noreferrer');
   });
@@ -39,7 +39,7 @@ describe('ManualLink tests', () => {
     });
     const {element} = render(<ManualLink anchor="bar" page="foo" />);
 
-    expect(element).toHaveAttribute('href', 'http://foo.bar/en/foo.html#bar');
+    expect(element).toHaveAttribute('href', 'http://foo.bar/ru/foo.html#bar');
     expect(element).toHaveAttribute('target', '_blank');
     expect(element).toHaveAttribute('rel', 'noopener noreferrer');
   });
@@ -55,7 +55,7 @@ describe('ManualLink tests', () => {
 
     expect(element).toHaveAttribute(
       'href',
-      'http://foo.bar/en/search.html?q=bar',
+      'http://foo.bar/ru/search.html?q=bar',
     );
     expect(element).toHaveAttribute('target', '_blank');
     expect(element).toHaveAttribute('rel', 'noopener noreferrer');
@@ -71,7 +71,7 @@ describe('ManualLink tests', () => {
     const {element} = render(<ManualLink page="foo" title="Foo" />);
 
     expect(element).toHaveAttribute('title', 'Foo');
-    expect(element).toHaveAttribute('href', 'http://foo.bar/de/foo.html');
+    expect(element).toHaveAttribute('href', 'http://foo.bar/ru/foo.html');
     expect(element).toHaveAttribute('target', '_blank');
     expect(element).toHaveAttribute('rel', 'noopener noreferrer');
   });
@@ -86,12 +86,12 @@ describe('ManualLink tests', () => {
     const {element} = render(<ManualLink page="foo" title="Foo" />);
 
     expect(element).toHaveAttribute('title', 'Foo');
-    expect(element).toHaveAttribute('href', 'http://foo.bar/en/foo.html');
+    expect(element).toHaveAttribute('href', 'http://foo.bar/ru/foo.html');
     expect(element).toHaveAttribute('target', '_blank');
     expect(element).toHaveAttribute('rel', 'noopener noreferrer');
   });
 
-  test('should render fallback to english locale', () => {
+  test('should render fallback to russian locale', () => {
     const {render} = rendererWith({
       gmp: createGmp(),
       language: {
@@ -101,7 +101,7 @@ describe('ManualLink tests', () => {
     const {element} = render(<ManualLink lang="foo" page="foo" title="Foo" />);
 
     expect(element).toHaveAttribute('title', 'Foo');
-    expect(element).toHaveAttribute('href', 'http://foo.bar/en/foo.html');
+    expect(element).toHaveAttribute('href', 'http://foo.bar/ru/foo.html');
     expect(element).toHaveAttribute('target', '_blank');
     expect(element).toHaveAttribute('rel', 'noopener noreferrer');
   });
@@ -121,5 +121,22 @@ describe('ManualLink tests', () => {
     const {element} = render(<ManualLink lang="de" page="foo" title="Foo" />);
 
     expect(element).toHaveAttribute('href', 'http://foo.bar/foo/foo.html');
+  });
+
+  test('should render local manual URL as bundled index page', () => {
+    const {render} = rendererWith({
+      gmp: createGmp({
+        manualUrl: '/manual/ak-shumkar/',
+      }),
+      language: {
+        language: 'en',
+      },
+    });
+    const {element} = render(<ManualLink page="scanning" title="Local" />);
+
+    expect(element).toHaveAttribute(
+      'href',
+      '/manual/ak-shumkar/ru/index.html#scanning',
+    );
   });
 });
