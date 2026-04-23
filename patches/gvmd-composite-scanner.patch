@@ -81,7 +81,9 @@ index 424beca..a20f1c9 100644
        || scanner_type == SCANNER_TYPE_AGENT_CONTROLLER_SENSOR)
      return 1;
 @@ -2210,6 +2211,57 @@ cve_scan_host (task_t task, report_t report, gvm_host_t *gvm_host,
-   return 0;
+  /* Custom/future scanner types should not be blocked at task creation time.
+   * Runtime scanner/backend will reject unsupported configurations if needed. */
+  return 1;
  }
  
 +/**
