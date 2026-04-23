@@ -592,6 +592,22 @@ fi
 
 echo "🚀 Starting Greenbone Community Edition Stack..."
 
+# Vite build references /config.js from index.html. Ensure it exists in gsa root.
+if [[ ! -f "${SCRIPT_DIR}/gsa/config.js" ]]; then
+  if [[ -f "${SCRIPT_DIR}/gsa/public/config.js" ]]; then
+    echo "ℹ️ gsa/config.js missing — copying from gsa/public/config.js"
+    cp "${SCRIPT_DIR}/gsa/public/config.js" "${SCRIPT_DIR}/gsa/config.js"
+  else
+    echo "ℹ️ gsa/config.js and gsa/public/config.js missing — creating default config.js"
+    cat > "${SCRIPT_DIR}/gsa/config.js" <<'EOF'
+window.GSA_CONFIG = {
+  apiServer: window.location.host,
+  apiProtocol: window.location.protocol.slice(0, -1),
+};
+EOF
+  fi
+fi
+
 # 1. Build Frontend
 echo "📦 Building GSA Frontend inside Docker (Node 22)..."
 retry_cmd 3 docker run --rm \
