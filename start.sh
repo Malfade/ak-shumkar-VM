@@ -554,6 +554,21 @@ fi
 
 pre_pull_custom_image_bases
 
+normalize_gvmd_data_objects_layout() {
+  local data_objects_vol="${COMPOSE_PROJECT_NAME}_data_objects_vol"
+  echo "🧩 Normalizing gvmd data-objects layout in volume ${data_objects_vol}..."
+  docker run --rm -v "${data_objects_vol}:/mnt" alpine sh -lc '
+    set -e
+    mkdir -p /mnt/gvmd
+    if [ -f /mnt/feed.xml ] && [ ! -f /mnt/gvmd/feed.xml ]; then
+      cp /mnt/feed.xml /mnt/gvmd/feed.xml
+    fi
+    if [ -f /mnt/timestamp ] && [ ! -f /mnt/gvmd/timestamp ]; then
+      cp /mnt/timestamp /mnt/gvmd/timestamp
+    fi
+  '
+}
+
 echo "🐳 Rebuilding openvasd-custom Docker image..."
 # Use a temporary build context to avoid .dockerignore excluding `rust/target`.
 TMP_BUILD_DIR="$(mktemp -d)"
@@ -628,6 +643,7 @@ retry_cmd 3 docker run --rm -v "${PSQL_SOCKET_VOL}:/socket" alpine rm -f /socket
 echo "🐳 Starting Docker containers..."
 pre_pull_images
 retry_cmd 3 compose_cmd up -d --remove-orphans --force-recreate
+retry_cmd 3 normalize_gvmd_data_objects_layout
 
 echo "✅ Stack is up and running!"
 echo "📍 Access GSA at: http://localhost:9393"
