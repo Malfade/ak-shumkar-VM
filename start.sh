@@ -502,10 +502,25 @@ if [[ "${USE_PATCHED_GVMD}" == "1" ]]; then
     exit 1
   fi
   if [[ ! -f "${SCRIPT_DIR}/third_party/gvmd/CMakeLists.txt" ]]; then
-    echo "❌ USE_PATCHED_GVMD=1 but third_party/gvmd is missing."
-    echo "   Clone: git clone --depth 1 https://github.com/greenbone/gvmd.git third_party/gvmd"
-    echo "   Then apply patches/gvmd-composite-scanner.patch if you use the composite scanner feature."
+    echo "ℹ️ third_party/gvmd is missing, bootstrapping patched gvmd sources..."
+    if ! command -v git >/dev/null 2>&1; then
+      echo "❌ git is required to auto-bootstrap third_party/gvmd."
+      exit 1
+    fi
+    retry_cmd 3 git clone --depth 1 https://github.com/greenbone/gvmd.git "${SCRIPT_DIR}/third_party/gvmd"
+  fi
+  if [[ ! -f "${SCRIPT_DIR}/third_party/gvmd/CMakeLists.txt" ]]; then
+    echo "❌ Auto-bootstrap failed: ${SCRIPT_DIR}/third_party/gvmd/CMakeLists.txt not found."
     exit 1
+  fi
+  GVMD_PATCH="${SCRIPT_DIR}/patches/gvmd-composite-scanner.patch"
+  if [[ -f "${GVMD_PATCH}" ]]; then
+    if git -C "${SCRIPT_DIR}/third_party/gvmd" apply --check "${GVMD_PATCH}" >/dev/null 2>&1; then
+      echo "🩹 Applying patches/gvmd-composite-scanner.patch to third_party/gvmd..."
+      git -C "${SCRIPT_DIR}/third_party/gvmd" apply "${GVMD_PATCH}"
+    else
+      echo "ℹ️ gvmd composite patch already applied or not cleanly applicable; continuing."
+    fi
   fi
   echo "🧩 USE_PATCHED_GVMD=1 — will build gvmd from docker/gvmd-patched.Dockerfile (types 11/12)."
 fi
