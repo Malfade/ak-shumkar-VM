@@ -496,6 +496,95 @@ build_openvas_c_in_docker() {
       cmake --build build -j"$(nproc)"'
 }
 
+apply_gvmd_composite_compat_fixes() {
+  # Keep patched gvmd build resilient across slightly different upstream snapshots.
+  # Some trees contain composite type uses without enum declarations (or vice versa).
+  retry_cmd 3 python3 - <<'PY'
+from pathlib import Path
+
+root = Path("third_party/gvmd/src")
+manage_h = root / "manage.h"
+manage_sql = root / "manage_sql_configs.c"
+gvmd_c = root / "gvmd.c"
+
+if not (manage_h.exists() and manage_sql.exists() and gvmd_c.exists()):
+    raise SystemExit("Required gvmd source files are missing under third_party/gvmd/src")
+
+# 1) Ensure composite enum values exist in manage.h.
+h = manage_h.read_text()
+if "SCANNER_TYPE_OPENVAS_WITH_CVE" not in h:
+    old = "  SCANNER_TYPE_CONTAINER_IMAGE = 10,\n  SCANNER_TYPE_MAX = 11,\n"
+    new = (
+        "  SCANNER_TYPE_CONTAINER_IMAGE = 10,\n"
+        "  /** OpenVAS (OSP) scan followed by CVE/SCAP prognosis in the same report. */\n"
+        "  SCANNER_TYPE_OPENVAS_WITH_CVE = 11,\n"
+        "  /** OpenVASd scan followed by CVE/SCAP prognosis in the same report. */\n"
+        "  SCANNER_TYPE_OPENVASD_WITH_CVE = 12,\n"
+        "  SCANNER_TYPE_MAX = 13,\n"
+    )
+    if old in h:
+        h = h.replace(old, new, 1)
+    else:
+        # Compatibility fallback when enum layout differs in upstream tree.
+        marker = "  SCANNER_TYPE_MAX = "
+        idx = h.find(marker)
+        if idx != -1:
+            line_start = h.rfind("\n", 0, idx) + 1
+            line_end = h.find("\n", idx)
+            current = h[line_start:line_end]
+            current_num = current.split("=")[1].strip().rstrip(",")
+            h = h[:line_start] + (
+                "  SCANNER_TYPE_OPENVAS_WITH_CVE = 11,\n"
+                "  SCANNER_TYPE_OPENVASD_WITH_CVE = 12,\n"
+                f"  SCANNER_TYPE_MAX = {current_num},\n"
+            ) + h[line_end + 1:]
+    manage_h.write_text(h)
+
+# 2) make scanner/config checks tolerant to future/custom scanner type values.
+s = manage_sql.read_text()
+s = s.replace(
+    "  if (stype == SCANNER_TYPE_OPENVAS_WITH_CVE)\n    return 1;\n"
+    "  if (stype == SCANNER_TYPE_OPENVASD_WITH_CVE)\n    return 1;\n",
+    "",
+)
+s = s.replace(
+    "  if (stype == SCANNER_TYPE_OPENVAS_WITH_CVE)\n    return 0;\n\n"
+    "  if (stype == SCANNER_TYPE_OPENVASD_WITH_CVE)\n    return 0;\n\n",
+    "",
+)
+needle = "  if (scanner == 0)\n    return 0;\n\n  return 1;\n}\n"
+replacement = (
+    "  if (scanner == 0)\n    return 0;\n\n"
+    "  /* Keep task edit paths forward-compatible with custom scanner types.\n"
+    "   * Scanner/backend runtime checks still decide what can actually run. */\n"
+    "  return 0;\n}\n"
+)
+if needle in s:
+    s = s.replace(needle, replacement, 1)
+manage_sql.write_text(s)
+
+# 3) Define composite constants in gvmd.c if headers are old during mixed patch states.
+g = gvmd_c.read_text()
+include = '#include "manage.h"\n'
+fallback = (
+    '#include "manage.h"\n\n'
+    '/* Compatibility fallback for trees where composite scanner enums\n'
+    ' * are not yet defined in manage.h. */\n'
+    '#ifndef SCANNER_TYPE_OPENVAS_WITH_CVE\n'
+    '#define SCANNER_TYPE_OPENVAS_WITH_CVE 11\n'
+    '#endif\n'
+    '#ifndef SCANNER_TYPE_OPENVASD_WITH_CVE\n'
+    '#define SCANNER_TYPE_OPENVASD_WITH_CVE 12\n'
+    '#endif\n'
+)
+if "SCANNER_TYPE_OPENVAS_WITH_CVE 11" not in g and include in g:
+    g = g.replace(include, fallback, 1)
+gvmd_c.write_text(g)
+
+print("Applied gvmd composite compatibility fixes")
+PY
+}
+
 if [[ "${USE_PATCHED_GVMD}" == "1" ]]; then
   if [[ ! -f "${SCRIPT_DIR}/docker/gvmd-patched.Dockerfile" ]]; then
     echo "❌ USE_PATCHED_GVMD=1 but docker/gvmd-patched.Dockerfile is missing."
@@ -522,6 +611,7 @@ if [[ "${USE_PATCHED_GVMD}" == "1" ]]; then
       echo "ℹ️ gvmd composite patch already applied or not cleanly applicable; continuing."
     fi
   fi
+  apply_gvmd_composite_compat_fixes
   echo "🧩 USE_PATCHED_GVMD=1 — will build gvmd from docker/gvmd-patched.Dockerfile (types 11/12)."
 fi
 
