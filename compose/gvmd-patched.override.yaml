@@ -4,6 +4,6 @@
 services:
   gvmd:
     build:
-      context: ..
+      context: .
       dockerfile: docker/gvmd-patched.Dockerfile
     image: ak-shumkar-gvmd:local
