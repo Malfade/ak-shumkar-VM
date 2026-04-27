@@ -41,11 +41,17 @@ services:
 
   data-objects:
     image: registry.community.greenbone.net/community/data-objects
+    # Required: without FEED_RELEASE, init copies all version subdirs (20.08, 24.10, …)
+    # into the volume root; gvmd expects port-lists/ and scan-configs/ directly under GVMD_FEED_DIR.
+    environment:
+      FEED_RELEASE: "24.10"
     volumes:
       - data_objects_vol:/mnt
 
   report-formats:
     image: registry.community.greenbone.net/community/report-formats
+    environment:
+      FEED_RELEASE: "24.10"
     volumes:
       - data_objects_vol:/mnt
     depends_on:
@@ -203,8 +209,9 @@ services:
       - gvmd_data_vol:/var/lib/gvm
       - scap_data_vol:/var/lib/gvm/scap-data
       - cert_data_vol:/var/lib/gvm/cert-data
-      # Mount at parent path so gvmd can create/read /var/lib/gvm/data-objects/gvmd itself.
-      - data_objects_vol:/var/lib/gvm/data-objects
+      # Same as upstream Greenbone CE: feed containers copy port-lists, scan-configs, report-formats
+      # into the volume root; gvmd expects GVMD_FEED_DIR = .../data-objects/gvmd (not .../data-objects).
+      - data_objects_vol:/var/lib/gvm/data-objects/gvmd
       - vt_data_vol:/var/lib/openvas/plugins
       - psql_data_vol:/var/lib/postgresql
       - gvmd_socket_vol:/run/gvmd
