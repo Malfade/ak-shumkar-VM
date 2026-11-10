@@ -1,86 +1,121 @@
-![Greenbone Logo](https://www.greenbone.net/wp-content/uploads/gb_new-logo_horizontal_rgb_small.png)
+# Система анализа защищенности и управления уязвимостями «Ак-Шумкар»
 
-# OpenVAS Scanner
+<p align="center">
+  <img src="gsa/public/img/AK-SHUMKAR.png" alt="Ак-Шумкар" width="450"/>
+</p>
 
-[![GitHub releases](https://img.shields.io/github/release/greenbone/openvas-scanner.svg)](https://github.com/greenbone/openvas-scanner/releases)
-[![Docker Pulls](https://img.shields.io/docker/pulls/greenbone/openvas-scanner.svg)](https://hub.docker.com/r/greenbone/openvas-scanner/)
-[![Docker Image Size](https://img.shields.io/docker/image-size/greenbone/openvas-scanner.svg?maxAge=2592000)](https://hub.docker.com/r/greenbone/openvas-scanner/)
-[![CI](https://github.com/greenbone/openvas-scanner/actions/workflows/control.yml/badge.svg?branch=main)](https://github.com/greenbone/openvas-scanner/actions/workflows/control.yml?query=branch%3Amain)
+<p align="center">
+  <strong>Отечественная масштабируемая платформа контроля защищенности, инвентаризации сетевых активов и аудита соответствия политикам информационной безопасности.</strong>
+</p>
 
-This is the OpenVAS Scanner of the Greenbone Community Edition.
+<p align="center">
+  <img src="https://img.shields.io/badge/Версия-3.4_Enterprise-blue.svg" alt="Версия"/>
+  <img src="https://img.shields.io/badge/Архитектура-Docker_Compose-informational.svg" alt="Docker"/>
+  <img src="https://img.shields.io/badge/Ядро-Rust_|_C11-success.svg" alt="Ядро"/>
+  <img src="https://img.shields.io/badge/Лицензирование-Защищено_RSA--4096-red.svg" alt="Лицензирование"/>
+</p>
 
-It is used for the Greenbone Enterprise appliances and is a full-featured
-scan engine that executes a continuously updated and extended feed of
-Vulnerability Tests (VTs).
+---
 
-## Releases
+## 📌 О платформе
 
-All [release files](https://github.com/greenbone/openvas/releases) are signed with
-the [Greenbone Community Feed integrity key](https://community.greenbone.net/t/gcf-managing-the-digital-signatures/101).
-This gpg key can be downloaded at https://www.greenbone.net/GBCommunitySigningKey.asc
-and the fingerprint is `8AE4 BE42 9B60 A59B 311C  2E73 9823 FAA6 0ED1 E580`.
+Программный комплекс **«Ак-Шумкар»** представляет собой высокопроизводительную распределенную систему выявления уязвимостей системного и прикладного программного обеспечения, сетевых служб, сетевого оборудования и веб-приложений. 
 
-## Installation
+Платформа спроектирована для работы в изолированных корпоративных и ведомственных сегментах, центрах мониторинга информационной безопасности (SOC) и центрах обработки данных (ЦОД).
 
-This module can be configured, built and installed with following commands:
+### Ключевые возможности:
+- **Комплексное сетевое сканирование:** глубокий аудит сетевых сервисов, выявление открытых портов, баннеров и потенциальных точек проникновения.
+- **База из 100 000+ сигнатур уязвимостей:** непрерывное сопоставление с реестрами CVE, BDU ФСТЭК, CERT-Bund и бюллетенями безопасности Notus.
+- **Аудит конфигураций (Local Security Checks):** авторизованное сканирование хостов под управлением Linux, Windows, сетевых устройств Cisco/Huawei и гипервизоров ESXi по протоколам SSH, SMB, SNMP, WMI.
+- **Собственная подсистема коммерческого лицензирования:** контроль срока действия тарифа (3/6/12 месяцев), привязка к хосту (`/etc/machine-id`) и верификация асимметричными цифровыми подписями RSA 4096-bit.
+- **Современный веб-интерфейс:** русскоязычный SPA-интерфейс на React 18, визуализация метрик, конструктор дашбордов и выгрузка отчетов в форматах PDF, XML, CSV.
 
-    cmake .
-    make install
+---
 
-For detailed installation requirements and instructions, please see the file
-[INSTALL.md](INSTALL.md). The file also contains instructions for setting up
-`openvas` and for making the scanner available to other GVM modules.
+## 🏗 Архитектура решения
 
-If you are not familiar or comfortable building from source code, we recommend
-that you use the Greenbone Enterprise TRIAL, a prepared virtual
-machine with a readily available setup. Information regarding the virtual machine
-is available at <https://www.greenbone.net/en/testnow>.
+Комплекс построен по микросервисной архитектуре в среде Docker:
 
-## Rust Implementation
-
-This repository also consists of a [rust project](rust/README.md) aiming to replace the current scanner stack
-(openvas-scanner, ospd-openvas, notus-scanner). It simplifies the use of the scanner and centralizes
-everything needed for scanning. Currently it uses the openvas-scanner as scan engine.
-
-## Docker, [Greenbone Community Containers](https://greenbone.github.io/docs/latest/22.4/container/)
-
-If you want to use the docker files provided in this repository you can pull them from the [Greenbone registry](registry.community.greenbone.net/community/openvas-scanner:stable). You can also locally build them using:
 ```
-docker build -t <image-name> -f .docker/prod.Dockerfile .
+[ Веб-браузер оператора ]
+           │  HTTP/HTTPS (порт 9393)
+           ▼
+┌────────────────────────────────────────────────────────┐
+│               Nginx Reverse Proxy & UI                 │
+│              (React 18 SPA / Mantine UI)               │
+└──────────────────────────┬─────────────────────────────┘
+                           │ API Proxy (/api/*, /gmp*)
+                           ▼
+┌────────────────────────────────────────────────────────┐
+│            gsad (HTTP/GMP Proxy) & gvmd                │
+│       (Управление задачами, отчетами, СУБД PG)         │
+└──────────────────────────┬─────────────────────────────┘
+                           │ Unix Sockets / OSP
+                           ▼
+┌────────────────────────────────────────────────────────┐
+│     Исполнительный движок сканирования «Ак-Шумкар»     │
+│   • openvasd (Rust Daemon v0.1.0 — Scans REST API)     │
+│   • openvas-scanner (C Core — запуск проверок NASL)    │
+│   • notus-scanner (Анализ пакетов ОС)                  │
+│   • Redis Server (Кэширование NVT / IPC-сокет)         │
+└────────────────────────────────────────────────────────┘
 ```
-For more information about building docker images, see 
-[official man](https://docs.docker.com/engine/reference/commandline/build/).
-We also provide a [fully containerized 
-solution](https://greenbone.github.io/docs/latest/22.4/container/)
-for the Greenbone Community Edition.
 
-> Please beware: The Greenbone Community Container are currently under development.
+---
 
-## Support
+## 🚀 Быстрый запуск и развертывание
 
-For any question on the usage of `openvas` please use the [Greenbone
-Community Portal](https://community.greenbone.net/). If you found a problem
-with the software, please [create an
-issue](https://github.com/greenbone/openvas-scanner/issues) on GitHub. If you
-are a Greenbone customer you may alternatively or additionally forward your
-issue to the Greenbone Support Portal.
+### Системные требования:
+* **CPU:** от 4 ядер (рекомендуется 8+ ядер x86_64).
+* **RAM:** от 16 ГБ оперативной памяти (рекомендуется 32 ГБ).
+* **Диск:** от 60 ГБ на быстром SSD/NVMe (высокие требования к IOPS баз NVT).
+* **ОС:** Linux (Debian 11/12, Ubuntu 22.04/24.04 LTS, Rocky Linux 9) с Docker Engine 24+ и Docker Compose V2.
 
-## Maintainer
+### Развертывание в 3 шага:
 
-This project is maintained by [Greenbone AG](https://www.greenbone.net/).
+```bash
+# 1. Проверка и установка лицензии (при первой установке):
+sudo ./scannerctl.sh license install \
+  --license-file ./licenses/license-maltop-3m.json \
+  --signature-file ./licenses/license-maltop-3m.json.sig
 
-## Contributing
+# 2. Развертывание и сборка всех сервисов:
+./scannerctl.sh deploy
 
-Your contributions are highly appreciated. Please [create a pull
-request](https://github.com/greenbone/openvas-scanner/pulls) on GitHub.
-Remember to commit the contribution agreement as explained in [RELICENSING](https://github.com/greenbone/openvas-scanner/tree/main/RELICENSE) folder with your first PR.
-Bigger changes should be discussed with the development team via the [issues section at GitHub](https://github.com/greenbone/openvas-scanner/issues) first.
+# 3. Проверка статуса контейнеров:
+./scannerctl.sh status
+```
 
-## License
+Веб-интерфейс будет доступен по адресу: **`http://<IP_СЕРВЕРА>:9393`**
 
-This repository consists of two scanner implementation, one in programming language C and one in programming language Rust.
+---
 
-This module except for the Rust-implementation in directory rust/ is licensed under the GNU General Public License v2.0 only. Single files, however, are licensed either under the GNU General Public License v2.0 only or under GNU General Public License v2.0 or later, please see the [license-details.md](license-details.md) file for details.
+## 🔑 Управление лицензиями («Ак-Шумкар» Licensing)
 
-The Rust-implementation in directory rust/ is licensed under the GNU General Public License v2.0 or later with OpenSSL exception. Single files, however, are additionally licensed under MIT.
+Платформа включает встроенную клиентскую и вендорную подсистему лицензирования:
 
+```bash
+# Проверка текущей лицензии и оставшихся дней:
+./scannerctl.sh license status
+
+# Генерация мастер-ключей подписи (только для производителя):
+./scannerctl.sh license-vendor gen-keys
+
+# Выпуск коммерческой лицензии клиенту:
+./scannerctl.sh license-vendor issue --customer-id "ClientName" --months 6
+```
+
+---
+
+## 📚 Документация и регламенты
+
+* Полное руководство администратора и юридический анализ: [Руководство (Word)](C:/Users/User/Desktop/AK_SHUMKAR_OFFICIAL_MANUAL.docx)
+* Регламент лицензирования и безопасности: [`PRODUCTION_LICENSE_AND_ACCESS.md`](PRODUCTION_LICENSE_AND_ACCESS.md)
+* Руководство пользователя (Markdown): [`audit_report/USER_GUIDE_RU.md`](audit_report/USER_GUIDE_RU.md)
+* Технический аудит системы: [`audit_report/TECHNICAL_AUDIT_DOC_RU.md`](audit_report/TECHNICAL_AUDIT_DOC_RU.md)
+
+---
+
+<p align="center">
+  <sub>© Программный комплекс «Ак-Шумкар». Все права защищены.</sub>
+</p>
