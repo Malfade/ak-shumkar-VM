@@ -418,17 +418,18 @@ force_rm_build_dir() {
 }
 
 use_openvas_docker_c_build() {
-  if [[ "${SCANNER_OPENVAS_BUILD_IN_DOCKER:-}" == "1" ]]; then
-    return 0
-  fi
   if [[ "${SCANNER_OPENVAS_BUILD_IN_DOCKER:-}" == "0" ]]; then
     return 1
   fi
-  if host_has_gvm_libs_pkgconfig; then
-    return 1
+  if [[ "${SCANNER_OPENVAS_BUILD_IN_DOCKER:-}" == "1" ]]; then
+    return 0
   fi
+  # Default: if Docker is available, always build in Docker to guarantee matching container ABI and gvm-libs
   if command -v docker >/dev/null 2>&1 && docker info >/dev/null 2>&1; then
     return 0
+  fi
+  if host_has_gvm_libs_pkgconfig; then
+    return 1
   fi
   return 1
 }
@@ -475,7 +476,7 @@ build_openvas_c_on_host() {
   if [[ -n "${host_libdir}" && -d "${host_libdir}" ]]; then
     cp -a "${host_libdir}"/libgvm_*.so* build/gvm-libs/ 2>/dev/null || true
   fi
-  find /usr/local/lib /usr/lib -maxdepth 2 -name "libgvm_*.so*" -exec cp -a {} build/gvm-libs/ \; 2>/dev/null || true
+  find /usr/lib /usr/local/lib -name "libgvm_*.so*" -exec cp -a {} build/gvm-libs/ \; 2>/dev/null || true
 }
 
 build_openvas_c_in_docker() {
@@ -691,8 +692,9 @@ mkdir -p "${TMP_BUILD_DIR_OPENVAS}/build/src" "${TMP_BUILD_DIR_OPENVAS}/build/na
 cp "build/src/openvas" "${TMP_BUILD_DIR_OPENVAS}/build/src/openvas"
 cp "build/nasl/libopenvas_nasl.so" "${TMP_BUILD_DIR_OPENVAS}/build/nasl/libopenvas_nasl.so"
 cp "build/misc/libopenvas_misc.so" "${TMP_BUILD_DIR_OPENVAS}/build/misc/libopenvas_misc.so"
+mkdir -p "${TMP_BUILD_DIR_OPENVAS}/build/gvm-libs"
+touch "${TMP_BUILD_DIR_OPENVAS}/build/gvm-libs/.gitkeep"
 if [[ -d "build/gvm-libs" ]]; then
-  mkdir -p "${TMP_BUILD_DIR_OPENVAS}/build/gvm-libs"
   cp -a build/gvm-libs/* "${TMP_BUILD_DIR_OPENVAS}/build/gvm-libs/" 2>/dev/null || true
 fi
 docker_build_custom openvas-custom:latest "${TMP_BUILD_DIR_OPENVAS}/Dockerfile.custom-openvas" "${TMP_BUILD_DIR_OPENVAS}" --build-arg "GVM_LIBS_IMAGE=${GVM_LIBS_BUILD_ARG}"
@@ -705,8 +707,9 @@ mkdir -p "${TMP_BUILD_DIR_OSPD}/build/src" "${TMP_BUILD_DIR_OSPD}/build/nasl" "$
 cp "build/src/openvas" "${TMP_BUILD_DIR_OSPD}/build/src/openvas"
 cp "build/nasl/libopenvas_nasl.so" "${TMP_BUILD_DIR_OSPD}/build/nasl/libopenvas_nasl.so"
 cp "build/misc/libopenvas_misc.so" "${TMP_BUILD_DIR_OSPD}/build/misc/libopenvas_misc.so"
+mkdir -p "${TMP_BUILD_DIR_OSPD}/build/gvm-libs"
+touch "${TMP_BUILD_DIR_OSPD}/build/gvm-libs/.gitkeep"
 if [[ -d "build/gvm-libs" ]]; then
-  mkdir -p "${TMP_BUILD_DIR_OSPD}/build/gvm-libs"
   cp -a build/gvm-libs/* "${TMP_BUILD_DIR_OSPD}/build/gvm-libs/" 2>/dev/null || true
 fi
 docker_build_custom ospd-openvas-custom:latest "${TMP_BUILD_DIR_OSPD}/Dockerfile.custom-ospd-openvas" "${TMP_BUILD_DIR_OSPD}" --build-arg "GVM_LIBS_IMAGE=${GVM_LIBS_BUILD_ARG}"

@@ -1,5 +1,5 @@
 # Greenbone openvas-scanner:stable base image may contain older/different gvm-libs than the build environment.
-# Provide matching libgvm_*.so* from gvm-libs image (and libssh-gcrypt from Bookworm).
+# Provide matching libgvm_*.so* from gvm-libs image, local build artifacts, and libssh-gcrypt from Bookworm.
 ARG GVM_LIBS_IMAGE=registry.community.greenbone.net/community/gvm-libs:stable
 FROM ${GVM_LIBS_IMAGE} AS gvm-libs-provider
 
@@ -15,7 +15,9 @@ RUN apt-get update \
 FROM registry.community.greenbone.net/community/openvas-scanner:stable
 COPY --from=libssh-gcrypt-from-bookworm /export/ /usr/local/lib/
 COPY --from=gvm-libs-provider /usr/local/lib/libgvm_*.so* /usr/local/lib/
-RUN printf '/usr/local/lib\n' > /etc/ld.so.conf.d/zz-usr-local-lib.conf \
+COPY build/gvm-libs/ /usr/local/lib/
+RUN rm -f /usr/local/lib/.gitkeep \
+  && printf '/usr/local/lib\n' > /etc/ld.so.conf.d/zz-usr-local-lib.conf \
   && ldconfig
 ENV LD_LIBRARY_PATH=/usr/local/lib
 COPY build/src/openvas /usr/local/sbin/openvas

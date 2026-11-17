@@ -16,7 +16,9 @@ RUN apt-get update \
 FROM registry.community.greenbone.net/community/ospd-openvas:stable
 COPY --from=libssh-gcrypt-from-bookworm /export/ /usr/local/lib/
 COPY --from=gvm-libs-provider /usr/local/lib/libgvm_*.so* /usr/local/lib/
-RUN printf '/usr/local/lib\n' > /etc/ld.so.conf.d/zz-usr-local-lib.conf \
+COPY build/gvm-libs/ /usr/local/lib/
+RUN rm -f /usr/local/lib/.gitkeep \
+  && printf '/usr/local/lib\n' > /etc/ld.so.conf.d/zz-usr-local-lib.conf \
   && ldconfig
 # Belt-and-suspenders: some glibc setups still miss cache updates in minimal images.
 ENV LD_LIBRARY_PATH=/usr/local/lib
