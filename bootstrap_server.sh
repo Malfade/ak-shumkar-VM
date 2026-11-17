@@ -16,9 +16,12 @@ require_sudo() {
 }
 
 install_base_packages() {
-  log "Installing base system packages..."
-  sudo apt update
-  sudo apt install -y \
+  # OpenVAS C and GSA frontend are built inside Docker containers (gvm-libs:stable, node:22-alpine).
+  # Keep host packages minimal to avoid apt conflicts with existing OpenSSL/libcurl stacks.
+  # If building OpenVAS C directly on the host (SCANNER_OPENVAS_BUILD_IN_DOCKER=0), run: ./scannerctl.sh deps
+  log "Installing minimal host packages..."
+  sudo apt-get update
+  sudo apt-get install -y --no-install-recommends \
     ca-certificates \
     curl \
     git \
@@ -26,24 +29,9 @@ install_base_packages() {
     build-essential \
     pkg-config \
     libssl-dev \
-    libmagic-dev \
-    libkrb5-dev \
-    libglib2.0-dev \
-    libjson-glib-dev \
-    libgnutls28-dev \
-    libgcrypt-dev \
-    libpcap-dev \
-    libgpgme-dev \
-    libksba-dev \
-    libssh-gcrypt-dev \
-    libxml2-dev \
-    uuid-dev \
-    libcurl4-gnutls-dev \
-    libldap2-dev \
-    libsnmp-dev \
-    libpaho-mqtt-dev \
-    libbsd-dev \
-    libhiredis-dev
+    openssl \
+    python3 \
+    rsync
 }
 
 ensure_docker_stack() {
@@ -51,14 +39,20 @@ ensure_docker_stack() {
     log "Docker binary already exists, skipping docker package install."
   else
     log "Installing Docker engine packages..."
-    sudo apt install -y docker.io
+    sudo apt-get install -y docker.io
   fi
 
-  if docker compose version >/dev/null 2>&1; then
-    log "Docker Compose plugin is already available."
+  if docker compose version >/dev/null 2>&1 || command -v docker-compose >/dev/null 2>&1; then
+    log "Docker Compose is already available."
   else
-    log "Installing Docker Compose plugin..."
-    sudo apt install -y docker-compose-plugin
+    log "Installing Docker Compose..."
+    if apt-cache show docker-compose-plugin >/dev/null 2>&1; then
+      sudo apt-get install -y docker-compose-plugin
+    elif apt-cache show docker-compose-v2 >/dev/null 2>&1; then
+      sudo apt-get install -y docker-compose-v2
+    else
+      sudo apt-get install -y docker-compose
+    fi
   fi
 }
 
@@ -69,16 +63,21 @@ ensure_docker_service() {
 }
 
 ensure_docker_group_access() {
-  if id -nG "$USER" | tr ' ' '\n' | awk '$0=="docker"{found=1} END{exit found?0:1}'; then
-    log "User '$USER' is already in docker group."
+  local target_user="${SUDO_USER:-$USER}"
+  if id -nG "${target_user}" | tr ' ' '\n' | awk '$0=="docker"{found=1} END{exit found?0:1}'; then
+    log "User '${target_user}' is already in docker group."
   else
-    log "Adding user '$USER' to docker group..."
-    sudo usermod -aG docker "$USER"
+    log "Adding user '${target_user}' to docker group..."
+    sudo usermod -aG docker "${target_user}"
     log "User group updated. Re-login may be required."
   fi
 }
 
 install_rust_if_missing() {
+  if [[ -f "${HOME}/.cargo/env" ]]; then
+    # shellcheck disable=SC1091
+    source "${HOME}/.cargo/env"
+  fi
   if command -v cargo >/dev/null 2>&1; then
     log "Rust is already installed."
     return

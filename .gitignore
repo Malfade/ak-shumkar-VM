@@ -12,5 +12,8 @@ assets/
 target/
 *.rsa
 *.pem
+!licenses/public.pem
+vendor/licensing/output/
+dist/
 *.snap.new
 Untitled/*.pdf

@@ -1,8 +1,8 @@
 diff --git a/src/gmp.c b/src/gmp.c
-index ab5c191..35903ca 100644
+index ad5002e..ad6e346 100644
 --- a/src/gmp.c
 +++ b/src/gmp.c
-@@ -17680,6 +17680,7 @@ send_scanner_info (iterator_t *scanners, gmp_parser_t *gmp_parser,
+@@ -17668,6 +17668,7 @@ send_scanner_info (iterator_t *scanners, gmp_parser_t *gmp_parser,
      {
        case SCANNER_TYPE_OPENVAS:
        case SCANNER_TYPE_OSP_SENSOR:
@@ -10,7 +10,7 @@ index ab5c191..35903ca 100644
          {
            char *s_name = NULL, *s_ver = NULL;
            char *d_name = NULL, *d_ver = NULL;
-@@ -17735,6 +17736,7 @@ send_scanner_info (iterator_t *scanners, gmp_parser_t *gmp_parser,
+@@ -17723,6 +17724,7 @@ send_scanner_info (iterator_t *scanners, gmp_parser_t *gmp_parser,
  #if ENABLE_OPENVASD
        case SCANNER_TYPE_OPENVASD:
        case SCANNER_TYPE_OPENVASD_SENSOR:
@@ -19,10 +19,10 @@ index ab5c191..35903ca 100644
            char *s_name = NULL, *s_ver = NULL;
            char *d_name = NULL, *d_ver = NULL;
 diff --git a/src/gvmd.c b/src/gvmd.c
-index 5628e14..c17e69a 100644
+index 6fafe6d..ab825b8 100644
 --- a/src/gvmd.c
 +++ b/src/gvmd.c
-@@ -1144,6 +1144,7 @@ update_nvt_cache_retry ()
+@@ -1143,6 +1143,7 @@ update_nvt_cache_retry ()
            switch (sc_type)
            {
              case SCANNER_TYPE_OPENVAS:
@@ -30,7 +30,7 @@ index 5628e14..c17e69a 100644
                {
                  const char *osp_update_socket;
  
-@@ -1176,6 +1177,7 @@ update_nvt_cache_retry ()
+@@ -1175,6 +1176,7 @@ update_nvt_cache_retry ()
                    }
                }
              case SCANNER_TYPE_OPENVASD:
@@ -38,7 +38,7 @@ index 5628e14..c17e69a 100644
                {
                  if (feature_enabled (FEATURE_ID_OPENVASD_SCANNER))
                    {
-@@ -3483,10 +3485,14 @@ gvmd (int argc, char** argv, char *env[])
+@@ -3468,10 +3470,14 @@ gvmd (int argc, char** argv, char *env[])
  
        if (!scanner_type || !strcasecmp (scanner_type, "OpenVAS"))
          type = SCANNER_TYPE_OPENVAS;
@@ -53,7 +53,7 @@ index 5628e14..c17e69a 100644
        else if (!strcasecmp (scanner_type, "openvasd-sensor"))
          type = SCANNER_TYPE_OPENVASD_SENSOR;
  #if ENABLE_AGENTS
-@@ -3537,10 +3543,14 @@ gvmd (int argc, char** argv, char *env[])
+@@ -3522,10 +3528,14 @@ gvmd (int argc, char** argv, char *env[])
  
            if (strcasecmp (scanner_type, "OpenVAS") == 0)
              type = SCANNER_TYPE_OPENVAS;
@@ -69,10 +69,10 @@ index 5628e14..c17e69a 100644
              type = SCANNER_TYPE_OPENVASD_SENSOR;
  #if ENABLE_AGENTS
 diff --git a/src/manage.c b/src/manage.c
-index 424beca..a20f1c9 100644
+index 36fc89b..70cea07 100644
 --- a/src/manage.c
 +++ b/src/manage.c
-@@ -842,6 +842,7 @@ scanner_type_supports_unix_sockets (scanner_type_t scanner_type)
+@@ -839,6 +839,7 @@ scanner_type_supports_unix_sockets (scanner_type_t scanner_type)
  {
    if (scanner_type == SCANNER_TYPE_OPENVAS
        || scanner_type == SCANNER_TYPE_OSP_SENSOR
@@ -80,10 +80,8 @@ index 424beca..a20f1c9 100644
        || scanner_type == SCANNER_TYPE_AGENT_CONTROLLER
        || scanner_type == SCANNER_TYPE_AGENT_CONTROLLER_SENSOR)
      return 1;
-@@ -2210,6 +2211,57 @@ cve_scan_host (task_t task, report_t report, gvm_host_t *gvm_host,
-  /* Custom/future scanner types should not be blocked at task creation time.
-   * Runtime scanner/backend will reject unsupported configurations if needed. */
-  return 1;
+@@ -2207,6 +2208,57 @@ cve_scan_host (task_t task, report_t report, gvm_host_t *gvm_host,
+   return 0;
  }
  
 +/**
@@ -140,7 +138,7 @@ index 424beca..a20f1c9 100644
  /**
   * @brief Fork a child to handle a CVE scan's calculating and inserting.
   *
-@@ -2658,11 +2710,17 @@ run_task (const char *task_id, char **report_id, int from)
+@@ -2655,11 +2707,17 @@ run_task (const char *task_id, char **report_id, int from)
    if (scanner_type (scanner) == SCANNER_TYPE_CVE)
      return run_cve_task (task);
  
@@ -158,7 +156,7 @@ index 424beca..a20f1c9 100644
    if (scanner_type (scanner) == SCANNER_TYPE_OPENVASD
      || scanner_type (scanner) == SCANNER_TYPE_OPENVASD_SENSOR)
      return run_openvasd_task (task, from, report_id);
-@@ -2841,12 +2899,14 @@ stop_task (const char *task_id)
+@@ -2838,12 +2896,14 @@ stop_task (const char *task_id)
      return 3;
  
    if (scanner_type (task_scanner (task)) == SCANNER_TYPE_OPENVAS
@@ -175,7 +173,7 @@ index 424beca..a20f1c9 100644
      return stop_openvasd_task (task);
  #endif
  
-@@ -2948,7 +3008,8 @@ move_task (const char *task_id, const char *slave_id)
+@@ -2945,7 +3005,8 @@ move_task (const char *task_id, const char *slave_id)
      return 3;
  
    slave_scanner_type = scanner_type (slave);
@@ -185,7 +183,7 @@ index 424beca..a20f1c9 100644
      return 7;
  
    /* Make sure current scanner supports slavery. */
-@@ -2958,7 +3019,8 @@ move_task (const char *task_id, const char *slave_id)
+@@ -2955,7 +3016,8 @@ move_task (const char *task_id, const char *slave_id)
      return -1;
  
    task_scanner_type = scanner_type (scanner);
@@ -195,7 +193,7 @@ index 424beca..a20f1c9 100644
      return 4;
  
    /* Stop task if required. */
-@@ -6053,12 +6115,14 @@ nvts_feed_info (gchar **vts_version, gchar **feed_name, gchar **feed_vendor,
+@@ -6048,12 +6110,14 @@ nvts_feed_info (gchar **vts_version, gchar **feed_name, gchar **feed_vendor,
    switch (sc_type)
    {
      case SCANNER_TYPE_OPENVAS:
@@ -210,7 +208,7 @@ index 424beca..a20f1c9 100644
        if (feature_enabled (FEATURE_ID_OPENVASD_SCANNER))
          {
            return nvts_feed_info_internal_from_openvasd (SCANNER_UUID_DEFAULT,
-@@ -6144,11 +6208,13 @@ nvts_check_feed (int *lockfile_in_use,
+@@ -6139,11 +6203,13 @@ nvts_check_feed (int *lockfile_in_use,
    switch (sc_type)
    {
      case SCANNER_TYPE_OPENVAS:
@@ -224,7 +222,7 @@ index 424beca..a20f1c9 100644
        if (feature_enabled (FEATURE_ID_OPENVASD_SCANNER))
          {
            int ret = 0;
-@@ -7514,6 +7580,8 @@ fork_openvasd_scan_handler (task_t task, target_t target, int from,
+@@ -7509,6 +7575,8 @@ fork_openvasd_scan_handler (task_t task, target_t target, int from,
        hosts_set_identifiers (global_current_report);
        hosts_set_max_severity (global_current_report, NULL, NULL);
        hosts_set_details (global_current_report);
@@ -234,10 +232,10 @@ index 424beca..a20f1c9 100644
        set_report_scan_run_status (global_current_report, TASK_STATUS_DONE);
      }
 diff --git a/src/manage.h b/src/manage.h
-index 74bda81..9d10cfe 100644
+index 8e8a172..95d1200 100644
 --- a/src/manage.h
 +++ b/src/manage.h
-@@ -357,7 +357,11 @@ typedef enum scanner_type
+@@ -356,7 +356,11 @@ typedef enum scanner_type
    SCANNER_TYPE_OPENVASD_SENSOR = 8,
    SCANNER_TYPE_AGENT_CONTROLLER_SENSOR = 9,
    SCANNER_TYPE_CONTAINER_IMAGE = 10,
@@ -250,7 +248,7 @@ index 74bda81..9d10cfe 100644
  } scanner_type_t;
  
  /**
-@@ -389,6 +393,9 @@ check_scanner_feature (scanner_type_t);
+@@ -388,6 +392,9 @@ check_scanner_feature (scanner_type_t);
  scanner_type_t
  get_scanner_type_by_uuid (const char *);
  
@@ -287,10 +285,10 @@ index 36075b2..42cfcf4 100644
        default:
          {
 diff --git a/src/manage_sql.c b/src/manage_sql.c
-index c5a2e5a..a718ae6 100644
+index c0fc975..91fc99b 100644
 --- a/src/manage_sql.c
 +++ b/src/manage_sql.c
-@@ -27057,7 +27057,8 @@ verify_scanner (const char *scanner_id, char **version)
+@@ -28210,7 +28210,8 @@ verify_scanner (const char *scanner_id, char **version)
      }
    g_free (get.id);
    if (scanner_iterator_type (&scanner) == SCANNER_TYPE_OPENVAS
@@ -300,7 +298,7 @@ index c5a2e5a..a718ae6 100644
      {
        int ret = osp_get_version_from_iterator (&scanner, NULL, version, NULL,
                                                 NULL, NULL, NULL);
-@@ -27067,7 +27068,8 @@ verify_scanner (const char *scanner_id, char **version)
+@@ -28220,7 +28221,8 @@ verify_scanner (const char *scanner_id, char **version)
        return 0;
      }
    else if (scanner_iterator_type (&scanner) == SCANNER_TYPE_OPENVASD
@@ -310,7 +308,7 @@ index c5a2e5a..a718ae6 100644
      {
        cleanup_iterator (&scanner);
        return 0;
-@@ -27172,6 +27174,12 @@ manage_get_scanners (GSList *log_config, const db_conn_info_t *database)
+@@ -28325,6 +28327,12 @@ manage_get_scanners (GSList *log_config, const db_conn_info_t *database)
            case SCANNER_TYPE_CONTAINER_IMAGE:
              scanner_type_str = "container-image";
              break;
@@ -324,10 +322,10 @@ index c5a2e5a..a718ae6 100644
              scanner_type_str = NULL;
          }
 diff --git a/src/manage_sql_configs.c b/src/manage_sql_configs.c
-index 81290b4..7163b93 100644
+index c796fa2..bbe08cd 100644
 --- a/src/manage_sql_configs.c
 +++ b/src/manage_sql_configs.c
-@@ -2765,6 +2765,10 @@ create_task_check_scanner_type (scanner_t scanner)
+@@ -2764,6 +2764,10 @@ create_task_check_scanner_type (scanner_t scanner)
      return 1;
    if (stype == SCANNER_TYPE_CONTAINER_IMAGE)
      return 1;
@@ -338,7 +336,7 @@ index 81290b4..7163b93 100644
  
    return 0;
  }
-@@ -2840,6 +2844,12 @@ modify_task_check_config_scanner (task_t task, const char *config_id,
+@@ -2839,6 +2843,12 @@ modify_task_check_config_scanner (task_t task, const char *config_id,
    if (stype == SCANNER_TYPE_OPENVASD_SENSOR)
      return 0;
  
@@ -352,10 +350,10 @@ index 81290b4..7163b93 100644
      return 0;
  
 diff --git a/src/manage_sql_nvts.c b/src/manage_sql_nvts.c
-index 9a731cb..750baf7 100644
+index 445576a..30d85af 100644
 --- a/src/manage_sql_nvts.c
 +++ b/src/manage_sql_nvts.c
-@@ -1241,10 +1241,12 @@ nvts_feed_version_status_from_scanner ()
+@@ -1240,10 +1240,12 @@ nvts_feed_version_status_from_scanner ()
    switch (sc_type)
    {
      case SCANNER_TYPE_OPENVAS:
@@ -368,7 +366,7 @@ index 9a731cb..750baf7 100644
        if (feature_enabled (FEATURE_ID_OPENVASD_SCANNER))
          return nvts_feed_version_status_internal_openvasd (NULL, NULL);
        g_critical ("%s: Default scanner is an openvasd one,"
-@@ -1777,6 +1779,7 @@ update_scanner_preferences ()
+@@ -1776,6 +1778,7 @@ update_scanner_preferences ()
    switch (sc_type)
      {
      case SCANNER_TYPE_OPENVAS:
@@ -376,7 +374,7 @@ index 9a731cb..750baf7 100644
        {
          if (check_osp_vt_update_socket ())
            {
-@@ -1797,6 +1800,7 @@ update_scanner_preferences ()
+@@ -1796,6 +1799,7 @@ update_scanner_preferences ()
          break;
        }
      case SCANNER_TYPE_OPENVASD:

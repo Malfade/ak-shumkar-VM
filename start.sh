@@ -125,6 +125,7 @@ docker_build_custom() {
   local tag="$1"
   local dockerfile="$2"
   local context="$3"
+  shift 3 || true
   local extra=()
   if [[ "${SCANNER_DOCKER_NO_PULL:-}" == "1" ]]; then
     echo "⏭️ SCANNER_DOCKER_NO_PULL=1 — building without --pull (use local base cache)"
@@ -137,7 +138,7 @@ docker_build_custom() {
     extra+=(--no-cache)
     echo "🔄 SCANNER_DOCKER_NO_CACHE=1 — building without cache"
   fi
-  retry_cmd "${SCANNER_DOCKER_BUILD_ATTEMPTS:-10}" docker build "${extra[@]}" -f "${dockerfile}" -t "${tag}" "${context}"
+  retry_cmd "${SCANNER_DOCKER_BUILD_ATTEMPTS:-10}" docker build "${extra[@]}" "$@" -f "${dockerfile}" -t "${tag}" "${context}"
 }
 
 # start.sh only copies Dockerfiles from this repo — replacing start.sh alone does not fix runtime libs.
@@ -152,6 +153,12 @@ verify_scanner_dockerfiles() {
     if ! grep -q 'bookworm-slim' "${SCRIPT_DIR}/${f}" || ! grep -q 'libssh-gcrypt' "${SCRIPT_DIR}/${f}"; then
       echo "❌ ${f} looks outdated: expected multi-stage copy of libssh-gcrypt from debian:bookworm-slim."
       echo "   Greenbone ospd/openvas images are Debian Trixie — there is no libssh-gcrypt-4 package there."
+      echo "   Copy the current Dockerfile.custom-openvas and Dockerfile.custom-ospd-openvas from the project repo."
+      exit 1
+    fi
+    if ! grep -q 'gvm-libs-provider' "${SCRIPT_DIR}/${f}"; then
+      echo "❌ ${f} looks outdated: expected multi-stage copy of gvm-libs from gvm-libs-provider."
+      echo "   OpenVAS runtime images need matching libgvm_*.so* from the build environment."
       echo "   Copy the current Dockerfile.custom-openvas and Dockerfile.custom-ospd-openvas from the project repo."
       exit 1
     fi
@@ -353,11 +360,13 @@ pre_pull_custom_image_bases() {
   retry_docker_pull_community_with_ghcr_fallback \
     registry.community.greenbone.net/community/openvas-scanner:stable \
     ghcr.io/greenbone/openvas-scanner:stable
+  retry_docker_pull_community_with_ghcr_fallback \
+    registry.community.greenbone.net/community/gvm-libs:stable \
+    ghcr.io/greenbone/gvm-libs:stable
   retry_docker_pull registry.community.greenbone.net/community/ospd-openvas:stable
   retry_docker_pull debian:bookworm-slim
   if [[ "${USE_PATCHED_GVMD}" == "1" ]]; then
     echo "📥 Pre-pulling gvmd patched build bases..."
-    retry_docker_pull ghcr.io/greenbone/gvm-libs:stable
     retry_docker_pull_community_with_ghcr_fallback \
       registry.community.greenbone.net/community/gvmd:stable \
       ghcr.io/greenbone/gvmd:stable
@@ -460,6 +469,13 @@ build_openvas_c_on_host() {
   : "${SCANNER_CMAKE_EXTRA_ARGS:=-DENABLE_CPACK=OFF}"
   retry_cmd 3 cmake -S . -B build ${SCANNER_CMAKE_EXTRA_ARGS}
   cmake --build "build" -j"$(nproc)"
+  mkdir -p build/gvm-libs
+  local host_libdir
+  host_libdir="$(pkg-config --variable=libdir libgvm_base 2>/dev/null || true)"
+  if [[ -n "${host_libdir}" && -d "${host_libdir}" ]]; then
+    cp -a "${host_libdir}"/libgvm_*.so* build/gvm-libs/ 2>/dev/null || true
+  fi
+  find /usr/local/lib /usr/lib -maxdepth 2 -name "libgvm_*.so*" -exec cp -a {} build/gvm-libs/ \; 2>/dev/null || true
 }
 
 build_openvas_c_in_docker() {
@@ -474,7 +490,11 @@ build_openvas_c_in_docker() {
   local img="${SCANNER_OPENVAS_BUILD_IMAGE:-registry.community.greenbone.net/community/gvm-libs:stable}"
   if [[ "${SCANNER_DOCKER_NO_PULL:-}" != "1" ]]; then
     echo "📥 Pulling OpenVAS C build image (${img})..."
-    retry_docker_pull "${img}"
+    if [[ "${img}" == "registry.community.greenbone.net/community/gvm-libs:stable" ]]; then
+      retry_docker_pull_community_with_ghcr_fallback "${img}" "ghcr.io/greenbone/gvm-libs:stable"
+    else
+      retry_docker_pull "${img}"
+    fi
   else
     echo "⏭️ SCANNER_DOCKER_NO_PULL=1 — using local cache for ${img}"
   fi
@@ -493,7 +513,9 @@ build_openvas_c_in_docker() {
       # Mounted repo is owned by host UID; git 2.35+ refuses it unless marked safe.
       git config --global --add safe.directory /src
       cmake -S . -B build ${SCANNER_CMAKE_EXTRA_ARGS}
-      cmake --build build -j"$(nproc)"'
+      cmake --build build -j"$(nproc)"
+      mkdir -p build/gvm-libs
+      cp -a /usr/local/lib/libgvm_*.so* build/gvm-libs/ 2>/dev/null || true'
 }
 
 apply_gvmd_composite_compat_fixes() {
@@ -591,12 +613,14 @@ if [[ "${USE_PATCHED_GVMD}" == "1" ]]; then
     exit 1
   fi
   if [[ ! -f "${SCRIPT_DIR}/third_party/gvmd/CMakeLists.txt" ]]; then
-    echo "ℹ️ third_party/gvmd is missing, bootstrapping patched gvmd sources..."
+    GVMD_REF="${GVMD_REF:-v26.21.0}"
+    echo "ℹ️ third_party/gvmd is missing, bootstrapping patched gvmd (${GVMD_REF})..."
     if ! command -v git >/dev/null 2>&1; then
       echo "❌ git is required to auto-bootstrap third_party/gvmd."
       exit 1
     fi
-    retry_cmd 3 git clone --depth 1 https://github.com/greenbone/gvmd.git "${SCRIPT_DIR}/third_party/gvmd"
+    rm -rf "${SCRIPT_DIR}/third_party/gvmd"
+    retry_cmd 3 git clone --branch "${GVMD_REF}" --depth 1 https://github.com/greenbone/gvmd.git "${SCRIPT_DIR}/third_party/gvmd"
   fi
   if [[ ! -f "${SCRIPT_DIR}/third_party/gvmd/CMakeLists.txt" ]]; then
     echo "❌ Auto-bootstrap failed: ${SCRIPT_DIR}/third_party/gvmd/CMakeLists.txt not found."
@@ -616,6 +640,10 @@ if [[ "${USE_PATCHED_GVMD}" == "1" ]]; then
 fi
 
 echo "🐍 Building openvasd (Rust backend)..."
+if [[ -f "${HOME}/.cargo/env" ]]; then
+  # shellcheck disable=SC1091
+  source "${HOME}/.cargo/env"
+fi
 if CARGO_CMD="$(choose_cargo_cmd)"; then
   (
     cd rust
@@ -656,13 +684,18 @@ rm -rf "${TMP_BUILD_DIR}"
 
 echo "🐳 Rebuilding openvas-custom Docker image..."
 # Use a temporary build context to avoid .dockerignore excluding `build/`.
+GVM_LIBS_BUILD_ARG="${SCANNER_OPENVAS_BUILD_IMAGE:-registry.community.greenbone.net/community/gvm-libs:stable}"
 TMP_BUILD_DIR_OPENVAS="$(mktemp -d)"
 cp "Dockerfile.custom-openvas" "${TMP_BUILD_DIR_OPENVAS}/Dockerfile.custom-openvas"
 mkdir -p "${TMP_BUILD_DIR_OPENVAS}/build/src" "${TMP_BUILD_DIR_OPENVAS}/build/nasl" "${TMP_BUILD_DIR_OPENVAS}/build/misc"
 cp "build/src/openvas" "${TMP_BUILD_DIR_OPENVAS}/build/src/openvas"
 cp "build/nasl/libopenvas_nasl.so" "${TMP_BUILD_DIR_OPENVAS}/build/nasl/libopenvas_nasl.so"
 cp "build/misc/libopenvas_misc.so" "${TMP_BUILD_DIR_OPENVAS}/build/misc/libopenvas_misc.so"
-docker_build_custom openvas-custom:latest "${TMP_BUILD_DIR_OPENVAS}/Dockerfile.custom-openvas" "${TMP_BUILD_DIR_OPENVAS}"
+if [[ -d "build/gvm-libs" ]]; then
+  mkdir -p "${TMP_BUILD_DIR_OPENVAS}/build/gvm-libs"
+  cp -a build/gvm-libs/* "${TMP_BUILD_DIR_OPENVAS}/build/gvm-libs/" 2>/dev/null || true
+fi
+docker_build_custom openvas-custom:latest "${TMP_BUILD_DIR_OPENVAS}/Dockerfile.custom-openvas" "${TMP_BUILD_DIR_OPENVAS}" --build-arg "GVM_LIBS_IMAGE=${GVM_LIBS_BUILD_ARG}"
 rm -rf "${TMP_BUILD_DIR_OPENVAS}"
 
 echo "🐳 Rebuilding ospd-openvas-custom Docker image..."
@@ -672,7 +705,11 @@ mkdir -p "${TMP_BUILD_DIR_OSPD}/build/src" "${TMP_BUILD_DIR_OSPD}/build/nasl" "$
 cp "build/src/openvas" "${TMP_BUILD_DIR_OSPD}/build/src/openvas"
 cp "build/nasl/libopenvas_nasl.so" "${TMP_BUILD_DIR_OSPD}/build/nasl/libopenvas_nasl.so"
 cp "build/misc/libopenvas_misc.so" "${TMP_BUILD_DIR_OSPD}/build/misc/libopenvas_misc.so"
-docker_build_custom ospd-openvas-custom:latest "${TMP_BUILD_DIR_OSPD}/Dockerfile.custom-ospd-openvas" "${TMP_BUILD_DIR_OSPD}"
+if [[ -d "build/gvm-libs" ]]; then
+  mkdir -p "${TMP_BUILD_DIR_OSPD}/build/gvm-libs"
+  cp -a build/gvm-libs/* "${TMP_BUILD_DIR_OSPD}/build/gvm-libs/" 2>/dev/null || true
+fi
+docker_build_custom ospd-openvas-custom:latest "${TMP_BUILD_DIR_OSPD}/Dockerfile.custom-ospd-openvas" "${TMP_BUILD_DIR_OSPD}" --build-arg "GVM_LIBS_IMAGE=${GVM_LIBS_BUILD_ARG}"
 rm -rf "${TMP_BUILD_DIR_OSPD}"
 
 if [[ "${USE_PATCHED_GVMD}" == "1" ]]; then

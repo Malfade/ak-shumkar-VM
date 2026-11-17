@@ -25,6 +25,10 @@ rsync -a \
   --exclude '.github' \
   --exclude '.idea' \
   --exclude '.vscode' \
+  --exclude 'vendor' \
+  --exclude 'private.pem' \
+  --exclude '*.key' \
+  --exclude 'node_modules' \
   --exclude 'build' \
   --exclude 'dist' \
   --exclude 'target' \

@@ -1,5 +1,9 @@
 # Greenbone ospd-openvas:stable is Debian Trixie; Trixie has no libssh-gcrypt package (only OpenSSL libssh).
 # Custom openvas needs libssh-gcrypt.so.* — ship those libs from Debian Bookworm.
+# Base image may also contain older/different gvm-libs than the build environment; copy matching libgvm_*.so*.
+ARG GVM_LIBS_IMAGE=registry.community.greenbone.net/community/gvm-libs:stable
+FROM ${GVM_LIBS_IMAGE} AS gvm-libs-provider
+
 FROM debian:bookworm-slim AS libssh-gcrypt-from-bookworm
 RUN apt-get update \
   && apt-get install -y --no-install-recommends libssh-gcrypt-4 \
@@ -11,6 +15,7 @@ RUN apt-get update \
 
 FROM registry.community.greenbone.net/community/ospd-openvas:stable
 COPY --from=libssh-gcrypt-from-bookworm /export/ /usr/local/lib/
+COPY --from=gvm-libs-provider /usr/local/lib/libgvm_*.so* /usr/local/lib/
 RUN printf '/usr/local/lib\n' > /etc/ld.so.conf.d/zz-usr-local-lib.conf \
   && ldconfig
 # Belt-and-suspenders: some glibc setups still miss cache updates in minimal images.
@@ -24,4 +29,5 @@ COPY build/misc/libopenvas_misc.so /usr/local/lib/libopenvas_misc.so.23
 COPY build/misc/libopenvas_misc.so /usr/local/lib/libopenvas_misc.so
 RUN ldconfig \
   && test -r /usr/local/lib/libssh-gcrypt.so.4 \
-  && LANG=C LD_LIBRARY_PATH=/usr/local/lib ldd /usr/local/sbin/openvas 2>&1 | tee /dev/stderr | grep -q 'not found' && exit 1 || true
+  && ! (LANG=C LD_LIBRARY_PATH=/usr/local/lib ldd /usr/local/sbin/openvas 2>&1 | tee /dev/stderr | grep 'not found') \
+  && /usr/local/sbin/openvas --version
