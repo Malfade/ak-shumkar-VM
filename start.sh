@@ -319,6 +319,10 @@ retry_docker_pull_community_with_ghcr_fallback() {
 }
 
 pre_pull_images() {
+  if [[ "${SCANNER_SKIP_PRE_PULL:-}" == "1" ]] || [[ "${SCANNER_DOCKER_NO_PULL:-}" == "1" ]]; then
+    echo "⏭️ SCANNER_SKIP_PRE_PULL=1 / SCANNER_DOCKER_NO_PULL=1 — skipping pre-pulling compose images"
+    return 0
+  fi
   echo "📥 Pre-pulling compose images with retries..."
   local images
   images="$(compose_cmd config --images | awk 'NF')"
@@ -341,6 +345,9 @@ pre_pull_images() {
       registry.community.greenbone.net/community/gvmd:stable)
         retry_docker_pull_community_with_ghcr_fallback "${image}" ghcr.io/greenbone/gvmd:stable
         ;;
+      registry.community.greenbone.net/community/pg-gvm:stable)
+        retry_docker_pull_community_with_ghcr_fallback "${image}" ghcr.io/greenbone/pg-gvm:stable
+        ;;
       *)
         retry_cmd 5 docker pull "${image}"
         ;;
@@ -350,8 +357,8 @@ pre_pull_images() {
 
 # Prime layer cache before docker build --pull; Greenbone registry pulls often flake mid-layer.
 pre_pull_custom_image_bases() {
-  if [[ "${SCANNER_SKIP_PRE_PULL:-}" == "1" ]]; then
-    echo "⏭️ SCANNER_SKIP_PRE_PULL=1 — skipping explicit docker pull of custom build bases"
+  if [[ "${SCANNER_SKIP_PRE_PULL:-}" == "1" ]] || [[ "${SCANNER_DOCKER_NO_PULL:-}" == "1" ]]; then
+    echo "⏭️ SCANNER_SKIP_PRE_PULL=1 / SCANNER_DOCKER_NO_PULL=1 — skipping explicit docker pull of custom build bases"
     return 0
   fi
   SCANNER_USED_GHCR_MIRROR=0
@@ -661,7 +668,9 @@ else
 fi
 
 echo "🧱 Building OpenVAS C artifacts..."
-if use_openvas_docker_c_build; then
+if [[ "${SCANNER_SKIP_C_BUILD:-0}" == "1" ]] && [[ -f "build/src/openvas" ]] && [[ -f "build/nasl/libopenvas_nasl.so" ]]; then
+  echo "⏭️ SCANNER_SKIP_C_BUILD=1 — using existing OpenVAS C artifacts in build/"
+elif use_openvas_docker_c_build; then
   if [[ "${SCANNER_OPENVAS_BUILD_IN_DOCKER:-}" != "1" ]] && ! host_has_gvm_libs_pkgconfig; then
     echo "ℹ️ На хосте нет gvm-libs (pkg-config); собираю OpenVAS C внутри Docker (образ gvm-libs, как в CI)."
     echo "   Только хост: установите gvm-libs или SCANNER_OPENVAS_BUILD_IN_DOCKER=0 для явной ошибки без Docker."
@@ -716,8 +725,12 @@ docker_build_custom ospd-openvas-custom:latest "${TMP_BUILD_DIR_OSPD}/Dockerfile
 rm -rf "${TMP_BUILD_DIR_OSPD}"
 
 if [[ "${USE_PATCHED_GVMD}" == "1" ]]; then
-  echo "🐳 Building patched gvmd image (ak-shumkar-gvmd:local)..."
-  docker_build_custom ak-shumkar-gvmd:local "${SCRIPT_DIR}/docker/gvmd-patched.Dockerfile" "${SCRIPT_DIR}"
+  if [[ "${SCANNER_SKIP_GVMD_BUILD:-0}" == "1" ]] && docker image inspect ak-shumkar-gvmd:local >/dev/null 2>&1; then
+    echo "⏭️ SCANNER_SKIP_GVMD_BUILD=1 — using existing ak-shumkar-gvmd:local image"
+  else
+    echo "🐳 Building patched gvmd image (ak-shumkar-gvmd:local)..."
+    docker_build_custom ak-shumkar-gvmd:local "${SCRIPT_DIR}/docker/gvmd-patched.Dockerfile" "${SCRIPT_DIR}"
+  fi
 fi
 
 echo "🚀 Starting Greenbone Community Edition Stack..."
@@ -739,12 +752,16 @@ EOF
 fi
 
 # 1. Build Frontend
-echo "📦 Building GSA Frontend inside Docker (Node 22)..."
-retry_cmd 3 docker run --rm \
-  -v "$(pwd)/gsa:/app" \
-  -w /app \
-  node:22-alpine \
-  sh -c "npm install && npm run build"
+if [[ "${SCANNER_SKIP_GSA_BUILD:-0}" == "1" ]] && [[ -f "${SCRIPT_DIR}/gsa/build/index.html" ]]; then
+  echo "⏭️ SCANNER_SKIP_GSA_BUILD=1 — skipping GSA frontend rebuild (gsa/build/index.html exists)"
+else
+  echo "📦 Building GSA Frontend inside Docker (Node 22)..."
+  retry_cmd 3 docker run --rm \
+    -v "$(pwd)/gsa:/app" \
+    -w /app \
+    node:22-alpine \
+    sh -c "npm install && npm run build"
+fi
 
 # 2. Stop existing stack first (if any)
 echo "🐳 Stopping existing Docker containers..."
